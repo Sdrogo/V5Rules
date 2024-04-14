@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Ambientazione",
+    "sections": [
+      {
+        "title": "Miti e Generazioni",
+        "content": "Caino, l'agricoltore, e Abele, il pastore, sono oggetto di interesse per i Fratelli con una mentalità scientifica che esplorano le proprie origini ataviche. Molti Fratelli collocano l'avvento dell'Homo sanguinis intorno al 12.000 AC, associato allo sviluppo dell'agricoltura e all'ascesa della civiltà, segnando la fine dell'Eden per le società di cacciatori-raccoglitori.\nUna teoria comune suggerisce che Caino stesso abbia diffuso l'idea della semina e del raccolto in undici diversi siti nel Vecchio e Nuovo Mondo. Tuttavia, gli studiosi umani ritengono che questa pratica si sia sviluppata spontaneamente in modo indipendente. Con l'agricoltura arrivarono insediamenti permanenti, città e l'esazione di tributi, con l'accompagnamento della scrittura, dando origine a primi re-dei ed imperatori, spesso identificati come vampiri.\nDall'Antidiluviano a Enoch, attraverso l'ascesa di Egitto, Roma e Grande Zimbabwe fino ai Secoli Bui, i vampiri dominarono la Terra. Divisi in alti e bassi clan, si consideravano i giusti dominatori della specie umana, nutrendosi con disprezzo dei loro simili. Nonostante i cambiamenti dovuti all'Inquisizione, i Fratelli antichi devono ancora esistere nel mondo moderno del XXI secolo.",
+        "paragraphs": [
+          {
+            "title": "Paragraph 1.1.1",
+            "content": "This is the content of Paragraph 1.1.1.",
+            "keywords": ["keyword1", "keyword2"]
+          },
+          {
+            "title": "Paragraph 1.1.2",
+            "content": "This is the content of Paragraph 1.1.2.",
+            "keywords": ["keyword3", "keyword4"]
+          }
+        ]
+      },
+      {
+        "title": "Section 1.2",
+        "content": null,
+        "paragraphs": [
+          {
+            "title": "Paragraph 1.2.1",
+            "content": "This is the content of Paragraph 1.2.1.",
+            "keywords": ["keyword5", "keyword6"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Chapter 2",
+    "content": null,
+    "sections": [
+      {
+        "title": "Section 2.1",
+        "content": "This is the content of Section 2.1.",
+        "paragraphs": [
+          {
+            "title": "Paragraph 2.1.1",
+            "content": "This is the content of Paragraph 2.1.1.",
+            "keywords": ["keyword7", "keyword8"]
+          },
+          {
+            "title": "Paragraph 2.1.2",
+            "content": "This is the content of Paragraph 2.1.2.",
+            "keywords": ["keyword9", "keyword10"]
+          }
+        ]
+      }
+    ]
+  }
+]
