@@ -18,7 +18,20 @@
         <State />
       </entry>
       <entry key="app">
-        <State />
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="SERIAL_NUMBER" />
+                  <value value="RZCT80R60KJ" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-04-14T22:49:07.938396700Z" />
+        </State>
       </entry>
     </value>
   </component>

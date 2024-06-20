@@ -1,0 +1,230 @@
+{
+  "disciplines": [
+    {
+      "id": "0",
+      "title": "Animalità ",
+      "description": "Generalmente, i poteri che influenzano gli animali sono limitati ai vertebrati. In aggiunta, qualsiasi utilizzo della Disciplina su erbivori aumenta di 1 la Difficoltà dei tiri coinvolti.",
+      "imageUrl": "url_to_image_1",
+      "type": "Mentale",
+      "masquerade": "da bassa a media. Sebbene la comunicazione con gli animali possa apparire eccentrica, solo le applicazioni più violente della Disciplina suscitano reazioni più evidenti.",
+      "resonance": "sangue animale, preferibilmente proveniente da bestie feroci.",
+      "clanAffinity": [
+        "Gangrel",
+        "Nosferatu",
+        "Ravnos",
+        "Tzimisce"
+      ],
+      "subDisciplines": [
+        {
+          "id": "0_1",
+          "title": "Percezione della Bestia",
+          "description": "Il vampiro acquisisce la capacità di percepire la presenza della Bestia nei mortali, nei vampiri e in altri esseri soprannaturali. Ciò gli consente di ottenere informazioni sulla loro natura, fame e livello di ostilità.",
+          "table": null,
+          "level": 1,
+          "system": "Il vampiro effettua un tiro di Fermezza + Animalità contro Autocontrollo + Sotterfugio. Una vittoria gli permette di percepire il grado di ostilità del bersaglio, distinguendo se è pronto a usare violenza o anche solo intenzionato a farlo, e di identificare se racchiude una Bestia soprannaturale, come un vampiro o un lupo mannaro. In caso di vittoria critica, il vampiro ottiene informazioni dettagliate sul tipo esatto di creatura, nonché sul suo livello di Fame o Furia. Il potere può essere utilizzato sia in modo attivo che passivo, avvertendo il vampiro delle intenzioni aggressive nelle immediate vicinanze.",
+          "amalgama": null,
+          "cost": "Gratuito",
+          "dicePool": "Fermezza + Animalità contro Autocontrollo + Sotterfugio",
+          "duration": "Passivo"
+        },
+        {
+          "id": "0_2",
+          "title": "Vincolo del Famulus",
+          "description": "Il vampiro, stabilendo un Legame di Sangue con un animale, può trasformarlo in un famulus, creando un legame mentale con la bestia che agevola l'uso di altri poteri di Animalità. Pur non permettendo la comunicazione bidirezionale, l'animale può rispondere a comandi verbali semplici come \"fermo\" o \"vieni qui\". Attacca per difendere se stesso e il suo padrone, ma non può essere persuaso a combattere contro qualcosa che normalmente non attaccerebbe.",
+          "table": null,
+          "level": 1,
+          "system": "Senza l'uso preliminare di Sussurri Ferini (vedi sotto), impartire ordini all'animale richiede un tiro di Carisma + Affinità Animale (Difficoltà 2, con incremento per ordini più complessi). Il vampiro può avere un solo famulus alla volta, ma può ottenerne uno nuovo quando il primo muore. Può inoltre utilizzare gratuitamente Sussurri Ferini (Animalità 2) e Comunione di Spiriti (Animalità 4) sul suo famulus.",
+          "cost": "L'animale deve bere il Sangue del vampiro in tre notti separate, ciascuna delle quali richiede una Prova di Risveglio. Una volta completato il processo, la quantità di vitae necessaria per mantenere lo stato di ghoul dell'animale è trascurabile. I giocatori che iniziano con questo potere hanno già completato il processo e possono scegliere gratuitamente un famulus.",
+          "dicePool": "Carisma + Affinità Animale",
+          "duration": "Il legame con il famulus può essere spezzato solo con la morte. Il famulus non invecchia fintanto che riceve regolarmente il Sangue dal vampiro."
+        },
+        {
+          "id": "0_3",
+          "title": "Sussurri Ferini",
+          "description": "Riscontrato più frequentemente nei Nosferatu, questo inquietante potere consente di estendere la propria influenza agli sciami di insetti come mosche o scarafaggi. Alcuni vampiri si spingono persino ad adottare tali sciami come famuli, offrendo loro una dimora permanente nelle pieghe e orifizi dei loro corpi deformi.",
+          "table": null,
+          "level": 2,
+          "system": "Questo potere estende agli sciami di insetti tutte le facoltà descritte sopra, trattando lo sciame come un'unica creatura. Il vampiro può vincolare lo sciame come famulus; qualcuno gli conferisce persino la capacità di annidarsi nelle cavità del suo corpo. Ciò nasconde lo sciame e consente al vampiro di nutrirlo con le minuscole quantità di vitae necessarie per mantenerlo indefinitamente. Quando è annidato, lo sciame è individuabile solo tramite mezzi come i raggi X. Gli sciami causano pochi danni in combattimento. Hanno Salute 5 e una riserva di 8 dadi per resistere agli attacchi. Subiscono danni Superficiali da Rissa, mentre fuoco e insetticida infliggono danni Aggravati. I vampiri li usano per spiare, distrarre (penalità di 2 dadi a qualsiasi tiro della persona investita da uno sciame) o intimidire i mortali (+1-3 dadi alle riserve di Intimidire, a seconda del tipo di insetto e le fobie della vittima). I giocatori e il Narratore escogiteranno senza dubbio impieghi ancora più creativi.",
+          "amalgama": [
+            "5",
+            2
+          ],
+          "cost": "Nessun costo aggiuntivo.",
+          "dicePool": "Nessun tiro richiesto",
+          "duration": "Passivo"
+        },
+        {
+          "id": "0_4",
+          "title": "Alveare Non Vivente",
+          "description": "Il vampiro sviluppa la capacità di entrare in comunione con le bestie, sia selvatiche che urbane. Questo potere permette una comunicazione bidirezionale: ad esempio, un gatto potrebbe non essere interessato a discutere dell'uso del colore di Matisse, ma condividerà volentieri informazioni sulla mancanza di prede intorno all'edificio di arenaria alla fine della strada. A seconda delle abilità del vampiro, è anche possibile persuadere gli animali a compiere servizi; tuttavia, raramente acconsentono a compiere azioni contrarie alla loro natura o che li mettano in pericolo. Il potere può anche essere utilizzato per convocare qualsiasi tipo di animale, ma le bestie devono trovarsi nelle vicinanze. Sebbene nulla impedisca a un vampiro di cercare di convocare un'orca a Central Park, è improbabile che ci riesca! Gli animali convocati ascoltano colui che li ha chiamati, ma si disperdono o attaccano se messi in pericolo.",
+          "table": null,
+          "level": 3,
+          "system": "La comunicazione semplice non richiede alcun test. Per convincere un animale a svolgere un servizio, è necessario un tiro di Persuasione + Animalità, con la Difficoltà che dipende dalla complessità dell'incarico. Ad esempio, chiedere a un uccello di sorvegliare chiunque entri nel parco di notte ha una Difficoltà di 3, mentre ordinare a un animale di difendere un luogo a costo della vita ha una Difficoltà di 6. Per convocare animali, si effettua un tiro di Carisma + Animalità, con Difficoltà basata sulla scarsità degli animali desiderati. Il numero di animali che rispondono dipende dal margine di successo: una vittoria critica consente di convocare la maggior parte (se non tutti) gli animali di quel tipo presenti nella zona.",
+          "cost": "Una Prova di Risveglio per ogni tipo di animale scelto. Consente convocazioni e comunicazioni illimitate.",
+          "amalgama": null,
+          "dicePool": "Persuasione + Animalità, Carisma + Animalità",
+          "duration": "Una scena"
+        },
+        {
+          "id": "0_5",
+          "title": "Domare la Bestia",
+          "description": "Il vampiro può appagare la sua fame nutrendosi dagli animali. Inoltre, ha la capacità di consumare il suo famulus, ottenendo molto più nutrimento rispetto a quanto normalmente ottenibile da un animale di quella taglia e assorbendo una scheggia del suo tratto primario.",
+          "table": null,
+          "level": 3,
+          "system": "La vittoria su un mortale lo inabilita per quella scena, suscitando una forte letargia. Il mortale agisce solo per autoconservazione, mai contro il vampiro o chiunque altro. La vittoria su un vampiro gli impedisce di operare l'Impeto Sanguigno. Mentre la loro Bestia è domata, i vampiri non ottengono critici caotici. Contro i vampiri, il potere dura un turno più un numero di turni pari al margine di vittoria nel confronto. Una vittoria critica su un vampiro pone anche fine alla sua frenesia.",
+          "amalgama": null,
+          "cost": "Una Prova di Risveglio",
+          "dicePool": "Carisma + Animalità contro Costituzione + Fermezza",
+          "duration": "Una scena o un numero di turni pari al margine di successo +1."
+        },
+        {
+          "id": "0_6",
+          "title": "Succulenza Animale",
+          "description": "Il vampiro può appagare la sua fame nutrendosi dagli animali. Inoltre, ha la capacità di consumare il suo famulus, ottenendo molto più nutrimento rispetto a quanto normalmente ottenibile da un animale di quella taglia e assorbendo una scheggia del suo tratto primario.",
+          "table": null,
+          "level": 3,
+          "system": "Nutrirsi da animali sazia 1 livello di Fame in più, e il vampiro considera la sua Potenza del Sangue inferiore di 2 livelli ai fini delle penalità di nutrimento con sangue animale. Dissanguare il proprio famulus sazia 4 livelli di Fame a prescindere dalla taglia dell'animale, ma non può mai rimuovere l'ultimo dado Fame. Inoltre, il consumo del famulus incrementa di 2 pallini l'Attributo del vampiro più associato a quell'animale (deciso dal Narratore). Dissanguare un gatto può aumentare Destrezza o Autocontrollo, mentre un cane offre Carisma o Fermezza. Il Narratore può variare la ricompensa per il consumo del famulus: cibarsi di un gufo può aumentare di 2 pallini l'Attributo nelle riserve di percezione o in quelle per prendere decisioni sagge. Il bonus perdura fino alla successiva nutrizione o finché la Fame del vampiro non sale a 5.",
+          "amalgama": null,
+          "cost": "Gratuito",
+          "dicePool": "Nessun tiro richiesto",
+          "duration": "Passivo"
+        },
+        {
+          "id": "0_7",
+          "title": "Comunione di Spiriti",
+          "description": "Il vampiro ha la capacità di trasferire la sua coscienza nel corpo di un animale, ottenendo il controllo totale su di esso e sfruttando liberamente i suoi sensi, anche durante le ore diurne, purché rimanga sveglio. Mentre la sua coscienza abita l'animale, il suo corpo originale rimane immobile come se fosse in torpore.",
+          "table": null,
+          "level": 4,
+          "system": "Il vampiro effettua un tiro di Persuasione + Animalità con Difficoltà 4. In caso di successo, può abitare il corpo dell'animale per l'intera durata di una scena; con una vittoria critica, può possederlo indefinitamente.\nEstendere la possessione durante le ore diurne richiede al vampiro di rimanere sveglio (vedi p. 219); guardare il sole richiede un test di frenesia da paura, anche se la luce non causa danni all'animale \"cavalcato\". Il vampiro non è consapevole degli eventi che coinvolgono il suo corpo originale, ma eventuali danni a quest'ultimo lo risvegliano immediatamente dalla trance e rilasciano l'animale. La morte dell'animale pone fine alla possessione; in tal caso, lo shock causa al vampiro un danno Aggravato alla Volontà.",
+          "amalgama": null,
+          "cost": "Richiede una Prova di Risveglio; gratuito se usato sul famulus",
+          "dicePool": "Persuasione + Animalità",
+          "duration": "Una scena / Indefinito (vedere testo)"
+        },
+        {
+          "id": "0_8",
+          "title": "Estirpare la Bestia",
+          "description": "Il vampiro è in grado di proiettare la sua Bestia durante un episodio di frenesia da rabbia o paura e trasferirla in un soggetto vicino, che sia mortale o vampiro. Questa persona sperimenta immediatamente la frenesia al posto del vampiro, manifestando una furia distruttiva o fuggendo terrorizzata, a seconda della causa scatenante.",
+          "table": null,
+          "level": 5,
+          "system": "Invece del test di Volontà per resistere a una frenesia da rabbia o paura, il vampiro tira Prontezza + Animalità contro Autocontrollo + Fermezza del bersaglio. In caso di fallimento del bersaglio, questi entra in frenesia come se avesse fallito il test di Volontà; se vince, il bersaglio sperimenta la frenesia al posto del vampiro. Ulteriori stimoli possono ancora provocare la frenesia del bersaglio, che può essere bersaglio del potere finché il vampiro è in grado di eseguire Prove di Risveglio e ha altri bersagli disponibili. Il potere non può trasferire una frenesia alimentare.",
+          "amalgama": null,
+          "cost": "Richiede una Prova di Risveglio; gratuito se usato sul famulus",
+          "dicePool": "Prontezza + Animalità contro Autocontrollo + Fermezza",
+          "duration": "La durata della frenesia"
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Ascendente",
+      "description": "Il potere dell'Ascendente permette al vampiro di manipolare le menti degli altri, influenzando le loro opinioni e le loro azioni attraverso il suo carisma e la sua presenza magnetica.",
+      "imageUrl": "url_to_image_2",
+      "type": "Mentale",
+      "masquerade": "Da bassa a media. Ascendente è un potere sottile e raramente le persone si accorgono di essere state influenzate. Come molte altre Discipline, i poteri di livello più alto possono lasciare testimoni confusi, specialmente dopo che gli effetti si sono dissipati.",
+      "resonance": "Sanguigna. Questo potere è efficace su persone affascinanti e lussuriose, coloro che sono completamente infatuati dal vampiro.",
+      "clanAffinity": [],
+      "subDisciplines": [
+        {
+          "id": "1_1",
+          "title": "Soggezione",
+          "description": "Chiunque si trovi in presenza del vampiro scopre che la sua attenzione è misteriosamente attratta da lui. Coloro che lo ascoltano si ritrovano improvvisamente ad essere d'accordo su argomenti sui quali precedentemente avevano opinioni diverse. Sebbene non generi un'infatuazione rapita per il Cainita, il potere è abbastanza potente da influenzare le menti di gran parte dei mortali.",
+          "table": null,
+          "level": 1,
+          "system": "Il valore di Ascendente si somma a qualsiasi tiro di abilità che coinvolge il convincimento o l'espressività, nonché altri tiri basati su Carisma a discrezione del Narratore. Chiunque si renda conto di essere soggetto a un'influenza esterna può tentare di resistere (confronto di Fermezza + Intelligenza contro Persuasione + Ascendente del vampiro). Se prevale, la vittima può resistere agli effetti per una scena; in caso di vittoria critica, diventa immune per tutta la notte. Quando l'effetto si dissipa, la vittima ritorna alle sue opinioni originali.",
+          "amalgama": null,
+          "cost": "Gratuito",
+          "dicePool": "Persuasione + Ascendente contro Fermezza + Intelligenza",
+          "duration": "Una scena o finché non è disattivato volontariamente"
+        },
+        {
+          "id": "1_2",
+          "title": "Spaventare",
+          "description": "Invece di attirare la gente, il vampiro sfrutta il suo Ascendente per scacciare. Con questo potere, il personaggio assume un aspetto minaccioso ed emana un'aura di pericolo abbastanza potente da spingere i mortali a non suscitare il suo interesse; persino i vampiri ci pensano due volte prima di agire contro di lui.",
+          "table": null,
+          "level": 1,
+          "system": "Il valore di Ascendente del personaggio si somma a qualsiasi tiro di Intimidire. Per attaccare il vampiro occorre un tiro di Fermezza + Autocontrollo con Difficoltà 2.",
+          "amalgama": null,
+          "cost": "Gratuito",
+          "dicePool": "Nessun tiro richiesto",
+          "duration": "Una scena o finché non è disattivato volontariamente"
+        },
+        {
+          "id": "1_3",
+          "title": "Bacio Vincolante",
+          "description": "Il bacio del vampiro causa sensazioni quasi estatiche nei mortali. I mortali che sperimentano il Bacio Estatico del Fratello non solo sono temporaneamente galvanizzati, ma si trovano irrimediabilmente dipendenti da esso, cercando disperatamente il vampiro per un nuovo assaggio.",
+          "table": null,
+          "level": 2,
+          "system": "Il vampiro può decidere se utilizzare o meno questo potere ogni volta che si nutre e soddisfa almeno 1 livello di Fame.",
+          "amalgama": null,
+          "cost": "Gratuito",
+          "dicePool": "Nessun tiro richiesto",
+          "duration": "Un numero di notti pari al punteggio di Ascendente del fruitore"
+        },
+        {
+          "id": "1_4",
+          "title": "Incanto",
+          "description": "Il vampiro focalizza il suo fascino innaturale su una singola persona, scatenando un rapimento estatico o un'infatuazione simile al colpo di fulmine o all'incontro con l'idolo di una vita.",
+          "table": null,
+          "level": 3,
+          "system": "Il vampiro deve solo catturare l'attenzione della vittima e prevalere in un confronto di Carisma + Ascendente contro Autocontrollo + Prontezza.",
+          "amalgama": null,
+          "cost": "Una Prova di Risveglio",
+          "dicePool": "Carisma + Ascendente contro Autocontrollo + Prontezza",
+          "duration": "Un'ora più uno per punto di margine"
+        },
+        {
+          "id": "1_5",
+          "title": "Sguardo Terrificante",
+          "description": "Svelando per un attimo la sua vera natura, il vampiro suscita un terrore indicibile in un singolo soggetto.",
+          "table": null,
+          "level": 3,
+          "system": "Scoprendo le zanne e il viso deformato da una smorfia predatoria, il Cainita esegue un confronto di Carisma + Ascendente contro Autocontrollo + Fermezza del bersaglio.",
+          "amalgama": null,
+          "cost": "Una Prova di Risveglio",
+          "dicePool": "Carisma + Ascendente contro Autocontrollo + Fermezza",
+          "duration": "Un turno"
+        },
+        {
+          "id": "1_6",
+          "title": "Convocazione",
+          "description": "Il Fratello può richiamare a sé qualsiasi persona, mortale o vampiro, su cui abbia precedentemente usato Soggezione, Incanto o Maestà, o che abbia assaporato il suo Sangue almeno una volta.",
+          "table": null,
+          "level": 4,
+          "system": "Il vampiro si concentra per 5 minuti sulla persona da convocare, quindi tira Persuasione + Ascendente contro Autocontrollo + Intelligenza.",
+          "amalgama": null,
+          "cost": "Una Prova di Risveglio",
+          "dicePool": "Persuasione + Ascendente contro Autocontrollo + Intelligenza",
+          "duration": "Una notte"
+        },
+        {
+          "id": "1_7",
+          "title": "Voce Irresistibile",
+          "description": "L'Ascendente del vampiro diventa un tramite della sua Dominazione: ora gli basta che le vittime sentano la sua voce per farsi obbedire tramite quella Disciplina.",
+          "table": null,
+          "level": 4,
+          "system": "La voce del vampiro è ora sufficiente per Dominare un bersaglio. Ciò non si applica alla voce trasmessa da media elettronici quali telefoni, televisione o altoparlanti nel campanello.",
+          "amalgama": [
+            "3",
+            1
+          ],
+          "cost": "Nessun costo aggiuntivo",
+          "dicePool": "Nessun tiro richiesto",
+          "duration": "Passivo"
+        },
+        {
+          "id": "1_8",
+          "title": "Maestà",
+          "description": "Al culmine della Disciplina, il vampiro può amplificare la sua espressione a livelli soprannaturali.",
+          "table": null,
+          "level": 5,
+          "system": "Le persone in presenza del vampiro possono solo guardarlo a bocca aperta o distogliere gli occhi per paura o sottomissione.",
+          "amalgama": null,
+          "cost": "Due Prove di Risveglio",
+          "dicePool": "Carisma + Ascendente contro Autocontrollo + Fermezza",
+          "duration": "Una scena."
+        }
+      ]
+    }
+  ]
+}
