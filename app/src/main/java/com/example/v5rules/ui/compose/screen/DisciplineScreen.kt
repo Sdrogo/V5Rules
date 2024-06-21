@@ -10,8 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.data.Discipline
-import com.example.v5rules.ui.ViewModel.DisciplineViewModel
-import com.example.v5rules.ui.ViewModel.UiState
+import com.example.v5rules.ui.compose.component.RemoteIcon
+import com.example.v5rules.ui.viewModel.DisciplineViewModel
+import com.example.v5rules.ui.viewModel.UiState
 
 @Composable
 fun DisciplineScreen(
@@ -58,12 +59,20 @@ fun DisciplineItem(discipline: Discipline, navController: NavHostController) {
             .fillMaxWidth()
             .padding(vertical = 8.dp)
     ) {
-        Text(
-            text = discipline.title,
-            style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier
-                .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }
-                .padding(8.dp)
-        )
+        Row {
+            RemoteIcon(
+                imageUrl = discipline.imageUrl,
+                contentDescription = discipline.title,
+                size = 48.dp
+            )
+            Text(
+                text = discipline.title,
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier
+                    .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }
+                    .padding(8.dp)
+            )  
+        }
+        
     }
 }

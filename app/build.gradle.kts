@@ -70,5 +70,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation (libs.com.google.code.gson)
     implementation(libs.serialization)
+    implementation("io.coil-kt:coil-compose:2.2.2")
 
 }

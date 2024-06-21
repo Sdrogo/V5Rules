@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.v5rules.ui.ViewModel.DisciplineViewModel
-import com.example.v5rules.ui.ViewModel.DisciplineViewModelFactory
+import com.example.v5rules.ui.viewModel.DisciplineViewModel
+import com.example.v5rules.ui.viewModel.DisciplineViewModelFactory
 import com.example.v5rules.ui.compose.screen.DisciplineDetailScreen
 import com.example.v5rules.ui.compose.screen.DisciplineScreen
 import com.example.v5rules.ui.compose.screen.HomeScreen

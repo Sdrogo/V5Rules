@@ -5,13 +5,15 @@ import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
 import com.google.gson.Gson
 import java.io.InputStreamReader
+import java.util.Locale
 
 class DisciplineReader(private val context: Context) {
 
-    fun readDisciplines(language: Language): List<Discipline> {
+    fun readDisciplines(language: Locale): List<Discipline> {
         val resourceId = when (language) {
-            Language.ENGLISH -> R.raw.rules_en
-            Language.ITALIAN -> R.raw.rules_it
+            Locale.ENGLISH -> R.raw.discipline_it
+            Locale.ITALIAN -> R.raw.discipline_it
+            else -> {R.raw.discipline_it}
         }
 
         val inputStream = context.resources.openRawResource(resourceId)

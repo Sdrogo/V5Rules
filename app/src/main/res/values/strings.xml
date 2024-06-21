@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">V5Rules</string>
+    <string name="discipline_type">Type:</string>
+    <string name="discipline_clan_affinity">Clan Affinity:</string>
+    <string name="discipline_cost">Cost:</string>
+    <string name="discipline_resonance">Resonance:</string>
+    <string name="discipline_masquerade_threat">Masquerade Threat:</string>
+    <string name="discipline_dice_pool">Dice Pool:</string>
+    <string name="discipline_amalgama">Amalgama:</string>
+    <string name="discipline_duration">Duration:</string>
+    <string name="discipline_description">Description:</string>
+    <string name="discipline_system">System:</string>
+    <string name="expand">Expand…</string>
+
 </resources>
