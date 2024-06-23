@@ -1,0 +1,82 @@
+[
+  {
+    "id": "d1",
+    "title": "Discipline 1",
+    "description": "Description for Discipline 1",
+    "imageUrl": "http://example.com/image1.png",
+    "type": "Physical",
+    "masquerade": "Low",
+    "resonance": "Choleric",
+    "clanAffinity": ["BRUJAH", "GANGREL"],
+    "subDisciplines": [
+      {
+        "id": "1",
+        "title": "SubDiscipline 1",
+        "level": 1,
+        "cost": "1 Willpower",
+        "dicePool": "Dexterity + Athletics",
+        "duration": "One scene",
+        "description": "Description for SubDiscipline 1",
+        "system": "System for SubDiscipline 1"
+      },
+      {
+        "id": "2",
+        "title": "SubDiscipline 2",
+        "level": 2,
+        "cost": "1 Blood",
+        "dicePool": "Strength + Brawl",
+        "duration": "One turn",
+        "description": "Description for SubDiscipline 2",
+        "system": "System for SubDiscipline 2",
+        "table": {
+          "numberOfColumns": 2,
+          "headers": ["Header1", "Header2"],
+          "columns": [
+            ["Row1Col1", "Row1Col2"],
+            ["Row2Col1", "Row2Col2"]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "d1",
+    "title": "Discipline 2",
+    "description": "Description for Discipline 2",
+    "imageUrl": "http://example.com/image2.png",
+    "type": "Mental",
+    "masquerade": "Medium",
+    "resonance": "Sanguine",
+    "clanAffinity": ["MALKAVIAN", "TOREADOR"],
+    "subDisciplines": [
+      {
+        "id": "1",
+        "title": "SubDiscipline 1",
+        "level": 1,
+        "cost": "1 Willpower",
+        "dicePool": "Dexterity + Athletics",
+        "duration": "One scene",
+        "description": "Description for SubDiscipline 1",
+        "system": "System for SubDiscipline 1"
+      },
+      {
+        "id": "2",
+        "title": "SubDiscipline 2",
+        "level": 2,
+        "cost": "1 Blood",
+        "dicePool": "Strength + Brawl",
+        "duration": "One turn",
+        "description": "Description for SubDiscipline 2",
+        "system": "System for SubDiscipline 2",
+        "table": {
+          "numberOfColumns": 2,
+          "headers": ["Header1", "Header2"],
+          "columns": [
+            ["Row1Col1", "Row1Col2"],
+            ["Row2Col1", "Row2Col2"]
+          ]
+        }
+      }
+    ]
+  }
+]

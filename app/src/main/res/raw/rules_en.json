@@ -1,0 +1,77 @@
+[
+  {
+    "id": "d0",
+    "title": "Animalità",
+    "description": "Generalmente, i poteri che influenzano gli animali sono limitati ai vertebrati. In aggiunta, qualsiasi utilizzo della Disciplina su erbivori aumenta di 1 la Difficoltà dei tiri coinvolti.",
+    "imageUrl": "http://example.com/image1.png",
+    "type": "Mentale",
+    "masquerade": "da bassa a media. Sebbene la comunicazione con gli animali possa apparire eccentrica, solo le applicazioni più violente della Disciplina suscitano reazioni più evidenti.",
+    "resonance": "sangue animale, preferibilmente proveniente da bestie feroci.",
+    "clanAffinity": ["Gangrel",
+      "Nosferatu",
+      "Ravnos",
+      "Tzimisce"],
+    "subDisciplines": [
+      {
+        "id": "d0_1",
+        "title": "Percezione della Bestia",
+        "level": 1,
+        "cost": "Gratuito",
+        "dicePool": "Fermezza + Animalità contro Autocontrollo + Sotterfugio",
+        "duration": "Passivo",
+        "description": "Il vampiro acquisisce la capacità di percepire la presenza della Bestia nei mortali, nei vampiri e in altri esseri soprannaturali. Ciò gli consente di ottenere informazioni sulla loro natura, fame e livello di ostilità.",
+        "system": "Il vampiro effettua un tiro di Fermezza + Animalità contro Autocontrollo + Sotterfugio. Una vittoria gli permette di percepire il grado di ostilità del bersaglio, distinguendo se è pronto a usare violenza o anche solo intenzionato a farlo, e di identificare se racchiude una Bestia soprannaturale, come un vampiro o un lupo mannaro. In caso di vittoria critica, il vampiro ottiene informazioni dettagliate sul tipo esatto di creatura, nonché sul suo livello di Fame o Furia. Il potere può essere utilizzato sia in modo attivo che passivo, avvertendo il vampiro delle intenzioni aggressive nelle immediate vicinanze."
+      },
+      {
+        "id": "d0_2",
+        "title": "Vincolo del Famulus",
+        "level": 2,
+        "cost": "L'animale deve bere il Sangue del vampiro in tre notti separate, ciascuna delle quali richiede una Prova di Risveglio. Una volta completato il processo, la quantità di vitae necessaria per mantenere lo stato di ghoul dell'animale è trascurabile. I giocatori che iniziano con questo potere hanno già completato il processo e possono scegliere gratuitamente un famulus.",
+        "dicePool": "Carisma + Affinità Animale",
+        "duration": "Il legame con il famulus può essere spezzato solo con la morte. Il famulus non invecchia fintanto che riceve regolarmente il Sangue dal vampiro.",
+        "description": "Il vampiro, stabilendo un Legame di Sangue con un animale, può trasformarlo in un famulus, creando un legame mentale con la bestia che agevola l'uso di altri poteri di Animalità. Pur non permettendo la comunicazione bidirezionale, l'animale può rispondere a comandi verbali semplici come \"fermo\" o \"vieni qui\". Attacca per difendere se stesso e il suo padrone, ma non può essere persuaso a combattere contro qualcosa che normalmente non attaccerebbe.",
+        "system": "Senza l'uso preliminare di Sussurri Ferini (vedi sotto), impartire ordini all'animale richiede un tiro di Carisma + Affinità Animale (Difficoltà 2, con incremento per ordini più complessi). Il vampiro può avere un solo famulus alla volta, ma può ottenerne uno nuovo quando il primo muore. Può inoltre utilizzare gratuitamente Sussurri Ferini (Animalità 2) e Comunione di Spiriti (Animalità 4) sul suo famulus."
+      }
+    ]
+  },
+  {
+    "id": "d1",
+    "title": "Discipline 2",
+    "description": "Description for Discipline 2",
+    "imageUrl": "http://example.com/image2.png",
+    "type": "Mental",
+    "masquerade": "Medium",
+    "resonance": "Sanguine",
+    "clanAffinity": ["MALKAVIAN", "TOREADOR"],
+    "subDisciplines": [
+      {
+        "id": "1",
+        "title": "SubDiscipline 1",
+        "level": 1,
+        "cost": "1 Willpower",
+        "dicePool": "Dexterity + Athletics",
+        "duration": "One scene",
+        "description": "Description for SubDiscipline 1",
+        "system": "System for SubDiscipline 1"
+      },
+      {
+        "id": "2",
+        "title": "SubDiscipline 2",
+        "level": 2,
+        "cost": "1 Blood",
+        "dicePool": "Strength + Brawl",
+        "duration": "One turn",
+        "description": "Description for SubDiscipline 2",
+        "system": "System for SubDiscipline 2",
+        "table": {
+          "numberOfColumns": 2,
+          "headers": ["Header1", "Header2"],
+          "columns": [
+            ["Row1Col1", "Row1Col2"],
+            ["Row2Col1", "Row2Col2"]
+          ]
+        }
+      }
+    ]
+  }
+]

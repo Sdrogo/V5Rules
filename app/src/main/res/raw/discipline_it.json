@@ -1,0 +1,1615 @@
+[
+  {
+    "id": "d0",
+    "title": "Animalità",
+    "description": "Generalmente, i poteri che influenzano gli animali sono limitati ai vertebrati. In aggiunta, qualsiasi utilizzo della Disciplina su erbivori aumenta di 1 la Difficoltà dei tiri coinvolti.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/5/57/Animalism_symbol.png/1024px-Animalism_symbol.png",
+    "type": "Mentale",
+    "masquerade": "da bassa a media. Sebbene la comunicazione con gli animali possa apparire eccentrica, solo le applicazioni più violente della Disciplina suscitano reazioni più evidenti.",
+    "resonance": "sangue animale, preferibilmente proveniente da bestie feroci.",
+    "clanAffinity": [
+      "Gangrel",
+      "Nosferatu",
+      "Ravnos",
+      "Tzimisce"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d0_1",
+        "title": "Percezione della Bestia",
+        "level": 1,
+        "cost": "Gratuito",
+        "dicePool": "Fermezza + Animalità contro Autocontrollo + Sotterfugio",
+        "duration": "Passivo",
+        "description": "Il vampiro acquisisce la capacità di percepire la presenza della Bestia nei mortali, nei vampiri e in altri esseri soprannaturali. Ciò gli consente di ottenere informazioni sulla loro natura, fame e livello di ostilità.",
+        "system": "Il vampiro effettua un tiro di Fermezza + Animalità contro Autocontrollo + Sotterfugio. Una vittoria gli permette di percepire il grado di ostilità del bersaglio, distinguendo se è pronto a usare violenza o anche solo intenzionato a farlo, e di identificare se racchiude una Bestia soprannaturale, come un vampiro o un lupo mannaro. In caso di vittoria critica, il vampiro ottiene informazioni dettagliate sul tipo esatto di creatura, nonché sul suo livello di Fame o Furia. Il potere può essere utilizzato sia in modo attivo che passivo, avvertendo il vampiro delle intenzioni aggressive nelle immediate vicinanze."
+      },
+      {
+        "id": "d0_2",
+        "title": "Vincolo del Famulus",
+        "level": 1,
+        "cost": "L'animale deve bere il Sangue del vampiro in tre notti separate, ciascuna delle quali richiede una Prova di Risveglio. Una volta completato il processo, la quantità di vitae necessaria per mantenere lo stato di ghoul dell'animale è trascurabile. I giocatori che iniziano con questo potere hanno già completato il processo e possono scegliere gratuitamente un famulus.",
+        "dicePool": "Carisma + Affinità Animale",
+        "duration": "Il legame con il famulus può essere spezzato solo con la morte. Il famulus non invecchia fintanto che riceve regolarmente il Sangue dal vampiro.",
+        "description": "Il vampiro, stabilendo un Legame di Sangue con un animale, può trasformarlo in un famulus, creando un legame mentale con la bestia che agevola l'uso di altri poteri di Animalità. Pur non permettendo la comunicazione bidirezionale, l'animale può rispondere a comandi verbali semplici come \"fermo\" o \"vieni qui\". Attacca per difendere se stesso e il suo padrone, ma non può essere persuaso a combattere contro qualcosa che normalmente non attaccerebbe.",
+        "system": "Senza l'uso preliminare di Sussurri Ferini (vedi sotto), impartire ordini all'animale richiede un tiro di Carisma + Affinità Animale (Difficoltà 2, con incremento per ordini più complessi). Il vampiro può avere un solo famulus alla volta, ma può ottenerne uno nuovo quando il primo muore. Può inoltre utilizzare gratuitamente Sussurri Ferini (Animalità 2) e Comunione di Spiriti (Animalità 4) sul suo famulus."
+      },
+      {
+        "id": "d0_3",
+        "title": "Sussurri Ferini",
+        "level": 2,
+        "cost": "Una Prova di Risveglio per ogni tipo di animale scelto. Consente convocazioni e comunicazioni illimitate.",
+        "dicePool": "Persuasione + Animalità, Carisma + Animalità",
+        "duration": "Una scena",
+        "description": "Il vampiro sviluppa la capacità di entrare in comunione con le bestie, sia selvatiche che urbane. Questo potere permette una comunicazione bidirezionale: ad esempio, un gatto potrebbe non essere interessato a discutere dell'uso del colore di Matisse, ma condividerà volentieri informazioni sulla mancanza di prede intorno all'edificio di arenaria alla fine della strada. A seconda delle abilità del vampiro, è anche possibile persuadere gli animali a compiere servizi; tuttavia, raramente acconsentono a compiere azioni contrarie alla loro natura o che li mettano in pericolo. Il potere può anche essere utilizzato per convocare qualsiasi tipo di animale, ma le bestie devono trovarsi nelle vicinanze. Sebbene nulla impedisca a un vampiro di cercare di convocare un'orca a Central Park, è improbabile che ci riesca! Gli animali convocati ascoltano colui che li ha chiamati, ma si disperdono o attaccano se messi in pericolo.",
+        "system": "La comunicazione semplice non richiede alcun test. Per convincere un animale a svolgere un servizio, è necessario un tiro di Persuasione + Animalità, con la Difficoltà che dipende dalla complessità dell'incarico. Ad esempio, chiedere a un uccello di sorvegliare chiunque entri nel parco di notte ha una Difficoltà di 3, mentre ordinare a un animale di difendere un luogo a costo della vita ha una Difficoltà di 6. Per convocare animali, si effettua un tiro di Carisma + Animalità, con Difficoltà basata sulla scarsità degli animali desiderati. Il numero di animali che rispondono dipende dal margine di successo: una vittoria critica consente di convocare la maggior parte (se non tutti) gli animali di quel tipo presenti nella zona."
+      },
+      {
+        "id": "d0_4",
+        "title": "Alveare Non Vivente",
+        "amalgama": "Oscurazione2",
+        "level": 3,
+        "cost": "Nessun costo aggiuntivo.",
+        "duration": "Passivo",
+        "description": "Riscontrato più frequentemente nei Nosferatu, questo inquietante potere consente di estendere la propria influenza agli sciami di insetti come mosche o scarafaggi. Alcuni vampiri si spingono persino ad adottare tali sciami come famuli, offrendo loro una dimora permanente nelle pieghe e orifizi dei loro corpi deformi.",
+        "system": "Questo potere estende agli sciami di insetti tutte le facoltà descritte sopra, trattando lo sciame come un'unica creatura. Il vampiro può vincolare lo sciame come famulus; qualcuno gli conferisce persino la capacità di annidarsi nelle cavità del suo corpo. Ciò nasconde lo sciame e consente al vampiro di nutrirlo con le minuscole quantità di vitae necessarie per mantenerlo indefinitamente. Quando è annidato, lo sciame è individuabile solo tramite mezzi come i raggi X. Gli sciami causano pochi danni in combattimento. Hanno Salute 5 e una riserva di 8 dadi per resistere agli attacchi. Subiscono danni Superficiali da Rissa, mentre fuoco e insetticida infliggono danni Aggravati. I vampiri li usano per spiare, distrarre (penalità di 2 dadi a qualsiasi tiro della persona investita da uno sciame) o intimidire i mortali (+1-3 dadi alle riserve di Intimidire, a seconda del tipo di insetto e le fobie della vittima). I giocatori e il Narratore escogiteranno senza dubbio impieghi ancora più creativi."
+      },
+      {
+        "id": "d0_5",
+        "level": 3,
+        "title": "Domare la Bestia",
+        "description": "Fissando negli occhi il bersaglio, il vampiro ne intimidisce la Bestia interiore obbligandola ad assopirsi temporaneamente. I mortali diventano apatici, incapaci di compiere azioni a parte restare vivi, mentre gli impulsi bestiali dei vampiri si calmano per un po', nel bene e nel male.",
+        "cost": "Una Prova di Risveglio.",
+        "dicePool": "Carisma + Animalità contro Costituzione + Fermezza",
+        "system": "Tiro di Carisma + Animalità contro Costituzione + Fermezza. La vittoria su un mortale lo inabilita per quella scena, suscitando una forte letargia. Il mortale agisce solo per autoconservazione, mai contro il vampiro o chiunque altro. La vittoria su un vampiro gli impedisce di operare l'Impeto Sanguigno. Mentre la loro Bestia è domata, i vampiri non ottengono critici caotici. Contro i vampiri, il potere dura un turno più un numero di turni pari al margine di vittoria nel confronto. Una vittoria critica su un vampiro pone anche fine alla sua frenesia.",
+        "duration": "Una scena o un numero di turni pari al margine di successo +1."
+      },
+      {
+        "id": "d0_6",
+        "level": 3,
+        "title": "Succulenza Animale",
+        "description": "Il vampiro può appagare la sua fame nutrendosi dagli animali. Inoltre, ha la capacità di consumare il suo famulus, ottenendo molto più nutrimento rispetto a quanto normalmente ottenibile da un animale di quella taglia e assorbendo una scheggia del suo tratto primario.",
+        "cost": "Gratuito",
+        "system": "Nutrirsi da animali sazia 1 livello di Fame in più, e il vampiro considera la sua Potenza del Sangue inferiore di 2 livelli ai fini delle penalità di nutrimento con sangue animale. Dissanguare il proprio famulus sazia 4 livelli di Fame a prescindere dalla taglia dell'animale, ma non può mai rimuovere l'ultimo dado Fame. Inoltre, il consumo del famulus incrementa di 2 pallini l'Attributo del vampiro più associato a quell'animale (deciso dal Narratore). Dissanguare un gatto può aumentare Destrezza o Autocontrollo, mentre un cane offre Carisma o Fermezza. Il Narratore può variare la ricompensa per il consumo del famulus: cibarsi di un gufo può aumentare di 2 pallini l'Attributo nelle riserve di percezione o in quelle per prendere decisioni sagge. Il bonus perdura fino alla successiva nutrizione o finché la Fame del vampiro non sale a 5.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d0_7",
+        "level": 4,
+        "title": "Comunione di Spiriti",
+        "description": "Il vampiro ha la capacità di trasferire la sua coscienza nel corpo di un animale, ottenendo il controllo totale su di esso e sfruttando liberamente i suoi sensi, anche durante le ore diurne, purché rimanga sveglio. Mentre la sua coscienza abita l'animale, il suo corpo originale rimane immobile come se fosse in torpore.",
+        "cost": "Richiede una Prova di Risveglio; gratuito se usato sul famulus.",
+        "dicePool": "Persuasione + Animalità",
+        "system": "Il vampiro effettua un tiro di Persuasione + Animalità con Difficoltà 4. In caso di successo, può abitare il corpo dell'animale per l'intera durata di una scena; con una vittoria critica, può possederlo indefinitamente. Estendere la possessione durante le ore diurne richiede al vampiro di rimanere sveglio (vedi p. 219); guardare il sole richiede un test di frenesia da paura, anche se la luce non causa danni all'animale \"cavalcato\". Il vampiro non è consapevole degli eventi che coinvolgono il suo corpo originale, ma eventuali danni a quest'ultimo lo risvegliano immediatamente dalla trance e rilasciano l'animale. La morte dell'animale pone fine alla possessione; in tal caso, lo shock causa al vampiro un danno Aggravato alla Volontà.",
+        "duration": "Una scena / Indefinito (vedere testo)"
+      },
+      {
+        "id": "d0_8",
+        "level": 5,
+        "title": "Estirpare la Bestia",
+        "description": "Il vampiro è in grado di proiettare la sua Bestia durante un episodio di frenesia da rabbia o paura e trasferirla in un soggetto vicino, che sia mortale o vampiro. Questa persona sperimenta immediatamente la frenesia al posto del vampiro, manifestando una furia distruttiva o fuggendo terrorizzata, a seconda della causa scatenante.",
+        "cost": "Richiede una Prova di Risveglio",
+        "dicePool": "Prontezza + Animalità contro Autocontrollo + Fermezza",
+        "system": "Invece del test di Volontà per resistere a una frenesia da rabbia o paura, il vampiro tira Prontezza + Animalità contro Autocontrollo + Fermezza del bersaglio. In caso di fallimento del bersaglio, questi entra in frenesia come se avesse fallito il test di Volontà; se vince, il bersaglio sperimenta la frenesia al posto del vampiro. Ulteriori stimoli possono ancora provocare la frenesia del bersaglio, che può essere bersaglio del potere finché il vampiro è in grado di eseguire Prove di Risveglio e ha altri bersagli disponibili. Il potere non può trasferire una frenesia alimentare.",
+        "duration": "La durata della frenesia (vedi p. 220)"
+      }
+    ]
+  },
+  {
+    "id": "d1",
+    "title": "Auspex",
+    "description": "Il Narratore può segretamente effettuare i tiri di Auspex per mantenere riservati i risultati e fornire informazioni fuorvianti o incomplete in caso di insuccesso.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/9/93/Auspex_symbol.png/1024px-Auspex_symbol.png",
+    "type": "Mentale",
+    "masquerade": "Bassa. Auspex non si manifesta mai in modo visibile a occhio nudo, né provoca effetti che non si possano razionalizzare anche solo come colpo di fortuna.",
+    "resonance": "Flemmatica. Artisti (in particolare fotografi) e visionari, alcuni schizofrenici, fruitori di sostanze psicoattive, detective.",
+    "clanAffinity": [
+      "Hecata",
+      "Malkavian",
+      "Salubri",
+      "Toreador",
+      "Tremere"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d1_1",
+        "level": 1,
+        "title": "Percepire l'Invisibile",
+        "description": "I sensi del vampiro si sintonizzano su dimensioni al di là della sfera terrena, permettendogli di percepire presenze altrimenti impercettibili, come vampiri usando l'Oscurazione o fantasmi.",
+        "cost": "Gratuito",
+        "dicePool": "Prontezza + Auspex o Fermezza + Auspex",
+        "system": "Il Narratore esegue di nascosto un tiro di Prontezza + Auspex contro una Difficoltà da lui definita ogni volta che qualcosa di soprannaturale si cela in piena vista. Se il vampiro cerca attivamente un'entità soprannaturale nascosta, può eseguire un tiro analogo di Fermezza + Auspex.",
+        "duration": "Passiva"
+      },
+      {
+        "id": "d1_2",
+        "level": 1,
+        "title": "Sensi Amplificati",
+        "description": "I sensi del vampiro si acuiscono a livelli soprannaturali, conferendogli la capacità di vedere nel buio, udire frequenze ultrasoniche e annusare la paura delle prede.",
+        "cost": "Gratuito (vedere testo)",
+        "dicePool": "Prontezza + Fermezza",
+        "system": " Il vampiro somma il suo valore di Auspex a tutti i tiri di percezione. Se esposto a sensazioni estreme durante l'attivazione del potere, deve superare un test di Prontezza + Fermezza per evitare penalità ai tiri di percezione.",
+        "duration": " Fino a quando è disattivato. Tenerlo attivo per lunghi periodi può richiedere la spesa di Volontà a discrezione del Narratore."
+      },
+      {
+        "id": "d1_3",
+        "level": 2,
+        "title": "Premonizione",
+        "description": "Il vampiro sperimenta improvvisi lampi di intuizione, manifestati attraverso sensazioni come la pelle d'oca, ispirazioni inattese o visioni vivide. Sebbene non precise, queste visioni possono guidare il vampiro lontano dai pericoli o rivelare verità trascurate.",
+        "cost": "Gratuito o una Prova di Risveglio",
+        "dicePool": "Fermezza + Auspex",
+        "system": " Il potere offre al personaggio suggerimenti fulminei che lo aiutano in qualche modo, come trovare un indizio o evitare un pericolo. Il Narratore ha la facoltà di influenzare la trama accelerandola o indirizzandola secondo necessità. Limite consigliato: una premonizione per scena.",
+        "duration": "Passiva"
+      },
+      {
+        "id": "d1_4",
+        "level": 3,
+        "title": "Condivisione Sensoriale",
+        "description": "Proiettando la sua mente, il vampiro può attingere ai sensi di un mortale o di un altro vampiro, vedendo, udendo e percependo ciò che fa. Il vampiro può decidere di attingere a uno, a alcuni o a tutti i sensi del soggetto.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Fermezza + Auspex",
+        "system": "Il vampiro esegue un tiro di Fermezza + Auspex a Difficoltà 3 per attingere ai sensi del soggetto. La vittima di solito rimane inconsapevole dell'intrusione, ma chi possiede il potere Percepire l'Invisibile può notare la presenza. La vittima può espellere l'intruso vincendo un confronto di Prontezza + Fermezza.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d1_5",
+        "level": 3,
+        "title": "Scrutare l'Anima",
+        "description": "Concentrandosi su una persona, il vampiro percepisce lo stato della sua psiche attraverso un'aura policroma mutevole. Le auro forniscono indizi su diverse informazioni, come lo stato emotivo, la Risonanza e tratti soprannaturali.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Intelligenza + Auspex contro Autocontrollo + Sotterfugio",
+        "system": "Il vampiro esegue un tiro di Intelligenza + Auspex contro Autocontrollo + Sotterfugio. Una vittoria consente al Narratore di rispondere onestamente a un numero di domande riguardanti l'aura e la psiche del bersaglio. Le informazioni possono includere lo stato emotivo, la Risonanza nel sangue, la natura soprannaturale e altro. Una vittoria critica può rivelare informazioni impreviste a discrezione del Narratore.",
+        "duration": "Un turno o a discrezione del Narratore"
+      },
+      {
+        "id": "d1_6",
+        "level": 4,
+        "title": "Tocco degli Spiriti",
+        "description": "Toccando un oggetto inanimato o il terreno di un luogo, il vampiro può percepire le tracce emotive lasciate da chi ha avuto contatto con quell'oggetto o visitato quel luogo in passato. Il vampiro riceve intuizioni non solo sulla persona coinvolta, ma anche su ciò che è accaduto e nelle circostanze in cui si è verificato. Pur essendo spesso sfumate, queste informazioni forniscono indizi preziosi al di là delle deduzioni comuni e della scienza forense.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Intelligenza + Auspex",
+        "system": "Il vampiro esegue un tiro di Intelligenza + Auspex con una Difficoltà basata sulle informazioni cercate. Per esempio, percepire lo stato emotivo di chi ha maneggiato l'arma di un crimine alcuni giorni prima ha una Difficoltà di 3, mentre percepire le circostanze mentre veniva scritta una lettera 300 anni fa può avere una Difficoltà di 6 o più. Ogni punto di margine nel tiro consente al vampiro di percepire un'altra persona che ha interagito con l'oggetto o un'altra serie di circostanze, andando a ritroso nel tempo.",
+        "duration": "Un turno"
+      },
+      {
+        "id": "d1_7",
+        "level": 5,
+        "title": "Chiaroveggenza",
+        "description": "Con gli occhi chiusi e entrando in una leggera trance, il vampiro diventa il maestro dell'ambiente circostante. In pochi minuti, può raccogliere informazioni da un'area di dimensioni significative, equivalenti a un isolato cittadino (o più ampie se si trova in campagna o in una zona meno popolata), risparmiando il tempo che normalmente richiederebbe per spostamenti ed esplorazioni. Collegato in questo modo all'ambiente, il vampiro può anche ricevere notizie su eventi straordinari che si verificano nella zona.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Intelligenza + Auspex",
+        "system": "Il vampiro esegue un tiro di Intelligenza + Auspex con una Difficoltà basata sulle informazioni cercate. Per esempio, percepire lo stato emotivo di chi ha maneggiato l'arma di un crimine alcuni giorni prima ha una Difficoltà di 3, mentre percepire le circostanze mentre veniva scritta una lettera 300 anni fa può avere una Difficoltà di 6 o più. Ogni punto di margine nel tiro consente al vampiro di percepire un'altra persona che ha interagito con l'oggetto o un'altra serie di circostanze, andando a ritroso nel tempo.",
+        "duration": "Pochi minuti per raccogliere informazioni, fino a una notte per la vigilanza."
+      },
+      {
+        "id": "d1_8",
+        "level": 5,
+        "amalgama": "Dominazione 3",
+        "title": "Possessione",
+        "description": "Con questo potere, il vampiro ha la capacità di annullare la volontà di un mortale e prendere completamente possesso del suo corpo, utilizzandolo come se fosse il proprio. Sebbene la mente del soggetto rimanga nascosta al vampiro, quest'ultimo può fare ciò che desidera e muoversi liberamente come farebbe il soggetto, finché il potere rimane attivo. In questo modo, il vampiro può sperimentare aspetti della vita quotidiana, come la luce del sole, il cibo e la sessualità fisica, che gli sono stati a lungo negati, mentre il suo ospite subisce le conseguenze di ogni abuso a cui viene sottoposto.",
+        "cost": "Due Prove di Risveglio",
+        "dicePool": "Fermezza + Auspex",
+        "system": "Questo potere può essere utilizzato solo su mortali. Se il soggetto è un ghoul, deve essere precedentemente vincolato al vampiro. Prima di iniziare la possessione, il vampiro deve guardare negli occhi la vittima. A questo punto, può avviare un confronto di Fermezza + Auspex contro Fermezza + Intelligenza al fine di prendere possesso del corpo della vittima. Se il vampiro fallisce completamente, la vittima diventa immune ad altri tentativi di Possessione per il resto della storia. Quando il vampiro risiede nella vittima, il suo corpo cade in una sorta di trance simile al torpore, completamente inconsapevole di ciò che accade intorno a lui e del suo stato fisico, tranne per i danni Aggravati, che interrompono la trance e pongono fine all'effetto. Durante la possessione, il vampiro può utilizzare Ascendente, Auspex e Dominazione attraverso la vittima. Se desidera estendere la possessione nelle ore diurne, deve superare un test per restare sveglio (vedere p. 219). In caso di fallimento, la possessione termina. Anche qualsiasi danno Aggravato subito dalla vittima rischia di porre fine all'effetto: il vampiro deve superare un tiro di Fermezza + Auspex (Difficoltà 2 + i danni subiti) per mantenere il controllo. Se il soggetto muore durante la possessione, il trauma spirituale risultante infligge immediatamente al vampiro tre danni Aggravati alla Volontà. Questo potere non conferisce la capacità di leggere la mente, utilizzare le abilità o emulare il comportamento della vittima: qualsiasi abilità utilizzata sfrutta i punteggi del vampiro. Il fruitore deve effettuare un tiro di Persuasione + Espressività contro Prontezza + Intuito per simulare atteggiamenti, espressioni, e così via. Infine, una possessione viola la vittima persino più intimamente di un Legame di Sangue; pertanto, il Narratore dovrebbe considerare di infliggere Macchie a chi usa questo potere.",
+        "duration": "Fino a quando la possessione non termina, volontariamente o meno."
+      },
+      {
+        "id": "d1_9",
+        "level": 5,
+        "title": "Telepatia",
+        "description": "A questi livelli di Auspex il vampiro può letteralmente leggere le menti, nonché proiettare i suoi pensieri nelle menti altrui. Se leggere i pensieri di un mortale è piuttosto facile, penetrare le menti dei non morti richiede uno sforzo molto più arduo.",
+        "cost": "Una Prova di Risveglio (più 1 punto Volontà sui vampiri non consenzienti)",
+        "dicePool": "Fermezza + Auspex contro Prontezza + Sotterfugio",
+        "system": "A questi livelli di Auspex, il vampiro ha la capacità di leggere letteralmente le menti e proiettare i propri pensieri nelle menti altrui. Mentre leggere i pensieri di un mortale è relativamente facile, penetrare le menti dei non morti richiede uno sforzo significativamente maggiore. Il fruitore non deve eseguire alcun tiro per proiettare i pensieri su chiunque, sia esso vampiro o mortale, anche se è necessario vedere il bersaglio. Per leggere la mente di un mortale entro il suo campo visivo, il vampiro deve guardarlo negli occhi e superare un confronto di Fermezza + Auspex contro Prontezza + Sotterfugio (a meno che il mortale non acconsenta, nel qual caso non è necessario tirare). Una vittoria significa che il fruitore può discernere i pensieri superficiali sotto forma di flusso di immagini, ma un margine più alto gli consente di sondare ricordi sepolti o più lontani. Una vittoria critica offre un quadro coerente dei pensieri attuali e delle intenzioni del soggetto. Per leggere i pensieri di un vampiro non consenziente, occorre spendere 1 punto Volontà prima del tiro.",
+        "duration": "Circa un minuto per Prova di Risveglio, aumentata all'intera scena per i soggetti consenzienti."
+      }
+    ]
+  },
+  {
+    "id": "d2",
+    "title": "Dominazione",
+    "description": "Quasi tutti i poteri di Dominazione richiedono il contatto di sguardi con la vittima. Una volta stabilito il contatto, la Disciplina impedisce alla vittima di distogliere gli occhi fino a quando il vampiro non ha impartito il suo comando, salvo interferenze. Catturare lo sguardo di un soggetto che stia attivamente tentando di non guardare negli occhi il vampiro richiede un confronto di Fermezza + Intimidire contro Prontezza + Allerta del bersaglio. È impossibile, ovviamente, guardare negli occhi chi li tiene chiusi con tutte le forze o è bendato, ma quella persona sarà facile preda di altre tattiche. Usare Dominazione in combattimento o in altre situazioni frenetiche è limitato alle persone che attaccano o interagiscono altrimenti con il fruitore, poiché l’attenzione di tutti gli altri è saldamente focalizzata sul proprio pericolo. A meno che il vampiro non disponga di mezzi soprannaturali come la Telepatia (Auspex 5), deve impartire verbalmente i comandi alle vittime, che devono essere in grado di sentire la sua voce e capire la sua lingua. Senza Decreto Terminale (Dominazione 5), i comandi che risultano nell’ovvia morte o ferimento grave del soggetto falliscono automaticamente. Il soggetto tira per resistere agli ordini che risultano in altri danni fisici o sociali, come spogliarsi in pubblico. Non si può usare Dominazione per estrarre informazioni, poiché la vittima diventa un pupazzo privo di volontà quando è sotto il suo influsso. Dominazione va dritta al nocciolo della supremazia predatoria dei vampiri; pertanto, essi devono resistere ai tentativi di Dominarli. Un vampiro di Generazione più bassa può resistere ai tentativi di Cainiti di Generazione più alta spendendo un punto Volontà e negando del tutto l’effetto. Con un fallimento totale nel tiro di qualsiasi potere di Dominazione, il vampiro non può più Dominare quel bersaglio per il resto della storia. Dominazione mina l’Umanità, specialmente se il vampiro ha dei Principi che riguardano la libertà personale o proibiscono le violazioni dell’integrità umana. Farne uso può provocare Macchie.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/1/1b/Dominate_symbol.png/1024px-Dominate_symbol.png",
+    "type": "Mentale",
+    "masquerade": " Bassa. A meno di non Dominare un'intera platea spingendola a buttarsi giù dalle scogliere di Dover, questo rimane uno dei poteri vampirici più sottili.",
+    "resonance": " Flemmatica. Il sangue di sottomessi o dominanti, padroni e schiavi, capitani d’industria, individui assetati di potere, capi e seguaci di culto.",
+    "clanAffinity": [
+      "Lasombra",
+      "Malkavian",
+      "Salubri",
+      "Tremere",
+      "Tzimisce",
+      "Ventrue"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d2_1",
+        "title": "Annebbiare la Mente",
+        "level": 1,
+        "cost": "Gratuito",
+        "dicePool": "Carisma + Dominazione contro Prontezza + Fermezza",
+        "duration": "Indefinita",
+        "description": "Pronunciando il comando \"Dimentica!\", il vampiro può far sì che la vittima dimentichi il momento attuale e i minuti che lo hanno preceduto, sufficienti a cancellare il ricordo di essere stati un pasto fugace o un incontro fortuito. Non vengono plasmati nuovi ricordi, e se messa sotto pressione, la vittima si renderà conto di avere 'perso' qualche minuto.",
+        "system": "Non è richiesto alcun tiro contro un mortale impreparato. Offuscare la memoria di chi oppone resistenza o di un altro vampiro richiede invece un tiro di Carisma + Dominazione contro Prontezza + Fermezza."
+      },
+      {
+        "id": "d2_2",
+        "level": 1,
+        "title": "Comando",
+        "description": "Fissando negli occhi la vittima, il vampiro può impartire un comando a singola azione, non più di una breve frase, che viene obbedito alla lettera. Deve essere possibile completarla in un solo turno. Il Narratore ha la facoltà di interpretare i comandi ambigui in modo imprevisto o sfavorevole al vampiro; in alternativa, confondono la vittima e falliscono.",
+        "cost": "Gratuito",
+        "dicePool": "Carisma + Dominazione contro Intelligenza + Fermezza",
+        "system": "A questi livelli di Auspex, il vampiro ha la capacità di leggere letteralmente le menti e proiettare i propri pensieri nelle menti altrui. Mentre leggere i pensieri di un mortale è relativamente facile, penetrare le menti dei non morti richiede uno sforzo significativamente maggiore. Il fruitore non deve eseguire alcun tiro per proiettare i pensieri su chiunque, sia esso vampiro o mortale, anche se è necessario vedere il bersaglio. Per leggere la mente di un mortale entro il suo campo visivo, il vampiro deve guardarlo negli occhi e superare un confronto di Fermezza + Auspex contro Prontezza + Sotterfugio (a meno che il mortale non acconsenta, nel qual caso non è necessario tirare). Una vittoria significa che il fruitore può discernere i pensieri superficiali sotto forma di flusso di immagini, ma un margine più alto gli consente di sondare ricordi sepolti o più lontani. Una vittoria critica offre un quadro coerente dei pensieri attuali e delle intenzioni del soggetto. Per leggere i pensieri di un vampiro non consenziente, occorre spendere 1 punto Volontà prima del tiro.",
+        "duration": "Non oltre una singola scena."
+      },
+      {
+        "id": "d2_3",
+        "level": 2,
+        "title": "Demenza",
+        "amalgama": "Oscurazione 2",
+        "description": "Questo insidioso potere non richiede nient'altro che una conversazione casuale, perché la perniciosa influenza del vampiro si nasconde tra le frasi e le inflessioni del discorso. La vittima si ritrova sempre più nervosa mano a mano che i suoi demoni interiori emergono in superficie, soffocando gradualmente ogni ragionamento e logica.",
+        "cost": "Una Prova di Risveglio per scena",
+        "dicePool": "Persuasione + Dominazione contro Autocontrollo + Intelligenza",
+        "system": "Dopo avere avviato una conversazione con la vittima, il vampiro può attivare questo potere. Per la durata della scena, il fruitore può impegnare un individuo a ogni turno in un confronto di Persuasione + Dominazione contro Autocontrollo + Intelligenza, causando danni Superficiali alla Volontà. Un mortale che risulti Menomato da questo potere sperimenta una crisi di nervi o un episodio psicotico, le cui modalità dipendono dal suo carattere (e forse dalla sua Risonanza ematica). Un vampiro Menomato dal potere soccombe immediatamente a una Compulsione scelta dal fruitore. Se il fruitore vuole influenzare più vittime, deve eseguire una Prova di Risveglio separata per ciascuna di esse.",
+        "duration": "Una scena."
+      },
+      {
+        "id": "d2_4",
+        "level": 2,
+        "title": "Mesmerismo",
+        "description": "Il vampiro può impartire ordini complessi, a patto che abbia catturato lo sguardo della vittima e la situazione sia abbastanza calma da consentirle di ricevere gli ordini. La vittima deve eseguire immediatamente e al meglio delle sue capacità le istruzioni, che tuttavia non possono includere azioni condizionali (\"...se vedi Henry, dagli il documento\"), in quanto richiederebbero l'esercizio di facoltà cognitive.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Persuasione + Dominazione contro Intelligenza + Fermezza",
+        "system": "Non è richiesto alcun tiro contro un mortale impreparato. Comandare una vittima che resiste o un altro vampiro richiede invece un confronto di Persuasione + Dominazione contro Intelligenza + Fermezza, così come i comandi che contrastano con la natura della vittima.",
+        "duration": "Una scena."
+      },
+      {
+        "id": "d2_5",
+        "level": 3,
+        "title": "Oblio della Mente",
+        "description": "Il vampiro ha la capacità di riscrivere interi tratti dei ricordi della vittima, a condizione di mantenere il contatto visivo e la totale attenzione inalterata. Attraverso descrizioni verbali, il vampiro introduce nuovi ricordi nella mente del soggetto, che li accetta come se fossero suoi. Tuttavia, il potere non consente di indagare sui veri ricordi della vittima; è più simile a dipingere su una tela già utilizzata.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Persuasione + Dominazione contro Intelligenza + Fermezza",
+        "system": "Confronto di Persuasione + Dominazione contro Intelligenza + Fermezza. Ogni punto di margine consente di aggiungere o rimuovere un ricordo. La vittima ricorda le alterazioni solo in modo vago, come sensazioni nebulose che si dissolvono con un esame approfondito. Una vittoria critica crea un'imprescindibile impronta, perfettamente reale come un ricordo autentico.",
+        "duration": "Indefinita"
+      },
+      {
+        "id": "d2_6",
+        "level": 3,
+        "title": "Suggestione Post-Ipnottica",
+        "description": "Quando utilizza il Mesmerismo, il vampiro ha ora la capacità di impiantare una suggestione post-ipnotica, consentendo a un comando di rimanere latente fino alla presenza di uno stimolo specifico. Lo stimolo può essere qualsiasi cosa, da una data specifica a una persona (\"Quando incontri Roland, digli queste parole\") fino all'ascolto di una particolare frase. La Suggestione Post-Ipnottica non si esaurisce mai; una persona può portare avanti un ordine sepolto nella mente per anni. Il fruitore può impiantare solo un ordine per ogni vittima.",
+        "cost": "Nessun costo aggiuntivo",
+        "dicePool": "Persuasione + Dominazione contro Intelligenza + Fermezza",
+        "system": "Come Mesmerismo, anche se il Narratore può effettuare tiri segreti se necessario. Non c'è modo di sapere se il comando sommerso funzionerà finché non si verificano le condizioni.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d2_7",
+        "level": 4,
+        "title": "Razionalizzazione",
+        "description": "Le vittime del vampiro sono ora convinte che le azioni compiute sotto l'influsso della Dominazione siano il risultato del loro libero arbitrio e difenderanno le loro azioni, per quanto assurde possano essere. L'esposizione prolungata a questo potere può causare gravi traumi mentali alla vittima.",
+        "cost": "Nessun costo aggiuntivo",
+        "system": "Se indotta a riflettere sulle sue convinzioni, la vittima può effettuare un test di Prontezza + Allerta (Difficoltà 5). In caso di successo, inizia a mettere in dubbio il proprio giudizio e forse anche la sua sanità mentale.",
+        "duration": "Indefinita"
+      },
+      {
+        "id": "d2_8",
+        "level": 5,
+        "title": "Decreto Terminale",
+        "description": "Liberato dall'istinto di conservazione della vittima, il vampiro può impartire comandi che la conducano direttamente al ferimento o alla morte. I mortali possono essere obbligati a spararsi in testa, saltare da edifici o ingoiare veleni. I vampiri, con un po' di sforzo, possono essere indotti a esporsi al fuoco o alla luce del sole.",
+        "cost": "Nessun costo di Fame aggiuntivo, ma il prezzo in Umanità può essere alto.",
+        "dicePool": "Persuasione + Dominazione contro Intelligenza + Fermezza",
+        "system": "I comandi terminali ora devono essere resistiti anziché fallire automaticamente (vedere i singoli poteri per le modalità).",
+        "duration": "Passivo"
+      }
+    ]
+  },
+  {
+    "id": "d3",
+    "title": "Ascendente",
+    "description": "Quasi tutti i poteri di Dominazione richiedono il contatto di sguardi con la vittima. Una volta stabilito il contatto, la Disciplina impedisce alla vittima di distogliere gli occhi fino a quando il vampiro non ha impartito il suo comando, salvo interferenze. Catturare lo sguardo di un soggetto che stia attivamente tentando di non guardare negli occhi il vampiro richiede un confronto di Fermezza + Intimidire contro Prontezza + Allerta del bersaglio. È impossibile, ovviamente, guardare negli occhi chi li tiene chiusi con tutte le forze o è bendato, ma quella persona sarà facile preda di altre tattiche. Usare Dominazione in combattimento o in altre situazioni frenetiche è limitato alle persone che attaccano o interagiscono altrimenti con il fruitore, poiché l’attenzione di tutti gli altri è saldamente focalizzata sul proprio pericolo. A meno che il vampiro non disponga di mezzi soprannaturali come la Telepatia (Auspex 5), deve impartire verbalmente i comandi alle vittime, che devono essere in grado di sentire la sua voce e capire la sua lingua. Senza Decreto Terminale (Dominazione 5), i comandi che risultano nell’ovvia morte o ferimento grave del soggetto falliscono automaticamente. Il soggetto tira per resistere agli ordini che risultano in altri danni fisici o sociali, come spogliarsi in pubblico. Non si può usare Dominazione per estrarre informazioni, poiché la vittima diventa un pupazzo privo di volontà quando è sotto il suo influsso. Dominazione va dritta al nocciolo della supremazia predatoria dei vampiri; pertanto, essi devono resistere ai tentativi di Dominarli. Un vampiro di Generazione più bassa può resistere ai tentativi di Cainiti di Generazione più alta spendendo un punto Volontà e negando del tutto l’effetto. Con un fallimento totale nel tiro di qualsiasi potere di Dominazione, il vampiro non può più Dominare quel bersaglio per il resto della storia. Dominazione mina l’Umanità, specialmente se il vampiro ha dei Principi che riguardano la libertà personale o proibiscono le violazioni dell’integrità umana. Farne uso può provocare Macchie.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/0/02/Presence_symbol.png/1024px-Presence_symbol.png",
+    "type": "Mentale",
+    "masquerade": "Da bassa a media. Ascendente è un potere sottile e raramente le persone si accorgono di essere state influenzate. Come molte altre Discipline, i poteri di livello più alto possono lasciare testimoni confusi, specialmente dopo che gli effetti si sono dissipati.",
+    "resonance": "Sanguigna. Questo potere è efficace su persone affascinanti e lussuriose, coloro che sono completamente infatuati dal vampiro. Include modelli, attori e stelle del cinema, oratori carismatici in pubblico e in privato (dai politici ai venditori di automobili), fenomeni di YouTube e influencer di Instagram.",
+    "clanAffinity": [
+      "Brujah",
+      "Ravnos",
+      "Toreador",
+      "The Ministry",
+      "Ventrue"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d3_1",
+        "level": 1,
+        "title": "Soggezione",
+        "description": "Chiunque si trovi in presenza del vampiro scopre che la sua attenzione è misteriosamente attratta da lui. Coloro che lo ascoltano si ritrovano improvvisamente ad essere d'accordo su argomenti sui quali precedentemente avevano opinioni diverse. Sebbene non generi un'infatuazione rapita per il Cainita, il potere è abbastanza potente da influenzare le menti di gran parte dei mortali.",
+        "cost": "Gratuito",
+        "dicePool": "Persuasione + Ascendente contro Fermezza + Intelligenza",
+        "system": "Il valore di Ascendente si somma a qualsiasi tiro di abilità che coinvolge il convincimento o l'espressività, nonché altri tiri basati su Carisma a discrezione del Narratore. Chiunque si renda conto di essere soggetto a un'influenza esterna può tentare di resistere (confronto di Fermezza + Intelligenza contro Persuasione + Ascendente del vampiro). Se prevale, la vittima può resistere agli effetti per una scena; in caso di vittoria critica, diventa immune per tutta la notte. Quando l'effetto si dissipa, la vittima ritorna alle sue opinioni originali.",
+        "duration": "Una scena o finché non è disattivato volontariamente."
+      },
+      {
+        "id": "d3_2",
+        "level": 1,
+        "title": "Spaventare",
+        "description": "Invece di attirare la gente, il vampiro sfrutta il suo Ascendente per scacciare. Con questo potere, il personaggio assume un aspetto minaccioso ed emana un'aura di pericolo abbastanza potente da spingere i mortali a non suscitare il suo interesse; persino i vampiri ci pensano due volte prima di agire contro di lui.",
+        "cost": "Gratuito",
+        "system": "Il valore di Ascendente del personaggio si somma a qualsiasi tiro di Intimidire. Per attaccare il vampiro occorre un tiro di Fermezza + Autocontrollo con Difficoltà 2.",
+        "duration": "Una scena o finché non è disattivato volontariamente."
+      },
+      {
+        "id": "d3_3",
+        "level": 2,
+        "title": "Bacio Vincolante",
+        "description": "Il bacio del vampiro causa sensazioni quasi estatiche nei mortali. I mortali che sperimentano il Bacio Estatico del Fratello non solo sono temporaneamente galvanizzati, ma si trovano irrimediabilmente dipendenti da esso, cercando disperatamente il vampiro per un nuovo assaggio. Talvolta, questa dipendenza può condurre i mortali a danneggiarsi o persino a perdere la vita. È persino possibile assuefare altri vampiri, sebbene ciò comporti il rischio di sviluppare un Legame di Sangue con la vittima. Una volta legato, il vampiro diventa incapace di utilizzare questo potere su altri Fratelli, limitandosi a impiegarlo esclusivamente sui mortali.",
+        "cost": "Gratuito",
+        "system": "Il vampiro può decidere se utilizzare o meno questo potere ogni volta che si nutre e soddisfa almeno 1 livello di Fame. La vittima riceve un bonus pari a metà del punteggio di Ascendente del vampiro (arrotondato per eccesso) su un Attributo Sociale a sua scelta. Il beneficio perdura per una sola notte. Al dissolversi dell'effetto, scoppia una crisi di astinenza e tutte le azioni della vittima, non direttamente mirate a ottenere un nuovo \"assaggio\", subiscono una penalità in dadi pari al bonus iniziale. Una vittima in astinenza può spendere un punto di Volontà per ignorare le penalità per una scena, e le penalità scompaiono dopo un numero di notti pari al punteggio di Ascendente del vampiro. Questo potere non può essere utilizzato su altri vampiri da parte di un fruitore assoggettato a un Legame di Sangue. Inoltre, il potere non può essere acquisito dai vampiri con il Pregio Invincolabile.",
+        "duration": "Un numero di notti pari al punteggio di Ascendente del fruitore."
+      },
+      {
+        "id": "d3_4",
+        "level": 3,
+        "title": "Incanto",
+        "description": "Il vampiro focalizza il suo fascino innaturale su una singola persona, scatenando un rapimento estatico o un'infatuazione simile al colpo di fulmine o all'incontro con l'idolo di una vita. La persona fa del suo meglio per restare nelle grazie del vampiro, ma senza arrivare a fare del male a se stessa o ai propri cari.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Carisma + Ascendente contro Autocontrollo + Prontezza",
+        "system": " Il vampiro deve solo catturare l'attenzione della vittima e prevalere in un confronto di Carisma + Ascendente contro Autocontrollo + Prontezza. L'effetto dura circa un'ora, più uno per punto nel margine di successo. L'effetto può essere rinnovato indefinitamente, ma un fallimento ne pone fine e rende il soggetto immune per il resto della notte. Se prevale, il vampiro somma un numero di dadi pari al suo Ascendente a qualsiasi riserva Sociale contro il soggetto. Le richieste che risultano ovviamente nel ferimento del soggetto o di coloro che ama e quelle che si oppongono ai suoi Precetti falliscono e richiedono subito un nuovo confronto come sopra, o l'Incanto si spezza di colpo.",
+        "duration": "Un'ora più uno per punto di margine"
+      },
+      {
+        "id": "d3_5",
+        "level": 3,
+        "title": "Sguardo Terrificante",
+        "description": "Svelando per un attimo la sua vera natura, il vampiro suscita un terrore indicibile in un singolo soggetto. I mortali si rannicchiano, scappano o si paralizzano per la paura, mentre i vampiri si sottomettono come cani bastonati o fuggono in preda a un frenetico Rötschreck.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Carisma + Ascendente contro Autocontrollo + Fermezza",
+        "system": "Scoprendo le zanne e il viso deformato da una smorfia predatoria, il Cainita esegue un confronto di Carisma + Ascendente contro Autocontrollo + Fermezza del bersaglio. Fallimento: I mortali non possono agire se non per autodifesa, arretrando per un turno. I vampiri non sono influenzati. Vittoria: I mortali fuggono spaventati. I vampiri non possono agire se non per autodifesa e arretrano per un turno a meno che non spendano punti Volontà pari al margine di successo del fruitore (minimo 1). Vittoria critica: I mortali si paralizzano o si rannicchiano in posizione fetale. I vampiri devono eseguire un test di frenesia da paura (Difficoltà 3). Se lo superano, sono comunque influenzati come sopra.",
+        "duration": "Un turno"
+      },
+      {
+        "id": "d3_6",
+        "level": 4,
+        "title": "Convocazione",
+        "description": "Il Fratello può richiamare a sé qualsiasi persona, mortale o vampiro, su cui abbia precedentemente usato Soggezione, Incanto o Maestà, o che abbia assaporato il suo Sangue almeno una volta. Il soggetto è consapevole di chi lo sta convocando e della sua posizione. La chiamata perdura per una notte; successivamente, l'effetto svanisce, ma il fruitore può riattivarlo nelle notti successive per farsi gradualmente raggiungere o nel caso in cui il soggetto sia riluttante. Chiunque sia Convocato si sente attratto verso il vampiro e cerca di raggiungerlo, evitando però di mettersi in pericolo fisico o finanziario. Non venderà la sua casa per comprare un biglietto né mancherà a un incontro vitale, ma potrebbe saltare una normale giornata di lavoro o impegni sociali.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Persuasione + Ascendente contro Autocontrollo + Intelligenza",
+        "system": "Il vampiro si concentra per 5 minuti sulla persona da convocare, quindi tira Persuasione + Ascendente contro Autocontrollo + Intelligenza. Se vince, il bersaglio sente la chiamata, ma può scegliere di non obbedire. Con una vittoria critica, il bersaglio arriva nel più breve tempo possibile senza mettere in pericolo immediato la propria incolumità.",
+        "duration": "Una notte"
+      },
+      {
+        "id": "d3_7",
+        "level": 4,
+        "amalgama": "Dominazione 1",
+        "title": "Voce Irresistibile",
+        "description": "L'Ascendente del vampiro diventa un tramite della sua Dominazione: ora gli basta che le vittime sentano la sua voce per farsi obbedire tramite quella Disciplina.",
+        "cost": "Nessun costo aggiuntivo",
+        "system": "La voce del vampiro è ora sufficiente per Dominare un bersaglio. Ciò non si applica alla voce trasmessa da media elettronici quali telefoni, televisione o altoparlanti nel campanello.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d3_8",
+        "level": 5,
+        "amalgama": "Dominazione 1",
+        "title": "Voce Irresistibile",
+        "description": "Al culmine della Disciplina, il vampiro può amplificare la sua espressione a livelli soprannaturali. Che appaia incredibilmente bello, mostruosamente terrificante o assolutamente autorevole, chiunque lo veda è inebetito dalla sua immagine e incapace di agire o persino parlare contro di lui. Sperimentare Maestà significa essere in presenza del divino… o del diabolico.",
+        "cost": "Due Prove di Risveglio",
+        "dicePool": "Carisma + Ascendente contro Autocontrollo + Fermezza",
+        "system": "Le persone in presenza del vampiro possono solo guardarlo a bocca aperta o distogliere gli occhi per paura o sottomissione. Chiunque voglia agire in qualsiasi modo in opposizione al fruitore, a parte per difendersi, deve prevalere in un confronto di Autocontrollo + Fermezza contro Carisma + Ascendente del vampiro. Una vittoria consente un turno di libertà più uno per punto di margine; solo una vittoria critica consente di resistere all’effetto per l’intera scena.",
+        "duration": "Una scena"
+      }
+    ]
+  },
+  {
+    "id": "d4",
+    "title": "Oscurazione",
+    "description": "I poteri di Oscurazione operano attraverso un mesmerismo ambientale di basso livello. Nonostante gli osservatori possano vedere il vampiro, le loro menti scelgono consapevolmente di ignorarlo. I testimoni si spostano in modo inconsapevole se il fruitore blocca la loro strada, e sono in grado di razionalizzare tale comportamento se interrogati. Questa Disciplina influisce su tutti e cinque i sensi, a meno che non sia diversamente specificato. Oscurazione, tuttavia, ha i suoi limiti: l'illusione crolla se l'osservatore non può ignorare il vampiro o se questi lo mette con le spalle al muro. Ad esempio, un vampiro che blocca una porta non può mantenere l'Oscurazione contro chi desidera attraversarla. Azioni violente, alzare la voce, tentativi di borseggiare falliti e armi sollevate per colpire possono mettere a rischio l'efficacia dell'Oscurazione. Tuttavia, è possibile bisbigliare senza interrompere gli effetti. In generale, questa Disciplina non fornisce protezione dalla sorveglianza tecnologica. Sebbene un umano che sorveglia il vampiro possa faticare nell'orientare l'ottica nel verso giusto, videocamere e sensori di altro tipo possono comunque rilevarlo. Un vampiro che utilizza il potere di \"Percepire l'Invisibile\" (Auspex 1) può individuare personaggi Oscurati mediante un confronto di Prontezza + Fermezza contro Prontezza + Oscurazione. Chiunque può scoprire un vampiro Oscurato che attiri su di sé l'attenzione; questi osservatori si rendono conto della rivelazione involontaria attraverso un confronto di Prontezza + Allerta (o Fermezza + Allerta in caso di ricerca attiva) contro Prontezza + Furtività. Questo si applica anche agli attacchi a sorpresa da parte dell'Oscurazione: la vittima ha sempre la possibilità di percepire il pericolo un attimo prima del colpo.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/a/a8/Obfuscate_symbol.png/1024px-Obfuscate_symbol.png",
+    "type": "Mentale",
+    "masquerade": "Bassa. Non essere visto è, alla fine, lo scopo principale di questa Disciplina.",
+    "resonance": "Melanconica. Individui ignorati e invisibili, senzatetto, reietti e depressi; spie, borseggiatori, servitori, vagabondi e attrezzisti teatrali, nonché ogni persona che opera dietro le quinte.",
+    "clanAffinity": [
+      "Banu Haqim",
+      "Malkavian",
+      "The Ministry",
+      "Nosferatu",
+      "Ravnos"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d4_1",
+        "level": 1,
+        "title": "Manto d'Ombre",
+        "description": "Rimasto completamente immobile, il vampiro si fonde con l'ambiente circostante. Mentre rimane dietro una copertura di qualsiasi tipo, non emette rumori né si muove, e può essere rilevato solo da mezzi tecnologici o soprannaturali.",
+        "cost": "Gratuito",
+        "system": "Si applicano le regole generali di Oscurazione. L'effetto permane fintanto che il fruitore non si muove o non viene individuato con altri mezzi.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d4_2",
+        "level": 1,
+        "title": "Silenzio di Morte",
+        "description": "Popolare tra i Banu Haqim, questo potere silenzia completamente il vampiro, eliminando ogni rumore che emette. Come gli altri poteri di Oscurazione, funziona solo sulle persone nell'area di udito e non inganna microfoni o altri rilevatori elettronici. A differenza di altre facoltà di Oscurazione, si concentra solo sulla sfera uditiva, ma la sua efficacia è maggiore. Un vampiro deve fare un notevole rumore per interrompere il silenzio.",
+        "cost": "Gratuito",
+        "system": "Il vampiro silenzia passi, vestiti, piccoli urti e altri rumori emessi. Ciò lo rende indistinguibile se un osservatore potrebbe rilevarlo solo dal rumore, come quando cammina al piano superiore di una casa. Il potere non elimina i suoni prodotti dal fruitore al di fuori del suo spazio personale (lanciare oggetti, farli cadere o sbattere porte, ad esempio). Tuttavia, il vampiro può essere scoperto solo con \"Percepire l'Invisibile\" (Auspex 1).",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d4_3",
+        "level": 2,
+        "title": "Passaggio Inosservato",
+        "description": "Il vampiro può ora muoversi restando nascosto, diventando effettivamente invisibile, pur con le consuete limitazioni di Oscurazione.",
+        "cost": "Una Prova di Risveglio",
+        "system": "A condizione che il vampiro non emetta odori pungenti e rumori più forti di un sussurro, il potere funziona automaticamente. L'osservatore può effettuare un tiro di percezione solo se la sua attenzione è attirata sul vampiro. \"Percepire l'Invisibile\" (Auspex 1) può rilevare il vampiro nascosto secondo le normali regole di Oscurazione. Tuttavia, il fruitore non può utilizzare questo potere per sparire quando è osservato direttamente: in tal caso, fallisce automaticamente.",
+        "duration": "Una scena o fino alla scoperta"
+      },
+      {
+        "id": "d4_4",
+        "level": 3,
+        "title": "Alone nello Schermo",
+        "description": "Popolare tra i Banu Haqim, questo potere silenzia completamente il vampiro, eliminando ogni rumore che emette. Come gli altri poteri di Oscurazione, funziona solo sulle persone nell'area di udito e non inganna microfoni o altri rilevatori elettronici. A differenza di altre facoltà di Oscurazione, si concentra solo sulla sfera uditiva, ma la sua efficacia è maggiore. Un vampiro deve fare un notevole rumore per interrompere il silenzio.",
+        "cost": "Gratuito",
+        "system": "Il vampiro silenzia passi, vestiti, piccoli urti e altri rumori emessi. Ciò lo rende indistinguibile se un osservatore potrebbe rilevarlo solo dal rumore, come quando cammina al piano superiore di una casa. Il potere non elimina i suoni prodotti dal fruitore al di fuori del suo spazio personale (lanciare oggetti, farli cadere o sbattere porte, ad esempio). Tuttavia, il vampiro può essere scoperto solo con \"Percepire l'Invisibile\" (Auspex 1).",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d4_5",
+        "level": 3,
+        "title": "Maschera dei Mille Volti",
+        "description": "Invece di svanire completamente, il vampiro può assumere l'aspetto di un comune sconosciuto, qualcuno che ci si aspetterebbe di trovare nella zona. A differenza di altri poteri di Oscurazione, questo gli consente di interagire e comunicare con gli altri. Non solleva sospetti significativi in quanto la sua presenza sembra completamente plausibile (cioè non inganna chi non si aspetta di trovare nessuno o che reagirebbe con ostilità a uno sconosciuto). Tuttavia, il potere non fornisce documenti o altri mezzi per eludere un controllo dell'identità.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Non è richiesto alcun tiro. Chiunque veda il vampiro percepirà un volto comune dello stesso sesso e corporatura del fruitore. I vestiti diventano altrettanto banali, a seconda dell'ambiente circostante. In un ufficio, il vampiro può sembrare un guardiano notturno, mentre in una fabbrica sembra indossare una tuta da lavoro. \"Percepire l'Invisibile\" (Auspex 1) può contrastare il potere normalmente.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d4_6",
+        "level": 4,
+        "title": "Occultamento",
+        "description": "Questo potere consente al vampiro di nascondere un oggetto inanimato come una porta, un'auto o una piccola casa. Come altri poteri di Oscurazione, ciò non rende l'oggetto veramente invisibile, ma crea un effetto ipnotico permanente che induce quasi chiunque a ignorarne l'esistenza. Questo potere è particolarmente efficace, poiché è improbabile che l'oggetto attiri l'attenzione, a meno che qualcosa non faccia urtare i passanti contro di esso o qualcuno non lo indichi.",
+        "cost": " Una Prova di Risveglio",
+        "system": "Non è richiesto alcun tiro aggiuntivo se il vampiro è osservato in diretta. Gli osservatori sono considerati fisicamente presenti per il vampiro ai fini della Disciplina. I test per identificarlo successivamente su filmati, foto o altre registrazioni effettuate mentre l'Oscurazione era attiva hanno una difficoltà aumentata di +3. Il fruitore ottiene anche 3 dadi extra alle riserve usate per tentare di eludere sorveglianza e contromisure elettroniche.",
+        "duration": "In base al potere usato"
+      },
+      {
+        "id": "d4_7",
+        "level": 1,
+        "title": "Svanire",
+        "prerequisite": "Manto d'Ombre",
+        "description": "Il vampiro può attivare Manto d'Ombre e Passaggio Inosservato anche se lo guardano direttamente: sembra svanire in un battito di ciglia, e persino il suo ricordo diventa indistinto e nebuloso",
+        "cost": " Come il potere amplificato",
+        "dicePool": "Prontezza + Oscurazione contro Prontezza + Allerta",
+        "system": "Per svanire davanti a un mortale, eseguire un confronto di Prontezza + Oscurazione contro Prontezza + Allerta. Con una vittoria, l'osservatore si chiederà se il vampiro sia mai stato davvero lì; il suo ricordo dell'episodio si offuscherà. Con una vittoria critica, il vampiro svanisce del tutto dalla memoria del soggetto. Il potere non agisce sui ricordi dei vampiri, ma qualsiasi vittoria del fruitore li nasconde come se avesse avviato il potere essendo inosservato. Svanire può essere usato solo una volta per scena.",
+        "duration": "Come il potere amplificato"
+      },
+      {
+        "id": "d4_8",
+        "level": 5,
+        "title": "Ammanatare le Moltitudini",
+        "description": "Il vampiro può nascondere i suoi compagni sotto il mantello di Oscurazione.",
+        "cost": "Una Prova di Risveglio in aggiunta al costo del potere amplificato.",
+        "dicePool": "Intelligenza + Oscurazione",
+        "system": "Il vampiro può estendere i suoi poteri di Oscurazione a un numero di soggetti consenzienti pari alla sua Prontezza, più uno per ogni ulteriore Prova di Risveglio effettuata. Il vampiro può usare sul gruppo uno qualsiasi dei poteri che conosce e, qualora sia necessario tirare, è come se ogni membro del gruppo lo avesse usato su di sé con la riserva del vampiro Oscuratore. I membri del gruppo possono comunque percepirsi a vicenda mentre sono sotto l’effetto del potere. Se uno degli oscurati, a parte il fruitore originale, è scoperto per colpa sua o per l’astuzia di un osservatore, il resto del gruppo rimane nascosto. Se è il fruitore a essere scoperto, lo sono anche tutti gli altri.",
+        "duration": "Come il potere amplificato."
+      },
+      {
+        "id": "d4_8",
+        "level": 5,
+        "title": "Guisa dell'Impostore",
+        "prerequisite": "Maschera dei Mille Volti",
+        "description": "Con qualche preparativo, il vampiro può assumere l’aspetto di uno specifico individuo di qualsiasi sesso o corporatura. Deve studiare attentamente il soggetto imitato, o la messinscena fallirà quando incontra chiunque lo conosca appena più approfonditamente.",
+        "cost": "Una Prova di Risveglio in aggiunta al costo del potere amplificato.",
+        "dicePool": "Prontezza + Oscurazione, Persuasione + Espressività",
+        "system": "Il vampiro deve studiare la faccia da copiare per almeno 5 minuti e da diverse angolazioni. Quindi servono altri 10 minuti per imitarne la voce e i manierismi. Il vampiro può copiare solo apparenze umane, non forme animali. Il Narratore esegue di nascosto un tiro di Prontezza + Oscurazione (Difficoltà 4). Un fallimento significa che la somiglianza non è convincente e chiunque conosca la persona copiata si accorge automaticamente che qualcosa non va. Una vittoria crea un’illusione credibile, ma il fruitore deve eseguire un test di Persuasione + Espressività per imitare parlata e manierismi. Una vittoria critica crea un’illusione perfetta senza bisogno di eseguire altri tiri. \"Percepire l’Invisibile\" (Auspex 1) può penetrare la maschera secondo le regole normali.",
+        "duration": "Una scena."
+      }
+    ]
+  },
+  {
+    "id": "d5",
+    "title": "Potenza",
+    "description": "Tra i membri del clan Brujah c’è un detto popolare: “La tua forza può essere sottovalutata solo una volta”. Potenza è la forza amplificata dalla vitae e supera di gran lunga le capacità fisiche degli altri vampiri. Più impressionante di qualsiasi droga potenziante e più innaturale del fisico di un culturista dopato, questa Disciplina rappresenta la Bestia scatenata nei pugni, piedi, arti e pura possanza corporea di un vampiro. Non è adatta solo a colpire, sebbene sia perfetta per tale scopo: rappresenta la capacità di costringere il corpo a compiere azioni impossibili per i mortali.  La sua incongruenza sfida ogni altra Disciplina: un Nosferatu dall’aspetto vecchio e fragile può colpire più forte di un peso massimo umano, mentre un Brujah abbracciato da bambino può decapitare una vittima con un solo fendente.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/a/a8/Potence_symbol.png/1024px-Potence_symbol.png",
+    "type": "Fisica",
+    "masquerade": "Da media ad alta. Le sue applicazioni minori possono essere giustificate come \"forza isterica\", ma quando nei marciapiedi appaiono crepe e gli edifici cominciano a sbriciolarsi, tale spiegazione perde anche il poco di credibilità che aveva.",
+    "resonance": "Collerica. I forti e sani; atleti e giovani in perfetta forma, palestrati, lottatori, muratori e taglialegna, portuali.",
+    "clanAffinity": [
+      "Brujah",
+      "Nosferatu",
+      "Lasombra"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d5_1",
+        "level": 1,
+        "title": "Corpo Micidiale",
+        "description": "Il vampiro può infliggere danni terrificanti ai mortali, lacerando la carne e spezzando le ossa con le sole mani.",
+        "cost": "Gratuito",
+        "system": "Se desiderato, gli attacchi a mani nude del vampiro infliggono danni Aggravati alla Salute dei mortali, ignorando un livello di armatura per ogni punto di Potenza del vampiro.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d5_2",
+        "level": 1,
+        "title": "Salto Sovraumano",
+        "description": "La potenza emana dalle braccia del vampiro, consentendogli di balzare a altezze e distanze che sfidano la natura umana.",
+        "cost": "Gratuito",
+        "system": "Il vampiro può effettuare salti in verticale fino a 3 volte il suo livello di Potenza e in orizzontale fino a 5 volte il suo livello. Questi balzi possono essere eseguiti senza la necessità di prendere la rincorsa.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d5_3",
+        "level": 2,
+        "title": "Prodezza",
+        "description": "Il Sangue potenziato conferisce al vampiro una forza sovrumana, potenziando i danni inflitti a mani nude e la forza generale.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Attivato, il valore di Potenza si aggiunge ai danni inflitti a mani nude e alle prove di Forza, mentre la metà del valore (arrotondato per eccesso) si somma ai danni da Mischia.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d5_4",
+        "level": 3,
+        "title": "Prodezza",
+        "description": "Nota anche come \"Bacio Feroce\", questo potere consente al vampiro di utilizzare una forza interiore profana quando si nutre, provocando danni devastanti durante il processo.",
+        "cost": "Gratuito",
+        "system": "Il vampiro può svuotare completamente un umano in pochi secondi, infliggendo danni Aggravati alla Salute in base al livello di Fame soddisfatta. Usare Nutrizione Brutale su un vampiro morto causa solo danni Superficiali. In combattimento, il potere è attivato dopo un attacco riuscito di Rissa con le zanne. L'armatura non protegge da Nutrizione Brutale, poiché le lesioni avvengono principalmente all'interno.",
+        "duration": "Una nutrizione"
+      },
+      {
+        "id": "d5_5",
+        "level": 3,
+        "title": "Scintilla di Collera",
+        "amalgama": "Ascendente 3",
+        "description": "Mescolando Ascendente e Potenza, il vampiro è in grado di accendere la rabbia e persino la frenesia negli astanti con la stessa facilità con cui ispira sottomissione o terrore. Il fruitore deve fare attenzione a non scatenare una folla inferocita su di sé invece che sul bersaglio o contro se stessa.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Persuasione + Potenza",
+        "system": "Quando attivo, il vampiro può aggiungere il suo valore di Potenza a qualsiasi tentativo di incitare alla violenza una persona o una folla. Inoltre, può attivare il potere e eseguire un confronto di Persuasione + Potenza contro Autocontrollo + Intelligenza di un altro vampiro: in caso di vittoria, quest'ultimo deve superare una prova di frenesia da rabbia a Difficoltà 3.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d5_6",
+        "level": 3,
+        "title": "Stretta Prodigiosa",
+        "description": "Concentrando la sua forza soprannaturale nelle dita delle mani e dei piedi, il vampiro è in grado di afferrare e conficcare le estremità in praticamente qualsiasi superficie, permettendogli di scalare e restare appeso a muri e soffitti anche senza appigli. Tuttavia, le superfici mostrano chiare deformazioni e fori, indicando l'applicazione di forza bruta piuttosto che una normale aderenza come nei supereroi.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Usando questo potere, il vampiro supera automaticamente qualsiasi test di abilità per scalare una superficie non metallica. Su discrezione del Narratore, può anche scalare rivestimenti di rame, bronzo o altri metalli teneri. Le superfici di vetro sottile possono sbriciolarsi per la pressione, e per aderire con i piedi il vampiro deve essere scalzo. La scalata o l'aderenza lasciano indizi evidenti a chiunque superi un test di Intelligenza + Investigare a Difficoltà 2. Non è necessario effettuare un tiro per individuare le impronte sul vetro.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d5_7",
+        "level": 4,
+        "title": "Sorso della Possanza",
+        "description": "Il Sangue del vampiro si satura di Potenza, donando a chiunque ne beva una parte di questo potere. Questo potere è l'equivalente di Sorso della Finezza.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Bere direttamente una misura di Sangue dal vampiro, pari a una Prova di Risveglio, conferisce temporaneamente metà dei suoi pallini di Potenza (arrotondati per difetto). Il bevitore acquisisce temporaneamente gli stessi poteri del vampiro fino a quel livello.",
+        "duration": "Una notte; per i vampiri, fino alla successiva nutrizione o finché la Fame non sale a 5."
+      },
+      {
+        "id": "d5_8",
+        "level": 5,
+        "title": "Pugno di Caino",
+        "description": "Le mani nude del vampiro diventano strumenti letali, capaci di infliggere ferite devastanti a mortali e vampiri. Può maciullare, trafiggere, impalare, decapitare e persino strappare il cuore dal petto delle vittime.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Per una scena, il vampiro infligge danni Aggravati alla Salute durante i test di Rissa, riducendo letteralmente in pezzi gli avversari a mani nude.",
+        "duration": "Una scena"
+      }
+    ]
+  },
+  {
+    "id": "d6",
+    "title": "Proteide",
+    "description": "I poteri di Proteide, che consentono di alterare la forma o modificare il corpo del vampiro, influenzano anche gli indumenti, gli oggetti ingeriti e altri piccoli articoli indossabili (entro pochi grammi). Tuttavia, non agiscono su oggetti di dimensioni maggiori come zaini, borse e borsoni sportivi. Questa limitazione spinge coloro che utilizzano Proteide a viaggiare leggeri.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/8/8a/Protean_symbol.png/1024px-Protean_symbol.png",
+    "type": "Fisica",
+    "masquerade": "Alta. Proteide è una delle Discipline più evidentemente soprannaturali, e tutti i suoi poteri costituiscono un rischio per la Masquerade.",
+    "resonance": "Sangue animale, in particolare se appartenente alla specie corrispondente alla trasformazione; sangue di lupi mannari, creature fatate e altre chimere soprannaturali, sia di uomo che di bestia.",
+    "clanAffinity": [
+      "Gangrel",
+      "The Ministry",
+      "Tzimisce"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d6_1",
+        "level": 1,
+        "title": "Levità della Piuma",
+        "description": "Il vampiro acquisisce la capacità di ridurre la propria massa e densità, diventando praticamente privo di peso. Questo gli consente di evitare danni significativi da cadute, collisioni o lanci improvvisi. Tuttavia, la sua forza si riduce proporzionalmente, impedendogli di compiere lunghi balzi.",
+        "cost": "Gratuito",
+        "dicePool": "Prontezza + Sopravvivenza",
+        "system": "Se il vampiro ha il tempo di prepararsi, non è necessario alcun tiro. Attivare il potere come reazione, ad esempio durante una caduta improvvisa, richiede un tiro di Prontezza + Sopravvivenza a Difficoltà 3. Mentre il potere è attivo, il vampiro è immune ai danni da caduta, collisione ed essere scagliato. A discrezione del Narratore, il vampiro potrebbe anche non attivare dispositivi attivati a pressione.",
+        "duration": "Finché il vampiro lo desidera"
+      },
+      {
+        "id": "d6_2",
+        "level": 1,
+        "title": "Occhi della Bestia",
+        "description": "Il vampiro illumina i propri occhi con un bagliore rosso soprannaturale, permettendogli di vedere anche nella totale assenza di luce.",
+        "cost": "Gratuito",
+        "dicePool": "Prontezza + Sopravvivenza",
+        "system": "Per attivare il potere non è richiesto alcun tiro. Quando è attivo, il vampiro ignora penalità alla vista imposte dall'oscurità, inclusa quella soprannaturale. Gli occhi del Cainita, inoltre, conferiscono un bonus di 2 dadi ai tentativi di Intimidire i mortali.",
+        "duration": "Finché il vampiro lo desidera"
+      },
+      {
+        "id": "d6_3",
+        "level": 2,
+        "title": "Artigli Ferini",
+        "description": "Il vampiro può trasformare le sue armi naturali in appendici mostruose, conferendo alle unghie una forma acuminata o alle zanne l'aspetto di pugnali giganteschi. Ciò infligge danni Aggravati alla Salute dei mortali.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Per attivare il potere non è richiesto alcun tiro. Mentre è attivo, il vampiro ottiene un bonus di +2 ai danni nelle prove di Rissa e infligge danni Aggravati alla Salute dei mortali. I danni Superficiali inflitti da Armi Ferine non subiscono alcuna riduzione.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d6_4",
+        "level": 3,
+        "title": "Forma Bestiale",
+        "description": "Il vampiro può trasformarsi in un animale di massa approssimativamente equivalente alla sua forma originale. La trasformazione richiede un turno e il vampiro acquisisce attributi fisici, sensi e abilità innate dell'animale scelto, mantenendo un aspetto mondano agli osservatori esterni.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Non è richiesto alcun test. La trasformazione richiede un turno durante il quale il vampiro non può compiere altre azioni. Una volta trasformato, il vampiro acquisisce gli attributi fisici, i sensi e le abilità innate dell'animale scelto, ma con le normali limitazioni comunicative e di manipolazione degli animali. Durante la trasformazione, il vampiro può utilizzare altre Discipline a discrezione del Narratore, ad eccezione di Ascendente, Dominazione, Oscurazione e Stregoneria del Sangue.",
+        "duration": "Una scena, a meno che il vampiro non ritorni alla sua forma normale prima."
+      },
+      {
+        "id": "d6_5",
+        "level": 4,
+        "title": "Metamorfosi",
+        "prerequisite": "Forma Bestiale",
+        "description": "Questo potere conferisce al vampiro una seconda forma animale, consentendogli di alterare anche la sua taglia. Generalmente, i Cainiti amano trasformarsi in pipistrelli, topi, insetti insolitamente grossi o serpenti.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Non è richiesto alcun test. La trasformazione richiede un turno durante il quale il vampiro non può compiere altre azioni. Una volta trasformato, il vampiro acquisisce gli attributi fisici, i sensi e le abilità innate dell'animale scelto, ma con le normali limitazioni comunicative e di manipolazione degli animali. Durante la trasformazione, il vampiro può utilizzare altre Discipline a discrezione del Narratore, ad eccezione di Ascendente, Dominazione, Oscurazione e Stregoneria del Sangue.",
+        "duration": "Una scena, a meno che il vampiro non ritorni alla sua forma normale prima."
+      },
+      {
+        "id": "d6_6",
+        "level": 5,
+        "title": "Forma di Nebbia",
+        "description": "Il vampiro acquisisce il leggendario potere di trasformarsi in una nube di nebbia, percepibile alla vista ma inattaccabile da qualsiasi cosa tranne fuoco, luce solare e aggressioni soprannaturali. Può insinuarsi nelle tubature, crepe e fenditure. Anche se un forte vento lo può sospingere, nessuna forza naturale può dissipare la nuvola.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Non è richiesto alcun tiro. La trasformazione richiede 3 turni, ma il vampiro può accelerarla eseguendo un'ulteriore Prova di Risveglio per turno risparmiato. In forma di nebbia, il vampiro si muove alla velocità di marcia e percepisce normalmente i dintorni tramite sensi mistici. Non può parlare o stabilire il contatto di sguardi e può utilizzare solo Discipline che non richiedono forma o presenza fisica, a discrezione del Narratore. Subisce danni solo da fuoco, luce solare e attacchi soprannaturali non tangibili (come alcuni Rituali).",
+        "duration": "Una scena, a meno che il vampiro non ritorni alla sua forma normale prima."
+      },
+      {
+        "id": "d6_7",
+        "level": 5,
+        "title": "Sciogliere le Catene del Cuore",
+        "description": "Raggiunta la maestria di Proteide, le interiora stesse del fruitore divengono malleabili e quasi viscose. Il cuore, sede della vitae e della non vita dei vampiri, si stacca e si muove libero, seppure torpidamente, all'interno del torace. Ciò rende il vampiro straordinariamente difficile da impalettare, poiché la posizione del suo cuore cambia ogni notte e può persino permettergli di liberarsi dalla paralisi.",
+        "cost": "Gratuito",
+        "system": "La difficoltà di qualsiasi test non di combattimento per impalettare il vampiro aumenta di 3. In un combattimento in Mischia, solo una vittoria critica da parte di chi impugna il paletto consente di trafiggere il cuore. Anche in tal caso, il Cainita può eseguire una Prova di Risveglio e un tiro di Forza + Fermezza (Difficoltà 5) una volta per ora. Una vittoria implica che riesce a liberarsi dalla paralisi e a espellere il paletto dal suo corpo. Non può tentare l'espulsione se la sua Fame sale a 5.",
+        "duration": "Passivo"
+      }
+    ]
+  },
+  {
+    "id": "d7",
+    "title": "Robustezza",
+    "description": "Molto apprezzata dagli immortali, questa Disciplina conferisce la capacità di resistere agli assalti fisici e mentali. Pochi vampiri sopravvivono più di un secolo senza almeno un pizzico di Robustezza, specialmente in un mondo dove la violenza è comune e nemmeno i Fratelli sono al sicuro. Al giorno d'oggi, i Cainiti la utilizzano meno per resistere al sole e più per sopportare ferite, fuoco e coercizione soprannaturale.  Chi possiede Robustezza esemplifica gli inamovibili pilastri della società vampirica, capaci di resistere a colpi e incantesimi senza smuoversi o mostrare segni di cedimento. Pochi vampiri si sentono sicuri della loro immortalità quanto gli anziani Ferini e Sangue Blu.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/0/06/Fortitude_symbol.png/1024px-Fortitude_symbol.png",
+    "type": "Fisica",
+    "masquerade": "Media. Gli spettatori tendono a reagire in modo sorpreso se assistono a situazioni apparentemente letali da cui il soggetto si rialza incolume. Le giustificazioni comuni includono ricordi alterati dall'emozione del momento (come proiettili che non colpiscono), effetti speciali (interpretato per uno scherzo su YouTube) o la classica scusa \"era sotto l'effetto di PCP\".",
+    "resonance": "Melanconica. Coinvolge individui con esperienze di guerra, abusi o sventure, nonché coloro che hanno affrontato sfide come maratoneti, scalatori, membri di fanteria e forze speciali, e coloro con un sistema immunitario robusto.",
+    "clanAffinity": [
+      "Gangrel",
+      "Hecata",
+      "Salubri",
+      "Ventrue"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d7_1",
+        "level": 1,
+        "title": "Mente Inamovibile",
+        "description": "Il vampiro acquisisce la capacità mistica di resistere a qualsiasi tentativo di influenza attraverso fascino, coercizione o astuzia. Alcuni manifestano questo potere con una calma zen, mentre altri mostrano una caparbietà sovrannaturale.",
+        "cost": "Gratuito",
+        "system": "Il fruitore aggiunge i pallini di Robustezza come dadi extra a qualsiasi tiro per resistere a coercizione, intimidazione, seduzione o altri tentativi di influenza contro la sua volontà. Funziona anche contro abilità soprannaturali come Ascendente e Dominazione.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d7_2",
+        "level": 1,
+        "title": "Resilienza",
+        "description": "Beneficiato da una tenacia soprannaturale, il vampiro può rafforzare la sua resistenza fisica.",
+        "cost": "Gratuito",
+        "system": "Il fruitore somma il valore di Robustezza alle sue caselle di Salute.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d7_3",
+        "level": 2,
+        "title": "Bestie Durevoli",
+        "amalgama": "Animalità 1",
+        "description": "Il fruitore condivide con gli animali che influenza una minima parte della propria solidità sovrannaturale. Sciami brulicanti e bestie di grandi dimensioni mostrano entrambi una resistenza ai danni simile a quella del vampiro stesso.",
+        "cost": "Gratuito (per il famulus); una Prova di Risveglio (per altri animali)",
+        "dicePool": "Costituzione + Animalità (per gli animali non famulus)",
+        "system": "Il vampiro può estendere parte dei suoi poteri di Robustezza alle bestie controllate con Animalità. Qualunque animale influenzato ottiene caselle Salute extra pari ai pallini di Robustezza del Cainita. L'uso del potere sul famulus è gratuito e automatico; per rafforzare altri animali, il fruitore deve eseguire una Prova di Risveglio e un test di Costituzione + Animalità (Difficoltà 3); può rafforzare un animale per punto di margine. Al termine dell’effetto, si rimuovono prima di tutto le caselle Salute rimaste intatte: ciò può provocare la morte dell’animale.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d7_4",
+        "level": 2,
+        "title": "Solidità",
+        "description": "Il vampiro ha la capacità innata di ignorare danni che causerebbero intralcio o inabilitazione nei suoi simili. Benché il potere non offra protezione dalle Debolezze o altri danni Aggravati, i suoi benefici si fanno sentire nel lungo termine.",
+        "cost": "Una Prova di Risveglio",
+        "system": "La Robustezza del vampiro è sottratta da tutti i danni Superficiali che subisce. Ciò si verifica prima di dimezzarli e non può ridurre i danni a meno di uno.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d7_5",
+        "level": 3,
+        "title": "Fortificare la Facciata Interna",
+        "description": "Anziché indurire la struttura fisica del vampiro, questo potere gli consente di proteggere i suoi pensieri ed emozioni dallo scrutamento soprannaturale. La sua mente appare del tutto vuota, mentre la sua aura è, per mancanza di un termine migliore, \"piatta\".",
+        "cost": " Gratuito",
+        "system": "La Difficoltà d’uso di Scrutare l’Anima (Auspex 3), Telepatia (Auspex 5) e poteri simili aumenta di un valore pari a metà della Robustezza del vampiro (arrotondata per eccesso). Se le regole gli consentono di resistere a tali poteri, il vampiro somma invece alla sua riserva il proprio valore di Robustezza.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d7_6",
+        "level": 3,
+        "title": "Sfidare il Flagello",
+        "description": "Preparandosi tramite una spesa di energie, il vampiro può rendersi temporaneamente resistente a fuoco, luce solare e altre gravi ferite che potrebbero avvicinarlo alla Morte Ultima.",
+        "cost": "Prontezza + Sopravvivenza (per l’attivazione istintiva)",
+        "dicePool": "Costituzione + Animalità (per gli animali non famulus)",
+        "system": "Il Cainita può convertire in danni Superficiali un numero di danni Aggravati pari al suo valore di Robustezza, ma non può risanare tali danni per il resto della scena. Il potere converte un certo numero di danni per ogni scena, non per ogni ferita o attacco. Una volta esaurito, il fruitore può rinnovare il potere eseguendo un’altra Prova di Risveglio. Se sottoposto a un pericolo improvviso, può attivarlo istintivamente tramite un tiro di Prontezza + Sopravvivenza (Difficoltà 3) al primo danno Aggravato che subisce. Se fallisce il test, il potere non si attiva; se lo supera, deve eseguire la Prova di Risveglio per pagarne il costo.",
+        "duration": "Una volta per scena o finché esaurito, a seconda di cosa accade prima."
+      },
+      {
+        "id": "d7_7",
+        "level": 4,
+        "title": "Sorso della Tenacia",
+        "description": "Il Sangue del vampiro si impregna di Robustezza, conferendo una parte di questo potere a chiunque lo beva. Questo potere è l'equivalente di Sorso della Finezza (p. 270).",
+        "cost": "Una Prova di Risveglio",
+        "system": "Bere direttamente dal vampiro una misura di Sangue, equivalente a una Prova di Risveglio, conferisce temporaneamente metà dei suoi pallini di Robustezza (arrotondati per difetto). Il bevitore ottiene gli stessi poteri del donatore fino a quel livello.",
+        "duration": "Una notte; per i vampiri, fino alla successiva nutrizione o finché la Fame non sale a 5."
+      },
+      {
+        "id": "d7_8",
+        "level": 5,
+        "title": "Carne di Marmo",
+        "description": "Il Sangue del vampiro indurisce la pelle rendendola lucida e marmorea, flessibile ma capace di fermare quasi qualsiasi colpo prima di rompersi temporaneamente per poi riformarsi. Un vampiro che usa questo potere è quasi impossibile da distruggere, a parte con un colpo fortunato o immobilizzandolo fisicamente.",
+        "cost": "Due Prove di Risveglio",
+        "system": "Con il potere attivo, il vampiro ignora la prima fonte di danni fisici di ogni turno, inclusi il fuoco ma non la luce solare. Se ci sono dubbi su quale fonte sia la “prima”, il Narratore decide basandosi sulla storia o il vampiro ignora la singola fonte più dannosa di quel turno. Una vittoria critica nel tiro di attacco aggira il potere.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d7_9",
+        "level": 5,
+        "title": "Prestanza dal Dolore",
+        "description": "Ferite e menomazioni ora alimentano i poteri del vampiro, rendendolo più forte e veloce ad ogni colpo, taglio o squarcio incassato. Solo la totale distruzione può fermare un Cainita che possiede questo potere di Robustezza.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Attivato il potere, il vampiro non subisce più le penalità dei danni alla Salute come le Menomazioni fisiche. Inoltre, può incrementare un Attributo Fisico di un pallino (senza cambiare le statistiche derivate) per ogni punto di danno sulle sue caselle Salute, Aggravato o Superficiale. I suoi Attributi non possono superare il valore del suo Impeto Sanguigno + 6 tramite questa capacità.",
+        "duration": "Una scena"
+      }
+    ]
+  },
+  {
+    "id": "d8",
+    "title": "Velocità",
+    "description": "La capacità di colpire rapidamente, schivare attacchi e sfuggire agli inseguitori rende i Fratelli predatori estremamente efficaci. Velocità permette ai vampiri di muoversi più velocemente di qualsiasi creatura terrena, ma offre molto di più: i Cainiti che la usano sembrano pensare con la stessa rapidità con cui agiscono. Sebbene alcuni vampiri la utilizzino solo per squartare e pugnalare i nemici senza temere contrattacchi, altri se ne servono per spostarsi da A a B più velocemente di qualsiasi persona a piedi.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/2/2a/Celerity_symbol.png/330px-Celerity_symbol.png",
+    "type": "Fisica",
+    "masquerade": "Medio-alta. Quasi tutti i poteri di Velocità sono chiaramente sovrumani; l'unico vantaggio è che sono molto difficili da registrare in video o fotografie.",
+    "resonance": "Collerica. Paura e terrore estremo, corridori, fruitori di anfetamine e alcaloidi, amanti degli sparatutto in prima persona e simili.",
+    "clanAffinity": [
+      "Banu Haqim",
+      "Brujah",
+      "Toreador"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d8_1",
+        "level": 1,
+        "title": "Grazia Felina",
+        "description": "Il vampiro manifesta un equilibrio e una grazia nei movimenti che eguagliano o superano persino quelli dei migliori trapezisti mondiali. Può camminare e correre senza sforzo su cornicioni e corde tese, mantenendo l’equilibrio sui sostegni più sottili.",
+        "cost": "Gratuito",
+        "system": "Il vampiro supera automaticamente qualsiasi tiro basato su Destrezza o Atletica effettuato per restare in equilibrio. Questo potere non gli permette di restare in equilibrio su supporti che non sono in grado di reggere il suo peso.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d8_2",
+        "level": 1,
+        "title": "Riflessi Veloci",
+        "description": "Anche se i loro corpi non possono ancora sfidare le leggi di natura, un vampiro con questo potere percepisce gli eventi all’istante e può reagire con prontezza sovrumana. Può vedere i proiettili in arrivo e tentare di schivare frecce e pallottole anche se non dispone di copertura.",
+        "cost": "Gratuito",
+        "system": "Il vampiro non subisce penalità alle riserve di difesa per mancanza di copertura dagli attacchi con Armi da Fuoco. Inoltre, può eseguire gratuitamente in ogni turno un’azione minore del valore di 2 dadi, come estrarre o ricaricare un’arma.",
+        "duration": "Passivo"
+      },
+      {
+        "id": "d8_3",
+        "level": 2,
+        "title": "Rapidità",
+        "description": "La padronanza raggiunta dal vampiro gli consente di muoversi e reagire con una velocità vertiginosa.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Il valore di Velocità del personaggio si somma a tutte le sue riserve nei test non relativi al combattimento. Una volta per turno, il vampiro può avvalersi di questo effetto quando si difende usando Destrezza + Atletica.",
+        "duration": "Una scena"
+      },
+      {
+        "id": "d8_4",
+        "level": 3,
+        "title": "Batter d’Occhio",
+        "description": "Il vampiro si avvicina fulmineamente a un nemico, attaccando o fuggendo nel proverbiale batter d’occhio.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Destrezza + Atletica o secondo i casi",
+        "system": "In un turno, il vampiro si muove in linea retta verso un bersaglio, coprendo qualunque distanza entro 50 metri e avendo comunque il tempo di eseguire un’azione come attaccare. Se il terreno è pericoloso deve superare un test di Destrezza + Atletica per non inciampare e fermarsi. Il Narratore può richiedere altri test a sua discrezione, specialmente se il vampiro deve battere un nemico per prendere un oggetto o eseguire un’azione. I vampiri che attaccano con questo potere agiscono come se fossero già impegnati in combattimento all’inizio del turno.",
+        "duration": "Un turno"
+      },
+      {
+        "id": "d8_5",
+        "level": 3,
+        "title": "Traslazione",
+        "description": "Con rapidità abbagliante, il vampiro può correre o scalare qualunque superficie, comprese quelle verticali o i liquidi.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Destrezza + Atletica",
+        "system": "Tiro di Destrezza + Atletica con Difficoltà da 3 a 6, a seconda di pendenza e superficie. Ogni punto di margine fa arrivare il vampiro più in alto o più lontano; un margine di 0 consente di raggiungere un bersaglio vicino, un 1 un bersaglio un po’ più distante e così via. Il Narratore deve informare il giocatore anzitempo se il bersaglio è troppo lontano per tentare la Traslazione; come regola generale, qualsiasi cosa a più di 60 m sull’acqua (o più di 30 piani di un edificio) probabilmente eccede la portata del potere.",
+        "duration": "Un turno"
+      },
+      {
+        "id": "d8_6",
+        "level": 4,
+        "title": "Mira Infallibile",
+        "amalgama": "Auspex 2",
+        "description": "Il mondo circostante rallenta drasticamente e il Cainita può mirare e sparare con qualunque arma come se il bersaglio fosse immobile.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Destrezza + Atletica",
+        "system": "Il bersaglio non esegue tiri per schivare o difendersi, e l’attacco è eseguito a Difficoltà 1. Un nemico che possieda Velocità 5 può annullare l’effetto eseguendo la sua Prova di Risveglio e difendendosi alla stessa velocità.",
+        "duration": "Un singolo attacco"
+      },
+      {
+        "id": "d8_7",
+        "level": 4,
+        "title": "Sorso della Finezza",
+        "description": "Il Sangue del vampiro si satura di Velocità e conferisce una parte di tale potere a chiunque lo beva. Pur essendo il primo passo verso il Legame di Sangue, i servitori o gli asserviti già vincolati non hanno di queste preoccupazioni e persino gli alleati non vincolati possono decidere di correre il rischio in cambio di un temporaneo potere.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Bere direttamente dal vampiro una misura di Sangue pari a una Prova di Risveglio conferisce temporaneamente metà dei suoi pallini di Velocità (arrotondati per difetto). Il bevitore ottiene gli stessi poteri del donatore fino a quel livello, tranne quelli di Amalgama.",
+        "duration": "Una notte; per i vampiri, fino alla successiva nutrizione o finché la Fame non sale a 5"
+      },
+      {
+        "id": "d8_8",
+        "level": 5,
+        "title": "Colpo Fulmineo",
+        "description": "Più veloce di quanto l’occhio possa seguirlo, il vampiro sferra con il pugno o un’arma da mischia un attacco così fulmineo che il bersaglio non può difendersi o compiere azioni evasive.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Il potere va attivato prima di eseguire un attacco in mischia. Il bersaglio non esegue tiri per schivare o difendersi, e l’attacco è eseguito a Difficoltà 1. Un nemico che possieda Celerità 5 può annullare l’effetto eseguendo la sua Prova di Risveglio e difendendosi alla stessa velocità.",
+        "duration": "Una notte; per i vampiri, fino alla successiva nutrizione o finché la Fame non sale a 5"
+      },
+      {
+        "id": "d8_9",
+        "level": 5,
+        "title": "Spaccare il Secondo",
+        "description": "La rapidità a cui si muove il vampiro coincide con la sua percezione sovrumana, consentendogli di reagire istantaneamente agli eventi circostanti. Gli aggressori scoprono che la loro preda è già alle loro spalle e i favori richiesti sono già stati completati prima che le parole escano dalla bocca dei supplicanti.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Il giocatore può soppiantare – entro limiti ragionevoli – il racconto degli eventi esposto dal Narratore. Può scegliere di fare attraversare al suo personaggio una porta prima che si chiuda, aggirare un agguato dopo che è scattato, sfuggire rotolando a un’esplosione e così via. L’azione dev’essere ragionevole e non richiedere più di qualche secondo nel tempo reale. Il Narratore decide quali Abilità sono messe (se necessario) alla prova per eseguire l’azione usando il potere.",
+        "duration": "Grosso modo un’azione, a discrezione del Narratore"
+      }
+    ]
+  },
+  {
+    "id": "d9",
+    "title": "Stregoneria del Sangue",
+    "description": "La Stregoneria del Sangue si distingue come una Disciplina speciale, conferendo non solo poteri come le altre Discipline ma anche sbloccando la facoltà di eseguire Rituali fino al livello di competenza del vampiro. Sebbene i suoi poteri standard possano sembrare relativamente modesti, la versatilità offerta dai Rituali costituisce una compensazione più che sufficiente, a condizione che il vampiro sia in grado di apprenderli. Durante la creazione del personaggio, il giocatore può selezionare un Rituale di Livello 1 se possiede almeno un pallino di Stregoneria del Sangue. Successivamente, sarà in grado di acquisirne altri al costo del loro livello moltiplicato per 3 punti esperienza. L'apprendimento di nuovi Rituali nel corso del gioco richiede tempo ed esperienza: per acquisirne uno, è necessario dedicare settimane di studio pari almeno al quadrato del suo livello.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/8/89/Blood_Sorcery_symbol.png/330px-Blood_Sorcery_symbol.png",
+    "type": "Stregoneria",
+    "masquerade": "Da bassa ad alta. La manifestazione dei singoli poteri e dei Rituali varia almeno quanto i loro effetti.",
+    "resonance": "Sanguigna. Pur non essendo intrinseca alla vitae, la Stregoneria del Sangue risponde prontamente al sangue di occultisti, arcanisti, capi di culto umani, nonché agli emofili e bibliofili.",
+    "clanAffinity": [
+      "Banu Haqim",
+      "Tremere"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d9_1",
+        "level": 1,
+        "title": "Assaggio del Sangue",
+        "description": "Assaporando una goccia di sangue, il Cainita è in grado di discernere alcuni tratti basilari di colui che lo ha versato.",
+        "cost": "Gratuito",
+        "dicePool": "Fermezza + Stregoneria del Sangue",
+        "system": "Il vampiro gusta il sangue sulla punta della lingua e lancia un tiro di Fermezza + Stregoneria del Sangue (Difficoltà 3). Con una vittoria, può determinare la Risonanza e l'intensità del sangue umano. Inoltre, può identificare se il sangue appartiene a un mortale, un ghoul, un vampiro o un'altra creatura soprannaturale (senza rivelarne la specifica natura). Assaporare la vitae permette anche di individuare la Potenza del Sangue di un Cainita. Una vittoria critica rivela se il soggetto ha commesso diablerie e la sua Generazione esatta, se noto al fruitore.",
+        "duration": "N.A."
+      },
+      {
+        "id": "d9_2",
+        "level": 1,
+        "title": "Vitae Corrosiva",
+        "description": "Alterando le proprietà di parte del suo sangue, il vampiro può renderlo altamente corrosivo per le sostanze inerti, consentendogli di decomporre quasi ogni oggetto inanimato.",
+        "cost": "Una o più Prove di Risveglio",
+        "system": "Il vampiro si concentra per un turno, facendo fuoriuscire il suo sangue da una ferita aperta e versandolo su un oggetto non vivente. Ogni Prova di Risveglio corrode circa 35 cm di materia in ogni direzione dal punto di contatto, richiedendo circa 5 minuti. Materiali più duri possono subire danni minori. La durata è variabile.",
+        "duration": "N.A."
+      },
+      {
+        "id": "d9_3",
+        "level": 2,
+        "title": "Estinguere Vitae",
+        "description": "Il vampiro può rimuovere intenzionalmente le proprietà soprannaturali del sangue di un altro Fratello, infliggendogli la Fame mentre le sue riserve interiori si esauriscono.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Intelligenza + Stregoneria del Sangue contro Costituzione + Fermezza",
+        "system": "Il vampiro si concentra per un turno e compie gesti poco appariscenti, confrontando Intelligenza + Stregoneria del Sangue contro Costituzione + Fermezza del bersaglio. Una vittoria aumenta la Fame del bersaglio di 1, mentre una vittoria critica la incrementa di 2. La vittima può comprendere chi la sta attaccando con un confronto di Intelligenza + Occulto contro Prontezza + Sotterfugio.",
+        "duration": "N.A."
+      },
+      {
+        "id": "d9_4",
+        "level": 3,
+        "title": "Potenza Sanguigna",
+        "description": "Il vampiro può concentrare temporaneamente il proprio sangue, aumentandone la potenza.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Fermezza + Stregoneria del Sangue",
+        "system": "Il vampiro lancia un tiro di Fermezza + Stregoneria del Sangue con Difficoltà 2 + la sua Potenza del Sangue. Una vittoria incrementa la sua Potenza del Sangue di 1 per la scena, mentre una vittoria critica la incrementa di 2. Il vampiro può superare il limite concesso dalla sua Generazione per la durata.",
+        "duration": "Una scena o una notte"
+      },
+      {
+        "id": "d9_5",
+        "level": 3,
+        "title": "Tocco dello Scorpione",
+        "description": "Il vampiro può trasformare parte del suo sangue in un veleno paralizzante per mortali e vampiri.",
+        "cost": "Una o più Prove di Risveglio",
+        "dicePool": "Forza + Stregoneria del Sangue contro Costituzione + Occulto o Robustezza",
+        "system": "Il vampiro si concentra per un turno, facendo fuoriuscire il suo sangue e producendo abbastanza veleno per ricoprire l'arma da mischia o per essere sputato su un nemico. Sputare il veleno richiede un tiro di attacco, mentre la vittima può difendersi con un confronto di Forza + Stregoneria del Sangue contro Costituzione + Occulto o Robustezza.",
+        "duration": "Il veleno conserva la potenza per una scena."
+      },
+      {
+        "id": "d9_6",
+        "level": 4,
+        "title": "Furto di Vitae",
+        "description": "Attraverso mezzi mistici, il vampiro crea una ferita nell'arteria di una vittima mortale, facendo sprizzare il sangue in un torrente diretto verso la sua bocca aperta. La vittima rimane sottomessa al Bacio e la ferita si richiude al termine dell'alimentazione, indipendentemente dalla sopravvivenza della vittima. Pur essendo uno spettacolo evidente e una chiara violazione della Masquerade durante l'effetto, non lascia traccia una volta terminato.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Prontezza + Stregoneria del Sangue contro Prontezza + Occulto",
+        "system": "Il vampiro fa un gesto di avvicinamento a una vittima mortale entro il suo campo visivo e lancia un confronto di Prontezza + Stregoneria del Sangue contro Prontezza + Occulto. Una vittoria apre una ferita arteriosa, consentendo al vampiro di nutrirsi a distanza. Mentre si nutre, il vampiro non può compiere altre azioni, ma la pressione magica applicata aumenta la velocità di alimentazione al doppio (triplo con una vittoria critica).",
+        "duration": "Una sessione di alimentazione"
+      },
+      {
+        "id": "d9_7",
+        "level": 5,
+        "title": "Calderone di Sangue",
+        "description": "Questo truculento potere permette al vampiro di far bollire nelle vene il sangue di una vittima, causandole danni ingenti e dolori indicibili. Sebbene esistano modi più efficienti per uccidere, pochi si avvicinano a questo livello di crudeltà.",
+        "cost": "Una Prova di Risveglio e l'acquisizione di una (o più) Macchie",
+        "dicePool": "Prontezza + Stregoneria del Sangue contro Autocontrollo + Occulto o Robustezza",
+        "system": "Il vampiro paga il costo e tocca la vittima (Destrezza + Atletica in combattimento o situazioni analoghe), lanciando un confronto di Prontezza + Stregoneria del Sangue contro Autocontrollo + Occulto (i vampiri con Robustezza possono usarla al posto di Occulto). Ogni punto di margine causa un livello di danno Aggravato alla vittima. Mortali che subiscono almeno un punto di danno muoiono urlando, mentre la Fame dei vampiri colpiti aumenta di 1 per ogni punto (fino al massimo di 5).",
+        "duration": "Un turno"
+      },
+      {
+        "id": "d9_8",
+        "level": 5,
+        "title": "Carezza di Baal",
+        "description": "Il Cainita può trasformare il suo sangue in un veleno estremamente aggressivo, letale per mortali e Fratelli indistintamente.",
+        "cost": "Una o più Prove di Risveglio",
+        "dicePool": "Forza + Stregoneria del Sangue contro Costituzione + Occulto o Robustezza",
+        "system": "Usa lo stesso sistema di Tocco dello Scorpione, ma con danni aumentati. Se il veleno va a segno, il fruitore lancia un confronto di Forza + Stregoneria del Sangue contro Costituzione + Occulto (i vampiri con Robustezza possono usarla al posto di Occulto). Se vince il fruitore, il veleno infligge danni Aggravati alla Salute pari al margine di successo. Un mortale che subisce anche solo un punto di danno muore istantaneamente. Se un bersaglio vampiro subisce danni Aggravati dal veleno, il fruitore lancia nuovamente il confronto; con una vittoria, la vittima entra in torpore la prossima volta che si mette a dormire.",
+        "duration": "Il veleno conserva la sua potenza per una scena."
+      }
+    ],
+    "rituals": [
+      {
+        "id": "d9_001",
+        "level": 1,
+        "title": "Cammino del Sangue",
+        "description": "Questo Rituale amplifica gli effetti di \"Assaggio del Sangue\", consentendo al vampiro di scoprire più dettagli del soggetto studiato, presumendo che sia un vampiro.",
+        "ingredients": "Un calice d'argento pieno di Sangue del soggetto (equivalente a una Prova di Risveglio).",
+        "execution": "Il fruitore mescola il suo Sangue a quello del soggetto e recita un incantesimo sul calice per circa un'ora.",
+        "system": "Una vittoria nel tiro del Rituale consente di scoprire Generazione e nome del soggetto, nonché quelli del suo sire. Una vittoria critica rivela inoltre i suoi eventuali Legami di Sangue attivi come regnante o asservito."
+      },
+      {
+        "id": "d9_002",
+        "level": 1,
+        "title": "Passo dell'Insetto",
+        "description": "Il vampiro acquisisce la capacità di aderire ai muri come un grottesco insetto o ragno.",
+        "ingredients": "Un ragno vivo.",
+        "execution": "Il ritualista riempie un'ampolla col suo Sangue e vi schiaccia dentro il ragno, mescolando nella vitae i brandelli dell'insetto prima di berla (ciò non sazia la Fame eventualmente acquisita). Il vampiro può eseguire il Rituale solo su se stesso; bere la miscela non reca benefici agli altri.",
+        "system": "Un Rituale riuscito conferisce la capacità di aderire a muri e soffitti per una scena, mentre una vittoria critica estende la durata all'intera notte. L'incantatore deve aderire alla superficie con mani e piedi e si muove più o meno a metà della propria velocità normale."
+      },
+      {
+        "id": "d9_003",
+        "level": 1,
+        "title": "Pietra Ematica",
+        "description": "Questo Rituale crea una Pietra Ematica, un tracciatore magico del quale il ritualista conosce sempre direzione e distanza approssimativa.",
+        "ingredients": "Una scheggia di minerale di ferro o una piccola calamita e un litro di sangue di qualsiasi provenienza in una ciotola d'argento.",
+        "execution": "Il fruitore versa il suo Sangue nella ciotola e vi recita sopra un incantesimo per un'ora, ripetendo la cantilena nelle due notti successive. In questo periodo, il ciottolo (o calamita) assorbe il sangue; completato il Rituale con successo, il fluido diventa trasparente.",
+        "system": "Il tiro del Rituale va eseguito alla fine della terza notte. Con una vittoria, l'incantatore sintonizza la sua mente sulla Pietra Ematica, di cui può percepire senza errore direzione e distanza. L'effetto dura finché la pietra non è distrutta o è trascorsa una settimana. Il vampiro può creare e rintracciare un numero di pietre pari alla sua Fermezza."
+      },
+      {
+        "id": "d9_004",
+        "level": 1,
+        "title": "Protezione dai Ghoul",
+        "description": "Questo Rituale, creato dai diffidenti Tremere, serve a proteggersi dai servi dei rivali vendicativi. Fa uso delle normali regole sulle Protezioni.",
+        "ingredients": "Nessuno, a parte il consueto requisito di Sangue del ritualista."
+      },
+      {
+        "id": "d9_005",
+        "level": 1,
+        "title": "Risveglio con la Freschezza della Sera",
+        "description": "Eseguito prima dell'alba, questo Rituale consente al vampiro di svegliarsi al minimo segno di pericolo, perfettamente attento e vigile come se fosse notte.",
+        "ingredients": "Ossa e piume bruciate di un gallo.",
+        "execution": "Il ritualista mescola le ceneri con il suo Sangue e traccia un cerchio con la miscela attorno al suo giaciglio.",
+        "system": "Il tiro del Rituale va eseguito solo all'insorgere di un vero pericolo. Se l'incantatore è minacciato durante il giorno, esegue il tiro in quel momento, svegliandosi in caso di vittoria. Per la durata della scena, il vampiro ignora le penalità per restare sveglio di giorno. Con una vittoria critica, l'effetto permane fino all'alba successiva."
+      },
+      {
+        "id": "d9_005",
+        "level": 1,
+        "title": "Risveglio con la Freschezza della Sera",
+        "description": "Eseguito prima dell'alba, questo Rituale consente al vampiro di svegliarsi al minimo segno di pericolo, perfettamente attento e vigile come se fosse notte.",
+        "ingredients": "Ossa e piume bruciate di un gallo.",
+        "execution": "Il ritualista mescola le ceneri con il suo Sangue e traccia un cerchio con la miscela attorno al suo giaciglio.",
+        "system": "Il tiro del Rituale va eseguito solo all'insorgere di un vero pericolo. Se l'incantatore è minacciato durante il giorno, esegue il tiro in quel momento, svegliandosi in caso di vittoria. Per la durata della scena, il vampiro ignora le penalità per restare sveglio di giorno. Con una vittoria critica, l'effetto permane fino all'alba successiva."
+      },
+      {
+        "id": "d9_006",
+        "level": 2,
+        "title": "Cerchio di Protezione dai Ghoul",
+        "description": "Il Rituale crea un cerchio di Protezione circolare sul terreno o pavimento, progettato per impedire il passaggio dei ghoul. Si basa sulle normali regole dei Cerchi di Protezione (p. 274).",
+        "ingredients": "Il ritualista traccia il cerchio usando l'osso di un dito umano immerso nel Sangue."
+      },
+      {
+        "id": "d9_007",
+        "level": 2,
+        "title": "Comunicare con il Sire",
+        "description": "L'incantatore sfrutta il legame tra sire e infante per aprire un ponte mentale, consentendo al secondo di stabilire un contatto telepatico a lunga distanza. Come per altri Rituali, anche questo sta tornando di moda nell'era delle intercettazioni e della sorveglianza elettronica.",
+        "ingredients": "Un oggetto di proprietà del sire e una ciotola d'argento piena di acqua limpida.",
+        "execution": "Il ritualista immerge l'oggetto nell'acqua e fa colare il suo Sangue nella ciotola, concentrandosi per un massimo di 30 minuti sull'ultimo ricordo del suo sire.",
+        "system": "Il tiro del Rituale va eseguito dopo 15 minuti. Una vittoria consente 10 minuti di comunicazione mentale silenziosa e bidirezionale dopo altri 15 minuti. Una vittoria critica consente di comunicare immediatamente. Qualsiasi forte disturbo a entrambi i capi interrompe il collegamento."
+      },
+      {
+        "id": "d9_008",
+        "level": 2,
+        "title": "Illuminare le Tracce della Preda",
+        "description": "Il Rituale consente al vampiro di percepire l'ubicazione precedente di una persona sotto forma di una pista vagamente luminosa e visibile solo a lui.",
+        "ingredients": "Un nastrino di raso bianco.",
+        "execution": "Il ritualista immerge il nastrino nel proprio Sangue, quindi gli dà fuoco.",
+        "system": "Se il tiro del Rituale risulta in una vittoria, il nastrino prende fuoco anche se bagnato, bruciando vivacemente come una miccia. Terminata la combustione, inizia l'effetto. Mentre il Rituale è attivo, il vampiro può seguire la tenue traccia del bersaglio anche nelle zone dove non ha lasciato impronte, come una città affollata. Per seguire le tracce, deve eseguire un tiro di Intelligenza + Sopravvivenza a una Difficoltà pari a 6 meno il margine di successo nel test del Rituale. Il vampiro deve conoscere il bersaglio di vista e percepisce il suo percorso nelle ultime 24 ore. La pista resta visibile per tutta la notte; una vittoria critica estende la durata a due notti."
+      },
+      {
+        "id": "d9_009",
+        "level": 2,
+        "title": "Protezione dagli Spiriti",
+        "description": "Il Rituale protegge un oggetto dagli esseri incorporei quali spettri, fantasmi e spiriti elementali. Ogni tentativo di manipolarlo o attraversarlo scatena l’effetto. Il Rituale fa uso delle normali regole sulle Protezioni (p. 274).",
+        "ingredients": "Una manciata di sale (in alcune versioni una manciata di polvere di mattoni) mescolata al Sangue."
+      },
+      {
+        "id": "d9_010",
+        "level": 2,
+        "title": "Occhi di Babele",
+        "description": "Inghiottendo la lingua e un occhio di una persona, il vampiro ottiene la capacità di leggere e parlare qualsiasi lingua nota alla vittima.",
+        "ingredients": "La lingua e un occhio di una persona mozzati di fresco.",
+        "execution": "Dopo aver tagliato alla vittima gli ingredienti, il vampiro li mastica e li inghiotte (molto probabilmente acquisendo una Macchia).",
+        "system": "La Prova di Risveglio richiesta dal Rituale consente la dissoluzione soprannaturale degli ingredienti inghiottiti. Fatto ciò viene eseguito il tiro del Rituale; una vittoria conferisce all’incantatore la capacità di leggere e parlare qualsiasi idioma noto alla vittima al suo livello di competenza e per una settimana. Una vittoria critica estende la durata a un mese."
+      },
+      {
+        "id": "d9_011",
+        "level": 2,
+        "title": "Verità di Sangue",
+        "description": "Fino a poco tempo fa noto solo ai visir dei Banu Haqim, questo Rituale crea una pozione mistica capace di separare le bugie dalla verità, ed è abbastanza potente da scoprire talvolta fatti sconosciuti al soggetto stesso.",
+        "ingredients": "½ litro di sangue del soggetto.",
+        "execution": "Il ritualista mescola il suo Sangue con quello del soggetto in un recipiente abbastanza grande per consentirgli di immergervi un dito.",
+        "system": "anziché eseguire il solito tiro del Rituale, il vampiro immerge un dito nella miscela ed esegue un confronto di Fermezza + Stregoneria del Sangue contro Autocontrollo + Occulto per ogni dichiarazione esternata dal soggetto. Il primo confronto fallito pone fine al Rituale. Una vittoria rivela se la dichiarazione è veritiera (per quanto ne sa il soggetto). Con una vittoria critica, il soggetto espande involontariamente la sua risposta fornendo più informazioni, inclusi dettagli visti di sfuggita o inconsciamente dimenticati (il Narratore deve informare il vampiro se non vi sono più informazioni pertinenti a quell’argomento). La miscela ribolle e gorgoglia durante l’esecuzione, trasformandosi in cenere alla fine della scena. Questo Rituale non può penetrare Annebbiare la Mente, Oblio della Mente o altri poteri di cancellazione mentale. L’incantatore può senz’altro intuire la causa di un ricordo cancellato o nebuloso, ma non è in grado di recuperarlo."
+      },
+      {
+        "id": "d9_012",
+        "level": 3,
+        "title": "Cammìnare nel Fuoco",
+        "description": "Pur essendo doloroso da attuare, questo Rituale consente all’incantatore di rendere se stesso e persino i suoi compagni resistenti al fuoco.",
+        "ingredients": "La punta di un dito del ritualista.",
+        "execution": "Il vampiro si mozza la punta di un dito, la getta nel suo Sangue e brucia il tutto in un calice o ciotola d’oro.",
+        "system": "Per mozzare il dito serve un test di Costituzione + Fermezza (Difficoltà 3). Con una vittoria nel tiro del Rituale, una fiamma azzurrina consuma Sangue e dito, segnalandone la riuscita. Per il resto della notte, i danni da fuoco subiti dal ritualista sono dimezzati. Il Rituale può essere eseguito su altri, ma le punte delle dita sacrificate devono provenire tutte dall’incantatore. La mutilazione non è sufficiente per essere considerata come danni al vampiro, e la punta del dito ricresce durante il sonno diurno."
+      },
+      {
+        "id": "d9_013",
+        "level": 3,
+        "title": "Cerchio di Protezione dagli Spiriti",
+        "description": "Questo Rituale crea una barriera circolare sul terreno o pavimento con l'obiettivo di impedire il passaggio degli spiriti. Sebbene sia più complesso da eseguire rispetto ad altri Cerchi di Protezione, è uno dei rituali che compare più frequentemente nei grimori e in altre fonti. Un occultista umano potrebbe potenzialmente ricreare una versione funzionante attraverso una prova di Intelligenza + Occulto (Difficoltà 6), ma senza la vitae o un qualche altro aiuto o elemento soprannaturale, non potrebbe completarne l'esecuzione. Il Rituale segue le regole standard per i Cerchi di Protezione (p. 274).",
+        "ingredients": "Il ritualista traccia il cerchio utilizzando un pugnale di ferro immerso in una miscela di Sangue e sale."
+      },
+      {
+        "id": "d9_014",
+        "level": 3,
+        "title": "Deviazione della Maledizione Lignea",
+        "description": "Grazie a questo Rituale, il vampiro ottiene una protezione contro i paletti. Il primo paletto che tenterebbe di trapassare il suo cuore si sbriciola senza penetrare la sua pelle.",
+        "ingredients": "Schegge o segatura di legno.",
+        "execution": "Il vampiro mescola la segatura col suo Sangue e traccia un cerchio attorno a sé. Successivamente, medita per un’ora all'interno del cerchio e conclude il rituale inserendo una scheggia di legno sotto la lingua.",
+        "system": "Il tiro del Rituale non viene effettuato fino a quando il vampiro non viene minacciato da un paletto. In caso di vittoria, il paletto si sbriciola appena tocca la pelle del vampiro (una vittoria critica acceca l'aggressore per 2 turni, investendo di schegge la sua faccia). L'effetto è attivato solo in risposta a veri tentativi di trapassare il vampiro, non a semplici minacce di posizionare il paletto sul suo torace. La protezione perdura fino alla fine della notte o fino a quando la scheggia non viene rimossa dalla lingua del vampiro, a seconda di cosa si verifichi prima."
+      },
+      {
+        "id": "d9_015",
+        "level": 3,
+        "title": "Protezione dai Lupini",
+        "description": "Questo Rituale protegge un oggetto dai lupi mannari in qualsiasi forma. Ogni tentativo di toccarlo scatena l’effetto.Il Rituale fa uso delle normali regole sulle Protezioni (p. 274).",
+        "ingredients": "una manciata di limatura d’argento mescolata al Sangue."
+      },
+      {
+        "id": "d9_016",
+        "level": 3,
+        "title": "Sangue, Addensando la Miscela",
+        "description": "Questo Rituale consente al vampiro di creare una pozione che, ingerita, conferisce il potere di volare o fluttuare alla sua velocità di corsa per una scena. Il vampiro può trasportare una massa pari a quella di un essere umano, ma in questo caso, la sua velocità si riduce a quella di marcia.",
+        "ingredients": "Limatura d’argento mescolata al Sangue.",
+        "execution": "Il vampiro addensa la miscela in un braciere mentre intona formule di potere.",
+        "system": "Il tiro del Rituale viene eseguito durante la fase di addensamento della miscela (una vittoria critica produce due dosi di pozione). L'efficacia della pozione dura per una notte e si attiva all’ingestione, conferendo al ritualista il potere di volare o fluttuare alla sua velocità di corsa per una scena. Il vampiro può trasportare una massa pari a quella di un essere umano, ma in questo caso, la sua velocità si riduce a quella di marcia. Per afferrare e portare via un soggetto non consenziente o trascinare a terra il vampiro volante, serve un confronto tra Forza + Stregoneria del Sangue del ritualista e Forza + Atletica dell’avversario."
+      },
+      {
+        "id": "d9_017",
+        "level": 3,
+        "title": "Richiamo di Dagon",
+        "description": "Questo Rituale, una tecnica terrificante usata dagli assassini Banu Haqim, consente al fruitore di far scoppiare da lontano i vasi sanguigni della vittima, a patto di averla toccata anche solo di sfuggita in passato. Gli umani muoiono in modo alquanto truculento, e persino i vampiri temono questo sterminatore silenzioso.",
+        "ingredients": "Un pugnale cerimoniale di oro intarsiato.",
+        "execution": "Prima di procedere con il Rituale, il vampiro deve avere apposto il suo Sangue sulla vittima, facendoglielo bere, toccando una ferita aperta o anche solo la pelle nuda: una mera goccia spalmata su un braccio è sufficiente. Passata un’ora, ma entro una settimana, l’incantatore può eseguire il Rituale tagliandosi e versando Sangue con il pugnale cerimoniale. Quando le gocce di vitae cadono a terra, inizia l’effetto.",
+        "system": "Tiro di Fermezza + Stregoneria del Sangue contro Costituzione + Fermezza. Ogni punto nel margine di successo causa un danno alla vittima: i suoi vasi sanguigni scoppiano e i suoi polmoni si riempiono di sangue. I danni sono Aggravati per i mortali, Superficiali per i vampiri. Il ritualista può ripetere il processo altre due volte, eseguendo ogni volta una nuova Prova di Risveglio."
+      },
+      {
+        "id": "d9_018",
+        "level": 4,
+        "title": "Cerchio di Protezione dai Lupini",
+        "description": "Questo Rituale si avvale delle regole dei Cerchi di Protezione (p. 274).",
+        "ingredients": "Il ritualista traccia il cerchio usando un pugnale d’argento immerso in una miscela di Sangue ed erba luparia."
+      },
+      {
+        "id": "d9_018",
+        "level": 4,
+        "title": "Difesa del Rifugio Consacrato",
+        "description": "L'esecutore di questo potente Rituale può proteggere il proprio rifugio dal sole stesso, riparando il suo luogo di riposo dai raggi letali mediante una cappa di oscurità mistica.",
+        "ingredients": "Nessuno, a parte il Sangue del ritualista.",
+        "execution": "L'incantatore traccia una serie di simboli e glifi sopra e intorno all'area da proteggere, prestando particolare attenzione a soglie e finestre. Può proteggere anche una porta aperta se l'area si trova all'interno di un edificio (a discrezione del Narratore, il Rituale protegge anche aree grigie o liminali come i ruderi).",
+        "system": "L'esecuzione richiede un'ora o più, a seconda dello stato dell'area da proteggere. L'area non può essere più grande di un cerchio di sei metri di raggio. Il Rituale fallisce automaticamente se l'incantatore esce dall'area in qualsiasi momento dopo avere attivato la protezione. Il tiro del Rituale va eseguito quando sorge il sole; con una vittoria, la zona si ricopre di ombre oscurando la vista all'esterno, impedendo anche ai raggi del sole di colpire i vampiri che sono dentro. Con una vittoria critica, chi sta dentro può osservare fiocamente l'ambiente esterno. Il Rituale dura tutto il giorno, a meno che non sia interrotto anticipatamente se l'incantatore esce dall'area protetta."
+      },
+      {
+        "id": "d9_019",
+        "level": 4,
+        "title": "Occhi del Falco Notturno",
+        "description": "Connesso ai primitivi poteri di Animalità, questo Rituale consente di possedere un pennuto carnivoro, in genere un corvo o un rapace, dirigendone il volo e vedendo attraverso i suoi occhi.",
+        "ingredients": "Gli occhi del volatile usato, cavati al termine del Rituale.",
+        "execution": "Il ritualista fa bere il suo Sangue al pennuto ed entra in trance.",
+        "system": "Dopo una vittoria nel tiro del Rituale, l'incantatore può controllare l'uccello e vedere attraverso i suoi occhi. Con una vittoria critica, il pennuto può compiere azioni semplici come raccogliere oggetti o manipolare chiavi o manopole. Il ritualista può utilizzare gran parte delle Discipline non fisiche attraverso l'uccello, incluso Dominazione se possiede Telepatia (p. 254) o un altro modo per comunicare coi bersagli in via non verbale. Non c'è limite alla distanza che il volatile può raggiungere, ma se il vampiro non gli cava gli occhi alla fine della notte, rimane egli stesso cieco per le tre notti successive."
+      },
+      {
+        "id": "d9_020",
+        "level": 4,
+        "title": "Passaggio Incorporeo",
+        "description": "Il vampiro assume uno stato incorporeo simile a un fantasma, potendo attraversare oggetti solidi e diventando completamente immune ai danni fisici.",
+        "ingredients": "Uno specchio.",
+        "execution": "Il ritualista versa il proprio Sangue sullo specchio, cantilenando, quindi lo rompe.",
+        "system": "Se il tiro del Rituale risulta in una vittoria, l'incantatore assume una forma incorporea finché tiene in mano una scheggia dello specchio rotto. Mentre è in questo stato, è immune a ogni fonte di danno eccetto fuoco, luce solare e armi arcane o rituali capaci di ferire gli spiriti. Il ritualista può essere visto e udito, ma non può interagire fisicamente con nulla e nessuno. Non può Risvegliare il Sangue quando è incorporeo e non ha accesso a nessun reame spirituale; il Rituale non lo trasforma in uno spettro o spirito. Può attraversare muri e altri oggetti, ma deve farlo in linea retta; non può cambiare direzione mentre è dentro la materia solida. L'effetto dura una scena o finché il vampiro non lascia cadere la scheggia. Tornare allo stato naturale mentre si trova dentro la materia solida può avere diversi effetti deleteri, dalla distruzione alla sepoltura a un semplice fastidio momentaneo (un oggetto incastrato nel braccio del ritualista); il risultato esatto è definito dal Narratore."
+      },
+      {
+        "id": "d9_021",
+        "level": 4,
+        "title": "Protezione dai Cainiti",
+        "description": "Questo Rituale difende un oggetto da tutti i vampiri, eccetto l'incantatore. Ogni tentativo di toccarlo scatena l'effetto; tuttavia, un vampiro che esamini la Protezione con Auspex può leggere il nome del ritualista, vincendo un confronto di Intelligenza + Auspex contro Intelligenza + Stregoneria del Sangue. Il Rituale segue le normali regole sulle Protezioni (p. 274).",
+        "ingredients": "Cenere calda da un fuoco ancora acceso; l'incantatore rischia la frenesia da paura e se soccombe, non può tracciare la Protezione per quella notte."
+      },
+      {
+        "id": "d9_022",
+        "level": 5,
+        "title": "Cuore di Pietra",
+        "description": "Eseguendo questo Rituale, il vampiro trasforma in pietra il suo cuore morto. Ciò lo rende immune ai paletti, ma anche – per qualche bizzarro capriccio di magia simpatica – totalmente privo di rimorsi, un automa gelido e insensibile a qualunque stimolo emotivo e sociale… anche più del solito.",
+        "ingredients": "Una lastra di pietra e una candela di cera intrisa del Sangue dell'incantatore.",
+        "execution": "Il ritualista si stende sulla lastra con la candela sul petto, lasciandola bruciare del tutto nel corso di una notte. Quando la fiamma raggiunge il suo petto, infligge al vampiro un punto di danno Aggravato e un test di frenesia da paura (Difficoltà 3). Se fallisce il test, fallisce anche il Rituale. Se il vampiro non entra in frenesia, può eseguire il tiro del Rituale: una vittoria garantisce il successo, mentre una vittoria critica guarisce il danno causato dalla candela. L’effetto permane indefinitamente, e se l’incantatore volesse invertire il processo dovrà ripetere il Rituale.",
+        "system": "Mentre è sotto l’effetto del Rituale, il cuore del vampiro diventa letteralmente di pietra. I paletti non possono trafiggerlo e, se usati per impalettarlo, si spezzano. Il ritualista manifesta inoltre un totale distacco emotivo, sottraendo 3 dadi a ogni tiro di Rimorso nonché alle riserve Sociali attive (non di resistenza) eccetto Intimidire e Dominazione. Non può avvalersi di Ascendente, ma ottiene 3 dadi bonus nelle riserve usate per resistere agli effetti di quella Disciplina."
+      },
+      {
+        "id": "d9_023",
+        "level": 5,
+        "title": "Fuga verso un Vero Rifugio",
+        "description": "Dopo aver preparato due cerchi mistici per mezzo di un arduo rituale, il vampiro può viaggiare istantaneamente da uno all’altro. Il viaggio è unidirezionale, e il ritualista deve indicare uno dei cerchi come partenza e usare l'altro come punto di “arrivo”.",
+        "ingredients": "Due cerchi bruciacchiati di circa un metro di diametro.",
+        "execution": "Il ritualista brucia i cerchi nel terreno o pavimento con una fiamma scoperta, quindi consacra ciascuno di essi. La consacrazione richiede due ore di cantilena per notte e due Prove di Risveglio per tre notti consecutive. In totale, il Rituale prevede che il vampiro investa Sangue per ben 12 Prove di Risveglio.",
+        "system": "Una volta completati i cerchi, l’incantatore non deve fare altro che entrare in quello definito come partenza e concentrarsi per un turno eseguendo il tiro del Rituale (deve effettuare il tiro ogni volta che tenta di viaggiare, ma può fare solo un tentativo per scena). Con una vittoria il vampiro svanisce e riappare subito al centro del cerchio di uscita. Non c’è limite alla distanza tra i due cerchi, ma devono essere incisi nel terreno o nel pavimento di un edificio, non dentro un veicolo. Il ritualista può portare con sé una persona o un oggetto con la stessa taglia di un umano adulto. Se uno qualunque dei cerchi è danneggiato, diventano inerti entrambi. Un vampiro può avere solo una coppia di cerchi attivi alla volta."
+      },
+      {
+        "id": "d9_023",
+        "level": 5,
+        "title": "Verga dell'Inesorabile Dissoluzione",
+        "description": "Sono poche le armi capaci di incutere terrore nei Fratelli, ma il paletto creato con questo Rituale li riempie di paura. La Verga dell'Inesorabile Dissoluzione è forse l’origine del mito secondo il quale il paletto nel cuore distrugge i vampiri; non solo essa punta spontaneamente al cuore del Cainita, ma provoca la Morte Ultima quando raggiunge il bersaglio. Se necessario, la Verga provvede da sé a tale scopo, separando la sua punta che poi si fa lentamente strada nel corpo dell'ospite fino al cuore.",
+        "ingredients": "Un paletto di sorbo rosso istoriato di rune malefiche.",
+        "execution": "Il ritualista infonde nel paletto una misura del suo Sangue equivalente a due Prove di Risveglio mentre lo annerisce su un fuoco di legno di quercia e recita l’incantesimo. Il Rituale richiede 5 ore per essere ultimato.",
+        "system": "Il paletto offre un bonus di 3 dadi a qualsiasi tentativo di trafiggere il cuore di un vampiro, che sia martellato nel petto mentre la vittima dorme, impugnato come arma da mischia o scagliato con una balestra. Il paletto non deve necessariamente essere usato dal ritualista. Se il tiro di attacco vince con un margine di 5 o più, il vampiro si trasforma in polvere in un solo turno, come se fosse divorato da un fuoco invisibile. Se il paletto va a segno, ma il tiro non offre un margine sufficiente (meno di 5) per trafiggere il cuore, il paletto si spezza dentro la ferita e la punta comincia a scavare lentamente verso il cuore della vittima. A seconda di dove ha colpito, ciò può richiedere ore o notti, ma a meno che non sia estratta con mezzi chirurgici o mistici, la Morte Ultima è garantita. Per la rimozione chirurgica, qualcuno che non sia la vittima deve superare un tiro di Destrezza + Medicina (Difficoltà 6) in un intervento che dura fino a 4 ore. Se non è possibile trovare assistenza medica, qualcun altro può togliere la punta mozzando l’arto colpito – a meno che la scheggia letale non abbia già raggiunto il torace."
+      }
+    ]
+  },
+  {
+    "id": "d10",
+    "title": "Oblio",
+    "description": "I poteri dell'oblio permettono il controllo di forze o spiriti di un elemento extradimensionale, originario da un piano di morte e nullità. Quando si manifesta, questo elemento si proietta nella nostra realtà come ombre bidimensionali sulla superficie di oggetti tridimensionali, sia da soli che come estensioni dell'ombra del portatore, serpeggiando lungo il terreno, pareti, oggetti o persone. Ciò li rende impossibili da attaccare con la maggior parte dei mezzi fisici poiché qualsiasi colpo colpirà solo la superficie su cui sono proiettati, piuttosto che le entità stesse.Le proiezioni e gli spiriti dell'oblio subiscono danni da fuoco e luce solare, contando come vampiri con Potenza del Sangue 1 a tal riguardo. Subiscono anche un livello di danno aggravato per round da luci brillanti e dirette, e possono anche essere danneggiati (superficialmente o aggravati) da armi e artefatti benedetti, a seconda della forza della benedizione e di qualsiasi Vera Fede del portatore. I poteri dell'oblio sono inefficaci in aree molto illuminate. La luce del giorno e le stanze senza ombre sono particolarmente limitative, impedendo il funzionamento efficace della Disciplina, anche se la luce ultravioletta e infrarossa non pone restrizioni sull'uso della Disciplina. Le stanze moderatamente illuminate applicano una penalità di un dado al tiro della Disciplina coinvolta.L'uso di questi poteri ha un pesante costo sulla psiche dell'utente, e molti poteri causano Macchie poiché il vuoto intorpidente dell'oblio penetra nello spirito del portatore.Quando si effettua un controllo di Rouse per un potere dell'oblio, un risultato di \"1\" o \"10\" comporta una Macchia, oltre ad ogni fame acquisita. Se la Potenza del Sangue dell'utente consente un rilancio sul controllo di Rouse, possono scegliere uno qualsiasi dei due risultati.",
+    "imageUrl": "https://vtm.paradoxwikis.com/images/thumb/4/40/Oblivion_symbol.png/1024px-Oblivion_symbol.png",
+    "type": "Mentale",
+    "masquerade": "Media-Alta. Le ombre abissali raramente si mostrano bene sulle telecamere ma sono ovviamente innaturali se viste di persona.",
+    "resonance": "Psicopatici e emotivamente distaccati. Sangue privo di Risonanza.",
+    "clanAffinity": [
+      "Hecata",
+      "Lasombra"
+    ],
+    "subDisciplines": [
+      {
+        "id": "d10_1",
+        "level": 1,
+        "title": "Manto dell'Ombra",
+        "description": "Applicando sottilmente l'influenza dell'Oblio sulle ombre circostanti, l'utente maschera la propria apparizione o sembra più sinistro e minaccioso.",
+        "cost": "Gratuito",
+        "system": "Il vampiro ottiene un bonus di due dadi ai tiri di Furtività, così come nelle prove di Intimidazione contro i mortali.",
+        "duration": "Passivo."
+      },
+      {
+        "id": "d10_2",
+        "level": 1,
+        "title": "Vista dell'Oblio",
+        "description": "Il vampiro chiude gli occhi. Al riaprirli, gli iridi dei loro occhi sono nere contro il bianco della sclera, e ora possono vedere chiaramente nell'oscurità totale e percepire i fantasmi che non stanno nascondendo attivamente la loro presenza.",
+        "cost": "Gratuito",
+        "system": " All'attivazione, gli occhi dell'utente diventano sovranaturalmente attaccati all'oscurità, permettendo loro di ignorare tutte le penalità della luce bassa, comprese quelle di origine sovranaturale. Hanno comunque bisogno dei loro occhi per vedere e sono influenzati da bendaggi sugli occhi e simili come al solito.Se un fantasma è presente e non sta cercando di nascondersi o di usare un potere per celare la sua presenza, lo spirito diventa visibile al vampiro che utilizza la Vista dell'Oblio. In tali casi, i fantasmi appaiono come desiderano apparire, che siano esseri umani con le ferite che hanno causato la loro morte, come mostri spettrali o come cadaveri perfettamente immacolati. I fantasmi non si rendono automaticamente conto quando un vampiro li individua, ma se lo fanno, molti reagiscono con paura o rabbia piuttosto che passività. Questo potere non concede la capacità di fare contatto fisico con i fantasmi.",
+        "duration": "Una scena."
+      },
+      {
+        "id": "d10_3",
+        "level": 1,
+        "title": "Da Cenere a Cenere",
+        "exclusiveClan": "Hecata",
+        "description": "Distruggere le prove del nutrimento è una necessità comune tra i vampiri che lasciano vasi urlanti e resistono, specialmente quando quegli stessi vasi finiscono morti. Questo potere permette a un vampiro di distruggere un cadavere - fresco o da tempo morto - introducendo il proprio vitae nel suo corpo. Questo potere non funziona su vampiri, ma funziona su cadaveri animati.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Costituzione + Oblio contro Costituzione + Medicina (o Robustezza)",
+        "system": "Il vampiro effettua  Prova di Risveglio per esaurire la vitae e introduce la sua vitae nel cadavere. A meno che il cadavere non sia animato, il corpo si disintegra in tre turni senza alcun test necessario. Se lo è, l'utente tira un confronto di Costituzione + Oblio vs Costituzione + Medicina (I cadaveri con Robustezza possono resistere con Costituzione + Robustezza). Se l'utente vince, il cadavere animato si dissolve in cinque turni, meno il margine (minimo uno, e i cadaveri disintegranti subiscono un Impedimento fisico). In caso di vittoria critica, il cadavere si disintegra immediatamente. In caso di fallimento totale, il cadavere si putrefà ma non si disintegra e successivamente è immune a questo potere da parte di qualsiasi utente.",
+        "duration": "Variabile."
+      },
+      {
+        "id": "d10_4",
+        "level": 1,
+        "title": "Il Vincolo degli Strascichi",
+        "exclusiveClan": "Hecata",
+        "description": "Il vampiro chiude gli occhi. Al riaprimento, gli iridi dei suoi occhi mostrano un riflesso opaco dell'ambiente circostante e possono identificare oggetti o luoghi importanti per i fantasmi. Questi \"strascichi\" agiscono come icone che legano i morti alla loro esistenza. Sapere se un oggetto è uno strascico consente a un necromante di manipolare meglio il fantasma. Gli strascichi emanano auro variabili, alcuni scoppianti di vitalità e luce dorata, altri irradianti decadenza o odori importanti per lo spirito legato, come l'odore del pane appena sfornato, della benzina o del fumo di sigaretta.",
+        "cost": "Gratuito",
+        "system": "All'attivazione, i sensi dell'utente diventano soprannaturalmente attenti alle energie degli strascichi, e possono identificare queste auree con la vista, l'olfatto e gli altri sensi. Mentre questo potere è in uso, il necromante è distolto dalle altre attività intorno a lui, conferendo un penalità di -2 a tutti i tiri collegati di Consapevolezza, Astuzia e Risolutezza.",
+        "duration": "Una Scena."
+      },
+      {
+        "id": "d10_5",
+        "level": 2,
+        "title": "Precognizione Fatale",
+        "amalgama": "Auspex 2",
+        "exclusiveClan": "Hecata",
+        "description": "Molti necromanti sostengono che la Signora del Fato governi l'Oltretomba attraverso i suoi servi stigiani, e tramite la comunione con lei certi vendicatori della morte hanno appreso questo potere. La precognizione fatale consente a un vampiro di scrutare qualsiasi non-vampiro e vivere una visione della loro morte imminente, che sia tra un minuto o tra diversi decenni. Gli occhi del Kindred diventano neri e rimangono completamente immobili mentre il destino si dipana nella loro mente. Naturalmente, il destino può essere imbrogliato, anche se c'è un costo per farlo.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Fermezza + Oblio",
+        "system": "Il vampiro deve essere in grado di vedere o sentire il loro bersaglio quando usano questo potere. Dopo aver tirato Fermezza + Oblio (Difficoltà 3 o superiore a discrezione del Narratore), il vampiro diventa paralizzato sul posto mentre la visione si svolge, impedendogli qualsiasi forma di interazione fisica o sociale per quel turno. Più è alto il margine, più chiara è la visione. Una vittoria garantisce la vista del cadavere, e con ogni punto di margine viene fornito un indizio aggiuntivo, come il modo di morire, il momento e il luogo della morte, o il nome e il volto della prima persona viva a trovare il cadavere. Una vittoria critica su questo tiro concede al vampiro una visione di cristallina chiarezza, insieme a un senso del movente, se il bersaglio viene ucciso intenzionalmente. Un fallimento totale rende il vampiro cieco per il resto della scena e impossibilitato a utilizzare questo potere sullo stesso bersaglio nuovamente. Se qualcuno tenta di sovvertire il destino osservato in questo modo, si trova tutto contro la loro ambizione arrogante. Si aggiunge uno a tutte le Difficoltà mentre si lavora per aggirare direttamente la precognizione poiché le auto si guastano, le tempeste scoppiano dal nulla e le persone diventano ostili senza motivo. Questa penalità si applica finché la profezia non viene realizzata o evitata, o la storia attuale termina.",
+        "duration": "Fino a quando viene realizzata, evitata o la storia termina."
+      },
+      {
+        "id": "d10_6",
+        "level": 2,
+        "title": "Dove il Velo si Assottiglia",
+        "description": "I vampiri con un'affinità per l'Oblio possono percepire i luoghi in cui il Velo tra il mondo dei vivi e il Regno delle Ombre si assottiglia. Anche se questa Disciplina non dice direttamente a un vampiro perché il Velo tra i mondi è sottile in un certo luogo, potrebbe essere dovuto a un omicidio efferato avvenuto lì molti anni prima, o perché i necromanti hanno frequentemente utilizzato il luogo per evocare spiriti, o potrebbe essere un luogo di risonanza sacra o profana, tra le altre ragioni. Nei luoghi in cui il Velo è più sottile, la salute mortale ne soffre e l'uso della Disciplina dell'Oblio diventa più facile, se il vampiro sa come sfruttare il vuoto nel Velo.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Prontezza + Oblio",
+        "system": " Dopo  Prova di Risveglio, il giocatore tira Astuzia + Oblio (Difficoltà 3) e in caso di vittoria può determinare la densità del Velo nella loro area circostante, grande quanto un intero edificio o punto di riferimento. Con una vittoria critica, questo tiro rivela se la densità del Velo è cambiata di recente. In caso di fallimento totale, il potere si ribalta e fornisce una lettura falsa. Senza l'uso di questo potere, gli utilizzatori di Oblio non possono beneficiare del diradamento del Velo.",
+        "duration": "Una Scena.",
+        "table": {
+          "headers": [
+            "Intensità del Velo",
+            "Possibile Causa",
+            "Effetto"
+          ],
+          "columns": [
+            [
+              "Impenetrabile",
+              "Nessuna morte è avvenuta qui, terra consacrata.",
+              "I vampiri e i fantasmi non possono attraversare il Velo qui."
+            ],
+            [
+              "Denso",
+              "Tempo fa qui avvenne una morte, un luogo di gioia.",
+              "Nessun Effetto"
+            ],
+            [
+              "Sottile",
+              "Di recente è avvenuta una morte qui, i mortali malinconici spesso attraversano questo luogo.",
+              "-1 Difficoltà ai tiri di Oblio"
+            ],
+            [
+              "Sfilacciato",
+              "Una serie di morti è avvenuta qui, i negromanti spesso svolgono cerimonie in questo luogo.",
+              "-2 Difficoltà ai tiri di Oblio"
+            ],
+            [
+              "Assente",
+              "Un negromante ha utilizzato Dividere il Velo (p.213) qui, gli spettri attraversano regolarmente questa parte del Velo.",
+              "-2 alla difficoltà sui tiri di Oblio, i fantasmi possono passare liberamente da e verso le Terre delle Ombre, i mortali subiscono due danni superficiali alla salute in quest'area che non possono essere guariti fino a quando non se ne vanno."
+            ]
+          ]
+        }
+      },
+      {
+        "id": "d10_7",
+        "level": 2,
+        "title": "Lance dell'Ombra",
+        "description": "L'Oblio è potente ma spesso può essere ostacolato dalla semplice mancanza di ombre appropriate da cui evocarlo. Questo potere attinge all'oscurità all'interno dell'utente per proiettare un'ombra soprannaturale da cui manifestare altri poteri, indipendentemente dall'illuminazione ambientale. Questa ombra di solito imita i movimenti e la forma dell'utente ma a volte può deformarsi e diventare anche mostruosa, risuonando con il temperamento attuale del suo proprietario.",
+        "cost": "Una Prova di Risveglio",
+        "system": "Attivando il potere si evoca un'ombra soprannaturale dal corpo del vampiro. Finché il potere è attivo, l'utente proietta questa ombra, che non può essere rimossa tranne che dalla luce diretta del sole. Chiunque assista al praticante noterà l'ombra proiettata da nessuna fonte luminosa visibile con un tiro di Astuzia + Consapevolezza (Difficoltà 3). Il vampiro può dirigere la propria ombra, allungandola o distorta (ma non staccandola) a volontà, anche se a volte può agire autonomamente, a discrezione del Narratore. Per quanto riguarda altri poteri come Prospettiva dell'Ombra, l'ombra può essere allungata fino a due volte i punti dell'Oblio del praticante in metri. Per chiunque si trovi all'interno della portata dell'ombra, il danno di Forza di Volontà causato dal conflitto sociale aumenta di 1 dopo aver dimezzato per il danno Superficiale. Stare nell'ombra dell'Oblio è una prospettiva terrificante.",
+        "duration": "Una scena."
+      },
+      {
+        "id": "d10_8",
+        "level": 2,
+        "title": "Braccia di Arimane",
+        "amalgama": "Potenza 2",
+        "description": "Il vampiro evoca appendici abissali da luoghi bui nell'area, entro la linea di vista. Le ombre locali si deformano mentre tentacoli fangosi si snodano da esse e convergono su una o più vittime sfortunate. Che si tratti di scivolare lungo il corpo della vittima o di impegnarsi in una lotta mistica con l'ombra stessa della vittima, le braccia sono in grado di tenerle ferme o soffocarle.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Prontezza + Oblio",
+        "system": "L'utente impiega un turno e paga il costo, evocando le appendici d'ombra. Usando queste, il vampiro può compiere attacchi contundenti e di presa contro bersagli lontani ogni turno successivo. Ulteriori braccia possono essere create dividendo il pozzo dei dadi, consentendo all'utente di affrontare più avversari. (vedi Vampire: The Masquerade p. 125). Le braccia usano il punteggio di Prontezza + Oblio del vampiro per attaccare e infliggere danni Superficiali o di presa, aggiungendo la metà del punteggio di Potenza dell'utente (arrotondato per eccesso) come bonus ai danni. Il vampiro non può fare altro che controllare le braccia mentre questo potere è attivo. Possono anche essere utilizzate per compiere azioni semplici (come aprire porte e tirare leve) ma nulla di così avanzato come digitare o controllare veicoli. Le braccia hanno una lunghezza (in metri) pari al doppio dei punti dell'Oblio dell'utente. (Nota che le braccia, essendo ombre, si muovono su superfici, non nell'aria, e qualsiasi distanza deve tenerne conto.) Le braccia hanno tre livelli di salute e usano il punteggio di Astuzia + Oblio del proprietario per evitare e sopportare gli attacchi. Essendo ombre bidimensionali, possono essere danneggiati solo dalla luce intensa, come quella di una potente torcia o la luce del giorno. Il tiro di Astuzia + Oblio consente ai tentacoli di cercare di snodarsi negli angoli bui di una stanza o di sopraffare la luce per un turno, subendo un livello di danno ma continuando l'assalto. Mentre i tentacoli d'ombra stringono e attaccano le vittime attraverso mezzi magici, è necessario un atto di volontà per sfuggire loro. Una vittima soffocata può tirare Risolutezza + Composizione e ottenere più successi rispetto all'attaccante per passare semplicemente attraverso i tentacoli subendo nessun danno. Questa azione non dissipa le Braccia di Ahriman, che possono attaccare di nuovo al turno successivo se il possessore lo desidera e il bersaglio è ancora a portata.",
+        "duration": "Una scena o fino a quando non viene terminato o distrutto."
+      },
+      {
+        "id": "d10_9",
+        "level": 3,
+        "title": "Prospettiva Umbrale",
+        "description": "Il vampiro può proiettare i propri sensi in qualsiasi ombra entro la linea di vista, vedendo e udendo come se si nascondessero in qualsiasi parte di essa. Questo include la propria ombra, manipolata dal Lancio dell'Ombra (vedi p. 293).",
+        "cost": "Una Prova di Risveglio",
+        "system": "Dopo un controllo di Rouse, la presenza del vampiro nell'ombra è individuabile da qualsiasi cosa tranne che da mezzi sovrannaturali. (Ad esempio, Percezione dell'Invisibile). Mentre questo potere è attivo, il vampiro percepisce sia i suoi dintorni che ciò che può essere appreso dalla Prospettiva dell'Ombra, come se guardasse attraverso uno schermo o un buco.",
+        "duration": "Fino a una scena."
+      },
+      {
+        "id": "d10_10",
+        "level": 3,
+        "title": "Tocco dell'Oblio",
+        "description": "Il vampiro che utilizza il Tocco dell'Oblio canalizza il potere attraverso il suo vitae. Quando entra in contatto fisico con una vittima, l'elemento annientante scorre attraverso il vampiro e nel loro preda come una corrente elettrica, tranne che l'effetto è quello di rinsecchire fisicamente l'area bersaglio. Effettuato su qualsiasi parte del corpo, il tocco restringe e accorcia i muscoli, spezza i tendini e rende le ossa fragili, rendendo catastroficamente invecchiata la parte interessata. Il suo principale utilizzo è nell'inaridire un arto, soffocare una gola o accecare un paio di occhi.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Forza + Rissa",
+        "system": "Il vampiro afferra la sua vittima (richiedendo un tiro di Forza + Rissa se la vittima sta cercando di evitare il vampiro), con la vittima che subisce due livelli di danni Aggravati e un infortunio invalidante. Se questo infortunio viene inflitto a un braccio o una gamba, l'arto bersagliato viene reso invalido e, nel caso dei mortali, richiederà una lunga riabilitazione, mentre i vampiri possono riparare il danno come danni Aggravati regolari. Allo stesso modo, il Tocco dell'Oblio può rendere un bersaglio muto, sordo o cieco. Vedere infortuni invalidanti in Vampire: The Masquerade (p. 303) per i dettagli sugli effetti meccanici degli arti invalidi. I Narratori possono decidere che tali mutilazioni meritino Macchie.",
+        "duration": "Un turno."
+      },
+      {
+        "id": "d10_11",
+        "level": 3,
+        "title": "Aura di Decadenza",
+        "exclusiveClan": "Hecata",
+        "description": "I Kindred con una forte connessione con l'Oblo percepiscono la Disciplina che influisce sul mondo intorno a loro, facendo appassire le piante, ammalare animali e umani e far andare a male il cibo. Alcuni sfruttano questa aura come un potere, inquinando la vitalità con la decomposizione e accelerando l'erosione della vita. Questo potere non accelera il decadimento dei corpi morti.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Costituzione + Oblio vs. Costituzione + Medicina o Robustezza",
+        "system": "Il vampiro effettua una Prova di Risveglio. Successivamente a un tiro di Costituzione + Obli (Difficoltà 3), materiale organico e inorganico non intelligente entro 5 iarde/metri da loro subisce — le piante diventano nere e muoiono, il cibo marcisce nel suo imballaggio e persino i mattoni cominciano a sgretolarsi. Il materiale interessato in questo modo può diventare tossico se ingerito, se ad esempio questo potere viene usato in una cucina o in un'acqua potabile. Cibo e bevande tossici, se consumati, possono infliggere due danni alla Salute Superficiali non dimezzati nel turno successivo all'individuo che li mangia, e per ogni turno successivo fino a quando non vengono trattati con un tiro di Intelligenza + Medicina (Difficoltà 3).Se qualcosa di vivente viene coinvolto nell'aura, deve fare un confronto di Costituzione + Medicina (Coloro con Robustezza possono resistere con Costituzione + Robustezza) contro il tiro di attivazione del vampiro. Per ogni punto di margine che il vampiro ha, la vittima subisce un punto di danni alla Salute Superficiali non dimezzati. Questi danni vengono applicati lentamente durante la scena. Applicazioni ripetute del potere nella stessa scena non hanno effetto sulla Salute dei mortali già colpiti. Il potere è un'aura che dura per un'intera scena prima di svanire. Chiunque abbia un senso dell'olfatto può percepire un odore di decomposizione che emana dal vampiro durante il tempo in cui il potere è attivo, infliggendo una penalità di due dadi a qualsiasi tiro Sociale che il vampiro fa in un contesto positivo o diplomatico, se lo fa di persona.",
+        "duration": "Una Scena."
+      },
+      {
+        "id": "d10_12",
+        "level": 3,
+        "title": "Festa delle Passioni",
+        "amalgama": "Robustezza 2",
+        "exclusiveClan": "Hecata",
+        "description": "La relazione tra i vampiri e il loro bisogno di sangue come sostentamento è ben nota, ma quando deve trascorrere un periodo prolungato nel Regno delle Ombre, o desidera tormentare uno spirito, questo potere dell'Oblio gli consente di sussistere sulle passioni dei wraith. I wraith non hanno corpi, né hanno sangue. Invece, le loro emozioni crude li guidano. Amore, odio, avidità o anche il bisogno di vendetta potrebbero mantenere un wraith in vita dopo la morte del suo corpo precedente. Un necromante esperto può nutrirsi di queste passioni per un certo periodo, consentendogli di sopravvivere senza sangue per più tempo rispetto ai suoi simili. Il nutrimento si manifesta come un vortice di potere tra il wraith e il vampiro, poiché il vampiro non ha bisogno di mordere nulla per consumare le passioni.",
+        "cost": "Gratuito",
+        "dicePool": "Fermezza + Oblio vs. Fermezza + Autocontrollo",
+        "system": "Un vampiro con questo potere può prosciugare un wraith delle sue passioni. Mentre è in prossimità ravvicinata (tre iarde/metri o meno) dal wraith, può tirare un confronto di Fermezza+ Oblio contro la Fermezza + Autocontrollo del wraith. Una vittoria per il vampiro infligge un danno di Forza di Volontà Aggravato al wraith e riduce la Fame del vampiro di uno per il resto della notte. Quella Fame ritorna nella notte successiva indipendentemente dai Controlli di Alzata, poiché il nutrimento è solo un nepenthe per attenuare gli impulsi affamati del vampiro. Nutrirsi di un wraith potrebbe meritare una Macchia a discrezione dello Storyteller, poiché la passione consumata offusca la ragione di essere del wraith, probabilmente spingendolo lungo un percorso verso atti autodistruttivi. Lo Storyteller determina il numero di passioni che un wraith possiede (anche se cinque o più sono rare), e potrebbe stabilire che il wraith diventi uno spettro incontrollabile e omicida una volta consumate tutte le passioni.",
+        "duration": "Passiva."
+      },
+      {
+        "id": "d10_13",
+        "level": 4,
+        "title": "Sudario Stigeo",
+        "description": "Il vampiro che utilizza il Tocco dell'Oblio canalizza il potere attraverso il suo vitae. Quando entra in contatto fisico con una vittima, l'elemento annientante scorre attraverso il vampiro e nel loro preda come una corrente elettrica, tranne che l'effetto è quello di rinsecchire fisicamente l'area bersaglio. Effettuato su qualsiasi parte del corpo, il tocco restringe e accorcia i muscoli, spezza i tendini e rende le ossa fragili, rendendo catastroficamente invecchiata la parte interessata. Il suo principale utilizzo è nell'inaridire un arto, soffocare una gola o accecare un paio di occhi.",
+        "cost": "Una Prova di Risveglio",
+        "system": "L'utente effettua un controllo di Rouse e impiega un turno concentrarsi, diffondendo l'ombra sulle superfici desiderate. L'effetto copre un'area circolare con un raggio pari al doppio dei punti dell'Oblio dell'utente in metri. L'area è centrata sull'utente o su un punto nel loro campo visivo.Chiunque si trovi nel Fascio Stigiano riceve una penalità di tre dadi a tutti i tiri, a meno che non possiedano la capacità di vedere attraverso l'oscurità sovrannaturale. Qualsiasi mortale colpito dal Fascio Stigiano subisce un livello di danno Superficiale per ogni turno che rimangono al suo interno, a causa degli effetti soffocanti del potere.",
+        "duration": "Una Scena."
+      },
+      {
+        "id": "d10_14",
+        "level": 4,
+        "title": "Piaga Necrotica",
+        "exclusiveClan": "Hecata",
+        "description": "Gli studiosi Kindred sostengono che l'Oblio inquina tutto ciò che tocca, e questo potere ne è un esempio lampante. Attraverso il semplice contatto, un vampiro potrebbe avvelenare il sangue di una vittima mortale, conferendogli una malattia che tormenta e dilania il suo corpo. Il rischio più pericoloso di tutti è che questa malattia potrebbe essere contagiosa e potrebbe infliggere lo stesso danno ad altri mortali.\nI necromanti esperti di medicina hanno abbastanza talento per far apparire questo potere sotto forma di malattie specifiche, talvolta incluse quelle estinte da decenni o secoli. Indipendentemente da come si manifesti, i sintomi scompariranno alla fine anche senza trattamento medico, che la vittima sopravviva o meno.",
+        "cost": "Una Prova di Risveglio e Due Macchie",
+        "dicePool": "Intelligenza + Oblio vs. Costituzione + Medicina o Robustezza",
+        "system": "L'utente effettua Una Prova di Risveglio e quindi tira Intelligenza + Oblio mentre tocca la sua vittima. Se la vittima è debole (un bambino, anziano, malato, in fase di recupero da una malattia, in agonia o con 3 caselle di Salute non marcate o meno), viene automaticamente infettata. Se la vittima è in buona salute, tira Costituzione + Medicina (coloro con Robustezza possono usarla al posto della Medicina), resistendo alla malattia se ottengono più successi rispetto al vampiro. Questo potere non può essere usato sui vampiri. Gli Storyteller possono decidere che diffondere una malattia così orribile meriti Macchie. Le vittime della malattia subiscono un danno alla Salute Aggravato all'inizio di ogni scena successiva alla loro infezione. La vittima soffre della malattia per un numero di scene pari al punteggio di Oblio dell'utente. La malattia non può essere curata medicalmente, poiché di origine soprannaturale, ma viene guarita attraverso il bere di vitae. Se il giocatore ottiene una vittoria critica quando attiva questo potere, può scegliere di rendere la malattia contagiosa tramite contatto, con i destinatari successivi che soffrono della malattia per una scena in meno rispetto alla vittima da cui sono stati infettati. Se il giocatore ottiene un fallimento totale, il vitae del vampiro stesso convulsa come se fosse avvelenato. Subisce tre danni alla Salute Aggravati mentre il sangue infetto fuoriesce da lui e deve fare una Prova di Risveglio.",
+        "duration": "Un turno per attivare, durata variabile della condizione."
+      },
+      {
+        "id": "d10_15",
+        "level": 5,
+        "title": "Debito Saldato",
+        "description": "I necromanti possono essere descritti come i più grandi interferitori del destino, poiché hanno un modo di interferire con i percorsi destinati delle vite e degli spiriti. Tuttavia, occasionalmente, i necromanti possono cercare di servire il destino punendo coloro che lo ingannano. Questo potere consente a un vampiro di reintrodurre malattie alle vittime che si sono riprese da esse, rompere ossa da tempo guarite e eliminare l'immunità all'invecchiamento che i ghouls sperimentano. Sebbene questo potere non funzioni sui vampiri, è un modo efficace per eliminare i loro servitori e garantire che i debiti verso il destino siano ripagati, senza dover entrare in contatto con il destinatario.",
+        "cost": "Due Prove di Risveglio",
+        "dicePool": "Costituzione + Oblio vs. Costituzione + Medicina o Robustezza",
+        "system": "Il vampiro effettua due Prove di Risveglio mentre spende abbastanza vitae per rivestire sia i palmi che il viso di sangue mentre ricorda i volti delle sue vittime. Se l'utente riesce in una sfida di Costituzione + Oblio vs. la Costituzione della vittima + Medicina (coloro con Robustezza possono resistere con Costituzione + Robustezza), l'individuo bersagliato è affetto da una condizione grave di cui ha sofferto storicamente e da cui si è ripreso, come un cancro trattato, un osso rotto o una malattia, incluso uno ottenuto attraverso la Piaga Necrotica (p. 206), con eventuali effetti debilitanti di questa condizione che si verificano immediatamente. Gli effetti della condizione sono determinati dal Narratore, ma dovrebbero essere gravi (vedi la tabella delle Lesioni Crippling per ispirazione, Vampire: the Masquerade p.303).\nSe la vittima è un ghoul, questo potere rimuove la loro immunità all'invecchiamento ed elimina qualsiasi vitae nel loro sistema, con conseguente possibilità che ghouls più anziani muoiano o addirittura si disintegrino sul posto. In caso di vittoria critica, questo potere può uccidere la vittima fermando completamente il loro cuore se l'utente lo desidera. In caso di fallimento totale, il vampiro non può utilizzare più questo potere contro quel singolo individuo.",
+        "duration": "Variabile, dipendente dal fatto che la condizione sia trattabile."
+      },
+      {
+        "id": "d10_16",
+        "level": 5,
+        "title": "Spirito Appassito",
+        "description": "Questo potere canalizza l'entropia grezza attraverso il rapido decadimento spirituale, colpendo i vampiri così come gli umani prendendo di mira lo spirito della vittima. Un vampiro che utilizza questo potere rischia Macchie, poiché può completamente annientare lo spirito della vittima, impedendo il ritorno come uno spettro.",
+        "cost": "Due Prove di Risveglio, Macchie (quantità variabile)",
+        "dicePool": "Fermezza + Oblio vs. Fermezza + Occulto o Robustezza",
+        "system": "Il vampiro effettua due Prove di Risveglio per spendere una quantità sufficiente di vitae per ricoprire entrambe le mani e tocca la vittima. Dopo aver tirato Fermezza + Oblio contro la Fermezza + Occulto della vittima (Coloro con Robustezza possono utilizzarla al posto dell'Occulto), la vittima subisce due danni alla Forza di Volontà Aggravati per ogni punto di margine del vampiro. L'attacco erode lo spirito della vittima fino a quando non diventa un guscio spezzato e se è danneggiato da questo potere, non tornerà come uno spettro dopo la morte. I Narratori possono decidere che la natura di questo potere di distruggere lo spirito giustifica le Macchie, anche se come sempre, una Conviction appropriata può mitigare queste.",
+        "duration": "Un turno."
+      },
+      {
+        "id": "d10_17",
+        "level": 5,
+        "title": "Passo dell'ombra",
+        "description": "Entrando in un'ombra vicina, l'utente scompare solo per riapparire dalla stessa o da un'altra ombra più lontana. Se entrino nel Labirinto o semplicemente viaggino lungo la sua superficie è fonte di congetture tra molti Lasombra e Hecata, ma il danno spirituale con cui possono emergere implica che stanno toccando qualcosa di ripugnante mentre usano questo potere.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Forza + Rissa",
+        "system": "l vampiro deve entrare in un'ombra abbastanza grande da coprirli, e riemergere da un'altra un turno dopo. L'ombra di destinazione deve essere a portata di vista, anche se può essere percepita mediante mezzi mistici, come la Prospettiva dell'Ombra, se lo si desidera. È possibile portare un'altra persona attraverso il passaggio, ma a meno che quella persona non sia disposta, deve essere trattenuta da una riuscita presa. Se viene incisa una Macchia a causa dell'uso di questo potere, anche il passeggero ne riceve una.",
+        "duration": "Un turno."
+      },
+      {
+        "id": "d10_18",
+        "level": 5,
+        "title": "Incarnazione Tenebrosa",
+        "description": "Il vampiro ottiene la capacità di trasformare la propria sostanza stessa in quella di un'ombra, diventando una patch bidimensionale di oscurità in grado di strisciare su qualsiasi superficie e attraversare fessure e crepe minime. Mentre è in questa forma il vampiro è danneggiato solo da fuoco e luce solare.",
+        "cost": "Due Prove di Risveglio",
+        "dicePool": "Forza + Rissa",
+        "system": " La trasformazione richiede un turno, durante il quale il vampiro non può fare nulla di altro. Una volta completata la trasformazione, il vampiro può muoversi a passo di uomo sul terreno o lungo le pareti, ostacolato solo da barriere ermeticamente sigillate. I vampiri che usano l'Avatar Tenebroso possono avvolgere le vittime, causando alla vittima una riduzione di tutti i loro pozzi di dadi di tre e soffocando i mortali come con il Fascio Stigiano, sopra. Se circonda un mortale, il vampiro può nutrirsi da loro senza penetrare la pelle con i denti. I praticanti di questo potere non subiscono danni da fonti fisiche ma possono essere danneggiati da fuoco e luce solare come al solito. Le Discipline mentali possono comunque essere utilizzate a discrezione del Narratore.",
+        "duration": "Un turno."
+      }
+    ],
+    "rituals": [
+      {
+        "id": "d10_001",
+        "level": 1,
+        "title": "Ceneri alle Ceneri",
+        "description": "Un corpo umano (o più corpi), una piccola miscela di sangue, flemma e bile.",
+        "prerequisite": "Una lastra di pietra e una candela di cera intrisa del Sangue dell'incantatore.",
+        "ingredients": "Un corpo umano (o più corpi), una piccola miscela di sangue, flemma e bile.",
+        "execution": "Dopo aver applicato la miscela al cadavere o ai cadaveri e aver eseguito il Rito, i corpi interessati si animano in una forma di falsa vita. Seguono un solo comando dal vampiro, purché sia semplice e il cadavere sia fisicamente in grado di eseguirlo, come \"spazzare il pavimento\", \"tenere chiusa questa porta\" o \"camminare intorno al perimetro della casa\". Non hanno la capacità di pensare o calcolare, quindi comandi condizionati o complicati come \"attaccare la prossima persona a passare attraverso questa arcata\", \"guidare questa macchina\" o \"costruire una baracca\" non funzionano. Possono essere indirizzati verso un bersaglio specifico per l'attacco o un'altra azione se il necromante li indica.",
+        "system": "Il giocatore effettua il proprio tiro del Rito e in caso di successo, risveglia un numero di cadaveri pari al suo punteggio di Oblio, o il numero di corpi che ha preparato (a seconda di quale sia più basso). Un successo critico raddoppia il loro punteggio di Oblio ai fini dei cadaveri risvegliati. L'animazione del cadavere senza mente termina quando viene distrutta o conclude il suo compito. Questi cadaveri non si difendono dagli attacchi e si degradano normalmente; il Rito non conferisce loro alcuna forma di immunità agli elementi o al tempo.",
+        "table": {
+          "headers": [
+            "",
+            "Cadavere"
+          ],
+          "columns": [
+            [
+              "Standard Dice Pools:",
+              "Fisiche 2, Sociali 1, Mentali 1"
+            ],
+            [
+              "Secondary Attributes:",
+              "Salute 4, Volontà 1"
+            ],
+            [
+              "Exceptional Dice Pools:",
+              "Intimidire 4"
+            ],
+            [
+              "Special:",
+              "I cadaveri senza mente subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni, e deperiscono subendo almeno un danno superficiale alla salute ogni giorno. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non reagiscono a movimenti, parole o interferenze da parte di chiunque altro tranne il loro creatore. I cadaveri senza mente possono sempre contribuire al lavoro di squadra (vedi Vampire: The Masquerade p. 122) per compiti umili come scavare, sollevare o spingere, anche se mancano di Abilità."
+            ],
+            [
+              "General Difficulties:",
+              "3/1"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "d10_002",
+        "level": 1,
+        "title": "Evocazione dello Spirito",
+        "description": "Questa Cerimonia consente a un vampiro di evocare uno spirito dall'Oltretomba.",
+        "prerequisite": " Il Legame del Freno",
+        "ingredients": "Uno degli oggetti vincolanti dello spirito prescelto, una foto o un'altra rappresentazione visiva dello spirito o il suo nome firmato, il vitae del lanciatore.",
+        "execution": "Il necromante versa il suo vitae sull'oggetto vincolante dello spirito e, studiando la foto o la firma, chiama il nome dello spirito. Lo spirito sente la chiamata del suo oggetto vincolante e inizia un viaggio dalla sua posizione nell'Oltretomba a quella del lanciatore. Sebbene la geografia abbia scale diverse nell'Oltretomba, un viaggio può comunque richiedere diverse notti se lo spirito si trova dall'altro lato del mondo. Se lo Shroud è sufficientemente sottile nel luogo di evocazione, lo spirito viene attratto attraverso il velo tra i mondi dalla forza dell'oggetto vincolante. Lo spirito evocato non è obbligato a servire il vampiro dopo essere stato chiamato e può agire con ostilità se ritiene che il vampiro stia minacciando il suo oggetto vincolante, che può essere un oggetto, un edificio o addirittura una persona. In alternativa, lo spirito potrebbe essere grato per l'evocazione e la possibilità di compagnia. Gli spiriti evocati in questo modo non si manifestano fisicamente, ma come ombre sui muri, silhouette traballanti dei loro sé viventi, da cui possono emergere voci. Gli spiriti parlano le stesse lingue che parlavano quando erano in vita, a meno che non si siano impegnati a impararne di nuove nell'Oltretomba.",
+        "system": "Il lanciatore unge l'oggetto vincolante con il suo vitae e effettua un tiro di Cerimonia di Oblio. Lo spirito non può passare attraverso lo Shroud se è impenetrabile nel luogo della Cerimonia (vedi p. 205), e spostare l'oggetto vincolante dopo la Cerimonia non aiuta, poiché la capacità dello spirito di passare attraverso lo Shroud scompare se l'oggetto vincolante lascia il luogo della Cerimonia. Lo spirito scompare alla fine della scena a meno che non venga utilizzata una Cerimonia separata per costringerlo o legarlo."
+      },
+      {
+        "id": "d10_003",
+        "level": 2,
+        "title": "Risveglio del Servitore Omoncolare",
+        "description": "I necromanti utilizzano questa Cerimonia per creare spie e predoni da parti del corpo come mani o cranii, o piccoli animali morti come topi o volpi.",
+        "prerequisite": "Dove il velo si Assottiglia",
+        "ingredients": "La parte del corpo o la carcassa dell'animale richiesto, l'arma usata per tagliarla/ucciderla, una piccola miscela di urina, materia fecale e sperma.",
+        "execution": "Il lanciatore riveste una lama (o un altro dispositivo adatto al compito) in una disgustosa miscela di fluidi corporei e la usa per tagliare l'appendice target dalla sua radice o il corpo, o uccide il piccolo animale (che non può essere più grande di un piccolo cane e non può volare, indipendentemente dal fatto che abbia ali). Dopo aver massaggiato il vitae nel bersaglio, questo prende vita come servitore omoncolare, fedelmente leale al suo padrone. L'omuncolo può arrampicarsi sui muri, saltare (anche se mancano le zampe per farlo), e nascondersi efficacemente. Pur non potendo parlare o svolgere compiti che richiedono un pensiero profondo, può comunicare telepaticamente immagini singole al suo creatore.",
+        "system": "Il giocatore del necromante effettua un tiro di Cerimonia di Oblio e, dopo averlo fatto, ottiene un servitore omoncolare che spierà, seguirà o intimidirà su comando del necromante. Se si allontana oltre i 100 metri dal vampiro, cade inerte, risvegliandosi solo quando il vampiro entra in quel raggio. In caso contrario, rimane attivo per un numero di notti pari al numero di successi ottenuti. Una vittoria critica nel tiro mantiene il servo attivo per sempre, mentre un fallimento totale distrugge tutti i componenti coinvolti nella Cerimonia.",
+        "table": {
+          "headers": [
+            "",
+            "Homunculus"
+          ],
+          "columns": [
+            [
+              "Standard Dice Pools:",
+              "Fisiche 1, Sociali 1, Mentali 1"
+            ],
+            [
+              "Secondary Attributes:",
+              "Salute 3, Volontà 2"
+            ],
+            [
+              "Exceptional Dice Pools:",
+              "Attletica 4, Furtivitò 5, Intimidire 4"
+            ],
+            [
+              "Special:",
+              "I servitori omuncolari subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non necessitano di occhi o orecchie per percepire tutto ciò che li circonda, come farebbe qualcuno con vista e udito non ostacolati. Possono trasmettere telepaticamente un'unica immagine per scena al loro padrone."
+            ],
+            [
+              "General Difficulties:",
+              "3/2"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "d10_004",
+        "level": 2,
+        "title": "Evocazione dello Spirito",
+        "description": "Questa Cerimonia consente a un vampiro di piegare la volontà di uno spettro a suo piacimento.",
+        "prerequisite": "Dove il velo si Assottiglia",
+        "ingredients": "Un feticcio di uno spettro, il vitae del lanciatore, un oggetto (o minaccia) sufficiente a danneggiare il feticcio.",
+        "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante lancia una manciata del proprio vitae nella direzione dello spettro mentre tiene un oggetto distruttivo al feticcio (un coltello, un martello, una pistola, o potenzialmente tiene il feticcio sopra un fuoco) o pronuncia parole minacciose che lo spettro ritiene. Il vampiro e lo spettro si impegnano in una lotta di volontà. Se il vampiro domina lo spettro, lo spettro deve servire come il vampiro decreta, almeno temporaneamente. Se accade il contrario, il vampiro rimane mentalmente debilitato e il feticcio scompare dalla sua presa.",
+        "system": "Il giocatore del vampiro effettua un tiro di Cerimonia di Oblio contro il tiro di Resistenza + Composizione (o Forza di Volontà, se questi tratti non sono definiti) dello spettro. Se non hanno modo di minacciare fisicamente il feticcio, il giocatore deve anche effettuare un tiro di Manipolazione + Intimidazione (Difficoltà pari al tiro di Resistenza + Composizione dello spettro). Se il giocatore ottiene più successi rispetto al tiro di resistenza dello spettro sul suo tiro di Cerimonia di Oblio, il vampiro può comandare allo spettro di svolgere un numero di compiti di moderata difficoltà (spiare, fare ricerca, rispondere alle domande sinceramente, ecc.) pari al numero di successi ottenuti. Per ogni due successi, il vampiro può invece comandare allo spettro di svolgere un compito difficile (come attaccare qualcuno, fare qualcosa di ripugnante per le sensibilità dello spettro, ecc.). In caso di vittoria critica, il vampiro può richiedere qualsiasi azione allo spettro, che farà del suo meglio per completare il compito. Lo spettro rimane al servizio del vampiro fino alla fine della cronaca o finché non ha adempiuto ai comandi del suo padrone, momento in cui torna nell'Underworld con una eterna ostilità nei confronti del necromante. Se lo spettro vince la lotta, il vampiro subisce il margine in danni alla Salute Superficiale. Lo spettro rientra quindi nell'Underworld. La coercizione posta sullo spettro termina immediatamente se il vampiro lo attacca. Se il vampiro danneggia il feticcio minacciato, lo spettro subisce tra uno e tre danni alla Forza di Volontà Aggravati (a seconda dell'importanza del feticcio) e lo spettro viene mandato indietro nell'Underworld per essere tormentato da, e possibilmente convertito in, uno spettro assassino (vedi Vampire: The Masquerade, p. 377)."
+      },
+      {
+        "id": "d10_005",
+        "level": 3,
+        "title": "Ospitare lo Spirito",
+        "description": "Questa Cerimonia consente a un vampiro di aprire il proprio corpo al possesso di un fantasma. I benefici di avere uno spettro che viaggia nel proprio corpo si manifestano sotto forma di una fisicità potenziata, accesso ai ricordi che lo spettro sceglie di condividere e la voce dello spettro che offre consigli al vampiro. Lo spettro può prendere il completo controllo del vampiro se lo desidera, cosa che alcuni necromanti considerano come una benedizione da sperimentare, mentre altri la ritengono la principale ragione per non utilizzare questo potere. Consentire a uno spettro di controllare le proprie azioni per una notte è un modo efficace per confondere e placare la Bestia, oltre a dimostrare abilità fisiche e conoscenze che il vampiro potrebbe non possedere abitualmente.",
+        "prerequisite": "Aura di Decadenza",
+        "ingredients": "Un dono da fare come tributo a uno spettro (che valore abbia per lo spettro dipende dall'individuo), un parassita, due denti estratti dalla bocca del vampiro",
+        "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante presenta un tributo allo spettro, talvolta sotto forma di alcol versato sulla tomba dello spettro, o una borsa di monete da seppellire nella terra, o addirittura la testa appena decapitata di uno dei nemici fino a poco tempo fa vivi dello spettro. Il vampiro estrae quindi due denti dalla propria bocca, di solito con delle pinze, e morde un parassita con i denti rimanenti. Il vampiro apre quindi la bocca e lo spettro può scegliere di saltare dentro, abitando il corpo del vampiro.",
+        "system": "Il giocatore del vampiro effettua un tiro di Cerimonia di Oblio di successo. Se lo spettro accetta la proposta, entra quindi nel corpo del vampiro e può rimanere per un numero di scene pari ai successi ottenuti sul tiro di Cerimonia di Oblio. Con lo spettro dentro di loro, il vampiro guadagna +2 dadi a tutti i tiri di Attributi Fisici e +2 Salute fino alla partenza dello spettro. Il vampiro può sentire lo spettro nella sua testa, con i suoi consigli, blandizie o parole di supporto fornite dal Narratore. Uno spettro può scegliere di affermare il suo possesso invece di agire come passeggero. Se il vampiro si oppone, effettua un tiro di Risolutezza + Composizione contro il Risolutezza + Composizione dello spettro. Se ha successo, il vampiro respinge l'influenza dello spettro. Se fallisce, lo spettro guida il vampiro fino alla fine della scena, anche se non può fare fare al vampiro nulla di autodistruttivo. In caso di vittoria critica, lo spettro viene completamente espulso e ritorna nell'Underworld. In caso di fallimento totale, lo spettro può far fare al vampiro del male a se stesso, ma ritorna nell'Underworld dopo il primo danno subito. Un vampiro il cui corpo cede o viene volontariamente aperto al tentativo di possessione ritrova tutto il danno di Forza di Volontà guarito una volta che lo spettro se ne va, poiché lo spirito sottomette la Bestia per tutto il tempo in cui è presente."
+      },
+      {
+        "id": "d10_006",
+        "level": 3,
+        "title": "Orde dei Non Morti",
+        "description": "Questa Cerimonia consente a un necromante di risvegliare un gruppo di non morti aggressivi e camminanti.",
+        "prerequisite": "Aura di Decadenza",
+        "ingredients": "Un cadavere umano (o più cadaveri umani), un sacrificio umano fresco.",
+        "execution": "Il vampiro deve avere un cadavere separato oltre a un umano preparato per il sacrificio. Il vampiro uccide la vittima sacrificale, versando il loro sangue sul cadavere o sui cadaveri destinati all'animazione. Se la Cerimonia ha successo, i cadaveri si alzano (il sacrificio recente no), ravvivati con il sangue fresco, e servono i comandi del vampiro, anche ordini moderatamente complessi come \"uccidi chiunque entri,\" \"geme se vedi qualcuno passare di qui,\" o \"terrorizza quel quartiere.\" A differenza dei cadaveri risvegliati usando il Dono della Falsa Vita, questi morti animati non rimangono inattivi se lasciati senza comandi, attaccando invece chiunque si trovi intorno a loro tranne il loro padrone.",
+        "system": "Il giocatore effettua il suo tiro di Cerimonia, possibilmente incorrendo in Macchie nel processo a seconda dei Principi della Cronaca e della discrezione del Narratore. A causa della quantità di sangue versato in questa Cerimonia, il lanciatore deve testare per resistere alla frenesia della fame (Difficoltà 2). In caso di successo, un numero di non morti aggressivi pari al punteggio di Oblio del necromante o al numero di cadaveri preparati (il che è inferiore) riceve il dono dell'animazione. Una vittoria critica raddoppia il loro punteggio di Oblio ai fini della determinazione dei cadaveri risvegliati. I cadaveri animati in questo modo non si decompongono e entrano in riposo solo se comandati dal vampiro, se il vampiro subisce la morte definitiva o se vengono distrutti. Secondo le normali regole per gli Avvantaggi temporanei come questi, la loro utilità continua oltre la storia attuale deve essere garantita con Esperienza, come attraverso l'Background dei Servitori (vedi Vampiro: la Masquerade p. 196), altrimenti i cadaveri aggressivi potrebbero diventare instabili e indomabili.",
+        "table": {
+          "headers": [
+            "",
+            "Cadavere Aggressivo"
+          ],
+          "columns": [
+            [
+              "Standard Dice Pools:",
+              "Fisiche 4, Sociali 1, Mentali 1"
+            ],
+            [
+              "Secondary Attributes:",
+              "Salute 6, Volontà 2"
+            ],
+            [
+              "Exceptional Dice Pools:",
+              "Rissa 6, Intimidire 4, Allerta 3"
+            ],
+            [
+              "Special:",
+              "I cadaveri aggressivi subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non necessitano di occhi o orecchie per percepire tutto ciò che li circonda, come farebbe qualcuno con vista e udito non ostacolati. I morsi dei cadaveri aggressivi infliggono +2 danni aggravati alla salute ai mortali."
+            ],
+            [
+              "General Difficulties:",
+              "4/2"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "d10_007",
+        "level": 4,
+        "title": "Vincolo dello Spirito",
+        "description": "I vampiri con accesso a questa Cerimonia hanno la capacità di legare spettri a luoghi e persone specifici.",
+        "prerequisite": "Peste Necrotica",
+        "ingredients": "Il ferro di un legame del wraith, il vitae del lanciatore, il sacrificio di un essere umano innocente, sale sufficiente per circondare una proprietà o un individuo. Se il bersaglio del tormento è un individuo, il necromante deve possedere qualcosa del loro corpo, come unghie, capelli, sangue o pelle.",
+        "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante presenta un tributo allo spettro, talvolta sotto forma di alcol versato sulla tomba dello spettro, o una borsa di monete da seppellire nella terra, o addirittura la testa appena decapitata di uno dei nemici fino a poco tempo fa vivi dello spettro. Il vampiro estrae quindi due denti dalla propria bocca, di solito con delle pinze, e morde un parassita con i denti rimanenti. Il vampiro apre quindi la bocca e lo spettro può scegliere di saltare dentro, abitando il corpo del vampiro.",
+        "system": "Il vampiro deve già avere un wraith sotto il loro controllo utilizzando il Comando dello Spirito. Il vampiro uccide un essere umano innocente (anche se l'innocenza è soggettiva, tende ad applicarsi ai giovani, agli assistenti e agli individui genuinamente pii) in o vicino a un luogo o una persona che desidera far infestare dal loro wraith. Successivamente, mescolano il loro vitae con sale sufficiente per circondare il bersaglio del tormento e disegnano un cerchio con la miscela. Il legame del wraith viene posto da qualche parte all'interno del luogo o in possesso del bersaglio. Da questo punto in poi, il wraith è per sempre legato al bersaglio, a meno che il vampiro non annulli la Cerimonia, il legame non si sposti mai dalla posizione o dal possesso del bersaglio, o il wraith venga distrutto. Il legame termina anche se il necromante attacca il wraith. La maggior parte dei wraith legati in questo modo è furiosa o malinconica per la loro condizione, e il loro umore influisce sull'area circostante. Molti necromanti usano questo metodo per difendere i loro rifugi o tormentare i loro nemici."
+      },
+      {
+        "id": "d10_008",
+        "level": 4,
+        "title": "Fendere il Velo",
+        "description": "I vampiri con accesso a questa Cerimonia hanno la capacità di legare spettri a luoghi e persone specifici.",
+        "prerequisite": "Peste Necrotica",
+        "ingredients": "Un bisturi usato per tagliare qualcuno vivo, gesso o carbone, un lenzuolo di seta, un sacrificio umano.",
+        "execution": "Il vampiro appende un lenzuolo di seta su un muro in un luogo dove la densità del Velo è normale, sottile o logora. Poi uccide un sacrificio umano contro il lenzuolo, di solito attraverso qualche forma di sanguinamento, e mentre il sangue ricopre il lenzuolo, lo taglia aperto con un bisturi. La Cerimonia allarga il portale tra il mondo dei vivi — che i wraith chiamano Territori della Pelle — e i Territori dell'Ombra. I wraith che entrano nei Territori della Pelle attraverso questo metodo si mettono a infestare luoghi e persone, indulgendo nelle loro passioni, e possiedono esseri umani se i loro poteri lo consentono. Alcuni trattano il vampiro con gratitudine per aver fenduto il Velo, mentre altri godono nel molestare il necromante responsabile.",
+        "system": "Il lanciatore uccide il sacrificio umano, il che potrebbe causare Macchie a seconda dei Principi della Cronaca e della discrezione del Narratore. Tagliando il lenzuolo di seta con un bisturi, il giocatore effettua il tiro della Cerimonia (con una Difficoltà ridotta di -1 se il bisturi è stato usato nel sacrificio umano). A causa della quantità di sangue versato in questa Cerimonia, il lanciatore deve tirare per resistere alla frenesia della fame (Difficoltà 2). Per ogni successo ottenuto nel tiro della Cerimonia, la densità del Velo si riduce di un livello, fino a essere assente. Dopo questa Cerimonia, i vampiri possono accedere più facilmente ai Territori dell'Ombra con Ex Nihilo, ma, cosa importante, se il rating del Velo viene ridotto a assente, i wraith possono riversarsi nei Territori della Pelle come meglio credono per il resto del capitolo. Una volta concluso il capitolo, una densità del Velo assente aumenta a logora e il passaggio per i wraith si chiude."
+      },
+      {
+        "id": "d10_009",
+        "level": 5,
+        "title": "Ex Nihilo",
+        "description": "Questa Cerimonia consente a un vampiro e alla sua coterie di migrare nei Territori dell'Ombra, anche se farlo comporta grandi rischi.",
+        "prerequisite": "Spirito Consumato",
+        "ingredients": "Maschere per ogni partecipante, una ciotola contenente una quantità sufficiente del sangue del vampiro in modo che ogni partecipante possa coprire le suole dei loro piedi con esso, due monete di qualsiasi valore per ogni partecipante.",
+        "execution": "Poche Cerimonie di Oblio portano con sé tanti dubbi e timori quanto Ex Nihilo, la capacità di migrare nei Territori dell'Ombra. Questa Cerimonia consente un attraversamento fisico nelle terre dell'entropia. I vampiri che entrano fisicamente nei Territori dell'Ombra possono interagire con i wraith come se fossero solidi, ma non possono portare oggetti oltre quelli che hanno con sé. I vampiri distrutti nei Territori dell'Ombra scompaiono in un vortice di sangue e cenere, aspirati dalla falsa terra sotto i loro piedi. Ex Nihilo attrae molti necromanti e mistici che desiderano studiare i Territori dell'Ombra senza l'impedimento di un limite di tempo. È un metodo imbattibile per intervistare fantasmi ed esplorare le necropoli — le città abitate dagli spiriti. È anche incredibilmente pericoloso, poiché molti wraith — specialmente gli spettri — cercano di distruggere i vampiri, prosciugandoli della loro Forza di Volontà, e c'è sempre il rischio di incontrare il fantasma di qualcuno che il vampiro ha ucciso anni prima. Tali wraith tendono a serbare rancore. Il vampiro deve aver usato la Cerimonia di Fendere il Velo all'interno di questo capitolo, nella posizione che occupa attualmente, affinché Ex Nihilo funzioni. Se la densità del Velo viene ridotta a assente, il vampiro e tutti i compagni possono entrare nei Territori dell'Ombra da quel punto, se indossano maschere per coprire i loro volti, immergono o dipingono i loro piedi con il sangue del vampiro e tengono una moneta in ogni mano.",
+        "system": "L'utilizzatore effettua tre Controlli di Risveglio (sufficienti per esaurire il sangue richiesto) e spende un punto Forza di Volontà per prepararsi all'attraversamento. Effettua quindi il tiro della Cerimonia. Se riuscito, il vampiro, un numero di compagni pari al numero di successi ottenuti e tutti gli oggetti che hanno con sé possono quindi entrare nei Territori dell'Ombra. I Territori dell'Ombra seguono diverse regole che non esistono nel mondo dei vivi:\n● I wraith sono in grado di effettuare attacchi fisici ai vampiri, ma alcuni sono anche capaci di attaccare specificamente la Forza di Volontà di un vampiro, poiché prosciugano la passione di un vampiro. I pool di difesa contro il drenaggio della Forza di Volontà, che un wraith può tentare fino a 3 metri dal vampiro, sono costituiti dal Resilienza + Compostezza del vampiro, contro la Forza + Combattimento del wraith attaccante. Questo attacco infligge danni alla Forza di Volontà aggravati. \n● Anche se non c'è sole (e quindi nessun giorno) nei Territori dell'Ombra, il vampiro deve ancora risvegliare il Sangue ogni 24 ore. Senza luce solare, possono operare senza riposo.\n● I vampiri nei Territori dell'Ombra non possono interagire con il mondo dei vivi in modo significativo. Possono solo toccare o parlare con creature viventi terminando questa Cerimonia, il che richiede la spesa di un punto Forza di Volontà e un altro Controllo di Risveglio in un luogo dove il Velo non è impenetrabile. Possono vedere frammenti di movimento attraverso il Velo, e una Disciplina come Auspex può consentire loro di spiare da oltre il velo, ma per la maggior parte, tutto ciò che viene visto ha una difficoltà di 4 o più per essere percepito. \n● I vampiri possono usare le loro Discipline nei Territori dell'Ombra proprio come possono fare nel mondo dei vivi.\n● Se un vampiro è costretto a nutrirsi nei Territori dell'Ombra, non può ottenere sostentamento dai wraith senza il potere del Banchetto della Passione (vedi p. 206), ma può nutrirsi da mortali o altri vampiri presenti con loro. \n● L'Oblio assorbe gli individui che perdono tutta la Salute o la Forza di Volontà nei Territori dell'Ombra. Non lasciano wraith se vengono distrutti.\n● I vampiri non possono portare i wraith fuori dai Territori dell'Ombra senza una Cerimonia come l'Evocazione dello Spirito (vedi p. 209), che deve essere utilizzata nel mondo dei vivi per avere questo effetto.\n●Durata: Fino a quando il potere non viene disattivato o il vampiro viene distrutto."
+      },
+      {
+        "id": "d10_010",
+        "level": 5,
+        "title": "Benedizione di Lazzaro",
+        "description": "Questa Cerimonia consente a un negromante di riportare in vita un corpo appena deceduto, sebbene non come lo ricorderebbero i suoi parenti e amici.",
+        "prerequisite": "Compimento del Destino",
+        "ingredients": "Un sacrificio umano, incenso, il cuore di qualsiasi mammifero, argento in polvere.",
+        "execution": "Il negromante brucia incenso per profumare l'aria prima di compiere un atto di sacrificio umano, tagliando il cuore della vittima e sostituendolo con il cuore di un altro mammifero, anche se non è necessario cucirlo e farlo funzionare affinché la Cerimonia funzioni. Dopo aver versato una borsa di argento in polvere sugli occhi aperti del mortale morente o morto, il vampiro invita un wraith a prendere il mortale defunto come ospite. I wraith non possono essere costretti a possedere un corpo, ma pochi rifiutano l'opportunità di camminare di nuovo in scarpe semi-viventi.",
+        "system": "Uccidere un mortale per questa Cerimonia può comportare Macchie, a seconda dei Precetti della Cronaca. Se il cuore sostitutivo è stato anch'esso prelevato da qualcuno che il vampiro ha ucciso, quel omicidio potrebbe anch'esso comportare Macchie. Dopo un lancio di Cerimonia riuscito, un wraith può entrare nel corpo appena deceduto e viverci come se fosse il proprio. Il wraith deve essere presente durante l'atto del sacrificio. Il cadavere posseduto si sveglierà portando le ferite che l'hanno ucciso, anche se il cuore sostitutivo è funzionale (indipendentemente dalla sua origine o posizione) e il corpo guarisce un punto di danno alla Salute dopo il possesso. Il danno alla Salute rimanente si riprende nel tempo. Il corpo possiede gli stessi Attributi Fisici, Discipline (se un ghoule) e Background che aveva in vita. Gli Attributi Sociali e Mentali, le Abilità e qualsiasi forma di rating di moralità corrispondono a quelli del wraith. Questa possessione dura indefinitamente, o fino a quando il corpo posseduto muore di nuovo o il wraith viene esorcizzato dall'ospite. Il corpo non ottiene resistenze speciali al danno al di là delle Discipline che potrebbe avere posseduto in vita."
+      }
+    ]
+  }
+]
