@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.v5rules.data.MainRepository
 
-class DisciplineViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
+class ChapterViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(DisciplineViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(ChapterViewModel::class.java)) {
             val mainRepository = MainRepository(context)
             @Suppress("UNCHECKED_CAST")
-            return DisciplineViewModel(mainRepository) as T
+            return ChapterViewModel(mainRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

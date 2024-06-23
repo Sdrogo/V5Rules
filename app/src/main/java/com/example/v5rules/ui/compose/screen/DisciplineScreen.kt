@@ -12,7 +12,7 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.ui.compose.component.RemoteIcon
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
-import com.example.v5rules.ui.viewModel.UiState
+import com.example.v5rules.ui.viewModel.DisciplineUiState
 
 @Composable
 fun DisciplineScreen(
@@ -20,34 +20,44 @@ fun DisciplineScreen(
     navController: NavHostController
 ) {
     var searchQuery by remember { mutableStateOf("") }
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.disciplineUiState.collectAsState()
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        OutlinedTextField(
-            value = searchQuery,
-            onValueChange = {
-                searchQuery = it
-                viewModel.search(it)
-            },
-            label = { Text("Search") },
-            modifier = Modifier.fillMaxWidth()
-        )
+
+        Row {
+            Button(
+                onClick = { navController.navigateUp() },
+                modifier = Modifier.padding(bottom = 16.dp)
+            ) {
+                Text("Back")
+            }
+            Spacer(modifier = Modifier.width(8.dp))
+            OutlinedTextField(
+                value = searchQuery,
+                onValueChange = {
+                    searchQuery = it
+                    viewModel.search(it)
+                },
+                label = { Text("Search") },
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
 
         when (uiState) {
-            is UiState.Loading -> Text("Loading...")
-            is UiState.Success -> {
-                val disciplines = (uiState as UiState.Success).disciplines
+            is DisciplineUiState.Loading -> Text("Loading...")
+            is DisciplineUiState.Success -> {
+                val disciplines = (uiState as DisciplineUiState.Success).disciplines
                 LazyColumn {
                     items(disciplines) { discipline ->
                         DisciplineItem(discipline, navController)
                     }
                 }
             }
-            is UiState.Error -> Text("Error: ${(uiState as UiState.Error).message}")
+            is DisciplineUiState.Error -> Text("Error: ${(uiState as DisciplineUiState.Error).message}")
         }
     }
 }

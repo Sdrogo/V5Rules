@@ -96,12 +96,6 @@ fun DisciplineDetailScreen(
                     if (!discipline.rituals.isNullOrEmpty()) {
 
                         if (disciplineId == "d9") {
-                            Text(
-                                text = stringResource(id = R.string.discipline_rituals),
-                                style = MaterialTheme.typography.headlineLarge,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(modifier = Modifier.height(16.dp))
                             ContentExpander(
                                 title = stringResource(id = R.string.discipline_rituals_rules),
                                 style = MaterialTheme.typography.headlineSmall,
@@ -177,7 +171,7 @@ fun DisciplineDetailScreen(
                         AnimatedVisibility(visible = expanded) {
                             Column(modifier = Modifier.padding(8.dp)) {
                                 subDisciplines.forEach { subDiscipline ->
-                                    SubDisciplineItem(subDiscipline, disciplineId, navController)
+                                    SubDisciplineItem(subDiscipline, disciplineId, navController, subDiscipline.exclusiveClan)
                                 }
                             }
                         }
@@ -185,17 +179,19 @@ fun DisciplineDetailScreen(
                 }
                 item {
 
-                    if (disciplineId == "d19") {
+                    if (disciplineId == "d9") {
                         Text(
                             text = stringResource(id = R.string.discipline_rituals),
                             style = MaterialTheme.typography.headlineMedium,
+                            fontWeight = FontWeight.Bold
                         )
                     }
                     if (disciplineId == "d10") {
-                    Text(
-                        text = stringResource(id = R.string.discipline_ceremonies_oblivion),
-                        style = MaterialTheme.typography.headlineMedium,
-                    )
+                        Text(
+                            text = stringResource(id = R.string.discipline_ceremonies_oblivion),
+                            style = MaterialTheme.typography.headlineMedium,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
                 discipline.rituals?.let { ritualsList ->
@@ -249,17 +245,29 @@ fun DisciplineDetailScreen(
 fun SubDisciplineItem(
     subDiscipline: SubDiscipline,
     disciplineId: String,
-    navController: NavHostController
-) {
+    navController: NavHostController,
+    exclusiveClan: String?,
+
+    ) {
     Column(modifier = Modifier
         .padding(8.dp)
         .clickable { navController.navigate("discipline_detail_screen/${disciplineId}/${subDiscipline.id}") }) {
-        Text(
-            text = subDiscipline.title,
-            style = MaterialTheme.typography.bodyLarge,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(8.dp),
-        )
+        Row {
+            Text(
+                text = subDiscipline.title,
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(8.dp),
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            if(exclusiveClan != null){
+                Text(
+                    text = exclusiveClan,
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.padding(8.dp),
+                )
+            }
+        }
     }
 }
 
