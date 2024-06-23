@@ -17,6 +17,8 @@ import com.example.v5rules.ui.viewModel.DisciplineViewModelFactory
 import com.example.v5rules.ui.compose.screen.DisciplineDetailScreen
 import com.example.v5rules.ui.compose.screen.DisciplineScreen
 import com.example.v5rules.ui.compose.screen.HomeScreen
+import com.example.v5rules.ui.compose.screen.RitualScreen
+import com.example.v5rules.ui.compose.screen.SubDisciplineScreen
 import com.example.v5rules.ui.theme.V5RulesTheme
 
 class MainActivity : ComponentActivity() {
@@ -51,6 +53,22 @@ fun V5RulesApp(viewModel: DisciplineViewModel) {
                 composable("discipline_detail_screen/{disciplineId}") { backStackEntry ->
                     val disciplineId = backStackEntry.arguments?.getString("disciplineId")
                     DisciplineDetailScreen(disciplineId = disciplineId ?: "", viewModel, navController)
+                }
+                composable("discipline_detail_screen/{disciplineId}/{subDisciplineId}") { backStackEntry ->
+                    val disciplineId = backStackEntry.arguments?.getString("disciplineId")
+                    val subDisciplineId = backStackEntry.arguments?.getString("subDisciplineId")
+                    SubDisciplineScreen(disciplineId = disciplineId ?: "",
+                        subDisciplineId = subDisciplineId?: "",
+                        viewModel = viewModel,
+                        navController = navController)
+                }
+                composable("discipline_ritual_screen/{disciplineId}/{ritualId}") { backStackEntry ->
+                    val disciplineId = backStackEntry.arguments?.getString("disciplineId")
+                    val ritualId = backStackEntry.arguments?.getString("ritualId")
+                    RitualScreen(disciplineId = disciplineId ?: "",
+                        ritualId = ritualId?: "",
+                        viewModel = viewModel,
+                        navController = navController)
                 }
             }
         }

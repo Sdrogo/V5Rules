@@ -63,14 +63,14 @@ fun DisciplineItem(discipline: Discipline, navController: NavHostController) {
             RemoteIcon(
                 imageUrl = discipline.imageUrl,
                 contentDescription = discipline.title,
-                size = 48.dp
+                size = 40.dp
             )
             Text(
                 text = discipline.title,
-                style = MaterialTheme.typography.headlineMedium,
+                style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier
                     .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }
-                    .padding(8.dp)
+                    .padding(horizontal = 8.dp)
             )  
         }
         

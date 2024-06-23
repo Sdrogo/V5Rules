@@ -1,7 +1,5 @@
 package com.example.v5rules.data
 
-import com.example.v5rules.utils.Clan
-
 data class Discipline(
     val id: String,
     val title: String,
@@ -12,7 +10,7 @@ data class Discipline(
     val resonance: String,
     val clanAffinity: List<String>,
     val subDisciplines: List<SubDiscipline>,
-    val rituals: List<Rituals>? = null
+    val rituals: List<Ritual>? = null
 )
 
 data class SubDiscipline(
@@ -20,6 +18,7 @@ data class SubDiscipline(
     val title: String,
     val level: Int,
     val amalgama: String? = null,
+    val exclusiveClan: String? = null,
     val prerequisite: String? = null,
     val cost: String,
     val dicePool: String? = null,
@@ -29,16 +28,18 @@ data class SubDiscipline(
     val table: Table? = null,
 )
 
-data class Rituals(
+data class Ritual(
     val id: String,
+    val level: Int,
     val title: String,
     val description: String,
+    val prerequisite: String? = null,
     val ingredients: String,
-    val execution: String,
-    val system: String
+    val execution: String? = null,
+    val system: String? = null,
+    val table: Table? = null
 )
 data class Table(
-    val numberOfColumns: Int,
     val headers: List<String>,
     val columns: List<List<String>>
 )
