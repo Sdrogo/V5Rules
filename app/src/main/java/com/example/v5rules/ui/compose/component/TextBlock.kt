@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun TextBlock(title: String, component: String, isHidden: Boolean) {
     if (!isHidden) {
-        Column {
+        Column(modifier = Modifier.padding(8.dp)) {
             Text(
                 text = title,
                 style = MaterialTheme.typography.bodyMedium,

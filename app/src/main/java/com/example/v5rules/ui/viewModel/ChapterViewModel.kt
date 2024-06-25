@@ -21,10 +21,10 @@ class ChapterViewModel(
 
     val currentLocale = Locale.getDefault()
     init {
-        fetchDisciplines(currentLocale)
+        fetchChapters(currentLocale)
     }
 
-    private fun fetchDisciplines(currentLocale:Locale) {
+    private fun fetchChapters(currentLocale:Locale) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val chapters = mainRepository.loadChapters(currentLocale)
