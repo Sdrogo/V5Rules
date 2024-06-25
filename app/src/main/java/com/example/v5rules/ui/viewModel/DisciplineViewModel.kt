@@ -47,7 +47,7 @@ class DisciplineViewModel(
                     it.type.contains(keyword, ignoreCase = true) ||
                     it.masquerade.contains(keyword, ignoreCase = true) ||
                     it.resonance.contains(keyword, ignoreCase = true) ||
-                    it.subDisciplines.toString().contains(keyword, ignoreCase = true) ||
+                    it.disciplinePowers.toString().contains(keyword, ignoreCase = true) ||
                     it.rituals.toString().contains(keyword, ignoreCase = true)
         }
         _Discipline_uiState.value = DisciplineUiState.Success(filteredDisciplines)

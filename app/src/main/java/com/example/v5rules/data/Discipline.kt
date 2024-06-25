@@ -9,11 +9,11 @@ data class Discipline(
     val masquerade: String,
     val resonance: String,
     val clanAffinity: List<String>,
-    val subDisciplines: List<SubDiscipline>,
+    val disciplinePowers: List<DisciplinePower>,
     val rituals: List<Ritual>? = null
 )
 
-data class SubDiscipline(
+data class DisciplinePower(
     val id: String,
     val title: String,
     val level: Int,

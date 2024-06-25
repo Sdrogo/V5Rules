@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">V5Rules</string>
+    <string name="discipline_screen_title">Disciplines</string>
     <string name="discipline_type">Type:</string>
     <string name="discipline_clan_affinity">Clan Affinity:</string>
     <string name="discipline_cost">Cost:</string>
