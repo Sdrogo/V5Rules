@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,7 +21,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ContentExpander(title: String, style: TextStyle = MaterialTheme.typography.bodyMedium, fontWeight: FontWeight = FontWeight.Normal, initialState:Boolean = false, content: @Composable () -> Unit) {
     var expandedDescription by remember { mutableStateOf(initialState) }
-    Column(modifier = Modifier.clickable{ expandedDescription = !expandedDescription }){
+    Column(modifier = Modifier.padding(8.dp).clickable{ expandedDescription = !expandedDescription }){
         Text(text = title, style = style, fontWeight = fontWeight, modifier = Modifier.clickable{ expandedDescription = !expandedDescription})
         AnimatedVisibility(visible = expandedDescription){
             content()
