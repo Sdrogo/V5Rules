@@ -22,6 +22,7 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.Ritual
+import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.RemoteIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
@@ -37,32 +38,31 @@ fun RitualScreen(
 
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val ritual = discipline?.rituals?.find { it.id == ritualId }
-    Column(modifier = Modifier.padding(16.dp)) {
-        Button(
-            onClick = { navController.navigateUp() },
-            modifier = Modifier.padding(bottom = 16.dp)
-        ) {
-            Text("Back")
-        }
-        if (ritual != null) {
-            LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
-                item { // Use 'item' to add individual composables to the LazyColumn
-                    RitualInfo(ritual = ritual, discipline = discipline)
+    CommonScaffold(navController = navController, title = ritual?.title ?: "") {
+        Column(
+            modifier = Modifier
+                .padding(it)
+        )
+        {
+            if (ritual != null) {
+                LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
+                    item { // Use 'item' to add individual composables to the LazyColumn
+                        RitualInfo(ritual = ritual, discipline = discipline)
+                    }
                 }
             }
         }
     }
-
 }
 
 
 @Composable
 fun RitualInfo(ritual: Ritual, discipline: Discipline) {
     Column {
-        Row(
+       /* Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(bottom = 16.dp)
-        ){
+        ) {
             RemoteIcon(
                 imageUrl = discipline.imageUrl,
                 contentDescription = discipline.title,
@@ -71,7 +71,7 @@ fun RitualInfo(ritual: Ritual, discipline: Discipline) {
             Spacer(modifier = Modifier.width(16.dp))
             Text(text = ritual.title, style = MaterialTheme.typography.headlineMedium)
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))*/
         TextBlock(
             title = stringResource(id = R.string.discipline_rituals_description),
             component = ritual.description,

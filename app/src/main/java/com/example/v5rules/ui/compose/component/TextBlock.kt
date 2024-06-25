@@ -8,13 +8,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TextBlock(title:String, component:String, isHidden:Boolean){
-    if(!isHidden){
+fun TextBlock(title: String, component: String, isHidden: Boolean) {
+    if (!isHidden) {
         Column {
             Text(
                 text = title,
@@ -22,16 +25,17 @@ fun TextBlock(title:String, component:String, isHidden:Boolean){
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
-
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = component,
+                text = AnnotatedString(
+                    component,
+                    paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                ),
                 style = MaterialTheme.typography.bodyMedium,
                 fontSize = 16.sp,
-                modifier = Modifier.padding(start = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp)
             )
             Spacer(modifier = Modifier.height(8.dp))
         }
     }
-
 }

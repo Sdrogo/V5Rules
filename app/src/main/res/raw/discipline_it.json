@@ -13,7 +13,7 @@
       "Ravnos",
       "Tzimisce"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d0_1",
         "title": "Percezione della Bestia",
@@ -110,7 +110,7 @@
       "Toreador",
       "Tremere"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d1_1",
         "level": 1,
@@ -220,7 +220,7 @@
       "Tzimisce",
       "Ventrue"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d2_1",
         "title": "Annebbiare la Mente",
@@ -318,7 +318,7 @@
       "The Ministry",
       "Ventrue"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d3_1",
         "level": 1,
@@ -415,7 +415,7 @@
       "Nosferatu",
       "Ravnos"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d4_1",
         "level": 1,
@@ -517,7 +517,7 @@
       "Nosferatu",
       "Lasombra"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d5_1",
         "level": 1,
@@ -607,7 +607,7 @@
       "The Ministry",
       "Tzimisce"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d6_1",
         "level": 1,
@@ -690,7 +690,7 @@
       "Salubri",
       "Ventrue"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d7_1",
         "level": 1,
@@ -790,7 +790,7 @@
       "Brujah",
       "Toreador"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d8_1",
         "level": 1,
@@ -890,7 +890,7 @@
       "Banu Haqim",
       "Tremere"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d9_1",
         "level": 1,
@@ -1206,7 +1206,7 @@
       "Hecata",
       "Lasombra"
     ],
-    "subDisciplines": [
+    "disciplinePowers": [
       {
         "id": "d10_1",
         "level": 1,
@@ -1262,6 +1262,7 @@
         "id": "d10_6",
         "level": 2,
         "title": "Dove il Velo si Assottiglia",
+        "exclusiveClan": "Hecata",
         "description": "I vampiri con un'affinità per l'Oblio possono percepire i luoghi in cui il Velo tra il mondo dei vivi e il Regno delle Ombre si assottiglia. Anche se questa Disciplina non dice direttamente a un vampiro perché il Velo tra i mondi è sottile in un certo luogo, potrebbe essere dovuto a un omicidio efferato avvenuto lì molti anni prima, o perché i necromanti hanno frequentemente utilizzato il luogo per evocare spiriti, o potrebbe essere un luogo di risonanza sacra o profana, tra le altre ragioni. Nei luoghi in cui il Velo è più sottile, la salute mortale ne soffre e l'uso della Disciplina dell'Oblio diventa più facile, se il vampiro sa come sfruttare il vuoto nel Velo.",
         "cost": "Una Prova di Risveglio",
         "dicePool": "Prontezza + Oblio",
@@ -1388,6 +1389,7 @@
         "id": "d10_15",
         "level": 5,
         "title": "Debito Saldato",
+        "exclusiveClan": "Hecata",
         "description": "I necromanti possono essere descritti come i più grandi interferitori del destino, poiché hanno un modo di interferire con i percorsi destinati delle vite e degli spiriti. Tuttavia, occasionalmente, i necromanti possono cercare di servire il destino punendo coloro che lo ingannano. Questo potere consente a un vampiro di reintrodurre malattie alle vittime che si sono riprese da esse, rompere ossa da tempo guarite e eliminare l'immunità all'invecchiamento che i ghouls sperimentano. Sebbene questo potere non funzioni sui vampiri, è un modo efficace per eliminare i loro servitori e garantire che i debiti verso il destino siano ripagati, senza dover entrare in contatto con il destinatario.",
         "cost": "Due Prove di Risveglio",
         "dicePool": "Costituzione + Oblio vs. Costituzione + Medicina o Robustezza",
@@ -1398,6 +1400,7 @@
         "id": "d10_16",
         "level": 5,
         "title": "Spirito Appassito",
+        "exclusiveClan": "Hecata",
         "description": "Questo potere canalizza l'entropia grezza attraverso il rapido decadimento spirituale, colpendo i vampiri così come gli umani prendendo di mira lo spirito della vittima. Un vampiro che utilizza questo potere rischia Macchie, poiché può completamente annientare lo spirito della vittima, impedendo il ritorno come uno spettro.",
         "cost": "Due Prove di Risveglio, Macchie (quantità variabile)",
         "dicePool": "Fermezza + Oblio vs. Fermezza + Occulto o Robustezza",

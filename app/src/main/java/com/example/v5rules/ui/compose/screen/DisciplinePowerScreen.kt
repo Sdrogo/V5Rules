@@ -7,62 +7,54 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
-import com.example.v5rules.data.SubDiscipline
+import com.example.v5rules.data.DisciplinePower
+import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.RemoteIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 
 @Composable
-fun SubDisciplineScreen(
+fun DisciplinePowerScreen(
     viewModel: DisciplineViewModel,
     navController: NavHostController,
     disciplineId: String,
-    subDisciplineId: String
+    disciplinePowerId: String
 ) {
 
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
-    val subDiscipline = discipline?.subDisciplines?.find { it.id == subDisciplineId }
-
-    Column (modifier = Modifier.padding(16.dp)){
-        Button(
-            onClick = { navController.navigateUp() },
-            modifier = Modifier.padding(bottom = 16.dp)
-        ) {
-            Text("Back")
-        }
-        if (subDiscipline != null) {
-            LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
-                item { // Use 'item' to add individual composables to the LazyColumn
-                    SubDisciplineInfo(subDiscipline = subDiscipline, discipline = discipline)
+    val disciplinePower = discipline?.disciplinePowers?.find { it.id == disciplinePowerId }
+    CommonScaffold(navController = navController, title = disciplinePower?.title ?: "") {
+        Column(modifier = Modifier
+            .padding(it)) {
+            if (disciplinePower != null) {
+                LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
+                    item { // Use 'item' to add individual composables to the LazyColumn
+                        DisciplinePowerInfo(disciplinePower = disciplinePower, discipline = discipline)
+                    }
                 }
             }
         }
     }
-
 }
 
 @Composable
-fun SubDisciplineInfo(subDiscipline: SubDiscipline, discipline: Discipline) {
+fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline) {
     Column {
-        Row(
+        /*Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(bottom = 16.dp)
-        ){
+        ) {
 
             RemoteIcon(
                 imageUrl = discipline.imageUrl,
@@ -73,22 +65,22 @@ fun SubDisciplineInfo(subDiscipline: SubDiscipline, discipline: Discipline) {
             Text(text = subDiscipline.title, style = MaterialTheme.typography.headlineMedium)
 
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))*/
         TextBlock(
             title = stringResource(id = R.string.discipline_amalgama),
-            component = subDiscipline.amalgama.orEmpty(),
-            isHidden = subDiscipline.amalgama.isNullOrEmpty()
+            component = disciplinePower.amalgama.orEmpty(),
+            isHidden = disciplinePower.amalgama.isNullOrEmpty()
         )
         TextBlock(
             title = stringResource(id = R.string.discipline_description),
-            component = subDiscipline.description,
-            isHidden = subDiscipline.description.isEmpty()
+            component = disciplinePower.description,
+            isHidden = disciplinePower.description.isEmpty()
         )
         Spacer(modifier = Modifier.height(8.dp))
         Box(
             modifier = Modifier.border(
                 1.dp,
-                MaterialTheme.colorScheme.primary,
+                colorResource(id = R.color.background_red),
                 RoundedCornerShape(8.dp)
             )
         ) {
@@ -97,29 +89,42 @@ fun SubDisciplineInfo(subDiscipline: SubDiscipline, discipline: Discipline) {
             ) {
                 TextBlock(
                     title = stringResource(id = R.string.discipline_cost),
-                    component = subDiscipline.cost,
-                    isHidden = subDiscipline.cost.isEmpty()
+                    component = disciplinePower.cost,
+                    isHidden = disciplinePower.cost.isEmpty()
                 )
                 TextBlock(
                     title = stringResource(id = R.string.discipline_dice_pool),
-                    component = subDiscipline.dicePool.orEmpty(),
-                    isHidden = subDiscipline.dicePool.isNullOrEmpty()
+                    component = disciplinePower.dicePool.orEmpty(),
+                    isHidden = disciplinePower.dicePool.isNullOrEmpty()
                 )
                 TextBlock(
                     title = stringResource(id = R.string.discipline_system),
-                    component = subDiscipline.system,
-                    isHidden = subDiscipline.system.isEmpty()
+                    component = disciplinePower.system,
+                    isHidden = disciplinePower.system.isEmpty()
                 )
                 TextBlock(
                     title = stringResource(id = R.string.discipline_duration),
-                    component = subDiscipline.duration,
-                    isHidden = subDiscipline.duration.isEmpty()
+                    component = disciplinePower.duration,
+                    isHidden = disciplinePower.duration.isEmpty()
                 )
             }
         }
         Spacer(modifier = Modifier.height(8.dp))
-        if(subDiscipline.table != null){
-            TableContent(headerList = subDiscipline.table.headers, contentList = subDiscipline.table.columns)
+        if (disciplinePower.table != null) {
+            TableContent(
+                headerList = disciplinePower.table.headers,
+                contentList = disciplinePower.table.columns
+            )
         }
+        Row{
+            Spacer(modifier = Modifier.weight(1f))
+            RemoteIcon(
+                imageUrl = discipline.imageUrl,
+                contentDescription = discipline.title,
+                size = 64.dp
+            )
+            Spacer(modifier = Modifier.weight(1f))
+        }
+
     }
 }
