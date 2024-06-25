@@ -21,9 +21,13 @@ import com.example.v5rules.ui.compose.screen.DisciplineScreen
 import com.example.v5rules.ui.compose.screen.HomeScreen
 import com.example.v5rules.ui.compose.screen.RitualScreen
 import com.example.v5rules.ui.compose.screen.DisciplinePowerScreen
+import com.example.v5rules.ui.compose.screen.PredatorTypeDetailsScreen
+import com.example.v5rules.ui.compose.screen.PredatorTypeListScreen
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.ui.viewModel.ClanViewModel
 import com.example.v5rules.ui.viewModel.ClanViewModelFactory
+import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
+import com.example.v5rules.ui.viewModel.PredatorTypeViewModelFactory
 
 class MainActivity : ComponentActivity() {
 
@@ -33,18 +37,23 @@ class MainActivity : ComponentActivity() {
     private val clanViewModel: ClanViewModel by viewModels {
         ClanViewModelFactory(this)
     }
+    private val predatorTypeViewModel: PredatorTypeViewModel by viewModels {
+        PredatorTypeViewModelFactory(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            V5RulesApp(disciplineViewModel, clanViewModel)
+            V5RulesApp(disciplineViewModel, clanViewModel, predatorTypeViewModel)
         }
     }
 }
 
 @Composable
-fun V5RulesApp(disciplineViewModel: DisciplineViewModel,
-               clanViewModel: ClanViewModel
+fun V5RulesApp(
+    disciplineViewModel: DisciplineViewModel,
+    clanViewModel: ClanViewModel,
+    predatorTypeViewModel: PredatorTypeViewModel
 ) {
     V5RulesTheme {
         val navController = rememberNavController()
@@ -61,23 +70,38 @@ fun V5RulesApp(disciplineViewModel: DisciplineViewModel,
                 }
                 composable("discipline_detail_screen/{disciplineId}") { backStackEntry ->
                     val disciplineId = backStackEntry.arguments?.getString("disciplineId")
-                    DisciplineDetailScreen(disciplineId = disciplineId ?: "", disciplineViewModel, navController)
+                    DisciplineDetailScreen(
+                        disciplineId = disciplineId ?: "",
+                        disciplineViewModel,
+                        navController
+                    )
                 }
                 composable("discipline_detail_screen/{disciplineId}/{subDisciplineId}") { backStackEntry ->
                     val disciplineId = backStackEntry.arguments?.getString("disciplineId")
                     val subDisciplineId = backStackEntry.arguments?.getString("subDisciplineId")
-                    DisciplinePowerScreen(disciplineId = disciplineId ?: "",
-                        disciplinePowerId = subDisciplineId?: "",
+                    DisciplinePowerScreen(
+                        disciplineId = disciplineId ?: "",
+                        disciplinePowerId = subDisciplineId ?: "",
                         viewModel = disciplineViewModel,
-                        navController = navController)
+                        navController = navController
+                    )
                 }
                 composable("discipline_ritual_screen/{disciplineId}/{ritualId}") { backStackEntry ->
                     val disciplineId = backStackEntry.arguments?.getString("disciplineId")
                     val ritualId = backStackEntry.arguments?.getString("ritualId")
-                    RitualScreen(disciplineId = disciplineId ?: "",
-                        ritualId = ritualId?: "",
+                    RitualScreen(
+                        disciplineId = disciplineId ?: "",
+                        ritualId = ritualId ?: "",
                         viewModel = disciplineViewModel,
-                        navController = navController)
+                        navController = navController
+                    )
+                }
+                composable("predator_type_screen") { backStackEntry ->
+                    PredatorTypeListScreen(viewModel = predatorTypeViewModel, navController = navController)
+                }
+                composable("predator_type_screen/{predatorName}") { backStackEntry ->
+                    val predatorNameId = backStackEntry.arguments?.getString("predatorName")
+                    PredatorTypeDetailsScreen(predatorTypeViewModel, navController, predatorNameId ?: "")
                 }
 
                 composable("clan_screen") {
@@ -85,7 +109,11 @@ fun V5RulesApp(disciplineViewModel: DisciplineViewModel,
                 }
                 composable("clan_screen/{clanName}") { backStackEntry ->
                     val clanName = backStackEntry.arguments?.getString("clanName")
-                    ClanDetailScreen(clanViewModel = clanViewModel, navController = navController, clanName = clanName ?: "")
+                    ClanDetailScreen(
+                        clanViewModel = clanViewModel,
+                        navController = navController,
+                        clanName = clanName ?: ""
+                    )
                 }
             }
         }

@@ -34,6 +34,12 @@
     <string name="clan_weakness">Debolezza:</string>
     <string name="clan_compulsion">Compulsione: %1$s</string>
 
+
+    <string name="predator_type_screen_title">Archetipi Predatore</string>
+    <string name="predator_type_screen_description">Descrizione:</string>
+    <string name="predator_type_screen_hunt_pool">Tiro di Caccia:</string>
+    <string name="predator_type_screen_detail">Dettagli:</string>
+
     <string name="expand">Expand…</string>
 
 </resources>

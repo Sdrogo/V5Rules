@@ -35,6 +35,17 @@ fun HomeScreen(navController: NavHostController) {
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(
+                onClick = { navController.navigate("predator_type_screen") },
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFF76031a), // Your desired button color
+                    contentColor = Color.White // Text color for contrast
+                )
+            ) {
+                Text(text = stringResource(id = R.string.predator_type_screen_title))
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(
                 onClick = { navController.navigate("discipline_screen") },
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(
