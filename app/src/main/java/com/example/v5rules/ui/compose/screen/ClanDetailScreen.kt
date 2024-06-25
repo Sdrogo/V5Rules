@@ -1,0 +1,176 @@
+package com.example.v5rules.ui.compose.screen
+
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.ParagraphStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import com.example.v5rules.R
+import com.example.v5rules.data.Clan
+import com.example.v5rules.ui.compose.component.CommonScaffold
+import com.example.v5rules.ui.compose.component.ContentExpander
+import com.example.v5rules.ui.compose.component.TextBlock
+import com.example.v5rules.ui.compose.component.TintedImage
+import com.example.v5rules.ui.viewModel.ClanViewModel
+
+@Composable
+fun ClanDetailScreen(
+    clanViewModel: ClanViewModel,
+    navController: NavHostController,
+    clanName: String
+) {
+    val clan = clanViewModel.allClans.find { it.name == clanName }
+    CommonScaffold(navController = navController, title = clanName) { innerPadding ->
+        clan?.let { clan ->
+            ClanDetail(clan = clan, innerPadding)
+        }
+    }
+}
+
+@Composable
+fun ClanDetail(
+    clan: Clan,
+    innerPadding: PaddingValues
+) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(innerPadding)
+            .padding(16.dp)
+    ) {
+        item {
+            Row {
+                Spacer(modifier = Modifier.weight(1f))
+                TintedImage(
+                    imageUrl = clan.imageUrl,
+                    tintColor = colorResource(id = R.color.background_red),
+                    width = 200.dp
+                )
+                Spacer(modifier = Modifier.weight(1f))
+            }
+            Spacer(modifier = Modifier.padding(8.dp))
+            Row {
+                Spacer(modifier = Modifier.weight(1f))
+                TintedImage(
+                    imageUrl = clan.nameImageUrl,
+                    tintColor = colorResource(id = R.color.background_red),
+                    width = 400.dp
+                )
+                Spacer(modifier = Modifier.weight(1f))
+            }
+            Spacer(modifier = Modifier.padding(16.dp))
+            ContentExpander(
+                title = stringResource(id = R.string.clan_description, clan.name),
+                style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
+            ) {
+                Text(
+                    text = AnnotatedString(
+                        clan.description,
+                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontSize = 16.sp,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
+            }
+        }
+        items(clan.paragraphs.orEmpty()) {
+            ContentExpander(
+                title = it.title,
+                style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
+            ) {
+                Text(
+                    text = AnnotatedString(
+                        clan.description,
+                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontSize = 16.sp,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
+            }
+        }
+        item {
+            ContentExpander(
+                title = stringResource(id = R.string.clan_disciplines),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold
+            ) {
+                Surface(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth()
+                        .border(
+                            1.dp,
+                            colorResource(id = R.color.background_red),
+                            RoundedCornerShape(8.dp)
+                        ),
+                    shape = RoundedCornerShape(8.dp)
+                ) {
+                    Column {
+                        clan.disciplines.forEach { discipline ->
+                            TextBlock(
+                                title = "${discipline.title}:",
+                                component = discipline.content,
+                                isHidden = discipline.content.isEmpty()
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        item {
+            clan.weakness?.let {
+                ContentExpander(
+                    title = stringResource(id = R.string.clan_weakness),
+                    style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
+                ) {
+                    Text(
+                        text = AnnotatedString(
+                            clan.description,
+                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                        ),
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontSize = 16.sp,
+                        modifier = Modifier.padding(horizontal = 16.dp)
+                    )
+                }
+            }
+        }
+        items(clan.compulsion.orEmpty()) {
+            ContentExpander(
+                title = stringResource(id = R.string.clan_compulsion, it.name),
+                style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
+            ) {
+                Text(
+                    text = AnnotatedString(
+                        clan.description,
+                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontSize = 16.sp,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
+            }
+        }
+    }
+}
