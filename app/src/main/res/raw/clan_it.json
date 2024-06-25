@@ -23,6 +23,10 @@
       {
         "name": "Sentenza",
         "description": "Il vampiro è obbligato a punire chiunque sembri violare il suo credo personale, bevendone il sangue come giusto castigo per il suo crimine. Per una scena, il vampiro deve saziare almeno un livello di Fame da chiunque, amico o nemico, agisca contro una sua Convinzione. Se non lo fa, incorre in una penalità di 3 dadi a tutti i tiri finché la Compulsione non è soddisfatta o fino al termine della scena (se la vittima è un vampiro, è necessario eseguire il test per la frenesia alimentare indotta dalla Debolezza)."
+      },
+      {
+        "name": "Il Veleno nel Sangue",
+        "description": "La morte si annida nel sangue dei cosiddetti Assassini. Mentre il suo effetto su altri vampiri è lo stesso di qualsiasi vitae, è veleno per i mortali e mette a rischio la vita di chiunque i Banu Haqim cerchino di trasformare in ghoul o di legare con il Vincolo di Sangue. Un mortale che beve il sangue di un vampiro Banu Haqim subisce danni aggravati pari alla Gravità della Debolezza del vampiro per ogni quantità di sangue ingerita corrispondente a un Rouse Check. Inoltre, la vitae dei Banu Haqim non può essere utilizzata per guarire ferite mortali (vedi p. 139). La vitae dei Banu Haqim non ha altre proprietà tossiche; in quantità inferiori a quelle necessarie per creare un Vincolo di Sangue, non infligge alcun danno, anche se iniettata direttamente nel flusso sanguigno."
       }
     ]
   },
@@ -50,6 +54,9 @@
       {
         "name": "Ribellione",
         "description": "Il vampiro Brujah mostra una forte resistenza nei confronti di ciò o di coloro che rappresentano lo status quo nella situazione. Questa opposizione può manifestarsi verso il suo capo, un punto di vista prevalente o anche solo nei confronti delle responsabilità o compiti che dovrebbe svolgere in quel momento. Fino a quando non agisce in contrasto con gli ordini o le aspettative percepite o reali, il vampiro subisce una penalità di 2 dadi a tutti i tiri. La Compulsione cessa una volta che riesce a far cambiare idea a qualcuno (anche con la forza, se necessario) o ha agito in modo contrario a ciò che ci si aspettava da lui."
+      },{
+        "name": "Violenza",
+        "description": "Vettori non morti di rivolta, i Brujah non possono fare a meno di cambiare le cose — spesso in modo violento e non sempre per il meglio. Mentre tutti i vampiri possiedono una certa capacità di distruzione, un Brujah affamato provoca sempre qualche tipo di danno. Quando ottiene un risultato critico disastroso in un qualsiasi test di Abilità, un vampiro Brujah causa danni (fisici o mentali, a seconda della situazione) al soggetto della loro interazione pari alla Gravità della loro Debolezza, oltre a qualsiasi altro risultato dei dadi Fame. Il danno è aggravato a meno che il giocatore non spenda un punto di Forza di Volontà, rendendo il danno superficiale."
       }
     ]
   },
@@ -77,6 +84,9 @@
       {
         "name": "Impulsi Ferini",
         "description": "Quando un vampiro Gangrel cede agli impulsi ferini, regredendo a uno stato animalesco, si ritrova in una condizione in cui gli è difficile parlare, i vestiti gli stanno stretti e preferisce risolvere ogni discussione con denti e artigli. Per l'intera scena, il vampiro subisce una penalità di 3 dadi su tutti i test che coinvolgono Persuasione e Intelligenza. Durante questo periodo, la sua capacità di comunicare si limita a ringhi e frasi di una sola parola."
+      },{
+        "name": "Istinto di Sopravvivenza",
+        "description": "Niente è più importante per gli Animali della sopravvivenza. Tra i clan di vampiri più tenaci, i Gangrel possono sopportare quasi tutto e prosperare nelle condizioni più dure. Mentre la Bestia può spesso mettere un vampiro in situazioni sfavorevoli, gli istinti di un Gangrel sono calibrati principalmente per assicurarsi di vedere un'altra notte. Sottrai un numero di dadi pari alla Gravità della Debolezza del Gangrel da qualsiasi tiro per resistere alla Frenesia della Paura. Questo non può ridurre il pool a meno di un dado."
       }
     ]
   },
@@ -104,6 +114,9 @@
       {
         "name": "Patologico",
         "description": "Gli Hecata sono dotati di una curiosità particolare associata a un distacco dalla compassione e dall'empatia, probabilmente dovuto ai loro frequenti rapporti con cadaveri e con gli spettri di coloro che sono morti in tragedia. Il loro Sangue li spinge a studiare gli individui intorno a loro per segni di malattia, fragilità o morte imminente. Fino a quando non avranno previsto una morte senza mezzi sovrannaturali o risolto la causa di una morte locale, il vampiro subirà una penalità di tre dadi su altri tiri fino alla fine della scena. Si noti che le loro conclusioni non devono essere necessariamente corrette, ma devono rimanere entro i limiti del possibile."
+      },{
+        "name": "Decadenza",
+        "description": "La connessione degli Hecata con la morte e l'entropia li fa praticamente irradiare decadimento, erodendo lentamente cose viventi e inerti nella loro vicinanza. I loro rifugi diventano decrepiti in poche notti, le piante appassiscono intorno a loro e persino i mortali diventano emaciati e malaticci dopo una lunga esposizione. Alcuni Hecata accettano questa condizione, adattandosi a vivere in rifugi fatiscenti e con pochi, se non nessuno, servitori mortali. Quelli che non lo fanno devono spendere notevole tempo e sforzi per impedire che i loro beni si deteriorino. I vampiri Hecata subiscono ulteriori punti nei Difetti pari alla Gravità della loro Debolezza, da suddividere tra i Difetti di Servitore, Rifugio e Risorse come preferiscono. Questi possono essere presi alla creazione del personaggio o \"comprati\" pagando il doppio dei punti di Background. Inoltre, acquistare punti in questi Vantaggi costa un numero aggiuntivo di punti esperienza pari alla Gravità della Debolezza."
       }
     ]
   },
@@ -131,6 +144,10 @@
       {
         "name": "Spietatezza",
         "description": "Per i Lasombra, il fallimento non è un'opzione. Il loro Sangue li spingerà a compiere qualsiasi atto concepibile per raggiungere i loro obiettivi, sia nel momento presente che in complotti bizantini che durano secoli. Ogni contrattempo è sentito profondamente e passano rapidamente ai metodi più spietati fino a quando non raggiungono i loro scopi.La prossima volta che il vampiro fallisce in qualsiasi azione, riceve una penalità di due dadi a tutti i tiri fino a quando un tentativo futuro della stessa azione non riesce. Nota che la suddetta penalità si applica anche ai tentativi futuri dell'azione che ha scatenato la penalità."
+      },
+      {
+        "name": "Insensibilità",
+        "description": "Sia per la tendenza a scegliere mortali particolarmente spietati per l'Abbraccio, sia per qualcosa che rode la loro psiche, i vampiri Lasombra tendono all'inumano, indipendentemente dalla setta o dallo stile di non-vita. Qualcosa in loro appare semplicemente sbagliato e i Lasombra che tengono alla loro sanità mentale devono essere estremamente cauti, affinché la loro Bestia non tolga un altro morso alla loro Umanità. Quando si effettua un tiro di Rimorso, sottrai un numero di dadi pari alla Gravità della Debolezza del vampiro Lasombra. Questo non può ridurre il pool di dadi a meno di un dado."
       }
     ],
     "paragraph": [
@@ -164,6 +181,9 @@
       {
         "name": "Allucinazione",
         "description": "I doni extrasensoriali del vampiro prendono una piega imprevedibile, portandolo a sperimentare realtà percepite solo da lui come vere, mentre gli altri le considerano \"illusioni indotte dalla Fame\". Pur continuando a funzionare, la mente e le percezioni del vampiro sono distorti, imponendo una penalità di 2 dadi a tutti i tiri che coinvolgono Destrezza, Persuasione, Autocontrollo e Prontezza, nonché ai tiri per resistere alla frenesia da paura per l'intera scena."
+      },{
+        "name": "Manifestazioni Innaturali",
+        "description": "Anche l'Oracolo più apparentemente normale provoca disagio nelle persone intorno a loro quando attinge ai poteri del loro sangue inquietante. Sebbene raramente riconoscano la fonte di queste sensazioni, i mortali reagiscono con un notevole disagio quando un Malkavian usa i suoi poteri, e altri vampiri possono facilmente riconoscere la presenza di un loro simile non morto. Ogni volta che un Malkavian utilizza un potere di Disciplina, i mortali nelle vicinanze (approssimativamente nella stessa stanza o equivalente) si spaventano e qualsiasi interazione sociale con loro, a parte l'intimidazione, subisce una penalità ai dadi pari alla Gravità della Debolezza del Malkavian. Questa sensazione non rompe la Masquerade, ma il mortale è colto da una paura improvvisa o avversione per il vampiro, che dura per una scena. Altri vampiri provano una sensazione simile, riconoscendo immediatamente il Malkavian come un vampiro, anche se non si applicano penalità alle interazioni con loro."
       }
     ]
   },
@@ -197,6 +217,9 @@
       {
         "name": "Trasgressione",
         "description": "La saggezza prevalente del Clan della Fede (o delle Bugie...) è che la mente e lo spirito di tutti sono legati da catene invisibili di propria fabbricazione. Il loro sangue graffia queste catene, e il Ministro soffre un impellente bisogno di romperle. Il vampiro riceve una penalità di due dadi a tutti i pool di dadi non relativi a incantare qualcuno (incluso se stessi) a infrangere un precetto cronachistico o una convinzione personale, causando almeno una Macchia e ponendo fine a questa Compulsione."
+      },{
+        "name": "Sangue Freddo",
+        "description": "Spesso paragonato a quello dei serpenti, il sangue dei Ministri scorre freddo in più di un modo. Senza sangue fresco e caldo nelle vene, trovano impossibile imitare il respiro e il battito cardiaco di un mortale, e anche allora l'atto richiede uno sforzo considerevole. Un vampiro del Ministero può usare Blush of Life solo se si è nutrito di recente da un essere vivente (nella stessa scena o fino a circa un'ora prima, a discrezione del narratore), e quando lo fa richiede un numero di Rouse Checks pari alla Gravità della loro Debolezza anziché solo uno."
       }
     ]
   },
@@ -224,6 +247,10 @@
       {
         "name": "Criptofilia",
         "description": "Il bisogno di conoscere permea il vampiro, che si sente divorato dalla brama di segreti, desiderando conoscere ciò che è noto a pochi o a nessuno; un desiderio che rivaleggia con quello di sangue. Inoltre, egli rifiuta di condividere tali segreti con gli altri, a meno che non sia in cambio di misteri più grandi. Le riserve di qualsiasi azione non finalizzata a imparare un segreto, indipendentemente dalla sua dimensione, subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro scopre un segreto sufficientemente importante da essere considerato utile. La condivisione di tale segreto è facoltativa."
+      },
+      {
+        "name": "Infestazione",
+        "description": "Ovunque vadano o cerchino di nascondersi, sciami di parassiti seguono i Nosferatu. Alcuni sono infestati da sciami di ratti, altri attirano scarafaggi, mentre altri ancora non riescono a liberarsi dei dannati piccioni o dei loro escrementi. In molti casi, si tratta di tutti questi e altro ancora. Non importa dove stabiliscano il loro rifugio, presto allontanano tutti gli altri abitanti. Anche una breve sosta può lasciare ospiti indesiderati che rimangono a lungo dopo che il Ratto di Fogna se n'è andato. Un rifugio di Nosferatu è sempre infestato da parassiti, causando una penalità pari a due più la Gravità della loro Debolezza a qualsiasi tentativo di attività (da parte di chiunque) che richieda concentrazione, nonché ai test sociali a discrezione del Narratore. Inoltre, ogni volta che un vampiro Nosferatu trascorre una scena in un luogo chiuso, l'infestazione di parassiti provoca un effetto simile, sebbene la penalità sia pari solo alla Gravità della Debolezza del vampiro. Qualsiasi tentativo di controllare (temporaneamente) i parassiti con Animalità viene effettuato con una penalità pari alla Gravità della Debolezza. Si noti che con questa Debolezza, i Nosferatu non sono necessariamente deformi, sebbene possano comunque apparire strani, se lo desiderano."
       }
     ]
   },
@@ -251,6 +278,9 @@
       {
         "name": "Sfidare il Fato",
         "description": "Il Sangue sprona il vampiro a corteggiare il pericolo. Perché non dovrebbe, tormentato com’è dal fuoco che minaccia di sprigionarsi dalle origini del suo lignaggio? La prossima volta che il vampiro deve risolvere un problema, qualsiasi tentativo di soluzione che non sia il più temerario comporta una penalità di due dadi (in tale occasione, i tentativi adeguatamente spettacolari e rischiosi possono invece fornire dadi bonus). Lo Scavezzacollo è libero di convincere i compagni a fare le cose a modo suo, ma è altrettanto probabile che debba sbrogliarsela da solo. La Compulsione permane finché il problema non è risolto o diventano impossibili ulteriori tentativi."
+      },{
+        "name": "Nome di Non-Nascita",
+        "description": "I vampiri Ravnos si affidano a una singola verità inviolabile per ancorarsi mentre praticano il loro mestiere ai margini della realtà: il loro nome. Qualunque nome avessero al momento dell'Abbraccio, i Truffatori si preoccupano molto di nasconderlo, poiché chiunque conosca questo \"nome di non-nascita\" ottiene potere su di loro. Chiunque pronunci il nome di non-nascita di un Ravnos in faccia a loro riceve un bonus pari alla Gravità della Debolezza del Ravnos per resistere ai loro poteri di Disciplina, e il Ravnos subisce una penalità equivalente per resistere ai poteri soprannaturali utilizzati dall'avversario che conosce il loro nome."
       }
     ]
   },
@@ -278,6 +308,9 @@
       {
         "name": "Empatia Affettiva",
         "description": "Quando un Salubri subisce una Compulsione, è sopraffatto dall’empatia per un problema personale che affligge qualcuno presente sulla scena, e deve cercare di promuoverne la soluzione. La scala del problema personale non è importante: il Salubri capisce che talvolta la sofferenza deriva da una situazione cumulativa e non da uno stimolo isolato. Qualsiasi azione che intraprenda e che non sia finalizzata a mitigare tale tragedia personale subisce una penalità di due dadi. La Compulsione permane finché il fardello del sofferente non è alleviato o soppiantato da una crisi più immediata, o fino al termine della scena."
+      },{
+        "name": "Ascetismo",
+        "description": "Qualcosa nei Salubri resiste alla condizione vampirica, e più indulgono nella loro Fame, meno il loro Sangue è incline a obbedire loro. Solo nell'astinenza possono utilizzare appieno i loro poteri, poiché un vampiro Salubri ha bisogno dei morsi della fame per evitare di ostacolare le proprie abilità soprannaturali. Quando la loro Fame è inferiore a tre, i vampiri Salubri subiscono una penalità pari alla Gravità della loro Debolezza a tutti i pool di dadi delle Discipline. Questo si aggiunge al terzo occhio, descritto a pagina 47."
       }
     ]
   },
@@ -305,6 +338,9 @@
       {
         "name": "Ossessione",
         "description": "Rapito dalla bellezza, il vampiro diventa temporaneamente ossessionato da una singola cosa meravigliosa, incapace di pensare a nient’altro. Scegliete un elemento come una persona, una canzone, un’opera d’arte, uno schizzo di sangue o persino l’alba. Il vampiro ne è stregato e non riesce a distogliere la sua attenzione da esso; se gli parlano, parla solo di quella cosa. Ogni altra azione subisce una penalità di 2 dadi. La Compulsione cessa quando non può più percepire l’oggetto adorato o al termine della scena."
+      },{
+        "name": "Agonizzante",
+        "description": "La maledizione dei Toreador è che sentono troppo, a volte letteralmente, delle sensazioni intorno a loro. Soprattutto nei momenti intimi come il nutrimento, un Diva soffre fisicamente l'agonia che infligge a un mortale, i danni ai loro corpi morti che mimano il danno inflitto al recipiente. Quando un vampiro Toreador si nutre causando danni a un mortale, il vampiro subisce danni simili (di solito aggravati) in cambio, anche se un singolo nutrimento non può causare più danni della Gravità della loro Debolezza. Il danno prende la forma di sanguinamento interno involontario, il vampiro mostra lividi vividi nella zona corrispondente alla posizione del morso sulla vittima."
       }
     ]
   },
@@ -332,6 +368,9 @@
       {
         "name": "Perfezionismo",
         "description": "Solo il meglio può soddisfare il vampiro. Qualsiasi esecuzione meno che eccezionale suscita un profondo senso di fallimento, spingendolo a ripeterla ossessivamente per portarla a termine \"nel modo giusto\". Finché il vampiro non ottiene una vittoria critica in un tiro di Abilità o la scena non termina, subisce una penalità di 2 dadi a tutte le riserve. La penalità si riduce a un dado per le azioni ripetute e scompare del tutto alla terza esecuzione."
+      },{
+        "name": "Sangue Rubato",
+        "description": "Discendendo da vampiri che hanno appropriato la maledizione di Caino, i vampiri Tremere non possono utilizzare il loro Sangue in modo efficace come i Kindred di altri clan. Sebbene possano chiamare il Sangue per Discipline e animazione, la capacità intrinseca di compiere imprese sovrumane è molto più difficile per i Tremere. Quando un vampiro Tremere esegue un Blood Surge (Vampire: The Masquerade, p. 218), deve fare un numero di Rouse Checks pari alla Gravità della loro Debolezza. Se questi Rouse Checks aumentano la Fame del vampiro a 5 o più, possono scegliere se rinunciare al Blood Surge o eseguirlo e poi raggiungere immediatamente Fame 5."
       }
     ]
   },
@@ -359,6 +398,9 @@
       {
         "name": "Cupidigia",
         "description": "Quando uno Tzimisce subisce una Compulsione, diventa ossessionato dal possedere qualcosa che sia presente nella scena, bramando di aggiungerlo al suo proverbiale tesoro. Può essere qualunque cosa: un oggetto, una proprietà immobiliare o una persona. Qualsiasi azione non direttamente rivolta a tale scopo subisce una penalità di due dadi. La Compulsione permane finché il vampiro non afferma il suo possesso (deciderà il Narratore che cosa costituisce “possesso” nel caso non si tratti di un oggetto) o l’oggetto del desiderio diventa irraggiungibile."
+      },{
+        "name": "Cortesia Maledetta",
+        "description": "Proprio come molti Tzimisce sono estremamente seri riguardo al proprio rifugio e alla propria proprietà, sono anche costretti a trattare allo stesso modo quelli degli altri. Un vampiro Tzimisce che entra nella casa di qualcun altro non invitato soffre di un grave disagio e di un desiderio quasi fisico di andarsene.\n\nUn vampiro Tzimisce che desidera entrare in un luogo di residenza (case e rifugi) non invitato deve spendere un numero di punti di Forza di Volontà pari alla Gravità della loro Debolezza e subisce una penalità simile ai loro pool di dadi delle Discipline durante la loro permanenza. L'invito deve essere fatto da qualcuno che vive (o non vive) lì, e quindi solo le case o i rifugi effettivamente abitati soddisfano questa condizione. Gli Tzimisce possono entrare liberamente in edifici pubblici o abbandonati; appartamenti e case contano come residenze separate per questo scopo. I casi limite sono lasciati alla discrezione del Narratore.\n\nGli Tzimisce con questa Debolezza non possono prendere il corrispondente Difetto del Blocco Folkloristico."
       }
     ]
   },
@@ -386,6 +428,10 @@
       {
         "name": "Arroganza",
         "description": "Il vampiro è dominato dal bisogno di governare e non esita a fare tutto il necessario per assumere il controllo di una situazione. Qualcuno deve obbedire a un ordine impartito dal vampiro; qualsiasi azione non direttamente finalizzata al comando subisce una penalità di 2 dadi. La Compulsione persiste finché non viene eseguito un ordine, il quale, tuttavia, non deve essere supportato da mezzi soprannaturali come la Dominazione."
+      },
+      {
+        "name": "Gerarchia",
+        "description": "Mentre molti Ventrue cercano di comandare, sono anche pronti a obbedire ai loro superiori. Spesso scelti per una mentalità pragmatica, i giovani Ventrue imparano a prestare attenzione al loro sire, e i loro istinti innati spesso li fanno cedere in modo simile a qualsiasi vampiro di sangue più antico.\n\nUn vampiro Ventrue subisce una penalità ai loro pool di dadi delle Discipline pari alla Gravità della loro Debolezza quando tentano di usare i loro poteri su un vampiro di generazione inferiore. Devono anche spendere un numero di punti di Forza di Volontà pari alla Gravità della loro Debolezza se desiderano attaccare direttamente un vampiro di generazione inferiore."
       }
     ]
   },
