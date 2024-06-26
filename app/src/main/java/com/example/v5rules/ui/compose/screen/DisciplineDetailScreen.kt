@@ -166,12 +166,13 @@ fun DisciplineDetailScreen(
 
                             AnimatedVisibility(visible = expanded) {
                                 Column(modifier = Modifier.padding(8.dp)) {
-                                    subDisciplines.forEach { subDiscipline ->
+                                    subDisciplines.forEach { disciplinePower ->
                                         SubDisciplineItem(
-                                            subDiscipline,
+                                            disciplinePower,
                                             disciplineId,
                                             navController,
-                                            subDiscipline.exclusiveClan
+                                            disciplinePower.exclusiveClan,
+                                            disciplinePower.amalgama
                                         )
                                     }
                                 }
@@ -248,13 +249,14 @@ fun SubDisciplineItem(
     disciplinePower: DisciplinePower,
     disciplineId: String,
     navController: NavHostController,
-    exclusiveClan: String?,
+    exclusiveClan: String? = null,
+    amalgama: String? = null
 
     ) {
     Column(modifier = Modifier
         .padding(8.dp)
         .clickable { navController.navigate("discipline_detail_screen/${disciplineId}/${disciplinePower.id}") }) {
-        Row {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
                 text = disciplinePower.title,
                 style = MaterialTheme.typography.bodyLarge,
@@ -262,12 +264,20 @@ fun SubDisciplineItem(
                 modifier = Modifier.padding(8.dp),
             )
             Spacer(modifier = Modifier.width(16.dp))
-            if (exclusiveClan != null) {
-                Text(
-                    text = exclusiveClan,
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.padding(8.dp),
-                )
+            Column {
+                if (exclusiveClan != null) {
+                    Text(
+                        text = exclusiveClan,
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Spacer(modifier = Modifier.width(16.dp))
+                }
+                if (amalgama != null) {
+                    Text(
+                        text = amalgama,
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                }
             }
         }
     }

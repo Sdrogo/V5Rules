@@ -3,6 +3,7 @@ package com.example.v5rules.ui.compose.screen
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -37,12 +38,13 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
                 is PredatorTypeUiState.Loading -> Text("Loading...")
                 is PredatorTypeUiState.Success -> {
                     val predators = (uiState as PredatorTypeUiState.Success).clans
-                    LazyColumn {
+                    LazyColumn (modifier = Modifier.fillMaxWidth()) {
                         items(predators) { predator ->
                             Text(
                                 text = predator.name,
                                 style = MaterialTheme.typography.headlineSmall,
                                 modifier = Modifier
+                                    .fillMaxWidth()
                                     .clickable { navController.navigate("predator_type_screen/${predator.name}") }
                                     .padding(8.dp)
                             )
