@@ -17,8 +17,6 @@ class ChapterViewModel(
     private val _ChapterUiState = MutableStateFlow<ChapterUiState>(ChapterUiState.Loading)
     val chapterUiState: StateFlow<ChapterUiState> = _ChapterUiState
 
-    var allChapters: List<Chapter> = listOf()
-
     val currentLocale = Locale.getDefault()
     init {
         fetchChapters(currentLocale)
@@ -28,22 +26,11 @@ class ChapterViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val chapters = mainRepository.loadChapters(currentLocale)
-                allChapters = mainRepository.loadChapters(currentLocale)
                 _ChapterUiState.value = ChapterUiState.Success(chapters)
             } catch (e: Exception) {
                 _ChapterUiState.value = ChapterUiState.Error(e.message ?: "Errore durante il caricamento delle discipline")
             }
         }
-    }
-
-    fun search(keyword: String) {
-
-        val filteredDisciplines = allChapters.filter {
-            it.title.contains(keyword, ignoreCase = true) ||
-                    it.content.contains(keyword, ignoreCase = true) ||
-                    it.sections.toString().contains(keyword, ignoreCase = true)
-        }
-        _ChapterUiState.value = ChapterUiState.Success(filteredDisciplines)
     }
 }
 

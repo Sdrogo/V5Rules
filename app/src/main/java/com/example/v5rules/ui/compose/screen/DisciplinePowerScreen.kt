@@ -1,5 +1,6 @@
 package com.example.v5rules.ui.compose.screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,9 +10,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -19,7 +20,7 @@ import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.compose.component.RemoteIcon
+import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
@@ -35,8 +36,7 @@ fun DisciplinePowerScreen(
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val disciplinePower = discipline?.disciplinePowers?.find { it.id == disciplinePowerId }
     CommonScaffold(navController = navController, title = disciplinePower?.title ?: "") {
-        Column(modifier = Modifier
-            .padding(it)) {
+        Column( modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary)){
             if (disciplinePower != null) {
                 LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
                     item { // Use 'item' to add individual composables to the LazyColumn
@@ -50,7 +50,7 @@ fun DisciplinePowerScreen(
 
 @Composable
 fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline) {
-    Column {
+    Column(modifier = Modifier.background(MaterialTheme.colorScheme.secondary)) {
         /*Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(bottom = 16.dp)
@@ -78,14 +78,18 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
         )
         Spacer(modifier = Modifier.height(8.dp))
         Box(
-            modifier = Modifier.border(
+            modifier = Modifier
+                .background(MaterialTheme.colorScheme.secondary)
+                .border(
                 1.dp,
-                colorResource(id = R.color.background_red),
+                MaterialTheme.colorScheme.tertiary,
                 RoundedCornerShape(8.dp)
             )
         ) {
             Column(
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier
+                    .padding(8.dp)
+                    .background(color = MaterialTheme.colorScheme.secondary)
             ) {
                 TextBlock(
                     title = stringResource(id = R.string.discipline_cost),
@@ -118,8 +122,8 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
         }
         Row{
             Spacer(modifier = Modifier.weight(1f))
-            RemoteIcon(
-                imageUrl = discipline.imageUrl,
+            DisciplineIcon(
+                disciplineId = discipline.id,
                 contentDescription = discipline.title,
                 size = 64.dp
             )
