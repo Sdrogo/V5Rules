@@ -1,81 +1,343 @@
 [
   {
-    "id": "d1",
-    "title": "Discipline 1",
-    "description": "Description for Discipline 1",
-    "imageUrl": "http://example.com/image1.png",
-    "type": "Physical",
-    "masquerade": "Low",
-    "resonance": "Choleric",
-    "clanAffinity": ["BRUJAH", "GANGREL"],
-    "subDisciplines": [
+    "title": "Confronti e Conflitti",
+    "content": "Il Narratore può introdurre i confronti per simulare situazioni in cui i personaggi devono affrontare un'opposizione diretta: ad esempio, violare un sistema di sicurezza sorvegliato, muoversi di nascosto dietro a un individuo che li sta cercando, o persuadere un poliziotto sotto copertura.\nDurante un confronto, il personaggio attivo e il suo avversario generano entrambi una riserva di dadi. Non è necessario che utilizzino la stessa riserva. I confronti seguono generalmente questa procedura:\n● Il giocatore descrive le azioni che il personaggio intende compiere e il modo in cui intende farlo.\n● Il Narratore decide se c'è qualcuno che cerca di contrastare l'azione e specifica quali Tratti utilizzare per generare una riserva di dadi.\n● Il Narratore stabilisce quali Tratti l'avversario impiegherà per formare la sua riserva di dadi.\n● Ciascun partecipante al confronto tira la propria riserva di dadi e conta i successi.\n● Se il personaggio attivo ottiene un numero di successi uguale o superiore a quello dell'avversario, vince la prova.",
+    "sections": [
       {
-        "id": "1",
-        "title": "SubDiscipline 1",
-        "level": 1,
-        "cost": "1 Willpower",
-        "dicePool": "Dexterity + Athletics",
-        "duration": "One scene",
-        "description": "Description for SubDiscipline 1",
-        "system": "System for SubDiscipline 1"
+        "title": "Test Prolungati",
+        "content": "Il Narratore può introdurre i confronti per simulare situazioni in cui i personaggi devono affrontare un'opposizione diretta: ad esempio, violare un sistema di sicurezza sorvegliato, muoversi di nascosto dietro a un individuo che li sta cercando, o persuadere un poliziotto sotto copertura.\nDurante un confronto, il personaggio attivo e il suo avversario generano entrambi una riserva di dadi. Non è necessario che utilizzino la stessa riserva. I confronti seguono generalmente questa procedura:\n● Il giocatore descrive le azioni che il personaggio intende compiere e il modo in cui intende farlo.\n● Il Narratore decide se c'è qualcuno che cerca di contrastare l'azione e specifica quali Tratti utilizzare per generare una riserva di dadi.\n● Il Narratore stabilisce quali Tratti l'avversario impiegherà per formare la sua riserva di dadi.\n● Ciascun partecipante al confronto tira la propria riserva di dadi e conta i successi.\n● Se il personaggio attivo ottiene un numero di successi uguale o superiore a quello dell'avversario, vince la prova.",
+        "paragraphs": [
+          {
+            "title": "Test Prolungati",
+            "content": "I test prolungati vengono utilizzati quando un'impresa richiede un periodo di tempo esteso o coinvolge molteplici azioni. Ecco alcune varianti e situazioni speciali relative ai test prolungati:"
+          },
+          {
+            "title": "Test Prolungato Standard",
+            "content": "La Difficoltà è molto alta (10 o più) e i giocatori accumulano successi da ogni tiro fino a raggiungere o superare la Difficoltà.\n● Test Seriale:La Difficoltà è normale, ma è richiesto un numero specifico di vittorie per raggiungere il risultato.\nAdatto a imprese con diverse componenti, come disattivare allarmi e serrature in un caveau.\n● Test Prolungato Difficile:Una combinazione di test prolungati standard e seriali, considerando solo i margini di successo per superare la Difficoltà finale.\nAdatto a tiri eseguiti solo una o più volte per sessione per rappresentare progressi incrementali.\n● Test a Cascata:I margini di successo di ogni impresa vengono sommati come dadi extra nell'impresa successiva.\nRappresenta situazioni in cui il successo in una fase genera ulteriori successi nelle fasi successive.\n● Confronti Prolungati: Simulano una gara tra due personaggi per completare un'azione prolungata.\nOgni personaggio esegue il tiro in incrementi temporali, e il vincitore è chi raggiunge prima la quantità necessaria di successi."
+          },
+          {
+            "title": "Situazioni Speciali",
+            "content": "Alcune regole e risultati speciali dei test semplici possono funzionare in modo diverso nei test prolungati, come il \"Lavoro di Squadra\" e il \"Fallimento Totale\". Il Narratore può adattare queste eccezioni per favorire lo sviluppo drammatico della trama."
+          }
+        ]
       },
       {
-        "id": "2",
-        "title": "SubDiscipline 2",
-        "level": 2,
-        "cost": "1 Blood",
-        "dicePool": "Strength + Brawl",
-        "duration": "One turn",
-        "description": "Description for SubDiscipline 2",
-        "system": "System for SubDiscipline 2",
-        "table": {
-          "numberOfColumns": 2,
-          "headers": ["Header1", "Header2"],
-          "columns": [
-            ["Row1Col1", "Row1Col2"],
-            ["Row2Col1", "Row2Col2"]
-          ]
-        }
+        "title": "Conflitti Semplici",
+        "content": "In un conflitto semplice, attaccante e difensore lanciano le proprie riserve di dadi simultaneamente. Come in altri tipi di conflitti, chi ottiene più successi vince il turno. Il vincitore sottrae dal suo totale i successi ottenuti dal difensore e applica quelli rimasti come danno al punteggio interessato del perdente (solitamente Salute, vedi Danni, p. 126).\nSe il conflitto è unidirezionale, ad esempio, se il difensore cerca solo di evitare di essere colpito, infligge danni solo l’attaccante. Se entrambi i partecipanti possono o vogliono causare danni all'avversario, il conflitto è bidirezionale, e entrambi si considerano attaccanti: le loro azioni si fondono in un singolo tiro di conflitto. In caso di pareggio, entrambi i contendenti infliggono 1 danno all'avversario (tenendo presente di aggiungere i danni causati dalle armi, se applicabili; vedere sotto).",
+        "paragraphs": [
+          {
+            "title": "Armi a Distanza",
+            "content": "Il combattimento a distanza si risolve come un confronto, di solito contro la riserva di Destrezza + Atletica del difensore. Nei casi in cui i due combattenti scambiano attacchi a distanza, è possibile risolverlo come un conflitto bidirezionale di Armi da Fuoco. Ciò presuppone che i soggetti dispongano di qualche copertura limitata, come un'automobile o l'angolo di un edificio. Un personaggio completamente scoperto subisce una penalità di 2 dadi alla sua riserva di difesa, mentre una copertura superiore (sacchetti di sabbia, fortificazioni di cemento e simili ostacoli a prova di proiettile) conferisce un bonus di 1-2."
+          },
+          {
+            "title": "Schivare",
+            "content": "Se impegnato in un conflitto di Rissa o Mischia, il difensore può sempre scegliere di usare la sua Destrezza + Atletica anziché un'abilità di combattimento. In questo caso, non può infliggere danni all'avversario se vince il turno, non importa con quale margine."
+          },
+          {
+            "title": "Avversari Numerosi",
+            "content": "Qualora gli attacchi in massa abbiano senso, un personaggio che si trova ad affrontare più avversari perde un dado dalla sua riserva di difesa per ogni successivo nemico che lo prende di mira. Al fine di attaccare diversi avversari nella stessa azione, un personaggio deve suddividere la sua riserva di attacco."
+          }
+        ]
+      },
+      {
+        "title": "Conflitti Avanzati",
+        "content": "",
+        "paragraphs": [
+          {
+            "title": "Tiro Singolo",
+            "content": "Quando le circostanze particolari descritte in precedenza non si applicano, è possibile considerare l'uso di un conflitto a tiro singolo. In questo caso, ogni conseguenza dell'azione è amplificata. La Difficoltà del tiro singolo può essere determinata in base all'andamento dei tre round precedenti del conflitto:\n● Difficoltà 3: Se la maggior parte del combattimento è andata a favore dei personaggi o se hanno vinto tutti e tre i round precedenti.\n● Difficoltà 4: Se entrambe le parti hanno subito danni simili o se i personaggi hanno vinto due round su tre.\n● Difficoltà 5: Se i personaggi hanno perso il combattimento o hanno vinto solo un round su tre.\n● Difficoltà 6: Se i personaggi hanno avuto fortuna a sopravvivere finora o hanno perso tutti e tre i round precedenti."
+          },
+          {
+            "title": "Exeunt",
+            "content": "La conclusione di un conflitto non lo risolve necessariamente completamente; potrebbe anche trasformarlo in una nuova scena."
+          },
+          {
+            "title": "Avanzata",
+            "content": "L'avanzata è un modo di gestire il conflitto in cui l'obiettivo è ciò che conta. Questo può includere manipolazioni politiche, distruzione di prove, accumulo di influenza, violazioni di sistemi di sorveglianza, ecc. L'avanzata viene gestita come un test prolungato, con i giocatori che tirano per accumulare il massimo di vittorie/successi."
+          },
+          {
+            "title": "Manovra",
+            "content": "La manovra è l'azione di raggiungere una posizione vantaggiosa, utile per compiere ulteriori azioni o trarne beneficio. Può fornire un bonus diretto ai dadi della prossima azione, guadagnare una posizione superiore o permettere di attaccare senza contrasto."
+          },
+          {
+            "title": "Bloccaggio",
+            "content": "Il bloccaggio consiste nel contrastare attivamente le azioni altrui, posizionandosi davanti a un aggressore, distrarre chi sta cercando supporto, o fornire copertura. Durante un bloccaggio, il risultato del tiro viene utilizzato come opposizione all'azione che si sta cercando di bloccare. È anche possibile \"bloccare il bloccaggio\" di qualcuno, eseguendo un test prima della catena di bloccaggio successiva."
+          },
+          {
+            "title": "Attacco Totale",
+            "content": "Quando un combattente decide di sferrare un colpo con tutte le forze, ignorando la prudenza per aumentare l'efficacia, ottiene un bonus di +1 ai danni. Tuttavia, non può difendersi da qualsiasi attacco. Se l'arma è a distanza, l'uso di questa tattica svuota anche il caricatore. Questa opzione non può essere utilizzata in un attacco di sorpresa. Se l'attacco fallisce, chiunque agisca contro il combattente ottiene 1 dado extra alle proprie riserve nel turno successivo."
+          },
+          {
+            "title": "Difesa Totale",
+            "content": "Se un personaggio si concentra esclusivamente sulla propria protezione per un turno, riceve un bonus di 1 dado a tutti i tiri di difesa. Se ha a disposizione una copertura solida e può nascondersi completamente dietro di essa, diventa invulnerabile agli attacchi a distanza a condizione di non essere attaccato ai fianchi. Questa tattica non può essere combinata con azioni offensive."
+          },
+          {
+            "title": "Azioni Minori",
+            "content": "Alcune azioni non richiedono uno scambio completo ma sono abbastanza significative da non poter essere eseguite gratuitamente. Queste azioni minori sottraggono dadi dalla riserva dell'azione principale, e il Narratore può imporre un limite al loro numero durante un singolo scambio. Esempi di azioni minori includono preparare un'arma, maneggiare equipaggiamento, muoversi di qualche passo, svolgere una commissione o occuparsi del proprio rifugio. Un giocatore può scegliere di compiere solo azioni minori nel suo turno, rispettando il limite definito dal Narratore."
+          },
+          {
+            "title": "Difesa Totale",
+            "content": "Se un personaggio si concentra esclusivamente sulla propria protezione per un turno, riceve un bonus di 1 dado a tutti i tiri di difesa. Se ha a disposizione una copertura solida e può nascondersi completamente dietro di essa, diventa invulnerabile agli attacchi a distanza a condizione di non essere attaccato ai fianchi. Questa tattica non può essere combinata con azioni offensive."
+          },
+          {
+            "title": "Movimento nei Conflitti",
+            "content": "Il movimento in Vampiri spesso è trattato in modo astratto, ma può essere una componente significativa di un conflitto, specialmente quando un personaggio desidera avvicinarsi o allontanarsi da un avversario. Può essere gestito come un'azione minore o simulato come una manovra, a seconda delle circostanze e dell'importanza del movimento nel contesto del conflitto."
+          },
+          {
+            "title": "Conflitti a Tiro Singolo",
+            "content": "In alcuni casi, un conflitto può essere risolto in modo più distaccato assegnando semplicemente una Difficoltà agli oppositori, basata sulla loro forza relativa. Ogni giocatore partecipante al conflitto esegue quindi un tiro di una riserva pertinente contro la Difficoltà fissata. La parte che ottiene il maggior numero di vittorie avrà un risultato migliore. Questo approccio può essere utile quando il conflitto non offre molto potenziale drammatico o coinvolge un numero limitato di giocatori."
+          },
+          {
+            "title": "Esempi di Difficoltà",
+            "content": "● Gli oppositori sono notevolmente più deboli o l'obiettivo è facile da raggiungere: Difficoltà 2.\n● Entrambe le parti hanno forza equilibrata o l'obiettivo è una sfida notevole: Difficoltà 4.\n● Gli oppositori sono molto più forti o l'obiettivo è estremamente arduo da raggiungere: Difficoltà 6.\nLa difficoltà può essere modificata a favore della parte in vantaggio per Discipline o poteri soprannaturali, posizione, preparazione o sorpresa. I danni inflitti sono basati sulla differenza tra i successi ottenuti e il doppio della Difficoltà. Questi danni non sono mitigati da armature o mezzi soprannaturali come la Robustezza. La natura dei danni dipende dagli oppositori e dalle armi utilizzate. In alternativa, un giocatore potrebbe mitigare i danni ottenendo Macchie attraverso atti di estrema crudeltà."
+          },
+          {
+            "title": "Iniziativa",
+            "content": "Il sistema propone un approccio tradizionalista all'iniziativa, basato sul valore di Iniziativa calcolato come Autocontrollo + Allerta per ogni personaggio. In alcune situazioni specifiche, come i duelli formali, Autocontrollo potrebbe essere sostituito da Destrezza o Fermezza. L'Iniziativa rimane costante durante l'intero combattimento, indipendentemente dalle azioni eseguite.\nIl partecipante con l'Iniziativa più alta agisce per primo, seguito dagli altri in ordine decrescente di Iniziativa. Non sono previsti test durante questa fase. In caso di pareggio, i personaggi giocanti agiscono prima dei personaggi non giocanti, e se il pareggio persiste, si può risolvere con un tiro di dado.\nAll'inizio di ogni turno, i combattenti dichiarano e eseguono le loro azioni in ordine di Iniziativa. Possono anche scegliere di passare, posizionandosi per ultimo nelle azioni successive."
+          },
+          {
+            "title": "Attacchi di Sorpresa",
+            "content": "Per ottenere la sorpresa, un personaggio deve superare un tiro che coinvolge Destrezza + Furtività contro la riserva di Prontezza + Allerta degli avversari. Questo tiro determina se gli attaccanti ottengono la sorpresa. Il primo attacco beneficia di un valore fisso di Difficoltà 1, consentendo colpi più devastanti. Questo sistema offre un approccio più dettagliato all'ordine di iniziativa e agli attacchi di sorpresa, aggiungendo un elemento di strategia al combattimento. Fammi sapere se ci sono altri aspetti di questi sistemi su cui desideri informazioni o se hai ulteriori domande!"
+          },
+          {
+            "title": "Combattimento Ravvicinato",
+            "content": "Il sistema descrive le dinamiche del combattimento ravvicinato, che include gli scontri corpo a corpo sia a mani nude che con armi da mischia. Di seguito sono riassunti i principi chiave:\n● Attaccante: Usa tiri come Forza + Rissa per attacchi a mani nude, Destrezza + Mischia per armi da mischia a una mano, o Forza + Mischia per armi a due mani.\n● Difensore: Usa tiri simili, o Destrezza + Atletica per schivare.\n● Scontri Diretti: Quando i combattenti si attaccano reciprocamente, entrambi tirano contemporaneamente e chi ottiene più successi infligge danni all'altro.\n● Portata Migliore: Opzionalmente, il combattente con la portata migliore (l'arma più lunga) riceve un dado bonus nel primo turno di combattimento.\n● Prese: Un combattente può tentare di afferrare, stringere, placcare o trattenere l'avversario tirando Forza + Rissa. Se ha successo, può optare per diverse opzioni nel round successivo, come infliggere danni, mordere (se vampiro), o rilasciare l'avversario."
+          },
+          {
+            "title": "Combattimento a Distanza",
+            "content": "Questo sistema gestisce il combattimento con armi a distanza, coprendo vari tipi di armi da fuoco e oggetti lanciati:\n● Sparatorie Comuni: I combattenti tirano su Autocontrollo + Armi da Fuoco per una sparatoria standard. Un tiro mirato può richiedere Fermezza, mentre uno stile \"mezzanotte di fuoco\" comporta Destrezza + Armi da Fuoco, almeno per il primo colpo.\n● Armi da Lancio: Scagliare armi su un bersaglio richiede un test di Destrezza + Atletica. Alcuni vampiri possono includere oggetti insoliti come armi."
+          },
+          {
+            "title": "Combattimento Ravvicinato",
+            "content": "Il sistema descrive le dinamiche del combattimento ravvicinato, che include gli scontri corpo a corpo sia a mani nude che con armi da mischia. Di seguito sono riassunti i principi chiave:\n● Attaccante: Usa tiri come Forza + Rissa per attacchi a mani nude, Destrezza + Mischia per armi da mischia a una mano, o Forza + Mischia per armi a due mani.\n● Difensore: Usa tiri simili, o Destrezza + Atletica per schivare.\n● Scontri Diretti: Quando i combattenti si attaccano reciprocamente, entrambi tirano contemporaneamente e chi ottiene più successi infligge danni all'altro.\n● Portata Migliore: Opzionalmente, il combattente con la portata migliore (l'arma più lunga) riceve un dado bonus nel primo turno di combattimento.\n● Prese: Un combattente può tentare di afferrare, stringere, placcare o trattenere l'avversario tirando Forza + Rissa. Se ha successo, può optare per diverse opzioni nel round successivo, come infliggere danni, mordere (se vampiro), o rilasciare l'avversario."
+          },
+          {
+            "title": "Difesa dagli Attacchi a Distanza",
+            "content": "La difesa contro gli attacchi a distanza coinvolge un test di Destrezza + Atletica, rappresentando la capacità di evitare i colpi sfruttando la copertura disponibile.\n● Nessuna -> -2 dadi\n● Solo occultamento -> -1 dado\n● Copertura Rigida -> +/- 0 dadi\n● Trincerato -> +1 dado\n● Feritoria -> +2"
+          },
+          {
+            "title": "Armi a Distanza in Combattimento Ravvicinato",
+            "content": "Quando un personaggio è impegnato in combattimento corpo a corpo e tiene un'arma da fuoco, ci sono delle considerazioni specifiche:\n● Attaccante con Arma da Fuoco: Deve tirare Forza + Armi da Fuoco contro la riserva di Rissa o Mischia dell'avversario. Non subisce penalità per la mancanza di copertura.\n● Difensore Impegnato in Combattimento Ravvicinato: Non subisce penalità per la mancanza di copertura quando usa Rissa o Mischia contro l'attaccante con arma da fuoco.\n● Penalità per Sparare fuori dalla Zuffa: Se il personaggio spara a qualcuno al di fuori della zuffa, subisce una penalità di -2 dadi. Le armi più grandi di una pistola hanno ulteriori -2 dadi di penalità."
+          },
+          {
+            "title": "Ricaricare e Annotare il Consumo di Munizioni:",
+            "content": "● Gestione delle Munizioni: In generale, in Vampiri, non è necessario tenere traccia delle munizioni per le armi leggere durante il combattimento. Tuttavia, potrebbe essere richiesto di ricaricare dopo un certo numero di attacchi a seconda del tipo di arma utilizzato.\n● Ricaricare: Ricaricare è considerata un'azione minore con una penalità di 2 dadi. La penalità rappresenta il tempo necessario per eseguire questa azione durante un combattimento.\n"
+          },
+          {
+            "title": "Colpi Mirati",
+            "content": "Un combattente può cercare di indirizzare i suoi attacchi su una specifica parte del bersaglio per ottenere risultati diversi. Ecco come funzionano i colpi mirati:\n● Dichiarazione dell'Azione: Prima di tirare i dadi dell'attacco, l'attaccante dichiara l'azione mirata e il bersaglio.\n● Modificatore di Successi: Dopo il test di attacco, l'attaccante sottrae successi. Colpire una posizione specifica è più difficile, e di solito il modificatore è di -2 successi. Il Narratore può regolare questo modificatore in base alla natura del bersaglio.\n● Effetto Preciso: L'effetto preciso di un colpo mirato è lasciato alla discrezione del Narratore. Non dovrebbe trattarsi solo di danni aggiuntivi, poiché l'obiettivo è spesso l'inabilitazione non letale a spese dell'efficacia dell'attacco."
+          },
+          {
+            "title": "Ferite Invalidant",
+            "content": "Se i giocatori desiderano un combattimento più sanguinoso, la tabella Ferite Invalidanti consente effetti aggiuntivi oltre ai danni ingenti alla Salute. Ecco come funziona:\n● Determinazione degli Effetti: Dopo aver subito danni mentre si è Menomati, i giocatori tirano un d10 sulla tabella. Si somma al tiro il numero di caselle già barrate con danni Aggravati.\n● Effetti Aggiuntivi: Il risultato può provocare ulteriori penalità alle riserve di dadi o persino la morte istantanea. Questi effetti vanno registrati indipendentemente dai danni più astratti sulle caselle Salute."
+          },
+          {
+            "title": "Critici in Combattimento",
+            "content": "Per accelerare il gioco, se si ottiene un critico in combattimento contro un nemico mortale anonimo, l'umano è inabilitato senza la necessità di calcolare i danni. In questo contesto, un critico caotico è generalmente fatale. Questa regola semplifica l'esito dei critici in combattimento contro avversari non significativi."
+          },
+          {
+            "title": "Armi",
+            "content": "Il valore di danno delle armi si somma al margine di successo del tiro di attacco per definire i danni totali inflitti. Ad esempio, se un personaggio ottiene un margine di successo di 2 e l'arma ha un valore di danno di +3, i danni totali sarebbero 5."
+          },
+          {
+            "title": "Armatura",
+            "content": "Ogni punto di armatura trasforma 1 punto di danno Aggravato da armi perforanti o a lama (per ogni tiro dei danni) in danni Superficiali. I danni Superficiali vengono poi dimezzati come al solito. Questa protezione è generalmente utile solo a mortali e Sangue debole, poiché i vampiri considerano già Superficiali i danni di quel tipo."
+          }
+        ]
+      },
+      {
+        "title": "Combattimento Sociale",
+        "content": "Il combattimento o conflitto sociale può verificarsi in vari contesti e assume forme diverse, da scontri verbali a duelli di frecciate e schermaglie alla corte del Principe. Queste regole offrono un livello di astrazione più elevato rispetto al combattimento fisico.\nI conflitti sociali si risolvono utilizzando le stesse meccaniche del combattimento fisico. Gli attaccanti tirano le riserve e confrontano i successi, sottraendo quelli dell'avversario per determinare i danni inflitti alla Volontà. La sequenza delle azioni di solito non è critica, ma in situazioni in cui lo è, Prontezza + Galateo può essere usato per l'ordine di Iniziativa.",
+        "paragraphs": [
+          {
+            "title": "Danni alla Volontà",
+            "content": "I danni alla Volontà sono particolarmente dolorosi quando il pubblico assiste a manifestazioni di debolezza. Un modificatore basato sul pubblico viene aggiunto ai danni, rendendo le conseguenze delle sconfitte più gravi quando ci sono spettatori interessati al risultato.\nIn un conflitto sociale, è possibile ritirarsi prima di tirare le riserve di dadi, evitando così l'umiliazione e la fatica associata alla sconfitta inevitabile.\n● solo avversari -> +0 danni\n● La coterie del conentendente -> +1\n● Fratelli la cui opinione il contendente ritiene importante -> +2\n● Primogeniti, Arpie o altre figure sociali rilevanti -> +3\n● Il Principe, Barone o altra figura autorevole"
+          },
+          {
+            "title": "Tempo e Combattimento Sociale",
+            "content": "A differenza degli scontri fisici, i conflitti sociali possono protrarsi oltre la stessa scena. Situazioni come due rivali che chiedono udienza al Principe, un duello artistico tra due Toreador o una competizione tra due Malkavian desiderosi di far impazzire l'altro possono durare giorni, settimane o addirittura secoli. Nei conflitti sociali a lungo termine, la perdita di Volontà non rappresenta un improvviso shock, ma piuttosto una distrazione costante e fastidiosa che può emergere in modo più evidente nel corso del tempo. In queste situazioni prolungate, il conteggio dei successi su tre round (o la vittoria di due dei tre round) può essere sufficiente come punto di riferimento per la narrazione, evitando la necessità di tenere traccia specifica dei danni."
+          },
+          {
+            "title": "Vincere un Combattimento Sociale",
+            "content": "Il combattimento sociale termina quando una delle parti ammette la sconfitta. A volte, un avversario potrebbe subire un crollo nervoso totale quando le sue caselle Volontà si riempiono di danni Aggravati. Il vincitore del conflitto sociale ottiene la posta stabilita inizialmente dal Narratore e dai giocatori. Il Narratore può imporre al perdente ulteriori penalità nelle interazioni col vincitore, almeno finché il ricordo della sua umiliazione non svanirà."
+          }
+        ]
       }
     ]
   },
   {
-    "id": "d1",
-    "title": "Discipline 2",
-    "description": "Description for Discipline 2",
-    "imageUrl": "http://example.com/image2.png",
-    "type": "Mental",
-    "masquerade": "Medium",
-    "resonance": "Sanguine",
-    "clanAffinity": ["MALKAVIAN", "TOREADOR"],
-    "subDisciplines": [
+    "title": "Danni",
+    "content": "Il Narratore determina a quale attributo della vittima si applicano i danni di un attacco. In un conflitto fisico, di solito, si applicano alla Salute; in un conflitto sociale, normalmente alla Volontà.\nIl vincitore di ogni confronto applica come danno il suo margine di successo al punteggio dell'avversario. Questo margine si applica anche come danno nel caso di attacchi con armi a distanza. A volte, le circostanze definiscono l'insorgere di danni aggiuntivi dopo il confronto:\n● Se il vincitore ha utilizzato un'arma, il valore di danno della stessa si aggiunge al margine ottenuto (vedi p. 304).\n● In un conflitto sociale, si aggiungono danni a seconda del pubblico (vedi p. 305). Il Narratore può inoltre incrementare i danni se il perdente tiene particolarmente a cuore l'opinione del pubblico.",
+    "sections": [
       {
-        "id": "1",
-        "title": "SubDiscipline 1",
-        "level": 1,
-        "cost": "1 Willpower",
-        "dicePool": "Dexterity + Athletics",
-        "duration": "One scene",
-        "description": "Description for SubDiscipline 1",
-        "system": "System for SubDiscipline 1"
+        "title": "Tipologie di Danno",
+        "content": "Nel sistema dello Storyteller, i danni si categorizzano in due tipologie principali.",
+        "paragraphs": [
+          {
+            "title": "Danni Superficiali",
+            "content": "Ferite apparenti, come contusioni e graffi, che non pongono immediato pericolo di vita. Pugni, calci e armi non letali, come taser, infliggono danni superficiali. Anche armi comuni, come pistole e lame, provocano danni superficiali ai vampiri. Nei conflitti sociali, rappresentano imbarazzo o ferite all'amor proprio senza effetti duraturi sull'immagine del bersaglio."
+          },
+          {
+            "title": "Danni Aggravati",
+            "content": "Lesioni gravi, come ossa rotte e ferite profonde, che comportano rischio di vita. Le armi affilate e perforanti causano danni aggravati agli umani, mentre fuoco, luce solare, artigli o zanne di creature soprannaturali provocano danni aggravati ai vampiri. Negli attacchi sociali, svelare informazioni segrete o essere attaccati da amici intimi può infliggere danni aggravati alla Volontà."
+          }
+        ]
       },
       {
-        "id": "2",
-        "title": "SubDiscipline 2",
-        "level": 2,
-        "cost": "1 Blood",
-        "dicePool": "Strength + Brawl",
-        "duration": "One turn",
-        "description": "Description for SubDiscipline 2",
-        "system": "System for SubDiscipline 2",
-        "table": {
-          "numberOfColumns": 2,
-          "headers": ["Header1", "Header2"],
-          "columns": [
-            ["Row1Col1", "Row1Col2"],
-            ["Row2Col1", "Row2Col2"]
-          ]
-        }
+        "title": "Conteggio dei Danni",
+        "content": "I personaggi applicano i danni ricevuti al punteggio pertinente, Salute o Volontà. Salvo specifiche diverse, i danni superficiali sono dimezzati (arrotondando per eccesso) prima di essere applicati. Ogni livello di danni superficiali sulla scheda del personaggio viene indicato con una \"/\" su una casella. I danni aggravati vengono registrati tracciando una \"X\" sulla casella corrispondente."
+      },
+      {
+        "title": "Menomazione",
+        "content": "Quando i danni di un tipo o di entrambi sono sufficienti a riempire completamente le caselle del punteggio, si verifica una menomazione. I personaggi menomati perdono 2 dadi da tutte le riserve pertinenti: riserve fisiche in caso di menomazione alla Salute, riserve sociali e mentali se colpita la Volontà, oltre a qualsiasi altra riserva influenzata a discrezione del Narratore. Per i PNG mortali, ulteriori dettagli sono a discrezione del Narratore."
+      },
+      {
+        "title": "Menomazioni e Danni Aggiuntivi",
+        "content": "Qualora un personaggio sia menomato e subisca ulteriori danni (sia Superficiali che Aggravati), ogni livello successivo di danno converte automaticamente in un danno Aggravato 1 punto Superficiale precedentemente subito. Basta sostituire la \"/\" con una \"X\" sulla scheda di gioco, trasformando così il danno Superficiale in Aggravato. È importante notare che i danni Superficiali devono essere dimezzati prima di essere convertiti."
+      },
+      {
+        "title": "Menomazioni e Danni Aggiuntivi",
+        "content": "Qualora un personaggio sia menomato e subisca ulteriori danni (sia Superficiali che Aggravati), ogni livello successivo di danno converte automaticamente in un danno Aggravato 1 punto Superficiale precedentemente subito. Basta sostituire la \"/\" con una \"X\" sulla scheda di gioco, trasformando così il danno Superficiale in Aggravato. È importante notare che i danni Superficiali devono essere dimezzati prima di essere convertiti."
+      },
+      {
+        "title": "Fine delle Caselle",
+        "content": "Quando tutte le caselle del punteggio di Salute vengono completamente riempite con danni Aggravati, il personaggio è messo fuori combattimento, con esiti quali il coma o la morte per gli umani. Nel caso dei vampiri, ciò si traduce in uno stato di torpore (come illustrato a pagina 223)."
+      }
+    ]
+  },
+  {
+    "title": "Guarigione",
+    "content": "",
+    "sections": [
+      {
+        "title": "Danni Superficiali alla Salute",
+        "content": "All'inizio di ogni sessione, i mortali possono rimuovere un numero di danni Superficiali dal loro punteggio di Salute pari alla loro Costituzione. Per i vampiri, è possibile rimuovere ogni turno un numero analogo di danni Superficiali attraverso il Risveglio del Sangue (vedi \"Risanare i danni\" a pagina 218)."
+      },
+      {
+        "title": "Danni Aggravati alla Salute",
+        "content": "Per i mortali, un personaggio con competenze mediche può convertire i danni Aggravati alla Salute in danni Superficiali. Per farlo, deve superare un tiro di Intelligenza + Medicina con una difficoltà pari al totale dei danni Aggravati subiti dal paziente. Il numero massimo di danni Aggravati convertibili è la metà del valore di Medicina del personaggio, arrotondato per eccesso. La guarigione inizia durante la notte, e il Narratore determina se eventuali ferite restanti richiedono cure ulteriori o addirittura un ricovero ospedaliero. Il tempo di recupero, generalmente, è uguale al totale dei danni Aggravati subiti, ma il Narratore può adattarlo alla trama."
+      },
+      {
+        "title": "Danni Superficiali alla Volontà",
+        "content": "All'inizio di ogni sessione, sia vampiri che mortali possono rimuovere un numero di danni Superficiali dal loro punteggio di Volontà pari al valore maggiore tra Autocontrollo e Fermezza."
+      },
+      {
+        "title": "Danni Aggravati alla Volontà",
+        "content": "All'inizio della sessione successiva, un personaggio che abbia agito in accordo con la propria Ambizione può guarire 1 danno Aggravato alla Volontà. Tuttavia, le conseguenze aggiuntive della sconfitta in un conflitto sociale o mentale (come cattiva reputazione, perdita di Status, vulnerabilità al controllo mentale o dominio sociale) possono persistere a discrezione del Narratore."
+      },
+      {
+        "title": "Guarigione Vampirica",
+        "content": "Poiché i vampiri sono esseri morti, la loro guarigione non segue i processi normali. Tuttavia, con uno sforzo adeguato, possono rigenerare i danni al loro corpo defunto."
+      },
+      {
+        "title": "Risanare Danni Superficiali alla Salute",
+        "content": "In base alla sua Potenza del Sangue, un vampiro può risanare uno o due punti di danno Superficiale alla Salute con una singola Prova di Risveglio. Ogni prova può essere eseguita una volta al turno."
+      },
+      {
+        "title": "Risanare Danni Aggravati alla Salute",
+        "content": "Per guarire i danni Aggravati, il vampiro deve aspettare fino alla notte successiva ed eseguire 3 Prove di Risveglio, oltre a quella normale richiesta durante la risanazione, quando si risveglia. Questo processo rimuove un punto di danno Aggravato e una Ferita Invalidante o una menomazione analoga. Il vampiro può risanare solo un punto di danno Aggravato per notte. Se le Prove di Risveglio portano la Fame del vampiro oltre il valore di 5, il vampiro cadrà in torpore anziché sottoporsi a un test di frenesia alimentare."
+      },
+      {
+        "title": "Guarigione Vampirica",
+        "content": "Poiché i vampiri sono esseri morti, la loro guarigione non segue i processi normali. Tuttavia, con uno sforzo adeguato, possono rigenerare i danni al loro corpo defunto."
+      }
+    ]
+  },
+  {
+    "title": "Volontà",
+    "content": "La Volontà rappresenta la fiducia, la stabilità mentale e la capacità di superare le avversità. Simile alla Salute, è un punteggio con un valore massimo e una riserva variabile. La Volontà massima di un personaggio è la somma dei tratti Autocontrollo + Fermezza. Non è possibile acquistare ulteriori pallini di Volontà durante la creazione del personaggio o con i punti esperienza, ma è possibile aumentarla migliorando gli Attributi ad essa collegati. Durante una storia o una cronaca, è probabile che la riserva di Volontà di un personaggio varierà notevolmente. Viene spesa ogni volta che un giocatore utilizza 1 punto di Volontà per consentire al personaggio di compiere azioni straordinarie o resistere a impulsi indesiderati. Anche i conflitti sociali possono ridurre la riserva di Volontà. Quando si spende un punto Volontà, il giocatore lo segna sulla scheda come se fosse un danno Superficiale.\nUn personaggio che rimane senza punti Volontà, sia per averli spesi che per aver subito danni, è Menomato e subisce una penalità di -2 dadi ai test Sociali e Mentali. Può comunque tirare un solo dado qualora la sua riserva sia ridotta a zero, seguendo le normali regole.",
+    "sections": [
+      {
+        "title": "Spendere Volontà",
+        "content": "Un giocatore può spendere un punto Volontà per ottenere diversi effetti, tra cui:\n● Ritirare fino a tre dadi normali in qualsiasi riserva, ad eccezione dei dadi Fame.\n● Prendere il controllo del personaggio per un turno durante la frenesia o sotto l'influsso di coercizioni soprannaturali.\n● Eseguire movimenti minimi quando si è trafitti da un paletto di legno nel cuore.\n● Ignorare per un turno le penalità dei danni alla Salute, inclusa la Menomazione."
+      },
+      {
+        "title": "Recuperare Volontà",
+        "content": "I personaggi possono recuperare i danni Superficiali alla Volontà nei seguenti modi:\n● All'inizio di ogni sessione, un personaggio può rimuovere dal punteggio di Volontà una quantità di danni Superficiali equivalente al suo valore di Fermezza o Autocontrollo (il più alto).\n● Una volta per sessione, agendo inequivocabilmente per promuovere il suo Desiderio, un personaggio può risanare immediatamente 1 livello di danno Superficiale alla Volontà.\n● A discrezione del Narratore, durante una sessione, un personaggio che agisca per promuovere il suo Desiderio può recuperare 1 o più livelli di danno Superficiale alla Volontà.\n● A discrezione del Narratore, recitando in maniera adeguatamente teatrale un critico caotico, un fallimento bestiale, un episodio di frenesia o una Compulsione, un giocatore può risanare 1 o più livelli di danno Superficiale alla Volontà, avendo temporaneamente assecondato la sua Bestia."
+      }
+    ]
+  },
+  {
+    "title": "Memoriam",
+    "content": "I vampiri, immortali e spesso molto vecchi, possono utilizzare il Memoriam per rievocare il passato, risolvere misteri e ottenere vantaggi nel presente. Questa tecnica consente ai giocatori di esplorare storie passate attraverso flashback, aggiungendo profondità alla narrazione.",
+    "sections": [
+      {
+        "title": "Obiettivi di Memoriam",
+        "content": "Il giocatore deve definire un obiettivo per il Memoriam, collegandolo a qualcosa di rilevante nella cronaca contemporanea del personaggio. Gli obiettivi vengono classificati in termini di pallini e forniscono benefici diversi:\n● Risposta a una domanda poco importante: 1 pallino sacrificabile in un Background, 2 dadi extra a un test di Abilità nel presente.\n● Risposta a una domanda importante: 2 pallini sacrificabili in un Background, 4 dadi extra a un test di Abilità nel presente.\n● Risposta a una domanda epica: 3 pallini sacrificabili in un Background, un favore importante."
+      },
+      {
+        "title": "Svolgimento del Memoriam",
+        "content": "Durante il Memoriam, il giocatore affronta sfide per ogni pallino dell'obiettivo. L'opposizione può essere sotto forma di test semplici o conflitti a tiro singolo. Il Narratore decide quando e come termina l'episodio, che sia un successo o un fallimento irrimediabile."
+      },
+      {
+        "title": "Bonus ai Test",
+        "content": "Il personaggio può ottenere dadi extra nel presente collegati all'esperienza del Memoriam. Questi bonus dipendono dalle circostanze del Memoriam, come essere nel luogo esatto degli eventi, aver bevuto sangue presente sulla scena, o aver bevuto la vitae di un Cainita coinvolto."
+      },
+      {
+        "title": "Pallini Sacrificabili",
+        "content": "I pallini di Background sacrificabili possono essere utilizzati durante il Memoriam e forniscono benefici per la durata di una storia. Una volta spesi, scompaiono, rappresentando il vantaggio sfruttato o il capitale esaurito."
+      },
+      {
+        "title": "Dopo il Memoriam",
+        "content": "Il successo nel Memoriam porta al beneficio cercato. I danni alla Volontà subiti nel Memoriam si trasferiscono al presente. Entrare in torpore durante il Memoriam presume che il personaggio si sia svegliato prima del presente.\nIl Memoriam favorisce la cooperazione nel gruppo, poiché incongruenze e divergenze danneggiano la solidità del dramma, a meno che la cronaca non voglia esplorare intenzionalmente l'incubo e la pazzia.\nQuesta tecnica aggiunge un elemento temporale intrigante alla narrazione, consentendo ai giocatori di intrecciare passato e presente in modo coinvolgente."
+      }
+    ]
+  },
+  {
+    "title": "Progetti",
+    "content": "La radice della parola \"progetto\" risale al latino \"proicere,\" che significa \"lanciare in avanti,\" come nel contesto di \"lanciare i dadi\". Nei primi cinque secoli dopo Cristo, il termine indicava audaci azioni impulsiva, lontane dai piani ben strutturati con diagrammi di Gantt o grafici PERT. Questa visione tradizionalista delle parole è comune tra i vampiri, influenzata dall'inerzia istituzionale e dal conservatorismo della Camarilla. Questo atteggiamento critico si riflette soprattutto nei confronti dei progetti dei vampiri più giovani.\nConsiderando i rischi legati alle macchinazioni di predatori sanguinari, la Camarilla mostra un sano scetticismo. Sebbene i giocatori aspirino a far progredire i loro personaggi e a cambiare il mondo, il sistema dei Progetti offre al Narratore uno strumento per porre la cruciale domanda: \"Sei davvero sicuro di volerlo fare?\" Questo consente al Narratore di guidare le azioni dei giocatori quando, inevitabilmente, rispondono con un sicuro \"Certo! Cosa potrebbe andare storto?\"",
+    "sections": [
+      {
+        "title": "Descrizione dell'Obiettivo",
+        "content": "I giocatori devono delineare l'obiettivo in termini di storia, come conquistare il cuore dell'Arpia capo, appropriarsi dei fondi della banca principale, prendere il controllo della narcotici o scoprire il significato di un glifo sprayato davanti al rifugio."
+      },
+      {
+        "title": "Rappresentazione Meccanica",
+        "content": "In collaborazione con il Narratore, creare una rappresentazione meccanica dell'obiettivo attraverso uno o più pallini di Background o Tratti. Ad esempio, conquistare l'Arpia potrebbe corrispondere al Background Mawla, mentre distruggere la banca potrebbe fornire Risorse o sottrarle a un rivale, e comprendere il glifo potrebbe aggiungere pallini in Sapienza di Tenebra o consentire l'acquisizione di un Rituale di Stregoneria del Sangue."
+      },
+      {
+        "title": "Modifica della Risonanza",
+        "content": " I vampiri spesso usano i Progetti per alterare la Risonanza di una vena e intensificarne il temperamento a lungo termine. Un pallino cambia la Risonanza, rendendola Intensa, mentre due pallini aggiungono una Discrasia."
+      },
+      {
+        "title": "Scopo del Progetto",
+        "content": "Il numero di pallini ottenuti da un Progetto in caso di successo è chiamato Scopo."
+      },
+      {
+        "title": "Modulo del Progetto",
+        "content": "Giocatori e Narratore devono concordare sulla durata del progetto: giorni, settimane, quindicine, mesi, anni, lustri, decenni, generazioni di mortali o secoli.\nUn modulo dovrebbe approssimativamente equivalere a un decimo della durata totale. Ad esempio, un progetto annuale può essere suddiviso in moduli leggermente superiori a un mese.\nProgetti con una durata inferiore a 10 giorni possono essere gestiti come un semplice Test Prolungato (p. 293)."
+      },
+      {
+        "title": "Tiro d'Inizio del Progetto",
+        "content": "Se il Narratore ritiene che dare il via o proteggere il progetto possa avere un impatto significativo sulla trama futura o offrire spunti drammatici, il gruppo dovrebbe partecipare a una scena o capitolo dedicato alla preparazione del terreno per il primo modulo del progetto. Al termine di questa preparazione, il giocatore effettuerà il Tiro d'Inizio del Progetto. Il Narratore indicherà al giocatore quale riserva di dadi utilizzare, di solito Abilità + Background. Ad esempio, fare la corte all'Arpia potrebbe richiedere Sotterfugio + Status, distruggere la banca potrebbe coinvolgere Finanza + Risorse, prendere il controllo della narcotici richiederebbe Politica + Influenza, e comprendere il glifo potrebbe necessitare di Occulto + Sapienza di Tenebra (o Stregoneria del Sangue o Alleato, se il personaggio è un mago).\nCome tra i mortali, tra i vampiri l'Influenza genera Influenza. Pertanto, pallini temporanei ottenuti tramite Favori, Memoriam o altri mezzi possono migliorare la riserva di dadi.\nIl Tiro d'Inizio è un semplice test con una Difficoltà pari allo Scopo del progetto + 2. Durante questo tiro, il giocatore non può spendere Forza di Volontà o utilizzare un Impeto Sanguigno, ma il Narratore potrebbe consentire l'uso delle Discipline, specialmente se l'obiettivo è influenzare dei mortali anziché Fratelli\nIn caso di successo critico, il giocatore non dovrà impegnare nessuno dei suoi attuali pallini nel Progetto. Un successo normale obbligherà a impegnare un numero di pallini pari allo Scopo del progetto + 1, meno il margine del Tiro d'Inizio. L'impegno minimo, o Posta, in caso di successo normale, è 1 pallino. I pallini impegnati in questo modo non potranno essere utilizzati in gioco fino alla fine del Progetto, che sia un successo o un fallimento.\nIn generale, i pallini della Posta dovrebbero essere dello stesso tipo dello Scopo del progetto, ma potrebbe esserci spazio per scambi tra Risorse, Influenza o altre combinazioni. Il Narratore dovrebbe fare attenzione affinché i giocatori non offrano \"pallini vuoti\" che non vengono sfruttati in partita o che perdano efficacia a bassi livelli, come nel caso di Maschera o Sapienza di Tenebra.\nIn caso di fallimento, il giocatore può tentare nuovamente con una Difficoltà aumentata di 1. Il fallimento potrebbe essere dovuto al momento sbagliato, a una spia nel mezzo o a un imprevisto. Un fallimento totale indica che il personaggio ha guadagnato un nuovo nemico o ha riaccendersi una vecchia rivalità. Il Narratore può decidere di far sì che questi avversari distruggano o alienino uno o più pallini dai Background del personaggio.\nSe il Narratore lo consente, altri giocatori possono contribuire al Tiro d'Inizio attraverso il Background Coterie o un semplice Lavoro di Squadra (p. 122). Tuttavia, più personaggi partecipano, più rischi sono coinvolti: eventuali Poste o perdite devono essere suddivise tra tutti i partecipanti, anche se ciò comporta un aumento del valore delle Poste. Ad esempio, se 4 personaggi aiutano in una Posta da 3 pallini, tutti dovranno investirne almeno 1."
+      },
+      {
+        "title": "Tiro di Scopo",
+        "content": "In caso di successo nel Tiro d'Inizio del Progetto, il Narratore fissa il Dado Progetto a 10. Questo valore calerà di uno per ogni modulo, da 10 a 9, da 9 a 8... fino a 1. I giocatori possono effettuare il Tiro di Scopo in qualsiasi momento, ma il Narratore decide se la riserva di dadi sarà la stessa del Tiro d'Inizio. Il Tiro di Scopo è un conflitto contro una riserva di dadi pari all'attuale valore del Dado Progetto. Ad esempio, se il Dado Progetto è a 6, la riserva contro cui tirare sarà di 6 dadi. Non è possibile utilizzare Forza di Volontà, Impeti Sanguigni o (di solito) Discipline durante questo tiro. Inoltre, chi ha dato il via al Progetto non può ottenere successi critici sul Tiro di Scopo (i 10 contano come successi normali). Al contrario, l'avversario può ottenere successi critici, rappresentando il vantaggio derivante dallo status quo.\nSe il giocatore vince, ridurrà il valore del Dado Progetto di un numero pari al margine di successi ottenuti. Se questo porta il Dado Progetto sotto 1, il piano va a buon fine. Il Narratore dovrà trovare una spiegazione in gioco per questo evento drammatico.\nIn caso di fallimento, il giocatore subirà perdite di pallini dai propri Background a partire dalla Posta. Se la Posta viene ridotta a 0, il Progetto collasserà improvvisamente. Chi ha ottenuto un successo critico sul Tiro d'Inizio può continuare il Progetto anche dopo un fallimento nel Tiro di Scopo. Il Narratore dovrà inventare un motivo in storia per questo fallimento.\nQuesti danni dovrebbero essere suddivisi tra tutti i giocatori che hanno contribuito al Tiro d'Inizio o assegnati al Background Coterie."
+      },
+      {
+        "title": "Conclusione di un Progetto",
+        "content": "Chi ha dato il via a un Progetto può sempre terminarlo, ma potrebbe non essere in grado di fermare altrettanto facilmente eventuali nemici. Il Narratore può richiedere che il giocatore paghi Esperienza per i pallini ottenuti tramite un Progetto, poiché il sistema considera solo la componente delle azioni in gioco necessarie al miglioramento."
+      },
+      {
+        "title": "La Longue Durée",
+        "content": "La Longue Durée richiede che i personaggi avviino un Progetto molto tempo prima per ottenere benefici su scala di decenni o secoli. Il capitolo iniziale di un Progetto Longue Durée deve essere giocato come Memoriam. I pallini di Memoriam diventano parte o sostituiscono la riserva del Tiro d'Inizio. Nel presente, il Dado Progetto può essere ridotto solo di un valore pari al numero di pallini Scopo ottenuti nella Memoriam. Ogni danno subito a causa di un Tiro di Scopo fallito nel presente sarà sottratto dai Background attuali, non dalla Posta di Memoriam."
+      },
+      {
+        "title": "Progetti Nemici",
+        "content": "I personaggi giocanti possono trovarsi coinvolti in Progetti nemici, non essendo gli unici Fratelli ad essere parte di macchinazioni a lungo termine. Possono individuare, ostacolare o prendere il controllo dei Progetti dei propri nemici o alleati con la stessa facilità con cui avviano i propri. Il Narratore determina l'attuale valore del Dado Progetto del nemico tirando un dado e dimezzando il risultato (arrotondando per eccesso) per ottenere lo Scopo."
+      },
+      {
+        "title": "Individuare un Progetto Nemico",
+        "content": "Scoprire l'esistenza di una macchinazione richiede azioni specifiche, e determinarne il progresso necessita di investigazioni o di un informatore. Durante la partita, il Dado Progetto di un nemico dovrebbe calare almeno una volta per creare dramma. Queste macchinazioni sono probabili avversarie dei giocatori."
+      },
+      {
+        "title": "Influenzare un Progetto Nemico",
+        "content": "Una coterie può influenzare il Dado Progetto di un nemico dedicando un Capitolo o una Storia a favore o contro i suoi piani. La coterie deve essere un elemento critico della vicenda. Il Narratore decide l'azione in gioco significativa. Interferire con un Progetto avversario probabilmente attirerà le ire di potenti avversari."
+      },
+      {
+        "title": "Sfruttare un Progetto Nemico",
+        "content": "Invece di appoggiare o contrastare una macchinazione, la coterie può cercare di prenderne il controllo. Tuttavia, i giocatori devono prima trovare un modo ragionevole per influenzare gli elementi della cospirazione. Il Narratore determina la riserva per il Tiro di Scopo dei giocatori. Successivamente, devono superare un Test Prolungato Difficile con Difficoltà 5, accumulando successi pari a 15 meno il valore del Dado Progetto del nemico. I fallimenti durante questo Test Prolungato allertano gli autori del Progetto dell'interferenza, mentre un fallimento totale rivela loro chiaramente il responsabile. Se si infiltrano con successo, i personaggi possono saccheggiare il Progetto o prenderne il controllo. Il saccheggio trasferisce metà dei pallini di Scopo alla coterie senza ulteriori tiri di dado. Prenderne il controllo richiede un Tiro di Scopo come se il gruppo avesse dato il via al Progetto. Con un successo, la coterie ottiene i benefici del Progetto; in caso di fallimento, perde il numero richiesto di pallini di Background. In ogni caso, i personaggi otterranno un nuovo nemico insieme ai benefici, ma se verranno sconfitti, i pallini ottenuti saranno persi."
       }
     ]
   }

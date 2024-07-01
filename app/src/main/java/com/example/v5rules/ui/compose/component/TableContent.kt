@@ -1,5 +1,6 @@
 package com.example.v5rules.ui.compose.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,14 +21,16 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
-    val color = MaterialTheme.colorScheme.primary
-
+    val accentColor = MaterialTheme.colorScheme.tertiary
+    val textColor = MaterialTheme.colorScheme.primary
+    val backgroundColor = MaterialTheme.colorScheme.secondary
     Column {
         // Header Row
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .border(1.dp, color),
+                .border(1.dp, accentColor)
+                .background(backgroundColor),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             headerList.forEachIndexed { index, header ->
@@ -35,6 +38,7 @@ fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
                     text = header,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold,
+                    color = textColor,
                     modifier = Modifier
                         .weight(1f)
                         .padding(8.dp)
@@ -44,7 +48,7 @@ fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
                                 val yStart = 0f
                                 val yEnd = size.height
                                 drawLine(
-                                    color = color,
+                                    color = accentColor,
                                     start = Offset(size.width - strokeWidth / 2, yStart),
                                     end = Offset(size.width - strokeWidth / 2, yEnd),
                                     strokeWidth = strokeWidth
@@ -58,9 +62,10 @@ fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.secondary)
                     .border(
                         width = 1.dp,
-                        color = color
+                        color = accentColor
                     ),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -77,7 +82,7 @@ fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
                                     val yStart = 0f
                                     val yEnd = maxHeight.toPx() // Use the actual height of the cell
                                     drawLine(
-                                        color = color,
+                                        color = accentColor,
                                         start = Offset(size.width - strokeWidth / 2, yStart),
                                         end = Offset(size.width - strokeWidth / 2, yEnd),
                                         strokeWidth = strokeWidth
@@ -88,7 +93,8 @@ fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
                         Text(
                             text = cell,
                             style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            color = textColor
                         )
                     }
                 }

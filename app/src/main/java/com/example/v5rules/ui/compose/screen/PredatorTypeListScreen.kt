@@ -1,5 +1,6 @@
 package com.example.v5rules.ui.compose.screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
@@ -27,12 +29,12 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
     val uiState by viewModel.predatorTypeUiState.collectAsState()
 
     CommonScaffold(navController = navController, title = stringResource(id = R.string.predator_type_screen_title))
-    { innerPadding ->
+    {
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(start = 16.dp)
-                .padding(innerPadding)
+                .background(color = MaterialTheme.colorScheme.secondary)
         ) {
             when (uiState) {
                 is PredatorTypeUiState.Loading -> Text("Loading...")
@@ -43,6 +45,8 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
                             Text(
                                 text = predator.name,
                                 style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary,
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .clickable { navController.navigate("predator_type_screen/${predator.name}") }
@@ -51,7 +55,7 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
                         }
                     }
                 }
-                is PredatorTypeUiState.Error -> Text("Error: ${(uiState as PredatorTypeUiState.Error).message}")
+                is PredatorTypeUiState.Error -> Text("Error: ${(uiState as PredatorTypeUiState.Error).message}", color = MaterialTheme.colorScheme.primary,)
             }
         }
     }

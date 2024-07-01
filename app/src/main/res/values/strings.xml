@@ -40,6 +40,7 @@
     <string name="predator_type_screen_hunt_pool">Tiro di Caccia:</string>
     <string name="predator_type_screen_detail">Dettagli:</string>
 
+    <string name="rules_screen_button_label">Regole</string>
     <string name="expand">Expand…</string>
 
 </resources>

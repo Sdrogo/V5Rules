@@ -19,31 +19,34 @@ import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = Color.White,
-    secondary = Color(0xFF21130D),
-    tertiary = Color(0XFF76031A)
+    secondary = Color(0xFF222222),
+    tertiary = Color(0XFF76031A),
+    background = Color(0xFF222222),
+    surface = Color(0xFF222222),
+    onPrimary =  Color.White,
+    onSecondary = Color.White,
+    onTertiary = Color.White,
+    onBackground =  Color.White,
+    onSurface =  Color.White,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Color(0xFF21130D),
+    primary = Color(0xFF000000),
     secondary = Color.White,
-    tertiary = Color(0XFF76031A)
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    tertiary = Color(0XFF76031A),
+    background = Color.White,
+    surface = Color(0xFF000000),
+    onPrimary = Color(0xFF000000),
+    onSecondary = Color(0xFF000000),
+    onTertiary = Color(0xFF000000),
+    onBackground = Color(0xFF000000),
+    onSurface = Color(0xFF000000),
 )
 
 @Composable
 fun V5RulesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false, // Disable dynamic colors
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

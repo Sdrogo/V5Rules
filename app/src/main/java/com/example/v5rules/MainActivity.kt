@@ -1,6 +1,7 @@
 package com.example.v5rules
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -23,11 +24,15 @@ import com.example.v5rules.ui.compose.screen.RitualScreen
 import com.example.v5rules.ui.compose.screen.DisciplinePowerScreen
 import com.example.v5rules.ui.compose.screen.PredatorTypeDetailsScreen
 import com.example.v5rules.ui.compose.screen.PredatorTypeListScreen
+import com.example.v5rules.ui.compose.screen.RuleListScreen
+import com.example.v5rules.ui.compose.screen.RulesDetailsScreen
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.ui.viewModel.ClanViewModel
 import com.example.v5rules.ui.viewModel.ClanViewModelFactory
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModelFactory
+import com.example.v5rules.ui.viewModel.RulesViewModel
+import com.example.v5rules.ui.viewModel.RulesViewModelFactory
 
 class MainActivity : ComponentActivity() {
 
@@ -40,11 +45,15 @@ class MainActivity : ComponentActivity() {
     private val predatorTypeViewModel: PredatorTypeViewModel by viewModels {
         PredatorTypeViewModelFactory(this)
     }
+    private val rulesViewModel: RulesViewModel by viewModels {
+        RulesViewModelFactory(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("MainActivity", "onCreate called")
         setContent {
-            V5RulesApp(disciplineViewModel, clanViewModel, predatorTypeViewModel)
+            V5RulesApp(disciplineViewModel, clanViewModel, predatorTypeViewModel, rulesViewModel)
         }
     }
 }
@@ -53,13 +62,14 @@ class MainActivity : ComponentActivity() {
 fun V5RulesApp(
     disciplineViewModel: DisciplineViewModel,
     clanViewModel: ClanViewModel,
-    predatorTypeViewModel: PredatorTypeViewModel
+    predatorTypeViewModel: PredatorTypeViewModel,
+    rulesViewModel: RulesViewModel
 ) {
-    V5RulesTheme {
-        val navController = rememberNavController()
+    val navController = rememberNavController()
+    V5RulesTheme{
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+            color = MaterialTheme.colorScheme.secondary
         ) {
             NavHost(navController = navController, startDestination = "home_screen") {
                 composable("home_screen") {
@@ -97,11 +107,18 @@ fun V5RulesApp(
                     )
                 }
                 composable("predator_type_screen") { backStackEntry ->
-                    PredatorTypeListScreen(viewModel = predatorTypeViewModel, navController = navController)
+                    PredatorTypeListScreen(
+                        viewModel = predatorTypeViewModel,
+                        navController = navController
+                    )
                 }
                 composable("predator_type_screen/{predatorName}") { backStackEntry ->
                     val predatorNameId = backStackEntry.arguments?.getString("predatorName")
-                    PredatorTypeDetailsScreen(predatorTypeViewModel, navController, predatorNameId ?: "")
+                    PredatorTypeDetailsScreen(
+                        predatorTypeViewModel,
+                        navController,
+                        predatorNameId ?: ""
+                    )
                 }
 
                 composable("clan_screen") {
@@ -115,7 +132,25 @@ fun V5RulesApp(
                         clanName = clanName ?: ""
                     )
                 }
+                composable("lore_screen") {
+                    //TODO implement lore Screen
+                }
+                composable("lore_screen/{title}") {
+                    //TODO implement lore Screen
+                }
+                composable("rules_screen") {
+                    RuleListScreen(viewModel = rulesViewModel, navController = navController)
+                }
+                composable("rules_screen/{title}") { backStackEntry ->
+                    val chapter = backStackEntry.arguments?.getString("title")
+                    RulesDetailsScreen(
+                        rulesViewModel = rulesViewModel,
+                        navController = navController,
+                        title = chapter ?: ""
+                    )
+                }
             }
         }
     }
+
 }
