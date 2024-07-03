@@ -108,10 +108,6 @@
             "content": "Questo sistema gestisce il combattimento con armi a distanza, coprendo vari tipi di armi da fuoco e oggetti lanciati:\n● Sparatorie Comuni: I combattenti tirano su Autocontrollo + Armi da Fuoco per una sparatoria standard. Un tiro mirato può richiedere Fermezza, mentre uno stile \"mezzanotte di fuoco\" comporta Destrezza + Armi da Fuoco, almeno per il primo colpo.\n● Armi da Lancio: Scagliare armi su un bersaglio richiede un test di Destrezza + Atletica. Alcuni vampiri possono includere oggetti insoliti come armi."
           },
           {
-            "title": "Combattimento Ravvicinato",
-            "content": "Il sistema descrive le dinamiche del combattimento ravvicinato, che include gli scontri corpo a corpo sia a mani nude che con armi da mischia. Di seguito sono riassunti i principi chiave:\n● Attaccante: Usa tiri come Forza + Rissa per attacchi a mani nude, Destrezza + Mischia per armi da mischia a una mano, o Forza + Mischia per armi a due mani.\n● Difensore: Usa tiri simili, o Destrezza + Atletica per schivare.\n● Scontri Diretti: Quando i combattenti si attaccano reciprocamente, entrambi tirano contemporaneamente e chi ottiene più successi infligge danni all'altro.\n● Portata Migliore: Opzionalmente, il combattente con la portata migliore (l'arma più lunga) riceve un dado bonus nel primo turno di combattimento.\n● Prese: Un combattente può tentare di afferrare, stringere, placcare o trattenere l'avversario tirando Forza + Rissa. Se ha successo, può optare per diverse opzioni nel round successivo, come infliggere danni, mordere (se vampiro), o rilasciare l'avversario."
-          },
-          {
             "title": "Difesa dagli Attacchi a Distanza",
             "content": "La difesa contro gli attacchi a distanza coinvolge un test di Destrezza + Atletica, rappresentando la capacità di evitare i colpi sfruttando la copertura disponibile.\n● Nessuna -> -2 dadi\n● Solo occultamento -> -1 dado\n● Copertura Rigida -> +/- 0 dadi\n● Trincerato -> +1 dado\n● Feritoria -> +2"
           },

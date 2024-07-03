@@ -42,5 +42,10 @@
 
     <string name="rules_screen_button_label">Regole</string>
     <string name="expand">Expand…</string>
+    <string name="home">Home</string>
+    <string name="rules">Rules</string>
+    <string name="predator">Predator Type</string>
+    <string name="clan">Clan</string>
+    <string name="discipline">Discipline</string>
 
 </resources>

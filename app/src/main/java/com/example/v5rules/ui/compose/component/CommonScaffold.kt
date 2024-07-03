@@ -16,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -47,23 +46,27 @@ fun CommonScaffold(
                                 Icon(
                                     imageVector = Icons.Filled.ArrowBack,
                                     contentDescription = "Go Back",
-                                    tint = Color.White
+                                    tint = MaterialTheme.colorScheme.primary
                                 )
                             }
                         }
                     },
                     modifier = Modifier.padding(bottom = 16.dp),
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors( // Use centerAlignedTopAppBarColors
-                        containerColor = Color(0xFF76031a), // Set the container color to red
-                        titleContentColor = Color.White
+                        containerColor = MaterialTheme.colorScheme.tertiary, // Set the container color to red
+                        titleContentColor = MaterialTheme.colorScheme.primary
                     )
                 )
             }
         ) { innerPadding ->
-            Box(modifier = Modifier.padding(top = innerPadding.calculateTopPadding()-16.dp).background(MaterialTheme.colorScheme.secondary).fillMaxSize()) {
+            Box(modifier = Modifier
+                .padding(innerPadding)
+                .background(MaterialTheme.colorScheme.secondary)
+                .fillMaxSize()) {
                 content()
             }
 
         }
     }
+
 }

@@ -30,7 +30,7 @@ fun DisciplineScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 16.dp)
+                .padding(horizontal = 16.dp)
                 .background(color = MaterialTheme.colorScheme.secondary)
 
         ) {
@@ -57,9 +57,12 @@ fun DisciplineItem(discipline: Discipline, navController: NavHostController) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
+            .fillMaxWidth()
             .background(color = MaterialTheme.colorScheme.secondary)
     ) {
-        Row {
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }) {
             DisciplineIcon(
                 disciplineId = discipline.id,
                 contentDescription = discipline.title,
@@ -71,7 +74,7 @@ fun DisciplineItem(discipline: Discipline, navController: NavHostController) {
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
-                    .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }
+                    .fillMaxWidth()
                     .padding(horizontal = 8.dp)
             )
         }

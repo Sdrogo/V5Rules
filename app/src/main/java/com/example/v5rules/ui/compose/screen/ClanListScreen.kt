@@ -37,7 +37,7 @@ fun ClanListScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 16.dp)
+                .padding(horizontal = 16.dp)
                 .background(color = MaterialTheme.colorScheme.secondary)
         ) {
             when (uiState) {
@@ -67,7 +67,7 @@ fun ClanItem(clan: Clan, navController: NavHostController) {
             .padding(vertical = 8.dp)
             .background(color = MaterialTheme.colorScheme.secondary)
     ) {
-        Row (verticalAlignment = Alignment.CenterVertically){
+        Row (verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { navController.navigate("clan_screen/${clan.name}") }){
             ClanImage(
                 clanName = clan.name,
                 tintColor = MaterialTheme.colorScheme.tertiary,
@@ -78,10 +78,9 @@ fun ClanItem(clan: Clan, navController: NavHostController) {
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
-                    .clickable { navController.navigate("clan_screen/${clan.name}") }
                     .padding(horizontal = 8.dp)
+                    .fillMaxWidth()
             )
         }
-
     }
 }

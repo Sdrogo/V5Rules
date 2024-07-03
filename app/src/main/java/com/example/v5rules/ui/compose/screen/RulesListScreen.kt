@@ -30,7 +30,7 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
 
     CommonScaffold(
         navController = navController,
-        title = stringResource(id = R.string.predator_type_screen_title)
+        title = stringResource(id = R.string.rules)
     )
     {
         Column(

@@ -36,7 +36,7 @@ fun DisciplineDetailScreen(
                 .fillMaxSize()
         ) {
             if (discipline != null) {
-                LazyColumn(modifier = Modifier.padding(16.dp)) {
+                LazyColumn(modifier = Modifier.padding(16.dp).fillMaxWidth()) {
                     item {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
@@ -261,6 +261,7 @@ fun SubDisciplineItem(
     Column(modifier = Modifier
         .background(color = MaterialTheme.colorScheme.secondary)
         .padding(8.dp)
+        .fillMaxWidth()
         .clickable { navController.navigate("discipline_detail_screen/${disciplineId}/${disciplinePower.id}") }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(

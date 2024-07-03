@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -52,7 +53,7 @@ fun ClanDetail(
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(horizontal = 16.dp)
             .background(color = MaterialTheme.colorScheme.secondary)
     ) {
         item {
@@ -100,7 +101,7 @@ fun ClanDetail(
             ) {
                 Text(
                     text = AnnotatedString(
-                        clan.description,
+                        it.content,
                         paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
                     ),
                     style = MaterialTheme.typography.bodyMedium,
@@ -147,7 +148,7 @@ fun ClanDetail(
                 ) {
                     Text(
                         text = AnnotatedString(
-                            clan.description,
+                            it,
                             paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
                         ),
                         style = MaterialTheme.typography.bodyMedium,
@@ -165,7 +166,7 @@ fun ClanDetail(
             ) {
                 Text(
                     text = AnnotatedString(
-                        clan.description,
+                        it.description,
                         paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
                     ),
                     style = MaterialTheme.typography.bodyMedium,
@@ -175,5 +176,9 @@ fun ClanDetail(
                 )
             }
         }
+        item {
+            Spacer(modifier = Modifier.height(16.dp))
+        }
     }
+
 }
