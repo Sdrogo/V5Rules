@@ -91,7 +91,7 @@ fun RulesDetailsScreen(
                                     }
                                     subSection.subParagraphs?.forEach { subParagraph ->
                                         Row {
-                                            Spacer(modifier = Modifier.width(2.dp).background(color = colorResource(id = R.color.background_red)))
+                                            Spacer(modifier = Modifier.width(2.dp).background(color = colorResource(id = R.color.accentColor)))
                                         }
                                         ContentExpander(
                                             title = subParagraph.title,
