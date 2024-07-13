@@ -28,19 +28,19 @@
     ]
   },
   {
-  "title": "Test Prolungati",
-  "content": "I test prolungati vengono utilizzati quando un'impresa richiede un periodo di tempo esteso o coinvolge molteplici azioni. Ecco alcune varianti e situazioni speciali relative ai test prolungati:",
-  "sections": [
-    {
-      "title": "Test Prolungato Standard",
-      "content": "La Difficoltà è molto alta (10 o più) e i giocatori accumulano successi da ogni tiro fino a raggiungere o superare la Difficoltà.\n● Test Seriale:La Difficoltà è normale, ma è richiesto un numero specifico di vittorie per raggiungere il risultato.\nAdatto a imprese con diverse componenti, come disattivare allarmi e serrature in un caveau.\n● Test Prolungato Difficile:Una combinazione di test prolungati standard e seriali, considerando solo i margini di successo per superare la Difficoltà finale.\nAdatto a tiri eseguiti solo una o più volte per sessione per rappresentare progressi incrementali.\n● Test a Cascata:I margini di successo di ogni impresa vengono sommati come dadi extra nell'impresa successiva.\nRappresenta situazioni in cui il successo in una fase genera ulteriori successi nelle fasi successive.\n● Confronti Prolungati: Simulano una gara tra due personaggi per completare un'azione prolungata.\nOgni personaggio esegue il tiro in incrementi temporali, e il vincitore è chi raggiunge prima la quantità necessaria di successi."
-    },
-    {
-      "title": "Situazioni Speciali",
-      "content": "Alcune regole e risultati speciali dei test semplici possono funzionare in modo diverso nei test prolungati, come il \"Lavoro di Squadra\" e il \"Fallimento Totale\". Il Narratore può adattare queste eccezioni per favorire lo sviluppo drammatico della trama."
-    }
-  ]
-},
+    "title": "Test Prolungati",
+    "content": "I test prolungati vengono utilizzati quando un'impresa richiede un periodo di tempo esteso o coinvolge molteplici azioni. Ecco alcune varianti e situazioni speciali relative ai test prolungati:",
+    "sections": [
+      {
+        "title": "Test Prolungato Standard",
+        "content": "La Difficoltà è molto alta (10 o più) e i giocatori accumulano successi da ogni tiro fino a raggiungere o superare la Difficoltà.\n● Test Seriale:La Difficoltà è normale, ma è richiesto un numero specifico di vittorie per raggiungere il risultato.\nAdatto a imprese con diverse componenti, come disattivare allarmi e serrature in un caveau.\n● Test Prolungato Difficile:Una combinazione di test prolungati standard e seriali, considerando solo i margini di successo per superare la Difficoltà finale.\nAdatto a tiri eseguiti solo una o più volte per sessione per rappresentare progressi incrementali.\n● Test a Cascata:I margini di successo di ogni impresa vengono sommati come dadi extra nell'impresa successiva.\nRappresenta situazioni in cui il successo in una fase genera ulteriori successi nelle fasi successive.\n● Confronti Prolungati: Simulano una gara tra due personaggi per completare un'azione prolungata.\nOgni personaggio esegue il tiro in incrementi temporali, e il vincitore è chi raggiunge prima la quantità necessaria di successi."
+      },
+      {
+        "title": "Situazioni Speciali",
+        "content": "Alcune regole e risultati speciali dei test semplici possono funzionare in modo diverso nei test prolungati, come il \"Lavoro di Squadra\" e il \"Fallimento Totale\". Il Narratore può adattare queste eccezioni per favorire lo sviluppo drammatico della trama."
+      }
+    ]
+  },
   {
     "title": "Conflitti Avanzati",
     "content": "In quanto predatori, i vampiri spesso si trovano a scontrarsi tra di loro, con le loro prede (a volte) e con chi tenta di impedirgli di catturarle. Questi scontri, a volte, degenerano in violenza. Altre volte si limitano a conflitti verbali o emotivi, specialmente quando un Principe richiede responsabilità ai suoi cortigiani. Talvolta, i vampiri combattono dietro le quinte, utilizzando le istituzioni umane come armi e protezioni.\nQuesta sezione amplia le regole sui conflitti semplici. Il Narratore può integrare nei conflitti semplici qualsiasi modulo di regole avanzate, ma non è obbligato a usarli tutti.",
@@ -302,10 +302,6 @@
         "content": "In collaborazione con il Narratore, creare una rappresentazione meccanica dell'obiettivo attraverso uno o più pallini di Background o Tratti. Ad esempio, conquistare l'Arpia potrebbe corrispondere al Background Mawla, mentre distruggere la banca potrebbe fornire Risorse o sottrarle a un rivale, e comprendere il glifo potrebbe aggiungere pallini in Sapienza di Tenebra o consentire l'acquisizione di un Rituale di Stregoneria del Sangue.",
         "subParagraphs": [
           {
-            "title": "Modifica della Risonanza",
-            "content": " I vampiri spesso usano i Progetti per alterare la Risonanza di una vena e intensificarne il temperamento a lungo termine. Un pallino cambia la Risonanza, rendendola Intensa, mentre due pallini aggiungono una Discrasia."
-          },
-          {
             "title": "Scopo del Progetto",
             "content": "Il numero di pallini ottenuti da un Progetto in caso di successo è chiamato Scopo."
           },
@@ -324,6 +320,10 @@
           {
             "title": "Conclusione di un Progetto",
             "content": "Chi ha dato il via a un Progetto può sempre terminarlo, ma potrebbe non essere in grado di fermare altrettanto facilmente eventuali nemici. Il Narratore può richiedere che il giocatore paghi Esperienza per i pallini ottenuti tramite un Progetto, poiché il sistema considera solo la componente delle azioni in gioco necessarie al miglioramento."
+          },
+          {
+            "title": "Modifica della Risonanza",
+            "content": " I vampiri spesso usano i Progetti per alterare la Risonanza di una vena e intensificarne il temperamento a lungo termine. Un pallino cambia la Risonanza, rendendola Intensa, mentre due pallini aggiungono una Discrasia."
           }
         ]
       },
