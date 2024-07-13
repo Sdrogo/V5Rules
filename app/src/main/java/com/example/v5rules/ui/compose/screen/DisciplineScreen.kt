@@ -15,7 +15,7 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.compose.component.DisciplineIcon
+import com.example.v5rules.ui.compose.component.ImageIcon
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 import com.example.v5rules.ui.viewModel.DisciplineUiState
 
@@ -63,7 +63,7 @@ fun DisciplineItem(discipline: Discipline, navController: NavHostController) {
         Row(modifier = Modifier
             .fillMaxWidth()
             .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }) {
-            DisciplineIcon(
+            ImageIcon(
                 disciplineId = discipline.id,
                 contentDescription = discipline.title,
                 size = 40.dp

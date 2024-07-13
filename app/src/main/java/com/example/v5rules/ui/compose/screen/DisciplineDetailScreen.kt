@@ -19,7 +19,7 @@ import com.example.v5rules.data.Ritual
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
-import com.example.v5rules.ui.compose.component.DisciplineIcon
+import com.example.v5rules.ui.compose.component.ImageIcon
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 
@@ -43,7 +43,7 @@ fun DisciplineDetailScreen(
                             modifier = Modifier.padding(bottom = 16.dp)
                         ) {
                             Spacer(Modifier.weight(1f))
-                            DisciplineIcon(
+                            ImageIcon(
                                 disciplineId = discipline.id,
                                 contentDescription = discipline.title,
                                 size = 128.dp

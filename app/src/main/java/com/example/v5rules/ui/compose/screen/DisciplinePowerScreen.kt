@@ -20,7 +20,7 @@ import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.compose.component.DisciplineIcon
+import com.example.v5rules.ui.compose.component.ImageIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
@@ -122,7 +122,7 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
         }
         Row{
             Spacer(modifier = Modifier.weight(1f))
-            DisciplineIcon(
+            ImageIcon(
                 disciplineId = discipline.id,
                 contentDescription = discipline.title,
                 size = 64.dp
