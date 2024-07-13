@@ -1,30 +1,16 @@
 [
   {
     "title": "Confronti e Conflitti",
-    "content": "Il Narratore può introdurre i confronti per simulare situazioni in cui i personaggi devono affrontare un'opposizione diretta: ad esempio, violare un sistema di sicurezza sorvegliato, muoversi di nascosto dietro a un individuo che li sta cercando, o persuadere un poliziotto sotto copertura.\nDurante un confronto, il personaggio attivo e il suo avversario generano entrambi una riserva di dadi. Non è necessario che utilizzino la stessa riserva. I confronti seguono generalmente questa procedura:\n● Il giocatore descrive le azioni che il personaggio intende compiere e il modo in cui intende farlo.\n● Il Narratore decide se c'è qualcuno che cerca di contrastare l'azione e specifica quali Tratti utilizzare per generare una riserva di dadi.\n● Il Narratore stabilisce quali Tratti l'avversario impiegherà per formare la sua riserva di dadi.\n● Ciascun partecipante al confronto tira la propria riserva di dadi e conta i successi.\n● Se il personaggio attivo ottiene un numero di successi uguale o superiore a quello dell'avversario, vince la prova.",
+    "content": "Il Narratore può introdurre i confronti per simulare situazioni in cui i personaggi devono affrontare un'opposizione diretta: ad esempio, violare un sistema di sicurezza sorvegliato, muoversi di nascosto dietro a un individuo che li sta cercando, o persuadere un poliziotto sotto copertura.",
     "sections": [
       {
-        "title": "Test Prolungati",
-        "content": "Il Narratore può introdurre i confronti per simulare situazioni in cui i personaggi devono affrontare un'opposizione diretta: ad esempio, violare un sistema di sicurezza sorvegliato, muoversi di nascosto dietro a un individuo che li sta cercando, o persuadere un poliziotto sotto copertura.\nDurante un confronto, il personaggio attivo e il suo avversario generano entrambi una riserva di dadi. Non è necessario che utilizzino la stessa riserva. I confronti seguono generalmente questa procedura:\n● Il giocatore descrive le azioni che il personaggio intende compiere e il modo in cui intende farlo.\n● Il Narratore decide se c'è qualcuno che cerca di contrastare l'azione e specifica quali Tratti utilizzare per generare una riserva di dadi.\n● Il Narratore stabilisce quali Tratti l'avversario impiegherà per formare la sua riserva di dadi.\n● Ciascun partecipante al confronto tira la propria riserva di dadi e conta i successi.\n● Se il personaggio attivo ottiene un numero di successi uguale o superiore a quello dell'avversario, vince la prova.",
-        "paragraphs": [
-          {
-            "title": "Test Prolungati",
-            "content": "I test prolungati vengono utilizzati quando un'impresa richiede un periodo di tempo esteso o coinvolge molteplici azioni. Ecco alcune varianti e situazioni speciali relative ai test prolungati:"
-          },
-          {
-            "title": "Test Prolungato Standard",
-            "content": "La Difficoltà è molto alta (10 o più) e i giocatori accumulano successi da ogni tiro fino a raggiungere o superare la Difficoltà.\n● Test Seriale:La Difficoltà è normale, ma è richiesto un numero specifico di vittorie per raggiungere il risultato.\nAdatto a imprese con diverse componenti, come disattivare allarmi e serrature in un caveau.\n● Test Prolungato Difficile:Una combinazione di test prolungati standard e seriali, considerando solo i margini di successo per superare la Difficoltà finale.\nAdatto a tiri eseguiti solo una o più volte per sessione per rappresentare progressi incrementali.\n● Test a Cascata:I margini di successo di ogni impresa vengono sommati come dadi extra nell'impresa successiva.\nRappresenta situazioni in cui il successo in una fase genera ulteriori successi nelle fasi successive.\n● Confronti Prolungati: Simulano una gara tra due personaggi per completare un'azione prolungata.\nOgni personaggio esegue il tiro in incrementi temporali, e il vincitore è chi raggiunge prima la quantità necessaria di successi."
-          },
-          {
-            "title": "Situazioni Speciali",
-            "content": "Alcune regole e risultati speciali dei test semplici possono funzionare in modo diverso nei test prolungati, come il \"Lavoro di Squadra\" e il \"Fallimento Totale\". Il Narratore può adattare queste eccezioni per favorire lo sviluppo drammatico della trama."
-          }
-        ]
+        "title": "Confronti",
+        "content": "Durante un confronto, il personaggio attivo e il suo avversario generano entrambi una riserva di dadi. Non è necessario che utilizzino la stessa riserva. I confronti seguono generalmente questa procedura:\\n● Il giocatore descrive le azioni che il personaggio intende compiere e il modo in cui intende farlo.\\n● Il Narratore decide se c'è qualcuno che cerca di contrastare l'azione e specifica quali Tratti utilizzare per generare una riserva di dadi.\\n● Il Narratore stabilisce quali Tratti l'avversario impiegherà per formare la sua riserva di dadi.\\n● Ciascun partecipante al confronto tira la propria riserva di dadi e conta i successi.\\n● Se il personaggio attivo ottiene un numero di successi uguale o superiore a quello dell'avversario, vince la prova."
       },
       {
         "title": "Conflitti Semplici",
         "content": "In un conflitto semplice, attaccante e difensore lanciano le proprie riserve di dadi simultaneamente. Come in altri tipi di conflitti, chi ottiene più successi vince il turno. Il vincitore sottrae dal suo totale i successi ottenuti dal difensore e applica quelli rimasti come danno al punteggio interessato del perdente (solitamente Salute, vedi Danni, p. 126).\nSe il conflitto è unidirezionale, ad esempio, se il difensore cerca solo di evitare di essere colpito, infligge danni solo l’attaccante. Se entrambi i partecipanti possono o vogliono causare danni all'avversario, il conflitto è bidirezionale, e entrambi si considerano attaccanti: le loro azioni si fondono in un singolo tiro di conflitto. In caso di pareggio, entrambi i contendenti infliggono 1 danno all'avversario (tenendo presente di aggiungere i danni causati dalle armi, se applicabili; vedere sotto).",
-        "paragraphs": [
+        "subParagraphs": [
           {
             "title": "Armi a Distanza",
             "content": "Il combattimento a distanza si risolve come un confronto, di solito contro la riserva di Destrezza + Atletica del difensore. Nei casi in cui i due combattenti scambiano attacchi a distanza, è possibile risolverlo come un conflitto bidirezionale di Armi da Fuoco. Ciò presuppone che i soggetti dispongano di qualche copertura limitata, come un'automobile o l'angolo di un edificio. Un personaggio completamente scoperto subisce una penalità di 2 dadi alla sua riserva di difesa, mentre una copertura superiore (sacchetti di sabbia, fortificazioni di cemento e simili ostacoli a prova di proiettile) conferisce un bonus di 1-2."
@@ -38,19 +24,39 @@
             "content": "Qualora gli attacchi in massa abbiano senso, un personaggio che si trova ad affrontare più avversari perde un dado dalla sua riserva di difesa per ogni successivo nemico che lo prende di mira. Al fine di attaccare diversi avversari nella stessa azione, un personaggio deve suddividere la sua riserva di attacco."
           }
         ]
+      }
+    ]
+  },
+  {
+  "title": "Test Prolungati",
+  "content": "I test prolungati vengono utilizzati quando un'impresa richiede un periodo di tempo esteso o coinvolge molteplici azioni. Ecco alcune varianti e situazioni speciali relative ai test prolungati:",
+  "sections": [
+    {
+      "title": "Test Prolungato Standard",
+      "content": "La Difficoltà è molto alta (10 o più) e i giocatori accumulano successi da ogni tiro fino a raggiungere o superare la Difficoltà.\n● Test Seriale:La Difficoltà è normale, ma è richiesto un numero specifico di vittorie per raggiungere il risultato.\nAdatto a imprese con diverse componenti, come disattivare allarmi e serrature in un caveau.\n● Test Prolungato Difficile:Una combinazione di test prolungati standard e seriali, considerando solo i margini di successo per superare la Difficoltà finale.\nAdatto a tiri eseguiti solo una o più volte per sessione per rappresentare progressi incrementali.\n● Test a Cascata:I margini di successo di ogni impresa vengono sommati come dadi extra nell'impresa successiva.\nRappresenta situazioni in cui il successo in una fase genera ulteriori successi nelle fasi successive.\n● Confronti Prolungati: Simulano una gara tra due personaggi per completare un'azione prolungata.\nOgni personaggio esegue il tiro in incrementi temporali, e il vincitore è chi raggiunge prima la quantità necessaria di successi."
+    },
+    {
+      "title": "Situazioni Speciali",
+      "content": "Alcune regole e risultati speciali dei test semplici possono funzionare in modo diverso nei test prolungati, come il \"Lavoro di Squadra\" e il \"Fallimento Totale\". Il Narratore può adattare queste eccezioni per favorire lo sviluppo drammatico della trama."
+    }
+  ]
+},
+  {
+    "title": "Conflitti Avanzati",
+    "content": "In quanto predatori, i vampiri spesso si trovano a scontrarsi tra di loro, con le loro prede (a volte) e con chi tenta di impedirgli di catturarle. Questi scontri, a volte, degenerano in violenza. Altre volte si limitano a conflitti verbali o emotivi, specialmente quando un Principe richiede responsabilità ai suoi cortigiani. Talvolta, i vampiri combattono dietro le quinte, utilizzando le istituzioni umane come armi e protezioni.\nQuesta sezione amplia le regole sui conflitti semplici. Il Narratore può integrare nei conflitti semplici qualsiasi modulo di regole avanzate, ma non è obbligato a usarli tutti.",
+    "sections": [
+      {
+        "title": "Tiro Singolo",
+        "content": "Quando le circostanze particolari descritte in precedenza non si applicano, è possibile considerare l'uso di un conflitto a tiro singolo. In questo caso, ogni conseguenza dell'azione è amplificata. La Difficoltà del tiro singolo può essere determinata in base all'andamento dei tre round precedenti del conflitto:\n● Difficoltà 3: Se la maggior parte del combattimento è andata a favore dei personaggi o se hanno vinto tutti e tre i round precedenti.\n● Difficoltà 4: Se entrambe le parti hanno subito danni simili o se i personaggi hanno vinto due round su tre.\n● Difficoltà 5: Se i personaggi hanno perso il combattimento o hanno vinto solo un round su tre.\n● Difficoltà 6: Se i personaggi hanno avuto fortuna a sopravvivere finora o hanno perso tutti e tre i round precedenti."
       },
       {
-        "title": "Conflitti Avanzati",
-        "content": "",
-        "paragraphs": [
-          {
-            "title": "Tiro Singolo",
-            "content": "Quando le circostanze particolari descritte in precedenza non si applicano, è possibile considerare l'uso di un conflitto a tiro singolo. In questo caso, ogni conseguenza dell'azione è amplificata. La Difficoltà del tiro singolo può essere determinata in base all'andamento dei tre round precedenti del conflitto:\n● Difficoltà 3: Se la maggior parte del combattimento è andata a favore dei personaggi o se hanno vinto tutti e tre i round precedenti.\n● Difficoltà 4: Se entrambe le parti hanno subito danni simili o se i personaggi hanno vinto due round su tre.\n● Difficoltà 5: Se i personaggi hanno perso il combattimento o hanno vinto solo un round su tre.\n● Difficoltà 6: Se i personaggi hanno avuto fortuna a sopravvivere finora o hanno perso tutti e tre i round precedenti."
-          },
-          {
-            "title": "Exeunt",
-            "content": "La conclusione di un conflitto non lo risolve necessariamente completamente; potrebbe anche trasformarlo in una nuova scena."
-          },
+        "title": "Exeunt",
+        "content": "La conclusione di un conflitto non lo risolve necessariamente completamente; potrebbe anche trasformarlo in una nuova scena."
+      },
+      {
+        "title": "Opzioni Aggiuntive di Conflitto",
+        "content": "Le azioni di conflitto non devono necessariamente essere tutti attacchi diretti contro gli avversari. In effetti, la maggior parte degli scontri ha un obiettivo che non si basa esclusivamente sull'eliminazione totale dei nemici. Non c'è motivo per cui i giocatori debbano affrontare gli avversari a viso aperto se possono raggiungere i loro scopi con altri mezzi. Le seguenti azioni alternative possono essere adottate in qualsiasi tipo di conflitto.",
+        "subParagraphs": [
           {
             "title": "Avanzata",
             "content": "L'avanzata è un modo di gestire il conflitto in cui l'obiettivo è ciò che conta. Questo può includere manipolazioni politiche, distruzione di prove, accumulo di influenza, violazioni di sistemi di sorveglianza, ecc. L'avanzata viene gestita come un test prolungato, con i giocatori che tirano per accumulare il massimo di vittorie/successi."
@@ -74,23 +80,27 @@
           {
             "title": "Azioni Minori",
             "content": "Alcune azioni non richiedono uno scambio completo ma sono abbastanza significative da non poter essere eseguite gratuitamente. Queste azioni minori sottraggono dadi dalla riserva dell'azione principale, e il Narratore può imporre un limite al loro numero durante un singolo scambio. Esempi di azioni minori includono preparare un'arma, maneggiare equipaggiamento, muoversi di qualche passo, svolgere una commissione o occuparsi del proprio rifugio. Un giocatore può scegliere di compiere solo azioni minori nel suo turno, rispettando il limite definito dal Narratore."
-          },
-          {
-            "title": "Difesa Totale",
-            "content": "Se un personaggio si concentra esclusivamente sulla propria protezione per un turno, riceve un bonus di 1 dado a tutti i tiri di difesa. Se ha a disposizione una copertura solida e può nascondersi completamente dietro di essa, diventa invulnerabile agli attacchi a distanza a condizione di non essere attaccato ai fianchi. Questa tattica non può essere combinata con azioni offensive."
-          },
-          {
-            "title": "Movimento nei Conflitti",
-            "content": "Il movimento in Vampiri spesso è trattato in modo astratto, ma può essere una componente significativa di un conflitto, specialmente quando un personaggio desidera avvicinarsi o allontanarsi da un avversario. Può essere gestito come un'azione minore o simulato come una manovra, a seconda delle circostanze e dell'importanza del movimento nel contesto del conflitto."
-          },
-          {
-            "title": "Conflitti a Tiro Singolo",
-            "content": "In alcuni casi, un conflitto può essere risolto in modo più distaccato assegnando semplicemente una Difficoltà agli oppositori, basata sulla loro forza relativa. Ogni giocatore partecipante al conflitto esegue quindi un tiro di una riserva pertinente contro la Difficoltà fissata. La parte che ottiene il maggior numero di vittorie avrà un risultato migliore. Questo approccio può essere utile quando il conflitto non offre molto potenziale drammatico o coinvolge un numero limitato di giocatori."
-          },
+          }
+        ]
+      },
+      {
+        "title": "Movimento nei Conflitti",
+        "content": "Il movimento in Vampiri spesso è trattato in modo astratto, ma può essere una componente significativa di un conflitto, specialmente quando un personaggio desidera avvicinarsi o allontanarsi da un avversario. Può essere gestito come un'azione minore o simulato come una manovra, a seconda delle circostanze e dell'importanza del movimento nel contesto del conflitto."
+      },
+      {
+        "title": "Conflitti a Tiro Singolo",
+        "content": "In alcuni casi, un conflitto può essere risolto in modo più distaccato assegnando semplicemente una Difficoltà agli oppositori, basata sulla loro forza relativa. Ogni giocatore partecipante al conflitto esegue quindi un tiro di una riserva pertinente contro la Difficoltà fissata. La parte che ottiene il maggior numero di vittorie avrà un risultato migliore. Questo approccio può essere utile quando il conflitto non offre molto potenziale drammatico o coinvolge un numero limitato di giocatori.",
+        "subParagraphs": [
           {
             "title": "Esempi di Difficoltà",
             "content": "● Gli oppositori sono notevolmente più deboli o l'obiettivo è facile da raggiungere: Difficoltà 2.\n● Entrambe le parti hanno forza equilibrata o l'obiettivo è una sfida notevole: Difficoltà 4.\n● Gli oppositori sono molto più forti o l'obiettivo è estremamente arduo da raggiungere: Difficoltà 6.\nLa difficoltà può essere modificata a favore della parte in vantaggio per Discipline o poteri soprannaturali, posizione, preparazione o sorpresa. I danni inflitti sono basati sulla differenza tra i successi ottenuti e il doppio della Difficoltà. Questi danni non sono mitigati da armature o mezzi soprannaturali come la Robustezza. La natura dei danni dipende dagli oppositori e dalle armi utilizzate. In alternativa, un giocatore potrebbe mitigare i danni ottenendo Macchie attraverso atti di estrema crudeltà."
-          },
+          }
+        ]
+      },
+      {
+        "title": "Combattimento Fisico",
+        "content": "I seguenti sistemi opzionali approfondiscono il combattimento fisico e permettono di gestirne i casi limite.",
+        "subParagraphs": [
           {
             "title": "Iniziativa",
             "content": "Il sistema propone un approccio tradizionalista all'iniziativa, basato sul valore di Iniziativa calcolato come Autocontrollo + Allerta per ogni personaggio. In alcune situazioni specifiche, come i duelli formali, Autocontrollo potrebbe essere sostituito da Destrezza o Fermezza. L'Iniziativa rimane costante durante l'intero combattimento, indipendentemente dalle azioni eseguite.\nIl partecipante con l'Iniziativa più alta agisce per primo, seguito dagli altri in ordine decrescente di Iniziativa. Non sono previsti test durante questa fase. In caso di pareggio, i personaggi giocanti agiscono prima dei personaggi non giocanti, e se il pareggio persiste, si può risolvere con un tiro di dado.\nAll'inizio di ogni turno, i combattenti dichiarano e eseguono le loro azioni in ordine di Iniziativa. Possono anche scegliere di passare, posizionandosi per ultimo nelle azioni successive."
@@ -144,7 +154,7 @@
       {
         "title": "Combattimento Sociale",
         "content": "Il combattimento o conflitto sociale può verificarsi in vari contesti e assume forme diverse, da scontri verbali a duelli di frecciate e schermaglie alla corte del Principe. Queste regole offrono un livello di astrazione più elevato rispetto al combattimento fisico.\nI conflitti sociali si risolvono utilizzando le stesse meccaniche del combattimento fisico. Gli attaccanti tirano le riserve e confrontano i successi, sottraendo quelli dell'avversario per determinare i danni inflitti alla Volontà. La sequenza delle azioni di solito non è critica, ma in situazioni in cui lo è, Prontezza + Galateo può essere usato per l'ordine di Iniziativa.",
-        "paragraphs": [
+        "sections": [
           {
             "title": "Danni alla Volontà",
             "content": "I danni alla Volontà sono particolarmente dolorosi quando il pubblico assiste a manifestazioni di debolezza. Un modificatore basato sul pubblico viene aggiunto ai danni, rendendo le conseguenze delle sconfitte più gravi quando ci sono spettatori interessati al risultato.\nIn un conflitto sociale, è possibile ritirarsi prima di tirare le riserve di dadi, evitando così l'umiliazione e la fatica associata alla sconfitta inevitabile.\n● solo avversari -> +0 danni\n● La coterie del conentendente -> +1\n● Fratelli la cui opinione il contendente ritiene importante -> +2\n● Primogeniti, Arpie o altre figure sociali rilevanti -> +3\n● Il Principe, Barone o altra figura autorevole"
@@ -168,7 +178,7 @@
       {
         "title": "Tipologie di Danno",
         "content": "Nel sistema dello Storyteller, i danni si categorizzano in due tipologie principali.",
-        "paragraphs": [
+        "subParagraphs": [
           {
             "title": "Danni Superficiali",
             "content": "Ferite apparenti, come contusioni e graffi, che non pongono immediato pericolo di vita. Pugni, calci e armi non letali, come taser, infliggono danni superficiali. Anche armi comuni, come pistole e lame, provocano danni superficiali ai vampiri. Nei conflitti sociali, rappresentano imbarazzo o ferite all'amor proprio senza effetti duraturi sull'immagine del bersaglio."
@@ -289,31 +299,33 @@
       },
       {
         "title": "Rappresentazione Meccanica",
-        "content": "In collaborazione con il Narratore, creare una rappresentazione meccanica dell'obiettivo attraverso uno o più pallini di Background o Tratti. Ad esempio, conquistare l'Arpia potrebbe corrispondere al Background Mawla, mentre distruggere la banca potrebbe fornire Risorse o sottrarle a un rivale, e comprendere il glifo potrebbe aggiungere pallini in Sapienza di Tenebra o consentire l'acquisizione di un Rituale di Stregoneria del Sangue."
-      },
-      {
-        "title": "Modifica della Risonanza",
-        "content": " I vampiri spesso usano i Progetti per alterare la Risonanza di una vena e intensificarne il temperamento a lungo termine. Un pallino cambia la Risonanza, rendendola Intensa, mentre due pallini aggiungono una Discrasia."
-      },
-      {
-        "title": "Scopo del Progetto",
-        "content": "Il numero di pallini ottenuti da un Progetto in caso di successo è chiamato Scopo."
-      },
-      {
-        "title": "Modulo del Progetto",
-        "content": "Giocatori e Narratore devono concordare sulla durata del progetto: giorni, settimane, quindicine, mesi, anni, lustri, decenni, generazioni di mortali o secoli.\nUn modulo dovrebbe approssimativamente equivalere a un decimo della durata totale. Ad esempio, un progetto annuale può essere suddiviso in moduli leggermente superiori a un mese.\nProgetti con una durata inferiore a 10 giorni possono essere gestiti come un semplice Test Prolungato (p. 293)."
-      },
-      {
-        "title": "Tiro d'Inizio del Progetto",
-        "content": "Se il Narratore ritiene che dare il via o proteggere il progetto possa avere un impatto significativo sulla trama futura o offrire spunti drammatici, il gruppo dovrebbe partecipare a una scena o capitolo dedicato alla preparazione del terreno per il primo modulo del progetto. Al termine di questa preparazione, il giocatore effettuerà il Tiro d'Inizio del Progetto. Il Narratore indicherà al giocatore quale riserva di dadi utilizzare, di solito Abilità + Background. Ad esempio, fare la corte all'Arpia potrebbe richiedere Sotterfugio + Status, distruggere la banca potrebbe coinvolgere Finanza + Risorse, prendere il controllo della narcotici richiederebbe Politica + Influenza, e comprendere il glifo potrebbe necessitare di Occulto + Sapienza di Tenebra (o Stregoneria del Sangue o Alleato, se il personaggio è un mago).\nCome tra i mortali, tra i vampiri l'Influenza genera Influenza. Pertanto, pallini temporanei ottenuti tramite Favori, Memoriam o altri mezzi possono migliorare la riserva di dadi.\nIl Tiro d'Inizio è un semplice test con una Difficoltà pari allo Scopo del progetto + 2. Durante questo tiro, il giocatore non può spendere Forza di Volontà o utilizzare un Impeto Sanguigno, ma il Narratore potrebbe consentire l'uso delle Discipline, specialmente se l'obiettivo è influenzare dei mortali anziché Fratelli\nIn caso di successo critico, il giocatore non dovrà impegnare nessuno dei suoi attuali pallini nel Progetto. Un successo normale obbligherà a impegnare un numero di pallini pari allo Scopo del progetto + 1, meno il margine del Tiro d'Inizio. L'impegno minimo, o Posta, in caso di successo normale, è 1 pallino. I pallini impegnati in questo modo non potranno essere utilizzati in gioco fino alla fine del Progetto, che sia un successo o un fallimento.\nIn generale, i pallini della Posta dovrebbero essere dello stesso tipo dello Scopo del progetto, ma potrebbe esserci spazio per scambi tra Risorse, Influenza o altre combinazioni. Il Narratore dovrebbe fare attenzione affinché i giocatori non offrano \"pallini vuoti\" che non vengono sfruttati in partita o che perdano efficacia a bassi livelli, come nel caso di Maschera o Sapienza di Tenebra.\nIn caso di fallimento, il giocatore può tentare nuovamente con una Difficoltà aumentata di 1. Il fallimento potrebbe essere dovuto al momento sbagliato, a una spia nel mezzo o a un imprevisto. Un fallimento totale indica che il personaggio ha guadagnato un nuovo nemico o ha riaccendersi una vecchia rivalità. Il Narratore può decidere di far sì che questi avversari distruggano o alienino uno o più pallini dai Background del personaggio.\nSe il Narratore lo consente, altri giocatori possono contribuire al Tiro d'Inizio attraverso il Background Coterie o un semplice Lavoro di Squadra (p. 122). Tuttavia, più personaggi partecipano, più rischi sono coinvolti: eventuali Poste o perdite devono essere suddivise tra tutti i partecipanti, anche se ciò comporta un aumento del valore delle Poste. Ad esempio, se 4 personaggi aiutano in una Posta da 3 pallini, tutti dovranno investirne almeno 1."
-      },
-      {
-        "title": "Tiro di Scopo",
-        "content": "In caso di successo nel Tiro d'Inizio del Progetto, il Narratore fissa il Dado Progetto a 10. Questo valore calerà di uno per ogni modulo, da 10 a 9, da 9 a 8... fino a 1. I giocatori possono effettuare il Tiro di Scopo in qualsiasi momento, ma il Narratore decide se la riserva di dadi sarà la stessa del Tiro d'Inizio. Il Tiro di Scopo è un conflitto contro una riserva di dadi pari all'attuale valore del Dado Progetto. Ad esempio, se il Dado Progetto è a 6, la riserva contro cui tirare sarà di 6 dadi. Non è possibile utilizzare Forza di Volontà, Impeti Sanguigni o (di solito) Discipline durante questo tiro. Inoltre, chi ha dato il via al Progetto non può ottenere successi critici sul Tiro di Scopo (i 10 contano come successi normali). Al contrario, l'avversario può ottenere successi critici, rappresentando il vantaggio derivante dallo status quo.\nSe il giocatore vince, ridurrà il valore del Dado Progetto di un numero pari al margine di successi ottenuti. Se questo porta il Dado Progetto sotto 1, il piano va a buon fine. Il Narratore dovrà trovare una spiegazione in gioco per questo evento drammatico.\nIn caso di fallimento, il giocatore subirà perdite di pallini dai propri Background a partire dalla Posta. Se la Posta viene ridotta a 0, il Progetto collasserà improvvisamente. Chi ha ottenuto un successo critico sul Tiro d'Inizio può continuare il Progetto anche dopo un fallimento nel Tiro di Scopo. Il Narratore dovrà inventare un motivo in storia per questo fallimento.\nQuesti danni dovrebbero essere suddivisi tra tutti i giocatori che hanno contribuito al Tiro d'Inizio o assegnati al Background Coterie."
-      },
-      {
-        "title": "Conclusione di un Progetto",
-        "content": "Chi ha dato il via a un Progetto può sempre terminarlo, ma potrebbe non essere in grado di fermare altrettanto facilmente eventuali nemici. Il Narratore può richiedere che il giocatore paghi Esperienza per i pallini ottenuti tramite un Progetto, poiché il sistema considera solo la componente delle azioni in gioco necessarie al miglioramento."
+        "content": "In collaborazione con il Narratore, creare una rappresentazione meccanica dell'obiettivo attraverso uno o più pallini di Background o Tratti. Ad esempio, conquistare l'Arpia potrebbe corrispondere al Background Mawla, mentre distruggere la banca potrebbe fornire Risorse o sottrarle a un rivale, e comprendere il glifo potrebbe aggiungere pallini in Sapienza di Tenebra o consentire l'acquisizione di un Rituale di Stregoneria del Sangue.",
+        "subParagraphs": [
+          {
+            "title": "Modifica della Risonanza",
+            "content": " I vampiri spesso usano i Progetti per alterare la Risonanza di una vena e intensificarne il temperamento a lungo termine. Un pallino cambia la Risonanza, rendendola Intensa, mentre due pallini aggiungono una Discrasia."
+          },
+          {
+            "title": "Scopo del Progetto",
+            "content": "Il numero di pallini ottenuti da un Progetto in caso di successo è chiamato Scopo."
+          },
+          {
+            "title": "Modulo del Progetto",
+            "content": "Giocatori e Narratore devono concordare sulla durata del progetto: giorni, settimane, quindicine, mesi, anni, lustri, decenni, generazioni di mortali o secoli.\nUn modulo dovrebbe approssimativamente equivalere a un decimo della durata totale. Ad esempio, un progetto annuale può essere suddiviso in moduli leggermente superiori a un mese.\nProgetti con una durata inferiore a 10 giorni possono essere gestiti come un semplice Test Prolungato (p. 293)."
+          },
+          {
+            "title": "Tiro d'Inizio del Progetto",
+            "content": "Se il Narratore ritiene che dare il via o proteggere il progetto possa avere un impatto significativo sulla trama futura o offrire spunti drammatici, il gruppo dovrebbe partecipare a una scena o capitolo dedicato alla preparazione del terreno per il primo modulo del progetto. Al termine di questa preparazione, il giocatore effettuerà il Tiro d'Inizio del Progetto. Il Narratore indicherà al giocatore quale riserva di dadi utilizzare, di solito Abilità + Background. Ad esempio, fare la corte all'Arpia potrebbe richiedere Sotterfugio + Status, distruggere la banca potrebbe coinvolgere Finanza + Risorse, prendere il controllo della narcotici richiederebbe Politica + Influenza, e comprendere il glifo potrebbe necessitare di Occulto + Sapienza di Tenebra (o Stregoneria del Sangue o Alleato, se il personaggio è un mago).\nCome tra i mortali, tra i vampiri l'Influenza genera Influenza. Pertanto, pallini temporanei ottenuti tramite Favori, Memoriam o altri mezzi possono migliorare la riserva di dadi.\nIl Tiro d'Inizio è un semplice test con una Difficoltà pari allo Scopo del progetto + 2. Durante questo tiro, il giocatore non può spendere Forza di Volontà o utilizzare un Impeto Sanguigno, ma il Narratore potrebbe consentire l'uso delle Discipline, specialmente se l'obiettivo è influenzare dei mortali anziché Fratelli\nIn caso di successo critico, il giocatore non dovrà impegnare nessuno dei suoi attuali pallini nel Progetto. Un successo normale obbligherà a impegnare un numero di pallini pari allo Scopo del progetto + 1, meno il margine del Tiro d'Inizio. L'impegno minimo, o Posta, in caso di successo normale, è 1 pallino. I pallini impegnati in questo modo non potranno essere utilizzati in gioco fino alla fine del Progetto, che sia un successo o un fallimento.\nIn generale, i pallini della Posta dovrebbero essere dello stesso tipo dello Scopo del progetto, ma potrebbe esserci spazio per scambi tra Risorse, Influenza o altre combinazioni. Il Narratore dovrebbe fare attenzione affinché i giocatori non offrano \"pallini vuoti\" che non vengono sfruttati in partita o che perdano efficacia a bassi livelli, come nel caso di Maschera o Sapienza di Tenebra.\nIn caso di fallimento, il giocatore può tentare nuovamente con una Difficoltà aumentata di 1. Il fallimento potrebbe essere dovuto al momento sbagliato, a una spia nel mezzo o a un imprevisto. Un fallimento totale indica che il personaggio ha guadagnato un nuovo nemico o ha riaccendersi una vecchia rivalità. Il Narratore può decidere di far sì che questi avversari distruggano o alienino uno o più pallini dai Background del personaggio.\nSe il Narratore lo consente, altri giocatori possono contribuire al Tiro d'Inizio attraverso il Background Coterie o un semplice Lavoro di Squadra (p. 122). Tuttavia, più personaggi partecipano, più rischi sono coinvolti: eventuali Poste o perdite devono essere suddivise tra tutti i partecipanti, anche se ciò comporta un aumento del valore delle Poste. Ad esempio, se 4 personaggi aiutano in una Posta da 3 pallini, tutti dovranno investirne almeno 1."
+          },
+          {
+            "title": "Tiro di Scopo",
+            "content": "In caso di successo nel Tiro d'Inizio del Progetto, il Narratore fissa il Dado Progetto a 10. Questo valore calerà di uno per ogni modulo, da 10 a 9, da 9 a 8... fino a 1. I giocatori possono effettuare il Tiro di Scopo in qualsiasi momento, ma il Narratore decide se la riserva di dadi sarà la stessa del Tiro d'Inizio. Il Tiro di Scopo è un conflitto contro una riserva di dadi pari all'attuale valore del Dado Progetto. Ad esempio, se il Dado Progetto è a 6, la riserva contro cui tirare sarà di 6 dadi. Non è possibile utilizzare Forza di Volontà, Impeti Sanguigni o (di solito) Discipline durante questo tiro. Inoltre, chi ha dato il via al Progetto non può ottenere successi critici sul Tiro di Scopo (i 10 contano come successi normali). Al contrario, l'avversario può ottenere successi critici, rappresentando il vantaggio derivante dallo status quo.\nSe il giocatore vince, ridurrà il valore del Dado Progetto di un numero pari al margine di successi ottenuti. Se questo porta il Dado Progetto sotto 1, il piano va a buon fine. Il Narratore dovrà trovare una spiegazione in gioco per questo evento drammatico.\nIn caso di fallimento, il giocatore subirà perdite di pallini dai propri Background a partire dalla Posta. Se la Posta viene ridotta a 0, il Progetto collasserà improvvisamente. Chi ha ottenuto un successo critico sul Tiro d'Inizio può continuare il Progetto anche dopo un fallimento nel Tiro di Scopo. Il Narratore dovrà inventare un motivo in storia per questo fallimento.\nQuesti danni dovrebbero essere suddivisi tra tutti i giocatori che hanno contribuito al Tiro d'Inizio o assegnati al Background Coterie."
+          },
+          {
+            "title": "Conclusione di un Progetto",
+            "content": "Chi ha dato il via a un Progetto può sempre terminarlo, ma potrebbe non essere in grado di fermare altrettanto facilmente eventuali nemici. Il Narratore può richiedere che il giocatore paghi Esperienza per i pallini ottenuti tramite un Progetto, poiché il sistema considera solo la componente delle azioni in gioco necessarie al miglioramento."
+          }
+        ]
       },
       {
         "title": "La Longue Durée",
@@ -321,19 +333,21 @@
       },
       {
         "title": "Progetti Nemici",
-        "content": "I personaggi giocanti possono trovarsi coinvolti in Progetti nemici, non essendo gli unici Fratelli ad essere parte di macchinazioni a lungo termine. Possono individuare, ostacolare o prendere il controllo dei Progetti dei propri nemici o alleati con la stessa facilità con cui avviano i propri. Il Narratore determina l'attuale valore del Dado Progetto del nemico tirando un dado e dimezzando il risultato (arrotondando per eccesso) per ottenere lo Scopo."
-      },
-      {
-        "title": "Individuare un Progetto Nemico",
-        "content": "Scoprire l'esistenza di una macchinazione richiede azioni specifiche, e determinarne il progresso necessita di investigazioni o di un informatore. Durante la partita, il Dado Progetto di un nemico dovrebbe calare almeno una volta per creare dramma. Queste macchinazioni sono probabili avversarie dei giocatori."
-      },
-      {
-        "title": "Influenzare un Progetto Nemico",
-        "content": "Una coterie può influenzare il Dado Progetto di un nemico dedicando un Capitolo o una Storia a favore o contro i suoi piani. La coterie deve essere un elemento critico della vicenda. Il Narratore decide l'azione in gioco significativa. Interferire con un Progetto avversario probabilmente attirerà le ire di potenti avversari."
-      },
-      {
-        "title": "Sfruttare un Progetto Nemico",
-        "content": "Invece di appoggiare o contrastare una macchinazione, la coterie può cercare di prenderne il controllo. Tuttavia, i giocatori devono prima trovare un modo ragionevole per influenzare gli elementi della cospirazione. Il Narratore determina la riserva per il Tiro di Scopo dei giocatori. Successivamente, devono superare un Test Prolungato Difficile con Difficoltà 5, accumulando successi pari a 15 meno il valore del Dado Progetto del nemico. I fallimenti durante questo Test Prolungato allertano gli autori del Progetto dell'interferenza, mentre un fallimento totale rivela loro chiaramente il responsabile. Se si infiltrano con successo, i personaggi possono saccheggiare il Progetto o prenderne il controllo. Il saccheggio trasferisce metà dei pallini di Scopo alla coterie senza ulteriori tiri di dado. Prenderne il controllo richiede un Tiro di Scopo come se il gruppo avesse dato il via al Progetto. Con un successo, la coterie ottiene i benefici del Progetto; in caso di fallimento, perde il numero richiesto di pallini di Background. In ogni caso, i personaggi otterranno un nuovo nemico insieme ai benefici, ma se verranno sconfitti, i pallini ottenuti saranno persi."
+        "content": "I personaggi giocanti possono trovarsi coinvolti in Progetti nemici, non essendo gli unici Fratelli ad essere parte di macchinazioni a lungo termine. Possono individuare, ostacolare o prendere il controllo dei Progetti dei propri nemici o alleati con la stessa facilità con cui avviano i propri. Il Narratore determina l'attuale valore del Dado Progetto del nemico tirando un dado e dimezzando il risultato (arrotondando per eccesso) per ottenere lo Scopo.",
+        "subParagraphs": [
+          {
+            "title": "Individuare un Progetto Nemico",
+            "content": "Scoprire l'esistenza di una macchinazione richiede azioni specifiche, e determinarne il progresso necessita di investigazioni o di un informatore. Durante la partita, il Dado Progetto di un nemico dovrebbe calare almeno una volta per creare dramma. Queste macchinazioni sono probabili avversarie dei giocatori."
+          },
+          {
+            "title": "Influenzare un Progetto Nemico",
+            "content": "Una coterie può influenzare il Dado Progetto di un nemico dedicando un Capitolo o una Storia a favore o contro i suoi piani. La coterie deve essere un elemento critico della vicenda. Il Narratore decide l'azione in gioco significativa. Interferire con un Progetto avversario probabilmente attirerà le ire di potenti avversari."
+          },
+          {
+            "title": "Sfruttare un Progetto Nemico",
+            "content": "Invece di appoggiare o contrastare una macchinazione, la coterie può cercare di prenderne il controllo. Tuttavia, i giocatori devono prima trovare un modo ragionevole per influenzare gli elementi della cospirazione. Il Narratore determina la riserva per il Tiro di Scopo dei giocatori. Successivamente, devono superare un Test Prolungato Difficile con Difficoltà 5, accumulando successi pari a 15 meno il valore del Dado Progetto del nemico. I fallimenti durante questo Test Prolungato allertano gli autori del Progetto dell'interferenza, mentre un fallimento totale rivela loro chiaramente il responsabile. Se si infiltrano con successo, i personaggi possono saccheggiare il Progetto o prenderne il controllo. Il saccheggio trasferisce metà dei pallini di Scopo alla coterie senza ulteriori tiri di dado. Prenderne il controllo richiede un Tiro di Scopo come se il gruppo avesse dato il via al Progetto. Con un successo, la coterie ottiene i benefici del Progetto; in caso di fallimento, perde il numero richiesto di pallini di Background. In ogni caso, i personaggi otterranno un nuovo nemico insieme ai benefici, ma se verranno sconfitti, i pallini ottenuti saranno persi."
+          }
+        ]
       }
     ]
   }

@@ -106,7 +106,7 @@ fun V5RulesApp(
                         navController = navController
                     )
                 }
-                composable("predator_type_screen") { backStackEntry ->
+                composable("predator_type_screen") {
                     PredatorTypeListScreen(
                         viewModel = predatorTypeViewModel,
                         navController = navController
@@ -120,7 +120,6 @@ fun V5RulesApp(
                         predatorNameId ?: ""
                     )
                 }
-
                 composable("clan_screen") {
                     ClanListScreen(viewModel = clanViewModel, navController = navController)
                 }

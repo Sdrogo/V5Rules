@@ -38,7 +38,7 @@ fun RitualScreen(
             if (ritual != null) {
                 LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
                     item { // Use 'item' to add individual composables to the LazyColumn
-                        RitualInfo(ritual = ritual, discipline = discipline)
+                        RitualInfo(ritual = ritual)
                     }
                 }
             }
@@ -48,7 +48,7 @@ fun RitualScreen(
 
 
 @Composable
-fun RitualInfo(ritual: Ritual, discipline: Discipline) {
+fun RitualInfo(ritual: Ritual) {
     Column {
         TextBlock(
             title = stringResource(id = R.string.discipline_rituals_description),

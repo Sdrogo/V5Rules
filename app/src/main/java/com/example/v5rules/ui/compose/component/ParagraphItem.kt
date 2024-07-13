@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.data.Paragraph
+
 @Composable
 fun ParagraphItem(paragraph: Paragraph) {
     Surface(

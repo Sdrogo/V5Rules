@@ -35,6 +35,7 @@ fun RulesDetailsScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(8.dp)
                 .background(color = MaterialTheme.colorScheme.secondary)
         ) {
             rule?.let { rule ->
@@ -68,7 +69,7 @@ fun RulesDetailsScreen(
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                                 Spacer(modifier = Modifier.height(8.dp))
-                                section.paragraphs?.forEach { subSection ->
+                                section.subParagraphs?.forEach { subSection ->
                                     ContentExpander(
                                         title = subSection.title,
                                         style = MaterialTheme.typography.headlineSmall,
