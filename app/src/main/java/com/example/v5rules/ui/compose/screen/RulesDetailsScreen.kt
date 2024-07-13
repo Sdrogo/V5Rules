@@ -2,8 +2,10 @@ package com.example.v5rules.ui.compose.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -47,10 +49,9 @@ fun RulesDetailsScreen(
                     item {
                         Text(
                             modifier = Modifier.padding(16.dp),
-                            text = AnnotatedString(
+                            text= AnnotatedString(
                                 rule.content,
-                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify),
-
+                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
                             ),
                             color = MaterialTheme.colorScheme.primary,
                             style = MaterialTheme.typography.bodyMedium
@@ -66,51 +67,76 @@ fun RulesDetailsScreen(
                                 Text(
                                     text = AnnotatedString(
                                         section.content,
-                                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify),
-
+                                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
                                     ),
                                     color = MaterialTheme.colorScheme.primary,
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                                 Spacer(modifier = Modifier.height(8.dp))
-                                section.subParagraphs?.forEach { subSection ->
-                                    ContentExpander(
-                                        title = subSection.title,
-                                        style = MaterialTheme.typography.headlineSmall,
-                                        fontWeight = FontWeight.Bold
-                                    ) {
-                                        Text(
-                                            text = AnnotatedString(
-                                                subSection.content,
-                                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                            ),
-
-                                            color = MaterialTheme.colorScheme.primary,
-                                            style = MaterialTheme.typography.bodyMedium
+                                Column(modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(IntrinsicSize.Min)
+                                ) {
+                                    Row {
+                                        Spacer(modifier = Modifier
+                                            .width(2.dp)
+                                            .fillMaxHeight()
+                                            .background(colorResource(id = R.color.accentColor))
                                         )
-                                    }
-                                    subSection.subParagraphs?.forEach { subParagraph ->
-                                        Row {
-                                            Spacer(modifier = Modifier.width(2.dp).background(color = colorResource(id = R.color.accentColor)))
-                                        }
-                                        ContentExpander(
-                                            title = subParagraph.title,
-                                            style = MaterialTheme.typography.headlineSmall,
-                                            fontWeight = FontWeight.Bold
-                                        ) {
-                                            Text(
-                                                text = AnnotatedString(
-                                                    subParagraph.content,
-                                                    paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                                ),
-                                                color = MaterialTheme.colorScheme.primary,
-                                                style = MaterialTheme.typography.bodyMedium
-                                            )
+                                        Column {
+                                            section.subParagraphs?.forEach { subSection ->
+                                                ContentExpander(
+                                                    title = subSection.title,
+                                                    style = MaterialTheme.typography.headlineSmall,
+                                                    fontWeight = FontWeight.Bold
+                                                ) {
+                                                    Text(
+                                                        modifier = Modifier.padding(start = 8.dp),
+                                                        text = AnnotatedString(
+                                                            subSection.content,
+                                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                                        ),
+                                                        color = MaterialTheme.colorScheme.primary,
+                                                        style = MaterialTheme.typography.bodyMedium
+                                                    )
+                                                }
+                                                // Nested Row for subParagraphs (if needed)
+                                                Column(modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .height(IntrinsicSize.Min)
+                                                ) {
+                                                    Row {
+                                                        Spacer(modifier = Modifier
+                                                            .width(2.dp)
+                                                            .fillMaxHeight()
+                                                            .background(colorResource(id = R.color.accentColor))
+                                                        )
+                                                        Column {
+                                                            subSection.subParagraphs?.forEach { subParagraph ->
+                                                                ContentExpander(
+                                                                    title = subParagraph.title,
+                                                                    style = MaterialTheme.typography.headlineSmall,
+                                                                    fontWeight = FontWeight.Bold
+                                                                ) {
+                                                                    Text(
+                                                                        modifier = Modifier.padding(start = 8.dp),
+                                                                        text = AnnotatedString(
+                                                                            subParagraph.content,
+                                                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                                                        ),
+                                                                        color = MaterialTheme.colorScheme.primary,
+                                                                        style = MaterialTheme.typography.bodyMedium
+                                                                    )
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
-
                         }
                     }
                 }
