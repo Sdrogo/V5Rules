@@ -4,7 +4,6 @@ data class Discipline(
     val id: String,
     val title: String,
     val description: String,
-    val imageUrl: String,
     val type: String,
     val masquerade: String,
     val resonance: String,

@@ -1,0 +1,183 @@
+[
+  {
+    "name": "Accattone",
+    "description": "Il vampiro ruba o si procura sangue “freddo” anziché cacciare, affidandosi al mercato nero o alle sue capacità di scassinatore o inseguitore di ambulanze. Forse lavora ancora nel turno di notte all’ospedale.",
+    "huntPool": "Intelligenza + Bassifondi",
+    "paragraphs": [
+      "Bassifondi (Mercato Nero) o Criminalità (Scassinare Serrature)",
+      "Riceve un pallino in Oscurazione o Stregoneria del Sangue (solo Tremere)",
+      "Riceve il Pregio di Nutrizione: Stomaco di Ferro (•••)",
+      "Riceve il Difetto: (••) Nemico. Ha un creditore, oppure c’è un’altra ragione che tiene il vampiro lontano dalle strade."
+    ]
+  },
+  {
+    "name": "Allevatore",
+    "description": "Il vampiro si nutre solo di animali. La Fame è un assillo costante, ma finora è riuscito a non ammazzare nessuno (a parte forse quella volta…) e intende continuare così.",
+    "huntPool": "Autocontrollo + Affinità Animale",
+    "paragraphs": [
+      "Riceve una specialità: Affinità Animale (animale specifico) o Sopravvivenza (Caccia)",
+      "Riceve un pallino in Animalità o Proteide",
+      "Riceve un pallino in Umanità",
+      "Riceve il Difetto di Nutrizione: (••) Vegano"
+    ]
+  },
+  {
+    "name": "Consensualista",
+    "description": "Il vampiro non si nutre mai contro la volontà delle sue vittime. Si finge raccoglitore di sangue per beneficenza, raffinato bevitore di sangue nella “comunità dei veri vampiri” o dice chiaro e tondo alle sue vittime cosa è e chiede il permesso di nutrirsi.",
+    "huntPool": "Persuasione + Convincere",
+    "paragraphs": [
+      "Riceve una specialità: Convincere (Vittime) o Medicina (Flebotomia)",
+      "Riceve un pallino in Auspex o Robustezza",
+      "Riceve un pallino in Umanità",
+      "Riceve il Difetto Segreto Oscuro: (•) Trasgressore della Masquerade",
+      "Riceve il Difetto di Nutrizione: (•) Esclusione di Preda (non consenzienti)"
+    ]
+  },
+  {
+    "name": "Osiride",
+    "description": "Il vampiro è una celebrità tra i mortali o regge un culto, una chiesa o qualcosa di simile. Si nutre dai suoi fan o adoratori, che lo considerano una divinità. Ha sempre accesso a sangue facile, ma i seguaci generano problemi con le autorità, la religione organizzata e persino la Camarilla.",
+    "huntPool": "Persuasione + Sotterfugio o Intimidire + Fama",
+    "paragraphs": ["Riceve una specialità: Espressività (intrattenimento specifico) o Occulto (tradizione specifica)",
+      "Riceve un pallino in Ascendente o Stregoneria del Sangue (solo Tremere)",
+      "Deve spendere tre pallini nei Background: Fama e/o Gregge",
+      "Deve spendere due pallini nei Difetti: Nemici e/o Mitici"
+    ]
+  },
+  {
+    "name": "Randagio",
+    "description": "Il vampiro è un aggressore violento che caccia, sopraffà e beve da chiunque e ogni volta che può.",
+    "huntPool": "Forza + Rissa",
+    "paragraphs": [
+      "Riceve una specialità: Intimidire (Rapina) o Rissa (Lotta)",
+      "Riceve un pallino di Potenza o Velocità",
+      "Sottrae un pallino da Umanità",
+      "Riceve tre pallini di Contatti nel crimine"
+    ]
+  },
+  {
+    "name": "Regina della scena",
+    "description": "Il vampiro conta sulla dimestichezza con una certa sottocultura e una posa ben studiata per cibarsi di chi lo ritiene “uno di loro”.",
+    "huntPool": "Persuasione + Convincere",
+    "paragraphs": [
+      "Riceve una specialità: Autorità (una specifica “scena”), Bassifondi (idem) o Galateo (idem)",
+      "Riceve un pallino in Dominazione o Potenza",
+      "Riceve il Vantaggio: Fama (•)",
+      "Riceve il Vantaggio: Contatti (•)",
+      "Riceve il Difetto di Influenza: (•) Malvisto (al di fuori della sua sottocultura) o il Difetto di Nutrizione: (•) Esclusione di Preda (una sottocultura diversa dalla sua)"
+    ]
+  },
+  {
+    "name": "Sandman",
+    "description": "Il vampiro si affida alla furtività o alle Discipline per nutrirsi da vittime dormienti.",
+    "huntPool": "Destrezza + Furtività",
+    "paragraphs": [
+      "Riceve una specialità: Furtività (Effrazione) o Medicina (Anestesia)",
+      "Riceve un pallino in Auspex o in Oscurazione",
+      "Riceve un pallino in Risorse"
+    ]
+  },
+  {
+    "name": "Sanguisuga",
+    "description": "Il vampiro si nutre dai suoi simili tramite caccia, coercizione o esigendo il Sangue come pagamento – il solo mezzo etico per nutrirsi a cui riesce a pensare.",
+    "huntPool": "NAN",
+    "paragraphs": [
+      "Riceve una specialità: Furtività (contro i Fratelli) o Rissa (Fratelli)",
+      "Riceve un pallino di Proteide o Velocità",
+      "Sottrae un pallino da Umanità",
+      "La sua Potenza del Sangue aumenta di uno",
+      "Riceve il Difetto: Segreto Oscuro (••) Diablerista o il Difetto: (••) Evitato",
+      "Riceve il Difetto di Nutrizione: (••) Esclusione di Preda (mortali)"
+    ]
+  },
+  {
+    "name": "Simulante",
+    "description": "Il vampiro si nutre di nascosto dalla sua famiglia e dai suoi amici mortali (o quelli di qualcun altro).",
+    "huntPool": "Persuasione + Sotterfugio",
+    "paragraphs": [
+      "Riceve una specialità: Convincere (Disorientare) o Sotterfugio (Insabbiare)",
+      "Riceve un pallino in Animalità o Dominazione",
+      "Riceve il Difetto Segreto Oscuro: (•) Simulante",
+      "Riceve il Vantaggio: Gregge (••)"
+    ]
+  },
+  {
+    "name": "Sirena",
+    "description": "Il vampiro si ciba esclusivamente durante il sesso (vero o finto) e si affida a Discipline o alla capacità di sedurre per nascondere la sua natura predatoria.",
+    "huntPool": "Carisma + Sotterfugio",
+    "paragraphs": [
+      "Riceve una specialità: Convincere (Seduzione) o Sotterfugio (Seduzione)",
+      "Riceve un pallino in Ascendente o Robustezza",
+      "Riceve il Vantaggio di Aspetto: Attraente (••)",
+      "Riceve il Difetto: (•) Nemico. Un amante rifiutato o un partner geloso."
+    ]
+  },
+  {
+    "name": "Estorsore",
+    "description": "L'estorsore costringe le sue vittime a sanguinare per lui. Sebbene possa offrire servizi come sicurezza o sorveglianza in cambio, questi bisogni sono spesso fabbricati per rendere l'accordo accettabile per la vittima.",
+    "huntPool": "Forza o Persuasione + Intimidazione",
+    "paragraphs": [
+      "Specialità: Intimidazione (Coercizione) o Furtività (Sicurezza)",
+      "Disciplina: Guadagna un punto in Dominazione o Potenza",
+      "Background: Distribuisci tre punti tra Contatti e Risorse",
+      "Difetto: Guadagna il Difetto Nemico (••): La polizia o una vittima che è sfuggita alla tua estorsione e ora cerca vendetta"
+    ]
+  },
+  {
+    "name": "Profanatore di Tombe",
+    "description": "I profanatori di tombe spesso si nutrono di cadaveri freschi ma anche di persone in lutto nei cimiteri e di visitatori e pazienti negli ospedali. Sono attratti dalla risonanza malinconica nel sangue delle vittime.\nDettagli sull'Alimentazione: Un cadavere freddo può placare fino a 3 Fame ma subisce le stesse penalità del sangue conservato. Nutrire un corpo già succhiato da un altro vampiro, prosciugato di sangue o privo di parti riduce la quantità di Fame che può placare.",
+    "huntPool": "Fermezza + Medicina per nutrirti sui cadaveri, o Persuasione + Intuizione per nutrirti di persone in lutto e visitatori ospedalieri.",
+    "paragraphs": [
+      "Specialità: Occulto (Rituali Funerari) o Medicina (Cadaveri)",
+      "Disciplina: Guadagna un punto in Robustezza o Oblivion",
+      "Merito: Guadagna il Merito Alimentazione: Stomaco di Ferro •••",
+      "Background: Guadagna un punto nel Background Rifugio",
+      "Difetto: Guadagna il Difetto Gregge (••): Predatore Evidente (la tua natura fredda ti fa comportare in modo profondamente inquietante quando cacci)"
+    ]
+  },
+  {
+    "name": "Mietitore",
+    "description": "Descrizione: Conosciuto anche come ratto della peste, ti nutri solo di coloro che stanno per morire. Frequenti strutture di cure palliative, case di riposo e rifugi, sempre in cerca di nuove vittime alla fine della loro vita.",
+    "huntPool": "Intelligenza + Allerta o Medicina",
+    "paragraphs": [
+      "Specialità: Consapevolezza (Morte) o Furto (Falsificazione)",
+      "Disciplina: Guadagna un punto in Auspex o Oblivion",
+      "Background: Guadagna un punto negli Alleati o nell'Influenza nella comunità medica",
+      "Umanità: Guadagna un punto di Umanità",
+      "Difetto: Guadagna il Difetto Alimentazione (•): Esclusione della Preda (Mortali Sani)"
+    ]
+  },
+  {
+    "name": "Montero",
+    "description": "Continuando la tradizione della caccia aristocratica spagnola, usi i tuoi servitori per radunare le vittime per te. La tua caccia moderna può assumere la forma di una lunga truffa, un flash mob, una protesta o una caccia senza senso da parte di una banda.",
+    "huntPool": "Intelligenza + Furtività",
+    "paragraphs": [
+      "Specialità: Leadership (Branco di Caccia) o Furtività (Appostamento)",
+      "Disciplina: Guadagna un punto in Dominazione o Oscurazione",
+      "Background: Guadagna due punti nei Servitori",
+      "Umanità: Perdi un punto di Umanità"
+    ]
+  },
+  {
+    "name": "Inseguitore",
+    "description": "Studi le tue vittime, imparando le loro routine e se possono scomparire senza sollevare allarmi. Le insegui e le perseguiti durante la notte, colpendo solo quando la tua sensibilità e la tua fame raggiungono il culmine.",
+    "huntPool": "Intelligenza + Investigare per trovare una vittima che nessuno rimpiangerà, o Costituzione + Furtività per lunghi pedinamenti di prede urbane ignare.",
+    "paragraphs": [
+      "Specialità: Investigazione (Profilazione) o Furtività (Pedinamento)",
+      "Disciplina: Guadagna un punto in Animalità o Auspex",
+      "Merito: Guadagna il Merito: Segugio •",
+      "Background: Guadagna un punto nei Contatti tra individui moralmente flessibili come buttafuori, osservatori dei senzatetto, venditori notturni, spacciatori, ecc. Qualcuno che risponde quando chiedi \"da che parte è andata?\"",
+      "Umanità: Perdi un punto di Umanità"
+    ]
+  },
+  {
+    "name": "Trappola",
+    "description": "Come il ragno trappola, costruisci il tuo nido e attiri le prede al suo interno. Che si tratti di un'attrazione in un parco divertimenti, di un bagno turco, di una casa infestata o di un club di combattimento, le tue vittime vengono al tuo luogo di potere.",
+    "huntPool": "Carisma + Furtività se le tue vittime si aspettano una notte divertente, o Destrezza + Furtività se ti nutri di intrusi o esploratori urbani. Navigare nel tuo covo richiede Prontezza + Fermezza, con dadi aggiuntivi pari ai tuoi punti Rifugio, poiché conosci bene il terreno.",
+    "paragraphs": [
+      "Specialità: Persuasione (Marketing) o Furtività (Agguati o Trappole)",
+      "Disciplina: Guadagna un punto in Proteide o Oscurazione",
+      "Background: Guadagna un punto nel Background Rifugio, e uno tra Servitori (il tuo adescatore, maggiordomo, ecc.) o Gregge (visitatori abituali), o un secondo punto in Rifugio.",
+      "Difetto: Guadagna un Difetto del Rifugio: Inquietante (•) o Infestato (•)"
+    ]
+  }
+]

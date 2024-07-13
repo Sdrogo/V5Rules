@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.data.Paragraph
+
 @Composable
 fun ParagraphItem(paragraph: Paragraph) {
     Surface(
@@ -29,12 +30,14 @@ fun ParagraphItem(paragraph: Paragraph) {
             Text(
                 text = paragraph.title,
                 style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.tertiary,
                 fontWeight = FontWeight.Bold
             )
             // Contenuto del paragrafo
             Text(
                 text = paragraph.content,
                 style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(top = 8.dp)
             )
         }
