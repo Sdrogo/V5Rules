@@ -39,7 +39,7 @@ fun ClanDetailScreen(
     clanName: String
 ) {
     val clan = clanViewModel.allClans.find { it.name == clanName }
-    CommonScaffold(navController = navController, title = clanName) {  ->
+    CommonScaffold(navController = navController, title = clanName) {
         clan?.let { clan ->
             ClanDetail(clan = clan)
         }
@@ -100,16 +100,40 @@ fun ClanDetail(
                 title = it.title,
                 style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
             ) {
-                Text(
-                    text = AnnotatedString(
-                        it.content,
-                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                    ),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontSize = 16.sp,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                )
+                Column {
+                    Text(
+                        text = AnnotatedString(
+                            it.content,
+                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                        ),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontSize = 16.sp,
+                        modifier = Modifier.padding(horizontal = 16.dp)
+                    )
+                    if (it.subParagraphs != null) {
+                        it.subParagraphs.let { sub ->
+                            sub.forEach { subItem ->
+                                ContentExpander(
+                                    title = subItem.title,
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold
+                                ) {
+                                    Text(
+                                        text = AnnotatedString(
+                                            subItem.content,
+                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                        ),
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.primary,
+                                        fontSize = 16.sp,
+                                        modifier = Modifier.padding(horizontal = 16.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         item {
@@ -129,7 +153,7 @@ fun ClanDetail(
                         ),
                     shape = RoundedCornerShape(8.dp)
                 ) {
-                    Column (modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary)){
+                    Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary)) {
                         clan.disciplines.forEach { discipline ->
                             TextBlock(
                                 title = "${discipline.title}:",

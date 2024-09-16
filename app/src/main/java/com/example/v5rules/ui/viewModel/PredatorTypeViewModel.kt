@@ -2,16 +2,18 @@ package com.example.v5rules.ui.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.data.Clan
 import com.example.v5rules.data.MainRepository
 import com.example.v5rules.data.PredatorType
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.util.Locale
+import javax.inject.Inject
 
-class PredatorTypeViewModel(
+@HiltViewModel
+class PredatorTypeViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ) : ViewModel() {
 

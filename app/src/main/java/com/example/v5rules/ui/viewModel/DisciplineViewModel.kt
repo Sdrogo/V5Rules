@@ -4,13 +4,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.MainRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.util.Locale
+import javax.inject.Inject
 
-class DisciplineViewModel(
+@HiltViewModel
+class DisciplineViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ) : ViewModel() {
 
