@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
 
@@ -36,7 +37,9 @@ fun CommonScaffold(
                         Text(
                             text = title,
                             style = MaterialTheme.typography.headlineMedium,
-                            textAlign = TextAlign.Center // Center the text
+                            textAlign = TextAlign.Center, // Center the text
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis
                         )
                     },
                     navigationIcon = {

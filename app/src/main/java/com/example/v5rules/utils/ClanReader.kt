@@ -43,6 +43,6 @@ class ClanReader(private val context: Context) {
         TZIMISCE("Tzimisce", R.drawable.tzimisce_symbol, R.drawable.tzimisce_logo),
         VENTRUE("Ventrue", R.drawable.ventrue_symbol, R.drawable.ventrue_logo),
         CAITIFF("I Vili", R.drawable.caitiff_symbol, R.drawable.caitiff_logo),
-        THINBLOOD("I Sangue Debole", R.drawable.thinblood_symbol, R.drawable.thinblood_logo)
+        THINBLOOD("Sangue Debole", R.drawable.thinblood_symbol, R.drawable.thinblood_logo)
     }
 }
