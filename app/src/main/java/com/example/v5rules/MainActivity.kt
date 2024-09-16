@@ -4,19 +4,18 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.v5rules.ui.compose.screen.ClanDetailScreen
 import com.example.v5rules.ui.compose.screen.ClanListScreen
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
-import com.example.v5rules.ui.viewModel.DisciplineViewModelFactory
 import com.example.v5rules.ui.compose.screen.DisciplineDetailScreen
 import com.example.v5rules.ui.compose.screen.DisciplineScreen
 import com.example.v5rules.ui.compose.screen.HomeScreen
@@ -28,43 +27,31 @@ import com.example.v5rules.ui.compose.screen.RuleListScreen
 import com.example.v5rules.ui.compose.screen.RulesDetailsScreen
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.ui.viewModel.ClanViewModel
-import com.example.v5rules.ui.viewModel.ClanViewModelFactory
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
-import com.example.v5rules.ui.viewModel.PredatorTypeViewModelFactory
 import com.example.v5rules.ui.viewModel.RulesViewModel
-import com.example.v5rules.ui.viewModel.RulesViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val disciplineViewModel: DisciplineViewModel by viewModels {
-        DisciplineViewModelFactory(this)
-    }
-    private val clanViewModel: ClanViewModel by viewModels {
-        ClanViewModelFactory(this)
-    }
-    private val predatorTypeViewModel: PredatorTypeViewModel by viewModels {
-        PredatorTypeViewModelFactory(this)
-    }
-    private val rulesViewModel: RulesViewModel by viewModels {
-        RulesViewModelFactory(this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("MainActivity", "onCreate called")
         setContent {
-            V5RulesApp(disciplineViewModel, clanViewModel, predatorTypeViewModel, rulesViewModel)
+            V5RulesApp()
         }
     }
 }
 
 @Composable
 fun V5RulesApp(
-    disciplineViewModel: DisciplineViewModel,
-    clanViewModel: ClanViewModel,
-    predatorTypeViewModel: PredatorTypeViewModel,
-    rulesViewModel: RulesViewModel
 ) {
+    val disciplineViewModel: DisciplineViewModel = hiltViewModel<DisciplineViewModel>()
+    val clanViewModel: ClanViewModel = hiltViewModel<ClanViewModel>()
+    val predatorTypeViewModel: PredatorTypeViewModel = hiltViewModel<PredatorTypeViewModel>()
+    val rulesViewModel: RulesViewModel = hiltViewModel<RulesViewModel>()
+
     val navController = rememberNavController()
     V5RulesTheme{
         Surface(

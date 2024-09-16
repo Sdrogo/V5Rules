@@ -39,7 +39,7 @@ fun ClanDetailScreen(
     clanName: String
 ) {
     val clan = clanViewModel.allClans.find { it.name == clanName }
-    CommonScaffold(navController = navController, title = clanName) {  ->
+    CommonScaffold(navController = navController, title = clanName) {
         clan?.let { clan ->
             ClanDetail(clan = clan)
         }
