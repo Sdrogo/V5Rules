@@ -520,7 +520,7 @@
       },
       {
         "id": "d3_8",
-        "level": 5,
+        "level": 4,
         "amalgama": "Dominazione 1",
         "title": "Voce Irresistibile",
         "description": "Al culmine della Disciplina, il vampiro può amplificare la sua espressione a livelli soprannaturali. Che appaia incredibilmente bello, mostruosamente terrificante o assolutamente autorevole, chiunque lo veda è inebetito dalla sua immagine e incapace di agire o persino parlare contro di lui. Sperimentare Maestà significa essere in presenza del divino… o del diabolico.",
@@ -534,7 +534,7 @@
         "level": 1,
         "amalgama": "Proteide 1",
         "title": "Occhi del Serpente",
-        "description": "Gli occhi del vampiro si trasformano in orbs simili a quelli di un serpente, capaci di immobilizzare un mortale che incrocia il loro sguardo. L'utente può anche ipnotizzare altri vampiri con questo potere, anche se l'effetto è di breve durata e probabilmente susciterà l'ira della vittima.",
+        "description": "Gli occhi del vampiro si trasformano diventando simili a quelli di un serpente, capaci di immobilizzare un mortale che incrocia il loro sguardo. L'utente può anche ipnotizzare altri vampiri con questo potere, anche se l'effetto è di breve durata e probabilmente susciterà l'ira della vittima.",
         "cost": "Gratuito",
         "dicePool": "Carisma + Acendente vs. Prontezza + Autocontrollo",
         "system": "Incrociando lo sguardo di un mortale (Vampire: The Masquerade, p. 255), il vampiro può immobilizzare la vittima, tenendola congelata sul posto finché mantiene il contatto visivo. L'effetto può essere mantenuto su una sola vittima alla volta e termina se essa subisce danni o viene rimossa con la forza. La vittima è ancora capace di parlare, ma non di urlare. Per paralizzare un vampiro nello stesso modo, l'utente deve vincere una sfida di Carisma + Ascendente contro Prontezza + Autocontrollo. La vittima vampiro può sfuggire alla paralisi in qualsiasi turno successivo al primo spendendo un punto di Forza di Volontà.",
@@ -568,6 +568,25 @@
         "dicePool": "Come il potere trasmesso",
         "system": "Chiunque veda l'edificio dall'esterno o si trovi all'interno deve resistere al potere usato come se il vampiro fosse presente, a meno che il vampiro non sia in vista, nel qual caso essi stessi diventano il focus. Poiché un edificio generalmente non effettua test di abilità, applica i bonus invece a qualsiasi reazione la vittima ha verso il luogo. Un nightclub sotto l'influenza di Incantare avrà code che si snodano intorno all'isolato, mentre un rifugio sotto Intimorire allontanerà tutti tranne i più tenaci investigatori. L'uso di Maestà deve essere fatto con estrema cautela, poiché i risultati possono essere spettacolari e volatili, superando di gran lunga l'effetto dei poteri più sottili.",
         "duration": "Come il potere trasmesso."
+      },
+      {
+        "id": "d3_13",
+        "level": 5,
+        "title": "Maestà",
+        "description": "Al culmine della Disciplina, il vampiro può amplificare la sua espressione a livelli soprannaturali. Che appaia incredibilmente bello, mostruosamente terrificante o assolutamente autorevole, chiunque lo veda è inebetito dalla sua immagine e incapace di agire o persino parlare contro di lui. Sperimentare Maestà significa essere in presenza del divino… o del diabolico.",
+        "cost": "Due Prove di Risveglio",
+        "dicePool": "Carisma + Ascendente contro Autocontrollo + Fermezza.",
+        "system": "Le persone in presenza del vampiro possono solo guardarlo a bocca aperta o distogliere gli occhi per paura o sottomissione. Chiunque voglia agire in qualsiasi modo in opposizione al fruitore, a parte per difendersi, deve prevalere in un confronto di Autocontrollo + Fermezza contro Carisma + Ascendente del vampiro. Una vittoria consente un turno di libertà più uno per punto di margine; solo una vittoria critica consente di resistere all’effetto per l’intera scena.",
+        "duration": "Una scena."
+      },
+      {
+        "id": "d3_14",
+        "level": 5,
+        "title": "Magnetismo da Star",
+        "description": "I poteri di Ascendente del Cainita ora influenzano anche chi lo vede in diretta su uno schermo o lo ascolta al telefono. Tuttavia, immagini e messaggi registrati non mantengono l’effetto.",
+        "cost": "Una Prova di Risveglio aggiuntiva.",
+        "system": "Soggezione, Scoraggiare e Incanto possono essere trasmessi in diretta tramite schermi o telefoni. Se usa Incanto, il vampiro deve pronunciare chiaramente il nome della vittima, poiché il potere influenza solo una persona alla volta. Gli altri spettatori della trasmissione troveranno il vampiro carismatico, ma non a livello soprannaturale.",
+        "duration": "In base al potere utilizzato."
       }
     ]
   },
@@ -1416,15 +1435,6 @@
         "system": "Il tiro del Rituale va eseguito solo all'insorgere di un vero pericolo. Se l'incantatore è minacciato durante il giorno, esegue il tiro in quel momento, svegliandosi in caso di vittoria. Per la durata della scena, il vampiro ignora le penalità per restare sveglio di giorno. Con una vittoria critica, l'effetto permane fino all'alba successiva."
       },
       {
-        "id": "d9_005",
-        "level": 1,
-        "title": "Risveglio con la Freschezza della Sera",
-        "description": "Eseguito prima dell'alba, questo Rituale consente al vampiro di svegliarsi al minimo segno di pericolo, perfettamente attento e vigile come se fosse notte.",
-        "ingredients": "Ossa e piume bruciate di un gallo.",
-        "execution": "Il ritualista mescola le ceneri con il suo Sangue e traccia un cerchio con la miscela attorno al suo giaciglio.",
-        "system": "Il tiro del Rituale va eseguito solo all'insorgere di un vero pericolo. Se l'incantatore è minacciato durante il giorno, esegue il tiro in quel momento, svegliandosi in caso di vittoria. Per la durata della scena, il vampiro ignora le penalità per restare sveglio di giorno. Con una vittoria critica, l'effetto permane fino all'alba successiva."
-      },
-      {
         "id": "d9_006",
         "level": 2,
         "title": "Cerchio di Protezione dai Ghoul",
@@ -2011,6 +2021,88 @@
         "ingredients": "Un sacrificio umano, incenso, il cuore di qualsiasi mammifero, argento in polvere.",
         "execution": "Il negromante brucia incenso per profumare l'aria prima di compiere un atto di sacrificio umano, tagliando il cuore della vittima e sostituendolo con il cuore di un altro mammifero, anche se non è necessario cucirlo e farlo funzionare affinché la Cerimonia funzioni. Dopo aver versato una borsa di argento in polvere sugli occhi aperti del mortale morente o morto, il vampiro invita un wraith a prendere il mortale defunto come ospite. I wraith non possono essere costretti a possedere un corpo, ma pochi rifiutano l'opportunità di camminare di nuovo in scarpe semi-viventi.",
         "system": "Uccidere un mortale per questa Cerimonia può comportare Macchie, a seconda dei Precetti della Cronaca. Se il cuore sostitutivo è stato anch'esso prelevato da qualcuno che il vampiro ha ucciso, quel omicidio potrebbe anch'esso comportare Macchie. Dopo un lancio di Cerimonia riuscito, un wraith può entrare nel corpo appena deceduto e viverci come se fosse il proprio. Il wraith deve essere presente durante l'atto del sacrificio. Il cadavere posseduto si sveglierà portando le ferite che l'hanno ucciso, anche se il cuore sostitutivo è funzionale (indipendentemente dalla sua origine o posizione) e il corpo guarisce un punto di danno alla Salute dopo il possesso. Il danno alla Salute rimanente si riprende nel tempo. Il corpo possiede gli stessi Attributi Fisici, Discipline (se un ghoule) e Background che aveva in vita. Gli Attributi Sociali e Mentali, le Abilità e qualsiasi forma di rating di moralità corrispondono a quelli del wraith. Questa possessione dura indefinitamente, o fino a quando il corpo posseduto muore di nuovo o il wraith viene esorcizzato dall'ospite. Il corpo non ottiene resistenze speciali al danno al di là delle Discipline che potrebbe avere posseduto in vita."
+      }
+    ]
+  },
+  {
+    "id": "d11",
+    "title": "Alchimia dei Sangue Debole",
+    "description": "Tutte le formule richiedono la vitae dell’Alchimista e sangue umano della giusta Risonanza. Il sangue umano risonante può essere conservato in una sacca di plasma o in un contenitore qualsiasi, come un bicchiere da Starbucks. La quantità specifica varia in base al grado di Risonanza del mortale e ai desideri del Narratore.\nTutte le formule hanno un costo di distillazione (una Prova di Risveglio) e un costo di attivazione, che rispecchia quello dell’uso normale di quel potere (gratuito o con ulteriori Prove di Risveglio).\nDopo l’attivazione, l’Alchimista esegue un tiro di distillazione per definire l’efficacia della miscela. Le riserve di dadi variano in base alla versione di Alchimia utilizzata:\n2 successi: Potere debole, incerto o ad attivazione ritardata.\n4 successi: Il potere funziona come previsto.\n6 successi: Gli effetti del potere sono amplificati.\nAlcuni poteri richiedono tiri di dadi aggiuntivi per ottenere l'effetto o misurare il grado di successo.",
+    "type": "“Cucinare”, Distillazione Domestica, il Mestiere, Combinazione\nIl Sangue diluito delle ultime generazioni racchiude a stento qualche briciola di potere, ma alcuni Sangue Debole hanno imparato a usarlo come catalizzatore per risvegliare il potere latente in qualsiasi cosa, dai traumi umani alla benzina. Che sia nata nel sordido ambiente dei cuochi di amfetamine e dalla cultura dei cocktail o scoperta per istinto in qualche ammuffito testo medievale, l’Alchimia dei Sangue Debole potrebbe essere l’arte che definisce il Succhiatore del nuovo millennio. Miscelando sangue umano con una forte Risonanza e talvolta altre sostanze alla propria vitae, gli alchimisti possono contraffare un’ampia gamma di poteri delle altre discipline, acquisendo anche capacità esclusive.\nSi vocifera già di elisir in grado di conferire la capacità di camminare alla luce del sole, comunicare con gli Antidiluviani o raggiungere Golconda. Per ora, però, gli alchimisti di strada fanno di tutto per restare fuori dal mirino della corte, poiché molti anziani considerano l'Alchimia null'altro che una forma di diablerie.\nL’Alchimia può imitare alcuni poteri della Stregoneria del Sangue (quelli che influenzano la vitae dell’incantatore), ma non i Rituali. Il Narratore può vietare la simulazione di alcuni poteri per mantenere l’equilibrio del gioco o per ragioni di verosimiglianza.",
+    "masquerade": "Gli ingredienti suggeriti per le formule variano e ogni alchimista sviluppa le proprie versioni. Il sangue dell’Alchimista è l’unico ingrediente invariabile, sebbene quasi tutte le formule richiedano sangue umano di una specifica Risonanza.\nIl Narratore può concedere o togliere dadi in base alla qualità degli ingredienti. Ad esempio:\n\n+1 dado per ingredienti rari o magici come corno di unicorno o sangue di lupo mannaro.\n-1 dado per ingredienti comuni o scadenti, reperibili facilmente.\n \nTecniche di distillazione\nAthanor Corporis: L’alchimista usa il proprio corpo come fornace alchemica, distillando le miscele direttamente nelle sue vene.\nCalcinatio: L’alchimista usa il corpo di un mortale come athanor, distillando la formula nel suo sangue e bevendolo per attivare il potere.\nFixatio: L’alchimista usa un athanor convenzionale come una fornace o un laboratorio. Le formule create in questo modo sono fisse e possono essere ingerite successivamente.",
+    "resonance": "Imparare una nuova formula richiede tempo di ricerca, con l’Alchimista che consulta biblioteche, medita o sperimenta. Ogni personaggio acquisisce una formula gratuita per ogni punto in Alchimia e può acquisirne altre tramite esperienza e sperimentazione.",
+    "clanAffinity": [
+      "Sangue Debole"
+    ],
+    "disciplinePowers": [
+      {
+        "id": "d11_01",
+        "level": 1,
+        "title": "Foschia",
+        "description": "Questa formula crea una nube di foschia che avvolge il fruitore, nascondendone l’identità e rendendolo più difficile da colpire con armi a distanza.",
+        "cost": "Una Prova di Risveglio.",
+        "ingredients": "Sangue dell’Alchimista, sangue umano flemmatico, ghiaccio secco, fumo di sigaro o scarico di motori",
+        "system": "Attivando la formula, una nube simile a bruma avvolge l’Alchimista, offuscandone i contorni e i tratti. Chiunque tenti di identificarlo o colpirlo con armi a distanza subisce una penalità di 2 dadi. Il fruitore può ampliare la nuvola per avvolgere fino a 5 persone con un’altra Prova di Risveglio.",
+        "duration": "Il negromante brucia incenso per profumare l'aria prima di compiere un atto di sacrificio umano, tagliando il cuore della vittima e sostituendolo con il cuore di un altro mammifero, anche se non è necessario cucirlo e farlo funzionare affinché la Cerimonia funzioni. Dopo aver versato una borsa di argento in polvere sugli occhi aperti del mortale morente o morto, il vampiro invita un wraith a prendere il mortale defunto come ospite. I wraith non possono essere costretti a possedere un corpo, ma pochi rifiutano l'opportunità di camminare di nuovo in scarpe semi-viventi."
+      },
+      {
+        "id": "d11_02",
+        "level": 1,
+        "title": "Ierogamia Profana",
+        "description": "Secondo i testi alchemici, la Ierogamia rappresenta l’unione dei contrari: giorno e notte, maschio e femmina, vita e morte. Gli Alchimisti che padroneggiano questo aspetto possono cambiare sesso, un’abilità invidiata da molti vampiri prigionieri della loro forma immutabile.",
+        "cost": "Una Prova di Risveglio.",
+        "ingredients": "Sangue dell’Alchimista e sangue di 5 persone che si identificano nel genere desiderato.",
+        "system": "Dopo aver creato la formula, l’Alchimista esegue su di sé un’evirazione e/o mastectomia prima del sonno diurno. Al risveglio, sarà un esemplare perfettamente formato del genere desiderato. In pratica, sembra essere nato con il nuovo corpo. Alcuni racconti parlano di donne Crepuscolari trasformate che hanno dato alla luce figli. Modificando la procedura, è possibile ottenere qualsiasi combinazione di sesso o asessualità.",
+        "duration": "Permanente finché non viene eseguita nuovamente la formula."
+      },
+      {
+        "id": "d11_03",
+        "level": 1,
+        "title": "Portata Remota",
+        "description": "Questa formula consente al vampiro di afferrare, reggere e spingere oggetti o persone con la sola forza della mente, senza toccarli fisicamente. Sebbene non sempre abbastanza potente per causare danni diretti, può essere usata in modi creativi per evitare pericoli o ostacolare nemici.",
+        "cost": "Una Prova di Risveglio.",
+        "dicePool": "Fermezza + Alchimia contro Forza + Atletica.",
+        "ingredients": "Sangue dell’Alchimista, sangue umano collerico, fibre di nylon fuse o calamita da frigorifero grattugiata, o nootropi strani ordinati su internet.",
+        "system": "L’Alchimista può sollevare, spingere o tirare oggetti o persone fino a 100 kg entro 100 metri di distanza. Gli oggetti si muovono rapidamente, ma non abbastanza da causare danni per impatto. Oggetti fragili possono rompersi. I coltelli e altri piccoli utensili metallici possono essere maneggiati con un tiro di Fermezza + Alchimia, subendo però una penalità di 2 dadi. Un coltello usato così infligge solo un danno extra. Spostare qualcuno che resiste richiede un confronto di Fermezza + Alchimia contro Forza + Atletica: con una vittoria, il vampiro può trascinare la vittima verso di sé o spingerla di un metro per ogni punto nel margine di successo, infliggendo danni Superficiali e facendola cadere a terra. Tenere sospeso un oggetto o una persona richiede un tiro di Fermezza + Alchimia (Difficoltà 3) ogni turno. La manipolazione fine (es. tirare la linguetta di una granata) richiede un tiro di Prontezza + Alchimia con Difficoltà stabilita dal Narratore.",
+        "duration": "Un turno, a meno che il vampiro continui a mantenere l’oggetto sospeso (vedi il testo)."
+      },
+      {
+        "id": "d11_04",
+        "level": 2,
+        "title": "Avviluppare",
+        "description": "Questa formula crea una nebbia che avvolge una vittima, accecandola e, se si tratta di un mortale, soffocandola.",
+        "cost": "Una Prova di Risveglio.",
+        "dicePool": "Prontezza + Alchimia contro Costituzione + Sopravvivenza.",
+        "ingredients": "Sangue dell’Alchimista, sangue umano melanconico e flemmatico, clorato di potassio, smog o gas halon.",
+        "system": "Dopo l'attivazione, una nebbia vorticante circonda il bersaglio oscurandone la vista. Il bersaglio subisce una penalità di 3 dadi a tutte le riserve di percezione basate sulla vista e agli attacchi a distanza. Inoltre, l'Alchimista può soffocare un mortale con un confronto tra Prontezza + Alchimia contro Costituzione + Sopravvivenza. Con una vittoria, la vittima non può eseguire altre azioni se non tossire e soffocare. Una vittoria critica la fa perdere conoscenza. L'Alchimista può avviluppare solo bersagli singoli, e uno alla volta.",
+        "duration": "Fino al termine della scena o finché l'Alchimista non decide di interrompere l’effetto."
+      },
+      {
+        "id": "d11_05",
+        "level": 3,
+        "title": "Defrazionamento",
+        "description": "Questa formula produce un elisir omeopatico che, aggiunto al sangue frazionato di origine ospedaliera, lo rigenera rendendolo fresco e potabile per i vampiri, anche quelli che non possiedono il Pregio Stomaco di Ferro.",
+        "ingredients": "Sangue dell’Alchimista, sangue umano sanguigno e melanconico, sangue umano tipo O- (bastano pochi ml), spinaci ammuffiti, caffè nero bollente, ottanoato di sodio.",
+        "system": "L'Alchimista utilizza uno dei suoi metodi di distillazione (Fixatio, Athanor Corporis, o Calcinatio) per produrre l'elisir. Ogni successo nel tiro di distillazione consente di rigenerare una sacca di sangue (sazia 1 livello di Fame). Il sangue trasformato può saziare qualsiasi vampiro.\n Athanor Corporis: L'Alchimista può produrre l'elisir direttamente dalle sue vene una volta per notte fino a quando non si nutre di nuovo o la sua Fame non raggiunge 5. Non è necessario ripagare il costo di distillazione.\nCalcinatio: Se il mortale sopravvive al prelievo di sangue, l'Alchimista può visitarlo nuovamente dopo una settimana per ricavare altro elisir, senza pagare di nuovo il costo di distillazione. Tuttavia, il mortale subisce 3 danni Aggravati ogni volta che viene dissanguato."
+      },
+      {
+        "id": "d11_06",
+        "level": 4,
+        "title": "Slancio Librato",
+        "description": "Questa formula consente all’Alchimista di levitare e volare a velocità simile a quella di corsa, con la possibilità di spostarsi in tutte le direzioni, compresi verso l'alto e verso il basso. La capacità di trasporto è limitata.",
+        "cost": "Una Prova di Risveglio.",
+        "dicePool": "Forza + Alchimia contro Forza + Atletica (se resistita).",
+        "ingredients": "Sangue dell’Alchimista, sangue umano collerico e sanguigno, champagne, sangue di volatile, elio, scopolamina o estratto di belladonna.",
+        "system": "La pozione permette all’Alchimista di volare o fluttuare alla sua velocità di corsa. Se trasporta un peso equivalente a quello di un umano, la sua velocità si riduce a quella di marcia. Ghermire o trascinare via un soggetto non consenziente richiede un confronto tra Forza + Alchimia e Forza + Atletica del bersaglio.",
+        "duration": "Una scena."
+      },
+      {
+        "id": "d11_07",
+        "level": 5,
+        "title": "Svegliare il Dormiente",
+        "description": "Questa formula produce un elisir che, miscelato con sangue umano, può risvegliare un vampiro dal torpore.\nEsempio: Se Hari ottiene 5 successi nel tiro di distillazione, può risvegliare un vampiro di Potenza del Sangue 3 o inferiore (5 - 2 = 3).\nAthanor Corporis: L'Alchimista può produrre l'elisir dalle sue vene una volta per notte fino a quando non si nutre o la sua Fame non raggiunge 5, senza ripagare il costo di distillazione.\nCalcinatio: Se il mortale sopravvive al salasso, l'Alchimista può tornare dopo una settimana per ottenere altro elisir, senza ripagare il costo di distillazione. Tuttavia, il mortale subisce 5 danni Aggravati ogni volta. L'Alchimista può anche far bere direttamente al vampiro addormentato il sangue del mortale.",
+        "ingredients": "Sangue dell’Alchimista, sangue umano collerico o sanguigno, adrenalina, carbonato di ammonio, corno di cervo, caffeina o benzedrina, melatonina.",
+        "system": "L'Alchimista utilizza uno dei suoi metodi di distillazione (Fixatio, Athanor Corporis, o Calcinatio) per produrre l'elisir, che viene poi diluito nel sangue umano. Ogni successo oltre il 2 nel tiro di distillazione consente di svegliare un vampiro dal torpore, purché la sua Potenza del Sangue sia inferiore o uguale al margine di successo."
       }
     ]
   }

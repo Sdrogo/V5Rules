@@ -429,42 +429,42 @@
     ],
     "paragraphs": [
       {
-        "title": "Sangue",
-        "content": "I Sangue debole non possono creare Legami di Sangue né eseguire l'Abbraccio con risultati garantiti. Una quantità di vitae pari a una Prova di Risveglio conferisce a un mortale poteri simili a quelli di un ghoul, ma solo per una notte. I Sangue Debole hanno sempre una Potenza del Sangue pari a 0 (p. 215)."
+        "title": "Caratteristiche dei Sangue debole",
+        "content": "Un Sangue Debole nasce quando un vampiro della 13ª Generazione o superiore Abbraccia un mortale. Sebbene formalmente appartenenti alla 14ª, 15ª o persino 16ª Generazione, queste etichette sono irrilevanti per i crepuscolari, poiché mostrano una varietà di tratti senza un chiaro legame con la loro generazione Cainita. Un Sangue Debole di 14ª generazione potrebbe essere troppo debole persino per creare un Legame di Sangue con un mortale, mentre uno di 15ª potrebbe ancora avere la capacità di concedere l’Abbraccio, o viceversa. Tra i crepuscolari, i confini sono sfumati.\n\nNonostante queste variazioni, un personaggio Sangue Debole è comunque un vampiro e, salvo diversamente indicato, segue le stesse regole degli altri Cainiti descritte in questo manuale.",
+        "subParagraphs": [
+          {
+            "title": "Sangue:",
+            "content": "I Sangue debole non possono creare Legami di Sangue né eseguire l'Abbraccio con risultati garantiti. Una quantità di vitae pari a una Prova di Risveglio conferisce a un mortale poteri simili a quelli di un ghoul, ma solo per una notte. I Sangue Debole hanno sempre una Potenza del Sangue pari a 0 (p. 215)."
+          },
+          {
+            "title": "Clan:",
+            "content": "Un Sangue debole è sempre considerato senza clan e non subisce mai alcuna specifica debolezza o compulsione di clan."
+          },
+          {
+            "title": "Danni:",
+            "content": "In generale, i Sangue debole subiscono danni come i mortali, ma guariscono come i vampiri. In termini di gioco, subiscono danni Aggravati non solo dal fuoco, ma anche da armi taglienti e perforanti. Un paletto nel cuore non li paralizza come i Fratelli, ma causa un massiccio trauma fisico che probabilmente li mette in torpore. Una volta feriti, i Sangue debole guariscono seguendo le stesse regole degli altri vampiri."
+          },
+          {
+            "title": "Fame e frenesia:",
+            "content": "Un Sangue debole soffre la Fame esattamente come qualunque altro vampiro. Tuttavia, nel suo caso, la Bestia è molto meno preponderante e un Sangue debole non entra mai in frenesia a meno che non sia provocato con mezzi soprannaturali."
+          },
+          {
+            "title": "Sembianza vitale:",
+            "content": "I Sangue debole sono sempre considerati sotto l'effetto di Rossore della Vita (p. 217), ma i risultati dipendono comunque dal suo punteggio di Umanità"
+          },
+          {
+            "title": "Luce solare:",
+            "content": "I Sangue debole subiscono solo 1 danno Superficiale per turno dalla luce solare diretta. La luce del sole indiretta provoca danni con frequenza molto più ridotta. Per esempio, sotto una densa coltre nuvolosa o se mascherato e protetto da indumenti o uno spesso strato di crema solare, un Sangue debole può cavarsela subendo danni solo ogni tre turni o una volta al minuto."
+          }
+        ]
       },
       {
-        "title": "clan",
-        "content": "Un Sangue debole è sempre considerato senza clan e non subisce mai alcuna specifica debolezza o compulsione di clan."
-      },
-      {
-        "title": "Danni",
-        "content": "In generale, i Sangue debole subiscono danni come i mortali, ma guariscono come i vampiri. In termini di gioco, subiscono danni Aggravati non solo dal fuoco, ma anche da armi taglienti e perforanti. Un paletto nel cuore non li paralizza come i Fratelli, ma causa un massiccio trauma fisico che probabilmente li mette in torpore. Una volta feriti, i Sangue debole guariscono seguendo le stesse regole degli altri vampiri."
-      },
-      {
-        "title": "Fame e frenesia",
-        "content": "Un Sangue debole soffre la Fame esattamente come qualunque altro vampiro. Tuttavia, nel suo caso, la Bestia è molto meno preponderante e un Sangue debole non entra mai in frenesia a meno che non sia provocato con mezzi soprannaturali."
-      },
-      {
-        "title": "Sembianza vitale",
-        "content": "I Sangue debole sono sempre considerati sotto l'effetto di Rossore della Vita (p. 217), ma i risultati dipendono comunque dal suo punteggio di Umanità"
-      },
-      {
-        "title": "Luce solare",
-        "content": "I Sangue debole subiscono solo 1 danno Superficiale per turno dalla luce solare diretta. La luce del sole indiretta provoca danni con frequenza molto più ridotta. Per esempio, sotto una densa coltre nuvolosa o se mascherato e protetto da indumenti o uno spesso strato di crema solare, un Sangue debole può cavarsela subendo danni solo ogni tre turni o una volta al minuto."
-      },
-      {
-        "title": "Pregi dei Sangue debole",
+        "title": "Pregi dei Sangue debole:",
         "content": "I Sangue debole manifestano sovente variazioni aggiuntive. Per i dettagli si rimanda alla sezione Pregi e Difetti dei Sangue debole (p. 183)."
       },
       {
-        "title": "Vie di uscita",
+        "title": "Vie di uscita:",
         "content": "Trovandosi al confine tra mortalità e vampirismo, i Sangue debole possono permettersi di scegliere. Sebbene non invecchino e possano perciò esistere indefinitamente nella loro condizione, gran parte di essi prima o poi opera una scelta tra il giorno e la notte. Un Sangue debole che riesca a compiere diablerie ai danni di un \"vero\" vampiro ne assorbe non solo il potere e lo spirito, ma anche il lignaggio, trasformandosi in un Fratello di 13ª generazione del clan della vittima. Ogni tanto la Camarilla fa dondolare questa ricompensa come una carota sotto il naso dei crepuscolari che dimostrano di essere capaci di svolgere lavori difficili e di sopravvivere, offrendo loro in sacrificio un Cainita condannato alla Caccia di Sangue. D'altro canto, ogni Sangue debole conosce qualcuno... che conosce qualcun altro che è riuscito a \"tornare alla luce del giorno\" diventando nuovamente mortale. Di solito, queste storie includono atti di tenacia, perseveranza morale e la distruzione del proprio sire per porre fine alla maledizione. Ovviamente, qualsiasi mortale che sappia dei Fratelli è una minaccia per la Masquerade..."
-      }
-    ],
-    "compulsion": [
-      {
-        "name": "",
-        "description": ""
       }
     ]
   }

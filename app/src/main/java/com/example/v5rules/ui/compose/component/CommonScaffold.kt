@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -18,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
 
@@ -44,14 +43,13 @@ fun CommonScaffold(
                         if (title != stringResource(id = R.string.app_name)) {
                             IconButton(onClick = { navController.navigateUp() }) {
                                 Icon(
-                                    imageVector = Icons.Filled.ArrowBack,
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                     contentDescription = "Go Back",
                                     tint = MaterialTheme.colorScheme.primary
                                 )
                             }
                         }
                     },
-                    modifier = Modifier.padding(bottom = 16.dp),
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors( // Use centerAlignedTopAppBarColors
                         containerColor = MaterialTheme.colorScheme.tertiary, // Set the container color to red
                         titleContentColor = MaterialTheme.colorScheme.primary

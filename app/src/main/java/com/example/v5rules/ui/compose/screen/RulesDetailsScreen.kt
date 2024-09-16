@@ -41,7 +41,7 @@ fun RulesDetailsScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(horizontal = 8.dp)
                 .background(color = MaterialTheme.colorScheme.secondary)
         ) {
             rule?.let { rule ->

@@ -57,6 +57,7 @@ fun ClanDetail(
             .background(color = MaterialTheme.colorScheme.secondary)
     ) {
         item {
+            Spacer(modifier = Modifier.padding(8.dp))
             Row {
                 Spacer(modifier = Modifier.weight(1f))
                 ClanImage(

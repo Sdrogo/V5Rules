@@ -38,7 +38,7 @@ fun DisciplinePowerScreen(
     CommonScaffold(navController = navController, title = disciplinePower?.title ?: "") {
         Column( modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary)){
             if (disciplinePower != null) {
-                LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
+                LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)) { // Wrap content in LazyColumn
                     item { // Use 'item' to add individual composables to the LazyColumn
                         DisciplinePowerInfo(disciplinePower = disciplinePower, discipline = discipline)
                     }
@@ -51,21 +51,7 @@ fun DisciplinePowerScreen(
 @Composable
 fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline) {
     Column(modifier = Modifier.background(MaterialTheme.colorScheme.secondary)) {
-        /*Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(bottom = 16.dp)
-        ) {
-
-            RemoteIcon(
-                imageUrl = discipline.imageUrl,
-                contentDescription = discipline.title,
-                size = 128.dp
-            )
-            Spacer(modifier = Modifier.width(16.dp))
-            Text(text = subDiscipline.title, style = MaterialTheme.typography.headlineMedium)
-
-        }
-        Spacer(modifier = Modifier.height(16.dp))*/
+        Spacer(modifier = Modifier.padding(8.dp))
         TextBlock(
             title = stringResource(id = R.string.discipline_amalgama),
             component = disciplinePower.amalgama.orEmpty(),
@@ -93,8 +79,13 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
             ) {
                 TextBlock(
                     title = stringResource(id = R.string.discipline_cost),
-                    component = disciplinePower.cost,
-                    isHidden = disciplinePower.cost.isEmpty()
+                    component = disciplinePower.cost.orEmpty(),
+                    isHidden = disciplinePower.cost.isNullOrEmpty()
+                )
+                TextBlock(
+                        title = stringResource(id = R.string.discipline_ingredients),
+                component = disciplinePower.ingredients.orEmpty(),
+                isHidden = disciplinePower.ingredients.isNullOrEmpty()
                 )
                 TextBlock(
                     title = stringResource(id = R.string.discipline_dice_pool),
@@ -108,8 +99,8 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
                 )
                 TextBlock(
                     title = stringResource(id = R.string.discipline_duration),
-                    component = disciplinePower.duration,
-                    isHidden = disciplinePower.duration.isEmpty()
+                    component = disciplinePower.duration.orEmpty(),
+                    isHidden = disciplinePower.duration.isNullOrEmpty()
                 )
             }
         }

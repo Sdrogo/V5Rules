@@ -11,8 +11,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Ritual
@@ -36,8 +40,13 @@ fun DisciplineDetailScreen(
                 .fillMaxSize()
         ) {
             if (discipline != null) {
-                LazyColumn(modifier = Modifier.padding(16.dp).fillMaxWidth()) {
+                LazyColumn(
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp)
+                        .fillMaxWidth()
+                ) {
                     item {
+                        Spacer(modifier = Modifier.padding(8.dp))
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             modifier = Modifier.padding(bottom = 16.dp)
@@ -59,31 +68,54 @@ fun DisciplineDetailScreen(
                             initialState = false
                         ) {
                             Column {
-                                TextBlock(
-                                    title = stringResource(id = R.string.discipline_description),
-                                    component = discipline.description,
-                                    isHidden = discipline.description.isEmpty()
-                                )
-                                TextBlock(
-                                    title = stringResource(id = R.string.discipline_type),
-                                    component = discipline.type,
-                                    isHidden = discipline.type.isEmpty()
-                                )
-                                var clanAffinity = ""
-                                discipline.clanAffinity.forEach {
-                                    clanAffinity = clanAffinity.plus(it).plus(", ")
+                                if (disciplineId == "d11") {
+                                    TextBlock(
+                                        title = stringResource(id = R.string.discipline_alchemy_pseudo),
+                                        component = discipline.type,
+                                        isHidden = discipline.type.isEmpty()
+                                    )
+                                    TextBlock(
+                                        title = stringResource(id = R.string.discipline_description),
+                                        component = discipline.description,
+                                        isHidden = discipline.description.isEmpty()
+                                    )
+                                    TextBlock(
+                                        title = stringResource(id = R.string.discipline_ingredients),
+                                        component = discipline.masquerade,
+                                        isHidden = discipline.masquerade.isEmpty()
+                                    )
+                                    TextBlock(
+                                        title = stringResource(id = R.string.discipline_alchemy_learning),
+                                        component = discipline.resonance,
+                                        isHidden = discipline.resonance.isEmpty()
+                                    )
+                                } else {
+                                    TextBlock(
+                                        title = stringResource(id = R.string.discipline_description),
+                                        component = discipline.description,
+                                        isHidden = discipline.description.isEmpty()
+                                    )
+                                    TextBlock(
+                                        title = stringResource(id = R.string.discipline_type),
+                                        component = discipline.type,
+                                        isHidden = discipline.type.isEmpty()
+                                    )
+                                    var clanAffinity = ""
+                                    discipline.clanAffinity.forEach {
+                                        clanAffinity = clanAffinity.plus(it).plus(", ")
+                                    }
+                                    clanAffinity.dropLast(2)
+                                    TextBlock(
+                                        title = stringResource(id = R.string.discipline_clan_affinity),
+                                        component = clanAffinity,
+                                        isHidden = clanAffinity.isEmpty()
+                                    )
+                                    TextBlock(
+                                        title = stringResource(id = R.string.discipline_resonance),
+                                        component = discipline.resonance,
+                                        isHidden = discipline.resonance.isEmpty()
+                                    )
                                 }
-                                clanAffinity.dropLast(2)
-                                TextBlock(
-                                    title = stringResource(id = R.string.discipline_clan_affinity),
-                                    component = clanAffinity,
-                                    isHidden = clanAffinity.isEmpty()
-                                )
-                                TextBlock(
-                                    title = stringResource(id = R.string.discipline_resonance),
-                                    component = discipline.resonance,
-                                    isHidden = discipline.resonance.isEmpty()
-                                )
                             }
                         }
                         if (!discipline.rituals.isNullOrEmpty()) {
@@ -132,7 +164,9 @@ fun DisciplineDetailScreen(
                             }
                         }
                     }
-                    items(discipline.disciplinePowers.groupBy { it.level }.entries.toList()) { (level, subDisciplines) ->
+                    items(
+                        discipline.disciplinePowers.groupBy { it.level }.entries.toList()
+                            .distinctBy { it.value.first().id }) { (level, subDisciplines) ->
                         var expanded by remember { mutableStateOf(false) }
 
                         Column(
@@ -158,14 +192,42 @@ fun DisciplineDetailScreen(
                                         .width(16.dp)
                                         .weight(0.5f)
                                 )
-                                for (i in 1..level) Text("●",
-                                    color = MaterialTheme.colorScheme.tertiary,)
-                                for (i in level..5) Text("○",
-                                    color = MaterialTheme.colorScheme.tertiary,)
+                                for (i in 1..level) Text(
+                                    "●",
+                                    color = MaterialTheme.colorScheme.tertiary,
+                                )
+                                for (i in level..5) Text(
+                                    "○",
+                                    color = MaterialTheme.colorScheme.tertiary,
+                                )
                             }
 
                             AnimatedVisibility(visible = expanded) {
                                 Column(modifier = Modifier.padding(8.dp)) {
+                                    if (disciplineId == "d11") {
+                                        var text: String? = null
+                                        when (level) {
+                                            1 -> text = null
+                                            2 -> text = stringResource(R.string.alchemy_lvl2)
+                                            3 -> text = stringResource(R.string.alchemy_lvl3)
+                                            4 -> text = stringResource(R.string.alchemy_lvl4)
+                                            5 -> text = stringResource(R.string.alchemy_lvl5)
+                                        }
+                                        if (text != null) {
+                                            Spacer(modifier = Modifier.height(8.dp))
+                                            Text(
+                                                text = AnnotatedString(
+                                                    stringResource(R.string.alchemy_lvl2),
+                                                    paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                                ),
+                                                style = MaterialTheme.typography.bodyMedium,
+                                                fontSize = 16.sp,
+                                                color = MaterialTheme.colorScheme.primary,
+                                                modifier = Modifier.padding(horizontal = 16.dp)
+                                            )
+                                            Spacer(modifier = Modifier.height(8.dp))
+                                        }
+                                    }
                                     subDisciplines.forEach { disciplinePower ->
                                         SubDisciplineItem(
                                             disciplinePower,
@@ -224,10 +286,14 @@ fun DisciplineDetailScreen(
                                             .width(16.dp)
                                             .weight(0.5f)
                                     )
-                                    for (i in 1..level) Text("●",
-                                        color = MaterialTheme.colorScheme.tertiary)
-                                    for (i in level..5) Text("○",
-                                        color = MaterialTheme.colorScheme.tertiary)
+                                    for (i in 1..level) Text(
+                                        "●",
+                                        color = MaterialTheme.colorScheme.tertiary
+                                    )
+                                    for (i in level..5) Text(
+                                        "○",
+                                        color = MaterialTheme.colorScheme.tertiary
+                                    )
                                 }
                                 AnimatedVisibility(visible = expanded) {
                                     Column(modifier = Modifier.padding(8.dp)) {
@@ -257,7 +323,7 @@ fun SubDisciplineItem(
     exclusiveClan: String? = null,
     amalgama: String? = null
 
-    ) {
+) {
     Column(modifier = Modifier
         .background(color = MaterialTheme.colorScheme.secondary)
         .padding(8.dp)

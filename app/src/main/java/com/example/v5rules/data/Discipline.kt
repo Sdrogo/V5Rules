@@ -19,10 +19,11 @@ data class DisciplinePower(
     val amalgama: String? = null,
     val exclusiveClan: String? = null,
     val prerequisite: String? = null,
-    val cost: String,
+    val cost: String? = null,
     val dicePool: String? = null,
-    val duration: String,
+    val duration: String? = null,
     val description: String,
+    val ingredients: String? = null,
     val system: String,
     val table: Table? = null,
 )
