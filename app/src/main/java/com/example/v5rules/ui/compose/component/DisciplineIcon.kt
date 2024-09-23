@@ -14,7 +14,8 @@ import com.example.v5rules.utils.DisciplineReader
 
 @Composable
 fun DisciplineIcon(disciplineId: String, contentDescription: String?, size: Dp) {
-    val imageResource = DisciplineReader.DisciplineImage.entries.find { it.disciplineId == disciplineId }?.imageResource
+    val imageResource =
+        DisciplineReader.DisciplineImage.entries.find { it.disciplineId == disciplineId }?.imageResource
     imageResource?.let {
         Image(
             painter = painterResource(id = it),
@@ -26,9 +27,11 @@ fun DisciplineIcon(disciplineId: String, contentDescription: String?, size: Dp) 
 
 @Composable
 fun ClanImage(clanName: String, tintColor: Color, width: Dp, isText: Boolean = false) {
-    val nameImageResource = ClanReader.ClanImage.entries.find { it.clanName == clanName }?.nameImageResource
-    val logoImageResource = ClanReader.ClanImage.entries.find { it.clanName == clanName }?.logoImageResource
-    if(isText){
+    val nameImageResource =
+        ClanReader.ClanImage.entries.find { it.clanName == clanName }?.nameImageResource
+    val logoImageResource =
+        ClanReader.ClanImage.entries.find { it.clanName == clanName }?.logoImageResource
+    if (isText) {
         nameImageResource?.let {
             Image(
                 painter = painterResource(id = it),
@@ -37,7 +40,7 @@ fun ClanImage(clanName: String, tintColor: Color, width: Dp, isText: Boolean = f
                 modifier = Modifier.width(width)
             )
         }
-    }else{
+    } else {
         logoImageResource?.let {
             Image(
                 painter = painterResource(id = it),
@@ -47,4 +50,14 @@ fun ClanImage(clanName: String, tintColor: Color, width: Dp, isText: Boolean = f
             )
         }
     }
+}
+
+@Composable
+fun TintedImage(drawableId: Int, tintColor: Color, width: Dp) {
+    Image(
+        painter = painterResource(id = drawableId),
+        contentDescription = "contentDescription",
+        colorFilter = ColorFilter.tint(tintColor),
+        modifier = Modifier.width(width)
+    )
 }

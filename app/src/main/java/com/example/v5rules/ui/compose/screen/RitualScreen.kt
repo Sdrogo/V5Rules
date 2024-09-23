@@ -16,7 +16,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
-import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.Ritual
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.TableContent
@@ -38,7 +37,7 @@ fun RitualScreen(
             if (ritual != null) {
                 LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
                     item { // Use 'item' to add individual composables to the LazyColumn
-                        RitualInfo(ritual = ritual)
+                        DisciplineInfo(ritual = ritual)
                     }
                 }
             }
@@ -48,7 +47,7 @@ fun RitualScreen(
 
 
 @Composable
-fun RitualInfo(ritual: Ritual) {
+fun DisciplineInfo(ritual: Ritual) {
     Column {
         TextBlock(
             title = stringResource(id = R.string.discipline_rituals_description),

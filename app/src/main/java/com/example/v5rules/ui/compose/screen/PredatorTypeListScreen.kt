@@ -1,19 +1,24 @@
 package com.example.v5rules.ui.compose.screen
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -23,6 +28,7 @@ import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.PredatorTypeUiState
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavHostController){
 
@@ -41,17 +47,49 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
                 is PredatorTypeUiState.Success -> {
                     val predators = (uiState as PredatorTypeUiState.Success).clans
                     LazyColumn (modifier = Modifier.fillMaxWidth()) {
-                        items(predators) { predator ->
-                            Text(
-                                text = predator.name,
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clickable { navController.navigate("predator_type_screen/${predator.name}") }
-                                    .padding(8.dp)
-                            )
+                        item {
+                            val orientation = LocalConfiguration.current.orientation
+                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                                FlowRow(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(8.dp),
+                                    horizontalArrangement = Arrangement.Center,
+                                ) {
+                                    predators.forEach {
+                                        Text(
+                                            text = it.name,
+                                            style = MaterialTheme.typography.headlineSmall,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.primary,
+                                            modifier = Modifier
+                                                .wrapContentWidth()
+                                                .clickable { navController.navigate("predator_type_screen/${it.name}") }
+                                                .padding(8.dp)
+                                        )
+                                    }
+                                }
+                            } else {
+                                FlowRow(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .padding(8.dp),
+                                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                                ) {
+                                    predators.forEach {
+                                        Text(
+                                            text = it.name,
+                                            style = MaterialTheme.typography.headlineSmall,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.primary,
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .clickable { navController.navigate("predator_type_screen/${it.name}") }
+                                                .padding(8.dp)
+                                        )
+                                    }
+                                }
+                            }
                         }
                     }
                 }
