@@ -1,6 +1,8 @@
 package com.example.v5rules.ui.compose.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -49,7 +51,7 @@ fun RulesDetailsScreen(
                     item {
                         Text(
                             modifier = Modifier.padding(16.dp),
-                            text= AnnotatedString(
+                            text = AnnotatedString(
                                 rule.content,
                                 paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
                             ),
@@ -58,82 +60,122 @@ fun RulesDetailsScreen(
                         )
                     }
                     items(sections.orEmpty()) { section ->
-                        ContentExpander(
-                            title = section.title,
-                            style = MaterialTheme.typography.headlineSmall,
-                            fontWeight = FontWeight.Bold
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp)
                         ) {
-                            Column(modifier = Modifier.padding(8.dp)) {
+                            if (section.subParagraphs != null) {
                                 Text(
-                                    text = AnnotatedString(
-                                        section.content,
-                                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                    ),
-                                    color = MaterialTheme.colorScheme.primary,
-                                    style = MaterialTheme.typography.bodyMedium
+                                    text = section.title,
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    modifier = Modifier.clickable { navController.navigate("rules_screen/${rule.title}/${section.title}") },
+                                    color = MaterialTheme.colorScheme.primary
                                 )
-                                Spacer(modifier = Modifier.height(8.dp))
-                                Column(modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(IntrinsicSize.Min)
+                            } else {
+                                ContentExpander(
+                                    title = section.title,
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold,
                                 ) {
-                                    Row {
-                                        Spacer(modifier = Modifier
-                                            .width(2.dp)
-                                            .fillMaxHeight()
-                                            .background(colorResource(id = R.color.accentColor))
+                                    Text(
+                                        modifier = Modifier.padding(start = 8.dp),
+                                        text = AnnotatedString(
+                                            section.content,
+                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                        ),
+                                        color = MaterialTheme.colorScheme.primary,
+                                        style = MaterialTheme.typography.bodyMedium
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SubRuleDetail(
+    rulesViewModel: RulesViewModel,
+    chapterTitle: String,
+    sectionTitle: String,
+    navController: NavHostController
+) {
+
+    val ruleToDetail = rulesViewModel.allRules.find { it.title == chapterTitle }
+    val sectionToDetail = ruleToDetail?.sections?.find { it.title == sectionTitle }
+    CommonScaffold(navController = navController, title = sectionTitle) {
+        sectionToDetail?.let { section ->
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp)
+                    .background(color = MaterialTheme.colorScheme.secondary)
+            ) {
+                item {
+                    Column(modifier = Modifier.padding(8.dp)) {
+                        Text(
+                            text = AnnotatedString(
+                                section.content,
+                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                            ),
+                            color = MaterialTheme.colorScheme.primary,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                    }
+                }
+                items(section.subParagraphs.orEmpty()) { subParagraph ->
+                    ContentExpander(
+                        title = subParagraph.title,
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold
+                    ) {
+                        Text(
+                            modifier = Modifier.padding(start = 8.dp),
+                            text = AnnotatedString(
+                                subParagraph.content,
+                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                            ),
+                            color = MaterialTheme.colorScheme.primary,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                    // Nested Row for subParagraphs (if needed)
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(IntrinsicSize.Min)
+                    ) {
+                        Row {
+                            Spacer(
+                                modifier = Modifier
+                                    .width(2.dp)
+                                    .fillMaxHeight()
+                                    .background(colorResource(id = R.color.accentColor))
+                            )
+                            Column {
+                                subParagraph.subParagraphs?.forEach { subSubParagraph ->
+                                    ContentExpander(
+                                        title = subSubParagraph.title,
+                                        style = MaterialTheme.typography.headlineSmall,
+                                        fontWeight = FontWeight.Bold
+                                    ) {
+                                        Text(
+                                            modifier = Modifier.padding(start = 8.dp),
+                                            text = AnnotatedString(
+                                                subSubParagraph.content,
+                                                paragraphStyle = ParagraphStyle(
+                                                    textAlign = TextAlign.Justify
+                                                )
+                                            ),
+                                            color = MaterialTheme.colorScheme.primary,
+                                            style = MaterialTheme.typography.bodyMedium
                                         )
-                                        Column {
-                                            section.subParagraphs?.forEach { subSection ->
-                                                ContentExpander(
-                                                    title = subSection.title,
-                                                    style = MaterialTheme.typography.headlineSmall,
-                                                    fontWeight = FontWeight.Bold
-                                                ) {
-                                                    Text(
-                                                        modifier = Modifier.padding(start = 8.dp),
-                                                        text = AnnotatedString(
-                                                            subSection.content,
-                                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                                        ),
-                                                        color = MaterialTheme.colorScheme.primary,
-                                                        style = MaterialTheme.typography.bodyMedium
-                                                    )
-                                                }
-                                                // Nested Row for subParagraphs (if needed)
-                                                Column(modifier = Modifier
-                                                    .fillMaxWidth()
-                                                    .height(IntrinsicSize.Min)
-                                                ) {
-                                                    Row {
-                                                        Spacer(modifier = Modifier
-                                                            .width(2.dp)
-                                                            .fillMaxHeight()
-                                                            .background(colorResource(id = R.color.accentColor))
-                                                        )
-                                                        Column {
-                                                            subSection.subParagraphs?.forEach { subParagraph ->
-                                                                ContentExpander(
-                                                                    title = subParagraph.title,
-                                                                    style = MaterialTheme.typography.headlineSmall,
-                                                                    fontWeight = FontWeight.Bold
-                                                                ) {
-                                                                    Text(
-                                                                        modifier = Modifier.padding(start = 8.dp),
-                                                                        text = AnnotatedString(
-                                                                            subParagraph.content,
-                                                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                                                        ),
-                                                                        color = MaterialTheme.colorScheme.primary,
-                                                                        style = MaterialTheme.typography.bodyMedium
-                                                                    )
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
                                     }
                                 }
                             }

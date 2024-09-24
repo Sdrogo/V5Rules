@@ -67,10 +67,10 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.secondary)
                 .border(
-                1.dp,
-                MaterialTheme.colorScheme.tertiary,
-                RoundedCornerShape(8.dp)
-            )
+                    1.dp,
+                    MaterialTheme.colorScheme.tertiary,
+                    RoundedCornerShape(8.dp)
+                )
         ) {
             Column(
                 modifier = Modifier
@@ -120,6 +120,7 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
             )
             Spacer(modifier = Modifier.weight(1f))
         }
+        Spacer(modifier = Modifier.height(8.dp))
 
     }
 }
