@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">V5Rules</string>
-
+    <string name="app_name">Vampire 5e Ultimate</string>
+    <string name="npc_generator_title">NPC Generator</string>
     <string name="discipline_screen_title">Discipline</string>
     <string name="discipline_type">Tipo:</string>
     <string name="discipline_clan_affinity">Affinità di Clan:</string>
@@ -36,8 +36,17 @@
     <string name="alchemy_lvl3">Al terzo livello, l\'Alchimista può sviluppare formule capaci di imitare i poteri di livello 2 delle altre Discipline. Ogni formula richiede una notte per la distillazione e almeno un mese di ricerca.</string>
     <string name="alchemy_lvl4">Al quarto livello, l\'Alchimista può creare formule in grado di imitare i poteri di livello 3 delle altre Discipline. A questo livello, ogni formula richiede anche una goccia di vitae di un vampiro appartenente al clan che possiede la Disciplina da falsificare. Ad esempio, per imitare Forma Bestiale, è necessaria la vitae di un vampiro con Proteide o di un Gangrel. Il vampiro donatore non deve necessariamente avere il potere specifico né un livello elevato di Disciplina; il potere risiede nel Sangue, non nello specifico vampiro.Queste formule richiedono tre notti per la distillazione e almeno tre mesi di ricerca.</string>
     <string name="alchemy_lvl5">Al quinto livello, l\'Alchimista può sviluppare formule che imitano i poteri di livello 4 delle altre Discipline. Queste formule richiedono un mese per la distillazione e almeno tre anni di ricerca.</string>
-
-
+    <string name="nationality_selector_label">Seleziona la nazionalità:</string>
+    <string name="gender_label">Sesso:</string>
+    <string name="male">Maschio</string>
+    <string name="female">Femmina</string>
+    <string name="include_second_name">Secondo Nome?</string>
+    <string name="generate_button_label">Genera</string>
+    <string name="generate_name_button_label">Genera Nome</string>
+    <string name="generate_second_name_button_label">Genera Secondo Nome</string>
+    <string name="generate_family_name_button_label">Genera Cognome</string>
+    <string name="generate_all_button_label">Genera tutto</string>
+    <string name="regenerate_button_label">Regenerate</string>
     <string name="clan_screen_title">Clan</string>
     <string name="clan_description">Chi sono i %1$s?</string>
     <string name="clan_disciplines">Discipline:</string>

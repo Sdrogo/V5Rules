@@ -1,6 +1,7 @@
 package com.example.v5rules
 
 import android.content.Context
+import android.content.res.Resources
 import com.example.v5rules.data.MainRepository
 import dagger.Module
 import dagger.Provides
@@ -17,5 +18,10 @@ object AppModule {
     @Singleton
     fun provideMainRepository(@ApplicationContext context: Context): MainRepository {
         return MainRepository(context)
+    }
+    @Provides
+    @Singleton
+    fun provideResources(@ApplicationContext context: Context): Resources {
+        return context.resources
     }
 }

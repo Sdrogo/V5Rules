@@ -103,6 +103,16 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
             ) {
                 Text(text = stringResource(id = R.string.discipline_screen_title))
             }
+            Button(
+                onClick = { navController.navigate("npc_generator") },
+                modifier = Modifier.width(200.dp).padding(8.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                )
+            ) {
+                Text(text = stringResource(id = R.string.npc_generator_title))
+            }
         }
     } else {
         Column(
@@ -149,6 +159,16 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 )
             ) {
                 Text(text = stringResource(id = R.string.discipline_screen_title))
+            }
+            Button(
+                onClick = { navController.navigate("npc_generator") },
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                )
+            ) {
+                Text(text = stringResource(id = R.string.npc_generator_title))
             }
         }
     }

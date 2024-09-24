@@ -21,6 +21,7 @@ import com.example.v5rules.ui.compose.screen.DisciplineScreen
 import com.example.v5rules.ui.compose.screen.HomeScreen
 import com.example.v5rules.ui.compose.screen.RitualScreen
 import com.example.v5rules.ui.compose.screen.DisciplinePowerScreen
+import com.example.v5rules.ui.compose.screen.InputScreen
 import com.example.v5rules.ui.compose.screen.PredatorTypeDetailsScreen
 import com.example.v5rules.ui.compose.screen.PredatorTypeListScreen
 import com.example.v5rules.ui.compose.screen.RuleListScreen
@@ -28,6 +29,7 @@ import com.example.v5rules.ui.compose.screen.RulesDetailsScreen
 import com.example.v5rules.ui.compose.screen.SubRuleDetail
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.ui.viewModel.ClanViewModel
+import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
 import com.example.v5rules.ui.viewModel.RulesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,6 +54,7 @@ fun V5RulesApp(
     val clanViewModel: ClanViewModel = hiltViewModel<ClanViewModel>()
     val predatorTypeViewModel: PredatorTypeViewModel = hiltViewModel<PredatorTypeViewModel>()
     val rulesViewModel: RulesViewModel = hiltViewModel<RulesViewModel>()
+    val npcGeneratorViewModel: NPCGeneratorViewModel = hiltViewModel<NPCGeneratorViewModel>()
 
     val navController = rememberNavController()
     V5RulesTheme{
@@ -124,6 +127,9 @@ fun V5RulesApp(
                 }
                 composable("lore_screen/{title}") {
                     //TODO implement lore Screen
+                }
+                composable("npc_generator") {
+                    InputScreen(modifier = Modifier, viewModel = npcGeneratorViewModel, navController = navController)
                 }
                 composable("rules_screen") {
                     RuleListScreen(viewModel = rulesViewModel, navController = navController)
