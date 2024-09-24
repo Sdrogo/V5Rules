@@ -51,7 +51,8 @@ fun DisciplineScreen(
                                     modifier = Modifier
                                         .fillMaxSize()
                                         .padding(16.dp),
-                                    horizontalArrangement = Arrangement.Center,
+                                    horizontalArrangement = Arrangement.SpaceAround,
+                                    maxItemsInEachRow = 3
                                 ) {
                                     disciplines.forEach {
                                         DisciplineItem(

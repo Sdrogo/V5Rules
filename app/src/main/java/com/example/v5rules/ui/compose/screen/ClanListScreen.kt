@@ -58,7 +58,7 @@ fun ClanListScreen(
                                     modifier = Modifier
                                         .fillMaxSize()
                                         .padding(8.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                                    horizontalArrangement = Arrangement.SpaceEvenly,
                                 ) {
                                     clans.forEach {
                                         ClanItem(
