@@ -25,6 +25,7 @@ import com.example.v5rules.ui.compose.screen.PredatorTypeDetailsScreen
 import com.example.v5rules.ui.compose.screen.PredatorTypeListScreen
 import com.example.v5rules.ui.compose.screen.RuleListScreen
 import com.example.v5rules.ui.compose.screen.RulesDetailsScreen
+import com.example.v5rules.ui.compose.screen.SubRuleDetail
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.ui.viewModel.ClanViewModel
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
@@ -133,6 +134,16 @@ fun V5RulesApp(
                         rulesViewModel = rulesViewModel,
                         navController = navController,
                         title = chapter ?: ""
+                    )
+                }
+                composable("rules_screen/{title}/{section}") { backStackEntry ->
+                    val chapter = backStackEntry.arguments?.getString("title")
+                    val section = backStackEntry.arguments?.getString("section")
+                    SubRuleDetail(
+                        rulesViewModel = rulesViewModel,
+                        chapterTitle = chapter ?: "",
+                        sectionTitle = section ?: "",
+                        navController = navController
                     )
                 }
             }
