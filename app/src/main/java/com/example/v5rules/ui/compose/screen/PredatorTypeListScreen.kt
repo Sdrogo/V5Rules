@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -30,11 +29,14 @@ import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavHostController){
+fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavHostController) {
 
     val uiState by viewModel.predatorTypeUiState.collectAsState()
 
-    CommonScaffold(navController = navController, title = stringResource(id = R.string.predator_type_screen_title))
+    CommonScaffold(
+        navController = navController,
+        title = stringResource(id = R.string.predator_type_screen_title)
+    )
     {
         Column(
             modifier = Modifier
@@ -46,54 +48,38 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
                 is PredatorTypeUiState.Loading -> Text("Loading...")
                 is PredatorTypeUiState.Success -> {
                     val predators = (uiState as PredatorTypeUiState.Success).clans
-                    LazyColumn (modifier = Modifier.fillMaxWidth()) {
+                    LazyColumn(modifier = Modifier.fillMaxWidth()) {
                         item {
                             val orientation = LocalConfiguration.current.orientation
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                                FlowRow(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(8.dp),
-                                    horizontalArrangement = Arrangement.Center,
-                                ) {
-                                    predators.forEach {
-                                        Text(
-                                            text = it.name,
-                                            style = MaterialTheme.typography.headlineSmall,
-                                            fontWeight = FontWeight.Bold,
-                                            color = MaterialTheme.colorScheme.primary,
-                                            modifier = Modifier
-                                                .wrapContentWidth()
-                                                .clickable { navController.navigate("predator_type_screen/${it.name}") }
-                                                .padding(8.dp)
-                                        )
-                                    }
-                                }
-                            } else {
-                                FlowRow(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(8.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                                ) {
-                                    predators.forEach {
-                                        Text(
-                                            text = it.name,
-                                            style = MaterialTheme.typography.headlineSmall,
-                                            fontWeight = FontWeight.Bold,
-                                            color = MaterialTheme.colorScheme.primary,
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .clickable { navController.navigate("predator_type_screen/${it.name}") }
-                                                .padding(8.dp)
-                                        )
-                                    }
+                            val widthByOrientation =
+                                if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 1f
+                            FlowRow(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(8.dp),
+                                horizontalArrangement = Arrangement.Center,
+                            ) {
+                                predators.forEach {
+                                    Text(
+                                        text = it.name,
+                                        style = MaterialTheme.typography.headlineSmall,
+                                        fontWeight = FontWeight.Bold,
+                                        color = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier
+                                            .fillMaxWidth(widthByOrientation)
+                                            .clickable { navController.navigate("predator_type_screen/${it.name}") }
+                                            .padding(8.dp)
+                                    )
                                 }
                             }
                         }
                     }
                 }
-                is PredatorTypeUiState.Error -> Text("Error: ${(uiState as PredatorTypeUiState.Error).message}", color = MaterialTheme.colorScheme.primary,)
+
+                is PredatorTypeUiState.Error -> Text(
+                    "Error: ${(uiState as PredatorTypeUiState.Error).message}",
+                    color = MaterialTheme.colorScheme.primary,
+                )
             }
         }
     }

@@ -54,122 +54,77 @@ fun HomeScreen(navController: NavHostController) {
 
     }
 }
+
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier) {
     val orientation = LocalConfiguration.current.orientation
-    if(orientation == Configuration.ORIENTATION_LANDSCAPE) {
-        FlowRow(
-            modifier = modifier.fillMaxSize().padding(8.dp),
-            horizontalArrangement = Arrangement.SpaceAround,
+    val widthByOrientation = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 1f
+    FlowRow(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(8.dp),
+        horizontalArrangement = Arrangement.SpaceAround,
+    ) {
+        Button(
+            onClick = { navController.navigate("clan_screen") },
+            modifier = Modifier
+                .fillMaxWidth(widthByOrientation)
+                .padding(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+            )
         ) {
-            Button(
-                onClick = { navController.navigate("clan_screen") },
-                modifier = Modifier.width(200.dp).padding(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.clan_screen_title))
-            }
-            Button(
-                onClick = { navController.navigate("rules_screen") },
-                modifier = Modifier.width(200.dp).padding(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.rules_screen_button_label))
-            }
-            Button(
-                onClick = { navController.navigate("predator_type_screen") },
-                modifier = Modifier.width(200.dp).padding(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.predator_type_screen_title))
-            }
-            Button(
-                onClick = { navController.navigate("discipline_screen") },
-                modifier = Modifier.width(200.dp).padding(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.discipline_screen_title))
-            }
-            Button(
-                onClick = { navController.navigate("npc_generator") },
-                modifier = Modifier.width(200.dp).padding(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.npc_generator_title))
-            }
+            Text(text = stringResource(id = R.string.clan_screen_title))
         }
-    } else {
-        Column(
-            modifier = modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+        Button(
+            onClick = { navController.navigate("rules_screen") },
+            modifier = Modifier
+                .fillMaxWidth(widthByOrientation)
+                .padding(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+            )
         ) {
-            Button(
-                onClick = { navController.navigate("clan_screen") },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.clan_screen_title))
-            }
-            Button(
-                onClick = { navController.navigate("rules_screen") },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.rules_screen_button_label))
-            }
-            Button(
-                onClick = { navController.navigate("predator_type_screen") },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.predator_type_screen_title))
-            }
-            Button(
-                onClick = { navController.navigate("discipline_screen") },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.discipline_screen_title))
-            }
-            Button(
-                onClick = { navController.navigate("npc_generator") },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
-                )
-            ) {
-                Text(text = stringResource(id = R.string.npc_generator_title))
-            }
+            Text(text = stringResource(id = R.string.rules_screen_button_label))
+        }
+        Button(
+            onClick = { navController.navigate("predator_type_screen") },
+            modifier = Modifier
+                .fillMaxWidth(widthByOrientation)
+                .padding(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+            )
+        ) {
+            Text(text = stringResource(id = R.string.predator_type_screen_title))
+        }
+        Button(
+            onClick = { navController.navigate("discipline_screen") },
+            modifier = Modifier
+                .fillMaxWidth(widthByOrientation)
+                .padding(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+            )
+        ) {
+            Text(text = stringResource(id = R.string.discipline_screen_title))
+        }
+        Button(
+            onClick = { navController.navigate("npc_generator") },
+            modifier = Modifier
+                .fillMaxWidth(widthByOrientation)
+                .padding(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+            )
+        ) {
+            Text(text = stringResource(id = R.string.npc_generator_title))
         }
     }
 }

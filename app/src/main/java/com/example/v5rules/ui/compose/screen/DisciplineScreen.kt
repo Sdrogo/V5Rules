@@ -32,56 +32,40 @@ fun DisciplineScreen(
         navController = navController,
         title = stringResource(id = R.string.discipline_screen_title)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
+        when (uiState) {
+            is DisciplineUiState.Loading -> Text("Loading...")
+            is DisciplineUiState.Success -> {
+                val disciplines = (uiState as DisciplineUiState.Success).disciplines
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp)
+                        .background(color = MaterialTheme.colorScheme.secondary)
+                ) {
+                    item {
+                        val orientation = LocalConfiguration.current.orientation
+                        val widthByOrientation = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.4f else 1f
+                        val maxRowItem = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
 
-        ) {
-            when (uiState) {
-                is DisciplineUiState.Loading -> Text("Loading...")
-                is DisciplineUiState.Success -> {
-                    val disciplines = (uiState as DisciplineUiState.Success).disciplines
-                    LazyColumn {
-                        item {
-                            val orientation = LocalConfiguration.current.orientation
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                                FlowRow(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(16.dp),
-                                    horizontalArrangement = Arrangement.SpaceAround,
-                                    maxItemsInEachRow = 3
-                                ) {
-                                    disciplines.forEach {
-                                        DisciplineItem(
-                                            discipline = it,
-                                            navController = navController
-                                        )
-                                    }
-                                }
-                            } else {
-                                FlowRow(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(8.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                ) {
-                                    disciplines.forEach {
-                                        DisciplineItem(
-                                            discipline = it,
-                                            navController = navController,
-                                            maxWidth = true
-                                        )
-                                    }
-                                }
+                        FlowRow(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(16.dp),
+                            horizontalArrangement = Arrangement.SpaceAround,
+                            maxItemsInEachRow = maxRowItem
+                        ) {
+                            disciplines.forEach {
+                                DisciplineItem(
+                                    discipline = it,
+                                    navController = navController,
+                                    maxWidth = widthByOrientation
+                                )
                             }
                         }
                     }
                 }
-                is DisciplineUiState.Error -> Text("Error: ${(uiState as DisciplineUiState.Error).message}")
             }
+            is DisciplineUiState.Error -> Text("Error: ${(uiState as DisciplineUiState.Error).message}")
         }
     }
 }
@@ -91,54 +75,26 @@ fun DisciplineScreen(
 fun DisciplineItem(
     discipline: Discipline,
     navController: NavHostController,
-    maxWidth: Boolean = false
+    maxWidth: Float = 1f
 ) {
-    if (maxWidth) {
-        Column(
+    Row(modifier = Modifier
+        .fillMaxWidth(maxWidth)
+        .padding(vertical = 8.dp)
+        .fillMaxWidth(maxWidth)
+        .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }) {
+        DisciplineIcon(
+            disciplineId = discipline.id,
+            contentDescription = discipline.title,
+            size = 40.dp
+        )
+        Text(
+            text = discipline.title,
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-                .fillMaxWidth()
-                .background(color = MaterialTheme.colorScheme.secondary)
-        ) {
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }) {
-                DisciplineIcon(
-                    disciplineId = discipline.id,
-                    contentDescription = discipline.title,
-                    size = 40.dp
-                )
-                Text(
-                    text = discipline.title,
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 8.dp)
-                )
-            }
-        }
-    } else {
-        Row(modifier = Modifier
-            .wrapContentWidth()
-            .padding(vertical = 8.dp)
-            .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }) {
-            DisciplineIcon(
-                disciplineId = discipline.id,
-                contentDescription = discipline.title,
-                size = 40.dp
-            )
-            Text(
-                text = discipline.title,
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier
-                    .wrapContentWidth()
-                    .padding(horizontal = 8.dp)
-            )
-        }
+                .wrapContentWidth()
+                .padding(horizontal = 8.dp)
+        )
     }
 }

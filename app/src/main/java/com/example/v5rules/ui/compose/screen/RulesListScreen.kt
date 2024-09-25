@@ -56,7 +56,7 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
                     LazyColumn(modifier = Modifier.fillMaxWidth()) {
                         item {
                             val orientation = LocalConfiguration.current.orientation
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                            val widthByOrientation = if(orientation == Configuration.ORIENTATION_LANDSCAPE) 0.5f else 1f
                                 FlowRow(
                                     modifier = Modifier
                                         .fillMaxSize()
@@ -70,33 +70,12 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
                                             fontWeight = FontWeight.Bold,
                                             color = MaterialTheme.colorScheme.primary,
                                             modifier = Modifier
-                                                .wrapContentWidth()
+                                                .fillMaxSize(widthByOrientation)
                                                 .clickable { navController.navigate("rules_screen/${it.title}") }
                                                 .padding(8.dp)
                                         )
                                     }
                                 }
-                            } else {
-                                FlowRow(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(8.dp),
-                                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                                ) {
-                                    chapters.forEach {
-                                        Text(
-                                            text = it.title,
-                                            style = MaterialTheme.typography.headlineSmall,
-                                            fontWeight = FontWeight.Bold,
-                                            color = MaterialTheme.colorScheme.primary,
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .clickable { navController.navigate("rules_screen/${it.title}") }
-                                                .padding(8.dp)
-                                        )
-                                    }
-                                }
-                            }
                         }
                     }
                 }

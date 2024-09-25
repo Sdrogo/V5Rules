@@ -17,10 +17,11 @@ import com.example.v5rules.R
 @Composable
 fun IncludeSecondNameCheckbox(
     includeSecondName: Boolean,
+    width: Float = 1f,
     onIncludeSecondNameChange: (Boolean) -> Unit
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth(width),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {

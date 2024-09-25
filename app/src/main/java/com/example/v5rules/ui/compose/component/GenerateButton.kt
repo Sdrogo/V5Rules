@@ -1,5 +1,6 @@
 package com.example.v5rules.ui.compose.component
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -16,6 +17,7 @@ import com.example.v5rules.R
 fun GenerateButton(
     selectedNationality: String?,
     firstGeneration: Boolean,
+    width: Float = 1f,
     isListEmpty : Boolean,
     onGenerateNPC: () -> Unit
 ) {
@@ -30,7 +32,7 @@ fun GenerateButton(
                 onGenerateNPC()
             }
         },
-        modifier = Modifier.padding(top = 16.dp)
+        modifier = Modifier.fillMaxWidth(width).padding(8.dp)
     ) {
         Text(
             text = if (!firstGeneration) {
