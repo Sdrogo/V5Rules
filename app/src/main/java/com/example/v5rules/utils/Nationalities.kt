@@ -1,4 +1,4 @@
-package com.example.myapplication.util
+package com.example.v5rules.utils
 object Nationalities {
     val list = listOf(
         // Europa

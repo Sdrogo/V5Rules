@@ -233,19 +233,17 @@
       },
       {
         "title": "Guarigione Vampirica",
-        "content": "Poiché i vampiri sono esseri morti, la loro guarigione non segue i processi normali. Tuttavia, con uno sforzo adeguato, possono rigenerare i danni al loro corpo defunto."
-      },
-      {
-        "title": "Risanare Danni Superficiali alla Salute",
-        "content": "In base alla sua Potenza del Sangue, un vampiro può risanare uno o due punti di danno Superficiale alla Salute con una singola Prova di Risveglio. Ogni prova può essere eseguita una volta al turno."
-      },
-      {
-        "title": "Risanare Danni Aggravati alla Salute",
-        "content": "Per guarire i danni Aggravati, il vampiro deve aspettare fino alla notte successiva ed eseguire 3 Prove di Risveglio, oltre a quella normale richiesta durante la risanazione, quando si risveglia. Questo processo rimuove un punto di danno Aggravato e una Ferita Invalidante o una menomazione analoga. Il vampiro può risanare solo un punto di danno Aggravato per notte. Se le Prove di Risveglio portano la Fame del vampiro oltre il valore di 5, il vampiro cadrà in torpore anziché sottoporsi a un test di frenesia alimentare."
-      },
-      {
-        "title": "Guarigione Vampirica",
-        "content": "Poiché i vampiri sono esseri morti, la loro guarigione non segue i processi normali. Tuttavia, con uno sforzo adeguato, possono rigenerare i danni al loro corpo defunto."
+        "content": "Poiché i vampiri sono esseri morti, la loro guarigione non segue i processi normali. Tuttavia, con uno sforzo adeguato, possono rigenerare i danni al loro corpo defunto.",
+        "subParagraphs": [
+          {
+            "title": "Risanare Danni Superficiali alla Salute",
+            "content": "In base alla sua Potenza del Sangue, un vampiro può risanare uno o due punti di danno Superficiale alla Salute con una singola Prova di Risveglio. Ogni prova può essere eseguita una volta al turno."
+          },
+          {
+            "title": "Risanare Danni Aggravati alla Salute",
+            "content": "Per guarire i danni Aggravati, il vampiro deve aspettare fino alla notte successiva ed eseguire 3 Prove di Risveglio, oltre a quella normale richiesta durante la risanazione, quando si risveglia. Questo processo rimuove un punto di danno Aggravato e una Ferita Invalidante o una menomazione analoga. Il vampiro può risanare solo un punto di danno Aggravato per notte. Se le Prove di Risveglio portano la Fame del vampiro oltre il valore di 5, il vampiro cadrà in torpore anziché sottoporsi a un test di frenesia alimentare."
+          }
+        ]
       }
     ]
   },

@@ -1,3 +1,5 @@
+package com.example.v5rules.utils
+
 import android.annotation.SuppressLint
 import android.content.res.Resources
 import com.example.v5rules.R

@@ -1,6 +1,6 @@
 package com.example.v5rules.ui.viewModel
 
-import JSONReader
+import com.example.v5rules.utils.JSONReader
 import android.content.res.Resources
 import androidx.lifecycle.ViewModel
 import com.example.v5rules.data.Gender

@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -22,7 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.data.RegenerationType
-import com.example.myapplication.util.Nationalities
+import com.example.v5rules.utils.Nationalities
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.GenderSelection
@@ -52,7 +51,6 @@ fun InputScreen(
         ) {
             val isLandscape =
                 LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
-            val widthByOrientation = if (isLandscape) 0.3f else 1f
 
             FlowRow(
                 modifier = modifier

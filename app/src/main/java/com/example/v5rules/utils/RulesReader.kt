@@ -11,7 +11,6 @@ class RulesReader(private val context: Context) {
 
     fun readRules(language: Locale): List<Chapter> {
         val resourceId = when (language) {
-            Locale.ENGLISH -> R.raw.rules_en
             Locale.ITALIAN -> R.raw.rules_it
             else -> {R.raw.rules_it}
         }
