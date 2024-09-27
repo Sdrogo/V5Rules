@@ -26,7 +26,7 @@ import com.example.v5rules.ui.viewModel.LoreUiState
 import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.utils.LoreDetailsScreen
+import com.example.v5rules.utils.LoreDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -71,7 +71,7 @@ fun LoreListScreen(loreViewModel : LoreViewModel, navController: NavHostControll
                                             color = MaterialTheme.colorScheme.primary,
                                             modifier = Modifier
                                                 .fillMaxSize(widthByOrientation)
-                                                .clickable { navController.navigate(LoreDetailsScreen(it.title)) }
+                                                .clickable { navController.navigate(LoreDetailsNav(it.title)) }
                                                 .padding(8.dp)
                                         )
                                     }

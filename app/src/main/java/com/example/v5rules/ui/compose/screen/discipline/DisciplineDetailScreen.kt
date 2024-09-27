@@ -28,9 +28,8 @@ import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
-import com.example.v5rules.utils.DisciplineDetailsScreen
-import com.example.v5rules.utils.DisciplinePowerScreen
-import com.example.v5rules.utils.RitualScreen
+import com.example.v5rules.utils.DisciplinePowerNav
+import com.example.v5rules.utils.RitualNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -145,7 +144,7 @@ fun SubDisciplineItem(
             .background(color = MaterialTheme.colorScheme.secondary)
             .padding(8.dp)
             .fillMaxWidth(widthValue)
-            .clickable { navController.navigate(DisciplinePowerScreen(disciplineId,disciplinePower.id)) }) {
+            .clickable { navController.navigate(DisciplinePowerNav(disciplineId,disciplinePower.id)) }) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = disciplinePower.title,
@@ -188,7 +187,7 @@ fun RitualItem(
             modifier = Modifier
                 .background(color = MaterialTheme.colorScheme.secondary)
                 .padding(8.dp)
-                .clickable { navController.navigate(RitualScreen(disciplineId,ritual.id))}
+                .clickable { navController.navigate(RitualNav(disciplineId,ritual.id))}
         ) {
             Text(
                 text = ritual.title,
@@ -203,7 +202,7 @@ fun RitualItem(
                 .background(color = MaterialTheme.colorScheme.secondary)
                 .fillMaxWidth()
                 .padding(8.dp)
-                .clickable { navController.navigate(RitualScreen(disciplineId,ritual.id)) }
+                .clickable { navController.navigate(RitualNav(disciplineId,ritual.id)) }
         ) {
             Text(
                 text = ritual.title,
@@ -508,7 +507,6 @@ fun RitualsList(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier

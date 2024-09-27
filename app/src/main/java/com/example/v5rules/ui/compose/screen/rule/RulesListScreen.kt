@@ -26,7 +26,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.RulesUiState
 import com.example.v5rules.ui.viewModel.RulesViewModel
-import com.example.v5rules.utils.RulesDetailsScreen
+import com.example.v5rules.utils.RulesDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -74,7 +74,7 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
                                             .fillMaxSize(widthByOrientation)
                                             .clickable {
                                                 navController.navigate(
-                                                    RulesDetailsScreen(it.title)
+                                                    RulesDetailsNav(it.title)
                                                 )
                                             }
                                             .padding(8.dp)

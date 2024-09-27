@@ -3,34 +3,34 @@ package com.example.v5rules.utils
 import kotlinx.serialization.Serializable
 
 @Serializable
-object HomeScreen
+object HomeNav
 @Serializable
-object DisciplinesScreen
+object DisciplinesNav
 @Serializable
-object PredatorTypesScreen
+object PredatorTypesNav
 @Serializable
-object ClansScreen
+object ClansNav
 @Serializable
-object LoreScreen
+object LoreNav
 @Serializable
-object NPCGeneratorScreen
+object NPCGeneratorNav
 @Serializable
-object RulesScreen
+object RulesNav
 @Serializable
-data class DisciplineDetailsScreen(val disciplineId:String)
+data class DisciplineDetailsNav(val disciplineId:String)
 @Serializable
-data class DisciplinePowerScreen(val disciplineId: String, val subDisciplineId: String)
+data class DisciplinePowerNav(val disciplineId: String, val subDisciplineId: String)
 @Serializable
-data class RitualScreen(val disciplineId: String, val ritualId: String)
+data class RitualNav(val disciplineId: String, val ritualId: String)
 @Serializable
-data class PredatorTypeDetailsScreen(val predatorName: String)
+data class PredatorTypeDetailsNav(val predatorName: String)
 @Serializable
-data class ClanDetailsScreen(val clanName: String)
+data class ClanDetailsNav(val clanName: String)
 @Serializable
-data class LoreDetailsScreen(val title: String)
+data class LoreDetailsNav(val title: String)
 @Serializable
-data class SubLoreScreen(val title: String, val section: String)
+data class SubLoreNav(val title: String, val section: String)
 @Serializable
-data class RulesDetailsScreen(val title: String)
+data class RulesDetailsNav(val title: String)
 @Serializable
-data class SubRuleScreen(val title: String, val section: String)
+data class SubRuleNav(val title: String, val section: String)

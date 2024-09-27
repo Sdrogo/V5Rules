@@ -10,6 +10,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -37,27 +38,27 @@ import com.example.v5rules.ui.viewModel.ClanViewModel
 import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
 import com.example.v5rules.ui.viewModel.RulesViewModel
-import com.example.v5rules.utils.ClanDetailsScreen
-import com.example.v5rules.utils.ClansScreen
-import com.example.v5rules.utils.DisciplineDetailsScreen
-import com.example.v5rules.utils.DisciplinePowerScreen
-import com.example.v5rules.utils.DisciplinesScreen
-import com.example.v5rules.utils.HomeScreen
-import com.example.v5rules.utils.LoreScreen
-import com.example.v5rules.utils.LoreDetailsScreen
-import com.example.v5rules.utils.NPCGeneratorScreen
-import com.example.v5rules.utils.PredatorTypeDetailsScreen
-import com.example.v5rules.utils.PredatorTypesScreen
-import com.example.v5rules.utils.RitualScreen
-import com.example.v5rules.utils.RulesScreen
-import com.example.v5rules.utils.RulesDetailsScreen
-import com.example.v5rules.utils.SubLoreScreen
-import com.example.v5rules.utils.SubRuleScreen
+import com.example.v5rules.utils.ClanDetailsNav
+import com.example.v5rules.utils.ClansNav
+import com.example.v5rules.utils.DisciplineDetailsNav
+import com.example.v5rules.utils.DisciplinePowerNav
+import com.example.v5rules.utils.DisciplinesNav
+import com.example.v5rules.utils.HomeNav
+import com.example.v5rules.utils.LoreNav
+import com.example.v5rules.utils.LoreDetailsNav
+import com.example.v5rules.utils.NPCGeneratorNav
+import com.example.v5rules.utils.PredatorTypeDetailsNav
+import com.example.v5rules.utils.PredatorTypesNav
+import com.example.v5rules.utils.RitualNav
+import com.example.v5rules.utils.RulesNav
+import com.example.v5rules.utils.RulesDetailsNav
+import com.example.v5rules.utils.SubLoreNav
+import com.example.v5rules.utils.SubRuleNav
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.serialization.Serializable
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,28 +80,28 @@ fun V5RulesApp(
     val npcGeneratorViewModel: NPCGeneratorViewModel = hiltViewModel<NPCGeneratorViewModel>()
 
     val navController = rememberNavController()
-    V5RulesTheme{
+    V5RulesTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.secondary
         ) {
-            NavHost(navController = navController, startDestination = HomeScreen) {
-                composable<HomeScreen> {
+            NavHost(navController = navController, startDestination = HomeNav) {
+                composable<HomeNav> {
                     HomeScreen(navController)
                 }
-                composable<DisciplinesScreen> {
+                composable<DisciplinesNav> {
                     DisciplineScreen(disciplineViewModel, navController)
                 }
-                composable<DisciplineDetailsScreen> { backStackEntry ->
-                    val entry = backStackEntry.toRoute<DisciplineDetailsScreen>()
+                composable<DisciplineDetailsNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<DisciplineDetailsNav>()
                     DisciplineDetailScreen(
                         disciplineId = entry.disciplineId,
                         disciplineViewModel,
                         navController
                     )
                 }
-                composable<DisciplinePowerScreen> { backStackEntry ->
-                    val entry = backStackEntry.toRoute<DisciplinePowerScreen>()
+                composable<DisciplinePowerNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<DisciplinePowerNav>()
                     DisciplinePowerScreen(
                         disciplineId = entry.disciplineId,
                         disciplinePowerId = entry.subDisciplineId,
@@ -108,8 +109,8 @@ fun V5RulesApp(
                         navController = navController
                     )
                 }
-                composable<RitualScreen> { backStackEntry ->
-                    val entry = backStackEntry.toRoute<RitualScreen>()
+                composable<RitualNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<RitualNav>()
                     RitualScreen(
                         disciplineId = entry.disciplineId,
                         ritualId = entry.ritualId,
@@ -117,45 +118,46 @@ fun V5RulesApp(
                         navController = navController
                     )
                 }
-                composable<PredatorTypesScreen> {
+                composable<PredatorTypesNav> {
                     PredatorTypeListScreen(
                         viewModel = predatorTypeViewModel,
                         navController = navController
                     )
                 }
-                composable<PredatorTypeDetailsScreen>{ backStackEntry ->
-                    val entry = backStackEntry.toRoute<PredatorTypeDetailsScreen>()
+                composable<PredatorTypeDetailsNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<PredatorTypeDetailsNav>()
                     PredatorTypeDetailsScreen(
                         predatorTypeViewModel,
                         navController,
                         entry.predatorName
                     )
                 }
-                composable<ClansScreen> {
+                composable<ClansNav> {
                     ClanListScreen(viewModel = clanViewModel, navController = navController)
                 }
-                composable<ClanDetailsScreen> { backStackEntry ->
-                    val entry = backStackEntry.toRoute<ClanDetailsScreen>()
+                composable<ClanDetailsNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<ClanDetailsNav>()
                     ClanDetailScreen(
                         clanViewModel = clanViewModel,
                         navController = navController,
                         clanName = entry.clanName
                     )
                 }
-                composable<LoreScreen> {
+                composable<LoreNav> {
                     LoreListScreen(
-                        loreViewModel = loreViewModel, navController = navController)
+                        loreViewModel = loreViewModel, navController = navController
+                    )
                 }
-                composable<LoreDetailsScreen> { backStackEntry ->
-                    val entry = backStackEntry.toRoute<LoreDetailsScreen>()
-                      LoreDetailsScreen(
+                composable<LoreDetailsNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<LoreDetailsNav>()
+                    LoreDetailsScreen(
                         loreViewModel = loreViewModel,
                         navController = navController,
                         title = entry.title
                     )
                 }
-                composable<SubLoreScreen> { backStackEntry ->
-                    val entry = backStackEntry.toRoute<SubLoreScreen>()
+                composable<SubLoreNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<SubLoreNav>()
                     SubLoreDetail(
                         loreViewModel = loreViewModel,
                         chapterTitle = entry.title,
@@ -163,22 +165,26 @@ fun V5RulesApp(
                         navController = navController
                     )
                 }
-                composable<NPCGeneratorScreen> {
-                    InputScreen(modifier = Modifier, viewModel = npcGeneratorViewModel, navController = navController)
+                composable<NPCGeneratorNav> {
+                    InputScreen(
+                        modifier = Modifier,
+                        viewModel = npcGeneratorViewModel,
+                        navController = navController
+                    )
                 }
-                composable<RulesScreen> {
+                composable<RulesNav> {
                     RuleListScreen(viewModel = rulesViewModel, navController = navController)
                 }
-                composable<RulesDetailsScreen> { backStackEntry ->
-                    val entry = backStackEntry.toRoute<RulesDetailsScreen>()
+                composable<RulesDetailsNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<RulesDetailsNav>()
                     RulesDetailsScreen(
                         rulesViewModel = rulesViewModel,
                         navController = navController,
                         title = entry.title
                     )
                 }
-                composable<SubRuleScreen> { backStackEntry ->
-                    val entry = backStackEntry.toRoute<SubRuleScreen>()
+                composable<SubRuleNav> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<SubRuleNav>()
                     SubRuleDetail(
                         rulesViewModel = rulesViewModel,
                         chapterTitle = entry.title,

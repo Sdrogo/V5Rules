@@ -29,7 +29,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.viewModel.RulesViewModel
-import com.example.v5rules.utils.SubRuleScreen
+import com.example.v5rules.utils.SubRuleNav
 
 @Composable
 fun RulesDetailsScreen(
@@ -72,7 +72,7 @@ fun RulesDetailsScreen(
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Bold,
                                     modifier = Modifier.clickable { navController.navigate(
-                                        SubRuleScreen(rule.title, section.title)
+                                        SubRuleNav(rule.title, section.title)
                                     ) },
                                     color = MaterialTheme.colorScheme.primary
                                 )

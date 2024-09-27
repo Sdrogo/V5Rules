@@ -27,7 +27,7 @@ import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.ClanUiState
 import com.example.v5rules.ui.viewModel.ClanViewModel
-import com.example.v5rules.utils.ClanDetailsScreen
+import com.example.v5rules.utils.ClanDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -86,7 +86,7 @@ fun ClanItem(clan: Clan, navController: NavHostController, maxWidth: Float = 1f)
         modifier = Modifier
             .fillMaxWidth(maxWidth)
             .padding(vertical = 8.dp)
-            .clickable { navController.navigate(ClanDetailsScreen(clan.name)) }
+            .clickable { navController.navigate(ClanDetailsNav(clan.name)) }
     ) {
         ClanImage(
             clanName = clan.name,

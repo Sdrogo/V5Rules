@@ -18,12 +18,12 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.TintedImage
-import com.example.v5rules.utils.ClansScreen
-import com.example.v5rules.utils.DisciplinesScreen
-import com.example.v5rules.utils.LoreScreen
-import com.example.v5rules.utils.NPCGeneratorScreen
-import com.example.v5rules.utils.PredatorTypesScreen
-import com.example.v5rules.utils.RulesScreen
+import com.example.v5rules.utils.ClansNav
+import com.example.v5rules.utils.DisciplinesNav
+import com.example.v5rules.utils.LoreNav
+import com.example.v5rules.utils.NPCGeneratorNav
+import com.example.v5rules.utils.PredatorTypesNav
+import com.example.v5rules.utils.RulesNav
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
@@ -73,7 +73,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
         horizontalArrangement = Arrangement.SpaceAround,
     ) {
         Button(
-            onClick = { navController.navigate(LoreScreen) },
+            onClick = { navController.navigate(LoreNav) },
             modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
@@ -85,7 +85,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
             Text(text = stringResource(id = R.string.lore_screen_title))
         }
         Button(
-            onClick = { navController.navigate(ClansScreen) },
+            onClick = { navController.navigate(ClansNav) },
             modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
@@ -97,7 +97,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
             Text(text = stringResource(id = R.string.clan_screen_title))
         }
         Button(
-            onClick = { navController.navigate(RulesScreen) },
+            onClick = { navController.navigate(RulesNav) },
             modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
@@ -109,7 +109,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
             Text(text = stringResource(id = R.string.rules_screen_button_label))
         }
         Button(
-            onClick = { navController.navigate(PredatorTypesScreen) },
+            onClick = { navController.navigate(PredatorTypesNav) },
             modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
@@ -121,7 +121,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
             Text(text = stringResource(id = R.string.predator_type_screen_title))
         }
         Button(
-            onClick = { navController.navigate(DisciplinesScreen) },
+            onClick = { navController.navigate(DisciplinesNav) },
             modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
@@ -133,7 +133,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
             Text(text = stringResource(id = R.string.discipline_screen_title))
         }
         Button(
-            onClick = { navController.navigate(NPCGeneratorScreen) },
+            onClick = { navController.navigate(NPCGeneratorNav) },
             modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),

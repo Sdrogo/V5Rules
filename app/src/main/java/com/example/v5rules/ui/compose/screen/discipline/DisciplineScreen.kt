@@ -19,9 +19,7 @@ import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 import com.example.v5rules.ui.viewModel.DisciplineUiState
-import com.example.v5rules.utils.DisciplineDetailsScreen
-import com.example.v5rules.utils.DisciplinePowerScreen
-import com.example.v5rules.utils.DisciplinesScreen
+import com.example.v5rules.utils.DisciplineDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -84,7 +82,7 @@ fun DisciplineItem(
         .fillMaxWidth(maxWidth)
         .padding(vertical = 8.dp)
         .fillMaxWidth(maxWidth)
-        .clickable { navController.navigate(DisciplineDetailsScreen(discipline.id))}) {
+        .clickable { navController.navigate(DisciplineDetailsNav(discipline.id))}) {
         DisciplineIcon(
             disciplineId = discipline.id,
             contentDescription = discipline.title,

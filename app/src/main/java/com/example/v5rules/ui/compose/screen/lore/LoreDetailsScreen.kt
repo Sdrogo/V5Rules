@@ -29,7 +29,7 @@ import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
-import com.example.v5rules.utils.SubLoreScreen
+import com.example.v5rules.utils.SubLoreNav
 
 @Composable
 fun LoreDetailsScreen(
@@ -72,7 +72,7 @@ fun LoreDetailsScreen(
                                     text = section.title,
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Bold,
-                                    modifier = Modifier.clickable { navController.navigate(SubLoreScreen(rule.title, section.title)) },
+                                    modifier = Modifier.clickable { navController.navigate(SubLoreNav(rule.title, section.title)) },
                                     color = MaterialTheme.colorScheme.primary
                                 )
                             } else {

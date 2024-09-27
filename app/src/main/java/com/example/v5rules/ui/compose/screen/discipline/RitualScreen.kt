@@ -35,7 +35,7 @@ fun RitualScreen(
     CommonScaffold(navController = navController, title = ritual?.title ?: "") {
         Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary)) {
             if (ritual != null) {
-                LazyColumn(modifier = Modifier.padding(16.dp)) { // Wrap content in LazyColumn
+                LazyColumn(modifier = Modifier.padding(8.dp)) { // Wrap content in LazyColumn
                     item { // Use 'item' to add individual composables to the LazyColumn
                         DisciplineInfo(ritual = ritual)
                     }
