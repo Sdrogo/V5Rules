@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.lore
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,20 +22,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.v5rules.ui.viewModel.LoreUiState
+import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.viewModel.RulesUiState
-import com.example.v5rules.ui.viewModel.RulesViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) {
+fun LoreListScreen(loreViewModel : LoreViewModel, navController: NavHostController) {
 
-    val uiState by viewModel.rulesUiState.collectAsState()
+    val uiState by loreViewModel.loreUiState.collectAsState()
 
     CommonScaffold(
         navController = navController,
-        title = stringResource(id = R.string.rules)
+        title = stringResource(id = R.string.lore_screen_title)
     )
     {
         Column(
@@ -46,13 +45,13 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
                 .padding(start = 16.dp)
         ) {
             when (uiState) {
-                is RulesUiState.Loading -> Text(
+                is LoreUiState.Loading -> Text(
                     "Loading...",
                     color = MaterialTheme.colorScheme.primary,
                 )
 
-                is RulesUiState.Success -> {
-                    val chapters = (uiState as RulesUiState.Success).chapters
+                is LoreUiState.Success -> {
+                    val chapters = (uiState as LoreUiState.Success).chapters
                     LazyColumn(modifier = Modifier.fillMaxWidth()) {
                         item {
                             val orientation = LocalConfiguration.current.orientation
@@ -71,7 +70,7 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
                                             color = MaterialTheme.colorScheme.primary,
                                             modifier = Modifier
                                                 .fillMaxSize(widthByOrientation)
-                                                .clickable { navController.navigate("rules_screen/${it.title}") }
+                                                .clickable { navController.navigate("lore_screen/${it.title}") }
                                                 .padding(8.dp)
                                         )
                                     }
@@ -80,8 +79,8 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
                     }
                 }
 
-                is RulesUiState.Error -> Text(
-                    "Error: ${(uiState as RulesUiState.Error).message}",
+                is LoreUiState.Error -> Text(
+                    "Error: ${(uiState as LoreUiState.Error).message}",
                     color = MaterialTheme.colorScheme.primary
                 )
             }

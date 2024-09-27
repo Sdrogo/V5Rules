@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.rule
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -22,20 +22,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.ui.viewModel.LoreUiState
-import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
+import com.example.v5rules.ui.viewModel.RulesUiState
+import com.example.v5rules.ui.viewModel.RulesViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun LoreListScreen(loreViewModel : LoreViewModel, navController: NavHostController) {
+fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) {
 
-    val uiState by loreViewModel.loreUiState.collectAsState()
+    val uiState by viewModel.rulesUiState.collectAsState()
 
     CommonScaffold(
         navController = navController,
-        title = stringResource(id = R.string.lore_screen_title)
+        title = stringResource(id = R.string.rules)
     )
     {
         Column(
@@ -45,13 +45,13 @@ fun LoreListScreen(loreViewModel : LoreViewModel, navController: NavHostControll
                 .padding(start = 16.dp)
         ) {
             when (uiState) {
-                is LoreUiState.Loading -> Text(
+                is RulesUiState.Loading -> Text(
                     "Loading...",
                     color = MaterialTheme.colorScheme.primary,
                 )
 
-                is LoreUiState.Success -> {
-                    val chapters = (uiState as LoreUiState.Success).chapters
+                is RulesUiState.Success -> {
+                    val chapters = (uiState as RulesUiState.Success).chapters
                     LazyColumn(modifier = Modifier.fillMaxWidth()) {
                         item {
                             val orientation = LocalConfiguration.current.orientation
@@ -70,7 +70,7 @@ fun LoreListScreen(loreViewModel : LoreViewModel, navController: NavHostControll
                                             color = MaterialTheme.colorScheme.primary,
                                             modifier = Modifier
                                                 .fillMaxSize(widthByOrientation)
-                                                .clickable { navController.navigate("lore_screen/${it.title}") }
+                                                .clickable { navController.navigate("rules_screen/${it.title}") }
                                                 .padding(8.dp)
                                         )
                                     }
@@ -79,8 +79,8 @@ fun LoreListScreen(loreViewModel : LoreViewModel, navController: NavHostControll
                     }
                 }
 
-                is LoreUiState.Error -> Text(
-                    "Error: ${(uiState as LoreUiState.Error).message}",
+                is RulesUiState.Error -> Text(
+                    "Error: ${(uiState as RulesUiState.Error).message}",
                     color = MaterialTheme.colorScheme.primary
                 )
             }

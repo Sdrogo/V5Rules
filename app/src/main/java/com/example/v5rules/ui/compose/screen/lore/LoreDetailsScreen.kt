@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.lore
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,19 +25,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
-import com.example.v5rules.ui.viewModel.RulesViewModel
 
 @Composable
-fun RulesDetailsScreen(
-    rulesViewModel: RulesViewModel,
+fun LoreDetailsScreen(
+    loreViewModel: LoreViewModel,
     navController: NavHostController,
     title: String
 ) {
 
-    val rule = rulesViewModel.allRules.find { it.title == title }
+    val rule = loreViewModel.allLore.find { it.title == title }
 
     CommonScaffold(navController = navController, title = title) {
         LazyColumn(
@@ -49,21 +49,22 @@ fun RulesDetailsScreen(
             rule?.let { rule ->
                 rule.sections.let { sections ->
                     item {
-                        Text(
-                            modifier = Modifier.padding(16.dp),
-                            text = AnnotatedString(
-                                rule.content,
-                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                            ),
-                            color = MaterialTheme.colorScheme.primary,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
+                        if (rule.content != "") {
+                            Text(
+                                modifier = Modifier.padding(8.dp),
+                                text = AnnotatedString(
+                                    rule.content,
+                                    paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                ),
+                                color = MaterialTheme.colorScheme.primary,
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                        }
                     }
                     items(sections.orEmpty()) { section ->
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(8.dp)
                         ) {
                             if (section.subParagraphs != null) {
                                 Text(
@@ -99,14 +100,14 @@ fun RulesDetailsScreen(
 }
 
 @Composable
-fun SubRuleDetail(
-    rulesViewModel: RulesViewModel,
+fun SubLoreDetail(
+    loreViewModel: LoreViewModel,
     chapterTitle: String,
     sectionTitle: String,
     navController: NavHostController
 ) {
 
-    val ruleToDetail = rulesViewModel.allRules.find { it.title == chapterTitle }
+    val ruleToDetail = loreViewModel.allLore.find { it.title == chapterTitle }
     val sectionToDetail = ruleToDetail?.sections?.find { it.title == sectionTitle }
     CommonScaffold(navController = navController, title = sectionTitle) {
         sectionToDetail?.let { section ->

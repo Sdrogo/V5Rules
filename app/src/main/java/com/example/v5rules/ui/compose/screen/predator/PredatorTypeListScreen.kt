@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.predator
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background

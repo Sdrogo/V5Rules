@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.discipline
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
