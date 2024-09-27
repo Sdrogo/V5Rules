@@ -4,14 +4,11 @@ import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -40,105 +37,67 @@ fun ClanListScreen(
     val uiState by viewModel.clanUiState.collectAsState()
 
     CommonScaffold(navController = navController, title = "Clans") {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
-        ) {
-            when (uiState) {
-                is ClanUiState.Loading -> Text("Loading...")
-                is ClanUiState.Success -> {
-                    val clans = (uiState as ClanUiState.Success).clans
-                    LazyColumn {
-                        item {
-                            val orientation = LocalConfiguration.current.orientation
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                                FlowRow(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(8.dp),
-                                    horizontalArrangement = Arrangement.SpaceEvenly,
-                                ) {
-                                    clans.forEach {
-                                        ClanItem(
-                                            clan = it,
-                                            navController = navController
-                                        )
-                                    }
-                                }
-                            } else {
-                                clans.forEach {
-                                    ClanItem(
-                                        clan = it,
-                                        navController = navController,
-                                        maxWidth = true
-                                    )
-                                }
-                                Spacer(modifier = Modifier.height(16.dp))
+        when (uiState) {
+            is ClanUiState.Loading -> Text("Loading...")
+            is ClanUiState.Success -> {
+                val clans = (uiState as ClanUiState.Success).clans
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 8.dp)
+                        .background(color = MaterialTheme.colorScheme.secondary)
+                ) {
+                    item {
+                        val orientation = LocalConfiguration.current.orientation
+                        val widthByOrientation =
+                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 0.5f
+                        val numberOfRow =
+                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 3 else 2
+                        FlowRow(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(vertical = 8.dp),
+                            horizontalArrangement = Arrangement.SpaceEvenly,
+                            maxItemsInEachRow = numberOfRow
+                        ) {
+                            clans.forEach {
+                                ClanItem(
+                                    clan = it,
+                                    navController = navController,
+                                    widthByOrientation
+                                )
                             }
                         }
                     }
                 }
-                is ClanUiState.Error -> Text("Error: ${(uiState as ClanUiState.Error).message}")
             }
+
+            is ClanUiState.Error -> Text("Error: ${(uiState as ClanUiState.Error).message}")
         }
     }
 }
 
 @Composable
-fun ClanItem(clan: Clan, navController: NavHostController, maxWidth: Boolean = false) {
+fun ClanItem(clan: Clan, navController: NavHostController, maxWidth: Float = 1f) {
 
-    if(maxWidth){
-        Column(
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .fillMaxWidth(maxWidth)
+            .clickable { navController.navigate("clan_screen/${clan.name}") }) {
+        ClanImage(
+            clanName = clan.name,
+            tintColor = MaterialTheme.colorScheme.tertiary,
+            width = 48.dp,
+        )
+        Text(
+            text = clan.name,
+            style = MaterialTheme.typography.headlineSmall,
+            color = MaterialTheme.colorScheme.primary,
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.clickable { navController.navigate("clan_screen/${clan.name}") }) {
-                ClanImage(
-                    clanName = clan.name,
-                    tintColor = MaterialTheme.colorScheme.tertiary,
-                    width = 48.dp,
-                )
-                Text(
-                    text = clan.name,
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier
-                        .padding(horizontal = 8.dp)
-                        .fillMaxWidth()
-                )
-            }
-        }
-    }else{
-        Column(
-            modifier = Modifier
+                .padding(horizontal = 8.dp)
                 .wrapContentWidth()
-                .padding(vertical = 8.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.clickable { navController.navigate("clan_screen/${clan.name}") }) {
-                ClanImage(
-                    clanName = clan.name,
-                    tintColor = MaterialTheme.colorScheme.tertiary,
-                    width = 48.dp,
-                )
-                Text(
-                    text = clan.name,
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier
-                        .padding(horizontal = 8.dp)
-                        .wrapContentWidth()
-                )
-            }
-        }
+        )
     }
 
 }

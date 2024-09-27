@@ -38,6 +38,7 @@ fun DisciplineDetailScreen(
 ) {
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val orientation = LocalConfiguration.current.orientation
+    val widthByOrientation = if(orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 1f
     CommonScaffold(navController = navController, title = discipline?.title ?: "") {
 
         if (discipline != null) {
@@ -137,11 +138,11 @@ fun SubDisciplineItem(
     amalgama: String? = null,
     fillMaxWidth: Boolean = false
 ) {
-    if (fillMaxWidth) {
+        val widthValue = if(fillMaxWidth) 1f else 0.3f
         Column(modifier = Modifier
             .background(color = MaterialTheme.colorScheme.secondary)
             .padding(8.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(widthValue)
             .clickable { navController.navigate("discipline_detail_screen/${disciplineId}/${disciplinePower.id}") }) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
@@ -171,41 +172,6 @@ fun SubDisciplineItem(
                 }
             }
         }
-    } else {
-        Column(modifier = Modifier
-            .background(color = MaterialTheme.colorScheme.secondary)
-            .padding(8.dp)
-            .wrapContentWidth()
-            .clickable { navController.navigate("discipline_detail_screen/${disciplineId}/${disciplinePower.id}") }) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = disciplinePower.title,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(8.dp),
-                )
-                Spacer(modifier = Modifier.width(16.dp))
-                Column {
-                    if (exclusiveClan != null) {
-                        Text(
-                            text = exclusiveClan,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.tertiary,
-                        )
-                        Spacer(modifier = Modifier.width(16.dp))
-                    }
-                    if (amalgama != null) {
-                        Text(
-                            text = amalgama,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.tertiary,
-                        )
-                    }
-                }
-            }
-        }
-    }
 }
 
 @Composable
@@ -248,10 +214,11 @@ fun RitualItem(
 
 @Composable
 fun DisciplineInfo(discipline: Discipline, orientation: Boolean = false) {
+    val widthByOrientation = if(orientation) 0.3f else 1f
     Column {
         if (discipline.id == "d11") {
             if (orientation) {
-                Box(modifier = Modifier.width(200.dp)) {
+                Box(modifier = Modifier.fillMaxWidth(widthByOrientation)) {
                     TextBlock(
                         title = stringResource(id = R.string.discipline_alchemy_pseudo),
                         component = discipline.type,
@@ -273,27 +240,6 @@ fun DisciplineInfo(discipline: Discipline, orientation: Boolean = false) {
                         isHidden = discipline.resonance.isEmpty()
                     )
                 }
-            } else {
-                TextBlock(
-                    title = stringResource(id = R.string.discipline_alchemy_pseudo),
-                    component = discipline.type,
-                    isHidden = discipline.type.isEmpty()
-                )
-                TextBlock(
-                    title = stringResource(id = R.string.discipline_description),
-                    component = discipline.description,
-                    isHidden = discipline.description.isEmpty()
-                )
-                TextBlock(
-                    title = stringResource(id = R.string.discipline_ingredients),
-                    component = discipline.masquerade,
-                    isHidden = discipline.masquerade.isEmpty()
-                )
-                TextBlock(
-                    title = stringResource(id = R.string.discipline_alchemy_learning),
-                    component = discipline.resonance,
-                    isHidden = discipline.resonance.isEmpty()
-                )
             }
         } else {
             TextBlock(
@@ -409,7 +355,8 @@ fun DisciplineList(
                 }
             }
         }
-    } else {
+    }
+    else {
         Row(verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
