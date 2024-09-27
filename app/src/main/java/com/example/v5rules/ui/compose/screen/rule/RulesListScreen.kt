@@ -42,7 +42,7 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.secondary)
+                .background(color = MaterialTheme.colorScheme.background)
                 .padding(start = 16.dp)
         ) {
             when (uiState) {

@@ -47,8 +47,7 @@ fun HomeScreen(navController: NavHostController) {
             LazyColumn(
                 modifier = Modifier
                     .wrapContentSize()
-                    .padding(16.dp)
-                    .background(color = MaterialTheme.colorScheme.secondary),
+                    .background(color = MaterialTheme.colorScheme.background),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 item {
@@ -68,8 +67,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
     val widthByOrientation = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 1f
     FlowRow(
         modifier = modifier
-            .fillMaxSize()
-            .padding(8.dp),
+            .fillMaxSize(),
         horizontalArrangement = Arrangement.SpaceAround,
     ) {
         Button(
@@ -79,7 +77,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
             Text(text = stringResource(id = R.string.lore_screen_title))
@@ -91,7 +89,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
             Text(text = stringResource(id = R.string.clan_screen_title))
@@ -103,7 +101,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
             Text(text = stringResource(id = R.string.rules_screen_button_label))
@@ -115,7 +113,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
             Text(text = stringResource(id = R.string.predator_type_screen_title))
@@ -127,7 +125,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
             Text(text = stringResource(id = R.string.discipline_screen_title))
@@ -139,7 +137,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
             Text(text = stringResource(id = R.string.npc_generator_title))

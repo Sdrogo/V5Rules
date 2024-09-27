@@ -54,7 +54,7 @@ fun ClanDetail(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
-            .background(color = MaterialTheme.colorScheme.secondary)
+            .background(color = MaterialTheme.colorScheme.background)
     ) {
         item {
             Spacer(modifier = Modifier.padding(8.dp))

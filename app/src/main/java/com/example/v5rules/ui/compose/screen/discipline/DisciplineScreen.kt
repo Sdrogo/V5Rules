@@ -41,7 +41,7 @@ fun DisciplineScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(horizontal = 16.dp)
-                        .background(color = MaterialTheme.colorScheme.secondary)
+                        .background(color = MaterialTheme.colorScheme.background)
                 ) {
                     item {
                         val orientation = LocalConfiguration.current.orientation

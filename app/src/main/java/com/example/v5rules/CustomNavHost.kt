@@ -1,5 +1,14 @@
 package com.example.v5rules
 
+import androidx.compose.animation.core.FastOutLinearInEasing
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -89,13 +98,33 @@ fun CustomNavHost(
     npcGeneratorViewModel: NPCGeneratorViewModel
 ) {
     NavHost(navController = navController, startDestination = HomeNav) {
-        composable<HomeNav> {
+        val enterTransition = fadeIn(animationSpec = tween(
+            durationMillis = 500, // Duration of the animation
+            delayMillis =100, // Delay before the animation starts
+            easing = LinearOutSlowInEasing // Easing curve for the animation
+        ),
+            initialAlpha = 0.0f)
+        val exitTransition = fadeOut( animationSpec = tween(
+            durationMillis = 300,
+            delayMillis = 0,
+            easing = FastOutLinearInEasing
+        ),
+            targetAlpha = 1f)
+
+        composable<HomeNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition })
+        {
             HomeScreen(navController)
         }
-        composable<DisciplinesNav> {
+        composable<DisciplinesNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) {
             DisciplineScreen(disciplineViewModel, navController)
         }
-        composable<DisciplineDetailsNav> { backStackEntry ->
+        composable<DisciplineDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<DisciplineDetailsNav>()
             DisciplineDetailScreen(
                 disciplineId = entry.disciplineId,
@@ -103,7 +132,9 @@ fun CustomNavHost(
                 navController
             )
         }
-        composable<DisciplinePowerNav> { backStackEntry ->
+        composable<DisciplinePowerNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<DisciplinePowerNav>()
             DisciplinePowerScreen(
                 disciplineId = entry.disciplineId,
@@ -112,7 +143,9 @@ fun CustomNavHost(
                 navController = navController
             )
         }
-        composable<RitualNav> { backStackEntry ->
+        composable<RitualNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<RitualNav>()
             RitualScreen(
                 disciplineId = entry.disciplineId,
@@ -121,13 +154,17 @@ fun CustomNavHost(
                 navController = navController
             )
         }
-        composable<PredatorTypesNav> {
+        composable<PredatorTypesNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) {
             PredatorTypeListScreen(
                 viewModel = predatorTypeViewModel,
                 navController = navController
             )
         }
-        composable<PredatorTypeDetailsNav> { backStackEntry ->
+        composable<PredatorTypeDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<PredatorTypeDetailsNav>()
             PredatorTypeDetailsScreen(
                 predatorTypeViewModel,
@@ -135,10 +172,14 @@ fun CustomNavHost(
                 entry.predatorName
             )
         }
-        composable<ClansNav> {
+        composable<ClansNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) {
             ClanListScreen(viewModel = clanViewModel, navController = navController)
         }
-        composable<ClanDetailsNav> { backStackEntry ->
+        composable<ClanDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<ClanDetailsNav>()
             ClanDetailScreen(
                 clanViewModel = clanViewModel,
@@ -146,12 +187,16 @@ fun CustomNavHost(
                 clanName = entry.clanName
             )
         }
-        composable<LoreNav> {
+        composable<LoreNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) {
             LoreListScreen(
                 loreViewModel = loreViewModel, navController = navController
             )
         }
-        composable<LoreDetailsNav> { backStackEntry ->
+        composable<LoreDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<LoreDetailsNav>()
             LoreDetailsScreen(
                 loreViewModel = loreViewModel,
@@ -159,7 +204,9 @@ fun CustomNavHost(
                 title = entry.title
             )
         }
-        composable<SubLoreNav> { backStackEntry ->
+        composable<SubLoreNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<SubLoreNav>()
             SubLoreDetail(
                 loreViewModel = loreViewModel,
@@ -168,17 +215,23 @@ fun CustomNavHost(
                 navController = navController
             )
         }
-        composable<NPCGeneratorNav> {
+        composable<NPCGeneratorNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) {
             InputScreen(
                 modifier = Modifier,
                 viewModel = npcGeneratorViewModel,
                 navController = navController
             )
         }
-        composable<RulesNav> {
+        composable<RulesNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) {
             RuleListScreen(viewModel = rulesViewModel, navController = navController)
         }
-        composable<RulesDetailsNav> { backStackEntry ->
+        composable<RulesDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<RulesDetailsNav>()
             RulesDetailsScreen(
                 rulesViewModel = rulesViewModel,
@@ -186,7 +239,9 @@ fun CustomNavHost(
                 title = entry.title
             )
         }
-        composable<SubRuleNav> { backStackEntry ->
+        composable<SubRuleNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<SubRuleNav>()
             SubRuleDetail(
                 rulesViewModel = rulesViewModel,

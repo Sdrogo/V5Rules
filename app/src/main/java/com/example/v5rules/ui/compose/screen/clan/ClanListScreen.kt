@@ -46,7 +46,7 @@ fun ClanListScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(horizontal = 8.dp)
-                        .background(color = MaterialTheme.colorScheme.secondary)
+                        .background(color = MaterialTheme.colorScheme.background)
                 ) {
                     item {
                         val orientation = LocalConfiguration.current.orientation

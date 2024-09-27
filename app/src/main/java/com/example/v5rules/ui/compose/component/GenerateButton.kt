@@ -25,7 +25,7 @@ fun GenerateButton(
         enabled = !selectedNationality.isNullOrEmpty() || !isListEmpty,
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
-            contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+            contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
         ),
         onClick = {
             selectedNationality?.let {

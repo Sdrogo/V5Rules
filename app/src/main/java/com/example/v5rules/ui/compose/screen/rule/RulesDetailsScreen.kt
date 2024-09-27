@@ -45,7 +45,7 @@ fun RulesDetailsScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 8.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
+                .background(color = MaterialTheme.colorScheme.background)
         ) {
             rule?.let { rule ->
                 rule.sections.let { sections ->
@@ -117,7 +117,7 @@ fun SubRuleDetail(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp)
-                    .background(color = MaterialTheme.colorScheme.secondary)
+                    .background(color = MaterialTheme.colorScheme.background)
             ) {
                 item {
                     Column(modifier = Modifier.padding(8.dp)) {

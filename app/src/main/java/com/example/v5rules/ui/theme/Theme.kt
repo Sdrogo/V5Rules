@@ -19,22 +19,22 @@ import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = Color.White,
-    secondary = Color(0xFF222222),
+    secondary = Color(0XFFfefbf1),
     tertiary = Color(0XFF76031A),
     background = Color(0xFF222222),
     surface = Color(0xFF222222),
-    onPrimary =  Color.White,
+    onPrimary = Color.White,
     onSecondary = Color.White,
     onTertiary = Color.White,
-    onBackground =  Color.White,
-    onSurface =  Color.White,
+    onBackground = Color.White,
+    onSurface = Color.White,
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Color(0xFF000000),
     secondary = Color.White,
     tertiary = Color(0XFF76031A),
-    background = Color.White,
+    background = Color(0XFFfefbf1),
     surface = Color(0xFF000000),
     onPrimary = Color(0xFF000000),
     onSecondary = Color(0xFF000000),
@@ -62,10 +62,16 @@ fun V5RulesTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = Color(0xFF76031a).toArgb()
-            val isLightStatusBar = ColorUtils.calculateLuminance(Color(0xFF76031a).toArgb()) > 0.5
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = isLightStatusBar
-                  }
+            window.statusBarColor = colorScheme.tertiary.toArgb()
+            window.navigationBarColor = colorScheme.background.toArgb()
+
+            val isLightStatusBar =
+                ColorUtils.calculateLuminance(colorScheme.tertiary.toArgb()) > 0.5
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars =
+                isLightStatusBar
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars =
+                isLightStatusBar
+        }
     }
 
     MaterialTheme(

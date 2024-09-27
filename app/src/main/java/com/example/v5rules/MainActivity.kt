@@ -27,7 +27,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         Log.d("MainActivity", "onCreate called")
         setContent {
-            V5RulesApp()
+            V5RulesTheme {
+                V5RulesApp()
+            }
         }
     }
 }
@@ -43,20 +45,19 @@ fun V5RulesApp(
     val npcGeneratorViewModel: NPCGeneratorViewModel = hiltViewModel<NPCGeneratorViewModel>()
 
     val navController = rememberNavController()
-    V5RulesTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.secondary
-        ) {
-            CustomNavHost(
-                navController = navController,
-                disciplineViewModel = disciplineViewModel,
-                clanViewModel = clanViewModel,
-                predatorTypeViewModel = predatorTypeViewModel,
-                rulesViewModel = rulesViewModel,
-                loreViewModel = loreViewModel,
-                npcGeneratorViewModel = npcGeneratorViewModel
-            )
-        }
+
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.secondary
+    ) {
+        CustomNavHost(
+            navController = navController,
+            disciplineViewModel = disciplineViewModel,
+            clanViewModel = clanViewModel,
+            predatorTypeViewModel = predatorTypeViewModel,
+            rulesViewModel = rulesViewModel,
+            loreViewModel = loreViewModel,
+            npcGeneratorViewModel = npcGeneratorViewModel
+        )
     }
 }

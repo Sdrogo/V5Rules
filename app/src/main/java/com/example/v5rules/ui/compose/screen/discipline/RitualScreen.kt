@@ -57,7 +57,7 @@ fun DisciplineInfo(ritual: Ritual) {
         Spacer(modifier = Modifier.height(8.dp))
         Box(
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.secondary)
+                .background(MaterialTheme.colorScheme.background)
                 .border(
                 1.dp,
                 MaterialTheme.colorScheme.tertiary,

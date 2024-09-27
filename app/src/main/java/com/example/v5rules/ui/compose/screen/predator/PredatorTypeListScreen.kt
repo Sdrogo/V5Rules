@@ -43,7 +43,7 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
             modifier = Modifier
                 .fillMaxSize()
                 .padding(start = 16.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
+                .background(color = MaterialTheme.colorScheme.background)
         ) {
             when (uiState) {
                 is PredatorTypeUiState.Loading -> Text("Loading...")

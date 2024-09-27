@@ -41,7 +41,7 @@ fun PredatorTypeDetailsScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
+                .background(color = MaterialTheme.colorScheme.background)
         ) {
             predator?.let {
                 item {
@@ -73,7 +73,7 @@ fun PredatorTypeDetailsScreen(
                             modifier = Modifier
                                 .padding(8.dp)
                                 .fillMaxWidth()
-                                .background(MaterialTheme.colorScheme.secondary)
+                                .background(MaterialTheme.colorScheme.background)
                                 .border(
                                     1.dp,
                                     MaterialTheme.colorScheme.tertiary,
@@ -83,7 +83,7 @@ fun PredatorTypeDetailsScreen(
                         ) {
                             Column(
                                 modifier = Modifier
-                                    .background(MaterialTheme.colorScheme.secondary)
+                                    .background(MaterialTheme.colorScheme.background)
                             ) {
                                 it.paragraphs.forEach {
                                     Row(modifier = Modifier.padding(8.dp)) {
