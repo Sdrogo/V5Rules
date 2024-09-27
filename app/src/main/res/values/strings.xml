@@ -66,5 +66,6 @@
     <string name="predator">Predator Type</string>
     <string name="clan">Clan</string>
     <string name="discipline">Discipline</string>
+    <string name="lore_screen_title">Lore</string>
 
 </resources>

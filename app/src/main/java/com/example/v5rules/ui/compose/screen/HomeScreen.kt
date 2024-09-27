@@ -67,6 +67,18 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
         horizontalArrangement = Arrangement.SpaceAround,
     ) {
         Button(
+            onClick = { navController.navigate("lore_screen") },
+            modifier = Modifier
+                .fillMaxWidth(widthByOrientation)
+                .padding(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+            )
+        ) {
+            Text(text = stringResource(id = R.string.lore_screen_title))
+        }
+        Button(
             onClick = { navController.navigate("clan_screen") },
             modifier = Modifier
                 .fillMaxWidth(widthByOrientation)

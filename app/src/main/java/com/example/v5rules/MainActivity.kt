@@ -13,6 +13,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.ui.compose.screen.ClanDetailScreen
 import com.example.v5rules.ui.compose.screen.ClanListScreen
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
@@ -22,10 +23,13 @@ import com.example.v5rules.ui.compose.screen.HomeScreen
 import com.example.v5rules.ui.compose.screen.RitualScreen
 import com.example.v5rules.ui.compose.screen.DisciplinePowerScreen
 import com.example.v5rules.ui.compose.screen.InputScreen
+import com.example.v5rules.ui.compose.screen.LoreDetailsScreen
+import com.example.v5rules.ui.compose.screen.LoreListScreen
 import com.example.v5rules.ui.compose.screen.PredatorTypeDetailsScreen
 import com.example.v5rules.ui.compose.screen.PredatorTypeListScreen
 import com.example.v5rules.ui.compose.screen.RuleListScreen
 import com.example.v5rules.ui.compose.screen.RulesDetailsScreen
+import com.example.v5rules.ui.compose.screen.SubLoreDetail
 import com.example.v5rules.ui.compose.screen.SubRuleDetail
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.ui.viewModel.ClanViewModel
@@ -54,6 +58,7 @@ fun V5RulesApp(
     val clanViewModel: ClanViewModel = hiltViewModel<ClanViewModel>()
     val predatorTypeViewModel: PredatorTypeViewModel = hiltViewModel<PredatorTypeViewModel>()
     val rulesViewModel: RulesViewModel = hiltViewModel<RulesViewModel>()
+    val loreViewModel: LoreViewModel = hiltViewModel<LoreViewModel>()
     val npcGeneratorViewModel: NPCGeneratorViewModel = hiltViewModel<NPCGeneratorViewModel>()
 
     val navController = rememberNavController()
@@ -123,10 +128,26 @@ fun V5RulesApp(
                     )
                 }
                 composable("lore_screen") {
-                    //TODO implement lore Screen
+                    LoreListScreen(
+                        loreViewModel = loreViewModel, navController = navController)
                 }
-                composable("lore_screen/{title}") {
-                    //TODO implement lore Screen
+                composable("lore_screen/{title}") { backStackEntry ->
+                    val chapter = backStackEntry.arguments?.getString("title")
+                    LoreDetailsScreen(
+                        loreViewModel = loreViewModel,
+                        navController = navController,
+                        title = chapter ?: ""
+                    )
+                }
+                composable("lore_screen/{title}/{section}") { backStackEntry ->
+                    val chapter = backStackEntry.arguments?.getString("title")
+                    val section = backStackEntry.arguments?.getString("section")
+                    SubLoreDetail(
+                        loreViewModel = loreViewModel,
+                        chapterTitle = chapter ?: "",
+                        sectionTitle = section ?: "",
+                        navController = navController
+                    )
                 }
                 composable("npc_generator") {
                     InputScreen(modifier = Modifier, viewModel = npcGeneratorViewModel, navController = navController)
