@@ -26,7 +26,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.PredatorTypeUiState
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
-import com.example.v5rules.utils.PredatorTypeDetailsNav
+import com.example.v5rules.PredatorTypeDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

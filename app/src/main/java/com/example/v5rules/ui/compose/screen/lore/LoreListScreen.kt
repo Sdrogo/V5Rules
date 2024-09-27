@@ -26,7 +26,7 @@ import com.example.v5rules.ui.viewModel.LoreUiState
 import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.utils.LoreDetailsNav
+import com.example.v5rules.LoreDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

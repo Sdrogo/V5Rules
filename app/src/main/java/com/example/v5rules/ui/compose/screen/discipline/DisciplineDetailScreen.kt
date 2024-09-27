@@ -28,8 +28,8 @@ import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
-import com.example.v5rules.utils.DisciplinePowerNav
-import com.example.v5rules.utils.RitualNav
+import com.example.v5rules.DisciplinePowerNav
+import com.example.v5rules.RitualNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

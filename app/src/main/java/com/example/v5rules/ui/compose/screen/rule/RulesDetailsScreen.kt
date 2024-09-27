@@ -29,7 +29,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.viewModel.RulesViewModel
-import com.example.v5rules.utils.SubRuleNav
+import com.example.v5rules.SubRuleNav
 
 @Composable
 fun RulesDetailsScreen(

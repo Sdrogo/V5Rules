@@ -26,7 +26,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.RulesUiState
 import com.example.v5rules.ui.viewModel.RulesViewModel
-import com.example.v5rules.utils.RulesDetailsNav
+import com.example.v5rules.RulesDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

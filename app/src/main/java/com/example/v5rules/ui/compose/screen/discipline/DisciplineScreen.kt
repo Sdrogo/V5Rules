@@ -19,7 +19,7 @@ import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 import com.example.v5rules.ui.viewModel.DisciplineUiState
-import com.example.v5rules.utils.DisciplineDetailsNav
+import com.example.v5rules.DisciplineDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

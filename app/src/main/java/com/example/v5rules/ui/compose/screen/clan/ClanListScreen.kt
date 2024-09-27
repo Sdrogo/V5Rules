@@ -27,7 +27,7 @@ import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.ClanUiState
 import com.example.v5rules.ui.viewModel.ClanViewModel
-import com.example.v5rules.utils.ClanDetailsNav
+import com.example.v5rules.ClanDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

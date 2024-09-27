@@ -18,12 +18,12 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.TintedImage
-import com.example.v5rules.utils.ClansNav
-import com.example.v5rules.utils.DisciplinesNav
-import com.example.v5rules.utils.LoreNav
-import com.example.v5rules.utils.NPCGeneratorNav
-import com.example.v5rules.utils.PredatorTypesNav
-import com.example.v5rules.utils.RulesNav
+import com.example.v5rules.ClansNav
+import com.example.v5rules.DisciplinesNav
+import com.example.v5rules.LoreNav
+import com.example.v5rules.NPCGeneratorNav
+import com.example.v5rules.PredatorTypesNav
+import com.example.v5rules.RulesNav
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
