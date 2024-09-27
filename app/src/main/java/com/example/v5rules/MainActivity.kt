@@ -13,6 +13,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.ui.compose.screen.clan.ClanDetailScreen
 import com.example.v5rules.ui.compose.screen.clan.ClanListScreen
@@ -36,6 +37,22 @@ import com.example.v5rules.ui.viewModel.ClanViewModel
 import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
 import com.example.v5rules.ui.viewModel.RulesViewModel
+import com.example.v5rules.utils.ClanDetailsScreen
+import com.example.v5rules.utils.ClansScreen
+import com.example.v5rules.utils.DisciplineDetailsScreen
+import com.example.v5rules.utils.DisciplinePowerScreen
+import com.example.v5rules.utils.DisciplinesScreen
+import com.example.v5rules.utils.HomeScreen
+import com.example.v5rules.utils.LoreScreen
+import com.example.v5rules.utils.LoreDetailsScreen
+import com.example.v5rules.utils.NPCGeneratorScreen
+import com.example.v5rules.utils.PredatorTypeDetailsScreen
+import com.example.v5rules.utils.PredatorTypesScreen
+import com.example.v5rules.utils.RitualScreen
+import com.example.v5rules.utils.RulesScreen
+import com.example.v5rules.utils.RulesDetailsScreen
+import com.example.v5rules.utils.SubLoreScreen
+import com.example.v5rules.utils.SubRuleScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -67,114 +84,109 @@ fun V5RulesApp(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.secondary
         ) {
-            NavHost(navController = navController, startDestination = "home_screen") {
-                composable("home_screen") {
+            NavHost(navController = navController, startDestination = HomeScreen) {
+                composable<HomeScreen> {
                     HomeScreen(navController)
                 }
-                composable("discipline_screen") {
+                composable<DisciplinesScreen> {
                     DisciplineScreen(disciplineViewModel, navController)
                 }
-                composable("discipline_detail_screen/{disciplineId}") { backStackEntry ->
-                    val disciplineId = backStackEntry.arguments?.getString("disciplineId")
+                composable<DisciplineDetailsScreen> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<DisciplineDetailsScreen>()
                     DisciplineDetailScreen(
-                        disciplineId = disciplineId ?: "",
+                        disciplineId = entry.disciplineId,
                         disciplineViewModel,
                         navController
                     )
                 }
-                composable("discipline_detail_screen/{disciplineId}/{subDisciplineId}") { backStackEntry ->
-                    val disciplineId = backStackEntry.arguments?.getString("disciplineId")
-                    val subDisciplineId = backStackEntry.arguments?.getString("subDisciplineId")
+                composable<DisciplinePowerScreen> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<DisciplinePowerScreen>()
                     DisciplinePowerScreen(
-                        disciplineId = disciplineId ?: "",
-                        disciplinePowerId = subDisciplineId ?: "",
+                        disciplineId = entry.disciplineId,
+                        disciplinePowerId = entry.subDisciplineId,
                         viewModel = disciplineViewModel,
                         navController = navController
                     )
                 }
-                composable("discipline_ritual_screen/{disciplineId}/{ritualId}") { backStackEntry ->
-                    val disciplineId = backStackEntry.arguments?.getString("disciplineId")
-                    val ritualId = backStackEntry.arguments?.getString("ritualId")
+                composable<RitualScreen> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<RitualScreen>()
                     RitualScreen(
-                        disciplineId = disciplineId ?: "",
-                        ritualId = ritualId ?: "",
+                        disciplineId = entry.disciplineId,
+                        ritualId = entry.ritualId,
                         viewModel = disciplineViewModel,
                         navController = navController
                     )
                 }
-                composable("predator_type_screen") {
+                composable<PredatorTypesScreen> {
                     PredatorTypeListScreen(
                         viewModel = predatorTypeViewModel,
                         navController = navController
                     )
                 }
-                composable("predator_type_screen/{predatorName}") { backStackEntry ->
-                    val predatorNameId = backStackEntry.arguments?.getString("predatorName")
+                composable<PredatorTypeDetailsScreen>{ backStackEntry ->
+                    val entry = backStackEntry.toRoute<PredatorTypeDetailsScreen>()
                     PredatorTypeDetailsScreen(
                         predatorTypeViewModel,
                         navController,
-                        predatorNameId ?: ""
+                        entry.predatorName
                     )
                 }
-                composable("clan_screen") {
+                composable<ClansScreen> {
                     ClanListScreen(viewModel = clanViewModel, navController = navController)
                 }
-                composable("clan_screen/{clanName}") { backStackEntry ->
-                    val clanName = backStackEntry.arguments?.getString("clanName")
+                composable<ClanDetailsScreen> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<ClanDetailsScreen>()
                     ClanDetailScreen(
                         clanViewModel = clanViewModel,
                         navController = navController,
-                        clanName = clanName ?: ""
+                        clanName = entry.clanName
                     )
                 }
-                composable("lore_screen") {
+                composable<LoreScreen> {
                     LoreListScreen(
                         loreViewModel = loreViewModel, navController = navController)
                 }
-                composable("lore_screen/{title}") { backStackEntry ->
-                    val chapter = backStackEntry.arguments?.getString("title")
-                    LoreDetailsScreen(
+                composable<LoreDetailsScreen> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<LoreDetailsScreen>()
+                      LoreDetailsScreen(
                         loreViewModel = loreViewModel,
                         navController = navController,
-                        title = chapter ?: ""
+                        title = entry.title
                     )
                 }
-                composable("lore_screen/{title}/{section}") { backStackEntry ->
-                    val chapter = backStackEntry.arguments?.getString("title")
-                    val section = backStackEntry.arguments?.getString("section")
+                composable<SubLoreScreen> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<SubLoreScreen>()
                     SubLoreDetail(
                         loreViewModel = loreViewModel,
-                        chapterTitle = chapter ?: "",
-                        sectionTitle = section ?: "",
+                        chapterTitle = entry.title,
+                        sectionTitle = entry.section,
                         navController = navController
                     )
                 }
-                composable("npc_generator") {
+                composable<NPCGeneratorScreen> {
                     InputScreen(modifier = Modifier, viewModel = npcGeneratorViewModel, navController = navController)
                 }
-                composable("rules_screen") {
+                composable<RulesScreen> {
                     RuleListScreen(viewModel = rulesViewModel, navController = navController)
                 }
-                composable("rules_screen/{title}") { backStackEntry ->
-                    val chapter = backStackEntry.arguments?.getString("title")
+                composable<RulesDetailsScreen> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<RulesDetailsScreen>()
                     RulesDetailsScreen(
                         rulesViewModel = rulesViewModel,
                         navController = navController,
-                        title = chapter ?: ""
+                        title = entry.title
                     )
                 }
-                composable("rules_screen/{title}/{section}") { backStackEntry ->
-                    val chapter = backStackEntry.arguments?.getString("title")
-                    val section = backStackEntry.arguments?.getString("section")
+                composable<SubRuleScreen> { backStackEntry ->
+                    val entry = backStackEntry.toRoute<SubRuleScreen>()
                     SubRuleDetail(
                         rulesViewModel = rulesViewModel,
-                        chapterTitle = chapter ?: "",
-                        sectionTitle = section ?: "",
+                        chapterTitle = entry.title,
+                        sectionTitle = entry.section,
                         navController = navController
                     )
                 }
             }
         }
     }
-
 }

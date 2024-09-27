@@ -26,6 +26,8 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.PredatorTypeUiState
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
+import com.example.v5rules.utils.PredatorTypeDetailsScreen
+import com.example.v5rules.utils.PredatorTypesScreen
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -67,7 +69,9 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
                                         color = MaterialTheme.colorScheme.primary,
                                         modifier = Modifier
                                             .fillMaxWidth(widthByOrientation)
-                                            .clickable { navController.navigate("predator_type_screen/${it.name}") }
+                                            .clickable { navController.navigate(
+                                                PredatorTypeDetailsScreen(it.name)
+                                            ) }
                                             .padding(8.dp)
                                     )
                                 }

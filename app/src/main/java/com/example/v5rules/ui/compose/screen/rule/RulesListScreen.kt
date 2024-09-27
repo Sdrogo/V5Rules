@@ -26,6 +26,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.RulesUiState
 import com.example.v5rules.ui.viewModel.RulesViewModel
+import com.example.v5rules.utils.RulesDetailsScreen
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -55,26 +56,31 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
                     LazyColumn(modifier = Modifier.fillMaxWidth()) {
                         item {
                             val orientation = LocalConfiguration.current.orientation
-                            val widthByOrientation = if(orientation == Configuration.ORIENTATION_LANDSCAPE) 0.5f else 1f
-                                FlowRow(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(8.dp),
-                                    horizontalArrangement = Arrangement.Center,
-                                ) {
-                                    chapters.forEach {
-                                        Text(
-                                            text = it.title,
-                                            style = MaterialTheme.typography.headlineSmall,
-                                            fontWeight = FontWeight.Bold,
-                                            color = MaterialTheme.colorScheme.primary,
-                                            modifier = Modifier
-                                                .fillMaxSize(widthByOrientation)
-                                                .clickable { navController.navigate("rules_screen/${it.title}") }
-                                                .padding(8.dp)
-                                        )
-                                    }
+                            val widthByOrientation =
+                                if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.5f else 1f
+                            FlowRow(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(8.dp),
+                                horizontalArrangement = Arrangement.Center,
+                            ) {
+                                chapters.forEach {
+                                    Text(
+                                        text = it.title,
+                                        style = MaterialTheme.typography.headlineSmall,
+                                        fontWeight = FontWeight.Bold,
+                                        color = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier
+                                            .fillMaxSize(widthByOrientation)
+                                            .clickable {
+                                                navController.navigate(
+                                                    RulesDetailsScreen(it.title)
+                                                )
+                                            }
+                                            .padding(8.dp)
+                                    )
                                 }
+                            }
                         }
                     }
                 }
@@ -87,5 +93,3 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
         }
     }
 }
-
-
