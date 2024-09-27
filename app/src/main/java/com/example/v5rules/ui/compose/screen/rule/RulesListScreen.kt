@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.rule
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -27,6 +26,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.RulesUiState
 import com.example.v5rules.ui.viewModel.RulesViewModel
+import com.example.v5rules.utils.RulesDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -56,26 +56,31 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
                     LazyColumn(modifier = Modifier.fillMaxWidth()) {
                         item {
                             val orientation = LocalConfiguration.current.orientation
-                            val widthByOrientation = if(orientation == Configuration.ORIENTATION_LANDSCAPE) 0.5f else 1f
-                                FlowRow(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(8.dp),
-                                    horizontalArrangement = Arrangement.Center,
-                                ) {
-                                    chapters.forEach {
-                                        Text(
-                                            text = it.title,
-                                            style = MaterialTheme.typography.headlineSmall,
-                                            fontWeight = FontWeight.Bold,
-                                            color = MaterialTheme.colorScheme.primary,
-                                            modifier = Modifier
-                                                .fillMaxSize(widthByOrientation)
-                                                .clickable { navController.navigate("rules_screen/${it.title}") }
-                                                .padding(8.dp)
-                                        )
-                                    }
+                            val widthByOrientation =
+                                if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.5f else 1f
+                            FlowRow(
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(8.dp),
+                                horizontalArrangement = Arrangement.Center,
+                            ) {
+                                chapters.forEach {
+                                    Text(
+                                        text = it.title,
+                                        style = MaterialTheme.typography.headlineSmall,
+                                        fontWeight = FontWeight.Bold,
+                                        color = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier
+                                            .fillMaxSize(widthByOrientation)
+                                            .clickable {
+                                                navController.navigate(
+                                                    RulesDetailsNav(it.title)
+                                                )
+                                            }
+                                            .padding(8.dp)
+                                    )
                                 }
+                            }
                         }
                     }
                 }
@@ -88,5 +93,3 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
         }
     }
 }
-
-

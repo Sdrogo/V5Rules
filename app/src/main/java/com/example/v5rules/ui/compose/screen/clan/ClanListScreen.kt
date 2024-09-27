@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.clan
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -27,6 +27,7 @@ import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.ClanUiState
 import com.example.v5rules.ui.viewModel.ClanViewModel
+import com.example.v5rules.utils.ClanDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -84,11 +85,13 @@ fun ClanItem(clan: Clan, navController: NavHostController, maxWidth: Float = 1f)
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth(maxWidth)
-            .clickable { navController.navigate("clan_screen/${clan.name}") }) {
+            .padding(vertical = 8.dp)
+            .clickable { navController.navigate(ClanDetailsNav(clan.name)) }
+    ) {
         ClanImage(
             clanName = clan.name,
             tintColor = MaterialTheme.colorScheme.tertiary,
-            width = 48.dp,
+            width = 40.dp,
         )
         Text(
             text = clan.name,

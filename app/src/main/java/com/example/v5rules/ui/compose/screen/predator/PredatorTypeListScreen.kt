@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.predator
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -26,6 +26,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.PredatorTypeUiState
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
+import com.example.v5rules.utils.PredatorTypeDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -67,7 +68,9 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
                                         color = MaterialTheme.colorScheme.primary,
                                         modifier = Modifier
                                             .fillMaxWidth(widthByOrientation)
-                                            .clickable { navController.navigate("predator_type_screen/${it.name}") }
+                                            .clickable { navController.navigate(
+                                                PredatorTypeDetailsNav(it.name)
+                                            ) }
                                             .padding(8.dp)
                                     )
                                 }

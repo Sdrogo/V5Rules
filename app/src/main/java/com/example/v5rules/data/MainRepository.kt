@@ -29,4 +29,8 @@ class MainRepository(context: Context) {
         return rulesReader.readRules(language)
     }
 
+    fun loadLore(language: Locale): List<Chapter> {
+        return rulesReader.readLore(language)
+    }
+
 }

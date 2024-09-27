@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.discipline
 
 import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
@@ -28,6 +28,8 @@ import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
+import com.example.v5rules.utils.DisciplinePowerNav
+import com.example.v5rules.utils.RitualNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -38,7 +40,6 @@ fun DisciplineDetailScreen(
 ) {
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val orientation = LocalConfiguration.current.orientation
-    val widthByOrientation = if(orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 1f
     CommonScaffold(navController = navController, title = discipline?.title ?: "") {
 
         if (discipline != null) {
@@ -143,7 +144,7 @@ fun SubDisciplineItem(
             .background(color = MaterialTheme.colorScheme.secondary)
             .padding(8.dp)
             .fillMaxWidth(widthValue)
-            .clickable { navController.navigate("discipline_detail_screen/${disciplineId}/${disciplinePower.id}") }) {
+            .clickable { navController.navigate(DisciplinePowerNav(disciplineId,disciplinePower.id)) }) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = disciplinePower.title,
@@ -186,7 +187,8 @@ fun RitualItem(
             modifier = Modifier
                 .background(color = MaterialTheme.colorScheme.secondary)
                 .padding(8.dp)
-                .clickable { navController.navigate("discipline_ritual_screen/${disciplineId}/${ritual.id}") }) {
+                .clickable { navController.navigate(RitualNav(disciplineId,ritual.id))}
+        ) {
             Text(
                 text = ritual.title,
                 style = MaterialTheme.typography.bodyLarge,
@@ -200,7 +202,8 @@ fun RitualItem(
                 .background(color = MaterialTheme.colorScheme.secondary)
                 .fillMaxWidth()
                 .padding(8.dp)
-                .clickable { navController.navigate("discipline_ritual_screen/${disciplineId}/${ritual.id}") }) {
+                .clickable { navController.navigate(RitualNav(disciplineId,ritual.id)) }
+        ) {
             Text(
                 text = ritual.title,
                 style = MaterialTheme.typography.bodyLarge,
@@ -504,7 +507,6 @@ fun RitualsList(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier

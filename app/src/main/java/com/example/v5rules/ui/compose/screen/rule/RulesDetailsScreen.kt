@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.rule
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -29,6 +29,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.viewModel.RulesViewModel
+import com.example.v5rules.utils.SubRuleNav
 
 @Composable
 fun RulesDetailsScreen(
@@ -70,7 +71,9 @@ fun RulesDetailsScreen(
                                     text = section.title,
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Bold,
-                                    modifier = Modifier.clickable { navController.navigate("rules_screen/${rule.title}/${section.title}") },
+                                    modifier = Modifier.clickable { navController.navigate(
+                                        SubRuleNav(rule.title, section.title)
+                                    ) },
                                     color = MaterialTheme.colorScheme.primary
                                 )
                             } else {

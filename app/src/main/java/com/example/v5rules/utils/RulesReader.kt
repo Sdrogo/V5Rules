@@ -19,4 +19,14 @@ class RulesReader(private val context: Context) {
         val reader = InputStreamReader(inputStream)
         return Gson().fromJson(reader, Array<Chapter>::class.java).toList()
     }
+    fun readLore(language: Locale): List<Chapter> {
+        val resourceId = when (language) {
+            Locale.ITALIAN -> R.raw.lore_it
+            else -> {R.raw.lore_it}
+        }
+
+        val inputStream = context.resources.openRawResource(resourceId)
+        val reader = InputStreamReader(inputStream)
+        return Gson().fromJson(reader, Array<Chapter>::class.java).toList()
+    }
 }

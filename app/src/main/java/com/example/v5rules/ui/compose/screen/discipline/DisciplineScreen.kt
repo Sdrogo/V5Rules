@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen
+package com.example.v5rules.ui.compose.screen.discipline
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -19,6 +19,7 @@ import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 import com.example.v5rules.ui.viewModel.DisciplineUiState
+import com.example.v5rules.utils.DisciplineDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -81,7 +82,7 @@ fun DisciplineItem(
         .fillMaxWidth(maxWidth)
         .padding(vertical = 8.dp)
         .fillMaxWidth(maxWidth)
-        .clickable { navController.navigate("discipline_detail_screen/${discipline.id}") }) {
+        .clickable { navController.navigate(DisciplineDetailsNav(discipline.id))}) {
         DisciplineIcon(
             disciplineId = discipline.id,
             contentDescription = discipline.title,
