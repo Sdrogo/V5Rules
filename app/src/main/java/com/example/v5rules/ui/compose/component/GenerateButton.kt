@@ -34,7 +34,7 @@ fun GenerateButton(
         },
         modifier = Modifier.fillMaxWidth(width).padding(8.dp)
     ) {
-        Text(
+        Text(color = MaterialTheme.colorScheme.secondary,
             text = if (!firstGeneration) {
                 stringResource(id = R.string.generate_button_label)
             } else {

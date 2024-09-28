@@ -1,6 +1,11 @@
 package com.example.v5rules.ui.compose.screen
 
 import android.content.res.Configuration
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,6 +14,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -30,7 +36,13 @@ fun HomeScreen(navController: NavHostController) {
     CommonScaffold(
         navController = navController, title = stringResource(id = R.string.app_name)
     ) {
-
+        val infiniteTransition = rememberInfiniteTransition(label = "infinite transition")
+        val animatedWhite by infiniteTransition.animateColor(
+            initialValue = MaterialTheme.colorScheme.primary,
+            targetValue = MaterialTheme.colorScheme.onTertiary,
+            animationSpec = infiniteRepeatable(tween(5000), RepeatMode.Reverse),
+            label = "color"
+        )
         Column(
             modifier = Modifier
                 .padding(16.dp)
@@ -40,7 +52,7 @@ fun HomeScreen(navController: NavHostController) {
         ) {
             TintedImage(
                 R.drawable.logo_v5,
-                MaterialTheme.colorScheme.primary,
+                animatedWhite,
                 300.dp
             )
             Spacer(modifier = Modifier.weight(0.5f))
@@ -65,6 +77,13 @@ fun HomeScreen(navController: NavHostController) {
 fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier) {
     val orientation = LocalConfiguration.current.orientation
     val widthByOrientation = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 1f
+    val infiniteTransition = rememberInfiniteTransition(label = "infinite transition")
+    val animatedRed by infiniteTransition.animateColor(
+        initialValue = MaterialTheme.colorScheme.tertiary,
+        targetValue = MaterialTheme.colorScheme.onPrimary,
+        animationSpec = infiniteRepeatable(tween(5000), RepeatMode.Reverse),
+        label = "color"
+    )
     FlowRow(
         modifier = modifier
             .fillMaxSize(),
@@ -76,7 +95,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                containerColor = animatedRed, // Your desired button color
                 contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
@@ -88,7 +107,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                containerColor = animatedRed, // Your desired button color
                 contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
@@ -100,7 +119,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                containerColor = animatedRed, // Your desired button color
                 contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
@@ -112,7 +131,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                containerColor = animatedRed, // Your desired button color
                 contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
@@ -124,7 +143,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                containerColor = animatedRed, // Your desired button color
                 contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
@@ -136,7 +155,7 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
                 .padding(8.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                containerColor = animatedRed, // Your desired button color
                 contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
             )
         ) {
