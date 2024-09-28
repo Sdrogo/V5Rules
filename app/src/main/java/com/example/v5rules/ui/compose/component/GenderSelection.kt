@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,7 +41,7 @@ fun GenderSelection(
                 onClick = { onGenderSelected(Gender.MALE) },
                 enabled = selectedGender != Gender.MALE
             )
-            Text(modifier = Modifier.wrapContentSize(), text = stringResource(id = R.string.male))
+            Text(modifier = Modifier.wrapContentSize(), text = stringResource(id = R.string.male), color = MaterialTheme.colorScheme.primary)
         }
         Row(
             modifier = Modifier.fillMaxWidth(if (isLandscape) 0.4f else 1f),
@@ -52,7 +53,7 @@ fun GenderSelection(
                 onClick = { onGenderSelected(Gender.FEMALE) },
                 enabled = selectedGender != Gender.FEMALE
             )
-            Text(modifier = Modifier.wrapContentSize(), text = stringResource(id = R.string.female))
+            Text(modifier = Modifier.wrapContentSize(), text = stringResource(id = R.string.female),color = MaterialTheme.colorScheme.primary)
         }
     }
 }

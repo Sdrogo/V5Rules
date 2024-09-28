@@ -21,9 +21,7 @@ import com.example.v5rules.data.Npc
 @Composable
 fun GeneratedName(
     npc: Npc?,
-    widthFloat: Float = 1f,
-    isLandscape: Boolean = false,
-    modifier: Modifier = Modifier
+    widthFloat: Float = 1f
 ) {
         FlowRow (
             modifier = Modifier
@@ -36,7 +34,8 @@ fun GeneratedName(
                     text = it,
                     style = MaterialTheme.typography.headlineLarge,
                     modifier = Modifier
-                        .padding(vertical = 8.dp)
+                        .padding(vertical = 8.dp),
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
             npc?.secondName?.let {
@@ -44,7 +43,8 @@ fun GeneratedName(
                     text = it,
                     style = MaterialTheme.typography.headlineLarge,
                     modifier = Modifier
-                        .padding(vertical = 8.dp)
+                        .padding(vertical = 8.dp),
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
             npc?.cognome?.let {
@@ -52,7 +52,8 @@ fun GeneratedName(
                     text = it,
                     style = MaterialTheme.typography.headlineLarge,
                     modifier = Modifier
-                        .padding(vertical = 8.dp)
+                        .padding(vertical = 8.dp),
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
         }

@@ -26,7 +26,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.PredatorTypeUiState
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
-import com.example.v5rules.utils.PredatorTypeDetailsNav
+import com.example.v5rules.PredatorTypeDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -43,7 +43,7 @@ fun PredatorTypeListScreen(viewModel: PredatorTypeViewModel, navController: NavH
             modifier = Modifier
                 .fillMaxSize()
                 .padding(start = 16.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
+                .background(color = MaterialTheme.colorScheme.background)
         ) {
             when (uiState) {
                 is PredatorTypeUiState.Loading -> Text("Loading...")

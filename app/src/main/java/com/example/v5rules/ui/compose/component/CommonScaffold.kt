@@ -37,6 +37,7 @@ fun CommonScaffold(
                         Text(
                             text = title,
                             style = MaterialTheme.typography.headlineMedium,
+                            color = MaterialTheme.colorScheme.secondary,
                             textAlign = TextAlign.Center, // Center the text
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
@@ -48,26 +49,24 @@ fun CommonScaffold(
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                     contentDescription = "Go Back",
-                                    tint = MaterialTheme.colorScheme.primary
+                                    tint = MaterialTheme.colorScheme.secondary
                                 )
                             }
                         }
                     },
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors( // Use centerAlignedTopAppBarColors
                         containerColor = MaterialTheme.colorScheme.tertiary, // Set the container color to red
-                        titleContentColor = MaterialTheme.colorScheme.primary
+                        titleContentColor = MaterialTheme.colorScheme.secondary
                     )
                 )
             }
         ) { innerPadding ->
             Box(modifier = Modifier
                 .padding(innerPadding)
-                .background(MaterialTheme.colorScheme.secondary)
+                .background(MaterialTheme.colorScheme.background)
                 .fillMaxSize()) {
                 content()
             }
-
         }
     }
-
 }

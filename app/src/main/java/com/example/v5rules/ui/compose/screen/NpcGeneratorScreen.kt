@@ -111,8 +111,7 @@ fun InputScreen(
                 }
                 GeneratedName(
                     npc = uiState.npc,
-                    widthFloat = if (isLandscape) 0.45f else 1f,
-                    isLandscape = isLandscape
+                    widthFloat = if (isLandscape) 0.45f else 1f
                 )
                 FlowRow(
                     modifier = modifier

@@ -3,6 +3,7 @@ package com.example.v5rules.ui.compose.component
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,6 +27,6 @@ fun RegenerationCheckbox(
             onCheckedChange = onCheckedChange,
             enabled = enabled && firstGeneration // Enable only if firstGeneration is true
         )
-        Text(text = text)
+        Text(text = text, color = MaterialTheme.colorScheme.primary)
     }
 }

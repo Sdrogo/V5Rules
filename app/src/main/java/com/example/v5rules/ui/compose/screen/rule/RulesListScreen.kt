@@ -26,7 +26,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.viewModel.RulesUiState
 import com.example.v5rules.ui.viewModel.RulesViewModel
-import com.example.v5rules.utils.RulesDetailsNav
+import com.example.v5rules.RulesDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -42,7 +42,7 @@ fun RuleListScreen(viewModel: RulesViewModel, navController: NavHostController) 
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.secondary)
+                .background(color = MaterialTheme.colorScheme.background)
                 .padding(start = 16.dp)
         ) {
             when (uiState) {

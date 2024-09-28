@@ -36,7 +36,7 @@ fun DisciplinePowerScreen(
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val disciplinePower = discipline?.disciplinePowers?.find { it.id == disciplinePowerId }
     CommonScaffold(navController = navController, title = disciplinePower?.title ?: "") {
-        Column( modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary)){
+        Column( modifier = Modifier.background(color = MaterialTheme.colorScheme.background)){
             if (disciplinePower != null) {
                 LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)) { // Wrap content in LazyColumn
                     item { // Use 'item' to add individual composables to the LazyColumn
@@ -50,7 +50,7 @@ fun DisciplinePowerScreen(
 
 @Composable
 fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline) {
-    Column(modifier = Modifier.background(MaterialTheme.colorScheme.secondary)) {
+    Column(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
         Spacer(modifier = Modifier.padding(8.dp))
         TextBlock(
             title = stringResource(id = R.string.discipline_amalgama),
@@ -65,7 +65,7 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
         Spacer(modifier = Modifier.height(8.dp))
         Box(
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.secondary)
+                .background(MaterialTheme.colorScheme.background)
                 .border(
                     1.dp,
                     MaterialTheme.colorScheme.tertiary,
@@ -75,7 +75,7 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
             Column(
                 modifier = Modifier
                     .padding(8.dp)
-                    .background(color = MaterialTheme.colorScheme.secondary)
+                    .background(color = MaterialTheme.colorScheme.background)
             ) {
                 TextBlock(
                     title = stringResource(id = R.string.discipline_cost),

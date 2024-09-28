@@ -19,7 +19,7 @@ import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 import com.example.v5rules.ui.viewModel.DisciplineUiState
-import com.example.v5rules.utils.DisciplineDetailsNav
+import com.example.v5rules.DisciplineDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -41,7 +41,7 @@ fun DisciplineScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(horizontal = 16.dp)
-                        .background(color = MaterialTheme.colorScheme.secondary)
+                        .background(color = MaterialTheme.colorScheme.background)
                 ) {
                     item {
                         val orientation = LocalConfiguration.current.orientation

@@ -26,7 +26,7 @@ import com.example.v5rules.ui.viewModel.LoreUiState
 import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.utils.LoreDetailsNav
+import com.example.v5rules.LoreDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -42,7 +42,7 @@ fun LoreListScreen(loreViewModel : LoreViewModel, navController: NavHostControll
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.secondary)
+                .background(color = MaterialTheme.colorScheme.background)
                 .padding(start = 16.dp)
         ) {
             when (uiState) {

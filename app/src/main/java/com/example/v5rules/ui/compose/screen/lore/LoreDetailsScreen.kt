@@ -29,7 +29,7 @@ import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
-import com.example.v5rules.utils.SubLoreNav
+import com.example.v5rules.SubLoreNav
 
 @Composable
 fun LoreDetailsScreen(
@@ -44,8 +44,8 @@ fun LoreDetailsScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 8.dp)
-                .background(color = MaterialTheme.colorScheme.secondary)
+                .padding(8.dp)
+                .background(color = MaterialTheme.colorScheme.background)
         ) {
             rule?.let { rule ->
                 rule.sections.let { sections ->
@@ -72,7 +72,13 @@ fun LoreDetailsScreen(
                                     text = section.title,
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Bold,
-                                    modifier = Modifier.clickable { navController.navigate(SubLoreNav(rule.title, section.title)) },
+                                    modifier = Modifier
+                                        .padding(start = 8.dp)
+                                        .clickable {
+                                            navController.navigate(
+                                                SubLoreNav(rule.title, section.title)
+                                            )
+                                        },
                                     color = MaterialTheme.colorScheme.primary
                                 )
                             } else {
@@ -116,7 +122,7 @@ fun SubLoreDetail(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp)
-                    .background(color = MaterialTheme.colorScheme.secondary)
+                    .background(color = MaterialTheme.colorScheme.background)
             ) {
                 item {
                     Column(modifier = Modifier.padding(8.dp)) {
@@ -138,7 +144,7 @@ fun SubLoreDetail(
                         fontWeight = FontWeight.Bold
                     ) {
                         Text(
-                            modifier = Modifier.padding(start = 8.dp),
+                            modifier = Modifier.padding(8.dp),
                             text = AnnotatedString(
                                 subParagraph.content,
                                 paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)

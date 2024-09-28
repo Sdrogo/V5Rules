@@ -62,7 +62,7 @@ fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.secondary)
+                    .background(MaterialTheme.colorScheme.background)
                     .border(
                         width = 1.dp,
                         color = accentColor
