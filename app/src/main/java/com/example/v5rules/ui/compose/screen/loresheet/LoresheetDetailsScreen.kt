@@ -59,10 +59,10 @@ fun LoresheetDetailsScreen(
                 .background(color = MaterialTheme.colorScheme.background)
         ) {
             item {
-                val orientation = LocalConfiguration.current.orientation
+                val orientation = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
                 val widthByOrientation =
-                    if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.4f else 1f
-                val maxRowItem = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
+                    if (orientation) 0.4f else 1f
+                val maxRowItem = if (orientation) 2 else 1
 
                 FlowRow(
                     modifier = Modifier
@@ -104,7 +104,8 @@ fun LoresheetDetailsScreen(
                         sheet.powers.forEach { power ->
                             LoresheetPower(
                                 loresheetPower = power,
-                                widthByOrientation = widthByOrientation
+                                widthByOrientation = widthByOrientation,
+                                isLandscape = orientation
                             )
                         }
                     }
@@ -115,11 +116,12 @@ fun LoresheetDetailsScreen(
 }
 
 @Composable
-fun LoresheetPower(loresheetPower: LoresheetPower, widthByOrientation: Float) {
+fun LoresheetPower(loresheetPower: LoresheetPower, widthByOrientation: Float, isLandscape: Boolean = false) {
     CustomContentExpander(
         maxWith = widthByOrientation,
         header = {
             LoresheetPowerLineItem(
+                isLandscape = isLandscape,
                 level = loresheetPower.level,
                 name = loresheetPower.title
             )
@@ -134,10 +136,10 @@ fun LoresheetPower(loresheetPower: LoresheetPower, widthByOrientation: Float) {
 }
 
 @Composable
-fun LoresheetPowerLineItem(level: Int, name: String) {
+fun LoresheetPowerLineItem(level: Int, name: String, isLandscape: Boolean = false) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center,
+        horizontalArrangement = if(isLandscape)Arrangement.Center else Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
         DotsOnlyForLevel(level = level)

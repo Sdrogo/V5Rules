@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -16,8 +17,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
+import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.Ritual
 import com.example.v5rules.ui.compose.component.CommonScaffold
+import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
@@ -33,11 +36,11 @@ fun RitualScreen(
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val ritual = discipline?.rituals?.find { it.id == ritualId }
     CommonScaffold(navController = navController, title = ritual?.title ?: "") {
-        Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary)) {
+        Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
             if (ritual != null) {
                 LazyColumn(modifier = Modifier.padding(8.dp)) { // Wrap content in LazyColumn
                     item { // Use 'item' to add individual composables to the LazyColumn
-                        DisciplineInfo(ritual = ritual)
+                        DisciplineInfo(ritual = ritual, discipline = discipline)
                     }
                 }
             }
@@ -47,8 +50,8 @@ fun RitualScreen(
 
 
 @Composable
-fun DisciplineInfo(ritual: Ritual) {
-    Column {
+fun DisciplineInfo(ritual: Ritual, discipline: Discipline) {
+    Column(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
         TextBlock(
             title = stringResource(id = R.string.discipline_rituals_description),
             component = ritual.description,
@@ -92,6 +95,16 @@ fun DisciplineInfo(ritual: Ritual) {
         if (ritual.table != null) {
             TableContent(headerList = ritual.table.headers, contentList = ritual.table.columns)
         }
+        Row{
+            Spacer(modifier = Modifier.weight(1f))
+            DisciplineIcon(
+                disciplineId = discipline.id,
+                contentDescription = discipline.title,
+                size = 64.dp
+            )
+            Spacer(modifier = Modifier.weight(1f))
+        }
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }
 
