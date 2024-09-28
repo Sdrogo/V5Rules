@@ -2353,7 +2353,7 @@
     "id": 73,
     "title": "Banchieri di Dunsirn",
     "content": "Intorno al XVIII secolo, i Giovanni desideravano un piede nei mercati del Nuovo Mondo. Ma tutti i loro tentativi erano costantemente bloccati da una famiglia scozzese di banchieri che possedeva diverse attività di spedizione. Impressionati dalla loro acume finanziario, i Giovanni iniziarono a considerare l’idea di portare la famiglia nel loro giro. A chiudere l’affare fu la scoperta che i Dunsirn erano cannibali oltre che finanzieri. Era il perfetto equilibrio tra denaro, depravazione e la capacità di mantenere un segreto.\n\nPer secoli, la relazione tra le due famiglie è stata chiara: i Dunsirn guadagnavano il denaro e la famiglia Giovanni lo spendeva come acqua. Sorprendentemente, anche se i membri mortali della famiglia Dunsirn si concedono ancora di tanto in tanto qualche “carne umana”, i Kindred non mostrano molto interesse per le pratiche necromantiche. Prima della Riunione Familiare, c’era stato un tentativo di costringerli a imparare le vie dell’Oblivion, ma ora i Dunsirn sono felici di tornare a fare ciò che sanno fare meglio: prosciugare le persone. E questa volta non devono rispondere ai maledetti Giovanni per farlo.",
-    "limitation": "Bloodline; Personaggi Hecata Solo",
+    "limitation": "Bloodline;Solo personaggi Hecata",
     "powers": [
       {
         "title": "Il Denaro Oscura",
@@ -2386,7 +2386,6 @@
     "id": 74,
     "title": "Figli di Tecnochtitlan",
     "content": "All’inizio del XVI secolo, i Giovanni spagnoli incontrarono rappresentanti della civiltà azteca come parte delle spedizioni di Cortés. Nella città di Tenochtitlan (ora parte di Città del Messico), questi Giovanni furono introdotti a una massiccia e formalizzata tradizione necromantica. Naturalmente, uccisero, schiavizzarono e convertirono i “pagani”, portandoli nel loro giro. I Giovanni chiamavano questi convertiti “pisanob”, un termine maya che si traduce approssimativamente in “fantasmi dei morti che camminano sulla Terra” (il fatto che gli aztechi non fossero maya non preoccupava gli europei). Il fatto che questi vampiri avessero già un nome, un’eredità e le proprie credenze importava poco ai Giovanni. Il loro leader, Pochtli, era ancora a capo dei Pisanob fino alla Riunione Familiare. Tuttavia, la famiglia era stata ridotta a pochi Kindred sopravvissuti dopo gli attacchi in corso da parte degli Araldi delle Teschio, sebbene le ragioni di questi attacchi rimanessero sconosciute. Pochtli offrì la sua non-vita agli Araldi in cambio della fine delle ostilità, cosa che gli Araldi accettarono.\nOra, i rimanenti figli di Tenochtitlan stanno decidendo un nuovo leader, mentre pianificano la loro vendetta.",
-    "limitation": "Chicago",
     "powers": [
       {
         "title": "Nascondersi dal Lupo",

@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
@@ -33,7 +34,7 @@ import com.example.v5rules.ui.viewModel.LoresheetViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun LoresheetScreen ( loresheetViewModel: LoresheetViewModel, navController: NavHostController) {
+fun LoresheetScreen(loresheetViewModel: LoresheetViewModel, navController: NavHostController) {
     val uiState by loresheetViewModel.loresheetUiState.collectAsState()
     CommonScaffold(
         navController = navController,
@@ -51,8 +52,10 @@ fun LoresheetScreen ( loresheetViewModel: LoresheetViewModel, navController: Nav
                 ) {
                     item {
                         val orientation = LocalConfiguration.current.orientation
-                        val widthByOrientation = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.4f else 1f
-                        val maxRowItem = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
+                        val widthByOrientation =
+                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.4f else 1f
+                        val maxRowItem =
+                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
 
                         FlowRow(
                             modifier = Modifier
@@ -72,6 +75,7 @@ fun LoresheetScreen ( loresheetViewModel: LoresheetViewModel, navController: Nav
                     }
                 }
             }
+
             is LoresheetUiState.Error -> Text("Error: ${(uiState as LoresheetUiState.Error).message}")
         }
     }
@@ -79,11 +83,18 @@ fun LoresheetScreen ( loresheetViewModel: LoresheetViewModel, navController: Nav
 
 @Composable
 fun LoresheetLineItem(loresheet: Loresheet, navController: NavHostController, maxWidth: Float) {
-    Row(modifier = Modifier
+    Column(modifier = Modifier
         .fillMaxWidth(maxWidth)
         .padding(vertical = 8.dp)
         .fillMaxWidth(maxWidth)
-        .clickable { navController.navigate(LoresheetDetailsNav(name = loresheet.title, id = loresheet.id))}) {
+        .clickable {
+            navController.navigate(
+                LoresheetDetailsNav(
+                    name = loresheet.title,
+                    id = loresheet.id
+                )
+            )
+        }) {
         Text(
             text = loresheet.title,
             style = MaterialTheme.typography.headlineSmall,
@@ -93,5 +104,15 @@ fun LoresheetLineItem(loresheet: Loresheet, navController: NavHostController, ma
                 .wrapContentWidth()
                 .padding(horizontal = 8.dp)
         )
+        loresheet.limitation?.let {
+            Text(
+                text = it,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.tertiary,
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .padding(horizontal = 8.dp)
+            )
+        }
     }
 }
