@@ -137,7 +137,7 @@ fun LoresheetPower(loresheetPower: LoresheetPower, widthByOrientation: Float) {
 fun LoresheetPowerLineItem(level: Int, name: String) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Start,
+        horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
     ) {
         DotsOnlyForLevel(level = level)

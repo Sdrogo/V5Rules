@@ -66,7 +66,7 @@ fun CustomContentExpander(
     var expandedDescription by remember { mutableStateOf(initialState) }
     Column(modifier = Modifier
         .padding(8.dp)
-        .fillMaxWidth(maxWith)
+        .fillMaxWidth(if(expandedDescription)1f else maxWith)
         .clickable { expandedDescription = !expandedDescription })
     {
         header()
