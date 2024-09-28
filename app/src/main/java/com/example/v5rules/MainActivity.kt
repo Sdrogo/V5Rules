@@ -15,6 +15,7 @@ import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.ui.viewModel.LoreViewModel
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 import com.example.v5rules.ui.viewModel.ClanViewModel
+import com.example.v5rules.ui.viewModel.LoresheetViewModel
 import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
 import com.example.v5rules.ui.viewModel.RulesViewModel
@@ -43,6 +44,7 @@ fun V5RulesApp(
     val rulesViewModel: RulesViewModel = hiltViewModel<RulesViewModel>()
     val loreViewModel: LoreViewModel = hiltViewModel<LoreViewModel>()
     val npcGeneratorViewModel: NPCGeneratorViewModel = hiltViewModel<NPCGeneratorViewModel>()
+    val loresheetViewModel: LoresheetViewModel = hiltViewModel<LoresheetViewModel>()
 
     val navController = rememberNavController()
 
@@ -57,6 +59,7 @@ fun V5RulesApp(
             predatorTypeViewModel = predatorTypeViewModel,
             rulesViewModel = rulesViewModel,
             loreViewModel = loreViewModel,
+            loresheetViewModel = loresheetViewModel,
             npcGeneratorViewModel = npcGeneratorViewModel
         )
     }

@@ -23,10 +23,12 @@ class LoreViewModel @Inject constructor(
 
 
     val currentLocale = Locale.getDefault()
+
     init {
         fetchLore(currentLocale)
     }
-    private fun fetchLore(currentLocale:Locale) {
+
+    private fun fetchLore(currentLocale: Locale) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val Lore = mainRepository.loadLore(currentLocale)
@@ -34,7 +36,7 @@ class LoreViewModel @Inject constructor(
                 _loreUiState.value = LoreUiState.Success(Lore)
             } catch (e: Exception) {
                 _loreUiState.value =
-                    LoreUiState.Error(e.message ?: "Errore durante il caricamento delle discipline")
+                    LoreUiState.Error(e.message ?: "Errore durante il caricamento della lore")
             }
         }
     }

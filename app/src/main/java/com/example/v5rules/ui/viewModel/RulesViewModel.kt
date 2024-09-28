@@ -23,17 +23,20 @@ class RulesViewModel @Inject constructor(
 
 
     val currentLocale = Locale.getDefault()
+
     init {
         fetchChapters(currentLocale)
     }
-    private fun fetchChapters(currentLocale:Locale) {
+
+    private fun fetchChapters(currentLocale: Locale) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val rules = mainRepository.loadRules(currentLocale)
                 allRules = rules
                 _rulesUiState.value = RulesUiState.Success(rules)
             } catch (e: Exception) {
-                _rulesUiState.value = RulesUiState.Error(e.message ?: "Errore durante il caricamento delle discipline")
+                _rulesUiState.value =
+                    RulesUiState.Error(e.message ?: "Errore durante il caricamento delle regole")
             }
         }
     }

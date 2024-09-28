@@ -8,6 +8,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -54,4 +55,25 @@ fun ContentExpander(
         }
     }
     Spacer(modifier = Modifier.height(8.dp))
+}
+@Composable
+fun CustomContentExpander(
+    maxWith: Float,
+    initialState: Boolean = false,
+    header: @Composable () -> Unit,
+    content: @Composable () -> Unit,
+) {
+    var expandedDescription by remember { mutableStateOf(initialState) }
+    Column(modifier = Modifier
+        .padding(8.dp)
+        .fillMaxWidth(if(expandedDescription)1f else maxWith)
+        .clickable { expandedDescription = !expandedDescription })
+    {
+        header()
+        AnimatedVisibility(visible = expandedDescription,
+            enter = fadeIn(animationSpec = tween(easing = FastOutSlowInEasing, durationMillis = 300)),
+            exit = fadeOut(animationSpec = tween(easing = FastOutSlowInEasing, durationMillis = 300))) {
+            content()
+        }
+    }
 }

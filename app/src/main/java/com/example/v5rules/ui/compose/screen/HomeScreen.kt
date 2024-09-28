@@ -27,6 +27,7 @@ import com.example.v5rules.ui.compose.component.TintedImage
 import com.example.v5rules.ClansNav
 import com.example.v5rules.DisciplinesNav
 import com.example.v5rules.LoreNav
+import com.example.v5rules.LoresheetNav
 import com.example.v5rules.NPCGeneratorNav
 import com.example.v5rules.PredatorTypesNav
 import com.example.v5rules.RulesNav
@@ -126,18 +127,6 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
             Text(text = stringResource(id = R.string.rules_screen_button_label))
         }
         Button(
-            onClick = { navController.navigate(PredatorTypesNav) },
-            modifier = Modifier
-                .fillMaxWidth(widthByOrientation)
-                .padding(8.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = animatedRed, // Your desired button color
-                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
-            )
-        ) {
-            Text(text = stringResource(id = R.string.predator_type_screen_title))
-        }
-        Button(
             onClick = { navController.navigate(DisciplinesNav) },
             modifier = Modifier
                 .fillMaxWidth(widthByOrientation)
@@ -148,6 +137,30 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
             )
         ) {
             Text(text = stringResource(id = R.string.discipline_screen_title))
+        }
+        Button(
+            onClick = { navController.navigate(LoresheetNav) },
+            modifier = Modifier
+                .fillMaxWidth(widthByOrientation)
+                .padding(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = animatedRed, // Your desired button color
+                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
+            )
+        ) {
+            Text(text = stringResource(id = R.string.loresheet_title_screen))
+        }
+        Button(
+            onClick = { navController.navigate(PredatorTypesNav) },
+            modifier = Modifier
+                .fillMaxWidth(widthByOrientation)
+                .padding(8.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = animatedRed, // Your desired button color
+                contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
+            )
+        ) {
+            Text(text = stringResource(id = R.string.predator_type_screen_title))
         }
         Button(
             onClick = { navController.navigate(NPCGeneratorNav) },
@@ -161,5 +174,6 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
         ) {
             Text(text = stringResource(id = R.string.npc_generator_title))
         }
+
     }
 }

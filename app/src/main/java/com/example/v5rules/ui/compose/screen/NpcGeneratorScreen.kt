@@ -34,7 +34,7 @@ import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun InputScreen(
+fun NPCGeneratorScreen(
     modifier: Modifier,
     viewModel: NPCGeneratorViewModel,
     navController: NavHostController

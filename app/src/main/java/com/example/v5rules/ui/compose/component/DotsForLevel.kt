@@ -44,3 +44,16 @@ fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) 
         )
     }
 }
+
+@Composable
+fun DotsOnlyForLevel(level: Int){
+    Row(verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .wrapContentWidth()
+    ) {
+        for (i in 1..level) Text(
+            "●",
+            color = MaterialTheme.colorScheme.tertiary,
+        )
+    }
+}

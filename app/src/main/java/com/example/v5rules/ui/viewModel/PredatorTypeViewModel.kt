@@ -17,23 +17,27 @@ class PredatorTypeViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ) : ViewModel() {
 
-    private val _predatorTypeUiState = MutableStateFlow<PredatorTypeUiState>(PredatorTypeUiState.Loading)
+    private val _predatorTypeUiState =
+        MutableStateFlow<PredatorTypeUiState>(PredatorTypeUiState.Loading)
     val predatorTypeUiState: StateFlow<PredatorTypeUiState> = _predatorTypeUiState
 
     var allTypes: List<PredatorType> = listOf()
 
     val currentLocale = Locale.getDefault()
+
     init {
         fetchClans(currentLocale)
     }
 
-    private fun fetchClans(currentLocale:Locale) {
+    private fun fetchClans(currentLocale: Locale) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 allTypes = mainRepository.loadPredatorType(currentLocale)
                 _predatorTypeUiState.value = PredatorTypeUiState.Success(allTypes)
             } catch (e: Exception) {
-                _predatorTypeUiState.value = PredatorTypeUiState.Error(e.message ?: "Errore durante il caricamento delle discipline")
+                _predatorTypeUiState.value = PredatorTypeUiState.Error(
+                    e.message ?: "Errore durante il caricamento dei Predator type"
+                )
             }
         }
     }

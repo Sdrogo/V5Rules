@@ -31,7 +31,8 @@ class DisciplineViewModel @Inject constructor(
     private fun fetchDisciplines(currentLocale: Locale) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val disciplines = mainRepository.loadDisciplines(currentLocale).sortedBy { it.title }
+                val disciplines =
+                    mainRepository.loadDisciplines(currentLocale).sortedBy { it.title }
                 allDisciplines = disciplines
                 _Discipline_uiState.value = DisciplineUiState.Success(disciplines)
             } catch (e: Exception) {
