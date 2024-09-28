@@ -12,7 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.example.v5rules.ui.compose.screen.HomeScreen
-import com.example.v5rules.ui.compose.screen.InputScreen
+import com.example.v5rules.ui.compose.screen.NPCGeneratorScreen
 import com.example.v5rules.ui.compose.screen.clan.ClanDetailScreen
 import com.example.v5rules.ui.compose.screen.clan.ClanListScreen
 import com.example.v5rules.ui.compose.screen.discipline.DisciplineDetailScreen
@@ -22,6 +22,8 @@ import com.example.v5rules.ui.compose.screen.discipline.RitualScreen
 import com.example.v5rules.ui.compose.screen.lore.LoreDetailsScreen
 import com.example.v5rules.ui.compose.screen.lore.LoreListScreen
 import com.example.v5rules.ui.compose.screen.lore.SubLoreDetail
+import com.example.v5rules.ui.compose.screen.loresheet.LoresheetDetailsScreen
+import com.example.v5rules.ui.compose.screen.loresheet.LoresheetScreen
 import com.example.v5rules.ui.compose.screen.predator.PredatorTypeDetailsScreen
 import com.example.v5rules.ui.compose.screen.predator.PredatorTypeListScreen
 import com.example.v5rules.ui.compose.screen.rule.RuleListScreen
@@ -30,6 +32,7 @@ import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
 import com.example.v5rules.ui.viewModel.ClanViewModel
 import com.example.v5rules.ui.viewModel.DisciplineViewModel
 import com.example.v5rules.ui.viewModel.LoreViewModel
+import com.example.v5rules.ui.viewModel.LoresheetViewModel
 import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
 import com.example.v5rules.ui.viewModel.RulesViewModel
@@ -55,6 +58,9 @@ object NPCGeneratorNav
 
 @Serializable
 object RulesNav
+
+@Serializable
+object LoresheetNav
 
 @Serializable
 data class DisciplineDetailsNav(val disciplineId: String)
@@ -83,6 +89,9 @@ data class RulesDetailsNav(val title: String)
 @Serializable
 data class SubRuleNav(val title: String, val section: String)
 
+@Serializable
+data class LoresheetDetailsNav(val name: String, val id: Int)
+
 @Composable
 fun CustomNavHost(
     navController: NavHostController,
@@ -91,21 +100,26 @@ fun CustomNavHost(
     predatorTypeViewModel: PredatorTypeViewModel,
     rulesViewModel: RulesViewModel,
     loreViewModel: LoreViewModel,
+    loresheetViewModel: LoresheetViewModel,
     npcGeneratorViewModel: NPCGeneratorViewModel
 ) {
     NavHost(navController = navController, startDestination = HomeNav) {
-        val enterTransition = fadeIn(animationSpec = tween(
-            durationMillis = 500, // Duration of the animation
-            delayMillis =100, // Delay before the animation starts
-            easing = LinearOutSlowInEasing // Easing curve for the animation
-        ),
-            initialAlpha = 0.0f)
-        val exitTransition = fadeOut( animationSpec = tween(
-            durationMillis = 300,
-            delayMillis = 0,
-            easing = FastOutLinearInEasing
-        ),
-            targetAlpha = 1f)
+        val enterTransition = fadeIn(
+            animationSpec = tween(
+                durationMillis = 500, // Duration of the animation
+                delayMillis = 100, // Delay before the animation starts
+                easing = LinearOutSlowInEasing // Easing curve for the animation
+            ),
+            initialAlpha = 0.0f
+        )
+        val exitTransition = fadeOut(
+            animationSpec = tween(
+                durationMillis = 300,
+                delayMillis = 0,
+                easing = FastOutLinearInEasing
+            ),
+            targetAlpha = 1f
+        )
 
         composable<HomeNav>(
             enterTransition = { enterTransition },
@@ -214,7 +228,7 @@ fun CustomNavHost(
         composable<NPCGeneratorNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
-            InputScreen(
+            NPCGeneratorScreen(
                 modifier = Modifier,
                 viewModel = npcGeneratorViewModel,
                 navController = navController
@@ -243,6 +257,23 @@ fun CustomNavHost(
                 rulesViewModel = rulesViewModel,
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
+                navController = navController
+            )
+        }
+        composable<LoresheetNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ) {
+            LoresheetScreen(loresheetViewModel = loresheetViewModel, navController = navController)
+        }
+        composable<LoresheetDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<LoresheetDetailsNav>()
+            LoresheetDetailsScreen(
+                id = entry.id,
+                name = entry.name,
+                loresheetViewModel = loresheetViewModel,
                 navController = navController
             )
         }

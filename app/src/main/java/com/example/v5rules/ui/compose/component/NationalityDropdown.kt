@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -33,7 +34,7 @@ fun NationalityDropdown(
             onClick = { expanded = true },
             modifier = Modifier.padding(horizontal = 16.dp)
         ) {
-            Text(selectedNationality ?: "Select nationality")
+            Text(selectedNationality ?: "Select nationality", color = MaterialTheme.colorScheme.primary)
             Icon(
                 imageVector = Icons.Filled.ArrowDropDown,
                 contentDescription = null,

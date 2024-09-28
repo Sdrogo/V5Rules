@@ -34,7 +34,7 @@ import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun InputScreen(
+fun NPCGeneratorScreen(
     modifier: Modifier,
     viewModel: NPCGeneratorViewModel,
     navController: NavHostController
@@ -111,8 +111,7 @@ fun InputScreen(
                 }
                 GeneratedName(
                     npc = uiState.npc,
-                    widthFloat = if (isLandscape) 0.45f else 1f,
-                    isLandscape = isLandscape
+                    widthFloat = if (isLandscape) 0.45f else 1f
                 )
                 FlowRow(
                     modifier = modifier

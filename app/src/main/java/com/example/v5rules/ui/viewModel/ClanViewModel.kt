@@ -23,17 +23,19 @@ class ClanViewModel @Inject constructor(
     var allClans: List<Clan> = listOf()
 
     val currentLocale = Locale.getDefault()
+
     init {
         fetchClans(currentLocale)
     }
 
-    private fun fetchClans(currentLocale:Locale) {
+    private fun fetchClans(currentLocale: Locale) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 allClans = mainRepository.loadClans(currentLocale).sortedBy { it.name }
                 _clanUiState.value = ClanUiState.Success(allClans)
             } catch (e: Exception) {
-                _clanUiState.value = ClanUiState.Error(e.message ?: "Errore durante il caricamento delle discipline")
+                _clanUiState.value =
+                    ClanUiState.Error(e.message ?: "Errore durante il caricamento dei Clan")
             }
         }
     }
