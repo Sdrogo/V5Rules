@@ -17,8 +17,8 @@ import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.DisciplineIcon
-import com.example.v5rules.ui.viewModel.DisciplineViewModel
-import com.example.v5rules.ui.viewModel.DisciplineUiState
+import com.example.v5rules.viewModel.DisciplineViewModel
+import com.example.v5rules.viewModel.DisciplineUiState
 import com.example.v5rules.DisciplineDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)

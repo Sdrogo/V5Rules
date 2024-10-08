@@ -12,13 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.v5rules.ui.theme.V5RulesTheme
-import com.example.v5rules.ui.viewModel.LoreViewModel
-import com.example.v5rules.ui.viewModel.DisciplineViewModel
-import com.example.v5rules.ui.viewModel.ClanViewModel
-import com.example.v5rules.ui.viewModel.LoresheetViewModel
-import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
-import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
-import com.example.v5rules.ui.viewModel.RulesViewModel
+import com.example.v5rules.viewModel.LoreViewModel
+import com.example.v5rules.viewModel.DisciplineViewModel
+import com.example.v5rules.viewModel.ClanViewModel
+import com.example.v5rules.viewModel.LoresheetViewModel
+import com.example.v5rules.viewModel.NPCGeneratorViewModel
+import com.example.v5rules.viewModel.PredatorTypeViewModel
+import com.example.v5rules.viewModel.RulesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

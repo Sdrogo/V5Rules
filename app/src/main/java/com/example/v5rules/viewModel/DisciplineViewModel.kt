@@ -1,9 +1,9 @@
-package com.example.v5rules.ui.viewModel
+package com.example.v5rules.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.Discipline
-import com.example.v5rules.data.MainRepository
+import com.example.v5rules.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,8 +17,8 @@ class DisciplineViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ) : ViewModel() {
 
-    private val _Discipline_uiState = MutableStateFlow<DisciplineUiState>(DisciplineUiState.Loading)
-    val disciplineUiState: StateFlow<DisciplineUiState> = _Discipline_uiState
+    private val _discipline_uiState = MutableStateFlow<DisciplineUiState>(DisciplineUiState.Loading)
+    val disciplineUiState: StateFlow<DisciplineUiState> = _discipline_uiState
 
     var allDisciplines: List<Discipline> = listOf()
 
@@ -34,27 +34,13 @@ class DisciplineViewModel @Inject constructor(
                 val disciplines =
                     mainRepository.loadDisciplines(currentLocale).sortedBy { it.title }
                 allDisciplines = disciplines
-                _Discipline_uiState.value = DisciplineUiState.Success(disciplines)
+                _discipline_uiState.value = DisciplineUiState.Success(disciplines)
             } catch (e: Exception) {
-                _Discipline_uiState.value = DisciplineUiState.Error(
+                _discipline_uiState.value = DisciplineUiState.Error(
                     e.message ?: "Errore durante il caricamento delle discipline"
                 )
             }
         }
-    }
-
-    fun search(keyword: String) {
-
-        val filteredDisciplines = allDisciplines.filter {
-            it.title.contains(keyword, ignoreCase = true) ||
-                    it.description.contains(keyword, ignoreCase = true) ||
-                    it.type.contains(keyword, ignoreCase = true) ||
-                    it.masquerade.contains(keyword, ignoreCase = true) ||
-                    it.resonance.contains(keyword, ignoreCase = true) ||
-                    it.disciplinePowers.toString().contains(keyword, ignoreCase = true) ||
-                    it.rituals.toString().contains(keyword, ignoreCase = true)
-        }
-        _Discipline_uiState.value = DisciplineUiState.Success(filteredDisciplines)
     }
 }
 

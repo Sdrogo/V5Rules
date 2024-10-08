@@ -1,8 +1,8 @@
-package com.example.v5rules
+package com.example.v5rules.di
 
 import android.content.Context
 import android.content.res.Resources
-import com.example.v5rules.data.MainRepository
+import com.example.v5rules.repository.MainRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

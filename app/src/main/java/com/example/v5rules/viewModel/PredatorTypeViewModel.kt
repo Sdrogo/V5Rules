@@ -1,8 +1,8 @@
-package com.example.v5rules.ui.viewModel
+package com.example.v5rules.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.data.MainRepository
+import com.example.v5rules.repository.MainRepository
 import com.example.v5rules.data.PredatorType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

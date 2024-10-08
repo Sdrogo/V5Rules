@@ -21,7 +21,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.data.RegenerationType
-import com.example.v5rules.utils.Nationalities
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.GenderSelection
@@ -30,7 +29,7 @@ import com.example.v5rules.ui.compose.component.GeneratedName
 import com.example.v5rules.ui.compose.component.IncludeSecondNameCheckbox
 import com.example.v5rules.ui.compose.component.NationalityDropdown
 import com.example.v5rules.ui.compose.component.RegenerationCheckbox
-import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
+import com.example.v5rules.viewModel.NPCGeneratorViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -75,7 +74,7 @@ fun NPCGeneratorScreen(
 
                         Spacer(modifier = modifier.width(16.dp))
                         NationalityDropdown(
-                            nationalities = Nationalities.list,
+                            nationalities = viewModel.nationalities,
                             onNationalitySelected = {
                                 viewModel.setSelectedNationality(
                                     it

@@ -25,8 +25,8 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.data.Clan
 import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.viewModel.ClanUiState
-import com.example.v5rules.ui.viewModel.ClanViewModel
+import com.example.v5rules.viewModel.ClanUiState
+import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.ClanDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)

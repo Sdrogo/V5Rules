@@ -25,7 +25,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.TextBlock
-import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
+import com.example.v5rules.viewModel.PredatorTypeViewModel
 
 @Composable
 fun PredatorTypeDetailsScreen(

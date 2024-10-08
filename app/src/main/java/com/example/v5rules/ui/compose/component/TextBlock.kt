@@ -41,3 +41,31 @@ fun TextBlock(title: String, component: String, isHidden: Boolean) {
         }
     }
 }
+@Composable
+fun TextBlockList(title: String, component: List<String>, isHidden: Boolean) {
+    if (!isHidden) {
+        Column(modifier = Modifier.padding(8.dp)) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.tertiary,
+                fontSize = 16.sp
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            component.forEach {
+                Text(
+                    text = AnnotatedString(
+                        it,
+                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontSize = 16.sp,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+    }
+}

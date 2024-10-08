@@ -4,7 +4,6 @@ import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
@@ -24,19 +23,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.R
 import com.example.v5rules.data.LoresheetPower
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.CustomContentExpander
-import com.example.v5rules.ui.compose.component.DotsForLevel
 import com.example.v5rules.ui.compose.component.DotsOnlyForLevel
-import com.example.v5rules.ui.viewModel.DisciplineUiState
-import com.example.v5rules.ui.viewModel.LoresheetUiState
-import com.example.v5rules.ui.viewModel.LoresheetViewModel
+import com.example.v5rules.viewModel.LoresheetViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
