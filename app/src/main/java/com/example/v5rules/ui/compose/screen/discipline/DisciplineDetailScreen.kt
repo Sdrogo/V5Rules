@@ -31,6 +31,7 @@ import com.example.v5rules.ui.viewModel.DisciplineViewModel
 import com.example.v5rules.DisciplinePowerNav
 import com.example.v5rules.RitualNav
 import com.example.v5rules.ui.compose.component.DotsForLevel
+import com.example.v5rules.ui.compose.component.TextBlockList
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -204,31 +205,32 @@ fun RitualItem(
 @Composable
 fun DisciplineInfo(discipline: Discipline, orientation: Boolean = false) {
     val widthByOrientation = if (orientation) 0.3f else 1f
-    Column {
-        if (discipline.id == "d11") {
-            Box(modifier = Modifier.fillMaxWidth(widthByOrientation)) {
-                TextBlock(
-                    title = stringResource(id = R.string.discipline_alchemy_pseudo),
-                    component = discipline.type,
-                    isHidden = discipline.type.isEmpty()
-                )
-                TextBlock(
-                    title = stringResource(id = R.string.discipline_description),
-                    component = discipline.description,
-                    isHidden = discipline.description.isEmpty()
-                )
-                TextBlock(
-                    title = stringResource(id = R.string.discipline_ingredients),
-                    component = discipline.masquerade,
-                    isHidden = discipline.masquerade.isEmpty()
-                )
-                TextBlock(
-                    title = stringResource(id = R.string.discipline_alchemy_learning),
-                    component = discipline.resonance,
-                    isHidden = discipline.resonance.isEmpty()
-                )
-            }
-        }
+    Column(modifier = Modifier.fillMaxWidth(widthByOrientation)) {
+        TextBlock(
+            title = stringResource(id = if (discipline.id == "d11") R.string.discipline_alchemy_pseudo else R.string.discipline_type),
+            component = discipline.type,
+            isHidden = discipline.type.isEmpty()
+        )
+        TextBlock(
+            title = stringResource(id = R.string.discipline_description),
+            component = discipline.description,
+            isHidden = discipline.description.isEmpty()
+        )
+        TextBlock(
+            title = stringResource(id = if (discipline.id == "d11") R.string.discipline_ingredients else R.string.discipline_masquerade_threat),
+            component = discipline.masquerade,
+            isHidden = discipline.masquerade.isEmpty()
+        )
+        TextBlock(
+            title = stringResource(id = if (discipline.id == "d11") R.string.discipline_alchemy_learning else R.string.discipline_resonance),
+            component = discipline.resonance,
+            isHidden = discipline.resonance.isEmpty()
+        )
+        TextBlockList(
+            title = stringResource(id = R.string.discipline_clan_affinity),
+            component = discipline.clanAffinity,
+            isHidden = discipline.description.isEmpty()
+        )
     }
 }
 
@@ -257,10 +259,10 @@ fun DisciplineList(
                     }
                     if (text != null) {
                         Spacer(modifier = Modifier.height(8.dp))
-                        Box(modifier = Modifier.width(200.dp)) {
+                        Box(modifier = Modifier.fillMaxWidth(if(isLandscape)0.4f else 1f)) {
                             Text(
                                 text = AnnotatedString(
-                                    stringResource(R.string.alchemy_lvl2),
+                                    text,
                                     paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
                                 ),
                                 style = MaterialTheme.typography.bodyMedium,
@@ -269,7 +271,6 @@ fun DisciplineList(
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                         }
-
                     }
                 }
                 subDisciplines.forEach { disciplinePower ->
