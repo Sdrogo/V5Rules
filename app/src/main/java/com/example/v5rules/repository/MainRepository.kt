@@ -1,11 +1,18 @@
-package com.example.v5rules.data
+package com.example.v5rules.repository
 
 import android.content.Context
-import com.example.v5rules.utils.ClanReader
-import com.example.v5rules.utils.DisciplineReader
-import com.example.v5rules.utils.LoresheetReader
-import com.example.v5rules.utils.PredatorTypeReader
-import com.example.v5rules.utils.RulesReader
+import com.example.v5rules.data.Chapter
+import com.example.v5rules.data.Clan
+import com.example.v5rules.data.Discipline
+import com.example.v5rules.data.Loresheet
+import com.example.v5rules.data.NationalityNpc
+import com.example.v5rules.data.PredatorType
+import com.example.v5rules.reader.ClanReader
+import com.example.v5rules.reader.DisciplineReader
+import com.example.v5rules.reader.LoresheetReader
+import com.example.v5rules.reader.NpcReader
+import com.example.v5rules.reader.PredatorTypeReader
+import com.example.v5rules.reader.RulesReader
 import java.util.Locale
 
 class MainRepository(context: Context) {
@@ -15,6 +22,7 @@ class MainRepository(context: Context) {
     private val predatorTypeReader = PredatorTypeReader(context)
     private val rulesReader = RulesReader(context)
     private val loresheetReader = LoresheetReader(context)
+    private val npcReader = NpcReader(context)
 
     fun loadDisciplines(language: Locale): List<Discipline> {
         return disciplineReader.readDisciplines(language)
@@ -23,6 +31,9 @@ class MainRepository(context: Context) {
         return clanReader.readClans(language)
     }
 
+    fun readNpcNames(language: Locale): List<NationalityNpc> {
+        return npcReader.readNpc(language)
+    }
     fun loadPredatorType(language: Locale): List<PredatorType> {
         return predatorTypeReader.readPredatorType(language)
     }

@@ -29,13 +29,13 @@ import com.example.v5rules.ui.compose.screen.predator.PredatorTypeListScreen
 import com.example.v5rules.ui.compose.screen.rule.RuleListScreen
 import com.example.v5rules.ui.compose.screen.rule.RulesDetailsScreen
 import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
-import com.example.v5rules.ui.viewModel.ClanViewModel
-import com.example.v5rules.ui.viewModel.DisciplineViewModel
-import com.example.v5rules.ui.viewModel.LoreViewModel
-import com.example.v5rules.ui.viewModel.LoresheetViewModel
-import com.example.v5rules.ui.viewModel.NPCGeneratorViewModel
-import com.example.v5rules.ui.viewModel.PredatorTypeViewModel
-import com.example.v5rules.ui.viewModel.RulesViewModel
+import com.example.v5rules.viewModel.ClanViewModel
+import com.example.v5rules.viewModel.DisciplineViewModel
+import com.example.v5rules.viewModel.LoreViewModel
+import com.example.v5rules.viewModel.LoresheetViewModel
+import com.example.v5rules.viewModel.NPCGeneratorViewModel
+import com.example.v5rules.viewModel.PredatorTypeViewModel
+import com.example.v5rules.viewModel.RulesViewModel
 import kotlinx.serialization.Serializable
 
 @Serializable

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -28,9 +27,8 @@ import com.example.v5rules.LoresheetDetailsNav
 import com.example.v5rules.R
 import com.example.v5rules.data.Loresheet
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.viewModel.DisciplineUiState
-import com.example.v5rules.ui.viewModel.LoresheetUiState
-import com.example.v5rules.ui.viewModel.LoresheetViewModel
+import com.example.v5rules.viewModel.LoresheetUiState
+import com.example.v5rules.viewModel.LoresheetViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

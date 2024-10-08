@@ -30,7 +30,7 @@ import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.TextBlock
-import com.example.v5rules.ui.viewModel.ClanViewModel
+import com.example.v5rules.viewModel.ClanViewModel
 
 @Composable
 fun ClanDetailScreen(

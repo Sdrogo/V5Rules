@@ -1,4 +1,4 @@
-package com.example.v5rules.utils
+package com.example.v5rules.reader
 
 import android.content.Context
 import com.example.v5rules.R

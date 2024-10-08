@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.viewModel.RulesUiState
-import com.example.v5rules.ui.viewModel.RulesViewModel
+import com.example.v5rules.viewModel.RulesUiState
+import com.example.v5rules.viewModel.RulesViewModel
 import com.example.v5rules.RulesDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)

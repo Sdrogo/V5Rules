@@ -23,7 +23,7 @@ import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
-import com.example.v5rules.ui.viewModel.DisciplineViewModel
+import com.example.v5rules.viewModel.DisciplineViewModel
 
 @Composable
 fun DisciplinePowerScreen(

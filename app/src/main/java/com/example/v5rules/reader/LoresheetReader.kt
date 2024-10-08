@@ -1,8 +1,7 @@
-package com.example.v5rules.utils
+package com.example.v5rules.reader
 
 import android.content.Context
 import com.example.v5rules.R
-import com.example.v5rules.data.Chapter
 import com.example.v5rules.data.Loresheet
 import com.google.gson.Gson
 import java.io.InputStreamReader
