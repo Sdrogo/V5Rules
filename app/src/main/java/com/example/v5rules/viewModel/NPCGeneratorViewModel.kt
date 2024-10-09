@@ -57,8 +57,7 @@ class NPCGeneratorViewModel @Inject constructor( private val mainRepository: Mai
             try {
                 val npcNames = mainRepository.readNpcNames(Locale.getDefault())
                 allNamesByNationality = npcNames
-                npcNames.map { it.nationality }
-                nationalities = npcNames.map { it.nationality }.sorted()
+                nationalities = npcNames.map { it.nationality }.sortedBy { it }
                 _uiState.update {
                     it.copy(selectedNationality = nationalities.firstOrNull())
                 }

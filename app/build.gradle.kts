@@ -55,7 +55,6 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.splashscreen)
-    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -83,5 +82,5 @@ dependencies {
     implementation (libs.hilt.android)
     implementation (libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
-    implementation (libs.kotlinx.serialization.json.v150)
+
 }

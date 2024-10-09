@@ -244,7 +244,7 @@
       "Russo",
       "Esposito"
     ],
-    "nazionalità": "italiano"
+    "nationality": "italiano"
   },
   {
     "nomi_maschili": [
@@ -399,7 +399,7 @@
       "Leclerc",
       "Pierre"
     ],
-    "nazionalità": "francese"
+    "nationality": "francese"
   },
   {
     "nomi_maschili": [
@@ -552,7 +552,7 @@
       "Möller",
       "Weiß"
     ],
-    "nazionalità": "tedesco"
+    "nationality": "tedesco"
   },
   {
     "nomi_maschili": [
@@ -616,7 +616,7 @@
       "Zeqiri",
       "Zogu"
     ],
-    "nazionalità": "albanese"
+    "nationality": "albanese"
   },
   {
     "nomi_maschili": [
@@ -685,7 +685,7 @@
       "El Amine",
       "Hmamouchi"
     ],
-    "nazionalità": "marocchino"
+    "nationality": "marocchino"
   },
   {
     "nomi_maschili": [
@@ -754,7 +754,7 @@
       "Aquino",
       "Lee"
     ],
-    "nazionalità": "filippino"
+    "nationality": "filippino"
   },
   {
     "nomi_maschili": [
@@ -906,7 +906,7 @@
       "Otero",
       "Suarez"
     ],
-    "nazionalità": "spagnolo"
+    "nationality": "spagnolo"
   },
   {
     "nomi_maschili": [
@@ -1058,7 +1058,7 @@
       "Araújo",
       "Borges"
     ],
-    "nazionalità": "portoghese"
+    "nationality": "portoghese"
   },
   {
     "nomi_maschili": [
@@ -1190,7 +1190,7 @@
       "Dimitriadis",
       "Michalopoulos"
     ],
-    "nazionalità": "greco"
+    "nationality": "greco"
   },
   {
     "nomi_maschili": [
@@ -1343,7 +1343,7 @@
       "Bozkurt",
       "Karadağ"
     ],
-    "nazionalità": "turco"
+    "nationality": "turco"
   },
   {
     "nomi_maschili": [
@@ -1492,7 +1492,7 @@
       "El-Mansy",
       "El-Ghandour"
     ],
-    "nazionalità": "egiziano"
+    "nationality": "egiziano"
   },
   {
     "nomi_maschili": [
@@ -1640,7 +1640,7 @@
       "Pillay",
       "Barnard"
     ],
-    "nazionalità": "sudafricano"
+    "nationality": "sudafricano"
   },
   {
     "nomi_maschili": [
@@ -1790,7 +1790,7 @@
       "Eze",
       "Eze"
     ],
-    "nazionalità": "nigeriano"
+    "nationality": "nigeriano"
   },
   {
     "nomi_maschili": [
@@ -1940,7 +1940,7 @@
       "Wanjiku",
       "Karanja"
     ],
-    "nazionalità": "keniota"
+    "nationality": "keniota"
   },
   {
     "nomi_maschili": [
@@ -2088,7 +2088,7 @@
       "Tamirat",
       "Tsegaye"
     ],
-    "nazionalità": "etiope"
+    "nationality": "etiope"
   },
   {
     "nomi_maschili": [
@@ -2239,7 +2239,7 @@
       "Saad",
       "Salem"
     ],
-    "nazionalità": "saudita"
+    "nationality": "saudita"
   },
   {
     "nomi_maschili": [
@@ -2386,7 +2386,7 @@
       "Kulikov",
       "Ponomarev"
     ],
-    "nazionalità": "russo"
+    "nationality": "russo"
   },
   {
     "nomi_maschili": [
@@ -2536,7 +2536,7 @@
       "Fang",
       "Yan"
     ],
-    "nazionalità": "cinese"
+    "nationality": "cinese"
   },
   {
     "nomi_maschili": [
@@ -2691,7 +2691,7 @@
       "Tamura",
       "Kaneko"
     ],
-    "nazionalità": "giapponese"
+    "nationality": "giapponese"
   },
   {
     "nomi_maschili": [
@@ -2843,7 +2843,7 @@
       "Kwon",
       "Moon"
     ],
-    "nazionalità": "coreano"
+    "nationality": "coreano"
   },
   {
     "nomi_maschili": [
@@ -2999,7 +2999,7 @@
       "Sharma",
       "Sharma"
     ],
-    "nazionalità": "indiano"
+    "nationality": "indiano"
   },
   {
     "nomi_maschili": [
@@ -3148,7 +3148,7 @@
       "Gonçalves",
       "Machado"
     ],
-    "nazionalità": "brasiliano"
+    "nationality": "brasiliano"
   },
   {
     "nomi_maschili": [
@@ -3297,7 +3297,7 @@
       "Vega",
       "Vargas"
     ],
-    "nazionalità": "argentino"
+    "nationality": "argentino"
   },
   {
     "nomi_maschili": [
@@ -3448,7 +3448,7 @@
       "Vega",
       "Gallegos"
     ],
-    "nazionalità": "messicano"
+    "nationality": "messicano"
   },
   {
     "nomi_maschili": [
@@ -3601,7 +3601,7 @@
       "Morris",
       "Rogers"
     ],
-    "nazionalità": "canadese"
+    "nationality": "canadese"
   },
   {
     "nomi_maschili": [
@@ -3753,7 +3753,7 @@
       "Campbell",
       "Mitchell"
     ],
-    "nazionalità": "americano"
+    "nationality": "americano"
   },
   {
     "nomi_maschili": [
@@ -3905,7 +3905,7 @@
       "Hayes",
       "Gray"
     ],
-    "nazionalità": "britannico"
+    "nationality": "britannico"
   },
   {
     "nomi_maschili": [
@@ -4057,7 +4057,7 @@
       "Hayes",
       "Power"
     ],
-    "nazionalità": "irlandese"
+    "nationality": "irlandese"
   },
   {
     "nomi_maschili": [
@@ -4209,7 +4209,7 @@
       "Sutherland",
       "Gibson"
     ],
-    "nazionalità": "scozzese"
+    "nationality": "scozzese"
   },
   {
     "nomi_maschili": [
@@ -4361,7 +4361,7 @@
       "Jones",
       "Williams"
     ],
-    "nazionalità": "gallese"
+    "nationality": "gallese"
   },
   {
     "nomi_maschili": [
@@ -4519,7 +4519,7 @@
       "van der Heide",
       "Willems"
     ],
-    "nazionalità": "olandese"
+    "nationality": "olandese"
   },
   {
     "nomi_maschili": [
@@ -4668,7 +4668,7 @@
       "Gunnarsson",
       "Isaksson"
     ],
-    "nazionalità": "svedese"
+    "nationality": "svedese"
   },
   {
     "nomi_maschili": [
@@ -4820,7 +4820,7 @@
       "Aune",
       "Bjørnstad"
     ],
-    "nazionalità": "norvegese"
+    "nationality": "norvegese"
   },
   {
     "nomi_maschili": [
@@ -4968,7 +4968,7 @@
       "Møller",
       "Madsen"
     ],
-    "nazionalità": "danese"
+    "nationality": "danese"
   },
   {
     "nomi_maschili": [
@@ -5118,7 +5118,7 @@
       "Lindström",
       "Lindqvist"
     ],
-    "nazionalità": "finlandese"
+    "nationality": "finlandese"
   },
   {
     "nomi_maschili": [
@@ -5264,7 +5264,7 @@
       "Hjaltason",
       "Hlynsson"
     ],
-    "nazionalità": "islandese"
+    "nationality": "islandese"
   },
   {
     "nomi_maschili": [
@@ -5417,7 +5417,7 @@
       "Stewart",
       "Simpson"
     ],
-    "nazionalità": "australiano"
+    "nationality": "australiano"
   },
   {
     "nomi_maschili": [
@@ -5572,7 +5572,7 @@
       "Hamilton",
       "Carter"
     ],
-    "nazionalità": "neozelandese"
+    "nationality": "neozelandese"
   },
   {
     "nomi_maschili": [
@@ -5861,7 +5861,7 @@
       "Adler",
       "Greenberg"
     ],
-    "nazionalità": "ebraico"
+    "nationality": "ebraico"
   },
   {
     "nomi_maschili": [
@@ -6015,7 +6015,7 @@
       "Djokovic",
       "Stankovic"
     ],
-    "nazionalità": "serbo"
+    "nationality": "serbo"
   },
   {
     "nomi_maschili": [
@@ -6167,7 +6167,7 @@
       "Mujanovic",
       "Hodzic"
     ],
-    "nazionalità": "bosniaco"
+    "nationality": "bosniaco"
   },
   {
     "nomi_maschili": [
@@ -6316,7 +6316,7 @@
       "Krajnc",
       "Kos"
     ],
-    "nazionalità": "sloveno"
+    "nationality": "sloveno"
   },
   {
     "nomi_maschili": [
@@ -6465,7 +6465,7 @@
       "Ivanovska",
       "Petrovska"
     ],
-    "nazionalità": "macedone"
+    "nationality": "macedone"
   },
   {
     "nomi_maschili": [
@@ -6614,7 +6614,7 @@
       "Bozovic",
       "Sekulic"
     ],
-    "nazionalità": "montenegrino"
+    "nationality": "montenegrino"
   },
   {
     "nomi_maschili": [
@@ -6760,7 +6760,7 @@
       "Stoyanov",
       "Todorov"
     ],
-    "nazionalità": "bulgaro"
+    "nationality": "bulgaro"
   },
   {
     "nomi_maschili": [
@@ -6911,7 +6911,7 @@
       "Krasniqi",
       "Shala"
     ],
-    "nazionalità": "kosovaro"
+    "nationality": "kosovaro"
   },
   {
     "nomi_maschili": [
@@ -6980,7 +6980,7 @@
       "Toumi",
       "Khelifi"
     ],
-    "nazionalità": "tunisino"
+    "nationality": "tunisino"
   },
   {
     "nomi_maschili": [
@@ -7049,7 +7049,7 @@
       "Haddad",
       "Guerroudj"
     ],
-    "nazionalità": "algerino"
+    "nationality": "algerino"
   },
   {
     "nomi_maschili": [
@@ -7118,7 +7118,7 @@
       "Seck",
       "Touré"
     ],
-    "nazionalità": "senegalese"
+    "nationality": "senegalese"
   },
   {
     "nomi_maschili": [
@@ -7187,7 +7187,7 @@
       "Blažević",
       "Barić"
     ],
-    "nazionalità": "croato"
+    "nationality": "croato"
   },
   {
     "nomi_maschili": [
@@ -7334,6 +7334,6 @@
       "Serban",
       "Apostol"
     ],
-    "nazionalità": "rumeno"
+    "nationality": "rumeno"
   }
 ]
