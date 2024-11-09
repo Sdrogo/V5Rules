@@ -19,11 +19,17 @@ import com.example.v5rules.ui.compose.screen.discipline.DisciplineDetailScreen
 import com.example.v5rules.ui.compose.screen.discipline.DisciplinePowerScreen
 import com.example.v5rules.ui.compose.screen.discipline.DisciplineScreen
 import com.example.v5rules.ui.compose.screen.discipline.RitualScreen
+import com.example.v5rules.ui.compose.screen.kindred.KindredDetailsScreen
+import com.example.v5rules.ui.compose.screen.kindred.KindredListScreen
+import com.example.v5rules.ui.compose.screen.kindred.SubKindredDetail
 import com.example.v5rules.ui.compose.screen.lore.LoreDetailsScreen
 import com.example.v5rules.ui.compose.screen.lore.LoreListScreen
 import com.example.v5rules.ui.compose.screen.lore.SubLoreDetail
 import com.example.v5rules.ui.compose.screen.loresheet.LoresheetDetailsScreen
 import com.example.v5rules.ui.compose.screen.loresheet.LoresheetScreen
+import com.example.v5rules.ui.compose.screen.pg.PgDetailsScreen
+import com.example.v5rules.ui.compose.screen.pg.PgListScreen
+import com.example.v5rules.ui.compose.screen.pg.SubPgDetail
 import com.example.v5rules.ui.compose.screen.predator.PredatorTypeDetailsScreen
 import com.example.v5rules.ui.compose.screen.predator.PredatorTypeListScreen
 import com.example.v5rules.ui.compose.screen.rule.RuleListScreen
@@ -31,9 +37,11 @@ import com.example.v5rules.ui.compose.screen.rule.RulesDetailsScreen
 import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
+import com.example.v5rules.viewModel.KindredViewModel
 import com.example.v5rules.viewModel.LoreViewModel
 import com.example.v5rules.viewModel.LoresheetViewModel
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
+import com.example.v5rules.viewModel.PgViewModel
 import com.example.v5rules.viewModel.PredatorTypeViewModel
 import com.example.v5rules.viewModel.RulesViewModel
 import kotlinx.serialization.Serializable
@@ -52,6 +60,12 @@ object ClansNav
 
 @Serializable
 object LoreNav
+
+@Serializable
+object KindredNav
+
+@Serializable
+object PgNav
 
 @Serializable
 object NPCGeneratorNav
@@ -84,6 +98,18 @@ data class LoreDetailsNav(val title: String)
 data class SubLoreNav(val title: String, val section: String)
 
 @Serializable
+data class KindredDetailsNav(val title: String)
+
+@Serializable
+data class SubKindredNav(val title: String, val section: String)
+
+@Serializable
+data class PgDetailsNav(val title: String)
+
+@Serializable
+data class SubPgNav(val title: String, val section: String)
+
+@Serializable
 data class RulesDetailsNav(val title: String)
 
 @Serializable
@@ -101,7 +127,9 @@ fun CustomNavHost(
     rulesViewModel: RulesViewModel,
     loreViewModel: LoreViewModel,
     loresheetViewModel: LoresheetViewModel,
-    npcGeneratorViewModel: NPCGeneratorViewModel
+    npcGeneratorViewModel: NPCGeneratorViewModel,
+    kindredViewModel: KindredViewModel,
+    pgViewModel: PgViewModel
 ) {
     NavHost(navController = navController, startDestination = HomeNav) {
         val enterTransition = fadeIn(
@@ -225,6 +253,67 @@ fun CustomNavHost(
                 navController = navController
             )
         }
+        composable<KindredNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) {
+            KindredListScreen(
+                kindredViewModel = kindredViewModel, navController = navController
+            )
+        }
+
+        composable<KindredDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<LoreDetailsNav>()
+            KindredDetailsScreen(
+                kindredViewModel = kindredViewModel,
+                navController = navController,
+                title = entry.title
+            )
+        }
+
+        composable<SubKindredNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<SubKindredNav>()
+            SubKindredDetail(
+                kindredViewModel = kindredViewModel,
+                chapterTitle = entry.title,
+                sectionTitle = entry.section,
+                navController = navController
+            )
+        }
+        composable<PgNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) {
+            PgListScreen(
+                pgViewModel = pgViewModel, navController = navController
+            )
+        }
+
+        composable<PgDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<LoreDetailsNav>()
+            PgDetailsScreen(
+                pgViewModel = pgViewModel,
+                navController = navController,
+                title = entry.title
+            )
+        }
+
+        composable<SubPgNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<SubKindredNav>()
+            SubPgDetail(
+                pgViewModel = pgViewModel,
+                chapterTitle = entry.title,
+                sectionTitle = entry.section,
+                navController = navController
+            )
+        }
+
         composable<NPCGeneratorNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
@@ -234,6 +323,7 @@ fun CustomNavHost(
                 navController = navController
             )
         }
+
         composable<RulesNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {

@@ -1,0 +1,341 @@
+[
+  {
+    "title": "Verità e Menzogne sui Fratelli",
+    "content": "Per ogni livello di Fame che influenza un personaggio, viene assegnato un dado Fame. Questi dadi sono a 10 facce, identici a quelli normali, ma di un colore differente (solitamente rosso) per renderli facilmente distinguibili. Quando un giocatore forma una riserva di dadi per il suo personaggio, ogni dado imposto dalla Fame sostituisce uno dei suoi normali dadi.",
+    "sections": [
+      {
+        "title": "Vampiri sono Immortali:",
+        "content": "Vero: Non invecchiano né muoiono per cause naturali. Possono essere feriti gravemente, ma la guarigione è possibile con tempo e sangue sufficienti."
+      },
+      {
+        "title": "Vampiri sono Morti Viventi",
+        "content": "Vero: Non hanno funzioni corporee vitali come battito cardiaco o produzione di sudore. Il corpo di un vampiro non invecchia né si decompone."
+      },
+      {
+        "title": "Vampiri Bevono il Sangue dei Vivi",
+        "content": "Vero: Si nutrono del sangue umano per mantenere le loro capacità sovrumane. Alcuni vampiri possono cercare alternative, ma il sangue umano è spesso essenziale."
+      },
+      {
+        "title": "Vampiri lasciano il Marchio delle Zanne sul Corpo delle Vittime",
+        "content": "Per lo più falso: Dopo l'Abbraccio, le zanne retrattili possono lasciare segni temporanei, ma la saliva vampirica può chiudere le ferite, nascondendo ogni traccia."
+      },
+      {
+        "title": "Chi Muore per il Morso di un Vampiro Risorgerà come Vampiro",
+        "content": "Falso: Le vittime muoiono senza risorgere automaticamente. Per diventare un vampiro, l'Abbraccio deve essere seguito dall'assunzione del Sangue vampirico, chiamato \"vitae\"."
+      },
+      {
+        "title": "La Luce del Sole Brucia i Vampiri",
+        "content": "Vero: La luce solare può bruciare fatalmente la carne dei vampiri se esposti abbastanza a lungo. La maggior parte dei vampiri preferisce la notte e trova difficile restare sveglia di giorno."
+      },
+      {
+        "title": "Aglio e Acqua Corrente Respingono i Vampiri",
+        "content": "Per lo più falso: Si tratta di credenze popolari senza basi reali. Alcuni vampiri possono essere sensibili, ma sono rari."
+      },
+      {
+        "title": "Vampiri Scappano Davanti alle Croci",
+        "content": "Generalmente falso: È un'illusione popolare. Alcune persone possono respingere o danneggiare i vampiri con simboli sacri grazie alla forza della Fede."
+      },
+      {
+        "title": "Un Paletto nel Cuore Uccide i Vampiri",
+        "content": "Falso: Un paletto di legno nel cuore paralizza il vampiro, ma non lo uccide. Rimuovendo il paletto, il vampiro può riprendersi."
+      },
+      {
+        "title": "Vampiri hanno la Forza di 10 Uomini, Comandano Lupi e Pipistrelli, Possono Ipnotizzare i Vivi, ecc.",
+        "content": "Vero e Falso: I vampiri acquisiscono poteri soprannaturali chiamati Discipline, inclusi poteri come forza sovrumana, controllo sugli animali e ipnosi. Tuttavia, questi poteri variano e aumentano con l'età."
+      },
+      {
+        "title": "Vampiri sono Mostri, Spiriti Demoniaci Incarnati nei Cadaveri",
+        "content": "Falso e Vero: I vampiri provano una spinta inesorabile verso la dannazione, ma la loro trasformazione in mostri spesso è influenzata dalla loro esistenza solitaria e predatoria che corrode i valori umani."
+      }
+    ]
+  },
+  {
+    "title": "La Fame",
+    "content": "Per ogni livello di Fame che influenza un personaggio, viene assegnato un dado Fame. Questi dadi sono a 10 facce, identici a quelli normali, ma di un colore differente (solitamente rosso) per renderli facilmente distinguibili. Quando un giocatore forma una riserva di dadi per il suo personaggio, ogni dado imposto dalla Fame sostituisce uno dei suoi normali dadi.\nSe la riserva di dadi è inferiore al livello di Fame, il personaggio tira semplicemente un numero di dadi Fame pari alla riserva. Tuttavia, è importante notare che i dadi Fame non sono inclusi nelle riserve per le Prove, la Volontà o l'Umanità.\nI dadi Fame operano come dadi normali nei test e nei confronti, ottenendo successi con 6 o più. Tuttavia, non è possibile ritirarli spendendo punti Volontà, poiché la Fame si dimostra resistente ai tentativi della mente razionale di domarla. Inoltre, ottenere uno 0 (10) su un dado Fame può comportare conseguenze aggiuntive, come critici caotici o fallimenti bestiali.",
+    "sections": [
+      {
+        "title": "Uso dei Dadi Fame",
+        "content": "È importante sottolineare che i dadi Fame non possono mai essere ritirati spendendo punti Volontà. La loro natura inafferrabile sfugge ai tentativi di controllo razionale della mente del personaggio.",
+        "subParagraphs": [
+          {
+            "title": "fallimento bestiale (1)",
+            "content": "Indica un fallimento totale del test. In caso di test fallito, potrebbe anche scatenare un fallimento bestiale se il risultato è 1."
+          },
+          {
+            "title": "Fallimento (2-5)",
+            "content": "Rappresenta un fallimento meno disastroso, con un risultato compreso tra 2 e 5."
+          },
+          {
+            "title": "Successo (6-9)",
+            "content": "Indica un successo regolare, ottenuto con un risultato tra 6 e 9."
+          },
+          {
+            "title": "Critico, Critico Caotico (10)",
+            "content": "Rappresenta un successo eccezionale, specialmente se parte di una vittoria critica, ottenuto con un risultato di 10."
+          }
+        ]
+      },
+      {
+        "title": "Fallimento Bestiale",
+        "content": "Un tiro fallito, caratterizzato da successi insufficienti per raggiungere la Difficoltà o superare i successi dell'avversario, e che presenta uno o più \"1\" sui dadi Fame, genera un fallimento bestiale. In questo caso, il vampiro fallisce a causa della manifestazione eccessiva o inopportuna della sua Bestia, o il fallimento la provoca a emergere in modo irato. Alcuni risultati adatti a un fallimento bestiale includono:",
+        "subParagraphs" : [
+          {
+            "title": "Compulsione",
+            "content": "Il giocatore deve recitare una Compulsione, poiché il Sangue comincia a influenzare sottilmente le azioni del vampiro."
+          },
+          {
+            "title": "Perdita di un pallino da un Vantaggio",
+            "content": "Il vampiro perde un pallino da un Vantaggio, simile a quanto avviene in un critico caotico"
+          },
+          {
+            "title": "Danno Aggravato alla Salute",
+            "content": "Il vampiro subisce uno o più livelli di danno Aggravato alla Salute. Questo risultato è più adatto per i fallimenti bestiali nei tiri di resistenza, dove lo stress fa sudare copiosamente il Sangue del vampiro."
+          },
+          {
+            "title": "Aumento della Fame",
+            "content": "Se nessuno nella troupe riesce a ideare una soluzione, la Fame del vampiro aumenta di uno. Se questo porterebbe la sua Fame oltre 5, il vampiro deve tirare immediatamente per resistere a una frenesia alimentare (vedi p. 220) con Difficoltà 4."
+          }
+        ]
+      },
+      {
+        "title": "Saziare la Fame",
+        "content": "I vampiri hanno bisogno di bere sangue per ridurre la loro Fame, il desiderio insaziabile di sangue umano che li tormenta. Ridurre la Fame a livelli più bassi può essere fatto dissanguando a morte un essere umano.",
+        "subParagraphs" : [
+          {
+            "title": "Livelli di Fame",
+            "content": "La Fame è misurata in livelli, con 5 livelli che rappresentano la Fame massima. Bere sangue riduce la Fame di un valore predefinito."
+          },
+          {
+            "title": "Fame Ridotta Senza Uccidere",
+            "content": "I vampiri giovani possono abbassare la Fame a 1 senza uccidere una vittima umana. Tuttavia, all'aumentare della Potenza del Sangue, cresce anche il livello di Fame latente."
+          },
+          {
+            "title": "Limitazioni in Base alla Potenza del Sangue",
+            "content": "Vampiri con Potenza del Sangue superiore a 7 non possono ridurre la Fame a meno di 3 senza uccidere una vittima umana.\nEffetti del Morso:\nBere sangue richiede tempo e attenzione. Il morso di un vampiro può causare euforia nella vittima, ma il vampiro deve bucare correttamente una vena o un'arteria e leccare la ferita per preservare la Masquerade."
+          },
+          {
+            "title": "Durata del Processo",
+            "content": "Un vampiro può prosciugare e uccidere un mortale indifeso o inerme in 5 turni."
+          },
+          {
+            "title": "Nutrirsi da Animali",
+            "content": "Bere sangue da animali causa la morte dell'animale, a meno che non sia di taglia maggiore rispetto a quella umana. Tuttavia, il sangue animale non è altrettanto nutriente e non contiene Discrasie."
+          },
+          {
+            "title": "Nutrirsi da Sangue Conservato",
+            "content": "Il sangue conservato in busta è spesso alterato e non è utilizzabile dai vampiri, a meno che non abbiano il Pregio \"Stomaco di Ferro\". Il sangue animale conservato non sazia vampiri con Potenza del Sangue superiore a 2."
+          },
+          {
+            "title": "Nutrirsi da Altri Vampiri",
+            "content": "Bere da un altro vampiro può saziare la Fame, ma comporta il rischio di contrarre un Legame di Sangue."
+          },
+          {
+            "title": "Attaccare a Morsi",
+            "content": "I vampiri possono utilizzare le zanne come armi negli attacchi basati sulla Rissa. Gli attacchi con le zanne infliggono 2 danni Aggravati alla Salute di mortali e vampiri. Un attacco a morsi può aumentare la Fame del bersaglio di 1 per turno contro altri vampiri, oltre a infliggere danni Aggravati."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Compulsioni",
+    "content": "Le compulsioni si manifestano in caso di fallimento bestiale, quando la Fame spinge un vampiro a compiere azioni dettate dal Sangue e talvolta risvegliando tratti provenienti dal fondatore del suo clan. Quando un personaggio deve attivare una Compulsione, il Narratore ne sceglie una o la determina a caso tirando sulla tabella a lato (è opportuno variare le Compulsioni anziché ricorrere ogni volta a quella di clan, a meno che non si voglia rafforzare gli stereotipi). Una volta scelta, il giocatore decide come recitarla: se lo fa in modo ammirevole, può recuperare un punto Volontà. Si noti che, a differenza della frenesia, non è possibile spendere Volontà per ignorare gli effetti di una Compulsione. Questi istinti insidiosi inducono comportamenti che sembrano del tutto naturali: forse il vampiro non si rende neppure conto di esserne influenzato.",
+    "sections": [
+      {
+        "title": "Fame",
+        "content": "L'archetipo di ogni Compulsione, la Fame spinge i pensieri del vampiro verso il brivido di piantare le zanne nella preda e assaporarne il sangue caldo sulla lingua. Il vampiro sarà disposto a fare qualsiasi cosa per saziare la sua Fame, che si tratti di violenza, sotterfugio o umilianti implorazioni. Le riserve di qualsiasi azione che non favorisca direttamente il nutrimento subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro riesce a saziare almeno 1 livello di Fame.\n● Ambiente Sociale: Il vampiro dirige l'incontro verso la seduzione anziché interrogare un testimone mortale.\n● Situazione Violenta: Si getta sull'avversario per cibarsene anziché utilizzare l'arma.\n● Momento Solitario: Decide di fare una pausa e si ritrova \"per caso\" in un affollato nightclub."
+      },  {
+        "title": "Predominio",
+        "content": "Il Sangue incita il suo ospite a prevalere su chiunque, a possedere e stabilire un predominio. Questa Compulsione spinge il vampiro non solo a eccellere ma a crogiolarsi nella sua eccellenza, insultando i deboli e sfidando i forti. Durante questa fase, il vampiro trasforma la sua prossima interazione in una gara, utilizzando ogni mezzo a sua disposizione per riportare la vittoria e infliggere un colpo fatale allo sconfitto. Non è permesso l'uso del lavoro di squadra, e le riserve di qualsiasi azione che eviti di stabilire predominio o sfidare l'autorità subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro ha ottenuto il successo desiderato e ha vantato a sufficienza la sua vittoria.\n● Ambiente Sociale: Il vampiro trasforma una conversazione civile in un esercizio di prevaricazione, allontanando la persona di cui voleva conquistare la fiducia.\n● Situazione Violenta: Si sofferma a giocare con un avversario mortale, crogiolandosi nella sua superiorità anziché focalizzarsi sull'obiettivo.\n● Momento Solitario: Diventa ossessionato dal raggiungere il suo scopo in un modo innovativo che dimostri la propria superiorità."
+      },  {
+        "title": "Brutalità",
+        "content": "Le cose si complicano: la Fame obbliga il vampiro a distruggere e causare dolore, non per vincere o nutrirsi, ma per il puro gusto di farlo e godere del dolore altrui. Questa Compulsione spesso coinvolge la violenza fisica, sebbene possa anche manifestarsi in forme più sottili, come danni sociali o emotivi.\nLe riserve di qualsiasi azione che non porti immediatamente a dolore o danni subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro ha reso il bersaglio inabile, lo ha distrutto o lo ha cacciato via. Nel caso in cui questa Compulsione si manifesti su un oggetto, quest'ultimo deve essere di grande valore per una persona che normalmente sta a cuore al vampiro, come ad esempio se stesso.\n● Ambiente Sociale: Il vampiro comincia a tormentare e torturare psicologicamente il soggetto, facendo degenerare una presentazione che finora andava a meraviglia.\n● Situazione Violenta: Inizia a fare a pezzi un avversario ormai fuori combattimento anziché ignorarlo.\n● Momento Solitario: Irritato da un problema di poco conto, il vampiro distrugge il suo prezioso computer con una mazza da baseball."
+      },  {
+        "title": "Paranoia",
+        "content": "Il vampiro, sempre in bilico tra cacciatore e preda, è costantemente sospettoso e allerta quando questa Compulsione si scatena. La Fame implacabile gli ricorda la vulnerabilità del Sangue, spingendolo a cercare di sfuggire da qualsiasi minaccia percepita, nutrendo sospetti verso tutto e tutti.\nLe riserve di qualsiasi azione non mirata direttamente a mettersi al sicuro subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro trascorre circa un'ora in un luogo sicuro, come un tetto con buona visibilità, il suo rifugio o le viscere della terra.\n● Ambiente Sociale: Il vampiro tratta chiunque con diffidenza, cercando di sottrarsi a qualsiasi interazione.\n● Situazione Violenta: Cerca di porre fine o sfuggire al pericolo con ogni mezzo, dando alla fuga o implorando per la sua non vita.\n● Momento Solitario: Scorge pericoli dove non ve ne sono, aggredendo e scappando ossessionato da simboli occulti a caso o da strane coincidenze."
+      }, {
+        "title": "Compulsioni Casuali",
+        "content": "\n● 1-3: Fame:\n● 4-5: Predominio:\n● 6-7: Brutalità:\n● 8-9: Paranoia:\n● 0: Compulsione di Clan: Ripetere il tiro per Vili o Sangue debole."
+      },{
+        "title": "Gravità delle Compulsioni",
+        "content": "I gruppi esperti possono aumentare la gravità delle Compulsioni quando si ottengono più di un 1 sui dadi Fame. Due 1 potrebbero portare la Compulsione a sfociare in una scena a sé stante, mentre tre o più 1 potrebbero causare alterazioni permanenti al vampiro."
+      },{
+        "title": "Compulsioni a Lungo Termine",
+        "content": "Queste Compulsioni sono adatte quando un test occupa una scala temporale più ampia. Gli effetti della Compulsione possono essere descritti dal Narratore per la durata dello sforzo o possono essere tradotti in una scena nodale da giocare nei dettagli entro l'arco temporale definito."
+      },{
+        "title": "Offerte del Narratore",
+        "content": "Il Narratore può \"stuzzicare\" una Compulsione in un personaggio quando ritiene che sia il momento giusto. Se il giocatore vuole resistere all'impulso, deve spendere un punto Volontà. Se sceglie di agire assecondando l'offerta, il personaggio recupera un punto Volontà."
+      },{
+        "title": "Compulsioni Segrete",
+        "content": "Questa variante offre ai gruppi maturi ed esperti un modo per esplorare temi più oscuri. Ogni giocatore deve decidere le debolezze e gli impulsi oscuri del proprio personaggio, inclusa la versione della Compulsione di clan. Il Narratore integra queste Compulsioni segrete nelle situazioni di gioco, senza svelare ai compagni quali azioni sono guidate dalle Compulsioni.\nQueste varianti aggiungono elementi drammatici e tematici al gioco, richiedendo un impegno maggiore da parte dei giocatori e del Narratore. Sono consigliate per gruppi più esperti che desiderano esplorare gli aspetti più oscuri e complessi dell'esistenza vampirica."
+      }
+    ]
+  },
+  {
+    "title": "Risvegliare il Sangue",
+    "content": "Ogni volta che un vampiro si risveglia al tramonto, sfrutta i suoi poteri o interagisce con il suo Sangue, c'è il rischio di risvegliare la sua Fame. Questo accade quando infonde il Sangue negli Attributi, utilizza il Rossore della Vita, cura il suo corpo ferito o attiva vari poteri di Disciplina.Per eseguire la Prova di Risveglio, il giocatore tira un dado. Un risultato di 6 o più è considerato un successo. Se la prova riesce, la Fame del vampiro rimane invariata. In caso di fallimento, il vampiro ottiene 1 livello di Fame aggiuntiva e, di conseguenza, un dado Fame supplementare.\nIl nuovo livello di Fame si aggiunge dopo la risoluzione dell'effetto desiderato. Pertanto, è possibile eseguire la Prova di Risveglio contemporaneamente o dopo altri test, a condizione che sia chiaramente distinguibile e non venga confusa con una parte della riserva.\nAlcune condizioni, come l'incremento della Potenza del Sangue, consentono al giocatore di tirare due dadi in alcune Prove di Risveglio, scegliendo il risultato più alto. Un successo (6+) su uno qualsiasi dei dadi impedisce l'aumento della Fame, equivalendo a un successo nel tiro della Prova.\nA Fame 5, il corpo del vampiro è troppo assetato di sangue per ottenere un aumento di potenza soprannaturale. Nessun vampiro può Risvegliare il Sangue volontariamente quando ha Fame 5. Se un qualche fattore esterno costringe a una Prova di Risveglio, il giocatore deve effettuare immediatamente un test di frenesia con Difficoltà 4 (p. 219). In ogni caso, fallire una Prova di Risveglio a Fame 5 attiva comunque l'effetto che ha causato la prova, se esiste.",
+    "sections": [
+      {
+        "title": "Rossore della Vita",
+        "content": "Il corpo dei vampiri, se non viene portato a una sembianza artificiale di vita, è praticamente morto. La non morte si manifesta attraverso il colorito pallido o cinereo, la carne fredda e l'assenza di respiro (eccetto per parlare) o battito cardiaco. Attivando il Rossore della Vita, un vampiro può simulare completamente l'aspetto di un essere umano per una notte, compresi pulsazioni, temperatura, respiro e altro ancora. Possono addirittura superare un esame medico esterno, ma non analisi approfondite come la ricerca della flora batterica intestinale.\nI vampiri, esclusi i Sangue debole, devono utilizzare il Rossore della Vita per interagire con gli schermi tattili di dispositivi come cellulari, che richiedono la naturale umidità e conduttività elettrica tipiche dei vivi.\nL'uso del Rossore consente di mangiare e bere senza vomitare fino a un'ora dopo. Senza di esso, i vampiri devono superare un test immediato di Autocontrollo + Costituzione (Difficoltà 3) per raggiungere l'esterno o il bagno in tempo.\nA seconda della loro Umanità, i vampiri possono simulare o persino godere dell'amplesso sessuale quando il Rossore è attivo (p. 236). Con un'Umanità di 9 o più, i vampiri sembrano più malaticci o \"tossici chic\" che morti; il loro battito e respiro appaiono deboli ma percepibili. Non devono utilizzare il Rossore se non per motivi cosmetici. L'attivazione del Rossore della Vita richiede una Prova di Risveglio."
+      }, {
+        "title": "Impeto Sanguigno",
+        "content": "Il corpo dei vampiri, se non viene portato a una sembianza artificiale di vita, è praticamente morto. La non morte si manifesta attraverso il colorito pallido o cinereo, la carne fredda e l'assenza di respiro (eccetto per parlare) o battito cardiaco. Attivando il Rossore della Vita, un vampiro può simulare completamente l'aspetto di un essere umano per una notte, compresi pulsazioni, temperatura, respiro e altro ancora. Possono addirittura superare un esame medico esterno, ma non analisi approfondite come la ricerca della flora batterica intestinale.\nI vampiri, esclusi i Sangue debole, devono utilizzare il Rossore della Vita per interagire con gli schermi tattili di dispositivi come cellulari, che richiedono la naturale umidità e conduttività elettrica tipiche dei vivi.\nL'uso del Rossore consente di mangiare e bere senza vomitare fino a un'ora dopo. Senza di esso, i vampiri devono superare un test immediato di Autocontrollo + Costituzione (Difficoltà 3) per raggiungere l'esterno o il bagno in tempo.\nA seconda della loro Umanità, i vampiri possono simulare o persino godere dell'amplesso sessuale quando il Rossore è attivo (p. 236). Con un'Umanità di 9 o più, i vampiri sembrano più malaticci o \"tossici chic\" che morti; il loro battito e respiro appaiono deboli ma percepibili. Non devono utilizzare il Rossore se non per motivi cosmetici. L'attivazione del Rossore della Vita richiede una Prova di Risveglio.",
+        "subParagraphs": [
+          {
+          "title": "Descrizione",
+          "content": "Ogni vampiro può richiamare il potere del Sangue per potenziare temporaneamente i propri Attributi Fisici, Sociali o Mentali attraverso l'Impeto Sanguigno."
+        },
+          {
+            "title": "Procedura",
+            "content": "● Riserve Coinvolte: L'Impeto Sanguigno può essere utilizzato su riserve che incorporano un singolo Attributo, come Fisico, Sociale o Mentale.\n● Numero di Dadi:Il numero di dadi aggiuntivi dipende dalla Potenza del Sangue del vampiro. Questo bonus può essere sommato al tiro di dadi in una singola azione.\n● Uso Limitato: Un vampiro può utilizzare l'Impeto Sanguigno solo una volta per tiro. I dadi aggiuntivi rimangono anche se il tiro è ripetuto usando la Volontà.\n● Prova di Risveglio:L'attivazione dell'Impeto Sanguigno richiede una Prova di Risveglio, indicando il rischio di cadere nella Bestia vampirica quando si attinge a questo potere.\n● Limitazioni:L'Impeto Sanguigno non può essere utilizzato nei tiri di Volontà e Umanità, nei tiri che si applicano a più di una scena, nel Combattimento a Tiro Singolo o se il Narratore non lo permette.\n● Esclusioni:Le vittorie automatiche e la tecnica \"Prendere Metà\" non si applicano ai tiri potenziati dall'Impeto Sanguigno."
+          },
+
+          {
+            "title": "Note",
+            "content": "L'Impeto Sanguigno offre ai vampiri una risorsa dinamica che può essere utilizzata per migliorare temporaneamente le proprie abilità in situazioni cruciali. Tuttavia, è soggetto a limitazioni e rischi associati al richiamo del potere del Sangue."
+          }
+        ]
+      }, {
+        "title": "Guarigione Vampirica",
+        "content": "Poiché i vampiri sono esseri morti, la loro guarigione non segue i processi normali. Tuttavia, con uno sforzo adeguato, possono rigenerare i danni al loro corpo defunto.",
+        "subParagraphs": [
+          {
+            "title": "Risanare Danni Superficiali alla Salute",
+            "content": "In base alla sua Potenza del Sangue, un vampiro può risanare uno o due punti di danno Superficiale alla Salute con una singola Prova di Risveglio. Ogni prova può essere eseguita una volta al turno."
+          },
+          {
+            "title": "Risanare Danni Aggravati alla Salute",
+            "content": "Per guarire i danni Aggravati, il vampiro deve aspettare fino alla notte successiva ed eseguire 3 Prove di Risveglio, oltre a quella normale richiesta durante la risanazione, quando si risveglia. Questo processo rimuove un punto di danno Aggravato e una Ferita Invalidante o una menomazione analoga. Il vampiro può risanare solo un punto di danno Aggravato per notte. Se le Prove di Risveglio portano la Fame del vampiro oltre il valore di 5, il vampiro cadrà in torpore anziché sottoporsi a un test di frenesia alimentare."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Generazione",
+    "content": "Ogni vampiro attinge la sua forza profana dal Sangue, ma non tutto il Sangue è uguale. La potenza del Sangue varia a seconda della Generazione del vampiro, che rappresenta la sua discendenza da Caino, il mitico progenitore della Prima Generazione. Dopo l'Abbraccio, un vampiro risorge con una Generazione superiore (quindi più debole) rispetto a quella del suo sire.",
+    "sections": [
+      {
+        "title": "Caino e la Seconda Generazione: i miti",
+        "content": "I primi vampiri sono spesso trattati come leggende e argomenti teologici. La maggior parte di coloro che credono in questo mito identificano Caino nel personaggio biblico omonimo, ma la realtà di quei tempi rimane avvolta nel mistero."
+      }, {
+        "title": "Terza Generazione: gli Antidiluviani",
+        "content": "Gli Antidiluviani, fondatori dei 13 clan vampirici, sono stati coinvolti in qualche modo nel Diluvio biblico, o forse sono stati i bersagli. Le loro discendenze continuano a influenzare i vampiri nelle notti odierne, e le trame da loro avviate millenni fa guidano ancora l'eterna Jyhad. Attualmente, gli Antidiluviani stanno emergendo dal loro torpore, chiamando i loro discendenti con un'oscura voce nota come il Richiamo."
+      }, {
+        "title": "Quarta e Quinta Generazione: i Matusalemme",
+        "content": "Quasi potenti quanto gli Antidiluviani, i Matusalemme si sono ritirati dalla Jyhad nel corso del primo millennio. Alcuni dormono sotto antiche città umane, accuditi da culti devoti o completamente dimenticati. Altri sono diventati Inconnu, ritirandosi completamente dalla società vampirica e dalla Jyhad."
+      }, {
+        "title": "Sesta - Nona Generazione: gli anziani",
+        "content": "Abbracciati per lo più prima dell'era moderna, i vampiri di queste Generazioni hanno occupato posizioni di potere nella Camarilla e nel Movimento Anarchico. Il Richiamo li sta ora attirando fuori dai loro rifugi, spingendoli verso il fronte di guerra della Gehenna."
+      }, {
+        "title": "10ª e 11ª Generazione: le ancillae",
+        "content": "Solitamente, le ancillae più anziane cercano di convincere la gerarchia a includerle, o vengono eliminate. Con la diminuzione delle Generazioni e l'esplosione demografica globale, i vampiri di queste Generazioni hanno in media meno di 250 anni."
+      }, {
+        "title": "12ª e 13ª Generazione: i neonati",
+        "content": "Questi vampiri sono diminuiti lentamente per secoli prima di rifiorire nelle notti moderne. Hanno relativamente poca esperienza del vampirismo, ma una comprensione migliore dei cambiamenti sociali e tecnologici."
+      }, {
+        "title": "14ª - 16ª Generazione: i Sangue debole",
+        "content": "Considerate lontane da Caino, queste Generazioni suscitano preoccupazione tra i vampiri più anziani, poiché sembrano diluire la maledizione e i doni vampirici. Il \"Tempo del Sangue Debole\" è accennato nel Libro di Nod come un precursore della Gehenna, il risveglio degli Antidiluviani e la fine della specie vampirica."
+      }, {
+        "title": "Caino e la Seconda Generazione: i miti",
+        "content": "I primi vampiri sono spesso trattati come leggende e argomenti teologici. La maggior parte di coloro che credono in questo mito identificano Caino nel personaggio biblico omonimo, ma la realtà di quei tempi rimane avvolta nel mistero."
+      }
+    ]
+  },
+  {
+    "title": "",
+    "content": "",
+    "sections": [
+      {
+        "title": "",
+        "content": "",
+        "subParagraphs": [
+          {
+            "headers": [
+              ""
+            ],
+            "columns": [
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "",
+    "content": "",
+    "sections": [
+      {
+        "title": "",
+        "content": "",
+        "subParagraphs": [
+          {
+            "headers": [
+              ""
+            ],
+            "columns": [
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "",
+    "content": "",
+    "sections": [
+      {
+        "title": "",
+        "content": "",
+        "subParagraphs": [
+          {
+            "headers": [
+              ""
+            ],
+            "columns": [
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "",
+    "content": "",
+    "sections": [
+      {
+        "title": "",
+        "content": "",
+        "subParagraphs": [
+          {
+            "headers": [
+              ""
+            ],
+            "columns": [
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "",
+    "content": "",
+    "sections": [
+      {
+        "title": "",
+        "content": "",
+        "subParagraphs": [
+          {
+            "headers": [
+              ""
+            ],
+            "columns": [
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

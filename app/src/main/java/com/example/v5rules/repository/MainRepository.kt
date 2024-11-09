@@ -48,5 +48,10 @@ class MainRepository(context: Context) {
     fun loadLoresheet(lenguage: Locale): List<Loresheet> {
         return loresheetReader.readLoresheets(lenguage)
     }
-
+    fun loadKindred(language: Locale): List<Chapter> {
+        return rulesReader.readKindred(language)
+    }
+    fun loadPg(language: Locale): List<Chapter> {
+        return rulesReader.readPg(language)
+    }
 }
