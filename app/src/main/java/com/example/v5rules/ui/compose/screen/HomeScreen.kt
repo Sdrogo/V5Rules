@@ -69,7 +69,6 @@ fun HomeScreen(navController: NavHostController) {
             }
             Spacer(modifier = Modifier.weight(0.5f))
         }
-
     }
 }
 
@@ -174,6 +173,5 @@ fun ButtonsBlock(navController: NavHostController, modifier: Modifier = Modifier
         ) {
             Text(text = stringResource(id = R.string.npc_generator_title))
         }
-
     }
 }

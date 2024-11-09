@@ -102,5 +102,4 @@ fun ClanItem(clan: Clan, navController: NavHostController, maxWidth: Float = 1f)
                 .wrapContentWidth()
         )
     }
-
 }

@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
     val accentColor = MaterialTheme.colorScheme.tertiary
     val textColor = MaterialTheme.colorScheme.primary
-    val backgroundColor = MaterialTheme.colorScheme.secondary
+    val backgroundColor = MaterialTheme.colorScheme.background
     Column {
         // Header Row
         Row(

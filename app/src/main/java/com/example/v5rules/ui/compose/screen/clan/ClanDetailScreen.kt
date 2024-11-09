@@ -153,7 +153,7 @@ fun ClanDetail(
                         ),
                     shape = RoundedCornerShape(8.dp)
                 ) {
-                    Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary)) {
+                    Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
                         clan.disciplines.forEach { discipline ->
                             TextBlock(
                                 title = "${discipline.title}:",

@@ -10,3 +10,14 @@ data class Npc(
     }
 }
 
+enum class Gender {
+    MALE,
+    FEMALE
+}
+
+enum class RegenerationType {
+    NAME,
+    SECOND_NAME,
+    FAMILY_NAME,
+    ALL
+}
