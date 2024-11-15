@@ -78,7 +78,7 @@
       {
         "title": "Fallimento Bestiale",
         "content": "Un tiro fallito, caratterizzato da successi insufficienti per raggiungere la Difficoltà o superare i successi dell'avversario, e che presenta uno o più \"1\" sui dadi Fame, genera un fallimento bestiale. In questo caso, il vampiro fallisce a causa della manifestazione eccessiva o inopportuna della sua Bestia, o il fallimento la provoca a emergere in modo irato. Alcuni risultati adatti a un fallimento bestiale includono:",
-        "subParagraphs" : [
+        "subParagraphs": [
           {
             "title": "Compulsione",
             "content": "Il giocatore deve recitare una Compulsione, poiché il Sangue comincia a influenzare sottilmente le azioni del vampiro."
@@ -100,7 +100,7 @@
       {
         "title": "Saziare la Fame",
         "content": "I vampiri hanno bisogno di bere sangue per ridurre la loro Fame, il desiderio insaziabile di sangue umano che li tormenta. Ridurre la Fame a livelli più bassi può essere fatto dissanguando a morte un essere umano.",
-        "subParagraphs" : [
+        "subParagraphs": [
           {
             "title": "Livelli di Fame",
             "content": "La Fame è misurata in livelli, con 5 livelli che rappresentano la Fame massima. Bere sangue riduce la Fame di un valore predefinito."
@@ -144,28 +144,36 @@
       {
         "title": "Fame",
         "content": "L'archetipo di ogni Compulsione, la Fame spinge i pensieri del vampiro verso il brivido di piantare le zanne nella preda e assaporarne il sangue caldo sulla lingua. Il vampiro sarà disposto a fare qualsiasi cosa per saziare la sua Fame, che si tratti di violenza, sotterfugio o umilianti implorazioni. Le riserve di qualsiasi azione che non favorisca direttamente il nutrimento subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro riesce a saziare almeno 1 livello di Fame.\n● Ambiente Sociale: Il vampiro dirige l'incontro verso la seduzione anziché interrogare un testimone mortale.\n● Situazione Violenta: Si getta sull'avversario per cibarsene anziché utilizzare l'arma.\n● Momento Solitario: Decide di fare una pausa e si ritrova \"per caso\" in un affollato nightclub."
-      },  {
+      },
+      {
         "title": "Predominio",
         "content": "Il Sangue incita il suo ospite a prevalere su chiunque, a possedere e stabilire un predominio. Questa Compulsione spinge il vampiro non solo a eccellere ma a crogiolarsi nella sua eccellenza, insultando i deboli e sfidando i forti. Durante questa fase, il vampiro trasforma la sua prossima interazione in una gara, utilizzando ogni mezzo a sua disposizione per riportare la vittoria e infliggere un colpo fatale allo sconfitto. Non è permesso l'uso del lavoro di squadra, e le riserve di qualsiasi azione che eviti di stabilire predominio o sfidare l'autorità subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro ha ottenuto il successo desiderato e ha vantato a sufficienza la sua vittoria.\n● Ambiente Sociale: Il vampiro trasforma una conversazione civile in un esercizio di prevaricazione, allontanando la persona di cui voleva conquistare la fiducia.\n● Situazione Violenta: Si sofferma a giocare con un avversario mortale, crogiolandosi nella sua superiorità anziché focalizzarsi sull'obiettivo.\n● Momento Solitario: Diventa ossessionato dal raggiungere il suo scopo in un modo innovativo che dimostri la propria superiorità."
-      },  {
+      },
+      {
         "title": "Brutalità",
         "content": "Le cose si complicano: la Fame obbliga il vampiro a distruggere e causare dolore, non per vincere o nutrirsi, ma per il puro gusto di farlo e godere del dolore altrui. Questa Compulsione spesso coinvolge la violenza fisica, sebbene possa anche manifestarsi in forme più sottili, come danni sociali o emotivi.\nLe riserve di qualsiasi azione che non porti immediatamente a dolore o danni subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro ha reso il bersaglio inabile, lo ha distrutto o lo ha cacciato via. Nel caso in cui questa Compulsione si manifesti su un oggetto, quest'ultimo deve essere di grande valore per una persona che normalmente sta a cuore al vampiro, come ad esempio se stesso.\n● Ambiente Sociale: Il vampiro comincia a tormentare e torturare psicologicamente il soggetto, facendo degenerare una presentazione che finora andava a meraviglia.\n● Situazione Violenta: Inizia a fare a pezzi un avversario ormai fuori combattimento anziché ignorarlo.\n● Momento Solitario: Irritato da un problema di poco conto, il vampiro distrugge il suo prezioso computer con una mazza da baseball."
-      },  {
+      },
+      {
         "title": "Paranoia",
         "content": "Il vampiro, sempre in bilico tra cacciatore e preda, è costantemente sospettoso e allerta quando questa Compulsione si scatena. La Fame implacabile gli ricorda la vulnerabilità del Sangue, spingendolo a cercare di sfuggire da qualsiasi minaccia percepita, nutrendo sospetti verso tutto e tutti.\nLe riserve di qualsiasi azione non mirata direttamente a mettersi al sicuro subiscono una penalità di 2 dadi. La Compulsione cessa quando il vampiro trascorre circa un'ora in un luogo sicuro, come un tetto con buona visibilità, il suo rifugio o le viscere della terra.\n● Ambiente Sociale: Il vampiro tratta chiunque con diffidenza, cercando di sottrarsi a qualsiasi interazione.\n● Situazione Violenta: Cerca di porre fine o sfuggire al pericolo con ogni mezzo, dando alla fuga o implorando per la sua non vita.\n● Momento Solitario: Scorge pericoli dove non ve ne sono, aggredendo e scappando ossessionato da simboli occulti a caso o da strane coincidenze."
-      }, {
+      },
+      {
         "title": "Compulsioni Casuali",
         "content": "\n● 1-3: Fame:\n● 4-5: Predominio:\n● 6-7: Brutalità:\n● 8-9: Paranoia:\n● 0: Compulsione di Clan: Ripetere il tiro per Vili o Sangue debole."
-      },{
+      },
+      {
         "title": "Gravità delle Compulsioni",
         "content": "I gruppi esperti possono aumentare la gravità delle Compulsioni quando si ottengono più di un 1 sui dadi Fame. Due 1 potrebbero portare la Compulsione a sfociare in una scena a sé stante, mentre tre o più 1 potrebbero causare alterazioni permanenti al vampiro."
-      },{
+      },
+      {
         "title": "Compulsioni a Lungo Termine",
         "content": "Queste Compulsioni sono adatte quando un test occupa una scala temporale più ampia. Gli effetti della Compulsione possono essere descritti dal Narratore per la durata dello sforzo o possono essere tradotti in una scena nodale da giocare nei dettagli entro l'arco temporale definito."
-      },{
+      },
+      {
         "title": "Offerte del Narratore",
         "content": "Il Narratore può \"stuzzicare\" una Compulsione in un personaggio quando ritiene che sia il momento giusto. Se il giocatore vuole resistere all'impulso, deve spendere un punto Volontà. Se sceglie di agire assecondando l'offerta, il personaggio recupera un punto Volontà."
-      },{
+      },
+      {
         "title": "Compulsioni Segrete",
         "content": "Questa variante offre ai gruppi maturi ed esperti un modo per esplorare temi più oscuri. Ogni giocatore deve decidere le debolezze e gli impulsi oscuri del proprio personaggio, inclusa la versione della Compulsione di clan. Il Narratore integra queste Compulsioni segrete nelle situazioni di gioco, senza svelare ai compagni quali azioni sono guidate dalle Compulsioni.\nQueste varianti aggiungono elementi drammatici e tematici al gioco, richiedendo un impegno maggiore da parte dei giocatori e del Narratore. Sono consigliate per gruppi più esperti che desiderano esplorare gli aspetti più oscuri e complessi dell'esistenza vampirica."
       }
@@ -178,25 +186,26 @@
       {
         "title": "Rossore della Vita",
         "content": "Il corpo dei vampiri, se non viene portato a una sembianza artificiale di vita, è praticamente morto. La non morte si manifesta attraverso il colorito pallido o cinereo, la carne fredda e l'assenza di respiro (eccetto per parlare) o battito cardiaco. Attivando il Rossore della Vita, un vampiro può simulare completamente l'aspetto di un essere umano per una notte, compresi pulsazioni, temperatura, respiro e altro ancora. Possono addirittura superare un esame medico esterno, ma non analisi approfondite come la ricerca della flora batterica intestinale.\nI vampiri, esclusi i Sangue debole, devono utilizzare il Rossore della Vita per interagire con gli schermi tattili di dispositivi come cellulari, che richiedono la naturale umidità e conduttività elettrica tipiche dei vivi.\nL'uso del Rossore consente di mangiare e bere senza vomitare fino a un'ora dopo. Senza di esso, i vampiri devono superare un test immediato di Autocontrollo + Costituzione (Difficoltà 3) per raggiungere l'esterno o il bagno in tempo.\nA seconda della loro Umanità, i vampiri possono simulare o persino godere dell'amplesso sessuale quando il Rossore è attivo (p. 236). Con un'Umanità di 9 o più, i vampiri sembrano più malaticci o \"tossici chic\" che morti; il loro battito e respiro appaiono deboli ma percepibili. Non devono utilizzare il Rossore se non per motivi cosmetici. L'attivazione del Rossore della Vita richiede una Prova di Risveglio."
-      }, {
+      },
+      {
         "title": "Impeto Sanguigno",
         "content": "Il corpo dei vampiri, se non viene portato a una sembianza artificiale di vita, è praticamente morto. La non morte si manifesta attraverso il colorito pallido o cinereo, la carne fredda e l'assenza di respiro (eccetto per parlare) o battito cardiaco. Attivando il Rossore della Vita, un vampiro può simulare completamente l'aspetto di un essere umano per una notte, compresi pulsazioni, temperatura, respiro e altro ancora. Possono addirittura superare un esame medico esterno, ma non analisi approfondite come la ricerca della flora batterica intestinale.\nI vampiri, esclusi i Sangue debole, devono utilizzare il Rossore della Vita per interagire con gli schermi tattili di dispositivi come cellulari, che richiedono la naturale umidità e conduttività elettrica tipiche dei vivi.\nL'uso del Rossore consente di mangiare e bere senza vomitare fino a un'ora dopo. Senza di esso, i vampiri devono superare un test immediato di Autocontrollo + Costituzione (Difficoltà 3) per raggiungere l'esterno o il bagno in tempo.\nA seconda della loro Umanità, i vampiri possono simulare o persino godere dell'amplesso sessuale quando il Rossore è attivo (p. 236). Con un'Umanità di 9 o più, i vampiri sembrano più malaticci o \"tossici chic\" che morti; il loro battito e respiro appaiono deboli ma percepibili. Non devono utilizzare il Rossore se non per motivi cosmetici. L'attivazione del Rossore della Vita richiede una Prova di Risveglio.",
         "subParagraphs": [
           {
-          "title": "Descrizione",
-          "content": "Ogni vampiro può richiamare il potere del Sangue per potenziare temporaneamente i propri Attributi Fisici, Sociali o Mentali attraverso l'Impeto Sanguigno."
-        },
+            "title": "Descrizione",
+            "content": "Ogni vampiro può richiamare il potere del Sangue per potenziare temporaneamente i propri Attributi Fisici, Sociali o Mentali attraverso l'Impeto Sanguigno."
+          },
           {
             "title": "Procedura",
             "content": "● Riserve Coinvolte: L'Impeto Sanguigno può essere utilizzato su riserve che incorporano un singolo Attributo, come Fisico, Sociale o Mentale.\n● Numero di Dadi:Il numero di dadi aggiuntivi dipende dalla Potenza del Sangue del vampiro. Questo bonus può essere sommato al tiro di dadi in una singola azione.\n● Uso Limitato: Un vampiro può utilizzare l'Impeto Sanguigno solo una volta per tiro. I dadi aggiuntivi rimangono anche se il tiro è ripetuto usando la Volontà.\n● Prova di Risveglio:L'attivazione dell'Impeto Sanguigno richiede una Prova di Risveglio, indicando il rischio di cadere nella Bestia vampirica quando si attinge a questo potere.\n● Limitazioni:L'Impeto Sanguigno non può essere utilizzato nei tiri di Volontà e Umanità, nei tiri che si applicano a più di una scena, nel Combattimento a Tiro Singolo o se il Narratore non lo permette.\n● Esclusioni:Le vittorie automatiche e la tecnica \"Prendere Metà\" non si applicano ai tiri potenziati dall'Impeto Sanguigno."
           },
-
           {
             "title": "Note",
             "content": "L'Impeto Sanguigno offre ai vampiri una risorsa dinamica che può essere utilizzata per migliorare temporaneamente le proprie abilità in situazioni cruciali. Tuttavia, è soggetto a limitazioni e rischi associati al richiamo del potere del Sangue."
           }
         ]
-      }, {
+      },
+      {
         "title": "Guarigione Vampirica",
         "content": "Poiché i vampiri sono esseri morti, la loro guarigione non segue i processi normali. Tuttavia, con uno sforzo adeguato, possono rigenerare i danni al loro corpo defunto.",
         "subParagraphs": [
@@ -219,122 +228,355 @@
       {
         "title": "Caino e la Seconda Generazione: i miti",
         "content": "I primi vampiri sono spesso trattati come leggende e argomenti teologici. La maggior parte di coloro che credono in questo mito identificano Caino nel personaggio biblico omonimo, ma la realtà di quei tempi rimane avvolta nel mistero."
-      }, {
+      },
+      {
         "title": "Terza Generazione: gli Antidiluviani",
         "content": "Gli Antidiluviani, fondatori dei 13 clan vampirici, sono stati coinvolti in qualche modo nel Diluvio biblico, o forse sono stati i bersagli. Le loro discendenze continuano a influenzare i vampiri nelle notti odierne, e le trame da loro avviate millenni fa guidano ancora l'eterna Jyhad. Attualmente, gli Antidiluviani stanno emergendo dal loro torpore, chiamando i loro discendenti con un'oscura voce nota come il Richiamo."
-      }, {
+      },
+      {
         "title": "Quarta e Quinta Generazione: i Matusalemme",
         "content": "Quasi potenti quanto gli Antidiluviani, i Matusalemme si sono ritirati dalla Jyhad nel corso del primo millennio. Alcuni dormono sotto antiche città umane, accuditi da culti devoti o completamente dimenticati. Altri sono diventati Inconnu, ritirandosi completamente dalla società vampirica e dalla Jyhad."
-      }, {
+      },
+      {
         "title": "Sesta - Nona Generazione: gli anziani",
         "content": "Abbracciati per lo più prima dell'era moderna, i vampiri di queste Generazioni hanno occupato posizioni di potere nella Camarilla e nel Movimento Anarchico. Il Richiamo li sta ora attirando fuori dai loro rifugi, spingendoli verso il fronte di guerra della Gehenna."
-      }, {
+      },
+      {
         "title": "10ª e 11ª Generazione: le ancillae",
         "content": "Solitamente, le ancillae più anziane cercano di convincere la gerarchia a includerle, o vengono eliminate. Con la diminuzione delle Generazioni e l'esplosione demografica globale, i vampiri di queste Generazioni hanno in media meno di 250 anni."
-      }, {
+      },
+      {
         "title": "12ª e 13ª Generazione: i neonati",
         "content": "Questi vampiri sono diminuiti lentamente per secoli prima di rifiorire nelle notti moderne. Hanno relativamente poca esperienza del vampirismo, ma una comprensione migliore dei cambiamenti sociali e tecnologici."
-      }, {
+      },
+      {
         "title": "14ª - 16ª Generazione: i Sangue debole",
         "content": "Considerate lontane da Caino, queste Generazioni suscitano preoccupazione tra i vampiri più anziani, poiché sembrano diluire la maledizione e i doni vampirici. Il \"Tempo del Sangue Debole\" è accennato nel Libro di Nod come un precursore della Gehenna, il risveglio degli Antidiluviani e la fine della specie vampirica."
-      }, {
+      },
+      {
         "title": "Caino e la Seconda Generazione: i miti",
         "content": "I primi vampiri sono spesso trattati come leggende e argomenti teologici. La maggior parte di coloro che credono in questo mito identificano Caino nel personaggio biblico omonimo, ma la realtà di quei tempi rimane avvolta nel mistero."
       }
     ]
   },
   {
-    "title": "",
-    "content": "",
+    "title": "Prezzo del Sangue",
+    "content": "Nonostante tutti i doni conferiti, il Sangue esige un pesante scotto. I vampiri sono afflitti da una serie di orribili maledizioni, ognuna delle quali è un nemico in agguato appena sotto la loro pelle.",
     "sections": [
       {
-        "title": "",
-        "content": "",
+        "title": "Rianimazione",
+        "content": "Ogni sera, quando il vampiro si rianima dal sonno diurno, deve eseguire una Prova di Risveglio. Se la prova fallisce e la sua Fame supera 3, invece di essere costretto a un test di frenesia alimentare, cade in torpore.\nDurante il giorno, il Sangue del vampiro diventa immobile e persino gelido. Rianimarsi durante il giorno richiede un tiro di Umanità con una Difficoltà legata al livello della crisi. Ad esempio, un'incendio o un'altra situazione potenzialmente letale ha una Difficoltà di 3; una decisione o un messaggio urgente, Difficoltà 4; un fastidio di cui occuparsi, Difficoltà 5 o più.\nUna volta rianimato dal sonno diurno, il vampiro può agire solo per una singola scena. Alla fine di tale periodo, se vuole rimanere sveglio, deve eseguire un tiro di Umanità con una Difficoltà di 3. Una vittoria gli consente un'altra scena di attività. Una vittoria critica gli permette di rimanere sveglio per tutto il tempo necessario. Se un vampiro agisce durante il giorno, il livello massimo delle sue riserve di dadi è pari al suo valore di Umanità."
+      },
+      {
+        "title": "Torpore",
+        "content": "I vampiri esistono in uno stato a metà tra la vita e la morte, noto come torpore. Durante il torpore, il vampiro giace inerte e inconsapevole dei dintorni, simile a un cadavere avvizzito. Durante questo stato, non possono usare Discipline né reagire ai normali stimoli. I vampiri rimangono in torpore per periodi determinati dalla loro Umanità. Se impalettati, restano in torpore finché qualcuno non rimuove il paletto."
+      },
+      {
+        "title": "Modi in cui i vampiri entrano in torpore",
+        "content": "Per interrompere il torpore di un vampiro in modo prematuro, bisogna dargli da bere vitae vampirica sufficiente da saziare 1 livello di Fame.",
         "subParagraphs": [
           {
-            "headers": [
-              ""
-            ],
-            "columns": [
-            ]
+            "title": "Per Fame",
+            "content": "Se un vampiro tenta di rianimarsi per la notte con un livello di Fame 5 e fallisce la Prova di Risveglio, entra in torpore."
+          },
+          {
+            "title": "Per danni",
+            "content": "Se subisce abbastanza danni Aggravati da riempire tutte le sue caselle di Salute, entra automaticamente in torpore. Può tentare di riparare i danni inconsciamente ogni notte."
+          },
+          {
+            "title": "Spontaneamente",
+            "content": "Un vampiro in torpore volontario incrementa ogni notte la sua Fame. Se la Fame supera 5, entra in torpore."
+          }
+        ]
+      },
+      {
+        "title": "Morte Ultima",
+        "content": "La Morte Ultima è la morte permanente di un vampiro. Oltre a fuoco, luce solare e decapitazione, può essere causata da fattori come l'acido che dissolve completamente il corpo, un'esplosione, la pressione abissale o malattie vampiriche particolarmente letali. I lupi mannari e gli inquisitori mortali sono spesso cause di Morte Ultima per i vampiri.\nLa Società di San Leopoldo prescrive l'incenerimento dei vampiri in torpore, mentre altre forme di Morte Ultima possono farli tornare cadaveri di analoga età, con vampiri più vecchi che si trasformano in scheletri o persino polvere. Quando le caselle della Salute di un vampiro si riempiono completamente di danni Aggravati, entra in torpore. Ulteriori danni Aggravati da fuoco o luce solare in questo stato o altre cause possono portare alla Morte Ultima."
+      },
+      {
+        "title": "Minacce per il Sangue",
+        "content": "I vampiri, pur essendo quasi immuni a molte minacce, sono vulnerabili a certi elementi o situazioni. Alcune di queste minacce includono:",
+        "subParagraphs": [
+          {
+            "title": "Luce del sole",
+            "content": "La luce solare causa danni Aggravati alla Salute di un vampiro direttamente esposto. La quantità di danni dipende dalla Gravità della sua Debolezza.\nCoprirsi con indumenti protettivi o rimanere schermati riduce la frequenza dei danni."
+          },
+          {
+            "title": "Fuoco",
+            "content": "Se usato come arma, infligge danni Aggravati. La gravità dei danni dipende dalla superficie corporea esposta alle fiamme.\nIl fuoco rimane una minaccia significativa per i vampiri."
+          },
+          {
+            "title": "Freddo estremo",
+            "content": "Temperature estreme possono far irrigidire i vampiri e costringerli a eseguire prove per muoversi.\nDopo un'ora di freddo estremo, devono superare prove regolari per continuare a muoversi. Dopo un certo periodo, entrano in torpore."
+          },
+          {
+            "title": "Decapitazione",
+            "content": "La decapitazione distrugge istantaneamente un vampiro. Richiede un colpo mirato con un'arma da taglio adeguata e danni sufficienti."
+          },
+          {
+            "title": "Paletti",
+            "content": "Trafiggere il cuore di un vampiro con un paletto lo paralizza. Può usare Discipline mentali, ma è limitato nei movimenti.\nDeve eseguire la Prova di Risveglio ogni tramonto quando è impalettato per rianimarsi."
+          }
+        ]
+      },
+      {
+        "title": "Vera Fede",
+        "content": "Il Tratto Vera Fede è una caratteristica che può essere posseduta da alcuni mortali e che fornisce loro una protezione particolare contro i vampiri. Questa fede ardente è indipendente dalle tradizioni specifiche di una religione e può manifestarsi in individui di varie credenze. Il Tratto Vera Fede può essere valutato da 1 a 5 e offre diversi livelli di protezione. Di seguito sono elencati i livelli di protezione associati a ciascun livello di Vera Fede:",
+        "subParagraphs": [
+          {
+            "title": "●",
+            "content": "Il mortale può tentare di scacciare i vampiri brandendo un simbolo sacro o recitando preghiere. La Fermezza + Vera Fede viene tirata in confronto con la Volontà del vampiro. Ogni successo costringe il vampiro ad arretrare e distogliere lo sguardo. Se il simbolo tocca il vampiro, subisce anche danni Aggravati."
+          },
+          {
+            "title": "●●",
+            "content": "Il mortale può resistere a poteri di controllo mentale vampirico come la Dominazione, spendendo Volontà. Un punto di Volontà protegge per un numero di turni pari al livello di Vera Fede."
+          },
+          {
+            "title": "●●●",
+            "content": "Il mortale può percepire la presenza di un vampiro. La meccanica dipende dalla situazione e dalle caratteristiche del mortale, e il Narratore ha il controllo su come questa percezione si manifesta."
+          },
+          {
+            "title": "●●●●",
+            "content": "Il mortale non può essere trasformato in ghoul e non è soggetto a Discipline di suggestione mentale come Ascendente, Dominazione e Oscurazione."
+          },
+          {
+            "title": "●●●●●",
+            "content": "Brandendo un simbolo sacro o pregando ad alta voce, il mortale può costringere un vampiro a eseguire un test di Rimorso. Anche se il vampiro prevale, si accascia nel disgusto e disprezzo di sé, incapace di difendersi per un numero di turni pari alle sue attuali Macchie. Successivamente, ogni Macchia è rimossa. Senza successi, il vampiro perde permanentemente un pallino di Fermezza, non cancella Macchie e fugge in preda alla frenesia da paura, subendo danni se esposto al simbolo."
           }
         ]
       }
     ]
   },
   {
-    "title": "",
-    "content": "",
+    "title": "Frenesia",
+    "content": "La frenesia attende al varco qualsiasi vampiro, una minaccia costante alla loro fragile pace. A provocarla sono in genere circostanze esterne, che spezzano il tenue guinzaglio della ringhiante Bestia interiore. Espressione estrema delle più turpi pulsioni del Sangue, la frenesia scatena la Bestia senza pensiero o rimorsi: il predatore abbandona ogni ritegno.\nUn vampiro in frenesia perde ogni capacità di raziocinio ed è spinto solo da furia, fame o panico. Fa tutto il possibile per ridurre a brandelli ciò che lo ha provocato, saziare la sua Fame o sfuggire al pericolo percepito, di solito in modo violento e con abbondanza di danni collaterali. A differenza di molti altri impulsi del Sangue, una frenesia non è mai sottile.\nPer resistere alla frenesia, il vampiro esegue un tiro di Volontà con Difficoltà definita dal Narratore a seconda del livello di provocazione. I vampiri possono sommare dadi pari a un terzo della loro Umanità (arrotondati per difetto) alla riserva di Volontà per resistere. Con una semplice vittoria, il vampiro resiste alla frenesia ma deve spendere un turno per sopprimere l’istinto. Con una vittoria critica, resiste alla frenesia senza perdere un turno.",
     "sections": [
       {
-        "title": "",
-        "content": "",
-        "subParagraphs": [
-          {
-            "headers": [
-              ""
+        "title": "Cavalcare l’Onda",
+        "content": "È anche possibile Cavalcare l’Onda, cioè soccombere intenzionalmente alla frenesia senza eseguire un test. Tale atto segue le normali regole sulla frenesia, ma anziché assumere il controllo completo del personaggio, il Narratore lo lascia al giocatore, che può scegliere quale vittima aggredire per prima. Se non Cavalca l’Onda, il vampiro in frenesia viene gestito dal Narratore per tutta la durata dell’episodio."
+      },
+      {
+        "title": "Effetti della frenesia",
+        "content": "Un vampiro in frenesia è immune a ogni penalità basata sulla Salute eccetto le mutilazioni. Può usare solo Discipline fisiche (Potenza, Robustezza e Velocità), ma resiste alle Discipline mentali (come Ascendente o Dominazione) con 3 dadi extra nelle riserve (se la Disciplina non offre una riserva di resistenza, aumenta di +2 la Difficoltà dell’utilizzatore).\nIl giocatore può spendere un punto Volontà per assumere il controllo del suo personaggio per un turno mentre è in frenesia, ma non può usare Volontà per ritirare i dadi. Un vampiro già in frenesia non può essere provocato alla frenesia da un altro stimolo, né può ricevere Compulsioni. Tenterà di raggiungere il suo scopo a ogni costo e la sua frenesia permane finché non ci riesce o fino alla fine della scena."
+      },
+      {
+        "title": "Frenesia da Rabbia",
+        "content": "La provocazione, come insulti, umiliazioni o aggressioni, può scatenare una violenza bestiale. Un vampiro in frenesia da rabbia non si ferma davanti a nulla pur di annientare la fonte della provocazione, spesso insieme a chiunque sia nelle vicinanze, amico o nemico. Dopo aver distrutto la fonte, il vampiro può eseguire un test di Volontà con Difficoltà 3 (5 se ci sono nemici ancora in piedi): un successo pone fine alla frenesia, il fallimento scatena una collera ancora più intensa e il Cainita massacra chiunque sia nei paraggi a meno che non venga immobilizzato.",
+        "table": {
+          "headers": [
+            "Provocazione",
+            "Difficoltà"
+          ],
+          "columns": [
+            [
+              "Amico ucciso",
+              "2"
             ],
-            "columns": [
+            [
+              "Amante o Punto di riferimento ferito",
+              "3"
+            ],
+            [
+              "Amante o Punto di riferimento ucciso",
+              "4"
+            ],
+            [
+              "Provocazione o tormento fisico",
+              "2"
+            ],
+            [
+              "Insulto da un inferiore",
+              "2"
+            ],
+            [
+              "Umiliazione pubblica",
+              "2"
             ]
-          }
-        ]
+          ]
+        }
+      },
+      {
+        "title": "Frenesia Alimentare",
+        "content": "Scatenata dalla tentazione, questa frenesia è causata dalla brama di sangue della Bestia che non si esaurisce mai. Ogni volta che un vampiro fallisce una Prova di Risveglio quando ha Fame 5, deve eseguire un test di frenesia alimentare. Durante una frenesia alimentare, il vampiro cerca sangue umano fresco dalla fonte più vicina. La frenesia cessa quando la Fame del vampiro scende a 1 o meno.",
+        "table": {
+          "headers": [
+            "Provocazione",
+            "Difficoltà"
+          ],
+          "columns": [
+            [
+              "Vedere una ferita aperta, irresistibile odore di sangue a Fame 4 o più",
+              "2"
+            ],
+            [
+              "Gusto del sangue a Fame 4 o più",
+              " 3"
+            ],
+            [
+              "Fallire una Prova di Risveglio a Fame 5",
+              "4"
+            ]
+          ]
+        }
+      },
+      {
+        "title": "Frenesia da Paura, Rötschreck",
+        "content": "Questa frenesia è provocata dal pericolo e si manifesta quando il vampiro si trova davanti a minacce come la luce del sole, una fiamma scoperta o un danno ingente al suo corpo. Durante la frenesia da paura, il vampiro fugge dalla fonte del pericolo senza riguardo per nulla e nessuno sulla sua strada. La frenesia cessa quando il vampiro non percepisce più alcun pericolo o quando la scena finisce.",
+        "table": {
+          "headers": [
+            "Provocazione",
+            "Difficoltà"
+          ],
+          "columns": [
+            [
+              "Falò",
+              "2"
+            ],
+            [
+              "Interno di edificio in fiamme",
+              "3"
+            ],
+            [
+              "Essere bruciato",
+              "2"
+            ],
+            [
+              "Luce solare soffusa (dietro una finestra, etc.)",
+              "3"
+            ],
+            [
+              "Esposto alla luce solare diretta",
+              "4"
+            ]
+          ]
+        }
       }
     ]
   },
   {
-    "title": "",
-    "content": "",
+    "title": "Umanità",
+    "content": "I vampiri, anche quelli che cercano di mantenere un'alta Umanità, inevitabilmente si ritrovano in una spirale discendente di depravazione e distacco dalle loro origini umane. Man mano che l'Umanità diminuisce, i vampiri diventano capaci di atti sempre più depravati, spesso cercandoli attivamente. Vediamo come cambiano i vampiri a seconda del punteggio di Umanità.",
     "sections": [
       {
-        "title": "",
-        "content": "",
+        "title": "Umanità 10",
+        "content": "I vampiri con Umanità 10 conducono un'esistenza quasi ascetica, controllata da principi etici e morali. Sono difficilmente distinguibili da umani, mostrando solo una leggera pallidezza. Possono guarire danni superficiali come i mortali, godono del cibo e possono rimanere svegli di giorno con danni dalla luce solare dimezzati."
+      },
+      {
+        "title": "Umanità 9",
+        "content": "A questo livello, i vampiri agiscono più umanamente di molti mortali. Possono apparire malati ma non defunti, guariscono come i mortali, e possono gustare cibo, bere e rimanere svegli di giorno."
+      },
+      {
+        "title": "Umanità 8",
+        "content": "I vampiri con Umanità 8 provano ancora dolore per i loro atti, ma sono in grado di usare il Rossore della Vita. Possono avere rapporti sessuali, assaporare il vino e rimanere svegli di giorno."
+      },
+      {
+        "title": "Umanità 7",
+        "content": "A questo livello, i vampiri possono ancora passare per mortali. Possono usare il Rossore della Vita ma con penalità, e hanno alcune limitazioni nelle interazioni sociali."
+      },
+      {
+        "title": "Umanità 6",
+        "content": "I vampiri a questo livello hanno pochi problemi con il bere sangue e con ciò che devono fare per ottenerlo. Possono ancora usare il Rossore della Vita ma con penalità più elevate."
+      },
+      {
+        "title": "Umanità 5",
+        "content": "A questo punto, i vampiri hanno interiorizzato il dolore e l'angoscia. Subiscono penalità nei tiri di interazione con gli umani e non possono più fare sesso."
+      },
+      {
+        "title": "Umanità 4",
+        "content": "I vampiri a questo livello sono pragmatici e accettano la loro inevitabile discesa nella turpitudine. Subiscono penalità più elevate nei tiri di interazione e non possono più trattenere il cibo."
+      },
+      {
+        "title": "Umanità 3",
+        "content": "A questo livello, i vampiri diventano cinici e annoiati. Subiscono forti penalità nelle interazioni sociali e non possono più simulare l'amplesso."
+      },
+      {
+        "title": "Umanità 2",
+        "content": "A questo livello, conta solo il vampiro. Subiscono penalità estreme nelle interazioni sociali e non possono più fare sesso nemmeno usando il Rossore della Vita."
+      },
+      {
+        "title": "Umanità 1",
+        "content": "Il vampiro è quasi completamente isolato. Subiscono penalità estreme nelle interazioni sociali, anche usando il Rossore della Vita."
+      },
+      {
+        "title": "Umanità 0",
+        "content": "Il vampiro è completamente perso nella Bestia, soggetto al wassail, diventando uno spettro famelico controllato dal Narratore."
+      },
+      {
+        "title": "Le Caselle Umanità",
+        "content": "La scheda del personaggio contiene 10 caselle per tracciare il valore di Umanità. Queste caselle vanno annerite da sinistra a destra per rappresentare il punteggio di Umanità del personaggio."
+      },  {
+        "title": "Macchie",
+        "content": "Le Macchie influenzano il livello di Umanità del personaggio. Queste Macchie si accumulano barrando le caselle da destra a sinistra. Ad esempio, un vampiro con Umanità 6 e 2 Macchie può essere rappresentato come:\nLe Macchie si ottengono per azioni contrarie ai Precetti della cronaca. La gravità dell'azione determina il numero di Macchie. Se l'azione è in linea con una Convinzione del personaggio, il numero di Macchie può diminuire."
+      },  {
+        "title": "Rimorso",
+        "content": "Alla fine di una sessione in cui il personaggio ha delle Macchie, si esegue un test di Rimorso. Si tira un numero di dadi pari alle caselle vuote nella traccia di Umanità. Se si ottiene almeno un successo, il personaggio conserva la sua Umanità attuale e rimuove tutte le Macchie. Se non si ottiene alcun successo, il personaggio perde 1 punto di Umanità e rimuove tutte le Macchie."
+      },  {
+        "title": "Degenerazione",
+        "content": "Se il numero di Macchie supera le caselle vuote di Umanità, il personaggio subisce una Menomazione e danni Aggravati alla Volontà. Questa condizione persiste fino alla fine della sessione, quando viene eseguito il test di Rimorso. Il personaggio può anche scegliere di rinunciare volontariamente a un punto di Umanità per rimuovere le Macchie e la Menomazione, rappresentando una razionalizzazione delle proprie azioni e una sorta di accettazione di ciò che è diventato."
+      },  {
+        "title": "Danneggiare e Distruggere i Punti di Riferimento",
+        "content": "Oltre alle violazioni dei Precetti, l'Umanità dei vampiri è minacciata anche da altre azioni, in particolare danneggiare o distruggere i Punti di Riferimento. Ecco come ciò si articola:",
         "subParagraphs": [
           {
-            "headers": [
-              ""
-            ],
-            "columns": [
-            ]
+            "title": "Danneggiare un Punto di Riferimento",
+            "content": "Un Punto di Riferimento è considerato \"danneggiato\" quando gli succede qualcosa di negativo, causato direttamente o indirettamente dal vampiro. Questo può includere eventi come malattie, perdita di lavoro o altri cambiamenti nella vita del Punto di Riferimento che sono disapprovati dal vampiro.\nSe il vampiro cerca di impedire al Punto di Riferimento di fare cambiamenti nella sua vita e peggiora la situazione, guadagna Macchie aggiuntive."
+          },
+          {
+            "title": "Distruggere un Punto di Riferimento",
+            "content": "Un Punto di Riferimento è considerato \"distrutto\" in diversi scenari, tra cui tradimento delle sue convinzioni"
           }
         ]
+      },
+      {
+        "title": "Quando l'Umanità Fallisce",
+        "content": "L'Umanità è un elemento chiave nel controllo della Bestia. Quando il livello di Umanità di un vampiro diminuisce, la probabilità di frenesia aumenta. Un numero di dadi pari a un terzo dell'Umanità del vampiro (arrotondato per difetto) si aggiunge ai test di Volontà per resistere alla frenesia. Inoltre, l'Umanità consente al vampiro di svegliarsi durante il giorno. Man mano che l'Umanità si abbassa, aumenta il periodo che il vampiro trascorre in torpore, e la sua capacità di interagire con gli umani al di fuori del contesto predatorio diminuisce."
+      },{
+        "title": "Perdere l'Ultima Goccia",
+        "content": "Se un vampiro perde il suo ultimo punto di Umanità passando da 1 a 0, esce di scena con una frenesia spettacolare. Tutti i suoi Attributi Fisici salgono a 5 per quella scena, e se sopravvive al wassail diventa uno spettro famelico, un Personaggio Non Giocante (PNG) dominato dai capricci del Sangue. Il momento in cui un vampiro perde l'ultima goccia di Umanità è un episodio finale drammatico e teatrale."
+      },{
+        "title": "Incrementare l'Umanità",
+        "content": "I vampiri possono aumentare il loro livello di Umanità coinvolgendosi altruisticamente nella vita umana. Questo processo dovrebbe essere parte integrante di una storia personale significativa, che potrebbe includere ottenere un nuovo Punto di Riferimento e l'abbandono spontaneo della società e dei poteri vampirici. Alcune azioni di gioco straordinariamente umanitarie possono consentire a un giocatore di acquistare Umanità con i punti esperienza, al costo di 10 volte il nuovo livello di Umanità. Tuttavia, l'acquisto di Umanità è sempre a discrezione del Narratore, che può valutare attentamente le circostanze."
+      },{
+        "title": "Incrementare l'Umanità tramite la Golconda",
+        "content": "Alcune delle arti e pratiche della Golconda, un concetto mistico e filosofico, possono consentire l'incremento dell'Umanità. Tuttavia, i dettagli specifici devono essere definiti e svelati dal Narratore, rendendo questa una parte misteriosa e affascinante del mondo vampirico."
       }
     ]
   },
   {
-    "title": "",
-    "content": "",
+    "title": "Legame di Sangue",
+    "content": "Il Legame di Sangue è un potente legame psichico e emotivo tra un vampiro (regnante) e colui che ha bevuto il suo sangue (asservito). Questo legame crea una relazione di lealtà e dipendenza, spingendo l'asservito a compiacere il regnante e provocando sentimenti di infatuazione. Di seguito sono forniti alcuni dettagli sul Legame di Sangue:",
     "sections": [
       {
-        "title": "",
-        "content": "",
-        "subParagraphs": [
-          {
-            "headers": [
-              ""
-            ],
-            "columns": [
-            ]
-          }
-        ]
+        "title": "Creazione del Legame",
+        "content": "Il Legame di Sangue si completa quando un individuo beve il sangue di un vampiro in tre occasioni separate entro un anno. Durante il primo anno dopo l'Abbraccio, l'infante rimane almeno un terzo vincolato al sire.\nIl Legame può essere reciproco, noto come \"matrimonio di Sangue\", ma un asservito può avere solo un regnante."
+      },  {
+        "title": "Forza del Legame",
+        "content": "La Forza del Legame è determinata dal numero di volte che l'asservito ha bevuto il sangue del regnante, con un massimo di 6.\nLa Forza del Legame diminuisce di 1 ogni mese senza ulteriori assunzioni di sangue."
+      },  {
+        "title": "Meccaniche del Legame",
+        "content": "Per resistere ai desideri del regnante, l'asservito deve superare un confronto di Fermezza + Intelligenza contro la Forza del Legame.\nIn presenza del regnante, il test di sfida richiede un tiro per turno; se fuori dalla sua percezione, l'asservito deve eseguire il test solo una volta per scena.\nPer spezzare il Legame, l'asservito deve ridurre la Forza del Legame a 0 evitando il regnante per un periodo prolungato."
+      },  {
+        "title": "Ghoul",
+        "content": "Un mortale che beve il Sangue di un vampiro diventa temporaneamente un ghoul.\nI ghoul ricevono benefici temporanei, inclusa la sospensione dell'invecchiamento, guarigione accelerata e poteri di livello 1 della Disciplina del padrone.\nLa fornitura di Sangue vampirico conservato consente di sostenere i ghoul per alcuni giorni."
       }
     ]
   },
   {
-    "title": "",
-    "content": "",
+    "title": "Prestazione",
+    "content": "La \"prestazione\" è la pratica attraverso cui i vampiri scambiano favori all'interno della società vampirica. Questo processo di concedere e ricevere favori è essenziale per la struttura sociale dei Dannati e gioca un ruolo chiave nelle interazioni tra i membri della comunità vampirica. La società dei Fratelli è intricata e regolata da promesse, debiti e il mantenimento dell'onore.",
     "sections": [
       {
-        "title": "",
-        "content": "",
-        "subParagraphs": [
-          {
-            "headers": [
-              ""
-            ],
-            "columns": [
-            ]
-          }
-        ]
+        "title": "Favori",
+        "content": "● Favore banale: Facile da acquisire e ripagare, non comporta rischi significativi. Esempi includono aiuto nel trovare sangue o ottenere inviti a eventi esclusivi.\n● Favore minore: Richiede uno sforzo maggiore per essere eseguito o ripagato. Comporta un costo o un rischio fisico, sociale o altro. Ad esempio, uccidere un mortale fastidioso o fornire accesso a un libro antico.\n● Favore importante: Può influenzare direttamente o indirettamente le attività vampiriche di un dominio. Comporta sempre un rischio o una spesa reale. Esempi includono investiture di rango o ottenere finanziamenti significativi.\n● Favore cruciale: Il più raro e prezioso, spesso promesso senza riflettere, può coinvolgere persino la vita stessa del vampiro. Si può ottenere uccidendo un potente vampiro o in situazioni disperate."
+      },      {
+        "title": "Obblighi e Restituzione dei Favori",
+        "content": "● La restituzione di un favore è relativamente semplice. Un Fratello creditore si dichiara soddisfatto, e il debito è considerato estinto.\n● I test Sociali sono spesso utilizzati per chiedere la restituzione di un favore. I dadi bonus variano in base alla categoria del favore.\n● I favori banali e minori possono essere restituiti attraverso test Sociali, mentre i favori importanti e cruciali spesso coinvolgono sviluppi narrativi significativi.\n● Chiedere la restituzione di un favore minore può costituire una vittoria automatica in un test Sociale, mentre i favori importanti e cruciali sono trattati come sviluppi narrativi complessi."
+      },      {
+        "title": "Seguimento dei Favori",
+        "content": "● In alcuni domini, un'Arpia mantiene elenchi accurati dei favori dovuti, mentre in altri le figure autorevoli utilizzano rappresentazioni fisiche della valuta dei favori.\n● La società vampirica riconosce che quanto più potente è il vampiro che concede il favore, tanto più prezioso sarà il favore stesso."
+      },      {
+        "title": "SConseguenze dell'Inadempienza",
+        "content": "● L'inganno o la dichiarazione erronea riguardo a un favore può distruggere irrimediabilmente la reputazione di un vampiro.\n● Se un vampiro uccide il suo creditore, il debito può trasferirsi al sire o a figure di maggior rango nel dominio.\n● Anche gli Anarchici rispettano i favori, dimostrando che l'onore è importante anche in contesti ribelli."
       }
     ]
   }
