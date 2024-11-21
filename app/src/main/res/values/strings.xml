@@ -67,6 +67,8 @@
     <string name="clan">Clan</string>
     <string name="discipline">Discipline</string>
     <string name="lore_screen_title">Lore</string>
+    <string name="kindred_screen_button_label">Kindred</string>
+    <string name="pg_screen_button_label">Personaggi</string>
     <string name="loresheet_title_screen">Sapienze di Tenebra</string>
 
 </resources>

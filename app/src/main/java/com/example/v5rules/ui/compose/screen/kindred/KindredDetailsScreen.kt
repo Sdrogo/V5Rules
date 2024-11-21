@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen.lore
+package com.example.v5rules.ui.compose.screen.kindred
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,20 +25,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.viewModel.LoreViewModel
+import com.example.v5rules.viewModel.KindredViewModel
 import com.example.v5rules.R
+import com.example.v5rules.SubKindredNav
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
-import com.example.v5rules.SubLoreNav
+import com.example.v5rules.ui.compose.component.TableContent
 
 @Composable
-fun LoreDetailsScreen(
-    loreViewModel: LoreViewModel,
+fun KindredDetailsScreen(
+    kindredViewModel: KindredViewModel,
     navController: NavHostController,
     title: String
 ) {
 
-    val rule = loreViewModel.allLore.find { it.title == title }
+    val rule = kindredViewModel.allKindred.find { it.title == title }
 
     CommonScaffold(navController = navController, title = title) {
         LazyColumn(
@@ -76,7 +77,7 @@ fun LoreDetailsScreen(
                                         .padding(8.dp)
                                         .clickable {
                                             navController.navigate(
-                                                SubLoreNav(rule.title, section.title)
+                                                SubKindredNav(rule.title, section.title)
                                             )
                                         },
                                     color = MaterialTheme.colorScheme.primary
@@ -87,18 +88,32 @@ fun LoreDetailsScreen(
                                     style = MaterialTheme.typography.headlineSmall,
                                     fontWeight = FontWeight.Bold,
                                 ) {
-                                    Text(
-                                        modifier = Modifier.padding(start = 8.dp),
-                                        text = AnnotatedString(
-                                            section.content,
-                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                        ),
-                                        color = MaterialTheme.colorScheme.primary,
-                                        style = MaterialTheme.typography.bodyMedium
-                                    )
+                                    Column {
+                                        Text(
+                                            modifier = Modifier.padding(start = 8.dp),
+                                            text = AnnotatedString(
+                                                section.content,
+                                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                            ),
+                                            color = MaterialTheme.colorScheme.primary,
+                                            style = MaterialTheme.typography.bodyMedium
+                                        )
+                                        rule.table?.let {
+                                            TableContent(
+                                                headerList = it.headers,
+                                                contentList = it.columns
+                                            )
+                                        }
+                                    }
+
                                 }
                             }
                         }
+                    }
+                }
+                rule.table?.let {
+                    item {
+                        TableContent(headerList = it.headers, contentList = it.columns)
                     }
                 }
             }
@@ -107,14 +122,14 @@ fun LoreDetailsScreen(
 }
 
 @Composable
-fun SubLoreDetail(
-    loreViewModel: LoreViewModel,
+fun SubKindredDetail(
+    kindredViewModel: KindredViewModel,
     chapterTitle: String,
     sectionTitle: String,
     navController: NavHostController
 ) {
 
-    val ruleToDetail = loreViewModel.allLore.find { it.title == chapterTitle }
+    val ruleToDetail = kindredViewModel.allKindred.find { it.title == chapterTitle }
     val sectionToDetail = ruleToDetail?.sections?.find { it.title == sectionTitle }
     CommonScaffold(navController = navController, title = sectionTitle) {
         sectionToDetail?.let { section ->

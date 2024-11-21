@@ -1,0 +1,510 @@
+[
+  {
+    "title": "Riassunto creazione personaggio",
+    "content": "Questo capitolo descrive come creare un personaggio unico partendo da un concetto essenziale e traducendolo nei valori utilizzati in gioco.",
+    "sections": [
+      {
+        "title": "Identità Passata",
+        "content": "Come si chiamava il personaggio da vivo?\nCosa faceva? Dove e quando è stato Abbracciato?\nCome si fa chiamare adesso? Dove abita?\nScrivere il nome del personaggio sulla Mappa Relazionale."
+      },
+      {
+        "title": "Clan e Sire",
+        "content": "Scegliere il clan. Scrivere sulla Mappa Relazionale il nome\ndel sire e quello di altri eventuali PNG importanti."
+      },
+      {
+        "title": "Attributi",
+        "content": "Scegliere un Attributo a 4, tre Attributi a 3, quattro\nAttributi a 2 e un Attributo a 1.Salute = Costituzione + 3; \nVolontà = Autocontrollo+ Fermezza."
+      },
+      {
+        "title": "Abilità",
+        "content": "Scegliere una distribuzione di Abilità:",
+        "subParagraphs": [
+          {
+            "title": "Tuttofare",
+            "content": "Un’Abilità a 3, otto Abilità a 2 e dieci Abilità a 1."
+          },
+          {
+            "title": "Equilibrato",
+            "content": "Tre Abilità a 3, cinque Abilità a 2 e sette Abilità a 1."
+          },
+          {
+            "title": "Specialista",
+            "content": "Un’Abilità a 4, tre Abilità a 3, tre\nAbilità a 2 e tre Abilità a 1."
+          }
+        ]
+      },
+      {
+        "title": "Specialità",
+        "content": "Le seguenti Abilità ricevono specialità gratuite:\n● Accademiche\n● Espressività\n● Manualità\n● Scienze"
+      },
+      {
+        "title": "Discipline",
+        "content": "Scegliere due Discipline di clan; assegnare due pallini a una e un pallino all’altra. Per i Vili, scegliere due Discipline qualsiasi; assegnare due pallini a una e un pallino all’altra.\nI personaggi Sangue debole non hanno Discipline intrinseche."
+      },
+      {
+        "title": "Predatore",
+        "content": "Scegliere un archetipo di Predatore (p.175) e applicarlo al personaggio:\n● Assegnare una delle specialità elencate.\n● Assegnare un pallino a una delle Discipline elencate.\n● Applicare qualsiasi Svantaggio o Difetto associato."
+      },
+      {
+        "title": "Vantaggi",
+        "content": "Spendere 7 punti nei Vantaggi e acquisire 2 punti di Difetti in aggiunta a quelli ricevuti dall’archetipo di Predatore. I personaggi Sangue debole devono scegliere da uno a tre Pregi dei Sangue debole e un numero analogo di Difetti dei Sangue debole."
+      },
+      {
+        "title": "Convinzioni e Punti di Riferimento",
+        "content": "● Scegliere da una a tre Convinzioni (p.172).\n● Creare un numero equivalente di Punti di riferimento (p.173), ognuno dei quali sarà collegato a una Convinzione; annotarli sulla Mappa Relazionale."
+      },
+      {
+        "title": "Umanità",
+        "content": "Fissare a 7 l'Umanità."
+      },
+      {
+        "title": "Anzianità",
+        "content": "Insieme al Narratore e agli altri giocatori, decidere se la coterie sarà composta da:",
+        "subParagraphs": [
+          {
+            "title": "Infanti",
+            "content": "vampiri Abbracciati entro gli ultimi 15 anni\n● 14ª, 15ª o 16ª Generazione (Sangue debole): Potenza del Sangue 0\n● 12ª o 13ª Generazione: Potenza del Sangue 1"
+          },
+          {
+            "title": "Neonati",
+            "content": "vampiri Abbracciati tra il 1940 e un decennio fa\n● 12ª o 13ª Generazione: Potenza del Sangue 1\n● Ogni giocatore riceve 15 punti esperienza da spendere"
+          },
+          {
+            "title": "Ancillae",
+            "content": "vampiri Abbracciati tra il 1780 e il 1940\n● 10ª o 11ª Generazione: Potenza del Sangue 2\n● Ogni giocatore assegna 2 punti ai Vantaggi\n● Ogni giocatore assegna 2 punti ai Difetti\n● Ogni giocatore sottrae 1 all'Umanità\n● Ogni giocatore riceve 35 punti esperienza da spendere"
+          }
+        ]
+      },
+      {
+        "title": "Costo dei Tratti: Esperienza",
+        "content": "",
+        "table": {
+          "headers": [
+            "Tratto",
+            "Punti esperienza"
+          ],
+          "columns": [
+            [
+              "Incremento di Attributo",
+              "Nuovo livello x 5"
+            ],
+            [
+              "Incremento di Abilità",
+              "Nuovo livello x 3"
+            ],
+            [
+              "Nuova specialità",
+              "3"
+            ],
+            [
+              "Disciplina di clan",
+              "Nuovo livello x 5"
+            ],
+            [
+              "Altra Disciplina",
+              "Nuovo livello x 7"
+            ],
+            [
+              "Disciplina dei Vili",
+              "Nuovo livello x 6"
+            ],
+            [
+              "Rituale di Stregoneria del Sangue",
+              "Livello del rituale x 3"
+            ],
+            [
+              "Formula dei Sangue debole",
+              "Livello della formula x 3"
+            ],
+            [
+              "Vantaggio",
+              "3 per pallino"
+            ],
+            [
+              "Potenza del Sangue",
+              "Nuovo livello x 10"
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "title": "Attributi",
+    "content": "Gli attributi si dividono in tre categorie: Fisiche, Sociali e Mentali.",
+    "sections": [
+      {
+        "title": "Attributi Fisici",
+        "content": "Le Attributi Fisici costituiscono la misura della forza, agilità e resistenza generale di un individuo. A causa delle peculiarità del Sangue, i vampiri dotati di forza, velocità o resistenza non necessariamente devono manifestare un aspetto muscoloso, aggraziato o robusto. Alcuni tra i vampiri più letali in circolazione presentano un'aspetto ingannevolmente snodato e apparentemente lento.",
+        "subParagraphs": [
+          {
+            "title": "Forza",
+            "content": "La Forza rappresenta la capacità di sollevare pesi, la potenza nei colpi e la forza bruta che un vampiro può impiegare. Le descrizioni indicate tra parentesi offrono un'idea approssimativa del peso sollevabile senza richiedere test di Attributo.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "Può facilmente schiacciare una lattina di birra (circa 20 kg: albero di Natale, segnale di stop)."
+                ],
+                [
+                  "●●",
+                  "Rientra nella media fisica (circa 45 kg: la tazza di un water)."
+                ],
+                [
+                  "●●●",
+                  "In grado di sfondare una porta di legno (circa 115 kg: umano robusto, bara vuota, frigorifero)."
+                ],
+                [
+                  "●●●●",
+                  "Mostra un modello di prestanza e probabilmente ha una muscolatura ben sviluppata (circa 180 kg: bara piena, cassonetto)."
+                ],
+                [
+                  "●●●●●",
+                  "Rappresenta un autentico vulcano di potenza, capace di sfondare una porta metallica, strappare un recinto di fil di ferro o aprire un cancello chiuso da una catena (circa 250 kg: motocicletta, pianoforte)."
+                ]
+              ]
+            }
+          },
+          {
+            "title": "Destrezza",
+            "content": "La Destrezza misura l'agilità e la grazia nei movimenti, la velocità nello schivare pericoli e la precisione nelle attività delicate sotto pressione.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "In grado di correre, ma l'equilibrio e le schivate sono sfide."
+                ],
+                [
+                  "●●",
+                  "Presenta uno scatto solido, talvolta persino aggraziato."
+                ],
+                [
+                  "●●●",
+                  "L'agilità è impressionante e la coordinazione è paragonabile a quella di un dilettante addestrato."
+                ],
+                [
+                  "●●●●",
+                  "Potrebbe eccellere come acrobata e muoversi in modi impossibili per la maggior parte degli umani."
+                ],
+                [
+                  "●●●●●",
+                  "I movimenti sono liquidi e ipnotici, quasi sovrumani."
+                ]
+              ]
+            }
+          },
+          {
+            "title": "Costituzione",
+            "content": "La Costituzione rappresenta la resistenza fisica di un vampiro, la sua capacità di assorbire danni convenzionali e perseverare in situazioni pericolose o sforzi prolungati. La Salute di un personaggio è pari a Costituzione + 3.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "Anche lo sforzo minimo lo lascia senza fiato."
+                ],
+                [
+                  "●●",
+                  "In grado di incassare qualche colpo, ma potrebbe fare meglio a scusarsi."
+                ],
+                [
+                  "●●●",
+                  "Diversi giorni di marcia forzata con uno zaino pieno non sono un problema."
+                ],
+                [
+                  "●●●●",
+                  "Potrebbe vincere una maratona o sopportare una notevole quantità di dolore, almeno dal punto di vista fisico."
+                ],
+                [
+                  "●●●●●",
+                  "Se fosse ancora mortale, non verserebbe nemmeno una goccia di sudore di fronte a sfide fisiche."
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "Attributi Sociali",
+        "content": "I vampiri, maestri delle macchinazioni, impiegano gli umani come pedine nelle loro intricate strutture di potere, utilizzandoli sia come fonte di nutrimento che come combustibile. Gli Attributi Sociali delineano le prime impressioni, la capacità del vampiro di affascinare, ispirare, motivare e le dinamiche delle sue interazioni con gli altri.",
+        "subParagraphs": [
+          {
+            "title": "Carisma",
+            "content": "Il Carisma riflette il fascino, la grazia sociale e la sensualità del vampiro. Se posseduto, attira le persone e facilita notevolmente il processo di nutrimento. Importante precisare che il Carisma non è strettamente correlato all'aspetto fisico, in quanto ciò è governato dal Pregio omonimo.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "Può parlare, ma pochi sono interessati ad ascoltarlo."
+                ],
+                [
+                  "●●",
+                  "Risulta generalmente gradevole nonostante la natura non morta, ed è in grado di avere amicizie.\n"
+                ],
+                [
+                  "●●●",
+                  "La gente si fida istintivamente di lui e riesce a stringere amicizie senza sforzo."
+                ],
+                [
+                  "●●●●",
+                  "Possiede un magnetismo notevole, attraendo seguaci come mosche."
+                ],
+                [
+                  "●●●●●",
+                  "Potrebbe guidare una città verso la rivolta, se lo desiderasse."
+                ]
+              ]
+            }
+          },
+          {
+            "title": "Persuasione",
+            "content": "Questa abilità misura la capacità di convincere gli altri, di mentire in modo convincente e di ingannare senza essere scoperti.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "Può cercare di convincere gli altri fintanto che rimane onesto."
+                ],
+                [
+                  "●●",
+                  "La sua abilità nel mentire supera la volontà dei deboli e dei sempliciotti."
+                ],
+                [
+                  "●●●",
+                  "Riesce a ottenere sconti e favori senza mai pagare il prezzo pieno."
+                ],
+                [
+                  "●●●●",
+                  "Potrebbe emergere come il capo di un culto o un abile politico."
+                ],
+                [
+                  "●●●●●",
+                  "Ha il potere di persuadere persino il Principe a investire in una proprietà deserta o revocare una Caccia di Sangue."
+                ]
+              ]
+            }
+          },
+          {
+            "title": "Autocontrollo",
+            "content": "Autocontrollo permette al vampiro di mantenere la calma, controllare le emozioni e mettere gli altri a loro agio anche nelle situazioni più nervose. Indica anche la capacità di conservare la freddezza, sia durante sparatorie che incontri intimi.\nLa Volontà del personaggio è data dalla somma di Autocontrollo e Fermezza.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "Il minimo affronto personale può scatenare la frenesia."
+                ],
+                [
+                  "●●",
+                  "Riesce a trattenere gli istinti predatori in quasi tutte le situazioni non ostili."
+                ],
+                [
+                  "●●●",
+                  "Altri lo guardano come guida quando il sangue inizia a scorrere."
+                ],
+                [
+                  "●●●●",
+                  "Può bluffare con facilità e gestisce la sua Bestia con relativa tranquillità."
+                ],
+                [
+                  "●●●●●",
+                  "La Bestia è il suo animaletto domestico, completamente sotto controllo."
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "Attributi Mentali",
+        "content": "Gli Attributi Mentali riflettono la capacità di apprendimento, intuizione e concentrazione del personaggio. Mentre in vita possono indicare genialità innata, un'educazione sofisticata o una volontà d'acciaio, il Sangue può risvegliare e potenziare queste facoltà, così come fa con il corpo.",
+        "subParagraphs": [
+          {
+            "title": "Intelligenza",
+            "content": "Misura la capacità di ragionare, fare ricerche e applicare la logica. Il vampiro può ricordare e analizzare informazioni da libri o percepite attraverso i sensi. Nessun enigma o mistero può sfuggire a chi possiede vera intelligenza.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "Sa leggere e scrivere senza problemi, anche se alcuni termini possono risultare confusi."
+                ],
+                [
+                  "●●",
+                  "È abbastanza sveglio da comprendere le proprie limitazioni."
+                ],
+                [
+                  "●●●",
+                  "È un illuminato e può correlare indizi senza difficoltà."
+                ],
+                [
+                  "●●●●",
+                  "Membri del clan Tremere potrebbero rivolgersi a lui per la sua saggezza."
+                ],
+                [
+                  "●●●●●",
+                  "La parola \"genio\" è un'umile descrizione della profondità e della ricchezza del suo intelletto."
+                ]
+              ]
+            }
+          },
+          {
+            "title": "Prontezza",
+            "content": "Rappresenta la capacità di pensare rapidamente e reagire correttamente con poche informazioni. Consentendo al personaggio di fiutare un agguato o rispondere prontamente a una provocazione, la Prontezza è cruciale nelle situazioni inaspettate.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "Capisce alla fine, ma richiede spiegazioni dettagliate."
+                ],
+                [
+                  "●●",
+                  "Può sfidare la sorte a poker o azionare in tempo il freno di emergenza, almeno di solito."
+                ],
+                [
+                  "●●●",
+                  "Sa analizzare una situazione e determinare rapidamente la migliore via di fuga."
+                ],
+                [
+                  "●●●●",
+                  "Non viene mai colto alla sprovvista e riesce sempre a fornire una risposta tagliente."
+                ],
+                [
+                  "●●●●●",
+                  "Pensa e reagisce più rapidamente di quanto la gente comune possa comprendere."
+                ]
+              ]
+            }
+          },
+          {
+            "title": "Fermezza",
+            "content": "Conferisce concentrazione e determinazione, misurando risolutezza e tenacia mentale. Questo attributo è essenziale per rimanere vigili tutta la notte e isolare distrazioni.\nLa Volontà del personaggio è la somma di Autocontrollo e Fermezza.",
+            "table": {
+              "headers": [
+                "Livello",
+                "Esempio"
+              ],
+              "columns": [
+                [
+                  "●",
+                  "Riesce a prestare attenzione solo alle cose più urgenti."
+                ],
+                [
+                  "●●",
+                  "Può concentrarsi per un periodo prolungato, purché non sia troppo esteso."
+                ],
+                [
+                  "●●●",
+                  "Per distrarlo bisogna sforzarsi più del desiderato dalla maggior parte delle persone."
+                ],
+                [
+                  "●●●●",
+                  "Può giungere a deduzioni superando gli ostacoli con pura volontà."
+                ],
+                [
+                  "●●●●●",
+                  "Può riflettere durante una sparatoria o sorvegliare la porta durante un'orgia di sangue, raccogliendo poi ogni bossolo o asciugando ogni goccia versata."
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Credenze",
+    "content": "Pur non essendo Tratti veri e propri, poiché prive di valori numerici, le convinzioni essenziali di un personaggio contribuiscono a guidare la sua storia. Per questo motivo, esse hanno nel gioco degli effetti meccanici volti a rappresentare tali drammi personali.",
+    "sections": [
+      {
+        "title": "Convinzioni",
+        "content": "Ogni personaggio inizia con una, due o tre Convinzioni: valori umani che si sforzerà di rispettare anche dopo la morte, e i cui dettagli sono lasciati al giocatore. Possono rispecchiare un codice religioso, un fulcro etico personale, un sentiero vampirico o semplici cose che il personaggio fa o al cui pensiero inorridisce, ma senza mai riflettere davvero sul loro peso filosofico. Il Narratore è libero di non approvarle se non le ritiene adatte al tipo di storia che si intende giocare.",
+        "subParagraphs": [
+          {
+            "title": "Esempi di Convinzioni",
+            "content": "\n● Non uccidere\n● Uccidere solo gli indegni/infedeli/in combattimento leale/per difendersi\n● Non esporre mai i bambini alla violenza\n● Amare il prossimo come se stesso\n● La disobbedienza è un disonore\n● Proteggere gli innocenti dal male\n● Il coraggio è la più alta virtù\n● Mantenere sempre la parola data\n● La verità è sacra; non dire falsa testimonianza\n● La schiavitù è malvagia\n● L’autorità va rispettata\n● Il mio paese, nel bene o nel male\n● Nessuno mi può controllare\n● Mai fare uso di droghe (o bere alcolici)\n● Non torturare\n● I colpevoli devono essere puniti\n● Da ognuno secondo le sue capacità, a ognuno secondo i suoi bisogni\n● Rubare ai ricchi per dare ai poveri\n● Rifiutare la ricchezza, perché corrompe\n● Mai agire contro un altro (inserite gruppo/fede/setta del PG)\n● Aiutare sempre le donne in difficoltà\n● Difendere gli emarginati\n● Rispettare la sacralità del (inserire fede religiosa) e obbedire ai suoi precetti morali\nIncorrere nelle Macchie mentre si agisce in base alle proprie Convinzioni può mitigare alcune di esse (p. 239). A discrezione del Narratore, anche violare una Convinzione può provocare una o più Macchie"
+          }
+        ]
+      },
+      {
+        "title": "Precetti della Cronaca",
+        "content": "La troupe dovrebbe stabilire una serie di Precetti basandoli su qualsiasi cosa, dall’emulazione di genere all’ironia drammatica, dai gusti personali alle opinioni nella vita reale. I Precetti impongono ai personaggi sanzioni morali e degenerazione solo quando vengono violati.\nI Precetti della cronaca si applicano a tutti i personaggi, anche se alcuni di essi non osservano personalmente tali credenze. Il conflitto tra il codice morale personale e quello della società è uno dei temi chiave della letteratura umana, dopotutto. I Precetti rappresentano delle fondamenta etiche, perciò quando e se i vampiri diventano davvero dei serial killer nichilisti devono pagarne il prezzo. I Precetti vanno discussi all’interno del gruppo, in modo che tutti i giocatori capiscano cosa significano e che tipo di azioni potrebbero tradursi in una loro violazione.",
+        "subParagraphs": [
+          {
+            "title": "Esempi di Precetti:",
+            "content": "",
+            "subParagraphs": [
+              {
+                "title": "Umanista",
+                "content": "● Non uccidere, tranne che per autodifesa\n● Non stuprare o torturare\n● Non fare del male agli innocenti"
+              },
+              {
+                "title": "Credo della Giustizia",
+                "content": "● Mai uccidere gli innocenti\n● Non appartenere a nessuno, non sottomettersi mai\n● Senza una causa non si è nulla"
+              },
+              {
+                "title": "Gotico/Romantico",
+                "content": "● Mai negare il vero amore\n● I colpevoli devono soffrire\n● Difendere le regole di una società decorosa"
+              },
+              {
+                "title": "La Legge della Strada",
+                "content": "● Mai fare la spia\n● Rispettare gli altri, ma esigere rispetto\n● Non uccidere gli esclusi"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Punti di Riferimento",
+    "content": "Ogni vampiro inizia con un numero di Punti di riferimento pari alle sue Convinzioni: umani che rappresentano ciò che gli stava a cuore da vivo e che sembrano incarnare ciascuna delle sue Convinzioni. Se un Punto di riferimento viene meno, così accade anche alla Convinzione che rappresenta.\n● Un Punto di riferimento deve essere una persona viva; collegarsi all’Umanità tramite gli inumani è a dir poco un controsenso. Un Punto di riferimento potrebbe essere:\n● Un coniuge, amante o genitore umano superstite\n● Un figlio umano oppure (per i vampiri più vecchi) un discendente della sua famiglia\n● Un umano che somiglia esattamente a una persona amata in vita\n● Un umano che il vampiro ammirava in vita, o il suo discendente\n● Un parente di una delle prime vittime uccise dal vampiro; qualcuno che ha giurato di non uccidere perché… non è un mostro, no!-Qualcuno che il vampiro si è convinto sia un’autentica (e rara) brava persona: un volontario al canile, un prete, un infermiere, un assistente sociale, una gentile vecchietta del quartiere\n● Qualcuno che rappresenta una cosa che gli era cara in vita e alla quale si aggrappa ancora: un soldato, un calciatore, un artista o musicista, un ministro della sua fede\n● Qualcuno che custodisce, simboleggia o protegge una cosa che il vampiro ha a cuore: il portiere del palazzo dove abitava da vivo, il poliziotto di quartiere, un cronista appassionato, la mamma single che abita nella sua casa d’infanzia, il custode che tiene pulita la sua tomba\nI Punti di riferimento forniscono collegamenti e appoggio meccanico per l’Umanità dei personaggi; ulteriori dettagli sono a p. 239."
+  },
+  {
+    "title": "Ambizione e Desiderio",
+    "content": "Queste caratteristiche sono collegate, ma non identiche. L’Ambizione può essere pensata come un obiettivo a lungo termine: un’aspirazione (se il vampiro respirasse ancora), il sogno di una vita (se ancora sognasse o fosse vivo). Per contrasto, i Desideri sono più immediati: smanie a breve termine, di vendetta o soddisfazione.",
+    "sections": [
+      {
+        "title": "Ambizione",
+        "content": "L’Ambizione spinge un vampiro ad agire e superare una notte dopo l’altra nella cronaca. Fornisce motivazione al giocatore e agganci di storia al Narratore. Un’Ambizione deve essere misurabile in termini di gioco (“la mia Ambizione è raggiungere Umanità 10”) o un risultato concreto nel mondo della cronaca (“ambisco a liberare Chicago dalla Camarilla”). Non è una cosa vaga come “porre fine al razzismo” o “ottenere la pace nel mondo”, ma si concentra su qualcosa di specifico, come “dare la Vera Morte a (inserire famigerato anziano della cronaca)” o “mettere fine alla Guerra della Gehenna in Ucraina”. Se un’Ambizione ha scarse probabilità di essere raggiunta o farebbe finire la cronaca se così fosse, può comunque fornire alimento alla storia: è sufficiente che sia raggiungibile almeno a livello teorico. Se un personaggio soddisfa la sua Ambizione e la cronaca continua, il giocatore dovrebbe definirne una nuova, idealmente una che sia emersa durante la storia o derivi dal fatto che la precedente ha lasciato qualcosa di incompiuto. Alla fine di una sessione in cui il vampiro ha attivamente operato per favorire la sua Ambizione, risana un livello di danno Aggravato alla Volontà."
+      },
+      {
+        "title": "Desiderio",
+        "content": "I Desideri riflettono aspirazioni meno durature di una vita ma più che momentanee. Un personaggio può scegliere in ogni sessione un nuovo Desiderio oppure mantenere quello insoddisfatto nella precedente; una volta per sessione, quando agisce chiaramente per promuovere o soddisfare il suo Desiderio, risana immediatamente un livello di danno Superficiale alla Volontà. Dato che i Desideri cambiano spesso, non è necessario annotarli sulla scheda: vanno scritti su un biglietto e messi dove giocatore e Narratore possano vederli. Questa meccanica offre volutamente ai personaggi un incentivo ad agire anziché attendere passivamente lo sviluppo della trama. Pertanto, un buon Desiderio deve collegarsi in qualche modo al mondo esterno. Una regola generale: se non coinvolge qualcuno o qualcosa annotato sulla Mappa Relazionale, non vale la pena considerarlo come Desiderio. In base a questo metro, “voglio guidare una Maserati” o “voglio succhiare una bruna” non sono Desideri, mentre “voglio guidare la Maserati color ciliegia di Cytherea” o “voglio succhiare la bruna di Lord Harkness” sono Desideri eccellenti. Il Narratore deve giudicare se i Desideri riguardanti altri personaggi rientrano nello spirito di incoraggiare l’interazione o sono solo fiacchi pretesti per recuperare Volontà. "
+      }
+    ]
+  },
+  {
+    "title": "Archetipi di Predatore",
+    "content": "Neanche i predatori sono immuni alla necessità di adattarsi. Forse a causa della loro ristretta nicchia ecologica, i predatori e i relativi stili di caccia si adattano di pari passo. Tali preferenze alimentano il Sangue dei vampiri, che a sua volta plasma quali Abilità e Discipline sviluppano. Questi modi di cacciare rappresentano le tecniche con cui i personaggi si nutrono di solito. Gli archetipi di Predatore esprimono i riflessi o le abitudini di un vampiro, ma non ne dettano il comportamento nel gioco: possono sempre cacciare in altri modi, dato che spesso è necessario cooperare con altri archetipi e sfruttare le opportunità di nutrimento mano a mano che si presentano."
+  }
+]

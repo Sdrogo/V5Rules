@@ -15,8 +15,10 @@ import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.viewModel.LoreViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.ClanViewModel
+import com.example.v5rules.viewModel.KindredViewModel
 import com.example.v5rules.viewModel.LoresheetViewModel
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
+import com.example.v5rules.viewModel.PgViewModel
 import com.example.v5rules.viewModel.PredatorTypeViewModel
 import com.example.v5rules.viewModel.RulesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +47,8 @@ fun V5RulesApp(
     val loreViewModel: LoreViewModel = hiltViewModel<LoreViewModel>()
     val npcGeneratorViewModel: NPCGeneratorViewModel = hiltViewModel<NPCGeneratorViewModel>()
     val loresheetViewModel: LoresheetViewModel = hiltViewModel<LoresheetViewModel>()
+    val kindredViewModel: KindredViewModel = hiltViewModel<KindredViewModel>()
+    val pgViewModel: PgViewModel = hiltViewModel<PgViewModel>()
 
     val navController = rememberNavController()
 
@@ -60,7 +64,9 @@ fun V5RulesApp(
             rulesViewModel = rulesViewModel,
             loreViewModel = loreViewModel,
             loresheetViewModel = loresheetViewModel,
-            npcGeneratorViewModel = npcGeneratorViewModel
+            npcGeneratorViewModel = npcGeneratorViewModel,
+            kindredViewModel = kindredViewModel,
+            pgViewModel = pgViewModel
         )
     }
 }

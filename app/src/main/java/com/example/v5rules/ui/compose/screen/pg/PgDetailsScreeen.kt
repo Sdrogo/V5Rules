@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen.lore
+package com.example.v5rules.ui.compose.screen.pg
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,20 +25,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.viewModel.LoreViewModel
 import com.example.v5rules.R
+import com.example.v5rules.SubPgNav
+import com.example.v5rules.data.Paragraph
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
-import com.example.v5rules.SubLoreNav
+import com.example.v5rules.ui.compose.component.TableContent
+import com.example.v5rules.viewModel.PgViewModel
 
 @Composable
-fun LoreDetailsScreen(
-    loreViewModel: LoreViewModel,
+fun PgDetailsScreen(
+    pgViewModel: PgViewModel,
     navController: NavHostController,
     title: String
 ) {
 
-    val rule = loreViewModel.allLore.find { it.title == title }
+    val rule = pgViewModel.allPg.find { it.title == title }
 
     CommonScaffold(navController = navController, title = title) {
         LazyColumn(
@@ -76,45 +78,37 @@ fun LoreDetailsScreen(
                                         .padding(8.dp)
                                         .clickable {
                                             navController.navigate(
-                                                SubLoreNav(rule.title, section.title)
+                                                SubPgNav(rule.title, section.title)
                                             )
                                         },
                                     color = MaterialTheme.colorScheme.primary
                                 )
                             } else {
-                                ContentExpander(
-                                    title = section.title,
-                                    style = MaterialTheme.typography.headlineSmall,
-                                    fontWeight = FontWeight.Bold,
-                                ) {
-                                    Text(
-                                        modifier = Modifier.padding(start = 8.dp),
-                                        text = AnnotatedString(
-                                            section.content,
-                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                        ),
-                                        color = MaterialTheme.colorScheme.primary,
-                                        style = MaterialTheme.typography.bodyMedium
-                                    )
-                                }
+                                PgParagraphContent(section)
                             }
                         }
                     }
+                    rule.table?.let {
+                        item {
+                            TableContent(headerList = it.headers, contentList = it.columns)
+                        }
+                    }
                 }
+
             }
         }
     }
 }
 
 @Composable
-fun SubLoreDetail(
-    loreViewModel: LoreViewModel,
+fun SubPgDetail(
+    pgViewModel: PgViewModel,
     chapterTitle: String,
     sectionTitle: String,
     navController: NavHostController
 ) {
 
-    val ruleToDetail = loreViewModel.allLore.find { it.title == chapterTitle }
+    val ruleToDetail = pgViewModel.allPg.find { it.title == chapterTitle }
     val sectionToDetail = ruleToDetail?.sections?.find { it.title == sectionTitle }
     CommonScaffold(navController = navController, title = sectionTitle) {
         sectionToDetail?.let { section ->
@@ -135,24 +129,17 @@ fun SubLoreDetail(
                             style = MaterialTheme.typography.bodyMedium
                         )
                         Spacer(modifier = Modifier.height(8.dp))
+                        section.table?.let {
+                            TableContent(
+                                headerList = it.headers,
+                                contentList = it.columns
+                            )
+                        }
                     }
                 }
                 items(section.subParagraphs.orEmpty()) { subParagraph ->
-                    ContentExpander(
-                        title = subParagraph.title,
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontWeight = FontWeight.Bold
-                    ) {
-                        Text(
-                            modifier = Modifier.padding(8.dp),
-                            text = AnnotatedString(
-                                subParagraph.content,
-                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                            ),
-                            color = MaterialTheme.colorScheme.primary,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                    }
+                    PgParagraphContent(subParagraph)
+
                     // Nested Row for subParagraphs (if needed)
                     Column(
                         modifier = Modifier
@@ -168,28 +155,39 @@ fun SubLoreDetail(
                             )
                             Column {
                                 subParagraph.subParagraphs?.forEach { subSubParagraph ->
-                                    ContentExpander(
-                                        title = subSubParagraph.title,
-                                        style = MaterialTheme.typography.headlineSmall,
-                                        fontWeight = FontWeight.Bold
-                                    ) {
-                                        Text(
-                                            modifier = Modifier.padding(start = 8.dp),
-                                            text = AnnotatedString(
-                                                subSubParagraph.content,
-                                                paragraphStyle = ParagraphStyle(
-                                                    textAlign = TextAlign.Justify
-                                                )
-                                            ),
-                                            color = MaterialTheme.colorScheme.primary,
-                                            style = MaterialTheme.typography.bodyMedium
-                                        )
-                                    }
+                                    PgParagraphContent(subSubParagraph)
                                 }
                             }
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+fun PgParagraphContent(paragraph: Paragraph) {
+    ContentExpander(
+        title = paragraph.title,
+        style = MaterialTheme.typography.headlineSmall,
+        fontWeight = FontWeight.Bold
+    ) {
+        Column(modifier = Modifier.padding(8.dp)) {
+            Text(
+                modifier = Modifier.padding(8.dp),
+                text = AnnotatedString(
+                    paragraph.content,
+                    paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                ),
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.bodyMedium
+            )
+            paragraph.table?.let {
+                TableContent(
+                    headerList = it.headers,
+                    contentList = it.columns
+                )
             }
         }
     }

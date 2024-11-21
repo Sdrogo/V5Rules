@@ -54,7 +54,6 @@ fun ContentExpander(
             content()
         }
     }
-    Spacer(modifier = Modifier.height(8.dp))
 }
 @Composable
 fun CustomContentExpander(
