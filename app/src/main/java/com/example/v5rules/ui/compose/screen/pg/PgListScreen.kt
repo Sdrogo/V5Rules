@@ -23,10 +23,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.PgDetailsNav
-import com.example.v5rules.viewModel.PgUiState
-import com.example.v5rules.viewModel.PgViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
+import com.example.v5rules.viewModel.PgUiState
+import com.example.v5rules.viewModel.PgViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

@@ -20,6 +20,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
@@ -30,6 +32,7 @@ import com.example.v5rules.data.LoresheetPower
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.CustomContentExpander
 import com.example.v5rules.ui.compose.component.DotsOnlyForLevel
+import com.example.v5rules.viewModel.LoresheetUiState
 import com.example.v5rules.viewModel.LoresheetViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -44,7 +47,8 @@ fun LoresheetDetailsScreen(
         navController = navController,
         title = name
     ) {
-        val loresheet = loresheetViewModel.allLore.find { it.id == id }
+        val uiState by loresheetViewModel.loresheetUiState.collectAsState()
+        val loresheet = (uiState as LoresheetUiState.Success).loresheets.first { it.id == id }
 
         LazyColumn(
             modifier = Modifier
@@ -53,7 +57,8 @@ fun LoresheetDetailsScreen(
                 .background(color = MaterialTheme.colorScheme.background)
         ) {
             item {
-                val orientation = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+                val orientation =
+                    LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
                 val widthByOrientation =
                     if (orientation) 0.4f else 1f
                 val maxRowItem = if (orientation) 2 else 1
@@ -65,43 +70,41 @@ fun LoresheetDetailsScreen(
                     horizontalArrangement = Arrangement.SpaceAround,
                     maxItemsInEachRow = maxRowItem
                 ) {
-                    loresheet?.let { sheet ->
-                        sheet.limitation?.let {
-                            Text(
-                                text = it,
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.tertiary,
-                                modifier = Modifier.wrapContentWidth()
-                            )
-                        }
-                        Surface(
-                            modifier = Modifier
-                                .padding(8.dp)
-                                .wrapContentSize()
-                                .background(MaterialTheme.colorScheme.background)
-                                .border(
-                                    1.dp,
-                                    MaterialTheme.colorScheme.tertiary,
-                                    RoundedCornerShape(8.dp)
-                                ),
-                            shape = RoundedCornerShape(8.dp)
-                        ) {
+                    loresheet.limitation?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.headlineSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.tertiary,
+                            modifier = Modifier.wrapContentWidth()
+                        )
+                    }
+                    Surface(
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .wrapContentSize()
+                            .background(MaterialTheme.colorScheme.background)
+                            .border(
+                                1.dp,
+                                MaterialTheme.colorScheme.tertiary,
+                                RoundedCornerShape(8.dp)
+                            ),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
 
-                            Text(
-                                text = sheet.content,
-                                Modifier
-                                    .fillMaxWidth()
-                                    .padding(8.dp)
-                            )
-                        }
-                        sheet.powers.forEach { power ->
-                            LoresheetPower(
-                                loresheetPower = power,
-                                widthByOrientation = widthByOrientation,
-                                isLandscape = orientation
-                            )
-                        }
+                        Text(
+                            text = loresheet.content,
+                            Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp)
+                        )
+                    }
+                    loresheet.powers.forEach { power ->
+                        LoresheetPower(
+                            loresheetPower = power,
+                            widthByOrientation = widthByOrientation,
+                            isLandscape = orientation
+                        )
                     }
                 }
             }
@@ -110,7 +113,11 @@ fun LoresheetDetailsScreen(
 }
 
 @Composable
-fun LoresheetPower(loresheetPower: LoresheetPower, widthByOrientation: Float, isLandscape: Boolean = false) {
+fun LoresheetPower(
+    loresheetPower: LoresheetPower,
+    widthByOrientation: Float,
+    isLandscape: Boolean = false
+) {
     CustomContentExpander(
         maxWith = widthByOrientation,
         header = {
@@ -133,7 +140,7 @@ fun LoresheetPower(loresheetPower: LoresheetPower, widthByOrientation: Float, is
 fun LoresheetPowerLineItem(level: Int, name: String, isLandscape: Boolean = false) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = if(isLandscape)Arrangement.Center else Arrangement.Start,
+        horizontalArrangement = if (isLandscape) Arrangement.Center else Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
         DotsOnlyForLevel(level = level)

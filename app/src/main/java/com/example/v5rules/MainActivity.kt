@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.v5rules.ui.theme.V5RulesTheme
-import com.example.v5rules.viewModel.LoreViewModel
-import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.ClanViewModel
+import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.KindredViewModel
+import com.example.v5rules.viewModel.LoreViewModel
 import com.example.v5rules.viewModel.LoresheetViewModel
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.viewModel.PgViewModel

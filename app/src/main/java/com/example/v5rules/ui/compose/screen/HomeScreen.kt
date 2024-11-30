@@ -6,7 +6,12 @@ import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -21,9 +26,6 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.R
-import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.compose.component.TintedImage
 import com.example.v5rules.ClansNav
 import com.example.v5rules.DisciplinesNav
 import com.example.v5rules.KindredNav
@@ -32,7 +34,10 @@ import com.example.v5rules.LoresheetNav
 import com.example.v5rules.NPCGeneratorNav
 import com.example.v5rules.PgNav
 import com.example.v5rules.PredatorTypesNav
+import com.example.v5rules.R
 import com.example.v5rules.RulesNav
+import com.example.v5rules.ui.compose.component.CommonScaffold
+import com.example.v5rules.ui.compose.component.TintedImage
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
