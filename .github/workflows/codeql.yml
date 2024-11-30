@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+  
     # Step 1: Checkout the repository
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -37,6 +38,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
 
+    - name: Build code manually
+      run: |
+        ./gradlew clean build
+        
     # Step 4: Initialize CodeQL for scanning
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
