@@ -12,11 +12,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
@@ -27,6 +34,7 @@ import com.example.v5rules.LoresheetDetailsNav
 import com.example.v5rules.R
 import com.example.v5rules.data.Loresheet
 import com.example.v5rules.ui.compose.component.CommonScaffold
+import com.example.v5rules.ui.compose.component.TintedImage
 import com.example.v5rules.viewModel.LoresheetUiState
 import com.example.v5rules.viewModel.LoresheetViewModel
 
@@ -34,44 +42,73 @@ import com.example.v5rules.viewModel.LoresheetViewModel
 @Composable
 fun LoresheetScreen(loresheetViewModel: LoresheetViewModel, navController: NavHostController) {
     val uiState by loresheetViewModel.loresheetUiState.collectAsState()
+    var searchText by remember { mutableStateOf("") }
+    val filteredLoresheets by loresheetViewModel.filteredLoresheets.collectAsState()
+
     CommonScaffold(
         navController = navController,
         title = stringResource(id = R.string.loresheet_title_screen)
     ) {
+        LaunchedEffect(Unit) {
+            loresheetViewModel.updateSearchQuery("")
+        }
         when (uiState) {
             is LoresheetUiState.Loading -> Text("Loading...")
             is LoresheetUiState.Success -> {
-                val loresheets = (uiState as LoresheetUiState.Success).loresheets
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 16.dp)
-                        .background(color = MaterialTheme.colorScheme.background)
-                ) {
-                    item {
-                        val orientation = LocalConfiguration.current.orientation
-                        val widthByOrientation =
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.4f else 1f
-                        val maxRowItem =
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
+                Column {
+                    TextField(
+                        value = searchText,
+                        onValueChange = {
+                            searchText = it
+                            loresheetViewModel.updateSearchQuery(it)
+                        },
+                        shape = RoundedCornerShape(8.dp),
+                        trailingIcon = { TintedImage(R.drawable.malkavian_symbol, MaterialTheme.colorScheme.tertiary, 48.dp)  },
+                        label = { Text("Search") },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                        colors = TextFieldDefaults.colors(
+                            focusedContainerColor = MaterialTheme.colorScheme.secondary,
+                            unfocusedContainerColor = MaterialTheme.colorScheme.background,
+                            focusedTextColor = MaterialTheme.colorScheme.tertiary,
+                            unfocusedIndicatorColor = MaterialTheme.colorScheme.tertiary,
+                            focusedLabelColor = MaterialTheme.colorScheme.tertiary,
+                            disabledContainerColor = MaterialTheme.colorScheme.tertiary,
+                            focusedIndicatorColor = MaterialTheme.colorScheme.tertiary
+                        )
+                    )
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(horizontal = 16.dp)
+                            .background(color = MaterialTheme.colorScheme.background)
+                    ) {
+                        item {
+                            val orientation = LocalConfiguration.current.orientation
+                            val widthByOrientation =
+                                if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.4f else 1f
+                            val maxRowItem =
+                                if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
 
-                        FlowRow(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(16.dp),
-                            horizontalArrangement = Arrangement.SpaceAround,
-                            maxItemsInEachRow = maxRowItem
-                        ) {
-                            loresheets.forEach {
-                                LoresheetLineItem(
-                                    loresheet = it,
-                                    navController = navController,
-                                    maxWidth = widthByOrientation
-                                )
+                            FlowRow(
+                                modifier = Modifier
+                                    .fillMaxSize(),
+                                horizontalArrangement = Arrangement.SpaceAround,
+                                maxItemsInEachRow = maxRowItem
+                            ) {
+                                filteredLoresheets.forEach {
+                                    LoresheetLineItem(
+                                        loresheet = it,
+                                        navController = navController,
+                                        maxWidth = widthByOrientation
+                                    )
+                                }
                             }
                         }
                     }
                 }
+
             }
 
             is LoresheetUiState.Error -> Text("Error: ${(uiState as LoresheetUiState.Error).message}")

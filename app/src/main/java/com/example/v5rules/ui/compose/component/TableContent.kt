@@ -58,7 +58,7 @@ fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
                 )
             }
         }
-        contentList.forEachIndexed { rowIndex, row ->
+        contentList.forEachIndexed { _, row ->
             Row(
                 modifier = Modifier
                     .fillMaxWidth()

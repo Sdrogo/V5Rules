@@ -25,11 +25,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.viewModel.LoreViewModel
 import com.example.v5rules.R
+import com.example.v5rules.SubLoreNav
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
-import com.example.v5rules.SubLoreNav
+import com.example.v5rules.viewModel.LoreViewModel
 
 @Composable
 fun LoreDetailsScreen(

@@ -22,11 +22,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.v5rules.PredatorTypeDetailsNav
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.viewModel.PredatorTypeUiState
 import com.example.v5rules.viewModel.PredatorTypeViewModel
-import com.example.v5rules.PredatorTypeDetailsNav
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

@@ -22,10 +22,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.KindredDetailsNav
-import com.example.v5rules.viewModel.KindredUiState
-import com.example.v5rules.viewModel.KindredViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
+import com.example.v5rules.viewModel.KindredUiState
+import com.example.v5rules.viewModel.KindredViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
