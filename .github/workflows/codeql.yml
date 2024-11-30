@@ -67,7 +67,7 @@ jobs:
     # Step 8: Conditional Step - Upload APK artifact only for merges to master
     - name: Upload APK
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Built-APK
         path: app/build/outputs/apk/release/*.apk
