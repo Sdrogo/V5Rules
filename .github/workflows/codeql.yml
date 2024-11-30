@@ -17,7 +17,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-  
     # Step 1: Checkout the repository
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -38,29 +37,33 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
 
+    # Step 4: Build code manually
     - name: Build code manually
       run: |
+        chmod +x ./gradlew
         ./gradlew clean build
-        
-    # Step 4: Initialize CodeQL for scanning
+
+    # Step 5: Initialize CodeQL for scanning
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
         languages: java-kotlin
         build-mode: autobuild
 
-    # Step 5: Perform CodeQL Analysis
+    # Step 6: Perform CodeQL Analysis
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:java-kotlin"
 
-    # Conditional Step: Build APK only for merges to master
+    # Step 7: Conditional Step - Build APK only for merges to master
     - name: Build APK
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-      run: ./gradlew assembleRelease
+      run: |
+        chmod +x ./gradlew
+        ./gradlew assembleRelease
 
-    # Conditional Step: Upload APK artifact only for merges to master
+    # Step 8: Conditional Step - Upload APK artifact only for merges to master
     - name: Upload APK
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
       uses: actions/upload-artifact@v3
