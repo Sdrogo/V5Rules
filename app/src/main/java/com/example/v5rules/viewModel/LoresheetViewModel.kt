@@ -27,6 +27,7 @@ class LoresheetViewModel @Inject constructor(
 
     fun updateSearchQuery(query: String) {
         _searchQuery.value = query
+
     }
     val filteredLoresheets: StateFlow<List<Loresheet>> = combine(loresheetUiState, searchQuery) { uiState, query ->
         when (uiState) {
