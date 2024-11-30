@@ -37,18 +37,18 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
 
-    # Step 4: Build code manually
-    - name: Build code manually
-      run: |
-        chmod +x ./gradlew
-        ./gradlew clean build
-
-    # Step 5: Initialize CodeQL for scanning
+    # Step 4: Initialize CodeQL for scanning
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
         languages: java-kotlin
-        build-mode: autobuild
+        build-mode: manual  # Switch to manual build mode
+
+    # Step 5: Build the project manually
+    - name: Build the project manually
+      run: |
+        chmod +x ./gradlew
+        ./gradlew clean build
 
     # Step 6: Perform CodeQL Analysis
     - name: Perform CodeQL Analysis
