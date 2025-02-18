@@ -21,7 +21,7 @@ import com.example.v5rules.data.Gender
 fun GenderSelection(
     selectedGender: Gender,
     widthOfFlow: Float,
-    isLandscape: Boolean,
+    isLandscape: Boolean = true,
     onGenderSelected: (Gender) -> Unit
 ) {
     FlowRow(

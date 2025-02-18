@@ -22,12 +22,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CommonScaffold(
     navController: NavHostController,
     title: String,
-    content: @Composable () -> Unit
+    content: @Composable (paddingValues: androidx.compose.foundation.layout.PaddingValues) -> Unit
 ) {
     MaterialTheme {
         Scaffold(
@@ -65,7 +66,7 @@ fun CommonScaffold(
                 .padding(innerPadding)
                 .background(MaterialTheme.colorScheme.background)
                 .fillMaxSize()) {
-                content()
+                content(innerPadding)
             }
         }
     }
