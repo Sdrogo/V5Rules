@@ -15,16 +15,17 @@ import androidx.compose.ui.unit.dp
 import com.example.v5rules.data.Npc
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
 
 
 
 @Composable
 fun GeneratedName(
+    modifier: Modifier = Modifier, // Aggiunto Modifier
     npc: Npc?,
     widthFloat: Float = 1f,
-    viewModel: NPCGeneratorViewModel,
-    modifier: Modifier = Modifier // Aggiunto Modifier
+    viewModel: NPCGeneratorViewModel
 ) {
     Box(
         modifier = modifier // Usa il Modifier passato
@@ -60,12 +61,15 @@ fun GeneratedName(
         }
     }
 }
+
 @Composable
 fun FavoriteHeartIcon(isFavorite: Boolean, onToggleFavorite: () -> Unit, modifier: Modifier = Modifier) {
     Icon(
         imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
         contentDescription = if (isFavorite) "Remove from favorites" else "Add to favorites",
-        modifier = modifier.clickable { onToggleFavorite() },
+        modifier = modifier
+            .clickable { onToggleFavorite() }
+            .size(24.dp), // Set a fixed size (adjust as needed)
         tint = if (isFavorite) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
     )
 }

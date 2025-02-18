@@ -27,7 +27,7 @@ fun GenderSelection(
     FlowRow(
         modifier = Modifier
             .fillMaxWidth(widthOfFlow),
-        maxItemsInEachRow = if(isLandscape) 3 else 1,
+        maxItemsInEachRow = if(isLandscape) 2 else 1,
         horizontalArrangement = Arrangement.SpaceEvenly
 
     ) {

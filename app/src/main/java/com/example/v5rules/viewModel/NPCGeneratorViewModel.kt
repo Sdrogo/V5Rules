@@ -1,6 +1,5 @@
 package com.example.v5rules.viewModel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.FavoriteNpc
@@ -63,6 +62,9 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
                 val npcNames = mainRepository.readNpcNames(Locale.getDefault())
                 allNamesByNationality = npcNames
                 nationalities = npcNames.map { it.nationality }.sortedBy { it }
+                _npc_nationality_uiState.update {
+                    NpcNationalityUiState.Success(nationalities)
+                }
                 _uiState.update {
                     it.copy(selectedNationality = nationalities.firstOrNull())
                 }
@@ -86,7 +88,7 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
     fun setIncludeSecondName(include: Boolean) {
         _uiState.update {  // Usa .update e .copy
             if (!include) {
-                removeSelectedRegenerationType(RegenerationType.SECOND_NAME)
+                _uiState.value.selectedRegenerationTypes.toMutableSet().remove(RegenerationType.SECOND_NAME)
                 it.copy(
                     includeSecondName = false,
                     npc = it.npc?.copy(secondName = null) // Crea una nuova copia dell'NPC
@@ -94,11 +96,9 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
             } else {
                 if (it.firstGeneration) regenerateSecondName()
                 it.copy(includeSecondName = true) // Crea una nuova copia di UiState
-
             }
         }
     }
-
 
     fun setSelectedNationality(nationality: String?) {
         _uiState.update { // Usa .update e .copy
@@ -108,28 +108,8 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
                 firstGeneration = false // Resetta firstGeneration
             )
         }
-        if (_uiState.value.firstGeneration) {
-            removeSelectedRegenerationType(RegenerationType.SECOND_NAME)
-            generateNPC()
-        }
+        generateNPC()
     }
-
-    fun addSelectedRegenerationType(type: RegenerationType) {
-        _uiState.update { // Usa .update e .copy
-            val updatedTypes = it.selectedRegenerationTypes.toMutableSet()
-            updatedTypes.add(type)
-            it.copy(selectedRegenerationTypes = updatedTypes)
-        }
-    }
-
-    fun removeSelectedRegenerationType(type: RegenerationType) {
-        _uiState.update { // Usa .update e .copy
-            val updatedTypes = it.selectedRegenerationTypes.toMutableSet()
-            updatedTypes.remove(type)
-            it.copy(selectedRegenerationTypes = updatedTypes)
-        }
-    }
-
 
     fun generateNPC() {
         _uiState.update { currentState -> // Usa .update
@@ -222,7 +202,6 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
                 } else {
                     nomiFemminili.randomOrNull(random)
                 }
-
                 currentState.copy( // Crea una *nuova* copia di UiState
                     npc = currentState.npc?.copy(secondName = secondoNome.orEmpty()) // Crea una *nuova* copia di Npc
                 )
@@ -250,17 +229,9 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
 
     fun toggleFavorite(npc: Npc) {
         viewModelScope.launch(Dispatchers.IO) {
-            Log.d(
-                "NPCGeneratorViewModel",
-                "toggleFavorite called for: ${npc.nome} ${npc.cognome}, isFavorite: ${npc.isFavorite}"
-            )
-
             val existingFavoriteIndex = _favoriteNpcs.value.indexOfFirst {
                 it.name == npc.nome && it.secondName == npc.secondName && it.familyName == npc.cognome
             }
-
-            Log.d("NPCGeneratorViewModel", "existingFavoriteIndex: $existingFavoriteIndex")
-
             if (existingFavoriteIndex != -1) {
                 _favoriteNpcs.update { currentFavorites -> // Usa .update
                     currentFavorites.toMutableList().also { updatedList ->
@@ -269,16 +240,8 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
                             favoriteNpc.copy(isFavorite = !favoriteNpc.isFavorite) // Crea una nuova copia
                         if (newFavoriteNpc.isFavorite) {
                             updatedList[existingFavoriteIndex] = newFavoriteNpc
-                            Log.d(
-                                "NPCGeneratorViewModel",
-                                "NPC updated in favorites. isFavorite now: ${newFavoriteNpc.isFavorite}"
-                            )
                         } else {
                             updatedList.removeAt(existingFavoriteIndex)
-                            Log.d(
-                                "NPCGeneratorViewModel",
-                                "NPC removed from favorites. isFavorite now: false"
-                            )
                         }
                     }
                 }
@@ -291,14 +254,9 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
                         nationality = _uiState.value.selectedNationality ?: "",
                         isFavorite = true
                     )
-                    Log.d(
-                        "NPCGeneratorViewModel",
-                        "New NPC added to favorites. isFavorite: ${newFavorite.isFavorite}"
-                    )
                     currentFavorites + newFavorite
                 }
             }
-
             _uiState.update { currentState -> // Usa .update e crea una *nuova* copia di Npc
                 currentState.copy(
                     npc = currentState.npc?.copy(
@@ -308,11 +266,25 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
                     )
                 )
             }
-            Log.d("NPCGeneratorViewModel", "_favoriteNpcs updated: ${_favoriteNpcs.value}")
-            Log.d(
-                "NPCGeneratorViewModel",
-                "uiState updated, npc isFavorite is now: ${_uiState.value.npc?.isFavorite}"
-            ) //Controlla npc?.isFavorite
+        }
+    }
+
+    fun toggleRegenerationType(type: RegenerationType) {
+        val currentSelection = _uiState.value.selectedRegenerationTypes.toMutableSet() // Create a mutable copy
+        if(type == RegenerationType.ALL){
+            currentSelection.remove(RegenerationType.NAME)
+            currentSelection.remove(RegenerationType.SECOND_NAME)
+            currentSelection.remove(RegenerationType.FAMILY_NAME)
+        }
+        if (currentSelection.contains(type)) {
+            currentSelection.remove(type)
+        } else {
+            if (currentSelection.contains(RegenerationType.ALL))
+                currentSelection.remove(RegenerationType.ALL)
+            currentSelection.add(type)
+        }
+        _uiState.update { currentState ->
+            currentState.copy(selectedRegenerationTypes = currentSelection)
         }
     }
 
@@ -324,7 +296,6 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
         }
     }
 }
-
 
 sealed class NpcNationalityUiState {
     object Loading : NpcNationalityUiState()

@@ -13,6 +13,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.Text
@@ -42,14 +43,12 @@ import com.example.v5rules.ui.compose.component.GenerateButton
 import com.example.v5rules.ui.compose.component.GeneratedName
 import com.example.v5rules.ui.compose.component.IncludeSecondNameCheckbox
 import com.example.v5rules.ui.compose.component.NationalityDropdown
-import com.example.v5rules.ui.compose.component.RegenerationCheckbox
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.viewModel.NpcNationalityUiState
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun NPCGeneratorScreen(
-    modifier: Modifier = Modifier, // Teniamo questo modifier, ma con un default
     viewModel: NPCGeneratorViewModel,
     navController: NavHostController
 ) {
@@ -62,6 +61,14 @@ fun NPCGeneratorScreen(
         navController = navController,
         title = stringResource(id = R.string.npc_generator_title)
     ) {
+
+        val options = listOf(
+            RegenerationType.NAME to stringResource(id = R.string.generate_name_button_label),
+            RegenerationType.SECOND_NAME to stringResource(id = R.string.generate_second_name_button_label),
+            RegenerationType.FAMILY_NAME to stringResource(id = R.string.generate_family_name_button_label),
+            RegenerationType.ALL to stringResource(id = R.string.generate_all_button_label)
+        )
+
         val constraintSet = ConstraintSet {
             val topSection = createRefFor("topSection")
             val generatedName = createRefFor("generatedName")
@@ -72,14 +79,14 @@ fun NPCGeneratorScreen(
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
                 width = Dimension.fillToConstraints
-                height = Dimension.percent(0.3f)
+                height = Dimension.percent(if (isLandscape) 0.4f else 0.3f)
             }
             constrain(generatedName) {
                 top.linkTo(topSection.bottom)
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
                 width = Dimension.fillToConstraints
-                height = Dimension.percent(0.3f)
+                height = Dimension.percent(if (isLandscape) 0.2f else 0.3f)
             }
             constrain(bottomSection) {
                 top.linkTo(generatedName.bottom)
@@ -90,15 +97,17 @@ fun NPCGeneratorScreen(
                 height = Dimension.fillToConstraints // Importante per lo scrolling
             }
         }
-        when(LoadingState){
+        when (LoadingState) {
             is NpcNationalityUiState.Error -> Text(
                 "Error: ${(LoadingState as NpcNationalityUiState.Error).message}",
                 color = MaterialTheme.colorScheme.primary
             )
+
             NpcNationalityUiState.Loading -> Text(
                 "Loading...",
                 color = MaterialTheme.colorScheme.primary,
             )
+
             is NpcNationalityUiState.Success ->
                 ConstraintLayout(
                     constraintSet,
@@ -108,9 +117,15 @@ fun NPCGeneratorScreen(
                     FlowRow(
                         modifier = Modifier
                             .layoutId("topSection")
-                            .fillMaxWidth()
-                    ) {
-                        FavoritesDropdown(favoriteNpcs = favoriteNpcs)
+                            .fillMaxWidth(),
+                        verticalArrangement = Arrangement.Center,
+                        maxItemsInEachRow = if (isLandscape) 3 else 2,
+
+                        ) {
+                        FavoritesDropdown(
+                            favoriteNpcs = favoriteNpcs,
+                            width = if (isLandscape) 0.3f else 1f
+                        )
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth(if (isLandscape) 0.5f else 1f),
@@ -125,30 +140,17 @@ fun NPCGeneratorScreen(
                                 onNationalitySelected = { viewModel.setSelectedNationality(it) }
                             )
                         }
-                        if (isLandscape) {
-                            IncludeSecondNameCheckbox(
-                                includeSecondName = uiState.includeSecondName,
-                                width = 0.4f,
-                                onIncludeSecondNameChange = { viewModel.setIncludeSecondName(it) }
-                            )
-                            GenderSelection(
-                                selectedGender = uiState.selectedGender,
-                                widthOfFlow = 1f,
-                                onGenderSelected = { viewModel.setSelectedGender(it) }
-                            )
-                        } else {
-                            GenderSelection(
-                                selectedGender = uiState.selectedGender,
-                                widthOfFlow = 0.4f,
-                                isLandscape = false,
-                                onGenderSelected = { viewModel.setSelectedGender(it) }
-                            )
-                            IncludeSecondNameCheckbox(
-                                includeSecondName = uiState.includeSecondName,
-                                width = 0.4f,
-                                onIncludeSecondNameChange = { viewModel.setIncludeSecondName(it) }
-                            )
-                        }
+                        GenderSelection(
+                            selectedGender = uiState.selectedGender,
+                            widthOfFlow = 0.4f,
+                            isLandscape = isLandscape,
+                            onGenderSelected = { viewModel.setSelectedGender(it) }
+                        )
+                        IncludeSecondNameCheckbox(
+                            includeSecondName = uiState.includeSecondName,
+                            width = 0.4f,
+                            onIncludeSecondNameChange = { viewModel.setIncludeSecondName(it) }
+                        )
                     }
 
                     GeneratedName(  // No modifier passato qui
@@ -161,70 +163,26 @@ fun NPCGeneratorScreen(
                     FlowRow(
                         modifier = Modifier.layoutId("bottomSection"),
                         horizontalArrangement = Arrangement.Center,
-                        maxItemsInEachRow = 2,
-
-                        ) {
-                        RegenerationCheckbox(
-                            text = stringResource(id = R.string.generate_name_button_label),
-                            width = 0.4f,
-                            checked = uiState.selectedRegenerationTypes.contains(RegenerationType.NAME),
-                            onCheckedChange = { checked ->
-                                if (checked) {
-                                    viewModel.addSelectedRegenerationType(RegenerationType.NAME)
-                                } else {
-                                    viewModel.removeSelectedRegenerationType(RegenerationType.NAME)
+                        maxItemsInEachRow = if (isLandscape) 3 else 2 // Keep your existing layout logic
+                    ) {
+                        options.forEach { (type, label) ->
+                            FilterChip(
+                                selected = uiState.selectedRegenerationTypes.contains(type),
+                                onClick = {
+                                    viewModel.toggleRegenerationType(type) // Use a dedicated function
+                                },
+                                label = { Text(label) },
+                                enabled = when (type) {
+                                    RegenerationType.SECOND_NAME -> uiState.firstGeneration && uiState.includeSecondName
+                                    else -> uiState.firstGeneration
                                 }
-                            },
-                            enabled = uiState.firstGeneration,
-                            firstGeneration = uiState.firstGeneration
-                        )
-                        RegenerationCheckbox(
-                            text = stringResource(id = R.string.generate_second_name_button_label),
-                            width = 0.4f,
-                            checked = uiState.selectedRegenerationTypes.contains(RegenerationType.SECOND_NAME),
-                            onCheckedChange = { checked ->
-                                if (checked) {
-                                    viewModel.addSelectedRegenerationType(RegenerationType.SECOND_NAME)
-                                } else {
-                                    viewModel.removeSelectedRegenerationType(RegenerationType.SECOND_NAME)
-                                }
-                            },
-                            enabled = uiState.firstGeneration && uiState.includeSecondName,
-                            firstGeneration = uiState.firstGeneration
-                        )
-                        RegenerationCheckbox(
-                            text = stringResource(id = R.string.generate_family_name_button_label),
-                            width = 0.4f,
-                            checked = uiState.selectedRegenerationTypes.contains(RegenerationType.FAMILY_NAME),
-                            onCheckedChange = { checked ->
-                                if (checked) {
-                                    viewModel.addSelectedRegenerationType(RegenerationType.FAMILY_NAME)
-                                } else {
-                                    viewModel.removeSelectedRegenerationType(RegenerationType.FAMILY_NAME)
-                                }
-                            },
-                            enabled = uiState.firstGeneration,
-                            firstGeneration = uiState.firstGeneration
-                        )
-                        RegenerationCheckbox(
-                            text = stringResource(id = R.string.generate_all_button_label),
-                            checked = uiState.selectedRegenerationTypes.contains(RegenerationType.ALL),
-                            width = 0.4f,
-                            onCheckedChange = { checked ->
-                                if (checked) {
-                                    viewModel.addSelectedRegenerationType(RegenerationType.ALL)
-                                } else {
-                                    viewModel.removeSelectedRegenerationType(RegenerationType.ALL)
-                                }
-                            },
-                            enabled = uiState.firstGeneration,
-                            firstGeneration = uiState.firstGeneration
-                        )
-                        GenerateButton(
+                            )
+                        }
+                        GenerateButton( // Your existing button
                             selectedNationality = uiState.selectedNationality,
                             firstGeneration = uiState.firstGeneration,
                             isListEmpty = uiState.selectedRegenerationTypes.isEmpty(),
-                            width = if (isLandscape) 0.5f else 1f,
+                            width = if (isLandscape) 0.3f else 1f,
                             onGenerateNPC = { viewModel.generateNPC() }
                         )
                     }
@@ -236,6 +194,7 @@ fun NPCGeneratorScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FavoritesDropdown(
+    width: Float,
     favoriteNpcs: List<FavoriteNpc>,
     onFavoriteSelected: (FavoriteNpc) -> Unit = {}
 ) {
@@ -254,7 +213,7 @@ fun FavoritesDropdown(
                 colors = ExposedDropdownMenuDefaults.textFieldColors(),
                 modifier = Modifier
                     .menuAnchor(MenuAnchorType.PrimaryNotEditable)
-                    .fillMaxWidth()
+                    .fillMaxWidth(width)
             )
 
             ExposedDropdownMenu(
