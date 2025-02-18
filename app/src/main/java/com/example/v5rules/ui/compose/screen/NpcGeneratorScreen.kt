@@ -49,8 +49,9 @@ import com.example.v5rules.viewModel.NpcNationalityUiState
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun NPCGeneratorScreen(
+    modifier: Modifier,
     viewModel: NPCGeneratorViewModel,
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     val LoadingState by viewModel.npc_nationality_uiState.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
@@ -111,57 +112,57 @@ fun NPCGeneratorScreen(
             is NpcNationalityUiState.Success ->
                 ConstraintLayout(
                     constraintSet,
-                    modifier = Modifier
+                    modifier = modifier
                         .fillMaxSize()
                 ) {
                     FlowRow(
-                        modifier = Modifier
+                        modifier = modifier
                             .layoutId("topSection")
                             .fillMaxWidth(),
                         verticalArrangement = Arrangement.Center,
-                        maxItemsInEachRow = if (isLandscape) 3 else 2,
+                        maxItemsInEachRow = 2,
 
                         ) {
-                        FavoritesDropdown(
-                            favoriteNpcs = favoriteNpcs,
-                            width = if (isLandscape) 0.3f else 1f
-                        )
                         Row(
                             modifier = Modifier
-                                .fillMaxWidth(if (isLandscape) 0.5f else 1f),
+                                .fillMaxWidth(if (isLandscape) 0.49f else 1f),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Spacer(modifier = Modifier.width(16.dp))
+                            Spacer(modifier = modifier.width(16.dp))
                             Text(stringResource(id = R.string.nationality_selector_label))
 
-                            Spacer(modifier = Modifier.width(16.dp))
+                            Spacer(modifier = modifier.width(16.dp))
                             NationalityDropdown(
                                 nationalities = viewModel.nationalities,
                                 onNationalitySelected = { viewModel.setSelectedNationality(it) }
                             )
                         }
+                        FavoritesDropdown(
+                            favoriteNpcs = favoriteNpcs,
+                            width = if (isLandscape) 0.49f else 1f
+                        )
                         GenderSelection(
                             selectedGender = uiState.selectedGender,
-                            widthOfFlow = 0.4f,
+                            widthOfFlow = 0.49f,
                             isLandscape = isLandscape,
                             onGenderSelected = { viewModel.setSelectedGender(it) }
                         )
                         IncludeSecondNameCheckbox(
                             includeSecondName = uiState.includeSecondName,
-                            width = 0.4f,
+                            width = 0.49f,
                             onIncludeSecondNameChange = { viewModel.setIncludeSecondName(it) }
                         )
                     }
 
                     GeneratedName(  // No modifier passato qui
                         npc = uiState.npc,
-                        widthFloat = if (isLandscape) 0.45f else 1f,
+                        widthFloat = 1f,
                         viewModel = viewModel,
-                        modifier = Modifier.layoutId("generatedName") // Solo layoutId
+                        modifier = modifier.layoutId("generatedName") // Solo layoutId
                     )
 
                     FlowRow(
-                        modifier = Modifier.layoutId("bottomSection"),
+                        modifier = modifier.layoutId("bottomSection"),
                         horizontalArrangement = Arrangement.Center,
                         maxItemsInEachRow = if (isLandscape) 3 else 2 // Keep your existing layout logic
                     ) {

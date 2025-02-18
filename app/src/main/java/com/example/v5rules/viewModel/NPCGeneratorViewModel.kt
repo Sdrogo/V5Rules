@@ -279,7 +279,7 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
         if (currentSelection.contains(type)) {
             currentSelection.remove(type)
         } else {
-            if (currentSelection.contains(RegenerationType.ALL))
+            if (currentSelection.contains(RegenerationType.ALL) && type != RegenerationType.ALL)
                 currentSelection.remove(RegenerationType.ALL)
             currentSelection.add(type)
         }
