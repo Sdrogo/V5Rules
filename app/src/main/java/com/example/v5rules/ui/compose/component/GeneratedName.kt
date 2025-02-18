@@ -1,11 +1,7 @@
 package com.example.v5rules.ui.compose.component
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
@@ -15,12 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.data.Npc
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
+
 
 
 @Composable
@@ -50,28 +46,26 @@ fun GeneratedName(
             FavoriteHeartIcon(
                 isFavorite = npc.isFavorite,
                 onToggleFavorite = { viewModel.toggleFavorite(npc) },
-                modifier = Modifier
-                    .align(Alignment.BottomEnd) // Allinea in basso a destra
-                    .padding(16.dp) // Aggiungi padding
+                modifier = Modifier //passo il modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(16.dp)
             )
         } else {
-            // Placeholder o messaggio "Nessun NPC generato"
             Text(
-                text = "Genera un NPC", // Testo di esempio
+                text = "Genera un NPC",
                 style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f), // Colore più tenue
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+                modifier = Modifier.align(Alignment.Center)
             )
         }
     }
 }
-
 @Composable
 fun FavoriteHeartIcon(isFavorite: Boolean, onToggleFavorite: () -> Unit, modifier: Modifier = Modifier) {
     Icon(
         imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
         contentDescription = if (isFavorite) "Remove from favorites" else "Add to favorites",
-        modifier = Modifier.clickable { onToggleFavorite() },
-        tint = if (isFavorite) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.primary.copy(alpha = 0.6f) // Usa il colore del tema, ma più tenue se non favorito
-
+        modifier = modifier.clickable { onToggleFavorite() },
+        tint = if (isFavorite) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
     )
 }
