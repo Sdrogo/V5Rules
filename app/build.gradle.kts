@@ -82,6 +82,8 @@ dependencies {
     implementation (libs.hilt.android)
     implementation (libs.androidx.hilt.navigation.compose)
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.androidx.constraintlayout) // constraintlayout per View System
+    implementation(libs.androidx.constraintlayout.compose)
     kapt(libs.hilt.android.compiler)
 
 }
