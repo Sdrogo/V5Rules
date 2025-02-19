@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.example.v5rules"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.v5rules"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -82,6 +82,8 @@ dependencies {
     implementation (libs.hilt.android)
     implementation (libs.androidx.hilt.navigation.compose)
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.androidx.constraintlayout) // constraintlayout per View System
+    implementation(libs.androidx.constraintlayout.compose)
     kapt(libs.hilt.android.compiler)
 
 }

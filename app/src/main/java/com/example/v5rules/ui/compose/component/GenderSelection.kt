@@ -21,13 +21,13 @@ import com.example.v5rules.data.Gender
 fun GenderSelection(
     selectedGender: Gender,
     widthOfFlow: Float,
-    isLandscape: Boolean,
+    isLandscape: Boolean = true,
     onGenderSelected: (Gender) -> Unit
 ) {
     FlowRow(
         modifier = Modifier
             .fillMaxWidth(widthOfFlow),
-        maxItemsInEachRow = if(isLandscape) 3 else 1,
+        maxItemsInEachRow = if(isLandscape) 2 else 1,
         horizontalArrangement = Arrangement.SpaceEvenly
 
     ) {
