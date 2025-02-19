@@ -2,6 +2,7 @@ package com.example.v5rules.repository
 
 import android.content.Context
 import com.example.v5rules.data.Chapter
+import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.Loresheet
@@ -15,7 +16,7 @@ import com.example.v5rules.reader.PredatorTypeReader
 import com.example.v5rules.reader.RulesReader
 import java.util.Locale
 
-class MainRepository(context: Context) {
+class MainRepository(context: Context) : CharacterRepository {
 
     private val disciplineReader = DisciplineReader(context)
     private val clanReader = ClanReader(context)
@@ -54,4 +55,21 @@ class MainRepository(context: Context) {
     fun loadPg(language: Locale): List<Chapter> {
         return rulesReader.readPg(language)
     }
+
+    override suspend fun getCharacter(id: Int): Character? {
+        throw UnsupportedOperationException("Not implemented in MainRepository")
+    }
+
+    override suspend fun getAllCharacters(): List<Character> {
+        throw UnsupportedOperationException("Not implemented in MainRepository")
+    }
+
+    override suspend fun saveCharacter(character: Character) {
+        throw UnsupportedOperationException("Not implemented in MainRepository")
+    }
+
+    override suspend fun deleteCharacter(character: Character) {
+        throw UnsupportedOperationException("Not implemented in MainRepository")
+    }
+
 }
