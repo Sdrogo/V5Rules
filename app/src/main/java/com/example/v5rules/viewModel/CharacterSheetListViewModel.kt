@@ -21,7 +21,7 @@ data class CharacterSheetListUiState(
 
 @HiltViewModel
 class CharacterSheetListViewModel @Inject constructor(
-    private val characterRepository: CharacterRepository
+    characterRepository: CharacterRepository
 ) : ViewModel() {
 
     val uiState: StateFlow<CharacterSheetListUiState> = characterRepository.getAllCharacters()

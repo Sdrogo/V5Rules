@@ -7,7 +7,6 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -38,7 +37,6 @@ import com.example.v5rules.ui.compose.screen.rule.RulesDetailsScreen
 import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetListScreen
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetScreen
-import com.example.v5rules.viewModel.CharacterSheetListViewModel
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
