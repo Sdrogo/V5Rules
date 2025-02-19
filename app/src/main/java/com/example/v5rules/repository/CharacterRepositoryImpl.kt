@@ -4,17 +4,23 @@ import com.example.v5rules.repository.dao.CharacterDao
 import javax.inject.Inject
 import javax.inject.Singleton
 import com.example.v5rules.data.Character
-
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 @Singleton
 class CharacterRepositoryImpl @Inject constructor(
     private val characterDao: CharacterDao, // Inietta il DAO
-    private val mainRepository: MainRepository // Se hai bisogno di MainRepository
+    private val mainRepository: MainRepository? = null // Se hai bisogno di MainRepository. Metti ? = null se non lo usi.
 ): CharacterRepository {
 
-    override suspend fun getAllCharacters(): List<Character> = characterDao.getAllCharacters()
+    override fun getAllCharacters(): Flow<List<Character>> =
+        characterDao.getAllCharacters().map { list ->
+            list.map { it }  // Converto in Character
+        }
 
-    override suspend fun getCharacter(id: Int): Character? = characterDao.getCharacterById(id)
+    override suspend fun getCharacter(id: Int): Character? {
+        return characterDao.getCharacterById(id)
+    }
 
     override suspend fun saveCharacter(character: Character) {
         if (character.id == 0) {

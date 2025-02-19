@@ -7,6 +7,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -35,7 +36,9 @@ import com.example.v5rules.ui.compose.screen.predator.PredatorTypeListScreen
 import com.example.v5rules.ui.compose.screen.rule.RuleListScreen
 import com.example.v5rules.ui.compose.screen.rule.RulesDetailsScreen
 import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
+import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetListScreen
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetScreen
+import com.example.v5rules.viewModel.CharacterSheetListViewModel
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
@@ -77,6 +80,9 @@ object RulesNav
 
 @Serializable
 object LoresheetNav
+
+@Serializable
+object CharacterSheetListNav
 
 @Serializable
 object CharacterSheetCreationNav
@@ -388,7 +394,7 @@ fun CustomNavHost(
         composable<CharacterSheetEditNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) { backStackEntry ->
-            val entry = backStackEntry.toRoute<LoresheetDetailsNav>()
+            val entry = backStackEntry.toRoute<CharacterSheetEditNav>()
             CharacterSheetScreen(
                 viewModel = characterSheetViewModel,
                 modifier = Modifier,
@@ -396,6 +402,12 @@ fun CustomNavHost(
                 id = entry.id,
             )
         }
-
+        composable<CharacterSheetListNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }){
+            CharacterSheetListScreen(
+                navController = navController
+            )
+        }
     }
 }

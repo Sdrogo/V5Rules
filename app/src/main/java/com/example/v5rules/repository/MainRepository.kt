@@ -14,6 +14,7 @@ import com.example.v5rules.reader.LoresheetReader
 import com.example.v5rules.reader.NpcReader
 import com.example.v5rules.reader.PredatorTypeReader
 import com.example.v5rules.reader.RulesReader
+import kotlinx.coroutines.flow.Flow
 import java.util.Locale
 
 class MainRepository(context: Context) : CharacterRepository {
@@ -60,7 +61,7 @@ class MainRepository(context: Context) : CharacterRepository {
         throw UnsupportedOperationException("Not implemented in MainRepository")
     }
 
-    override suspend fun getAllCharacters(): List<Character> {
+    override fun getAllCharacters(): Flow<List<Character>> {
         throw UnsupportedOperationException("Not implemented in MainRepository")
     }
 

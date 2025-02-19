@@ -94,5 +94,6 @@
     <string name="character_screen_attributes_fisical">Fisici</string>
     <string name="character_screen_attributes_social">Sociali</string>
     <string name="character_screen_attributes_mental">Mentali</string>
+    <string name="character_list_title">Lista Schede</string>
 
 </resources>
