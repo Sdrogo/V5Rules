@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    kotlin("kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
     }
@@ -12,15 +12,20 @@ android {
 
     defaultConfig {
         applicationId = "com.example.v5rules"
-        minSdk = 24
+        minSdk = 25
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
+
     }
 
     buildTypes {
@@ -44,7 +49,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.9"
     }
     packaging {
         resources {
@@ -69,6 +74,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.compose.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -84,6 +90,9 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.constraintlayout) // constraintlayout per View System
     implementation(libs.androidx.constraintlayout.compose)
-    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.room.runtime) // o la versione più recente
+    ksp(libs.androidx.room.compiler) // o la versione più recente
+    implementation(libs.room.ktx)
+    ksp(libs.hilt.android.compiler)
 
 }
