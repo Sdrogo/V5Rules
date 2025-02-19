@@ -35,6 +35,8 @@ import com.example.v5rules.ui.compose.screen.predator.PredatorTypeListScreen
 import com.example.v5rules.ui.compose.screen.rule.RuleListScreen
 import com.example.v5rules.ui.compose.screen.rule.RulesDetailsScreen
 import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
+import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetScreen
+import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.KindredViewModel
@@ -75,6 +77,9 @@ object RulesNav
 
 @Serializable
 object LoresheetNav
+
+@Serializable
+object CharacterSheetCreationNav
 
 @Serializable
 data class DisciplineDetailsNav(val disciplineId: String)
@@ -118,6 +123,9 @@ data class SubRuleNav(val title: String, val section: String)
 @Serializable
 data class LoresheetDetailsNav(val name: String, val id: Int)
 
+@Serializable
+data class CharacterSheetEditNav(val id: Int)
+
 @Composable
 fun CustomNavHost(
     navController: NavHostController,
@@ -129,7 +137,8 @@ fun CustomNavHost(
     loresheetViewModel: LoresheetViewModel,
     npcGeneratorViewModel: NPCGeneratorViewModel,
     kindredViewModel: KindredViewModel,
-    pgViewModel: PgViewModel
+    pgViewModel: PgViewModel,
+    characterSheetViewModel: CharacterSheetViewModel
 ) {
     NavHost(navController = navController, startDestination = HomeNav) {
         val enterTransition = fadeIn(
@@ -367,5 +376,26 @@ fun CustomNavHost(
                 navController = navController
             )
         }
+        composable<CharacterSheetCreationNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }){
+            CharacterSheetScreen(
+                viewModel = characterSheetViewModel,
+                modifier = Modifier,
+                navController = navController
+            )
+        }
+        composable<CharacterSheetEditNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<LoresheetDetailsNav>()
+            CharacterSheetScreen(
+                viewModel = characterSheetViewModel,
+                modifier = Modifier,
+                navController = navController,
+                id = entry.id,
+            )
+        }
+
     }
 }

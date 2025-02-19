@@ -71,4 +71,28 @@
     <string name="pg_screen_button_label">Personaggi</string>
     <string name="loresheet_title_screen">Sapienze di Tenebra</string>
 
+    <string name="character_screen_title">Scheda Personaggio</string>
+    <string name="character_screen_name">Nome</string>
+    <string name="character_screen_clan">Clan</string>
+    <string name="character_screen_sire">Sire</string>
+    <string name="character_screen_generation">Generation</string>
+    <string name="character_screen_concept">Concetto</string>
+    <string name="character_screen_ambition">Ambizione</string>
+    <string name="character_screen_desire">Desiderio</string>
+    <string name="character_screen_attributes">Attributi</string>
+    <string name="character_screen_attributes_strength">Forza</string>
+    <string name="character_screen_attributes_dexterity">Destrezza</string>
+    <string name="character_screen_attributes_stamina">Costituzione</string>
+    <string name="character_screen_attributes_charisma">Carisma</string>
+    <string name="character_screen_attributes_manipulation">Persuasione</string>
+    <string name="character_screen_attributes_composure">Autocontrollo</string>
+    <string name="character_screen_attributes_intelligence">Intelligenza</string>
+    <string name="character_screen_attributes_wits">Prontezza</string>
+    <string name="character_screen_attributes_resolve">Fermezza</string>
+
+    <string name="character_screen_abilities">Abilità</string>
+    <string name="character_screen_attributes_fisical">Fisici</string>
+    <string name="character_screen_attributes_social">Sociali</string>
+    <string name="character_screen_attributes_mental">Mentali</string>
+
 </resources>
