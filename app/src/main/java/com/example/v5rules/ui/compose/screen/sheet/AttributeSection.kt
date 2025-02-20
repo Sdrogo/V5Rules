@@ -83,7 +83,8 @@ fun AttributeSection(
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
-                                stringResource(R.string.character_screen_attributes_strength), forza
+                                stringResource(R.string.character_screen_attributes_strength), forza,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {
@@ -109,7 +110,8 @@ fun AttributeSection(
                         header = {
                             DotsForAttribute(
                                 stringResource(R.string.character_screen_attributes_dexterity),
-                                destrezza
+                                destrezza,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {
@@ -135,7 +137,8 @@ fun AttributeSection(
                         header = {
                             DotsForAttribute(
                                 stringResource(R.string.character_screen_attributes_stamina),
-                                costituzione
+                                costituzione,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {
@@ -194,7 +197,8 @@ fun AttributeSection(
                         header = {
                             DotsForAttribute(
                                 stringResource(R.string.character_screen_attributes_charisma),
-                                charisma
+                                charisma,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {
@@ -218,7 +222,8 @@ fun AttributeSection(
                         header = {
                             DotsForAttribute(
                                 stringResource(R.string.character_screen_attributes_manipulation),
-                                persuasione
+                                persuasione,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {
@@ -247,7 +252,8 @@ fun AttributeSection(
                         header = {
                             DotsForAttribute(
                                 stringResource(R.string.character_screen_attributes_composure),
-                                autocontrollo
+                                autocontrollo,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {
@@ -306,7 +312,8 @@ fun AttributeSection(
                         header = {
                             DotsForAttribute(
                                 stringResource(R.string.character_screen_attributes_intelligence),
-                                intelligenza
+                                intelligenza,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {
@@ -335,7 +342,8 @@ fun AttributeSection(
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
-                                stringResource(R.string.character_screen_attributes_wits), prontezza
+                                stringResource(R.string.character_screen_attributes_wits), prontezza,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {
@@ -365,7 +373,8 @@ fun AttributeSection(
                         header = {
                             DotsForAttribute(
                                 stringResource(R.string.character_screen_attributes_resolve),
-                                fermezza
+                                fermezza,
+                                textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
                         content = {

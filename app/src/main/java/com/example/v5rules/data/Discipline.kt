@@ -1,9 +1,6 @@
 package com.example.v5rules.data
 
-import androidx.room.PrimaryKey
-
 data class Discipline(
-    @PrimaryKey(autoGenerate = false)
     val id: String,
     val title: String,
     val description: String,
@@ -14,11 +11,10 @@ data class Discipline(
     val disciplinePowers: List<DisciplinePower>,
     val rituals: List<Ritual>? = null,
     val level: Int = 0, // Aggiungi il livello
-    val selectedDisciplinePowers: List<DisciplinePower>? = emptyList()//Poteri selezionati
+    val selectedDisciplinePowers: List<DisciplinePower> = emptyList()//Poteri selezionati
 )
 
 data class DisciplinePower(
-    @PrimaryKey(autoGenerate = false)
     val id: String,
     val title: String,
     val level: Int,

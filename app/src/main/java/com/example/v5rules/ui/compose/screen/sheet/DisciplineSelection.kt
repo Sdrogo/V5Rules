@@ -1,6 +1,5 @@
 package com.example.v5rules.ui.compose.screen.sheet
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Box
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardActions
@@ -26,6 +24,7 @@ import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
@@ -48,11 +47,8 @@ import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import com.example.v5rules.R
-import com.example.v5rules.data.Character
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.ui.compose.component.CustomContentExpander
@@ -63,9 +59,9 @@ import com.example.v5rules.viewModel.CharacterSheetViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DisciplineSection(character: Character, viewModel: CharacterSheetViewModel) {
-    val disciplines by viewModel.disciplines.collectAsState() // Tutte le discipline
+fun DisciplineSection(viewModel: CharacterSheetViewModel) {
     val uiState by viewModel.uiState.collectAsState()
+    val disciplines by viewModel.disciplines.collectAsState() // Tutte le discipline
     val characterDisciplines = uiState.character.disciplines
 
     // Stato per il dialogo
@@ -90,142 +86,142 @@ fun DisciplineSection(character: Character, viewModel: CharacterSheetViewModel) 
         expandedStates.keys.retainAll(disciplineNames)
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-    ) {
-        var expanded by remember { mutableStateOf(false) }
-        val focusManager = LocalFocusManager.current
-        val focusRequester = remember { FocusRequester() }
-        val keyboardController = LocalSoftwareKeyboardController.current
-        ExposedDropdownMenuBox(
-            expanded = expanded,
-            onExpandedChange = {
-                expanded = !expanded
-                if (expanded) {
-                    focusRequester.requestFocus()
-                } else {
-                    focusManager.clearFocus()
-                }
-            }
-        ) {
-            OutlinedTextField(
-                value = "",
-                onValueChange = {},
-                readOnly = true,
-                label = { Text("Aggiungi Disciplina") },
-                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
-                modifier = Modifier
-                    .menuAnchor()
-                    .fillMaxWidth()
-                    .focusRequester(focusRequester)
-                    .onKeyEvent {
-                        if (it.key == Key.Escape) {
-                            expanded = false;
-                            true
-                        } else {
-                            false
-                        }
-                    },
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-                keyboardActions = KeyboardActions(
-                    onDone = {
-                        keyboardController?.hide()
+    var expanded by remember { mutableStateOf(false) }
+    val focusManager = LocalFocusManager.current
+    val focusRequester = remember { FocusRequester() }
+    val keyboardController = LocalSoftwareKeyboardController.current
+
+    LazyColumn(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
+        item {
+            ExposedDropdownMenuBox(
+                expanded = expanded,
+                onExpandedChange = {
+                    expanded = !expanded
+                    if (expanded) {
+                        focusRequester.requestFocus()
+                    } else {
                         focusManager.clearFocus()
                     }
-                )
-            )
-
-            ExposedDropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false },
-                modifier = Modifier.focusable(false)
+                }
             ) {
-                disciplines.filter { discipline ->
-                    characterDisciplines.none { it.title == discipline.title }
-                }.forEach { discipline ->
-                    DropdownMenuItem(
-                        onClick = {
-                            viewModel.onEvent(CharacterSheetEvent.DisciplineChanged(discipline))
-                            expanded = false
+                OutlinedTextField(
+                    value = "",
+                    onValueChange = {},
+                    readOnly = true,
+                    label = { Text("Aggiungi Disciplina") },
+                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                    colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
+                    modifier = Modifier
+                        .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                        .fillMaxWidth()
+                        .focusRequester(focusRequester)
+                        .onKeyEvent {
+                            if (it.key == Key.Escape) {
+                                expanded = false
+                                true
+                            } else {
+                                false
+                            }
+                        },
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(
+                        onDone = {
                             keyboardController?.hide()
                             focusManager.clearFocus()
-                        },
-                        leadingIcon = { DisciplineIcon(
-                            disciplineId = discipline.id,
-                            contentDescription = discipline.title,
-                            size = 24.dp
-                        ) },
-                        text = { Text(discipline.title) } //usa text, non content
+                        }
                     )
+                )
+
+                ExposedDropdownMenu(
+                    expanded = expanded,
+                    onDismissRequest = { expanded = false },
+                    modifier = Modifier.focusable(false)
+                ) {
+                    disciplines.filter { discipline ->
+                        characterDisciplines.none { it.title == discipline.title }
+                    }.sortedBy { it.title }.forEach { discipline ->
+                        DropdownMenuItem(
+                            onClick = {
+                                viewModel.onEvent(CharacterSheetEvent.DisciplineChanged(discipline))
+                                expanded = false
+                                keyboardController?.hide()
+                                focusManager.clearFocus()
+                            },
+                            leadingIcon = {
+                                DisciplineIcon(
+                                    disciplineId = discipline.id,
+                                    contentDescription = discipline.title,
+                                    size = 24.dp
+                                )
+                            },
+                            text = { Text(discipline.title) } //usa text, non content
+                        )
+                    }
                 }
             }
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        LazyColumn(modifier = Modifier.fillMaxWidth()) {
-            item {
-                if (showAddPowerDialog && selectedDisciplineForPower != null) {
-                    AddPowerDialog(
-                        discipline = selectedDisciplineForPower,
-                        allDisciplines = disciplines,
-                        onDismiss = { setShowAddPowerDialog(false) },
-                        onPowerSelected = { power ->
-                            viewModel.onEvent(
-                                CharacterSheetEvent.DisciplinePowerAdded(
-                                    selectedDisciplineForPower.title,
-                                    power
+        item {
+            selectedDisciplineForPower?.disciplinePowers?.filter { it.title != null }
+            if (showAddPowerDialog && selectedDisciplineForPower != null) {
+                AddPowerDialog(
+                    discipline = selectedDisciplineForPower,
+                    allDisciplines = disciplines,
+                    onDismiss = { setShowAddPowerDialog(false) },
+                    onPowerSelected = { power ->
+                        viewModel.onEvent(
+                            CharacterSheetEvent.DisciplinePowerAdded(
+                                selectedDisciplineForPower.title,
+                                power
+                            )
+                        )
+                        setShowAddPowerDialog(false)
+                    }
+                )
+            }
+        }
+        items(characterDisciplines) { discipline ->
+            Column {
+                CustomContentExpander(
+                    useFullWidth = true,
+                    header = {
+                        DisciplineHeaderItem(discipline)
+                    },
+                    content = {
+                        Column(modifier = Modifier.padding(8.dp)) {
+                            Slider(
+                                value = discipline.level.toFloat(),
+                                onValueChange = { newValue ->
+                                    viewModel.onEvent(
+                                        CharacterSheetEvent.DisciplineLevelChanged(
+                                            discipline.title,
+                                            newValue.toInt()
+                                        )
+                                    )
+                                },
+                                valueRange = 0f..5f,
+                                steps = 4,
+                                colors = SliderDefaults.colors(
+                                    activeTrackColor = MaterialTheme.colorScheme.tertiary
                                 )
                             )
-                            setShowAddPowerDialog(false)
                         }
-                    )
-                }
-            }
-            items(characterDisciplines) { discipline ->
-                Column {
-                    CustomContentExpander(
-                        useFullWidth = true,
-                        header = {
-                            DisciplineHeaderItem(discipline)
-                        },
-                        content = {
-                            Column(modifier = Modifier.padding(8.dp)) {
-                                Slider(
-                                    value = discipline.level.toFloat(),
-                                    onValueChange = { newValue ->
-                                        viewModel.onEvent(
-                                            CharacterSheetEvent.DisciplineLevelChanged(
-                                                discipline.title,
-                                                newValue.toInt()
-                                            )
-                                        )
-                                    },
-                                    valueRange = 0f..5f,
-                                    steps = 4,
-                                    colors = SliderDefaults.colors(
-                                        activeTrackColor = MaterialTheme.colorScheme.tertiary
-                                    )
-                                )
-                            }
-                        }
-                    )
-                    val disciplinePowers = discipline.selectedDisciplinePowers.orEmpty()
-                    disciplinePowers.forEach { power ->
-                        DisciplinePowerItem(power, discipline, viewModel)
                     }
-                    if (disciplinePowers.size < discipline.level) {
-                        TextButton(
-                            onClick = {
-                                setSelectedDisciplineForPower(discipline)
-                                setShowAddPowerDialog(true)
-                            },
-                            modifier = Modifier
-                                .padding(8.dp)
-                        ) {
-                            Text("Aggiungi Potere")
-                        }
+                )
+                val disciplinePowers =
+                    discipline.selectedDisciplinePowers.filter { it.level > 0 }.orEmpty()
+                disciplinePowers.forEach { power ->
+                    DisciplinePowerItem(power, discipline, viewModel)
+                }
+                if (disciplinePowers.size < discipline.level) {
+                    TextButton(
+                        onClick = {
+                            setSelectedDisciplineForPower(discipline)
+                            setShowAddPowerDialog(true)
+                        },
+                        modifier = Modifier
+                            .padding(8.dp)
+                    ) {
+                        Text("Aggiungi Potere")
                     }
                 }
             }
@@ -242,10 +238,10 @@ fun DisciplineHeaderItem(discipline: Discipline) {
             .padding(vertical = 4.dp)
     ) {
         DisciplineIcon(
-        disciplineId = discipline.id,
-        contentDescription = discipline.title,
-        size = 32.dp
-    )
+            disciplineId = discipline.id,
+            contentDescription = discipline.title,
+            size = 32.dp
+        )
 
         DotsForAttribute(label = discipline.title, level = discipline.level)
     }
@@ -284,7 +280,6 @@ fun DisciplinePowerItem(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddPowerDialog(
     discipline: Discipline,
@@ -293,12 +288,10 @@ fun AddPowerDialog(
     onPowerSelected: (DisciplinePower) -> Unit
 ) {
     val fullDiscipline = allDisciplines.firstOrNull { it.id == discipline.id }
-    val selectedPowers = discipline.selectedDisciplinePowers ?: emptyList()
+    val selectedPowers = discipline.selectedDisciplinePowers
     val availablePowers = fullDiscipline?.disciplinePowers?.filter { power ->
         power.level <= discipline.level && !selectedPowers.contains(power)
     }?.sortedBy { it.level } ?: emptyList()
-
-    var powerName by remember { mutableStateOf("") }
 
     AlertDialog(
         onDismissRequest = onDismiss,

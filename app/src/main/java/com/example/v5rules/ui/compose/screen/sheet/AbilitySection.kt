@@ -63,7 +63,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
         expandedStates.keys.retainAll(validAbilityNames)
     }
 
-    LazyColumn( modifier = Modifier.padding(horizontal = 8.dp)){
+    LazyColumn{
         item {
             HorizontalPager(
                 state = pagerState,

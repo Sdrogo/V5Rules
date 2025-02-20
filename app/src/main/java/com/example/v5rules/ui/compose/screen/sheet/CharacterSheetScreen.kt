@@ -121,7 +121,7 @@ fun CharacterSheetScreen(
                     0 -> GeneralInfoSection(character, viewModel)
                     1 -> AttributeSection(character, viewModel, isLandscape)
                     2 -> AbilitySection(character, viewModel)
-                    3 -> DisciplineSection(character, viewModel)
+                    3 -> DisciplineSection(viewModel)
                     //... altre sezioni...
                 }
             }
@@ -133,7 +133,7 @@ fun CharacterSheetScreen(
                     bottom.linkTo(parent.bottom)
                 }
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(horizontal = 16.dp, vertical = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Button(
                     onClick = { viewModel.onEvent(CharacterSheetEvent.SaveClicked) },

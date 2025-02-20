@@ -27,7 +27,8 @@ import com.example.v5rules.data.Character
     HealthConverter::class,
     WillpowerConverter::class,
     HumanityConverter::class,
-    ExperienceConverter::class
+    ExperienceConverter::class,
+    PredatorConverter::class
 )
 
 // Metti le entità

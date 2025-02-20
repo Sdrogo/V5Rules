@@ -13,6 +13,7 @@ data class Character(
     val concept: String = "",
     val ambition: String = "",
     val desire: String = "",
+    val predator: PredatorType? = null,
     val attributes: Attributes = Attributes(),
     val abilities: List<Ability> = emptyList(),
     val disciplines: List<Discipline> = emptyList(),
@@ -35,10 +36,6 @@ data class Attributes(
     val intelligence: Int= 1,
     val wits: Int= 1,
     val resolve: Int= 1
-)
-
-data class SelectedClan(
-    val name: String,
 )
 
 data class Ability(
