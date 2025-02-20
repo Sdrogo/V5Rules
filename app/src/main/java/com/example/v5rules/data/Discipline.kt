@@ -12,7 +12,9 @@ data class Discipline(
     val resonance: String,
     val clanAffinity: List<String>,
     val disciplinePowers: List<DisciplinePower>,
-    val rituals: List<Ritual>? = null
+    val rituals: List<Ritual>? = null,
+    val level: Int = 0, // Aggiungi il livello
+    val selectedDisciplinePowers: List<DisciplinePower>? = emptyList()//Poteri selezionati
 )
 
 data class DisciplinePower(

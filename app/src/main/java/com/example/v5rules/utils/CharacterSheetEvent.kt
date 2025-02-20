@@ -1,6 +1,8 @@
 package com.example.v5rules.utils
 
 import com.example.v5rules.data.Clan
+import com.example.v5rules.data.Discipline
+import com.example.v5rules.data.DisciplinePower
 
 
 // Eventi
@@ -28,6 +30,10 @@ sealed class CharacterSheetEvent {
     data class AbilitySpecializationChanged(val abilityName: String, val specialization: String?) : CharacterSheetEvent() //Potresti avere bisogno di questo.
 
     //... Eventi per Discipline, Advantages, Backgrounds, Loresheets...
+    data class DisciplineChanged(val discipline: Discipline): CharacterSheetEvent()
+    data class DisciplinePowerAdded(val disciplineName: String, val power: DisciplinePower) : CharacterSheetEvent()
+    data class DisciplinePowerRemoved(val disciplineName: String, val power: DisciplinePower) : CharacterSheetEvent()
+    data class DisciplineLevelChanged(val disciplineName: String, val newLevel: Int) : CharacterSheetEvent() // Per cambiare il livello
 
     // Health
     data class MaxHealthChanged(val max: Int): CharacterSheetEvent()

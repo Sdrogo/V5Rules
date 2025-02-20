@@ -298,6 +298,83 @@ class CharacterSheetViewModel @Inject constructor(
                         )
                     }
                     is CharacterSheetEvent.AbilitySpecializationChanged -> setAbilitySpecialization(event.abilityName, event.specialization)
+                    is CharacterSheetEvent.DisciplineChanged -> {
+                        _uiState.update { currentState ->
+                            val currentDisciplines = currentState.character.disciplines.toMutableList()
+                            // Controlla se la disciplina è già presente
+                            val disciplineIndex = currentDisciplines.indexOfFirst { it.title == event.discipline.title}
+
+                            if (disciplineIndex == -1) {
+                                //Se non è presente, aggiungila
+                                val newDiscipline = event.discipline.copy(level = 1) //Inizia a livello 1
+                                currentState.copy(character = currentState.character.copy(disciplines = currentDisciplines + newDiscipline))
+                            } else {
+                                //Se è presente, non fare nulla
+                                currentState
+                            }
+                        }
+                    }
+                    is CharacterSheetEvent.DisciplinePowerAdded -> {
+                        _uiState.update { currentState ->
+                            val currentDisciplines = currentState.character.disciplines.toMutableList()
+                            val disciplineIndex = currentDisciplines.indexOfFirst { it.title == event.disciplineName }
+
+                            if (disciplineIndex != -1) {
+                                // 1. Ottieni la disciplina corrente
+                                val currentDiscipline = currentDisciplines[disciplineIndex]
+                                val actualDiscipline = currentDiscipline.selectedDisciplinePowers.orEmpty()
+                                // 2. Controlla che il potere non sia già presente
+                                if (actualDiscipline.none { it.id == event.power.id }) {
+                                    // 3. Crea una nuova lista di poteri selezionati, aggiungendo il nuovo potere
+                                    val newPowers = actualDiscipline + event.power
+
+                                    // 4. Crea una *nuova* istanza di Discipline con la lista aggiornata
+                                    val updatedDiscipline = currentDiscipline.copy(selectedDisciplinePowers = newPowers)
+
+                                    // 5. Aggiorna la lista di discipline nel personaggio
+                                    currentDisciplines[disciplineIndex] = updatedDiscipline // Sostituisci la disciplina
+                                    currentState.copy(character = currentState.character.copy(disciplines = currentDisciplines))
+                                } else {
+                                    currentState // Se il potere è già presente, non fare nulla
+                                }
+                            } else {
+                                currentState // Se la disciplina non esiste, non fare nulla (questo non dovrebbe succedere)
+                            }
+                        }
+                    }
+
+                    is CharacterSheetEvent.DisciplinePowerRemoved -> {
+                        _uiState.update { currentState ->
+                            val currentDisciplines = currentState.character.disciplines.toMutableList()
+                            val disciplineIndex = currentDisciplines.indexOfFirst { it.title == event.disciplineName }
+
+                            if (disciplineIndex != -1) {
+                                val currentDiscipline = currentDisciplines[disciplineIndex]
+                                val newPowers = currentDiscipline.selectedDisciplinePowers?.filterNot { it.id == event.power.id }
+                                val updatedDiscipline = currentDiscipline.copy(selectedDisciplinePowers = newPowers)
+                                currentDisciplines[disciplineIndex] = updatedDiscipline
+                                currentState.copy(character = currentState.character.copy(disciplines = currentDisciplines))
+                            } else {
+                                currentState
+                            }
+                        }
+                    }
+                    is CharacterSheetEvent.DisciplineLevelChanged -> {
+                        _uiState.update { currentState ->
+                            val currentDisciplines = currentState.character.disciplines.toMutableList()
+                            val disciplineIndex = currentDisciplines.indexOfFirst { it.title == event.disciplineName }
+
+                            if (disciplineIndex != -1) {
+                                val currentDiscipline = currentDisciplines[disciplineIndex]
+                                val updatedDiscipline = currentDiscipline.copy(level = event.newLevel) //Aggiorna solo il livello
+                                currentDisciplines[disciplineIndex] = updatedDiscipline
+                                currentState.copy(character = currentState.character.copy(disciplines = currentDisciplines))
+                            } else {
+                                currentState // Disciplina non trovata (non dovrebbe succedere)
+                            }
+                        }
+                    }
+
                 }
             }
         }
@@ -414,7 +491,7 @@ class CharacterSheetViewModel @Inject constructor(
         }
     }
 
-    fun setAbilitySpecialization(abilityName: String, specialization: String?) {
+    private fun setAbilitySpecialization(abilityName: String, specialization: String?) {
         _uiState.update { currentState ->
             val currentAbilities = currentState.character.abilities.toMutableList()
             val abilityIndex = currentAbilities.indexOfFirst { it.name == abilityName }

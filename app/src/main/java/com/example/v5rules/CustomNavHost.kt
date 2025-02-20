@@ -385,7 +385,6 @@ fun CustomNavHost(
             exitTransition = { exitTransition }){
             CharacterSheetScreen(
                 viewModel = characterSheetViewModel,
-                modifier = Modifier,
                 navController = navController
             )
         }
@@ -395,7 +394,6 @@ fun CustomNavHost(
             val entry = backStackEntry.toRoute<CharacterSheetEditNav>()
             CharacterSheetScreen(
                 viewModel = characterSheetViewModel,
-                modifier = Modifier,
                 navController = navController,
                 id = entry.id,
             )

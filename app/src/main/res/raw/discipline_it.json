@@ -144,7 +144,8 @@
         "system": "Il vampiro decide se vuole agitare o calmare, mormora una melodia senza parole o un suono simile e fa un test di Persuasione + Animalità a Difficoltà 3. Ogni successo nel margine aumenta o diminuisce la Difficoltà di resistere alla frenesia di uno per tutti gli altri vampiri nel raggio d'udito. Se la difficoltà viene ridotta, tutti i vampiri già in frenesia possono fare un nuovo test per resistere, uscendo dalla frenesia se riescono.",
         "duration": "Finché il vampiro continua a mormorare."
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d1",
@@ -295,7 +296,8 @@
         "system": "Il vampiro trascorre una scena in isolamento con il soggetto e tira Autocontrollo + Auspex contro l'Umanità del soggetto. Per ogni successo nel margine, possono rimuovere una Macchia dal soggetto, o erigere uno \"scudo\" psicologico che protegge il soggetto da future Macchie su una base di uno a uno. Ad esempio, un margine di tre applicato a un soggetto senza Macchie annullerebbe fino a tre Macchie acquisite successivamente nella sessione. Con un successo critico, l'utente può scegliere di rinunciare ai benefici sopra descritti, invece ripristinando un singolo punto di Umanità al soggetto, ma nessun vampiro può ottenere tale beneficio più di una volta, mai. Liberare l'Anima Bestiale funziona solo sui vampiri e fallisce automaticamente se il soggetto ha un'Umanità superiore a quella dell'utente. Indipendentemente dai benefici ricevuti, per il resto della sessione il soggetto è intorpidito, avendo parte della sua mente fusa con quella dell'utente, e qualsiasi potere di Dominazione usato su di loro dall'utente di questo potere ha successo automaticamente senza bisogno di contatto visivo. \nQuando il potere scade, tutti gli \"scudi\" psicologici non utilizzati vengono persi, sebbene le Macchie rimosse o l'Umanità guadagnata all'applicazione iniziale non ritornino.",
         "duration": "Una Sessione"
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d2",
@@ -433,7 +435,8 @@
         "system": " Non è richiesto alcun test contro una vittima mortale impreparata, ma una vittima mortale preparata o un altro vampiro richiede un test di Persuasione + Dominazione contro Fermezza + Autocontrollo. Cambiamenti radicali nelle credenze fondamentali - come far desiderare una bistecca a un vegano o rendere violento un pacifista, per esempio - meritano anche un tentativo di resistere, anche da parte di mortali impreparati. Il suggerimento rimane in effetto per una scena, dopodiché la vittima si riprende.",
         "duration": "Una Scena"
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d3",
@@ -588,7 +591,8 @@
         "system": "Soggezione, Scoraggiare e Incanto possono essere trasmessi in diretta tramite schermi o telefoni. Se usa Incanto, il vampiro deve pronunciare chiaramente il nome della vittima, poiché il potere influenza solo una persona alla volta. Gli altri spettatori della trasmissione troveranno il vampiro carismatico, ma non a livello soprannaturale.",
         "duration": "In base al potere utilizzato."
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d4",
@@ -735,7 +739,8 @@
         "system": "L'utente tira Intelligenza + Oscurazione contro una Difficoltà da 1 a 3 (o più), a seconda della sofisticazione dell'inganno che vogliono mettere in atto, con 1 che rappresenta una semplice mascheratura del loro stato emotivo fino a 3 e oltre per persone elaborate complete di falsi pensieri e ricordi. Il margine della vittoria viene aggiunto come Difficoltà a qualsiasi tentativo di \"leggerli\". Non riuscire a raggiungere la Difficoltà aggiunta permette al lettore di vedere solo la falsa personalità creata dall'utente, senza alcun accenno che il lettore venga ingannato. (Non raggiungere nemmeno la Difficoltà standard non rivela nulla, come di consueto, in modo da non far capire che è presente una falsa personalità.)",
         "duration": "Una Scena."
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d5",
@@ -862,7 +867,8 @@
         "system": "Eseguire attacchi in mischia non armati o atti di forza ora conta come azioni minori a due dadi. Un personaggio può eseguire solo un'azione minore Martello Sottitle per turno e non può effettuare ulteriori attacchi nello stesso turno. La capacità di concentrare tutta la propria forza in qualsiasi parte del corpo ha anche altri benefici, e qualsiasi atto di forza in cui il movimento dell'utente è limitato (come liberarsi da legami) riceve un bonus di quattro dadi o più, a discrezione del Narratore.",
         "duration": "Passivo"
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d6",
@@ -997,7 +1003,8 @@
         "system": " Non è richiesto alcun test, ma il vampiro deve trovarsi su una superficie naturale: roccia, terra nuda, erba ecc. Il potere non funziona su cemento, asfalto o altre superfici artificiali. Serve un turno affinché il vampiro sprofondi nella terra; gli oggetti che trasportava rimangono in superficie. Mentre è nella terra, il Cainita è consapevole dei dintorni, tranne durante il sonno diurno, durante il quale i fenomeni di disturbo (ad esempio scavi o forti rumori) hanno la stessa probabilità di svegliarlo di qualsiasi altro vampiro.",
         "duration": "Un giorno o più, o finché non è disturbato."
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d7",
@@ -1136,7 +1143,8 @@
         "system": "All'attivazione, il vampiro guadagna una serie di immunità o resistenze dipendenti dalla Risonanza del sangue di cui si è nutrito più di recente.\n● Collerica: Un paletto infilzato attraverso il cuore del vampiro viene consumato dalla decomposizione o si trasforma in cenere alla fine della scena, liberando immediatamente il vampiro dalla paralisi. La Risonanza viene quindi persa.\n● Melanconica: Il danno aggravato alla Salute causato dal fuoco viene ridotto a superficiale. La Risonanza si perde dopo aver ridotto quattro livelli di danno.\n● Flegmatica: Il vampiro guadagna un bonus di quattro dadi per resistere ai poteri di Auspex che rivelerebbero qualcosa su di loro o su ciò che sanno. Una volta attivato il potere, dura per una scena, dopodiché la Risonanza viene persa.\n● Sanguigna: Il danno aggravato alla Salute causato dalla luce solare viene ridotto a superficiale. La Risonanza si perde dopo aver ridotto quattro livelli di danno.",
         "duration": "Fino a quando la scena termina o la Risonanza viene persa, a seconda di quale si verifica per primo."
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d8",
@@ -1278,7 +1286,8 @@
         "system": " Questo potere combina gli effetti di Balzo con elementi del potere di Oscurazione di Svanire. Agli occhi degli spettatori il vampiro sembra scomparire e il bersaglio viene colto di sorpresa, diventando soggetto a un attacco a sorpresa. A meno che la vittima non riesca a reagire superando Destrezza + Velocità dell'utente con Prontezza + Autocontrollo in un confronto, non è in grado di difendersi dall'attacco e questo viene effettuato contro una Difficoltà impostata di 1. (Vedi Attacchi a Sorpresa in Vampire: The Masquerade, p. 300). Se l'attaccante fallisce questo test, esegue comunque un attacco normale, come per il potere Balzo (Vampire: The Masquerade, p. 253), e Colpo Invisibile è soggetto anche alle stesse restrizioni di movimento di Balzo.",
         "duration": "Un Turno"
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   },
   {
     "id": "d9",
@@ -1390,6 +1399,7 @@
         "duration": "Una scena o fino a quando i livelli di danno sono esauriti, a seconda di cosa accade prima."
       }
     ],
+    "selectedDisciplinePowers": [{}],
     "rituals": [
       {
         "id": "d9_001",
@@ -1837,6 +1847,7 @@
         "duration": "Un turno."
       }
     ],
+    "selectedDisciplinePowers": [{}],
     "rituals": [
       {
         "id": "d10_001",
@@ -2104,6 +2115,7 @@
         "ingredients": "Sangue dell’Alchimista, sangue umano collerico o sanguigno, adrenalina, carbonato di ammonio, corno di cervo, caffeina o benzedrina, melatonina.",
         "system": "L'Alchimista utilizza uno dei suoi metodi di distillazione (Fixatio, Athanor Corporis, o Calcinatio) per produrre l'elisir, che viene poi diluito nel sangue umano. Ogni successo oltre il 2 nel tiro di distillazione consente di svegliare un vampiro dal torpore, purché la sua Potenza del Sangue sia inferiore o uguale al margine di successo."
       }
-    ]
+    ],
+    "selectedDisciplinePowers": [{}]
   }
 ]

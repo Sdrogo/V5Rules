@@ -57,7 +57,6 @@ fun ContentExpander(
     }
 }
 
-// CustomContentExpander.kt
 @Composable
 fun CustomContentExpander(
     initialState: Boolean = false,
@@ -66,6 +65,7 @@ fun CustomContentExpander(
     useFullWidth: Boolean = false, // Nuovo parametro
     header: @Composable () -> Unit,
     content: @Composable () -> Unit,
+    onExpandChange: (Boolean) -> Unit = {}
 ) {
     var expandedDescription by remember { mutableStateOf(initialState) }
     Column(modifier = Modifier
