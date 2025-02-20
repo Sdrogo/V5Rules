@@ -22,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -55,17 +56,21 @@ fun ContentExpander(
         }
     }
 }
+
 @Composable
 fun CustomContentExpander(
-    maxWith: Float,
     initialState: Boolean = false,
+    padding: Dp = 8.dp,
+    maxWith: Float = 1f, // Mantieni maxWith, valore di default 1f
+    useFullWidth: Boolean = false, // Nuovo parametro
     header: @Composable () -> Unit,
     content: @Composable () -> Unit,
+    onExpandChange: (Boolean) -> Unit = {}
 ) {
     var expandedDescription by remember { mutableStateOf(initialState) }
     Column(modifier = Modifier
-        .padding(8.dp)
-        .fillMaxWidth(if(expandedDescription)1f else maxWith)
+        .padding(padding)
+        .then(if (useFullWidth) Modifier.fillMaxWidth() else Modifier.fillMaxWidth(maxWith)) // Usa fillMaxWidth in base a useFullWidth
         .clickable { expandedDescription = !expandedDescription })
     {
         header()

@@ -71,4 +71,91 @@
     <string name="pg_screen_button_label">Personaggi</string>
     <string name="loresheet_title_screen">Sapienze di Tenebra</string>
 
+    <string name="character_screen_title">Scheda Personaggio</string>
+    <string name="character_screen_name">Nome</string>
+    <string name="character_screen_clan">Clan</string>
+    <string name="character_screen_sire">Sire</string>
+    <string name="character_screen_generation">Generation</string>
+    <string name="character_screen_concept">Concetto</string>
+    <string name="character_screen_ambition">Ambizione</string>
+    <string name="character_screen_desire">Desiderio</string>
+    <string name="character_screen_attributes">Attributi</string>
+    <string name="character_screen_attributes_strength">Forza</string>
+    <string name="character_screen_attributes_dexterity">Destrezza</string>
+    <string name="character_screen_attributes_stamina">Costituzione</string>
+    <string name="character_screen_attributes_charisma">Carisma</string>
+    <string name="character_screen_attributes_manipulation">Persuasione</string>
+    <string name="character_screen_attributes_composure">Autocontrollo</string>
+    <string name="character_screen_attributes_intelligence">Intelligenza</string>
+    <string name="character_screen_attributes_wits">Prontezza</string>
+    <string name="character_screen_attributes_resolve">Fermezza</string>
+
+    <string name="character_screen_abilities">Abilità</string>
+
+    <string name="character_screen_abilities_athletics">Atletica</string>
+    <string name="character_screen_abilities_brawl">Rissa</string>
+    <string name="character_screen_abilities_craft">Manualità</string>
+    <string name="character_screen_abilities_drive">Guidare</string>
+    <string name="character_screen_abilities_firearms">Armi da Fuoco</string>
+    <string name="character_screen_abilities_larceny">Criminalità</string>
+    <string name="character_screen_abilities_melee">Mischia</string>
+    <string name="character_screen_abilities_stealth">Furtività</string>
+    <string name="character_screen_abilities_survival">Sopravivvenza</string>
+
+    <string name="character_screen_abilities_animal_ken">Affinità Animale</string>
+    <string name="character_screen_abilities_etiquette">Galateo</string>
+    <string name="character_screen_abilities_insight">Intuito</string>
+    <string name="character_screen_abilities_intimidation">Intimidire</string>
+    <string name="character_screen_abilities_leadership">Autorità</string>
+    <string name="character_screen_abilities_performance">Espressività</string>
+    <string name="character_screen_abilities_persuasion">Convincere</string>
+    <string name="character_screen_abilities_streetwise">Bassifondi</string>
+    <string name="character_screen_abilities_subterfuge">Sotterfugio</string>
+
+    <string name="character_screen_abilities_academics">Accademiche</string>
+    <string name="character_screen_abilities_awareness">Allerta</string>
+    <string name="character_screen_abilities_finance">Finanza</string>
+    <string name="character_screen_abilities_investigation">Investigare</string>
+    <string name="character_screen_abilities_medicine">Medicina</string>
+    <string name="character_screen_abilities_occult">Occulto</string>
+    <string name="character_screen_abilities_politics">Politica</string>
+    <string name="character_screen_abilities_science">Scienze</string>
+    <string name="character_screen_abilities_technology">Tecnologia</string>
+
+    <string name="character_screen_physical">Fisici</string>
+    <string name="character_screen_social">Sociali</string>
+    <string name="character_screen_mental">Mentali</string>
+    <string name="character_list_title">Lista Schede</string>
+
+    <string-array name="abilities">
+        <item>Atletica</item>
+        <item>Rissa</item>
+        <item>Manualità</item>
+        <item>Guidare</item>
+        <item>Armi da Fuoco</item>
+        <item>Criminalità</item>
+        <item>Mischia</item>
+        <item>Furtività</item>
+        <item>Sopravivvenza</item>
+        <item>Affinità Animale</item>
+        <item>Galateo</item>
+        <item>Intuito</item>
+        <item>Intimidire</item>
+        <item>Autorità</item>
+        <item>Espressività</item>
+        <item>Convincere</item>
+        <item>Bassifondi</item>
+        <item>Sotterfugio</item>
+        <item>Accademiche</item>
+        <item>Allerta</item>
+        <item>Finanza</item>
+        <item>Investigare</item>
+        <item>Medicina</item>
+        <item>Occulto</item>
+        <item>Politica</item>
+        <item>Scienze</item>
+        <item>Tecnologia</item>
+
+    </string-array>
+
 </resources>

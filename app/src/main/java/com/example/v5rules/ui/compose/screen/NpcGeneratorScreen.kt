@@ -123,6 +123,10 @@ fun NPCGeneratorScreen(
                         maxItemsInEachRow = 2,
 
                         ) {
+                        FavoritesDropdown(
+                            favoriteNpcs = favoriteNpcs,
+                            width = if (isLandscape) 0.49f else 1f
+                        )
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth(if (isLandscape) 0.49f else 1f),
@@ -137,10 +141,7 @@ fun NPCGeneratorScreen(
                                 onNationalitySelected = { viewModel.setSelectedNationality(it) }
                             )
                         }
-                        FavoritesDropdown(
-                            favoriteNpcs = favoriteNpcs,
-                            width = if (isLandscape) 0.49f else 1f
-                        )
+
                         GenderSelection(
                             selectedGender = uiState.selectedGender,
                             widthOfFlow = 0.49f,

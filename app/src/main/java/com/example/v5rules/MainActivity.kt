@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.v5rules.ui.theme.V5RulesTheme
+import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.KindredViewModel
@@ -49,6 +50,7 @@ fun V5RulesApp(
     val loresheetViewModel: LoresheetViewModel = hiltViewModel<LoresheetViewModel>()
     val kindredViewModel: KindredViewModel = hiltViewModel<KindredViewModel>()
     val pgViewModel: PgViewModel = hiltViewModel<PgViewModel>()
+    val characterSheetViewModel: CharacterSheetViewModel = hiltViewModel<CharacterSheetViewModel>()
 
     val navController = rememberNavController()
 
@@ -66,7 +68,8 @@ fun V5RulesApp(
             loresheetViewModel = loresheetViewModel,
             npcGeneratorViewModel = npcGeneratorViewModel,
             kindredViewModel = kindredViewModel,
-            pgViewModel = pgViewModel
+            pgViewModel = pgViewModel,
+            characterSheetViewModel = characterSheetViewModel
         )
     }
 }

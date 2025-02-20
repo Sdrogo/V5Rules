@@ -11,7 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) {
@@ -41,6 +43,38 @@ fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) 
         for (i in level..5) Text(
             "○",
             color = MaterialTheme.colorScheme.tertiary,
+        )
+    }
+}
+
+@Composable
+fun DotsForAttribute(label: String, level: Int, textStyle: TextStyle = MaterialTheme.typography.headlineSmall) {
+
+    Row(verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .wrapContentWidth()
+    ) {
+        Text(
+            text = label,
+            style = textStyle,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier
+                .wrapContentWidth()
+                .padding(horizontal = 8.dp, vertical = 4.dp)
+        )
+        Spacer(
+            modifier = Modifier
+                .weight(0.5f)
+        )
+        for (i in 1..level) Text(
+            "●",
+            color = MaterialTheme.colorScheme.primary,
+            fontSize = 24.sp // Imposta la dimensione del font desiderata
+        )
+        for (i in level+1..5) Text(
+            "○",
+            color = MaterialTheme.colorScheme.primary,
+            fontSize = 24.sp // Imposta la dimensione del font desiderata
         )
     }
 }

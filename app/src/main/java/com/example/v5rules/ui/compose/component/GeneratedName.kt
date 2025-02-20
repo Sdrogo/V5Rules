@@ -15,9 +15,11 @@ import androidx.compose.ui.unit.dp
 import com.example.v5rules.data.Npc
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
-
 
 
 @Composable
@@ -33,24 +35,34 @@ fun GeneratedName(
             .padding(vertical = 8.dp)
     ) {
         if (npc != null) {
-            Text(
-                text = buildString {
-                    append(npc.nome)
-                    if (!npc.secondName.isNullOrEmpty()) append(" ${npc.secondName}")
-                    append(" ${npc.cognome}")
-                },
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.align(Alignment.Center) // Centra il testo
-            )
-
-            FavoriteHeartIcon(
-                isFavorite = npc.isFavorite,
-                onToggleFavorite = { viewModel.toggleFavorite(npc) },
-                modifier = Modifier //passo il modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(16.dp)
-            )
+            Row(
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(horizontal = 16.dp)
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically // Align items vertically
+            ) {
+                Box(
+                    modifier = Modifier.weight(1f), // Use weight instead of fillMaxWidth
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = buildString {
+                            append(npc.nome)
+                            if (!npc.secondName.isNullOrEmpty()) append(" ${npc.secondName}")
+                            append(" ${npc.cognome}")
+                        },
+                        style = MaterialTheme.typography.headlineLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.wrapContentWidth()
+                    )
+                }
+                FavoriteHeartIcon(
+                    modifier = Modifier.wrapContentSize(),
+                    isFavorite = npc.isFavorite,
+                    onToggleFavorite = { viewModel.toggleFavorite(npc) }
+                )
+            }
         } else {
             Text(
                 text = "Genera un NPC",
@@ -63,13 +75,19 @@ fun GeneratedName(
 }
 
 @Composable
-fun FavoriteHeartIcon(isFavorite: Boolean, onToggleFavorite: () -> Unit, modifier: Modifier = Modifier) {
+fun FavoriteHeartIcon(
+    isFavorite: Boolean,
+    onToggleFavorite: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Icon(
         imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
         contentDescription = if (isFavorite) "Remove from favorites" else "Add to favorites",
         modifier = modifier
             .clickable { onToggleFavorite() }
             .size(24.dp), // Set a fixed size (adjust as needed)
-        tint = if (isFavorite) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
+        tint = if (isFavorite) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.onSurface.copy(
+            alpha = 0.6f
+        )
     )
 }
