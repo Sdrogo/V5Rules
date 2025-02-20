@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -47,7 +49,7 @@ fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) 
 }
 
 @Composable
-fun DotsForAttribute(label: String, level: Int) {
+fun DotsForAttribute(label: String, level: Int, textStyle: TextStyle = MaterialTheme.typography.headlineSmall) {
 
     Row(verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -55,7 +57,7 @@ fun DotsForAttribute(label: String, level: Int) {
     ) {
         Text(
             text = label,
-            style = MaterialTheme.typography.headlineSmall,
+            style = textStyle,
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier
                 .wrapContentWidth()

@@ -57,18 +57,20 @@ fun ContentExpander(
     }
 }
 
+// CustomContentExpander.kt
 @Composable
 fun CustomContentExpander(
-    maxWith: Float,
     initialState: Boolean = false,
     padding: Dp = 8.dp,
+    maxWith: Float = 1f, // Mantieni maxWith, valore di default 1f
+    useFullWidth: Boolean = false, // Nuovo parametro
     header: @Composable () -> Unit,
     content: @Composable () -> Unit,
 ) {
     var expandedDescription by remember { mutableStateOf(initialState) }
     Column(modifier = Modifier
         .padding(padding)
-        .fillMaxWidth(if(expandedDescription)1f else maxWith)
+        .then(if (useFullWidth) Modifier.fillMaxWidth() else Modifier.fillMaxWidth(maxWith)) // Usa fillMaxWidth in base a useFullWidth
         .clickable { expandedDescription = !expandedDescription })
     {
         header()

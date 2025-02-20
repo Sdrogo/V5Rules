@@ -1,7 +1,9 @@
 package com.example.v5rules.viewModel
 
+import android.content.res.Resources
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.v5rules.R
 import com.example.v5rules.data.Ability
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
@@ -24,7 +26,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CharacterSheetViewModel @Inject constructor(
     private val mainRepository: MainRepository,
-    private val characterRepository: CharacterRepository
+    private val characterRepository: CharacterRepository,
+    private val resources: Resources
 ) : ViewModel() {
 
     // Stato
@@ -46,6 +49,7 @@ class CharacterSheetViewModel @Inject constructor(
     val clanSearchQuery: StateFlow<String> = _clanSearchQuery.asStateFlow() //e questo
     private val _selectedClan = MutableStateFlow<SelectedClan?>(null) // Aggiungi questo
     val selectedClan: StateFlow<SelectedClan?> = _selectedClan.asStateFlow() // E questo
+    val allAbilities: List<String> = resources.getStringArray(R.array.abilities).toList().sorted()
 
     private val eventChannel = Channel<CharacterSheetEvent>()
 
@@ -293,34 +297,7 @@ class CharacterSheetViewModel @Inject constructor(
                             )
                         )
                     }
-
-                    is CharacterSheetEvent.AbilitySpecializationChanged -> {
-                        _uiState.update { currentState ->
-                            val currentAbilities = currentState.character.abilities.toMutableList()
-                            val abilityIndex =
-                                currentAbilities.indexOfFirst { it.name == event.abilityName }
-
-                            val updatedAbilities = if (abilityIndex != -1) {
-                                currentAbilities.apply {
-                                    set(
-                                        abilityIndex,
-                                        currentAbilities[abilityIndex].copy(specialization = event.specialization)
-                                    )
-                                }
-                            } else {
-                                currentAbilities + Ability(
-                                    name = event.abilityName,
-                                    specialization = event.specialization
-                                )
-                            }
-
-                            currentState.copy(
-                                character = currentState.character.copy(
-                                    abilities = updatedAbilities
-                                )
-                            )
-                        }
-                    }
+                    is CharacterSheetEvent.AbilitySpecializationChanged -> setAbilitySpecialization(event.abilityName, event.specialization)
                 }
             }
         }
