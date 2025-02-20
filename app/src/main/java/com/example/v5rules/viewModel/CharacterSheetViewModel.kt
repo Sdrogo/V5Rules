@@ -27,7 +27,7 @@ import javax.inject.Inject
 class CharacterSheetViewModel @Inject constructor(
     private val mainRepository: MainRepository,
     private val characterRepository: CharacterRepository,
-    private val resources: Resources
+    resources: Resources
 ) : ViewModel() {
 
     // Stato
