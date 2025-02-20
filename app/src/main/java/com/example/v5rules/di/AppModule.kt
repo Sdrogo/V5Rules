@@ -2,10 +2,7 @@ package com.example.v5rules.di
 
 import android.content.Context
 import android.content.res.Resources
-import androidx.room.Database
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.CharacterRepositoryImpl
 import com.example.v5rules.repository.MainRepository
@@ -32,10 +29,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideCharacterRepository(
-        characterDao: CharacterDao,
-        mainRepository: MainRepository? = null //Se non ti serve, puoi rimuoverlo.
+        characterDao: CharacterDao
     ): CharacterRepository =
-        CharacterRepositoryImpl(characterDao, mainRepository)
+        CharacterRepositoryImpl(characterDao)
 
     @Provides
     @Singleton

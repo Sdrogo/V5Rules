@@ -1,5 +1,6 @@
 package com.example.v5rules.ui.compose.screen.sheet
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,7 +45,7 @@ fun CharacterSheetListScreen(
     CommonScaffold(
         navController = navController,
         title = stringResource(R.string.character_list_title)
-    ) { paddingValues ->
+    ) { _ ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -73,7 +74,7 @@ fun CharacterList(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding()
+            .padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
         items(characters) { char ->
             CharacterCard(character = char, navController = navController)
@@ -87,6 +88,11 @@ fun CharacterCard(character: Character, navController: NavHostController) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .border(
+                width = 1.dp,
+                color = MaterialTheme.colorScheme.tertiary,
+                shape = RoundedCornerShape(8.dp)
+            )
             .clickable {
                 // Naviga alla schermata di dettaglio del personaggio, passando l'ID
                 navController.navigate(CharacterSheetEditNav(character.id))

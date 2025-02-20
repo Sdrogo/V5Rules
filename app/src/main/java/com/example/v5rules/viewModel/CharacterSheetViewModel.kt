@@ -1,9 +1,7 @@
 package com.example.v5rules.viewModel
 
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.R
 import com.example.v5rules.data.Ability
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
@@ -48,7 +46,6 @@ class CharacterSheetViewModel @Inject constructor(
     val clanSearchQuery: StateFlow<String> = _clanSearchQuery.asStateFlow() //e questo
     private val _selectedClan = MutableStateFlow<SelectedClan?>(null) // Aggiungi questo
     val selectedClan: StateFlow<SelectedClan?> = _selectedClan.asStateFlow() // E questo
-
 
     private val eventChannel = Channel<CharacterSheetEvent>()
 
@@ -197,14 +194,21 @@ class CharacterSheetViewModel @Inject constructor(
                     is CharacterSheetEvent.AbilityChanged -> {
                         _uiState.update { currentState ->
                             val currentAbilities = currentState.character.abilities.toMutableList()
-                            val abilityIndex = currentAbilities.indexOfFirst { it.name == event.abilityName }
+                            val abilityIndex =
+                                currentAbilities.indexOfFirst { it.name == event.abilityName }
 
                             val updatedAbilities = if (abilityIndex != -1) {
                                 currentAbilities.apply {
-                                    set(abilityIndex, currentAbilities[abilityIndex].copy(level = event.level))
+                                    set(
+                                        abilityIndex,
+                                        currentAbilities[abilityIndex].copy(level = event.level)
+                                    )
                                 }
                             } else {
-                                currentAbilities + Ability(name = event.abilityName, level = event.level)
+                                currentAbilities + Ability(
+                                    name = event.abilityName,
+                                    level = event.level
+                                )
                             }
 
                             currentState.copy(
@@ -290,7 +294,33 @@ class CharacterSheetViewModel @Inject constructor(
                         )
                     }
 
-                    is CharacterSheetEvent.AbilitySpecializationChanged -> TODO()
+                    is CharacterSheetEvent.AbilitySpecializationChanged -> {
+                        _uiState.update { currentState ->
+                            val currentAbilities = currentState.character.abilities.toMutableList()
+                            val abilityIndex =
+                                currentAbilities.indexOfFirst { it.name == event.abilityName }
+
+                            val updatedAbilities = if (abilityIndex != -1) {
+                                currentAbilities.apply {
+                                    set(
+                                        abilityIndex,
+                                        currentAbilities[abilityIndex].copy(specialization = event.specialization)
+                                    )
+                                }
+                            } else {
+                                currentAbilities + Ability(
+                                    name = event.abilityName,
+                                    specialization = event.specialization
+                                )
+                            }
+
+                            currentState.copy(
+                                character = currentState.character.copy(
+                                    abilities = updatedAbilities
+                                )
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -307,7 +337,10 @@ class CharacterSheetViewModel @Inject constructor(
                             mainRepository.loadClans(Locale.getDefault()) // Se la query è vuota, carica tutti i clan
                         } else {
                             mainRepository.loadClans(Locale.getDefault()).filter { clan ->
-                                clan.name.contains(query, ignoreCase = true) // Filtra in base al nome
+                                clan.name.contains(
+                                    query,
+                                    ignoreCase = true
+                                ) // Filtra in base al nome
                             }
                         }
                     }
@@ -387,7 +420,7 @@ class CharacterSheetViewModel @Inject constructor(
         _selectedClan.value = clan?.let { SelectedClan(it.name) }
     }
 
-    fun selectTab(tab:Int){
+    fun selectTab(tab: Int) {
         _selectedTabIndex.value = tab
     }
 
@@ -411,13 +444,20 @@ class CharacterSheetViewModel @Inject constructor(
 
             val updatedAbilities = if (abilityIndex != -1) {
                 currentAbilities.apply {
-                    set(abilityIndex, currentAbilities[abilityIndex].copy(specialization = specialization))
+                    set(
+                        abilityIndex,
+                        currentAbilities[abilityIndex].copy(specialization = specialization)
+                    )
                 }
             } else {
                 // Se l'abilità non esiste, potresti volerla aggiungere con livello 0,
                 // oppure potresti gestire la situazione in modo diverso (es. errore).
                 // Dipende dalla tua logica.
-                currentAbilities + Ability(name = abilityName, level = 0, specialization = specialization)
+                currentAbilities + Ability(
+                    name = abilityName,
+                    level = 0,
+                    specialization = specialization
+                )
             }
             currentState.copy(
                 character = currentState.character.copy(

@@ -42,12 +42,14 @@ data class SelectedClan(
 )
 
 data class Ability(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val level: Int = 0, // Valore predefinito per il livello
     val specialization: String? = null // Specializzazione opzionale
 )
 
 data class Advantage(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val description: String,
     val level: Int,
@@ -55,6 +57,7 @@ data class Advantage(
 )
 
 data class Background(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val description: String,
     val level: Int,

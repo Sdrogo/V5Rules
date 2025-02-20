@@ -1,6 +1,9 @@
 package com.example.v5rules.data
 
+import androidx.room.PrimaryKey
+
 data class Discipline(
+    @PrimaryKey(autoGenerate = false)
     val id: String,
     val title: String,
     val description: String,
@@ -13,6 +16,7 @@ data class Discipline(
 )
 
 data class DisciplinePower(
+    @PrimaryKey(autoGenerate = false)
     val id: String,
     val title: String,
     val level: Int,
