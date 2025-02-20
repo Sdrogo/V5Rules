@@ -24,38 +24,8 @@ sealed class CharacterSheetEvent {
     data class WitsChanged(val wits: Int): CharacterSheetEvent()
     data class ResolveChanged(val resolve: Int): CharacterSheetEvent()
 
-    // Abilities (Physical)
-    data class AthleticsChanged(val athletics: Int): CharacterSheetEvent()
-    data class BrawlChanged(val brawl: Int): CharacterSheetEvent()
-    data class CraftChanged(val craft: Int): CharacterSheetEvent()
-    data class DriveChanged(val drive: Int): CharacterSheetEvent()
-    data class FirearmsChanged(val firearms: Int): CharacterSheetEvent()
-    data class MeleeChanged(val melee: Int): CharacterSheetEvent()
-    data class LarcenyChanged(val larceny: Int): CharacterSheetEvent()
-    data class StealthChanged(val stealth: Int): CharacterSheetEvent()
-    data class SurvivalChanged(val survival: Int): CharacterSheetEvent()
-
-    // Abilities (Social)
-    data class AnimalKenChanged(val animalKen: Int): CharacterSheetEvent()
-    data class EtiquetteChanged(val etiquette: Int): CharacterSheetEvent()
-    data class InsightChanged(val insight: Int): CharacterSheetEvent()
-    data class IntimidationChanged(val intimidation: Int): CharacterSheetEvent()
-    data class LeadershipChanged(val leadership: Int): CharacterSheetEvent()
-    data class PerformanceChanged(val performance: Int): CharacterSheetEvent()
-    data class PersuasionChanged(val persuasion: Int): CharacterSheetEvent()
-    data class StreetwiseChanged(val streetwise: Int): CharacterSheetEvent()
-    data class SubterfugeChanged(val subterfuge: Int): CharacterSheetEvent()
-
-    // Abilities (Mental)
-    data class AcademicsChanged(val academics: Int): CharacterSheetEvent()
-    data class AwarenessChanged(val awareness: Int): CharacterSheetEvent()
-    data class FinanceChanged(val finance: Int): CharacterSheetEvent()
-    data class InvestigationChanged(val investigation: Int): CharacterSheetEvent()
-    data class MedicineChanged(val medicine: Int): CharacterSheetEvent()
-    data class OccultChanged(val occult: Int): CharacterSheetEvent()
-    data class PoliticsChanged(val politics: Int): CharacterSheetEvent()
-    data class ScienceChanged(val science: Int): CharacterSheetEvent()
-    data class TechnologyChanged(val technology: Int): CharacterSheetEvent()
+    data class AbilityChanged(val abilityName: String, val level: Int) : CharacterSheetEvent()
+    data class AbilitySpecializationChanged(val abilityName: String, val specialization: String?) : CharacterSheetEvent() //Potresti avere bisogno di questo.
 
     //... Eventi per Discipline, Advantages, Backgrounds, Loresheets...
 

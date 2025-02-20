@@ -91,6 +91,37 @@
     <string name="character_screen_attributes_resolve">Fermezza</string>
 
     <string name="character_screen_abilities">Abilità</string>
+
+    <string name="character_screen_abilities_athletics">Athletics</string>
+    <string name="character_screen_abilities_brawl">Brawl</string>
+    <string name="character_screen_abilities_craft">Craft</string>
+    <string name="character_screen_abilities_drive">Drive</string>
+    <string name="character_screen_abilities_firearms">Firearms</string>
+    <string name="character_screen_abilities_larceny">Larceny</string>
+    <string name="character_screen_abilities_melee">Melee</string>
+    <string name="character_screen_abilities_stealth">Stealth</string>
+    <string name="character_screen_abilities_survival">Survival</string>
+
+    <string name="character_screen_abilities_animal_ken">Animal Ken</string>
+    <string name="character_screen_abilities_etiquette">Etiquette</string>
+    <string name="character_screen_abilities_insight">Insight</string>
+    <string name="character_screen_abilities_intimidation">Intimidation</string>
+    <string name="character_screen_abilities_leadership">Leadership</string>
+    <string name="character_screen_abilities_performance">Performance</string>
+    <string name="character_screen_abilities_persuasion">Persuasion</string>
+    <string name="character_screen_abilities_streetwise">Streetwise</string>
+    <string name="character_screen_abilities_subterfuge">Subterfuge</string>
+
+    <string name="character_screen_abilities_academics">Academics</string>
+    <string name="character_screen_abilities_awareness">Awareness</string>
+    <string name="character_screen_abilities_finance">Finance</string>
+    <string name="character_screen_abilities_investigation">Investigation</string>
+    <string name="character_screen_abilities_medicine">Medicine</string>
+    <string name="character_screen_abilities_occult">Occult</string>
+    <string name="character_screen_abilities_politics">Politics</string>
+    <string name="character_screen_abilities_science">Science</string>
+    <string name="character_screen_abilities_technology">Technology</string>
+
     <string name="character_screen_attributes_fisical">Fisici</string>
     <string name="character_screen_attributes_social">Sociali</string>
     <string name="character_screen_attributes_mental">Mentali</string>

@@ -1,7 +1,10 @@
 package com.example.v5rules.viewModel
 
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.v5rules.R
+import com.example.v5rules.data.Ability
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
 import com.example.v5rules.data.Discipline
@@ -190,223 +193,26 @@ class CharacterSheetViewModel @Inject constructor(
                         )
                     }
 
-                    // Abilities (Physical)
-                    is CharacterSheetEvent.AthleticsChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(athletics = event.athletics)
-                            )
-                        )
-                    }
 
-                    is CharacterSheetEvent.BrawlChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(brawl = event.brawl)
-                            )
-                        )
-                    }
+                    is CharacterSheetEvent.AbilityChanged -> {
+                        _uiState.update { currentState ->
+                            val currentAbilities = currentState.character.abilities.toMutableList()
+                            val abilityIndex = currentAbilities.indexOfFirst { it.name == event.abilityName }
 
-                    is CharacterSheetEvent.CraftChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(craft = event.craft)
-                            )
-                        )
-                    }
+                            val updatedAbilities = if (abilityIndex != -1) {
+                                currentAbilities.apply {
+                                    set(abilityIndex, currentAbilities[abilityIndex].copy(level = event.level))
+                                }
+                            } else {
+                                currentAbilities + Ability(name = event.abilityName, level = event.level)
+                            }
 
-                    is CharacterSheetEvent.DriveChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(drive = event.drive)
+                            currentState.copy(
+                                character = currentState.character.copy(
+                                    abilities = updatedAbilities
+                                )
                             )
-                        )
-                    }
-
-                    is CharacterSheetEvent.FirearmsChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(firearms = event.firearms)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.MeleeChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(melee = event.melee)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.LarcenyChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(larceny = event.larceny)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.StealthChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(stealth = event.stealth)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.SurvivalChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(survival = event.survival)
-                            )
-                        )
-                    }
-
-                    // Abilities (Social)
-                    is CharacterSheetEvent.AnimalKenChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(animalken = event.animalKen)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.EtiquetteChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(etiquette = event.etiquette)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.InsightChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(insight = event.insight)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.IntimidationChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(intimidation = event.intimidation)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.LeadershipChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(leadership = event.leadership)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.PerformanceChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(performance = event.performance)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.PersuasionChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(persuasion = event.persuasion)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.StreetwiseChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(streetwise = event.streetwise)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.SubterfugeChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(subterfuge = event.subterfuge)
-                            )
-                        )
-                    }
-
-                    // Abilities (Mental)
-                    is CharacterSheetEvent.AcademicsChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(academics = event.academics)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.AwarenessChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(awareness = event.awareness)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.FinanceChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(finance = event.finance)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.InvestigationChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(investigation = event.investigation)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.MedicineChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(medicine = event.medicine)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.OccultChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(occult = event.occult)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.PoliticsChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(politics = event.politics)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.ScienceChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(science = event.science)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.TechnologyChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                abilities = it.character.abilities.copy(technology = event.technology)
-                            )
-                        )
+                        }
                     }
 
                     // Health
@@ -483,6 +289,8 @@ class CharacterSheetViewModel @Inject constructor(
                             )
                         )
                     }
+
+                    is CharacterSheetEvent.AbilitySpecializationChanged -> TODO()
                 }
             }
         }
@@ -593,6 +401,29 @@ class CharacterSheetViewModel @Inject constructor(
             } catch (e: Exception) {
                 _uiState.update { it.copy(isLoading = false, error = e.message) }
             }
+        }
+    }
+
+    fun setAbilitySpecialization(abilityName: String, specialization: String?) {
+        _uiState.update { currentState ->
+            val currentAbilities = currentState.character.abilities.toMutableList()
+            val abilityIndex = currentAbilities.indexOfFirst { it.name == abilityName }
+
+            val updatedAbilities = if (abilityIndex != -1) {
+                currentAbilities.apply {
+                    set(abilityIndex, currentAbilities[abilityIndex].copy(specialization = specialization))
+                }
+            } else {
+                // Se l'abilità non esiste, potresti volerla aggiungere con livello 0,
+                // oppure potresti gestire la situazione in modo diverso (es. errore).
+                // Dipende dalla tua logica.
+                currentAbilities + Ability(name = abilityName, level = 0, specialization = specialization)
+            }
+            currentState.copy(
+                character = currentState.character.copy(
+                    abilities = updatedAbilities
+                )
+            )
         }
     }
 }

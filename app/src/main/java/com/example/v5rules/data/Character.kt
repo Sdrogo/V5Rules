@@ -14,7 +14,7 @@ data class Character(
     val ambition: String = "",
     val desire: String = "",
     val attributes: Attributes = Attributes(),
-    val abilities: Abilities = Abilities(),
+    val abilities: List<Ability> = emptyList(),
     val disciplines: List<Discipline> = emptyList(),
     val advantages: List<Advantage> = emptyList(),
     val backgrounds: List<Background> = emptyList(),
@@ -39,39 +39,12 @@ data class Attributes(
 
 data class SelectedClan(
     val name: String,
-    //val imageUrl: String? = null, // Potresti usare un URL dell'immagine se le avessi
 )
 
-data class Abilities(
-    val athletics: Int= 0,
-    val brawl: Int= 0,
-    val craft: Int= 0,
-    val drive: Int= 0,
-    val firearms: Int= 0,
-    val melee: Int= 0,
-    val larceny: Int= 0,
-    val stealth: Int= 0,
-    val survival: Int= 0,
-
-    val animalken: Int= 0,
-    val etiquette: Int= 0,
-    val insight: Int= 0,
-    val intimidation: Int= 0,
-    val leadership: Int= 0,
-    val performance: Int= 0,
-    val persuasion: Int= 0,
-    val streetwise: Int= 0,
-    val subterfuge: Int= 0,
-
-    val academics: Int= 0,
-    val awareness: Int= 0,
-    val finance: Int= 0,
-    val investigation: Int= 0,
-    val medicine: Int= 0,
-    val occult: Int= 0,
-    val politics: Int= 0,
-    val science: Int= 0,
-    val technology: Int= 0,
+data class Ability(
+    val name: String,
+    val level: Int = 0, // Valore predefinito per il livello
+    val specialization: String? = null // Specializzazione opzionale
 )
 
 data class Advantage(

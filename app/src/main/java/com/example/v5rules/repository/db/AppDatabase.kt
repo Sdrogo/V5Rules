@@ -19,7 +19,7 @@ import com.example.v5rules.data.Character
 @TypeConverters(
     ClanConverter::class,
     AttributesConverter::class,
-    AbilitiesConverter::class,
+    AbilityListConverter::class,
     DisciplineListConverter::class,
     AdvantageListConverter::class,
     BackgroundListConverter::class,

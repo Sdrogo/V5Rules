@@ -1,7 +1,7 @@
 package com.example.v5rules.data.converter
 
 import androidx.room.TypeConverter
-import com.example.v5rules.data.Abilities
+import com.example.v5rules.data.Ability
 import com.example.v5rules.data.Advantage
 import com.example.v5rules.data.Attributes
 import com.example.v5rules.data.Background
@@ -39,17 +39,27 @@ class AttributesConverter {
 }
 
 // Abilities
-class AbilitiesConverter {
+class AbilityListConverter {
+    private val gson = Gson() // Inizializza Gson una sola volta
+
     @TypeConverter
-    fun fromAbilities(abilities: Abilities): String {
-        return Gson().toJson(abilities)
+    fun fromAbilityList(abilities: List<Ability>?): String? {
+        if (abilities == null) {
+            return null
+        }
+        return gson.toJson(abilities)
     }
 
     @TypeConverter
-    fun toAbilities(abilitiesString: String): Abilities {
-        return Gson().fromJson(abilitiesString, Abilities::class.java)
+    fun toAbilityList(abilitiesString: String?): List<Ability>? {
+        if (abilitiesString == null) {
+            return null
+        }
+        val listType = object : TypeToken<List<Ability>>() {}.type
+        return gson.fromJson(abilitiesString, listType)
     }
 }
+
 
 // List<Discipline>
 class DisciplineListConverter {
