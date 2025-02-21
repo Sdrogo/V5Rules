@@ -247,10 +247,10 @@ class CharacterSheetViewModel @Inject constructor(
                     )
                 }
             } else {
-                // Se l'abilità non esiste, potresti volerla aggiungere con livello 0
+                // Se l'abilità non esiste, potresti volerla aggiungere con livello 1
                 currentAbilities + Ability(
                     name = abilityName,
-                    level = 0,
+                    level = 1,
                     specialization = specialization
                 )
             }
