@@ -64,8 +64,7 @@ fun CustomContentExpander(
     maxWith: Float = 1f, // Mantieni maxWith, valore di default 1f
     useFullWidth: Boolean = false, // Nuovo parametro
     header: @Composable () -> Unit,
-    content: @Composable () -> Unit,
-    onExpandChange: (Boolean) -> Unit = {}
+    content: @Composable () -> Unit
 ) {
     var expandedDescription by remember { mutableStateOf(initialState) }
     Column(modifier = Modifier

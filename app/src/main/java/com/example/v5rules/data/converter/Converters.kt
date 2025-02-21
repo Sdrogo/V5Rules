@@ -11,6 +11,7 @@ import com.example.v5rules.data.Experience
 import com.example.v5rules.data.Health
 import com.example.v5rules.data.Humanity
 import com.example.v5rules.data.Loresheet
+import com.example.v5rules.data.PredatorType
 import com.example.v5rules.data.Willpower
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -24,6 +25,18 @@ class ClanConverter {
     @TypeConverter
     fun toClan(clanString: String?): Clan? {
         return Gson().fromJson(clanString, Clan::class.java)
+    }
+}
+
+class PredatorConverter {
+    @TypeConverter
+    fun fromPredator(predator: PredatorType?): String? {
+        return Gson().toJson(predator)
+    }
+
+    @TypeConverter
+    fun toPredator(predatorString: String?): PredatorType? {
+        return Gson().fromJson(predatorString, PredatorType::class.java)
     }
 }
 class AttributesConverter {

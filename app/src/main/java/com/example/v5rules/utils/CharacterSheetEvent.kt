@@ -3,6 +3,7 @@ package com.example.v5rules.utils
 import com.example.v5rules.data.Clan
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
+import com.example.v5rules.data.PredatorType
 
 
 // Eventi
@@ -50,6 +51,8 @@ sealed class CharacterSheetEvent {
     // Experience
     data class TotalExperienceChanged(val total: Int): CharacterSheetEvent()
     data class SpentExperienceChanged(val spent: Int): CharacterSheetEvent()
+
+    class PredatorChanged(val predator: PredatorType) : CharacterSheetEvent()
 
     // Azioni
     object SaveClicked: CharacterSheetEvent()

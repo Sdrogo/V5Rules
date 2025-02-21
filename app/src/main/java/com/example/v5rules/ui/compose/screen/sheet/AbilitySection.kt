@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
@@ -63,7 +62,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
         expandedStates.keys.retainAll(validAbilityNames)
     }
 
-    LazyColumn( modifier = Modifier.padding(horizontal = 8.dp)){
+    LazyColumn{
         item {
             HorizontalPager(
                 state = pagerState,

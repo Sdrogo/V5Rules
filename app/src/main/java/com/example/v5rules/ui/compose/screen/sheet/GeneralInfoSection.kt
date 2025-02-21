@@ -3,25 +3,24 @@ package com.example.v5rules.ui.compose.screen.sheet
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.focusable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
@@ -52,178 +51,222 @@ import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel) {
+    val uiState by viewModel.uiState.collectAsState()
     val clans by viewModel.clans.collectAsState()
-    val searchQuery by viewModel.clanSearchQuery.collectAsState()
-    val selectedClan by viewModel.selectedClan.collectAsState()
-
+    val predatorType by viewModel.predator.collectAsState()
+    var generation by remember { mutableFloatStateOf(character.generation.toFloat()) }
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current // Per controllare la tastiera
 
-    Card(
+    LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
-            .background(MaterialTheme.colorScheme.background)
-            .border(
-                1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)
-            ),
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            // Nome
-            OutlinedTextField(modifier = Modifier.fillMaxWidth(),
-                value = character.name,
-                onValueChange = { viewModel.onEvent(CharacterSheetEvent.NameChanged(it)) },
-                label = { Text(stringResource(R.string.character_screen_name)) })
+        item {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.background)
+                    .border(
+                        1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)
+                    ),
+            ) {
+                Column ( modifier = Modifier.padding(8.dp)){
+                    OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                        value = character.name,
+                        onValueChange = { viewModel.onEvent(CharacterSheetEvent.NameChanged(it)) },
+                        label = { Text(stringResource(R.string.character_screen_name)) })
 
-            // Clan (esempio con DropdownMenu)
-            var expanded by remember { mutableStateOf(false) }
 
-            Box { // Usa un Box per sovrapporre il DropdownMenu
-                OutlinedTextField(
-                    value = selectedClan?.name ?: searchQuery,
-                    onValueChange = {
-                        viewModel.setClanSearchQuery(it)
-                        expanded = it.isNotEmpty() // Apri SOLO se la query NON è vuota
-                    },
-                    label = { Text(stringResource(R.string.character_screen_clan)) },
-                    trailingIcon = {
-                        IconButton(onClick = {
-                            if (searchQuery.isNotEmpty() || selectedClan != null) {
-                                viewModel.setClanSearchQuery("") // Pulisci
+                    var clanExpanded by remember { mutableStateOf(false) }
+                    ExposedDropdownMenuBox(
+                        expanded = clanExpanded,
+                        onExpandedChange = {
+                            clanExpanded = !clanExpanded
+                            if (clanExpanded) {
+                                focusRequester.requestFocus()
                             } else {
-                                expanded =
-                                    true // Apri se la query è vuota e nessun clan è selezionato
-                                focusRequester.requestFocus() // Richiedi il focus SOLO se apri il dropdown
-
+                                focusManager.clearFocus()
                             }
-                        }) {
-                            //Usa l'icona clear se c'è del testo.
-                            if (searchQuery.isNotEmpty() || selectedClan != null) {
-                                Icon(Icons.Filled.Clear, "Clear")
-                            } else {
-                                Icon(Icons.Filled.ArrowDropDown, "Open Clan dropdown")
-                            }
-
                         }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .focusRequester(focusRequester)
-                        .onKeyEvent {
-                            if (it.key == Key.Escape) { //Chiudi il dropdown quando premi esc.
-                                expanded = false
-                                true // Evento gestito
+                    ) {
+                        val selectedClan = uiState.character.clan
+                        OutlinedTextField(
+                            value = selectedClan?.name ?: "",
+                            onValueChange = {},
+                            readOnly = true,
+                            label = { Text(stringResource(R.string.clan)) },
+                            leadingIcon = {
+                                selectedClan?.name?.let {
+                                    ClanImage(
+                                        it,
+                                        tintColor = MaterialTheme.colorScheme.tertiary,
+                                        width = 24.dp,
+                                    )
+                                }
+                            },
+                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = clanExpanded) },
+                            colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
+                            modifier = Modifier
+                                .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                                .fillMaxWidth()
+                                .focusRequester(focusRequester)
+                                .onKeyEvent {
+                                    if (it.key == Key.Escape) {
+                                        clanExpanded = false
+                                        true
+                                    } else {
+                                        false
+                                    }
+                                },
+                            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                            keyboardActions = KeyboardActions(
+                                onDone = {
+                                    keyboardController?.hide()
+                                    focusManager.clearFocus()
+                                }
+                            )
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = clanExpanded,
+                        onDismissRequest = { clanExpanded = false },
+                        modifier = Modifier
+                            .focusable(false)
+                            .align(Alignment.Start)
+
+                    ) {
+                        clans.forEach { clan ->
+                            DropdownMenuItem(onClick = {
+                                viewModel.onEvent(CharacterSheetEvent.ClanChanged(clan))
+                                clanExpanded = false
+
+                            }, text = {
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    ClanImage(
+                                        clanName = clan.name,
+                                        tintColor = MaterialTheme.colorScheme.tertiary,
+                                        width = 30.dp
+                                    )
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    Text(clan.name)
+                                }
+                            })
+                        }
+                    }
+                    var predatorExpanded by remember { mutableStateOf(false) }
+                    ExposedDropdownMenuBox(
+                        expanded = predatorExpanded,
+                        onExpandedChange = {
+                            predatorExpanded = !predatorExpanded
+                            if (predatorExpanded) {
+                                focusRequester.requestFocus()
                             } else {
-                                false // Lascia gestire l'evento al sistema
+                                focusManager.clearFocus()
                             }
-                        },
-                    leadingIcon = {
-                        if (selectedClan != null) {
-                            ClanImage(
-                                clanName = selectedClan!!.name,
-                                tintColor = MaterialTheme.colorScheme.tertiary,
-                                width = 24.dp
+                        }
+                    ) {
+                        val selectedPredator = uiState.character.predator
+                        OutlinedTextField(
+                            value = selectedPredator?.name ?: "",
+                            onValueChange = {},
+                            readOnly = true,
+                            label = { Text(stringResource(R.string.predator)) },
+                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = predatorExpanded) },
+                            colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
+                            modifier = Modifier
+                                .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                                .fillMaxWidth()
+                                .focusRequester(focusRequester)
+                                .onKeyEvent {
+                                    if (it.key == Key.Escape) {
+                                        predatorExpanded = false
+                                        true
+                                    } else {
+                                        false
+                                    }
+                                },
+                            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                            keyboardActions = KeyboardActions(
+                                onDone = {
+                                    keyboardController?.hide()
+                                    focusManager.clearFocus()
+                                }
+                            )
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = predatorExpanded,
+                        onDismissRequest = { predatorExpanded = false },
+                        modifier = Modifier
+                            .focusable(false)
+                            .align(Alignment.Start)
+
+                    ) {
+                        predatorType.forEach { predator ->
+                            DropdownMenuItem(onClick = {
+                                viewModel.onEvent(CharacterSheetEvent.PredatorChanged(predator))
+                                predatorExpanded = false
+                            }, text = { Text(predator.name) }
                             )
                         }
-                    },
-                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done), // Imposta l'azione "Done"
-                    keyboardActions = KeyboardActions(onDone = {
-                        keyboardController?.hide() // Nascondi la tastiera quando si preme "Done"
-                        focusManager.clearFocus() // Rilascia il focus
-                    })
-                )
-
-                DropdownMenu(
-                    expanded = expanded,
-                    onDismissRequest = {
-                        expanded = false
-                        //Non richiedere il focus qui.
-                    },
-                    modifier = Modifier
-                        .focusable(false)
-                        .align(Alignment.TopStart) // Allinea il DropdownMenu sotto il TextField
-
-                ) {
-                    clans.forEach { clan ->
-                        DropdownMenuItem(onClick = {
-                            viewModel.onEvent(CharacterSheetEvent.ClanChanged(clan))
-                            expanded = false
-                            keyboardController?.hide() // Nascondi la tastiera
-                            focusManager.clearFocus()   // Rilascia il focus
-
-                        }, text = {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                ClanImage(
-                                    clanName = clan.name,
-                                    tintColor = MaterialTheme.colorScheme.tertiary,
-                                    width = 30.dp
-                                )
-                                Spacer(modifier = Modifier.width(8.dp))
-                                Text(clan.name)
-                            }
-                        })
                     }
+
+
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(8.dp)
+                    ) {
+                        Text(
+                            stringResource(R.string.character_screen_generation),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        Spacer(Modifier.weight(0.7f))
+                        Text("${generation.toInt()}°")
+                    }
+                    Slider(
+                        value = generation,
+                        onValueChange = { newValue ->
+                            generation = newValue
+                            viewModel.onEvent(CharacterSheetEvent.GenerationChanged(newValue.toInt()))
+                        },
+                        valueRange = 1f..16f,
+                        steps = 14,
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = SliderDefaults.colors(
+                            activeTrackColor = MaterialTheme.colorScheme.tertiary, // Colore della parte piena
+                        )
+                    )
+                    // Sire
+                    OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                        value = character.sire,
+                        onValueChange = { viewModel.onEvent(CharacterSheetEvent.SireChanged(it)) },
+                        label = { Text(stringResource(R.string.character_screen_sire)) })
+
+                    // Concept
+                    OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                        value = character.concept,
+                        onValueChange = { viewModel.onEvent(CharacterSheetEvent.ConceptChanged(it)) },
+                        label = { Text(stringResource(R.string.character_screen_concept)) })
+
+                    // Ambition
+                    OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                        value = character.ambition,
+                        onValueChange = { viewModel.onEvent(CharacterSheetEvent.AmbitionChanged(it)) },
+                        label = { Text(stringResource(R.string.character_screen_ambition)) })
+
+                    // Desire
+                    OutlinedTextField(modifier = Modifier.fillMaxWidth(),
+                        value = character.desire,
+                        onValueChange = { viewModel.onEvent(CharacterSheetEvent.DesireChanged(it)) },
+                        label = { Text(stringResource(R.string.character_screen_desire)) })
                 }
             }
-            // Generazione
-            var generation by remember { mutableFloatStateOf(character.generation.toFloat()) }
-            Column {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.padding(8.dp)
-                ) {
-                    Text(
-                        stringResource(R.string.character_screen_generation),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Spacer(Modifier.weight(0.7f))
-                    Text("${generation.toInt()}°")
-                }
-                Slider(
-                    value = generation,
-                    onValueChange = { newValue ->
-                        generation = newValue
-                        viewModel.onEvent(CharacterSheetEvent.GenerationChanged(newValue.toInt()))
-                    },
-                    valueRange = 1f..16f,
-                    steps = 14,
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = SliderDefaults.colors(
-                        activeTrackColor = MaterialTheme.colorScheme.tertiary, // Colore della parte piena
-                    )
-                )
-            }
-
-            // Sire
-            OutlinedTextField(modifier = Modifier.fillMaxWidth(),
-                value = character.sire,
-                onValueChange = { viewModel.onEvent(CharacterSheetEvent.SireChanged(it)) },
-                label = { Text(stringResource(R.string.character_screen_sire)) })
-
-            // Concept
-            OutlinedTextField(modifier = Modifier.fillMaxWidth(),
-                value = character.concept,
-                onValueChange = { viewModel.onEvent(CharacterSheetEvent.ConceptChanged(it)) },
-                label = { Text(stringResource(R.string.character_screen_concept)) })
-
-            // Ambition
-            OutlinedTextField(modifier = Modifier.fillMaxWidth(),
-                value = character.ambition,
-                onValueChange = { viewModel.onEvent(CharacterSheetEvent.AmbitionChanged(it)) },
-                label = { Text(stringResource(R.string.character_screen_ambition)) })
-
-            // Desire
-            OutlinedTextField(modifier = Modifier.fillMaxWidth(),
-                value = character.desire,
-                onValueChange = { viewModel.onEvent(CharacterSheetEvent.DesireChanged(it)) },
-                label = { Text(stringResource(R.string.character_screen_desire)) })
         }
     }
 }
