@@ -121,7 +121,8 @@ fun CharacterSheetScreen(
                     0 -> GeneralInfoSection(character, viewModel)
                     1 -> AttributeSection(character, viewModel, isLandscape)
                     2 -> AbilitySection(character, viewModel)
-                    3 -> DisciplineSection(viewModel)
+                    3 -> DisciplineSection(viewModel, navController)
+                    4 -> BackgroundSection(character,viewModel,navController)
                     //... altre sezioni...
                 }
             }

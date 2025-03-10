@@ -29,9 +29,9 @@ import com.example.v5rules.viewModel.KindredViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun KindredListScreen(kindredViewModel : KindredViewModel, navController: NavHostController) {
+fun KindredListScreen(viewModel : KindredViewModel, navController: NavHostController) {
 
-    val uiState by kindredViewModel.kindredUiState.collectAsState()
+    val uiState by viewModel.kindredUiState.collectAsState()
 
     CommonScaffold(
         navController = navController,

@@ -30,9 +30,9 @@ import com.example.v5rules.viewModel.PgViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun PgListScreen(pgViewModel : PgViewModel, navController: NavHostController) {
+fun PgListScreen(viewModel: PgViewModel, navController: NavHostController) {
 
-    val uiState by pgViewModel.pgUiState.collectAsState()
+    val uiState by viewModel.pgUiState.collectAsState()
 
     CommonScaffold(
         navController = navController,

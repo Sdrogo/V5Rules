@@ -242,7 +242,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             LoreListScreen(
-                loreViewModel = loreViewModel, navController = navController
+                viewModel = loreViewModel, navController = navController
             )
         }
         composable<LoreDetailsNav>(
@@ -270,7 +270,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             KindredListScreen(
-                kindredViewModel = kindredViewModel, navController = navController
+                viewModel = kindredViewModel, navController = navController
             )
         }
 
@@ -300,7 +300,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             PgListScreen(
-                pgViewModel = pgViewModel, navController = navController
+                viewModel = pgViewModel, navController = navController
             )
         }
 

@@ -2,40 +2,14 @@ package com.example.v5rules.ui.compose.screen.sheet
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MenuAnchorType
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateMapOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -47,6 +21,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.ui.compose.component.CustomContentExpander
@@ -54,40 +29,74 @@ import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.DotsForAttribute
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
+import kotlinx.coroutines.launch
+import androidx.compose.foundation.layout.imePadding  // Import per la tastiera
+import androidx.compose.foundation.layout.navigationBarsPadding // Importante!
+import androidx.compose.material.icons.filled.Delete
+import com.example.v5rules.DisciplinePowerNav
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DisciplineSection(viewModel: CharacterSheetViewModel) {
+fun DisciplineSection(viewModel: CharacterSheetViewModel, navController: NavHostController) {
     val uiState by viewModel.uiState.collectAsState()
-    val disciplines by viewModel.disciplines.collectAsState() // Tutte le discipline
+    val disciplines by viewModel.disciplines.collectAsState()
     val characterDisciplines = uiState.character.disciplines
 
-    // Stato per il dialogo
-    val (showAddPowerDialog, setShowAddPowerDialog) = remember { mutableStateOf(false) }
-    val (selectedDisciplineForPower, setSelectedDisciplineForPower) = remember {
-        mutableStateOf<Discipline?>(
-            null
-        )
-    }
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val coroutineScope = rememberCoroutineScope()
+    var selectedDisciplineForPower by remember { mutableStateOf<Discipline?>(null) }
 
-    // Mappa per gestire l'espansione (nome disciplina -> espanso/non espanso)
+    var showAddPowerSheet by remember { mutableStateOf(false) }
+
     val expandedStates = remember { mutableStateMapOf<String, Boolean>() }
 
-    // Inizializza lo stato di espansione, *solo* se non è già stato inizializzato
     LaunchedEffect(characterDisciplines) {
         characterDisciplines.forEach { discipline ->
-            if (!expandedStates.containsKey(discipline.title)) { // Controlla se la chiave esiste già
-                expandedStates[discipline.title] = false // Inizialmente chiuso
+            if (!expandedStates.containsKey(discipline.title)) {
+                expandedStates[discipline.title] = false
             }
         }
         val disciplineNames = characterDisciplines.map { it.title }.toSet()
         expandedStates.keys.retainAll(disciplineNames)
     }
 
+    // Only one 'expanded' variable is needed:
     var expanded by remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current
+    val keyboardController = LocalSoftwareKeyboardController.current // Initialize here
+
+    if (showAddPowerSheet) {
+        ModalBottomSheet(
+            onDismissRequest = {
+                coroutineScope.launch { sheetState.hide() }
+                showAddPowerSheet = false
+            },
+            sheetState = sheetState
+        ) {
+            Column(modifier = Modifier.navigationBarsPadding().imePadding().padding(bottom = 16.dp)) {
+                selectedDisciplineForPower?.let { discipline ->
+                    AddPowerBottomSheet(
+                        discipline = discipline,
+                        allDisciplines = disciplines,
+                        onPowerSelected = { power ->
+                            viewModel.onEvent(
+                                CharacterSheetEvent.DisciplinePowerAdded(
+                                    discipline.title,
+                                    power
+                                )
+                            )
+                            coroutineScope.launch {
+                                sheetState.hide()
+                                showAddPowerSheet = false
+                            }
+                        }
+                    )
+                }
+            }
+        }
+    }
+
 
     LazyColumn(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
         item {
@@ -110,9 +119,9 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel) {
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
                     colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
                     modifier = Modifier
-                        .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                        .menuAnchor()
                         .fillMaxWidth()
-                        .focusRequester(focusRequester)
+                        .focusRequester(focusRequester) // Corrected: No parentheses
                         .onKeyEvent {
                             if (it.key == Key.Escape) {
                                 expanded = false
@@ -124,7 +133,7 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel) {
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                     keyboardActions = KeyboardActions(
                         onDone = {
-                            keyboardController?.hide()
+                            keyboardController?.hide()  // Use keyboardController directly
                             focusManager.clearFocus()
                         }
                     )
@@ -142,7 +151,7 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel) {
                             onClick = {
                                 viewModel.onEvent(CharacterSheetEvent.DisciplineChanged(discipline))
                                 expanded = false
-                                keyboardController?.hide()
+                                keyboardController?.hide() // Use keyboardController
                                 focusManager.clearFocus()
                             },
                             leadingIcon = {
@@ -152,31 +161,13 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel) {
                                     size = 24.dp
                                 )
                             },
-                            text = { Text(discipline.title) } //usa text, non content
+                            text = { Text(discipline.title) }
                         )
                     }
                 }
             }
         }
-        item {
-            selectedDisciplineForPower?.disciplinePowers?.filter { it.title != null }
-            if (showAddPowerDialog && selectedDisciplineForPower != null) {
-                AddPowerDialog(
-                    discipline = selectedDisciplineForPower,
-                    allDisciplines = disciplines,
-                    onDismiss = { setShowAddPowerDialog(false) },
-                    onPowerSelected = { power ->
-                        viewModel.onEvent(
-                            CharacterSheetEvent.DisciplinePowerAdded(
-                                selectedDisciplineForPower.title,
-                                power
-                            )
-                        )
-                        setShowAddPowerDialog(false)
-                    }
-                )
-            }
-        }
+
         items(characterDisciplines) { discipline ->
             Column {
                 CustomContentExpander(
@@ -202,26 +193,27 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel) {
                                     activeTrackColor = MaterialTheme.colorScheme.tertiary
                                 )
                             )
+                            val disciplinePowers =
+                                discipline.selectedDisciplinePowers.filter { it.level > 0 }
+                            disciplinePowers.forEach { power ->
+                                DisciplinePowerItem(power, discipline, viewModel, navController)
+                            }
+                            if (disciplinePowers.size < discipline.level) {
+                                TextButton(
+                                    onClick = {
+                                        selectedDisciplineForPower = discipline
+                                        showAddPowerSheet = true
+                                    },
+                                    modifier = Modifier
+                                        .padding(8.dp)
+                                ) {
+                                    Text("Aggiungi Potere")
+                                }
+                            }
                         }
                     }
                 )
-                val disciplinePowers =
-                    discipline.selectedDisciplinePowers.filter { it.level > 0 }.orEmpty()
-                disciplinePowers.forEach { power ->
-                    DisciplinePowerItem(power, discipline, viewModel)
-                }
-                if (disciplinePowers.size < discipline.level) {
-                    TextButton(
-                        onClick = {
-                            setSelectedDisciplineForPower(discipline)
-                            setShowAddPowerDialog(true)
-                        },
-                        modifier = Modifier
-                            .padding(8.dp)
-                    ) {
-                        Text("Aggiungi Potere")
-                    }
-                }
+
             }
         }
     }
@@ -249,17 +241,24 @@ fun DisciplineHeaderItem(discipline: Discipline) {
 fun DisciplinePowerItem(
     power: DisciplinePower,
     discipline: Discipline,
-    viewModel: CharacterSheetViewModel
+    viewModel: CharacterSheetViewModel,
+    navController: NavHostController
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .fillMaxWidth() // Aggiunto fillMaxWidth()
+            .fillMaxWidth()
+            .clickable {
+                viewModel.onEvent(CharacterSheetEvent.SaveClicked)
+                navController.navigate(
+                    DisciplinePowerNav(disciplineId = discipline.id, subDisciplineId = power.id)
+                )
+            }
             .padding(start = 16.dp, end = 8.dp, top = 4.dp, bottom = 4.dp)
     ) {
         Text(
             text = "${power.title} (Livello ${power.level})",
-            modifier = Modifier.fillMaxWidth() // Invece di .weight(1f)
+            modifier = Modifier.weight(1f)
         )
         IconButton(onClick = {
             viewModel.onEvent(
@@ -270,7 +269,7 @@ fun DisciplinePowerItem(
             )
         }) {
             Icon(
-                imageVector = Icons.Default.Clear,
+                imageVector = Icons.Default.Delete,
                 contentDescription = "Rimuovi Potere",
                 tint = MaterialTheme.colorScheme.error
             )
@@ -279,44 +278,40 @@ fun DisciplinePowerItem(
 }
 
 @Composable
-fun AddPowerDialog(
+fun AddPowerBottomSheet(
     discipline: Discipline,
     allDisciplines: List<Discipline>,
-    onDismiss: () -> Unit,
-    onPowerSelected: (DisciplinePower) -> Unit
+    onPowerSelected: (DisciplinePower) -> Unit,
 ) {
     val fullDiscipline = allDisciplines.firstOrNull { it.id == discipline.id }
     val selectedPowers = discipline.selectedDisciplinePowers
     val availablePowers = fullDiscipline?.disciplinePowers?.filter { power ->
-        power.level <= discipline.level && !selectedPowers.contains(power)
+        power.level <= discipline.level && !selectedPowers.any{it.title == power.title}
     }?.sortedBy { it.level } ?: emptyList()
 
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text("Aggiungi Potere a ${discipline.title}") },
-        text = {
-            Box(modifier = Modifier.heightIn(max = 300.dp)) {
-                if (availablePowers.isEmpty()) {
-                    Text("Non ci sono poteri disponibili per questa disciplina e livello")
-                } else {
-                    LazyColumn(modifier = Modifier.fillMaxWidth()) {
-                        items(availablePowers) { power ->
-                            Text(
-                                text = "${power.title} (Livello ${power.level})",
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clickable { onPowerSelected(power) }
-                                    .padding(8.dp)
-                            )
-                        }
+    Column(
+        modifier = Modifier.padding(16.dp)
+    ) {
+        Text("Aggiungi Potere a ${discipline.title}", style = MaterialTheme.typography.titleLarge)
+        Spacer(modifier = Modifier.height(16.dp))
+        Box(modifier = Modifier.heightIn(max = 300.dp)) {
+            if (availablePowers.isEmpty()) {
+                Text("Non ci sono poteri disponibili per questa disciplina e livello")
+            } else {
+                LazyColumn(modifier = Modifier.fillMaxWidth()) {
+                    items(availablePowers) { power ->
+                        Text(
+                            text = "${power.title} (Livello ${power.level})",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    onPowerSelected(power)
+                                }
+                                .padding(8.dp)
+                        )
                     }
                 }
             }
-        },
-        confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text("Annulla")
-            }
-        },
-    )
+        }
+    }
 }

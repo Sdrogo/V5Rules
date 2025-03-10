@@ -8,6 +8,7 @@ import com.example.v5rules.data.Ability
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
 import com.example.v5rules.data.Discipline
+import com.example.v5rules.data.Loresheet
 import com.example.v5rules.data.PredatorType
 import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.MainRepository
@@ -42,6 +43,8 @@ class CharacterSheetViewModel @Inject constructor(
     val predator: StateFlow<List<PredatorType>> = _predator.asStateFlow()
     private val _disciplines = MutableStateFlow<List<Discipline>>(emptyList())
     val disciplines: StateFlow<List<Discipline>> = _disciplines.asStateFlow()
+    private val _loreSheets = MutableStateFlow<List<Loresheet>>(emptyList())
+    val loreSheets: StateFlow<List<Loresheet>> = _loreSheets.asStateFlow()
     private val _selectedTabIndex = MutableStateFlow(0)
     val selectedTabIndex: StateFlow<Int> = _selectedTabIndex.asStateFlow()
     val allAbilities: List<String> = resources.getStringArray(R.array.abilities).toList().sorted()
@@ -169,6 +172,7 @@ class CharacterSheetViewModel @Inject constructor(
                 _clans.value = mainRepository.loadClans(Locale.getDefault())
                 _predator.value = mainRepository.loadPredatorType(Locale.getDefault())
                 _disciplines.value = mainRepository.loadDisciplines(Locale.getDefault())
+                _loreSheets.value = mainRepository.loadLoresheet(Locale.getDefault())
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = "Errore durante il caricamento dei clan") }
             }

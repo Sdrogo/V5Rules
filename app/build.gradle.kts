@@ -59,35 +59,33 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.splashscreen)
+    implementation(platform(libs.androidx.compose.bom)) // Importa il BOM
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.navigation.runtime.ktx)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.androidx.room.compiler) // Usa ksp, non kapt
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.coil.compose)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler) // Usa ksp, non kapt
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    debugImplementation(libs.androidx.ui.tooling) //debugImplementation per evitare di includerlo nella release
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation (libs.com.google.code.gson)
+    implementation(libs.androidx.ui.test.junit4)
+    implementation(libs.androidx.material3) // NESSUNA VERSIONE, il BOM gestisce la versione!
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.com.google.code.gson)
+    implementation(libs.room.ktx)
     implementation(libs.serialization)
-    implementation(libs.coil.compose)
-    implementation (libs.hilt.android)
-    implementation (libs.androidx.hilt.navigation.compose)
-    implementation(libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.core)
     implementation(libs.androidx.constraintlayout) // constraintlayout per View System
     implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.androidx.room.runtime) // o la versione più recente

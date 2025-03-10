@@ -30,9 +30,9 @@ import com.example.v5rules.viewModel.LoreViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun LoreListScreen(loreViewModel : LoreViewModel, navController: NavHostController) {
+fun LoreListScreen(viewModel : LoreViewModel, navController: NavHostController) {
 
-    val uiState by loreViewModel.loreUiState.collectAsState()
+    val uiState by viewModel.loreUiState.collectAsState()
 
     CommonScaffold(
         navController = navController,
