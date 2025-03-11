@@ -8,7 +8,8 @@ data class Loresheet(
     val title: String,
     val content: String,
     val limitation: String? = null,
-    val powers: List<LoresheetPower>
+    val powers: List<LoresheetPower>,
+    val level: Int = 0,
 )
 
 @Serializable
