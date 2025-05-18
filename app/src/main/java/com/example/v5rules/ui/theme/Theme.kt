@@ -62,9 +62,6 @@ fun V5RulesTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.tertiary.toArgb()
-            window.navigationBarColor = colorScheme.background.toArgb()
-
             val isLightStatusBar =
                 ColorUtils.calculateLuminance(colorScheme.tertiary.toArgb()) > 0.5
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars =
