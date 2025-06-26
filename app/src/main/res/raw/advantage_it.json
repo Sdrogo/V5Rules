@@ -1,0 +1,21 @@
+[
+  {
+    "id": "merit_attractive_1",
+    "name": "Aspetto Attraente",
+    "description": "Sei fisicamente attraente. Ottieni +1 dado ai tiri sociali appropriati.",
+    "type": "MERIT",
+    "minLevel": 2,
+    "maxLevel": 2,
+    "prerequisites": null
+  },
+  {
+    "id": "flaw_dark_secret_1",
+    "name": "Segreto Oscuro",
+    "description": "Nascondi un segreto che, se rivelato, avrebbe gravi conseguenze.",
+    "type": "FLAW",
+    "minLevel": -2,
+    "maxLevel": 1,
+    "prerequisites": null
+  }
+
+]

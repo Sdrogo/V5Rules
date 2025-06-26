@@ -17,7 +17,7 @@ data class Character(
     val attributes: Attributes = Attributes(),
     val abilities: List<Ability> = emptyList(),
     val disciplines: List<Discipline> = emptyList(),
-    val advantages: List<Advantage> = emptyList(),
+    val advantages: List<Background> = emptyList(),
     val backgrounds: List<Background> = emptyList(),
     val loresheets: List<Loresheet> = emptyList(),
     val health: Health = Health(),
@@ -44,27 +44,6 @@ data class Ability(
     val level: Int = 0, // Valore predefinito per il livello
     val specialization: String? = null // Specializzazione opzionale
 )
-
-data class Advantage(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val name: String,
-    val description: String,
-    val level: Int,
-    val type: AdvantageType // Enum: Positive, Negative
-)
-
-data class Background(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val name: String,
-    val description: String,
-    val level: Int,
-    val type: AdvantageType // Enum: Positive, Negative
-)
-
-enum class AdvantageType {
-    POSITIVE,
-    NEGATIVE
-}
 
 data class Health(
     val max: Int = 0,

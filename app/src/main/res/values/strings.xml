@@ -126,6 +126,7 @@
     <string name="character_screen_social">Sociali</string>
     <string name="character_screen_mental">Mentali</string>
     <string name="character_list_title">Lista Schede</string>
+    <string name="background_title_screen">Background</string>
 
     <string-array name="abilities">
         <item>Atletica</item>

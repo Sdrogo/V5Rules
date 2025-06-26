@@ -18,8 +18,9 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) {
 
-    val widthValue = if(isLandscape) 0.3f else 1f
-    Row(verticalAlignment = Alignment.CenterVertically,
+    val widthValue = if (isLandscape) 0.3f else 1f
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth(widthValue)
             .clickable { onClick() }
@@ -48,9 +49,54 @@ fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) 
 }
 
 @Composable
-fun DotsForAttribute(label: String, level: Int, textStyle: TextStyle = MaterialTheme.typography.headlineSmall) {
+fun RangeDots(min: Int, max: Int) {
 
-    Row(verticalAlignment = Alignment.CenterVertically,
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .wrapContentWidth()
+    ) {
+        Text(
+            text = "(",
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier
+                .wrapContentWidth()
+                .padding(8.dp)
+        )
+        for (i in 1..min) Text(
+            "●",
+            color = MaterialTheme.colorScheme.tertiary,
+        )
+        Text(
+            text = " o ",
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier
+                .wrapContentWidth()
+                .padding(8.dp)
+        )
+        for (i in 1..max) Text(
+            "●",
+            color = MaterialTheme.colorScheme.tertiary,
+        )
+        Text(
+            text = ")",
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier
+                .wrapContentWidth()
+                .padding(8.dp)
+        )
+    }
+}
+
+@Composable
+fun DotsForAttribute(
+    label: String,
+    level: Int,
+    textStyle: TextStyle = MaterialTheme.typography.headlineSmall
+) {
+
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .wrapContentWidth()
     ) {
@@ -71,7 +117,7 @@ fun DotsForAttribute(label: String, level: Int, textStyle: TextStyle = MaterialT
             color = MaterialTheme.colorScheme.primary,
             fontSize = 24.sp // Imposta la dimensione del font desiderata
         )
-        for (i in level+1..5) Text(
+        for (i in level + 1..5) Text(
             "○",
             color = MaterialTheme.colorScheme.primary,
             fontSize = 24.sp // Imposta la dimensione del font desiderata
@@ -80,8 +126,9 @@ fun DotsForAttribute(label: String, level: Int, textStyle: TextStyle = MaterialT
 }
 
 @Composable
-fun DotsOnlyForLevel(level: Int){
-    Row(verticalAlignment = Alignment.CenterVertically,
+fun DotsOnlyForLevel(level: Int) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .wrapContentWidth()
     ) {

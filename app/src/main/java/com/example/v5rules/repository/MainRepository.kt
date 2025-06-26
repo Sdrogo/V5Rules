@@ -1,6 +1,7 @@
 package com.example.v5rules.repository
 
 import android.content.Context
+import com.example.v5rules.data.Background
 import com.example.v5rules.data.Chapter
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
@@ -8,6 +9,7 @@ import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.Loresheet
 import com.example.v5rules.data.NationalityNpc
 import com.example.v5rules.data.PredatorType
+import com.example.v5rules.reader.BackgroundReader
 import com.example.v5rules.reader.ClanReader
 import com.example.v5rules.reader.DisciplineReader
 import com.example.v5rules.reader.LoresheetReader
@@ -25,6 +27,7 @@ class MainRepository(context: Context) : CharacterRepository {
     private val rulesReader = RulesReader(context)
     private val loresheetReader = LoresheetReader(context)
     private val npcReader = NpcReader(context)
+    private val backgroundReader = BackgroundReader(context)
 
     fun loadDisciplines(language: Locale): List<Discipline> {
         return disciplineReader.readDisciplines(language)
@@ -49,6 +52,9 @@ class MainRepository(context: Context) : CharacterRepository {
     }
     fun loadLoresheet(lenguage: Locale): List<Loresheet> {
         return loresheetReader.readLoresheets(lenguage)
+    }
+    fun loadBackground(lenguage: Locale): List<Background> {
+        return backgroundReader.readBackground(lenguage)
     }
     fun loadKindred(language: Locale): List<Chapter> {
         return rulesReader.readKindred(language)

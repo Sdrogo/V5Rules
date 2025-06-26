@@ -21,7 +21,6 @@ import com.example.v5rules.data.Character
     AttributesConverter::class,
     AbilityListConverter::class,
     DisciplineListConverter::class,
-    AdvantageListConverter::class,
     BackgroundListConverter::class,
     LoresheetListConverter::class,
     HealthConverter::class,

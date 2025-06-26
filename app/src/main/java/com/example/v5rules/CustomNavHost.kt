@@ -13,6 +13,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.example.v5rules.ui.compose.screen.HomeScreen
 import com.example.v5rules.ui.compose.screen.NPCGeneratorScreen
+import com.example.v5rules.ui.compose.screen.background.BackgroundDetailsScreen
+import com.example.v5rules.ui.compose.screen.background.BackgroundScreen
 import com.example.v5rules.ui.compose.screen.clan.ClanDetailScreen
 import com.example.v5rules.ui.compose.screen.clan.ClanListScreen
 import com.example.v5rules.ui.compose.screen.discipline.DisciplineDetailScreen
@@ -37,6 +39,7 @@ import com.example.v5rules.ui.compose.screen.rule.RulesDetailsScreen
 import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetListScreen
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetScreen
+import com.example.v5rules.viewModel.BackgroundViewModel
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
@@ -79,6 +82,8 @@ object RulesNav
 @Serializable
 object LoresheetNav
 
+@Serializable
+object BackgroundNav
 @Serializable
 object CharacterSheetListNav
 
@@ -128,6 +133,9 @@ data class SubRuleNav(val title: String, val section: String)
 data class LoresheetDetailsNav(val name: String, val id: Int)
 
 @Serializable
+data class BackgroundDetailsNav(val name: String, val id: Int)
+
+@Serializable
 data class CharacterSheetEditNav(val id: Int)
 
 @Composable
@@ -142,7 +150,8 @@ fun CustomNavHost(
     npcGeneratorViewModel: NPCGeneratorViewModel,
     kindredViewModel: KindredViewModel,
     pgViewModel: PgViewModel,
-    characterSheetViewModel: CharacterSheetViewModel
+    characterSheetViewModel: CharacterSheetViewModel,
+    backgroundViewModel: BackgroundViewModel
 ) {
     NavHost(navController = navController, startDestination = HomeNav) {
         val enterTransition = fadeIn(
@@ -167,6 +176,12 @@ fun CustomNavHost(
             exitTransition = { exitTransition })
         {
             HomeScreen(navController)
+        }
+        composable<BackgroundNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ){
+            BackgroundScreen(backgroundViewModel, navController)
         }
         composable<DisciplinesNav>(
             enterTransition = { enterTransition },
@@ -255,6 +270,19 @@ fun CustomNavHost(
                 title = entry.title
             )
         }
+        composable<BackgroundDetailsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<BackgroundDetailsNav>()
+            BackgroundDetailsScreen(
+                backgroundViewModel = backgroundViewModel,
+                navController = navController,
+                name = entry.name,
+                id = entry.id
+            )
+        }
+
+
         composable<SubLoreNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) { backStackEntry ->

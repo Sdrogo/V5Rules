@@ -1,0 +1,354 @@
+[
+  {
+    "id": 1,
+    "title": "Alleati",
+    "description": "Gli Alleati possono essere complessi come un team di ricercatori che il vampiro sovvenziona di nascosto o semplici come amici d’infanzia o membri della famiglia. Gli Alleati si manifestano per aiutarlo, naturalmente entro le loro possibilità. Quanti pallini investe negli Alleati deciderà quanto possono dimostrarsi affidabili in caso di bisogno. Quando assegnate un numero qualunque di pallini a questo Background, pensate a quali altri aspetti del personaggio potrebbero giustificare l’accesso a un Alleato: per un Fratello con un archetipo Sirena, l’Alleato potrebbe essere il suo agente che lo aiuta a presentarsi al nuovo Toreador entrato nei Primogeniti in una mostra d’arte. Oppure, un Ventrue con l’archetipo Padrino avrà probabilmente tanto Alleati quanto Nemici derivanti dalla sua famiglia criminale in vita e da una famiglia rivale appena sbarcata in città. Gli Alleati non sono mai vampiri, a prescindere dal loro livello di competenza.",
+    "prerequisites": null,
+    "directFlaws": [
+      {
+        "id": 20001,
+        "title": "Nemici",
+        "description": "L’altra faccia degli Alleati è rappresentata dal Difetto Nemici. Se gli Alleati gestiscono una piccola agenzia investigativa, i loro Nemici potrebbero essere anche quelli del vampiro: una banda di ladruncoli che tormenta i loro clienti (e il Dominio del Fratello), o un dipartimento di polizia che usa la burocrazia per richiedere interminabili documentazioni inutili o confisca prove destinate al personaggio. Ma il vampiro può anche non avere affatto Alleati, solo Nemici che cercano di intralciarlo a ogni pie’ sospinto. Tuttavia il vampiro può anche tentare di ritorcere il Difetto a proprio vantaggio, manipolando i Nemici per mezzo di una delle sue Maschere e indirizzandoli contro i propri avversari o incastrandoli proprio per quell’attacco a un rivale. Naturalmente i Nemici hanno motivazioni in abbondanza per fare risalire i crimini alla coterie del personaggio – e il rischio di scatenarli sui Fratelli rivali è sempre una sua responsabilità. Discutete tali tattiche con il Narratore e con gli altri giocatori del gruppo, perché questo Difetto può influenzare anche loro. Come gli Alleati, anche i Nemici sono sempre mortali, o in alcuni casi ghoul.",
+        "isFlaw": true
+      }
+    ],
+    "merits": [],
+    "flaws": []
+  },
+  {
+    "id": 2,
+    "title": "Contatti",
+    "description": "Se gli Alleati possono fare succedere delle cose, i Contatti aiutano a scoprire le cose che accadono agli altri. Il modo in cui il personaggio accede a un particolare Contatto non deve necessariamente avere sinergia con il suo background o Concetto (un Fratello intraprendente ha occhi e orecchie dappertutto, come è noto), ma una ragione concreta per quello specifico Contatto migliorerà la storia rendendola più plausibile. Le coterie di strada possono fare leva su Contatti da uno o due pallini che forniscono loro oggetti e informazioni del livello appropriato all’ambiente che condividono con esse. Non fermatevi qui, però: ideate un nome e una personalità basilare per il Contatto, annotandoli sulla Mappa Relazionale o nei vostri appunti. Un personaggio che lavorava come conduttore radiofonico, per esempio, potrebbe conoscere i tecnici del suo studio, mentre un imbalsamatore avrà un collegamento alla sua agenzia di pompe funebri. Il modo in cui la morte del personaggio ha cambiato il suo rapporto con loro – o se non l’ha cambiato affatto – offre succose opportunità di ruolo persino in una rapida scena dedicata all’acquisto di stupefacenti. Mano a mano che il vampiro invecchia e incontra nuovi mortali da aggiungere al suo arsenale, recitando la sua parte e agendo con debito opportunismo nei loro confronti, può crearsi nuovi Contatti e aprire nuove possibili occasioni di storie e risorse.",
+    "directFlaws": [ ],
+    "merits": [],
+    "flaws": []
+  },
+  {
+    "id": 3,
+    "title": "Fama",
+    "description": "Scegliere Fama come Background significa generalmente che i PNG della cronaca vorranno avere a che fare con il personaggio. In un’ambientazione moderna un vampiro può avere Fama in due modi, ognuno dei quali presenta i suoi pericoli. La fama mortale e una posizione sotto gli occhi del pubblico mette un Fratello a rischio di essere fiutato dall’Inquisizione o ricattato dai suoi simili privi di scrupoli. Scegliere di avere Fama tra i Fratelli riduce tali possibilità, ma significa che i membri di altre sette o fazioni potranno considerarlo un potenziale alleato, una minaccia o una fonte di informazioni o accesso a Cainiti ancora più famosi. Il Narratore può fabbricare una Sapienza di Tenebra basata sulla Fama del personaggio, o offrire al giocatore la possibilità di ricevere la sua Fama dal gruppo o dalla leggenda di una Sapienza di Tenebra già esistente. Avere Fama può rendere difficile raggiungere un luogo senza farsi notare, se una fila di mortali tampina il vampiro nella speranza di postare sui social qualche selfie con lui, ma può anche proteggerlo in alcuni modi. I Fratelli rischiano di violare la Masquerade se aggrediscono o fanno del male direttamente a un personaggio Famoso, perché il suo seguito umano e i paparazzi sono sempre nei dintorni. Il vampiro può inoltre sfuggire ai nemici entrando in circoli o alberghi esclusivi dove le prenotazioni di accesso vanno effettuate con anni di anticipo.",
+    "directFlaws": [
+      {
+        "id": 20002,
+        "title": "Infamia",
+        "description": "L’altra faccia della luccicante medaglia della Fama ha il proprio assortimento di pro e contro. Un Fratello famigerato può faticare a mettersi in buona luce presso il Principe, oppure i mortali possono infastidirlo nelle sue attività notturne. Altri individui sgradevoli, però, potrebbero considerare un vampiro con Infamia una risorsa utile e rivelarsi più inclini ad aiutare una canaglia della loro risma. Sebbene ciò non giovi di certo alla sua immagine pubblica, altre organizzazioni o persone equivoche lo ritengono uno dei loro, consentendogli talvolta di fare leva su questa solidarietà per realizzare i suoi piani. Meglio però che stia attento a non fare arrabbiare anche loro…",
+        "isFlaw": true
+      }
+    ],
+    "merits": [],
+    "flaws": []
+  },
+  {
+    "id": 4,
+    "title": "Rifugio",
+    "description": "Scegliere Fama come Background significa generalmente che i PNG della cronaca vorranno avere a che fare con il personaggio. In un’ambientazione moderna un vampiro può avere Fama in due modi, ognuno dei quali presenta i suoi pericoli. La fama mortale e una posizione sotto gli occhi del pubblico mette un Fratello a rischio di essere fiutato dall’Inquisizione o ricattato dai suoi simili privi di scrupoli. Scegliere di avere Fama tra i Fratelli riduce tali possibilità, ma significa che i membri di altre sette o fazioni potranno considerarlo un potenziale alleato, una minaccia o una fonte di informazioni o accesso a Cainiti ancora più famosi. Il Narratore può fabbricare una Sapienza di Tenebra basata sulla Fama del personaggio, o offrire al giocatore la possibilità di ricevere la sua Fama dal gruppo o dalla leggenda di una Sapienza di Tenebra già esistente. Avere Fama può rendere difficile raggiungere un luogo senza farsi notare, se una fila di mortali tampina il vampiro nella speranza di postare sui social qualche selfie con lui, ma può anche proteggerlo in alcuni modi. I Fratelli rischiano di violare la Masquerade se aggrediscono o fanno del male direttamente a un personaggio Famoso, perché il suo seguito umano e i paparazzi sono sempre nei dintorni. Il vampiro può inoltre sfuggire ai nemici entrando in circoli o alberghi esclusivi dove le prenotazioni di accesso vanno effettuate con anni di anticipo.",
+    "directFlaws": [
+      {
+        "id": 20003,
+        "title": "Nessun Rifugio",
+        "description": "Il vampiro deve compiere qualche sforzo (almeno un test semplice) per trovare un nuovo riparo ogni mattina.",
+        "isFlaw": true
+      }
+    ],
+    "merits": [
+      {
+        "id": 10001,
+        "title": "Esercizio Commerciale",
+        "description": "Il vampiro affitta il suo rifugio a un’attività separata: un call center attivo dalle 9 alle 17, una caffetteria diurna, una lavanderia automatica o un salone di bellezza. Può addirittura gestirla di persona (o tramite Seguaci) come parte di una coterie Aziendale (p. 158), sebbene il Narratore debba evitare di trasformare questo gioco di intimo orrore in un gioco di orrore da gestione imprenditoriale. I mortali vanno avanti con le loro vite diurne mentre il vampiro dorme nello scantinato appositamente attrezzato allo scopo o in uno dei ripostigli dove sono custodite tutte le attrezzature non più funzionanti. L’impresa paga un affitto mensile (o una percentuale dei profitti, se il personaggio ne è il titolare), offrendo al vampiro un flusso costante di finanziamento. Il lato negativo: un sacco di sconosciuti che girano per casa, potenziale esposizione alle autorità locali e imposte sull’attività che possono attirare un po’ troppo l’attenzione sul vampiro. Affittare a criminali toglie dal quadro le tasse e le scartoffie, ma attira ancor di più l’attenzione di poliziotti e altri criminali meno malleabili. Il valore di base in pallini si abbassa di uno per le riserve che coinvolgono la privacy del Rifugio e la sua sicurezza contro intrusioni finanziarie o criminali (a scelta del giocatore quando acquista il Pregio). I pallini in questo Pregio corrispondono grosso modo al loro equivalente in Risorse, e il Narratore può consentire di utilizzarli al posto di queste ultime se ritiene che la sostituzione abbia senso. Aggiungono inoltre due dadi alle riserve per fare cose relative alle attività dell’esercizio commerciale o della competenza di base, per interagire con altri esercizi e nei test di Disponibilità per verificare se il personaggio ha sotto mano qualcosa che gli occorre sul momento (V5 p. 407). Gli esercizi commerciali dispongono sempre di magazzini e ripostigli di forniture, dopotutto. Tuttavia, se succede qualcosa al Rifugio, quei pallini di simil-Risorse non saranno più disponibili: una sala da biliardo non produce incassi se è rasa al suo da un incendio o se l’FBI la chiude perché è la scena di un delitto. Forse sarebbe meglio avere anche qualche pallino di Risorse “normali” come riserva. I due valori non si sommano: un Esercizio Commerciale da due pallini più Risorse •• significa che il personaggio dispone di due flussi di introito da Borghese; non è un Ricco da quattro pallini. \n•• L’esercizio del Rifugio è una fiorente attività locale o la succursale di una catena diffusa in tutta la nazione. \n••• L’esercizio del Rifugio è un’attività locale dominante o l’ufficio di una multinazionale. Forse occupa qualche piano di un grattacielo o una palazzina nei pressi dell’aeroporto, o persino una banchina con magazzini nella zona portuale dove raccoglie pedaggi dalle navi e dagli spedizionieri.",
+        "minLevel": 2,
+        "maxLevel": 3
+      },
+      {
+        "id": 10002,
+        "title": "Furcus",
+        "description": "Il rifugio del vampiro sorge sopra un nodo o una biforcazione nelle vene della Terra, o su una lacerazione nel Sudario. Sebbene impercettibile dalla vista normale (ma forse non ad Auspex o vari Rituali), giace sotto ad un’area importante: il pianerottolo di una scala, una fontana nel giardino, il centro di una stanza. (Intelligenza + Occulto può permettere a qualcuno di dedurne l’ubicazione, a patto che sappia cosa sta cercando.) I Fratelli percepiscono l’attrazione delle energie magiche del sito, mentre le vacche provano spesso nausea o inquietudine. I Rituali di Stregoneria del Sangue o le Cerimonie di Oblio (scegliete quali al momento dell’acquisizione del Vantaggio) possono attingere all’energia del Furcus. Ogni pallino in questo Pregio aggiunge un dado alle riserve Rituali (o Cerimoniali) utilizzate sul Furcus. (A discrezione del Narratore può anche sottrarre un dado alle riserve Sociali usate per calmare o sedurre i mortali – o aggiungerne uno nelle interazioni con fattucchieri mortali o altri fanatici dell’occulto.) Un fallimento bestiale in uno di questi test può generare risultati arcani o raccapriccianti: l’energia del Furcus ferisce o maledice lo stregone, l’evocazione accidentale di un’entità o un evidentissimo impulso magico sprigionatosi dal rifugio. A seconda della Cerimonia, un fallimento totale o bestiale può imporre automaticamente al Rifugio il Difetto Infestato. Fuoco (Armaiolo) per fabbricare un moschetto automatico Sten, Intelligenza + Tecnologia per realizzare una balestra composita con una stampante 3D, Intelligenza + Manualità (Ingegneria) per truccare un’automobile e così via. Per i macchinari particolarmente inconsueti, il personaggio deve spiegare in che modo li ha ottenuti se non dispone di Risorse ••• o più. Un rifugio piccolo con questo Pregio può sommare dadi solo alle riserve di una specialità di Manualità: non ha abbastanza spazio per un’officina meccanica generica o per lavorare sui veicoli a motore. Un’officina meccanica da tre pallini può includere anche un inceneritore, mentre un’officina da tre pallini in un rifugio grande può comprendere un compattatore di rifiuti o un compressore di automobili da rottamare.",
+        "minLevel": 1,
+        "maxLevel": 3
+      },
+      {
+        "id": 10003,
+        "title": "Officina meccanica",
+        "description": "Il rifugio dispone di attrezzi, equipaggiamento e macchinari all’avanguardia in uno spazio di lavoro dedicato, più provviste di olio, prodotti chimici industriali, benzina e altre necessità casalinghe. Ogni pallino in questo Pregio aggiunge un dado alle riserve di Manualità o ad altri test relativi a montaggio, riparazione o smontaggio di macchinari e attrezzature: Intelligenza + Armi da Fuoco (Armaiolo) per fabbricare un moschetto automatico Sten, Intelligenza + Tecnologia per realizzare una balestra composita con una stampante 3D, Intelligenza + Manualità (Ingegneria) per truccare un’automobile e così via. Per i macchinari particolarmente inconsueti, il personaggio deve spiegare in che modo li ha ottenuti se non dispone di Risorse ••• o più. Un rifugio piccolo con questo Pregio può sommare dadi solo alle riserve di una specialità di Manualità: non ha abbastanza spazio per un’officina meccanica generica o per lavorare sui veicoli a motore. Un’officina meccanica da tre pallini può includere anche un inceneritore, mentre un’officina da tre pallini in un rifugio grande può comprendere un compattatore di rifiuti o un compressore di automobili da rottamare.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10004,
+        "title": "Arsenale Nascosto",
+        "description": "ogni pallino aggiunge una coppia di armi – una pistola e un fucile con le relative munizioni. Trovarle è difficile quanto individuare il giaciglio del vampiro.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10005,
+        "title": "Biblioteca",
+        "description": "una libreria dedicata a occulto, leggende Cainite, storia cittadina e simili. Ogni pallino nel Pregio aggiunge un dado ai test connessi a una specialità di Accademiche, Investigare o Occulto. I rifugi piccoli possono avere al massimo un pallino.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10006,
+        "title": "Cella",
+        "description": "Una stanza apposita e sicura per custodire due prigionieri (la Difficoltà base per scappare è 5). Ogni pallino in più consente di rinchiuderne il doppio (fino a un massimo di 32, solo nei rifugi molto grandi) o aggiunge +1 alla Difficoltà di fuga. Non disponibile nei rifugi piccoli.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10007,
+        "title": "Guardiani",
+        "description": "Delinquenti o sicurezza privata sorvegliano il rifugio. Ogni pallino fornisce quattro guardie Comuni e un capo Dotato (Profili dei Mortali, p. 185).",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10008,
+        "title": "Laboratorio",
+        "description": "Un locale attrezzato con lavello industriale, pavimento rinforzato ecc. Ogni pallino nel Pregio aggiunge un dado ai test connessi a una specialità di Scienze o Tecnologia – o Alchimia, per i Sangue debole che usano il metodo della Fixatio (p. 283). Non disponibile nei rifugi piccoli.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10009,
+        "title": "Lusso",
+        "description": "TV ad alta definizione, mobili firmati, oggetti d’arte e altri particolari costosi conferiscono un bonus di due dadi ai test Sociali con ospiti mortali. Se non si hanno almeno Risorse (•••), il décor è stato acquisito illecitamente.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10010,
+        "title": "Posterla",
+        "description": "Un'uscita sul retro, galleria segreta che sbuca nelle fogne o altra via di fuga non appariscente. Ogni pallino aggiunge un dado alle riserve per fuggire o eludere la sorveglianza nei pressi del rifugio.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10011,
+        "title": "Protezione",
+        "description": "Il rifugio dispone di qualche tipo di barriera magica contro le forze soprannaturali. Forse il personaggio non è in grado di disattivarla, ma essa gli concede di passare. I limiti della barriera devono essere discussi con il Narratore. Ogni pallino aggiunge un dado alla riserva per resistere allo scrutamento soprannaturale o a qualsiasi altra intrusione contrastata dalla barriera. Per acquisire il Pregio, il Narratore può richiedere il possesso di Occulto 3 o + o di Stregoneria del Sangue.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10012,
+        "title": "Sala Operatoria",
+        "description": "Una stanza attrezzata come ospedale da campo. Due dadi extra alle riserve pertinenti, di solito Medicina, dei test effettuati nel rifugio. Non disponibile nei rifugi piccoli.",
+        "minLevel": 1,
+        "maxLevel": 5,
+        "prerequisites": "Rifugio ••"
+      },
+      {
+        "id": 10013,
+        "title": "Sistema di Sicurezza",
+        "description": "Un sistema di sorveglianza migliore della media. Ogni pallino aggiunge un dado alle riserve per resistere a (o segnalare) un’intrusione.",
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10014,
+        "title": "Ubicazione",
+        "description": "Il rifugio è in una delle zone più eleganti o esclusive della città, nel Serraglio o in altro terreno ghiotto. Due dadi extra (o +2 alla Difficoltà dei nemici) ai bonus dei tiri pertinenti a Chasse (p. 196) o al valore base del Rifugio (sceglierne uno). Se nessun modificatore esprime esattamente ciò che si aveva in mente, definire con il Narratore quando ci si può aspettare di ottenere i due dadi bonus. Ad esempio, un Rifugio vicino all'Elysium può concedere un bonus di due dadi ai test di Galateo nell'Elysium e per raccogliere pettegolezzi a corte.",
+        "minLevel": 1,
+        "maxLevel": 5
+      }
+    ],
+    "flaws": [
+      {
+        "id": 10015,
+        "title": "Compromesso",
+        "description": "Il rifugio è già stato saccheggiato una volta, forse prima che diventasse del personaggio. Probabilmente è nella lista nera di qualcuno. Intrusi o spie ricevono due dadi extra per violarlo o sorvegliarlo. Se il personaggio finisce sui radar dell'Inquisizione farebbe meglio a traslocare.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 10016,
+        "title": "Infestato",
+        "description": "Il rifugio ha un inquilino soprannaturale che il vampiro non controlla né capisce. Può essere un fantasma, un portale dimensionale, un meteorite maledetto o qualsiasi altra cosa di cui non si può liberare facilmente. Ovviamente, chi comprende la manifestazione potrebbe sfruttarla per violare il rifugio. Gli effetti precisi sono lasciati al Narratore, ma ogni pallino del Difetto sottrae un dado alle riserve influenzate usate nel rifugio.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10017,
+        "title": "Inquietante",
+        "description": "Il rifugio sembra il covo di un serial killer, e in tutta franchezza lo è. I vicini ignari potrebbero fare una soffiata alla polizia o anche solo parlare del luogo spaventoso che hanno visto. Le riserve Sociali per sedurre o mettere a loro agio gli ospiti mortali subiscono due dadi di penalità.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 5
+      },
+      {
+        "id": 10018,
+        "title": "Condiviso",
+        "description": "Il rifugio del personaggio non è del tutto suo. Altri Fratelli a parte lui e la sua coterie vi hanno accesso e possono prendere decisioni al riguardo senza consultarlo. Decidete le specifiche condizioni e determinate la gravità del Difetto in base alle circostanze. La versione da un pallino riguarda i rifugi condivisi, vale a dire che il personaggio deve coabitare con uno o più PNG, oppure lui e un’intera nidiata di novellini occupano abusivamente un edificio abbandonato. Qualunque problema questi pivelli attirino sul rifugio diventa anche un problema del personaggio. Una coterie che decida di dividere un rifugio non acquisisce in automatico questo Difetto; condividere la casa coi propri compagni di coterie non ha altre controindicazioni a parte quelle generate dai giocatori nel corso della cronaca. Il Difetto Condiviso da un pallino comprende anche i rifugi a breve termine: il vampiro soggiorna in un’ambasciata, casa protetta o accampamento e ci si aspetta che si tolga di torno e lasci spazio a un altro Fratello che ne prenda il posto. Ottenere un nuovo rifugio condiviso quando ciò avviene non comporta la spesa di altri pallini, ma il personaggio può perdere quelli che eventualmente aveva speso per migliorare il vecchio rifugio, oltre al fastidio di dover trasferire tutta la sua roba e riaddestrare il suo Gregge su dove presentarsi la sera. La versione da due pallini significa che il vampiro ha un padrone di casa: un altro Fratello detiene dei diritti sulla proprietà (una proprietà effettiva sul terreno o una concessione dal Principe o Barone locale) e concede cortesemente (o anche no) al personaggio di soggiornarvi. Dopo la creazione del rifugio, l’inquilino dovrà discutere con il padrone di casa ogni cambiamento che desidera apportare. Il padrone di casa può entrare nel rifugio quando gli pare. I padroni di casa particolarmente vecchi possono anche richiedere all’inquilino servizi o lavori sporchi, trattandolo come un vassallo o un apparatčik. Cappelle Tremere, sotterranei Nosferatu e templi del Ministero possono essere rifugi condivisi da due pallini per i personaggi dei clan appropriati, a seconda dell’equilibrio dei poteri tra loro e gli altri Fratelli della zona.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 2
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Gregge",
+    "description": "Alcuni archetipi di Predatore si basano su questo Background più di altri, come il Consensualista, mentre l'archetipo Sanguisuga non potrebbe affatto farne un uso efficace. La cronaca può anche aiutare a decidere in che modo viene usato il Gregge o se è permesso in primo luogo, in quanto territori contesi, domini in zona di guerra o coterie nomadi o fuggiasche rendono difficile accedere a questo Vantaggio. Un Gregge può anche incorporarsi in altri Background, consentendo di ottenere più spunti narrativi dai mortali. Seguaci e Alleati possono essere collegati al Gregge di un giocatore e il Narratore può permettere l'utilizzo di analoghe combinazioni anche con altri Background."
+  },
+  {
+    "id": 6,
+    "title": "Influenza",
+    "description": "Influenza si basa sul potere politico e aggiunge alla cronaca intrighi e conflitti istituzionali. Usare Influenza è qualcosa di più del semplice manipolare in astratto la politica e i media di una città: i vampiri di certi clan possono esercitare questo vantaggio in vari settori più facilmente di altri. I Brujah hanno un’affinità per gli attivisti o le milizie locali, mentre i Malkavian avranno più probabilmente Influenza su strane conventicole o cerchie misticheggianti. Nel definire le Influenze e decidere in che modo si ricollegano al personaggio, cercate di pensare anche al suo archetipo di Predatore: chi dovrà manipolare per avere aiuto nella caccia? Influenza conferisce anche una protezione di riserva per il dominio della coterie. In una coterie, avere un ampio spettro di Influenza (come una estesa rete di Contatti) offre al gruppo flessibilità di pianificazione e reazione alle azioni nemiche. Ad esempio, avere influenza in un ufficio politico locale non sarà efficace nel bloccare una strada al traffico quanto un distretto di polizia, ma l’ufficio del consigliere comunale può senz’altro inserire le guardie del Rifugio negli elenchi approvati dei “gruppi di azione giovanile”.",
+    "directFlaws": [
+      {
+        "id": 20004,
+        "title": "Disprezzato e Malvisto",
+        "description": "Questi due Difetti offrono interessanti spunti di gioco qualora si desideri aumentare l’autosufficienza del vampiro nel suo Dominio. Disprezzato mette un gruppo o una regione della città in attiva opposizione al Fratello e persino i neutrali mantengono un grado di freddezza, mentre Malvisto gli mette contro chiunque nella stessa misura: il vampiro può fare leva su entrambi quando vuole infiammare gli animi del suo quartiere. Naturalmente, quando invia i propri Alleati e Seguaci in altri territori, possono incontrare più problemi del solito anche se quei Difetti non li influenzano direttamente (così come i Contatti del personaggio). Il vampiro può imbattersi in tali conseguenze durante un’escursione notturna: un Toreador malvisto perché ha caricato un video che sbeffeggia la squadra di calcio locale resta invischiato in interminabili discussioni sportive ogni volta che vorrebbe solo nutrirsi in santa pace. È anche possibile combinare Disprezzato o Malvisto con la normale Influenza: il consigliere comunale è disposto a incontrare il Fratello solo in un parcheggio sotterraneo e pretende di essere pagato in contanti, ma autorizza comunque il suo nightclub a restare aperto tutta la notte e avere una piattaforma di carico.",
+        "isFlaw": true
+      }
+    ],
+    "merits": [],
+    "flaws": []
+  },
+  {
+    "id": 7,
+    "title": "Sapienze di Tenebra",
+    "description": "Questi Tratti esistono per sottolineare un particolare aspetto del mondo al Narratore e al giocatore interessato, senza costringere tutti gli altri a conoscere ogni minuzia dell’ambientazione di Vampiri. Una Sapienza di Tenebra porta in primo piano un gruppo, un evento storico o un anziano così come si relaziona a quello specifico giocatore, incoraggiandolo a fare suo quell’aspetto e rammentando al Narratore che i misteri vampirici esistono per servire la storia che va in scena al suo tavolo in quella sessione, non come lezioni obbligatorie. Una Linea di Sangue è un tipo specifico di Sapienza di Tenebra che agisce come elemento di background separato ed esclusivo.",
+    "merits": [
+      {
+        "id": 20006,
+        "title": "Linea di Sangue",
+        "description": "Il personaggio è stato Abbracciato da una particolare stirpe vampirica che manifesta qualità uniche. Ciò gli dà accesso a una seconda Sapienza di Tenebra che solo i membri della sua linea di sangue possiedono. Ogni altra regola e limitazione del Background Sapienza di Tenebra (V5 p. 193) si applica normalmente: “Linea di Sangue” è un Background separato, pertanto il personaggio può disporre sia di un Vantaggio derivato da essa che uno dal Background Sapienza di Tenebra. Quasi tutti gli Hecata possiedono anche una Linea di Sangue separata.\nCome per Sapienza di Tenebra, è possibile avere una sola Linea di Sangue, sebbene sia possibile avere una Linea di Sangue e una Sapienza di Tenebra. Il Narratore può decidere che alcune Sapienze di Tenebra già pubblicate e relative a stirpi vampiriche minori (come “Discendente di Hardestadt” e “Discendente di Helena” in V5 p. 390-391) contino come Linee di Sangue, consentendo ai giocatori che le possiedono di acquisire una ulteriore Sapienza di Tenebra non collegata al lignaggio.",
+        "minLevel": 1,
+        "maxLevel": 5
+      }
+    ],
+    "flaws": []
+  },
+  {
+    "id": 8,
+    "title": "Maschera",
+    "description": "Intrighi politici e orrore politico implicano identità scambiate o alternative, un elemento chiave di questo Background. Al suo livello più essenziale, consente al personaggio di conservare un lavoro, guidare un'auto, pagare le bollette, usare la carta di credito e rimanere in altro modo ancorato alla società mortale. Una cronaca che enfatizzi le identità scambiate o alternative può anche consentire a un personaggio con più Maschere di mitigare i problemi derivanti dalla Fama o nascondersi dagli Avversari – per un po'.",
+    "directFlaws": [
+      {
+        "id": 20007,
+        "title": "Azzerato e Falsario",
+        "description": "Azzerato offre una buona sinergia con i personaggi che fungono da spie o agenti per la loro setta, ombre sfuggenti per scopi loro o per quelli dei loro mandatari. Falsario offre al vampiro la capacità di fabbricare maschere per altri in cambio di un compenso e con poco rischio. Questo Background costituisce un ottimo spunto di storia criminale collaterale: i personaggi possono vendere la loro perizia in cambio di soldi o favori, generando al contempo potenziali pericoli da parte di cacciatori e nemici dei loro clienti.",
+        "isFlaw": true
+      },
+      {
+        "id": 20008,
+        "title": "Noto Corponeutro e Noto Defunto",
+        "description": "Come altri Difetti di Background, questi non richiedono al personaggio di avere pallini in Maschera. Funzionano come veicoli narrativi, attirando l’indesiderata attenzione da parte di nemici o addirittura di persone care. Un personaggio attento a evitare le telecamere di sorveglianza o le ronde degli agenti di sicurezza privata può tenersi sotto il radar della Coalizione anche essendo un Noto Corponeutro, ma Noto Defunto è più difficile da gestire se non si dispone di poteri di camuffamento attivi. Un decesso famoso lascia un Fratello vulnerabile ogni volta che i mortali lo riconoscono: forse Netflix ha realizzato un documentario sul suo caso di omicidio irrisolto, o forse gli attivisti hanno appiccicato la sua faccia sui muri di tutta la città durante la sua veglia funebre a lume di candela. Si era candidato per una carica pubblica locale? Il suo sorriso adornava i cartelloni per reclamizzare il suo studio legale per trarre profitto delle disgrazie altrui?",
+        "isFlaw": true
+      }
+    ],
+    "merits": [],
+    "flaws": []
+  },
+  {
+    "id": 9,
+    "title": "Mawla",
+    "description": "In molti casi, un Fratello più vecchio o più esperto aiuta il personaggio nel ruolo di Mawla. Un sire che promuova l'avanzamento dei suoi infanti è un Mawla piuttosto standard, o forse un membro di una fazione o setta che ha \"reclutato\" il personaggio gli viene assegnato come ufficiale politico o confessore per assicurarsi che non sperperi il potenziale che i suoi creatori videro in lui. Tuttavia, il Fratello può anche avere un Mawla più giovane: un amico fedele dei suoi giorni da mortale, anch'egli Abbracciato e incredibilmente ancora degno di fiducia. Un numero maggiore di pallini indica un Mawla in una posizione più preziosa: un neonato da un pallino potrebbe valerne anche due o tre se è l'informatore del personaggio nel seguito del Barone o del Principe locale. Spetta al Narratore decidere se nella cronaca l'avere una spia nel campo nemico valga di più o di meno di una spia nella corte del proprio signore.",
+    "directFlaws": [
+      {
+        "id": 20009,
+        "title": "Avversario",
+        "description": "Dal momento che un **Avversario** può guidare la trama in qualunque momento, il Narratore e il giocatore dovrebbero discuterne per tempo e con qualche dettaglio: la setta o fazione dell’Avversario finirà per giocare un ruolo importante nella cronaca, quindi è meglio definire un Avversario che vi si adatti già senza problemi. Un Avversario più potente prenderà di mira il personaggio per fare leva sul suo vero nemico: il suo sire, Mawla o altro teorico superiore. Detto ciò, anche un Avversario personale può essere interessante: forse il vampiro e il suo Avversario gareggiano da sempre per la promozione nella loro setta. Oppure si può ribaltare la prospettiva: è il personaggio a essere il più grande nemico dell’Avversario. Forse quest’ultimo lo ha tradito, lo ha incastrato davanti al Principe facendolo scacciare o bandire dalla corte. Ma ora è tornato e il suo principale obiettivo è distruggere il suo Avversario.",
+        "isFlaw": true
+      }
+    ],
+    "merits": [],
+    "flaws": []
+  },
+  {
+    "id": 11,
+    "title": "Favori",
+    "description": "In molti casi, un Fratello più vecchio o più esperto aiuta il personaggio nel ruolo di Mawla. Un sire che promuova l'avanzamento dei suoi infanti è un Mawla piuttosto standard, o forse un membro di una fazione o setta che ha \"reclutato\" il personaggio gli viene assegnato come ufficiale politico o confessore per assicurarsi che non sperperi il potenziale che i suoi creatori videro in lui. Tuttavia, il Fratello può anche avere un Mawla più giovane: un amico fedele dei suoi giorni da mortale, anch'egli Abbracciato e incredibilmente ancora degno di fiducia. Un numero maggiore di pallini indica un Mawla in una posizione più preziosa: un neonato da un pallino potrebbe valerne anche due o tre se è l'informatore del personaggio nel seguito del Barone o del Principe locale. Spetta al Narratore decidere se nella cronaca l'avere una spia nel campo nemico valga di più o di meno di una spia nella corte del proprio signore. In tutti gli altri aspetti, i Favori Minori, Importanti e Cruciali funzionano come descritto nel manuale base di Vampiri (p. 314-315). I Favori non possono essere acquistati o cancellati tramite i punti esperienza. Dopo la creazione del personaggio, l’unico modo per ottenerli (o annullarli) è tramite le sue azioni nel gioco.",
+    "directFlaws": [
+      {
+        "id": 20011,
+        "title": "Debiti",
+        "description": "I Debiti conferiscono meno punti se acquisiti come Difetti rispetto al loro costo come Pregi. Avere un Debito è una brutta faccenda, ma essere in Debito Importante con un vampiro di Status superiore (cioè dovergli un Favore Importante) è anche peggio. Una volta per storia, il creditore del personaggio o i suoi scagnozzi possono esigere da lui un favore che non può rifiutare, a meno che non voglia essere emarginato, braccato in una caccia di sangue o peggio. Questo favore può assumere qualsiasi forma e spesso comporta l’esposizione a un pericolo mortale o al potenziale crollo della sua reputazione.\n\nSe un PG si ritrova in Debito Cruciale con un vampiro di Status superiore, tanto vale che si sottoponga al Legame di Sangue e diventi suo servo. Persino i vampiri non Vili possono sperimentare questo livello di indebitamento nella forma di Schiavitù del Debito (p. 127). Ogni debito e favore deve essere annotato separatamente. I Debiti non possono essere acquistati o cancellati tramite i punti esperienza. Dopo la creazione del personaggio, l’unico modo per ottenerli (o annullarli) è tramite le sue azioni nel gioco.",
+        "isFlaw": true
+      }
+    ],
+    "merits": [
+      {
+        "id": 10019,
+        "title": "Favore Minore",
+        "description": "• Neonato, Ancilla, •• Anziano, Primogenito o membro di Consiglio Anarchico, ••• Principe o Barone",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 3
+      },
+      {
+        "id": 10020,
+        "title": "Favore Importante",
+        "description": "•• Neonato, Ancilla, ••• Anziano, Primogenito o membro di Consiglio Anarchico, •••• Principe o Barone",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 4
+      }
+    ],
+    "flaws": [
+      {
+        "id": 10021,
+        "title": "Debito Minore",
+        "description": "• Neonato, AncillaAnziano, •• Primogenito o membro di Consiglio Anarchico, Principe o Barone",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 3
+      },
+      {
+        "id": 10022,
+        "title": "Debito Importante",
+        "description": "• Neonato, Ancilla, •• Anziano, Primogenito o membro di Consiglio Anarchico, ••• Principe o Barone",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "id": 10023,
+        "title": "Debito Cruciale",
+        "description": "•• Neonato, Ancilla Anziano, ••• Primogenito o membro di Consiglio Anarchico, Principe o Barone",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 4
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Risorse",
+    "description": "Nel Mondo di Tenebra e in quello dei vivi, i soldi parlano sempre. Considerate le Risorse come l'ultima spiaggia per la persuasione o l'interrogazione quando il carisma fallisce o quando altri Background non possono risolvere il problema. Le Risorse possono sempre raggiungere una persona. I vampiri giovani come i PG capiscono meglio cosa i mortali possono fare per loro, rispetto a Fratelli più vecchi che li vedono solo come cibo o animali da compagnia. E i PG hanno sia la conoscenza che i mezzi per motivarli. Magari non si potrà fermare un anziano con i soldi, ma una corposa mazzetta può convincere moltissimi piromani, giornalisti o poliziotti mortali a fare del loro meglio per intralciarlo.\n\nDefinite la fonte delle Risorse del personaggio, quanto più individuale, tanto meglio sarà per la storia. Vende le sue predizioni Malkavian (adeguatamente censurate) agli azionisti diurni o vive delle royalties maturate grazie a una canzone in voga decenni prima? Ha trovato nel bosco un borsone pieno di soldi della mafia? Riflettete sul suo archetipo di Predatore come possibile spiegazione delle sue Risorse: esige una decima dai suoi adoratori come Osiride o rapina le sue vittime in cerca di contanti e droga come Randagio?\n\nIl Narratore dovrebbe anche riflettere prima di consentire livelli di Risorse molto elevati (4+). Riuscire a entrare in un club esclusivo diventa molto meno interessante quando un personaggio può limitarsi a comprare l'intero locale con una semplice telefonata.",
+    "merits": [],
+    "flaws": []
+  },
+  {
+    "id": 13,
+    "title": "Seguaci",
+    "description": "I Seguaci possono fare cose e raggiungere luoghi dove Alleati e Contatti non arrivano, spingendosi addirittura a commettere omicidi o altri crimini. I mortali possono anche provare abbastanza amore o lealtà per il personaggio da compiere cose simili senza essere ghoul o asserviti. Dato che i Seguaci dovrebbero essere individui sviluppati con nomi e personalità, non guasta esaminare le loro motivazioni e condizionamenti, e il Narratore deve chiedersi cosa potrebbe guastare il rapporto che hanno con il personaggio.\n\nIl rapporto in sé può variare. Alcuni Fratelli mantengono semplicemente i loro Seguaci come affidabili galoppini capaci di uscire alla luce del sole. Altri li usano come confidenti o orecchie solidali che li aiutino a sopportare il fardello della vita eterna e la tristezza che l’accompagna. Quale che sia la responsabilità che un vampiro prova per il suo Seguace, le responsabilità di quest’ultimo nei suoi confronti la superano di gran lunga. Nelle cronache a stile di gioco di troupe (p. 198), i giocatori interpretano spesso i Seguaci di altri personaggi. In queste cronache in particolare, i giocatori devono essere consapevoli delle dinamiche di potere e delle sfide di recitazione coinvolte (vedere Differenziali di Potenza, p. 220).",
+    "directFlaws": [
+      {
+        "id": 20011,
+        "title": "Molestatori",
+        "description": "La tentazione di questo Difetto, che il Narratore dovrebbe assolutamente incoraggiare, è quella di usare il Molestatore come un Seguace “gratuito” – il che, com’è ovvio, si ritorcerà contro il vampiro nel momento peggiore, appena avrà iniziato a dipendere da lui. Il Narratore deve chiedere al giocatore di rispondere a due domande quando sceglie questo Difetto: cosa vuole il molestatore dal PG, e perché il vampiro non l’ha ancora ammazzato? Sarà la tensione tra queste due risposte a indirizzare la sottotrama del molestatore. Più che per altri Difetti, questo dovrebbe essere creato in collaborazione con l’intero gruppo per evitare spiacevoli parallelismi con la vita reale degli altri giocatori. Non dimenticate di esaminare Limiti e Veli (V5 p. 421) per regolamentare l’interpretazione del molestatore, chi dovrà controllarlo e il suo ruolo nel gioco (se ne ha uno). Escogitare una variante di Molestatore per un’intera coterie è un po’ più difficile, a parte quando la coterie è un complesso musicale.",
+        "isFlaw": true
+      }
+    ],
+    "merits": [],
+    "flaws": []
+  },
+  {
+    "id": 14,
+    "title": "Status",
+    "description": "Lo Status in genere non si trasferisce da una setta all’altra, in quanto ciascuna di esse dà valore a risultati e virtù differenti. Può inoltre applicarsi in modo più ristretto che a un’intera setta, denotando ad esempio una carica in un tempio del Ministero o una cappella Tremere.\n\nStatus e Fama si sovrappongono grosso modo, ma in genere il primo conferisce rispetto. Un vampiro può avere Fama per aver ucciso un rivale in modo spettacolare, ma un guerriero Banu Haqim potrebbe anche (o invece) avere un pallino di Status nel suo clan per la stessa azione.\n\nLo Status può anche sovrapporsi alle Sapienze di Tenebra, le quali possono giustificare uno Status alquanto torbido o nebuloso: un agente doppiogiochista di Theo Bell potrebbe avere un effettivo Status nel soviet Anarchico e uno Status di copertura stabilito nella Camarilla grazie a qualche tipo di manovra sottobanco. Uno Status locale, limitato o torbido deve essere discusso con il Narratore per assicurarsi che la cronaca si concentri sulle sfide adatte o influenzate da questo Status.",
+    "directFlaws": [
+      {
+        "id": 20011,
+        "title": "Segreti Cittadini (•)",
+        "description": "In qualche modo, il vampiro è venuto a conoscenza di un segreto scomodo sulla struttura di potere dei Fratelli della città, forse nello specifico riguardo a uno di loro. L’esatta natura dell’informazione dev’essere definita insieme al Narratore. Se il segreto si riferisce solo a un’attività mortale (“Il sindaco si scopa di nascosto un soldato della mafia russa”), sarà solo un modo per spiegare l’Influenza del PG.\n\nAlcuni attori potenti della città sanno che il personaggio ha questa informazione o ne hanno il forte sospetto; si spera che abbia stilato un piano di emergenza per rendere pubblico il segreto nel caso di una sua misteriosa sparizione. Può vendere l’informazione a caro prezzo, ma il suo valore più grande sta nella protezione: chi vuole che rimanga segreta avrà tutto l’interesse a rendere felice il personaggio. Naturalmente, se questi sfida troppo la fortuna, potrebbe anche decidere che zittirlo per sempre è l’alternativa migliore.\n\nQuesto Background è più simile a Influenza che a Status entro alcune circostanze; deciderà il Narratore quando o se sommarlo a una riserva Sociale, o forse a un test di Ricerca o Intuito.\n\nUn personaggio può acquisire questo Background fino a un massimo di tre volte, ognuna riguardante un segreto diverso.",
+        "isFlaw": true
+      }
+    ],
+    "merits": [],
+    "flaws": []
+  }
+]

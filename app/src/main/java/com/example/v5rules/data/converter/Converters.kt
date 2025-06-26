@@ -2,7 +2,6 @@ package com.example.v5rules.data.converter
 
 import androidx.room.TypeConverter
 import com.example.v5rules.data.Ability
-import com.example.v5rules.data.Advantage
 import com.example.v5rules.data.Attributes
 import com.example.v5rules.data.Background
 import com.example.v5rules.data.Clan
@@ -88,19 +87,6 @@ class DisciplineListConverter {
     }
 }
 
-// List<Advantage>
-class AdvantageListConverter {
-    @TypeConverter
-    fun fromAdvantageList(advantages: List<Advantage>): String {
-        return Gson().toJson(advantages)
-    }
-
-    @TypeConverter
-    fun toAdvantageList(advantagesString: String): List<Advantage> {
-        val listType = object: TypeToken<List<Advantage>>() {}.type
-        return Gson().fromJson(advantagesString, listType)
-    }
-}
 
 // List<Background>
 class BackgroundListConverter {
