@@ -1,5 +1,7 @@
 package com.example.v5rules.utils
 
+import com.example.v5rules.data.Advantage
+import com.example.v5rules.data.Background
 import com.example.v5rules.data.Clan
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
@@ -57,7 +59,15 @@ sealed class CharacterSheetEvent {
     data class LoresheetAdded(val loresheet: Loresheet, val level: Int) : CharacterSheetEvent()
     data class LoresheetRemoved(val loresheet: Loresheet) : CharacterSheetEvent()
     data class LoresheetLevelChanged(val loresheetName: String, val level: Int) : CharacterSheetEvent()
-
+    data class BackgroundAdded(val background: Background, val level: Int) : CharacterSheetEvent()
+    data class BackgroundRemoved(val background: Background) : CharacterSheetEvent()
+    data class BackgroundLevelChanged(val background: Background, val level: Int) : CharacterSheetEvent()
+    data class AdvantageAdded(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
+    data class AdvantageRemoved(val advantage: Advantage, val background: Background) : CharacterSheetEvent()
+    data class AdvantageLevelChanged(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
+    data class AdvantageFlawAdded(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
+    data class AdvantageFlawRemoved(val advantage: Advantage, val background: Background) : CharacterSheetEvent()
+    data class AdvantageFlawLevelChanged(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
     class PredatorChanged(val predator: PredatorType) : CharacterSheetEvent()
 
     // Azioni

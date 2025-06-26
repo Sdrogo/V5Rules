@@ -10,5 +10,6 @@ data class Advantage(
     val isFlaw: Boolean? = false,
     val minLevel: Int?= null,
     val maxLevel: Int? = null,
+    val level: Int? = null,
     val prerequisites: String? = null
 )

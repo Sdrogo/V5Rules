@@ -36,7 +36,16 @@
       }
     ],
     "merits": [],
-    "flaws": []
+    "flaws": [
+      {
+      "id": 10019,
+      "title": "Segreto Oscuro",
+      "description": "Una versione meno grave di Infamia. Il Difetto restituisce un punto in meno rispetto a una Infamia equivalente, in quanto le gesta sinistre restano nascoste a tutti tranne il vampiro e forse uno o due nemici motivati. La versione di Infamia da un pallino vale un punto anche come Segreto Oscuro, perché è più facile da scoprire rispetto a un segreto che può davvero mettere in pericolo di vita.",
+      "isFlaw": true,
+      "minLevel": 1,
+      "maxLevel": 2
+    }
+    ]
   },
   {
     "id": 4,
@@ -189,7 +198,17 @@
   {
     "id": 5,
     "title": "Gregge",
-    "description": "Alcuni archetipi di Predatore si basano su questo Background più di altri, come il Consensualista, mentre l'archetipo Sanguisuga non potrebbe affatto farne un uso efficace. La cronaca può anche aiutare a decidere in che modo viene usato il Gregge o se è permesso in primo luogo, in quanto territori contesi, domini in zona di guerra o coterie nomadi o fuggiasche rendono difficile accedere a questo Vantaggio. Un Gregge può anche incorporarsi in altri Background, consentendo di ottenere più spunti narrativi dai mortali. Seguaci e Alleati possono essere collegati al Gregge di un giocatore e il Narratore può permettere l'utilizzo di analoghe combinazioni anche con altri Background."
+    "description": "Alcuni archetipi di Predatore si basano su questo Background più di altri, come il Consensualista, mentre l'archetipo Sanguisuga non potrebbe affatto farne un uso efficace. La cronaca può anche aiutare a decidere in che modo viene usato il Gregge o se è permesso in primo luogo, in quanto territori contesi, domini in zona di guerra o coterie nomadi o fuggiasche rendono difficile accedere a questo Vantaggio. Un Gregge può anche incorporarsi in altri Background, consentendo di ottenere più spunti narrativi dai mortali. Seguaci e Alleati possono essere collegati al Gregge di un giocatore e il Narratore può permettere l'utilizzo di analoghe combinazioni anche con altri Background.",
+    "flaws": [
+      {
+        "id": 10022,
+        "title": "Predatore Smodato",
+        "description": "Il vampiro ha un evidente atteggiamento predatorio, e gli umani lo temono istintivamente. Questo comporta una penalità di due dadi quando si caccia, escluse le azioni puramente fisiche come braccare, inseguire e uccidere. Inoltre, subisce una penalità di un dado a ogni test Sociale volto a mettere a loro agio gli umani. Di conseguenza, non può mantenere un Gregge.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      }
+    ]
   },
   {
     "id": 6,
@@ -204,7 +223,24 @@
       }
     ],
     "merits": [],
-    "flaws": []
+    "flaws": [
+      {
+        "id": 10020,
+        "title": "Malvisto",
+        "description": "Penalità di un dado alle riserve Sociali che coinvolgono qualsiasi gruppo della città tranne Contatti, Alleati o altri leali sostenitori.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10021,
+        "title": "Disprezzato",
+        "description": "Un gruppo o regione vive solo per angariare il vampiro e la sua fazione. Penalità di due dadi alle riserve per convincere un attore neutrale a dare il suo appoggio politico o fargli un favore. Il Narratore deve cogliere ogni opportunità per coinvolgere chi lo odia nella storia.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      }
+    ]
   },
   {
     "id": 7,
@@ -225,22 +261,43 @@
     "id": 8,
     "title": "Maschera",
     "description": "Intrighi politici e orrore politico implicano identità scambiate o alternative, un elemento chiave di questo Background. Al suo livello più essenziale, consente al personaggio di conservare un lavoro, guidare un'auto, pagare le bollette, usare la carta di credito e rimanere in altro modo ancorato alla società mortale. Una cronaca che enfatizzi le identità scambiate o alternative può anche consentire a un personaggio con più Maschere di mitigare i problemi derivanti dalla Fama o nascondersi dagli Avversari – per un po'.",
-    "directFlaws": [
+    "merits": [  {
+      "id": 20007,
+      "title": "Azzerato",
+      "description": "Qualcuno in alto loco ha cancellato tutti i registri reali del vampiro. Ufficialmente, non esiste.",
+      "minLevel": 1,
+      "maxLevel": 1
+    },
       {
-        "id": 20007,
-        "title": "Azzerato e Falsario",
-        "description": "Azzerato offre una buona sinergia con i personaggi che fungono da spie o agenti per la loro setta, ombre sfuggenti per scopi loro o per quelli dei loro mandatari. Falsario offre al vampiro la capacità di fabbricare maschere per altri in cambio di un compenso e con poco rischio. Questo Background costituisce un ottimo spunto di storia criminale collaterale: i personaggi possono vendere la loro perizia in cambio di soldi o favori, generando al contempo potenziali pericoli da parte di cacciatori e nemici dei loro clienti.",
-        "isFlaw": true
-      },
+        "id": 20023,
+        "title": "Falsario",
+        "description": "Il vampiro può creare o procurare Maschere. Creare una Maschera richiede tre giorni per pallino e potrebbe farlo risaltare in rete. Procurarne una, invece, richiede solo un giorno per pallino ma ha un costo in cambio. Il prezzo esatto dipenderà da fattori come la sua influenza, il margine ottenuto nel test Sociale, o altri elementi decisi dal Narratore.",
+        "minLevel": 1,
+        "maxLevel": 1
+
+      }],
+    "flaws": [  {
+      "id": 20007,
+      "title": "Azzerato e Falsario",
+      "description": "Azzerato offre una buona sinergia con i personaggi che fungono da spie o agenti per la loro setta, ombre sfuggenti per scopi loro o per quelli dei loro mandatari. Falsario offre al vampiro la capacità di fabbricare maschere per altri in cambio di un compenso e con poco rischio. Questo Background costituisce un ottimo spunto di storia criminale collaterale: i personaggi possono vendere la loro perizia in cambio di soldi o favori, generando al contempo potenziali pericoli da parte di cacciatori e nemici dei loro clienti.",
+      "isFlaw": true
+    },
       {
         "id": 20008,
-        "title": "Noto Corponeutro e Noto Defunto",
-        "description": "Come altri Difetti di Background, questi non richiedono al personaggio di avere pallini in Maschera. Funzionano come veicoli narrativi, attirando l’indesiderata attenzione da parte di nemici o addirittura di persone care. Un personaggio attento a evitare le telecamere di sorveglianza o le ronde degli agenti di sicurezza privata può tenersi sotto il radar della Coalizione anche essendo un Noto Corponeutro, ma Noto Defunto è più difficile da gestire se non si dispone di poteri di camuffamento attivi. Un decesso famoso lascia un Fratello vulnerabile ogni volta che i mortali lo riconoscono: forse Netflix ha realizzato un documentario sul suo caso di omicidio irrisolto, o forse gli attivisti hanno appiccicato la sua faccia sui muri di tutta la città durante la sua veglia funebre a lume di candela. Si era candidato per una carica pubblica locale? Il suo sorriso adornava i cartelloni per reclamizzare il suo studio legale per trarre profitto delle disgrazie altrui?",
-        "isFlaw": true
-      }
-    ],
-    "merits": [],
-    "flaws": []
+        "title": "Noto Defunto",
+        "description": "I mortali sanno che è morto da poco e inorridiscono se riappare tra loro. Questo Difetto si applica a qualsiasi ricerca sulla sua identità nelle banche dati.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 20022,
+        "title": "Noto Corponeutro",
+        "description": "La sua **traccia biometrica**, **nome**, **storia**, **frequentazioni** e **alias** sono presenti in diverse banche dati, segnalandolo ai servizi segreti come **potenziale terrorista**. Questo significa che qualsiasi inquisitore, anche con una rapida indagine, può **leggere tra le righe e capire che è un vampiro**.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      }]
   },
   {
     "id": 9,
@@ -318,6 +375,16 @@
     "id": 12,
     "title": "Risorse",
     "description": "Nel Mondo di Tenebra e in quello dei vivi, i soldi parlano sempre. Considerate le Risorse come l'ultima spiaggia per la persuasione o l'interrogazione quando il carisma fallisce o quando altri Background non possono risolvere il problema. Le Risorse possono sempre raggiungere una persona. I vampiri giovani come i PG capiscono meglio cosa i mortali possono fare per loro, rispetto a Fratelli più vecchi che li vedono solo come cibo o animali da compagnia. E i PG hanno sia la conoscenza che i mezzi per motivarli. Magari non si potrà fermare un anziano con i soldi, ma una corposa mazzetta può convincere moltissimi piromani, giornalisti o poliziotti mortali a fare del loro meglio per intralciarlo.\n\nDefinite la fonte delle Risorse del personaggio, quanto più individuale, tanto meglio sarà per la storia. Vende le sue predizioni Malkavian (adeguatamente censurate) agli azionisti diurni o vive delle royalties maturate grazie a una canzone in voga decenni prima? Ha trovato nel bosco un borsone pieno di soldi della mafia? Riflettete sul suo archetipo di Predatore come possibile spiegazione delle sue Risorse: esige una decima dai suoi adoratori come Osiride o rapina le sue vittime in cerca di contanti e droga come Randagio?\n\nIl Narratore dovrebbe anche riflettere prima di consentire livelli di Risorse molto elevati (4+). Riuscire a entrare in un club esclusivo diventa molto meno interessante quando un personaggio può limitarsi a comprare l'intero locale con una semplice telefonata.",
+    "directFlaws": [
+      {
+        "id": 20013,
+        "title": "Indigente",
+        "description": "Niente soldi e niente casa.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
     "merits": [],
     "flaws": []
   },
@@ -330,7 +397,9 @@
         "id": 20011,
         "title": "Molestatori",
         "description": "La tentazione di questo Difetto, che il Narratore dovrebbe assolutamente incoraggiare, è quella di usare il Molestatore come un Seguace “gratuito” – il che, com’è ovvio, si ritorcerà contro il vampiro nel momento peggiore, appena avrà iniziato a dipendere da lui. Il Narratore deve chiedere al giocatore di rispondere a due domande quando sceglie questo Difetto: cosa vuole il molestatore dal PG, e perché il vampiro non l’ha ancora ammazzato? Sarà la tensione tra queste due risposte a indirizzare la sottotrama del molestatore. Più che per altri Difetti, questo dovrebbe essere creato in collaborazione con l’intero gruppo per evitare spiacevoli parallelismi con la vita reale degli altri giocatori. Non dimenticate di esaminare Limiti e Veli (V5 p. 421) per regolamentare l’interpretazione del molestatore, chi dovrà controllarlo e il suo ruolo nel gioco (se ne ha uno). Escogitare una variante di Molestatore per un’intera coterie è un po’ più difficile, a parte quando la coterie è un complesso musicale.",
-        "isFlaw": true
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
       }
     ],
     "merits": [],
@@ -339,16 +408,35 @@
   {
     "id": 14,
     "title": "Status",
-    "description": "Lo Status in genere non si trasferisce da una setta all’altra, in quanto ciascuna di esse dà valore a risultati e virtù differenti. Può inoltre applicarsi in modo più ristretto che a un’intera setta, denotando ad esempio una carica in un tempio del Ministero o una cappella Tremere.\n\nStatus e Fama si sovrappongono grosso modo, ma in genere il primo conferisce rispetto. Un vampiro può avere Fama per aver ucciso un rivale in modo spettacolare, ma un guerriero Banu Haqim potrebbe anche (o invece) avere un pallino di Status nel suo clan per la stessa azione.\n\nLo Status può anche sovrapporsi alle Sapienze di Tenebra, le quali possono giustificare uno Status alquanto torbido o nebuloso: un agente doppiogiochista di Theo Bell potrebbe avere un effettivo Status nel soviet Anarchico e uno Status di copertura stabilito nella Camarilla grazie a qualche tipo di manovra sottobanco. Uno Status locale, limitato o torbido deve essere discusso con il Narratore per assicurarsi che la cronaca si concentri sulle sfide adatte o influenzate da questo Status.",
+    "description": "Lo Status in genere non si trasferisce da una setta all’altra, in quanto ciascuna di esse dà valore a risultati e virtù differenti. Può inoltre applicarsi in modo più ristretto che a un’intera setta, denotando ad esempio una carica in un tempio del Ministero o una cappella Tremere.\nStatus e Fama si sovrappongono grosso modo, ma in genere il primo conferisce rispetto. Un vampiro può avere Fama per aver ucciso un rivale in modo spettacolare, ma un guerriero Banu Haqim potrebbe anche (o invece) avere un pallino di Status nel suo clan per la stessa azione.\n\nLo Status può anche sovrapporsi alle Sapienze di Tenebra, le quali possono giustificare uno Status alquanto torbido o nebuloso: un agente doppiogiochista di Theo Bell potrebbe avere un effettivo Status nel soviet Anarchico e uno Status di copertura stabilito nella Camarilla grazie a qualche tipo di manovra sottobanco. Uno Status locale, limitato o torbido deve essere discusso con il Narratore per assicurarsi che la cronaca si concentri sulle sfide adatte o influenzate da questo Status.",
     "directFlaws": [
-      {
-        "id": 20011,
-        "title": "Segreti Cittadini (•)",
-        "description": "In qualche modo, il vampiro è venuto a conoscenza di un segreto scomodo sulla struttura di potere dei Fratelli della città, forse nello specifico riguardo a uno di loro. L’esatta natura dell’informazione dev’essere definita insieme al Narratore. Se il segreto si riferisce solo a un’attività mortale (“Il sindaco si scopa di nascosto un soldato della mafia russa”), sarà solo un modo per spiegare l’Influenza del PG.\n\nAlcuni attori potenti della città sanno che il personaggio ha questa informazione o ne hanno il forte sospetto; si spera che abbia stilato un piano di emergenza per rendere pubblico il segreto nel caso di una sua misteriosa sparizione. Può vendere l’informazione a caro prezzo, ma il suo valore più grande sta nella protezione: chi vuole che rimanga segreta avrà tutto l’interesse a rendere felice il personaggio. Naturalmente, se questi sfida troppo la fortuna, potrebbe anche decidere che zittirlo per sempre è l’alternativa migliore.\n\nQuesto Background è più simile a Influenza che a Status entro alcune circostanze; deciderà il Narratore quando o se sommarlo a una riserva Sociale, o forse a un test di Ricerca o Intuito.\n\nUn personaggio può acquisire questo Background fino a un massimo di tre volte, ognuna riguardante un segreto diverso.",
-        "isFlaw": true
-      }
+
     ],
     "merits": [],
-    "flaws": []
+    "flaws": [
+      {
+      "id": 10024,
+      "title": "Segreti Cittadini",
+      "description": "In qualche modo, il vampiro è venuto a conoscenza di un segreto scomodo sulla struttura di potere dei Fratelli della città, forse nello specifico riguardo a uno di loro. L’esatta natura dell’informazione dev’essere definita insieme al Narratore. Se il segreto si riferisce solo a un’attività mortale (“Il sindaco si scopa di nascosto un soldato della mafia russa”), sarà solo un modo per spiegare l’Influenza del PG.\n\nAlcuni attori potenti della città sanno che il personaggio ha questa informazione o ne hanno il forte sospetto; si spera che abbia stilato un piano di emergenza per rendere pubblico il segreto nel caso di una sua misteriosa sparizione. Può vendere l’informazione a caro prezzo, ma il suo valore più grande sta nella protezione: chi vuole che rimanga segreta avrà tutto l’interesse a rendere felice il personaggio. Naturalmente, se questi sfida troppo la fortuna, potrebbe anche decidere che zittirlo per sempre è l’alternativa migliore.\n\nQuesto Background è più simile a Influenza che a Status entro alcune circostanze; deciderà il Narratore quando o se sommarlo a una riserva Sociale, o forse a un test di Ricerca o Intuito.\n\nUn personaggio può acquisire questo Background fino a un massimo di tre volte, ognuna riguardante un segreto diverso.",
+      "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+    },
+      {
+        "id": 10025,
+        "title": "Evitato",
+        "description": "La setta lo detesta fino al midollo. Il vampiro ha tradito, insultato un capo locale o l'ha combattuta in passato. I membri della fazione agiscono a suo detrimento ogni volta che possono.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },   {
+        "id": 10026,
+        "title": "Sospetto",
+        "description": "La setta non lo vede di buon occhio: ha infranto un accordo, un giuramento o simili. Può cercare di non farsi vedere, ma a meno che non riesca a rimediare subisce una penalità di due dadi a tutti i test Sociali con quella fazione.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      }
+    ]
   }
 ]

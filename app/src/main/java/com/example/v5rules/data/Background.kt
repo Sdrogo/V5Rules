@@ -11,8 +11,11 @@ data class Background(
     val prerequisites: String? = null,
     val isAdept: Boolean = false,
     val directFlaws: List<Advantage>? = null,
+    val level: Int? = null,
     val merits: List<Advantage>? = null,
     val flaws: List<Advantage>? = null,
+    val minLevel: Int?= null,
+    val maxLevel: Int? = null,
 )
 
 

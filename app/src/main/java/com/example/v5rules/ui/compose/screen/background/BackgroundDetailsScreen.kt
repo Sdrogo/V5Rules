@@ -24,7 +24,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.ui.compose.component.CommonScaffold
@@ -93,6 +96,7 @@ fun BackgroundDetailsScreen(
             items(background.merits.orEmpty()) { merit ->
                 Spacer(modifier = Modifier.height(8.dp))
                 Column {
+
                     FlowRow(
                         modifier = Modifier
                             .fillMaxSize()
@@ -110,7 +114,17 @@ fun BackgroundDetailsScreen(
                         merit.minLevel?.let { min ->
                             merit.maxLevel?.let { max ->
                                 RangeDots(min, max)
+                                Spacer(Modifier.width(16.dp))
                             }
+                        }
+                        merit.prerequisites?.let { prerequisite ->
+                            Text(
+                                text = prerequisite,
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.tertiary,
+                                modifier = Modifier.wrapContentWidth()
+                            )
                         }
                     }
                     Surface(
@@ -126,7 +140,9 @@ fun BackgroundDetailsScreen(
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = merit.description,
+                            text = AnnotatedString(merit.description,
+                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                            ),
                             Modifier
                                 .fillMaxWidth()
                                 .padding(8.dp)
@@ -149,6 +165,13 @@ fun BackgroundDetailsScreen(
                             color = MaterialTheme.colorScheme.tertiary,
                             modifier = Modifier.wrapContentWidth()
                         )
+                        Spacer(Modifier.width(16.dp))
+                        flaw.minLevel?.let { min ->
+                            flaw.maxLevel?.let { max ->
+                                RangeDots(min, max)
+                                Spacer(Modifier.width(16.dp))
+                            }
+                        }
                         flaw.prerequisites?.let { prerequisite ->
                             Text(
                                 text = prerequisite,
@@ -173,7 +196,9 @@ fun BackgroundDetailsScreen(
                         shape = RoundedCornerShape(8.dp)
                     ) {
                         Text(
-                            text = flaw.description,
+                            text = AnnotatedString(flaw.description,
+                                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                            ),
                             Modifier
                                 .fillMaxWidth()
                                 .padding(8.dp)

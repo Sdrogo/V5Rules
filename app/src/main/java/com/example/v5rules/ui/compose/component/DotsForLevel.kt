@@ -56,35 +56,39 @@ fun RangeDots(min: Int, max: Int) {
         modifier = Modifier
             .wrapContentWidth()
     ) {
-        Text(
-            text = "(",
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier
-                .wrapContentWidth()
-                .padding(8.dp)
-        )
+        if(min != max){
+            Text(
+                text = "(",
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .padding(8.dp)
+            )
+        }
         for (i in 1..min) Text(
             "●",
             color = MaterialTheme.colorScheme.tertiary,
         )
-        Text(
-            text = " o ",
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier
-                .wrapContentWidth()
-                .padding(8.dp)
-        )
-        for (i in 1..max) Text(
-            "●",
-            color = MaterialTheme.colorScheme.tertiary,
-        )
-        Text(
-            text = ")",
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier
-                .wrapContentWidth()
-                .padding(8.dp)
-        )
+        if(min != max){
+            Text(
+                text = " o ",
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .padding(8.dp)
+            )
+            for (i in 1..max) Text(
+                "●",
+                color = MaterialTheme.colorScheme.tertiary,
+            )
+            Text(
+                text = ")",
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .padding(8.dp)
+            )
+        }
     }
 }
 

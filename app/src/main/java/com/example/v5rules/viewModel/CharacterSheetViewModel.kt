@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.R
 import com.example.v5rules.data.Ability
+import com.example.v5rules.data.Background
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
 import com.example.v5rules.data.Discipline
@@ -48,6 +49,8 @@ class CharacterSheetViewModel @Inject constructor(
     val disciplines: StateFlow<List<Discipline>> = _disciplines.asStateFlow()
     private val _loreSheets = MutableStateFlow<List<Loresheet>>(emptyList())
     val loreSheets: StateFlow<List<Loresheet>> = _loreSheets.asStateFlow()
+    private val _background = MutableStateFlow<List<Background>>(emptyList())
+    val background: StateFlow<List<Background>> = _background.asStateFlow()
     private val _selectedTabIndex = MutableStateFlow(0)
     val selectedTabIndex: StateFlow<Int> = _selectedTabIndex.asStateFlow()
     val allAbilities: List<String> = resources.getStringArray(R.array.abilities).toList().sorted()
@@ -379,7 +382,9 @@ class CharacterSheetViewModel @Inject constructor(
 
                     is CharacterSheetEvent.LoresheetAdded -> {
                         val updatedCharacter = _uiState.value.character.copy(
-                            loresheets = _uiState.value.character.loresheets + event.loresheet.copy(level = event.level)
+                            loresheets = _uiState.value.character.loresheets + event.loresheet.copy(
+                                level = event.level
+                            )
                         )
                         _uiState.update {
                             it.copy(character = updatedCharacter)
@@ -410,6 +415,252 @@ class CharacterSheetViewModel @Inject constructor(
                             } else currentState // Disciplina non trovata (non dovrebbe succedere)
                         }
                     }
+
+                    is CharacterSheetEvent.BackgroundAdded -> {
+                        val updatedCharacter = _uiState.value.character.copy(
+                            backgrounds = _uiState.value.character.backgrounds + event.background.copy(
+                                level = event.level
+                            )
+                        )
+                        _uiState.update {
+                            it.copy(character = updatedCharacter)
+                        }
+                    }
+
+                    is CharacterSheetEvent.BackgroundRemoved -> {
+                        val updatedCharacter = _uiState.value.character.copy(
+                            backgrounds = _uiState.value.character.backgrounds - event.background
+                        )
+                        _uiState.update {
+                            it.copy(character = updatedCharacter)
+                        }
+                    }
+
+                    is CharacterSheetEvent.BackgroundLevelChanged -> {
+                        _uiState.update { currentState ->
+                            val backgrounds =
+                                currentState.character.backgrounds.toMutableList()
+                            val backgroundIndex =
+                                backgrounds.indexOfFirst { it.title == event.background.title }
+                            if (backgroundIndex != -1) {
+                                val currentBackground = backgrounds[backgroundIndex]
+                                val updatedBackground =
+                                    currentBackground.copy(level = event.level)
+                                backgrounds[backgroundIndex] = updatedBackground
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        backgrounds = backgrounds
+                                    )
+                                )
+                            } else currentState
+                        }
+                    }
+
+                    is CharacterSheetEvent.AdvantageAdded -> {
+                        _uiState.update { currentState ->
+                            val backgrounds =
+                                currentState.character.backgrounds.toMutableList()
+                            val backgroundIndex =
+                                backgrounds.indexOfFirst { it.title == event.background.title }
+                            if (backgroundIndex != -1) {
+                                val currentBackground = backgrounds[backgroundIndex]
+                                val currentAdvanges =
+                                    if (event.advantage.isFlaw == true)
+                                        currentBackground.flaws
+                                    else
+                                        currentBackground.merits
+                                val updatedAdvantages =
+                                    currentAdvanges.orEmpty() + event.advantage.copy(level = event.level)
+                                val updatedBackground =
+                                    if (event.advantage.isFlaw == true)
+                                        currentBackground.copy(flaws = updatedAdvantages)
+                                    else
+                                        currentBackground.copy(merits = updatedAdvantages)
+                                backgrounds[backgroundIndex] = updatedBackground
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        backgrounds = backgrounds
+                                    )
+                                )
+                            } else currentState
+                        }
+
+                        val updatedCharacter = _uiState.value.character.copy(
+                            backgrounds = _uiState.value.character.backgrounds
+                        )
+                        _uiState.update {
+                            it.copy(character = updatedCharacter)
+                        }
+                    }
+
+                    is CharacterSheetEvent.AdvantageRemoved -> {
+                        _uiState.update { currentState ->
+                            val backgrounds =
+                                currentState.character.backgrounds.toMutableList()
+                            val backgroundIndex =
+                                backgrounds.indexOfFirst { it.title == event.background.title }
+                            if (backgroundIndex != -1) {
+                                val currentBackground = backgrounds[backgroundIndex]
+                                val currentAdvanges =
+                                    if (event.advantage.isFlaw == true)
+                                        currentBackground.flaws
+                                    else
+                                        currentBackground.merits
+                                val updatedAdvantages = currentAdvanges.orEmpty() - event.advantage
+                                val updatedBackground =
+                                    if (event.advantage.isFlaw == true)
+                                        currentBackground.copy(flaws = updatedAdvantages)
+                                    else
+                                        currentBackground.copy(merits = updatedAdvantages)
+                                backgrounds[backgroundIndex] = updatedBackground
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        backgrounds = backgrounds
+                                    )
+                                )
+                            } else currentState
+                        }
+
+                        val updatedCharacter = _uiState.value.character.copy(
+                            backgrounds = _uiState.value.character.backgrounds
+                        )
+                        _uiState.update {
+                            it.copy(character = updatedCharacter)
+                        }
+                    }
+
+                    is CharacterSheetEvent.AdvantageLevelChanged -> {
+                        _uiState.update { currentState ->
+                            val backgrounds =
+                                currentState.character.backgrounds.toMutableList()
+                            val backgroundIndex =
+                                backgrounds.indexOfFirst { it.title == event.background.title }
+                            if (backgroundIndex != -1) {
+                                val advantages =
+                                    if (event.advantage.isFlaw == true)
+                                        backgrounds[backgroundIndex].flaws.orEmpty().toMutableList()
+                                    else
+                                        backgrounds[backgroundIndex].merits.orEmpty().toMutableList()
+                                val updatedVantage =
+                                    advantages.find {
+                                        it.id == event.advantage.id
+                                    }?.copy(level = event.level)
+                                if (updatedVantage != null) {
+                                    advantages[advantages.indexOf(updatedVantage)] = updatedVantage
+                                }
+                                backgrounds[backgroundIndex] =
+                                    if (event.advantage.isFlaw == true)
+                                        backgrounds[backgroundIndex].copy(flaws = advantages)
+                                    else
+                                        backgrounds[backgroundIndex].copy(merits = advantages)
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        backgrounds = backgrounds
+                                    )
+                                )
+                            } else currentState
+                        }
+
+                        val updatedCharacter = _uiState.value.character.copy(
+                            backgrounds = _uiState.value.character.backgrounds
+                        )
+                        _uiState.update {
+                            it.copy(character = updatedCharacter)
+                        }
+                    }
+
+                    is CharacterSheetEvent.AdvantageFlawAdded -> {
+                        _uiState.update { currentState ->
+                            val backgrounds =
+                                currentState.character.backgrounds.toMutableList()
+                            val backgroundIndex =
+                                backgrounds.indexOfFirst { it.title == event.background.title }
+                            if (backgroundIndex != -1) {
+                                val currentBackground = backgrounds[backgroundIndex]
+                                val currentAdvanges = currentBackground.flaws
+                                val updatedAdvantages =
+                                    currentAdvanges.orEmpty() + event.advantage.copy(level = event.level)
+                                val updatedBackground =
+                                    currentBackground.copy(flaws = updatedAdvantages)
+                                backgrounds[backgroundIndex] = updatedBackground
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        backgrounds = backgrounds
+                                    )
+                                )
+                            } else currentState
+                        }
+
+                        val updatedCharacter = _uiState.value.character.copy(
+                            backgrounds = _uiState.value.character.backgrounds
+                        )
+                        _uiState.update {
+                            it.copy(character = updatedCharacter)
+                        }
+                    }
+
+                    is CharacterSheetEvent.AdvantageFlawRemoved -> {
+                        _uiState.update { currentState ->
+                            val backgrounds =
+                                currentState.character.backgrounds.toMutableList()
+                            val backgroundIndex =
+                                backgrounds.indexOfFirst { it.title == event.background.title }
+                            if (backgroundIndex != -1) {
+                                val currentBackground = backgrounds[backgroundIndex]
+                                val currentAdvanges = currentBackground.merits
+                                val updatedAdvantages = currentAdvanges.orEmpty() - event.advantage
+                                val updatedBackground =
+                                    currentBackground.copy(merits = updatedAdvantages)
+                                backgrounds[backgroundIndex] = updatedBackground
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        backgrounds = backgrounds
+                                    )
+                                )
+                            } else currentState
+                        }
+
+                        val updatedCharacter = _uiState.value.character.copy(
+                            backgrounds = _uiState.value.character.backgrounds
+                        )
+                        _uiState.update {
+                            it.copy(character = updatedCharacter)
+                        }
+                    }
+
+                    is CharacterSheetEvent.AdvantageFlawLevelChanged -> {
+                        _uiState.update { currentState ->
+                            val backgrounds =
+                                currentState.character.backgrounds.toMutableList()
+                            val backgroundIndex =
+                                backgrounds.indexOfFirst { it.title == event.background.title }
+                            if (backgroundIndex != -1) {
+                                val advantages =
+                                    backgrounds[backgroundIndex].merits.orEmpty().toMutableList()
+                                val updatedVantage =
+                                    backgrounds[backgroundIndex].merits.orEmpty().find {
+                                        it.id == event.advantage.id
+                                    }?.copy(level = event.level)
+                                if (updatedVantage != null) {
+                                    advantages[advantages.indexOf(updatedVantage)] = updatedVantage
+                                }
+                                backgrounds[backgroundIndex] =
+                                    backgrounds[backgroundIndex].copy(merits = advantages)
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        backgrounds = backgrounds
+                                    )
+                                )
+                            } else currentState
+                        }
+
+                        val updatedCharacter = _uiState.value.character.copy(
+                            backgrounds = _uiState.value.character.backgrounds
+                        )
+                        _uiState.update {
+                            it.copy(character = updatedCharacter)
+                        }
+                    }
                 }
             }
         }
@@ -421,6 +672,7 @@ class CharacterSheetViewModel @Inject constructor(
                 _predator.value = mainRepository.loadPredatorType(Locale.getDefault())
                 _disciplines.value = mainRepository.loadDisciplines(Locale.getDefault())
                 _loreSheets.value = mainRepository.loadLoresheet(Locale.getDefault())
+                _background.value = mainRepository.loadBackground(Locale.getDefault())
             } catch (e: Exception) {
                 _uiState.update { it.copy(error = "Errore durante il caricamento dei clan") }
             }
