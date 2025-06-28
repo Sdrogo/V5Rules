@@ -10,7 +10,7 @@ import com.example.v5rules.data.Character
 
 @Database(
     entities = [Character::class],
-    version = 1,
+    version = 2,
     exportSchema = true,
     autoMigrations = [
         AutoMigration (
