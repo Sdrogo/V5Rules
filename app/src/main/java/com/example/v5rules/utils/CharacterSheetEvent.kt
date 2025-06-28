@@ -69,6 +69,20 @@ sealed class CharacterSheetEvent {
     data class AdvantageFlawRemoved(val advantage: Advantage, val background: Background) : CharacterSheetEvent()
     data class AdvantageFlawLevelChanged(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
     class PredatorChanged(val predator: PredatorType) : CharacterSheetEvent()
+    // Eventi per Merits/Flaws di un Background specifico
+    data class BackgroundMeritAdded(val backgroundId: Int, val merit: Advantage, val level: Int) : CharacterSheetEvent()
+    data class BackgroundMeritRemoved(val backgroundId: Int, val merit: Advantage) : CharacterSheetEvent()
+    data class BackgroundMeritLevelChanged(val backgroundId: Int, val meritId: Int, val newLevel: Int) : CharacterSheetEvent()
+
+    data class BackgroundFlawAdded(val backgroundId: Int, val flaw: Advantage, val level: Int) : CharacterSheetEvent()
+    data class BackgroundFlawRemoved(val backgroundId: Int, val flaw: Advantage) : CharacterSheetEvent()
+    data class BackgroundFlawLevelChanged(val backgroundId: Int, val flawId: Int, val newLevel: Int) : CharacterSheetEvent()
+
+    // Eventi per DirectFlaws del personaggio (se li tieni separati)
+    data class CharacterDirectFlawAdded(val directFlaw: Advantage, val level: Int) : CharacterSheetEvent()
+    data class CharacterDirectFlawRemoved(val directFlaw: Advantage) : CharacterSheetEvent()
+    data class CharacterDirectFlawLevelChanged(val directFlawId: Int, val newLevel: Int) : CharacterSheetEvent()
+
 
     // Azioni
     object SaveClicked: CharacterSheetEvent()

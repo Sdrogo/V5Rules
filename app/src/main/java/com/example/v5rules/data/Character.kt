@@ -19,6 +19,7 @@ data class Character(
     val disciplines: List<Discipline> = emptyList(),
     val advantages: List<Background> = emptyList(),
     val backgrounds: List<Background> = emptyList(),
+    val directFlaws: List<Advantage>? = emptyList(),
     val loresheets: List<Loresheet> = emptyList(),
     val health: Health = Health(),
     val willpower: Willpower = Willpower(),

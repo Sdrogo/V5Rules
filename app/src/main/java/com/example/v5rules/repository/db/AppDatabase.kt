@@ -10,10 +10,14 @@ import com.example.v5rules.data.Character
 
 @Database(
     entities = [Character::class],
-    version = 2,
+    version = 1,
     exportSchema = true,
     autoMigrations = [
-        AutoMigration (from = 1, to = 2)
+        AutoMigration (
+            from = 1,
+            to = 2,
+            spec = Migration1To2::class // Reference your new spec class
+        )
     ]
 )
 @TypeConverters(
@@ -27,7 +31,8 @@ import com.example.v5rules.data.Character
     WillpowerConverter::class,
     HumanityConverter::class,
     ExperienceConverter::class,
-    PredatorConverter::class
+    PredatorConverter::class,
+    AdvantageListConverter::class
 )
 
 // Metti le entità
