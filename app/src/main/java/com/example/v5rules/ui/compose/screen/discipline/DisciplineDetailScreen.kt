@@ -154,10 +154,10 @@ fun SubDisciplineItem(
     amalgama: String? = null,
     isLandscape: Boolean = false
 ) {
-    val widthValue = if (isLandscape) 0.3f else 1f
+    val widthValue = if (isLandscape && !isTablet()) 0.3f else 1f
     FlowRow(verticalArrangement = Arrangement.Center,
         horizontalArrangement = Arrangement.SpaceBetween,
-        maxItemsInEachRow = if (isLandscape) 1 else 3,
+        maxItemsInEachRow = if (isLandscape&& !isTablet()) 1 else 3,
         modifier = Modifier
             .background(color = MaterialTheme.colorScheme.background)
             .padding(8.dp)
@@ -261,7 +261,7 @@ fun DisciplineList(
 ) {
     var expanded by remember { mutableStateOf(false) }
     Column {
-        DotsForLevel(level = level, isLandscape) { expanded = !expanded }
+        DotsForLevel(level = level, (isLandscape && !isTablet())) { expanded = !expanded }
         AnimatedVisibility(visible = expanded) {
             Column(modifier = Modifier.padding(8.dp)) {
                 if (disciplineId == "d11") {
@@ -275,7 +275,7 @@ fun DisciplineList(
                     }
                     if (text != null) {
                         Spacer(modifier = Modifier.height(8.dp))
-                        Box(modifier = Modifier.fillMaxWidth(if(isLandscape)0.4f else 1f)) {
+                        Box(modifier = Modifier.fillMaxWidth(if(isLandscape && !isTablet())0.4f else 1f)) {
                             Text(
                                 text = AnnotatedString(
                                     text,
@@ -388,4 +388,11 @@ fun RitualsList(
             }
         }
     }
+}
+
+@Composable
+fun isTablet(): Boolean {
+    val configuration = LocalConfiguration.current
+    val smallestScreenWidthDp = configuration.smallestScreenWidthDp
+    return smallestScreenWidthDp >= 600 // You can adjust this threshold
 }

@@ -1,8 +1,11 @@
 package com.example.v5rules.utils
 
+import com.example.v5rules.data.Advantage
+import com.example.v5rules.data.Background
 import com.example.v5rules.data.Clan
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
+import com.example.v5rules.data.Loresheet
 import com.example.v5rules.data.PredatorType
 
 
@@ -52,7 +55,34 @@ sealed class CharacterSheetEvent {
     data class TotalExperienceChanged(val total: Int): CharacterSheetEvent()
     data class SpentExperienceChanged(val spent: Int): CharacterSheetEvent()
 
+    //BACKGROUNDS section
+    data class LoresheetAdded(val loresheet: Loresheet, val level: Int) : CharacterSheetEvent()
+    data class LoresheetRemoved(val loresheet: Loresheet) : CharacterSheetEvent()
+    data class LoresheetLevelChanged(val loresheetName: String, val level: Int) : CharacterSheetEvent()
+    data class BackgroundAdded(val background: Background, val level: Int) : CharacterSheetEvent()
+    data class BackgroundRemoved(val background: Background) : CharacterSheetEvent()
+    data class BackgroundLevelChanged(val background: Background, val level: Int) : CharacterSheetEvent()
+    data class AdvantageAdded(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
+    data class AdvantageRemoved(val advantage: Advantage, val background: Background) : CharacterSheetEvent()
+    data class AdvantageLevelChanged(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
+    data class AdvantageFlawAdded(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
+    data class AdvantageFlawRemoved(val advantage: Advantage, val background: Background) : CharacterSheetEvent()
+    data class AdvantageFlawLevelChanged(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
     class PredatorChanged(val predator: PredatorType) : CharacterSheetEvent()
+    // Eventi per Merits/Flaws di un Background specifico
+    data class BackgroundMeritAdded(val backgroundId: Int, val merit: Advantage, val level: Int) : CharacterSheetEvent()
+    data class BackgroundMeritRemoved(val backgroundId: Int, val merit: Advantage) : CharacterSheetEvent()
+    data class BackgroundMeritLevelChanged(val backgroundId: Int, val meritId: Int, val newLevel: Int) : CharacterSheetEvent()
+
+    data class BackgroundFlawAdded(val backgroundId: Int, val flaw: Advantage, val level: Int) : CharacterSheetEvent()
+    data class BackgroundFlawRemoved(val backgroundId: Int, val flaw: Advantage) : CharacterSheetEvent()
+    data class BackgroundFlawLevelChanged(val backgroundId: Int, val flawId: Int, val newLevel: Int) : CharacterSheetEvent()
+
+    // Eventi per DirectFlaws del personaggio (se li tieni separati)
+    data class CharacterDirectFlawAdded(val directFlaw: Advantage, val level: Int) : CharacterSheetEvent()
+    data class CharacterDirectFlawRemoved(val directFlaw: Advantage) : CharacterSheetEvent()
+    data class CharacterDirectFlawLevelChanged(val directFlawId: Int, val newLevel: Int) : CharacterSheetEvent()
+
 
     // Azioni
     object SaveClicked: CharacterSheetEvent()

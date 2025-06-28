@@ -441,7 +441,7 @@
   {
     "id": "d3",
     "title": "Ascendente",
-    "description": "L'Ascendente influisce sulle emozioni di chi ne è soggetto, ma non sulla mente. Anche se è utile, in quanto le vittime mantengono le loro capacità (a differenza della Dominazione), esse non sono sotto il controllo diretto del vampiro e possono risultare imprevedibili. Per essere influenzato dall'Ascendente, il soggetto deve essere fisicamente vicino al vampiro o almeno abbastanza vicino da sentirlo. Questa Disciplina non si trasmette tramite media elettronici, a meno che il vampiro non possieda Magnetismo da Star (Ascendente 5). Rilevare l'uso dell'Ascendente è molto difficile, a meno di avere accesso a Percepire l'Invisibile (Auspex 1), e persino in quel caso potrebbe essere troppo sottile per essere notato, a meno che non venga cercato specificamente.\n\nI poteri dell'Ascendente non sono cumulativi: un Cainita che utilizza sia Soggezione che Fascino su un soggetto somma il valore della Disciplina solo una volta nei tiri Sociali basati su Convincere. Solo i poteri Sguardo Terrificante e Maestà hanno qualche effetto in combattimento, poiché il fascino è di scarso aiuto quando qualcuno ha già deciso di farvi del male.",
+    "description": "L'Ascendente influisce sulle emozioni di chi ne è soggetto, ma non sulla mente. Anche se è utile, in quanto le vittime mantengono le loro capacità (a differenza della Dominazione), esse non sono sotto il controllo diretto del vampiro e possono risultare imprevedibili. Per essere influenzato dall'Ascendente, il soggetto deve essere fisicamente vicino al vampiro o almeno abbastanza vicino da sentirlo. Questa Disciplina non si trasmette tramite media elettronici, a meno che il vampiro non possieda Magnetismo da Star (Ascendente 5). Rilevare l'uso dell'Ascendente è molto difficile, a meno di avere accesso a Percepire l'Invisibile (Auspex 1), e persino in quel caso potrebbe essere troppo sottile per essere notato, a meno che non venga cercato specificamente.\n I poteri dell'Ascendente non sono cumulativi: un Cainita che utilizza sia Soggezione che Fascino su un soggetto somma il valore della Disciplina solo una volta nei tiri Sociali basati su Convincere. Solo i poteri Sguardo Terrificante e Maestà hanno qualche effetto in combattimento, poiché il fascino è di scarso aiuto quando qualcuno ha già deciso di farvi del male.",
     "type": "Mentale",
     "masquerade": "Da bassa a media. Ascendente è un potere sottitle e raramente le persone si accorgono di essere state influenzate. Come molte altre Discipline, i poteri di livello più alto possono lasciare testimoni confusi, specialmente dopo che gli effetti si sono dissipati.",
     "resonance": "Sanguigna. Questo potere è efficace su persone affascinanti e lussuriose, coloro che sono completamente infatuati dal vampiro. Include modelli, attori e stelle del cinema, oratori carismatici in pubblico e in privato (dai politici ai venditori di automobili), fenomeni di YouTube e influencer di Instagram.",
@@ -471,9 +471,19 @@
         "cost": "Gratuito",
         "system": "Il valore di Ascendente del personaggio si somma a qualsiasi tiro di Intimidire. Per attaccare il vampiro occorre un tiro di Fermezza + Autocontrollo con Difficoltà 2.",
         "duration": "Una scena o finché non è disattivato volontariamente."
+      },{
+        "id": "d3_3",
+        "level": 1,
+        "title": "Occhi del Serpente",
+        "amalgama": "Proteide 1",
+        "description": "Gli occhi del vampiro diventano simili a quelli di un serpente, con le iridi a fessura, e sono in grado di immobilizzare un mortale che ne incontri lo sguardo. Questo potere può essere utilizzato anche per mesmerizzare altri vampiri, per quanto l’effetto sia di breve durata e probabilmente susciterà le ire della vittima.",
+        "cost": "Gratuito",
+        "dicePool": "Carisma, + Ascendente contro Prontezza + Autocontrollo",
+        "system": "guardando negli occhi un mortale (V5 p.255) il vampiro può immobilizzarlo, mantenendolo fermo finché egli stesso continua a fissarlo. L’effetto può essere mantenuto solo su una vittima alla volta, e termina se essa subisce dei danni o viene portata via a forza. Parlare è ancora possibile, ma urlare non lo è.\nPer paralizzare un vampiro allo stesso modo, chi usa il potere deve vincere un confronto di Carisma + Ascendente contro Prontezza + Autocontrollo. Il vampiro può sfuggire alla paralisi in qualunque turno dopo il primo spendendo un punto Volontà.",
+        "duration": "Una scena o finché non è disattivato volontariamente."
       },
       {
-        "id": "d3_3",
+        "id": "d3_4",
         "level": 2,
         "title": "Bacio Vincolante",
         "description": "Il bacio del vampiro causa sensazioni quasi estatiche nei mortali. I mortali che sperimentano il Bacio Estatico del Fratello non solo sono temporaneamente galvanizzati, ma si trovano irrimediabilmente dipendenti da esso, cercando disperatamente il vampiro per un nuovo assaggio. Talvolta, questa dipendenza può condurre i mortali a danneggiarsi o persino a perdere la vita. È persino possibile assuefare altri vampiri, sebbene ciò comporti il rischio di sviluppare un Legame di Sangue con la vittima. Una volta legato, il vampiro diventa incapace di utilizzare questo potere su altri Fratelli, limitandosi a impiegarlo esclusivamente sui mortali.",
@@ -482,69 +492,7 @@
         "duration": "Un numero di notti pari al punteggio di Ascendente del fruitore."
       },
       {
-        "id": "d3_4",
-        "level": 3,
-        "title": "Incanto",
-        "description": "Il vampiro focalizza il suo fascino innaturale su una singola persona, scatenando un rapimento estatico o un'infatuazione simile al colpo di fulmine o all'incontro con l'idolo di una vita. La persona fa del suo meglio per restare nelle grazie del vampiro, ma senza arrivare a fare del male a se stessa o ai propri cari.",
-        "cost": "Una Prova di Risveglio",
-        "dicePool": "Carisma + Ascendente contro Autocontrollo + Prontezza",
-        "system": " Il vampiro deve solo catturare l'attenzione della vittima e prevalere in un confronto di Carisma + Ascendente contro Autocontrollo + Prontezza. L'effetto dura circa un'ora, più uno per punto nel margine di successo. L'effetto può essere rinnovato indefinitamente, ma un fallimento ne pone fine e rende il soggetto immune per il resto della notte. Se prevale, il vampiro somma un numero di dadi pari al suo Ascendente a qualsiasi riserva Sociale contro il soggetto. Le richieste che risultano ovviamente nel ferimento del soggetto o di coloro che ama e quelle che si oppongono ai suoi Precetti falliscono e richiedono subito un nuovo confronto come sopra, o l'Incanto si spezza di colpo.",
-        "duration": "Un'ora più uno per punto di margine"
-      },
-      {
         "id": "d3_5",
-        "level": 3,
-        "title": "Sguardo Terrificante",
-        "description": "Svelando per un attimo la sua vera natura, il vampiro suscita un terrore indicibile in un singolo soggetto. I mortali si rannicchiano, scappano o si paralizzano per la paura, mentre i vampiri si sottomettono come cani bastonati o fuggono in preda a un frenetico Rötschreck.",
-        "cost": "Una Prova di Risveglio",
-        "dicePool": "Carisma + Ascendente contro Autocontrollo + Fermezza",
-        "system": "Scoprendo le zanne e il viso deformato da una smorfia predatoria, il Cainita esegue un confronto di Carisma + Ascendente contro Autocontrollo + Fermezza del bersaglio. Fallimento: I mortali non possono agire se non per autodifesa, arretrando per un turno. I vampiri non sono influenzati. Vittoria: I mortali fuggono spaventati. I vampiri non possono agire se non per autodifesa e arretrano per un turno a meno che non spendano punti Volontà pari al margine di successo del fruitore (minimo 1). Vittoria critica: I mortali si paralizzano o si rannicchiano in posizione fetale. I vampiri devono eseguire un test di frenesia da paura (Difficoltà 3). Se lo superano, sono comunque influenzati come sopra.",
-        "duration": "Un turno"
-      },
-      {
-        "id": "d3_6",
-        "level": 4,
-        "title": "Convocazione",
-        "description": "Il Fratello può richiamare a sé qualsiasi persona, mortale o vampiro, su cui abbia precedentemente usato Soggezione, Incanto o Maestà, o che abbia assaporato il suo Sangue almeno una volta. Il soggetto è consapevole di chi lo sta convocando e della sua posizione. La chiamata perdura per una notte; successivamente, l'effetto svanisce, ma il fruitore può riattivarlo nelle notti successive per farsi gradualmente raggiungere o nel caso in cui il soggetto sia riluttante. Chiunque sia Convocato si sente attratto verso il vampiro e cerca di raggiungerlo, evitando però di mettersi in pericolo fisico o finanziario. Non venderà la sua casa per comprare un biglietto né mancherà a un incontro vitale, ma potrebbe saltare una normale giornata di lavoro o impegni sociali.",
-        "cost": "Una Prova di Risveglio",
-        "dicePool": "Persuasione + Ascendente contro Autocontrollo + Intelligenza",
-        "system": "Il vampiro si concentra per 5 minuti sulla persona da convocare, quindi tira Persuasione + Ascendente contro Autocontrollo + Intelligenza. Se vince, il bersaglio sente la chiamata, ma può scegliere di non obbedire. Con una vittoria critica, il bersaglio arriva nel più breve tempo possibile senza mettere in pericolo immediato la propria incolumità.",
-        "duration": "Una notte"
-      },
-      {
-        "id": "d3_7",
-        "level": 4,
-        "amalgama": "Dominazione 1",
-        "title": "Voce Irresistibile",
-        "description": "L'Ascendente del vampiro diventa un tramite della sua Dominazione: ora gli basta che le vittime sentano la sua voce per farsi obbedire tramite quella Disciplina.",
-        "cost": "Nessun costo aggiuntivo",
-        "system": "La voce del vampiro è ora sufficiente per Dominare un bersaglio. Ciò non si applica alla voce trasmessa da media elettronici quali telefoni, televisione o altoparlanti nel campanello.",
-        "duration": "Passivo"
-      },
-      {
-        "id": "d3_8",
-        "level": 4,
-        "amalgama": "Dominazione 1",
-        "title": "Voce Irresistibile",
-        "description": "Al culmine della Disciplina, il vampiro può amplificare la sua espressione a livelli soprannaturali. Che appaia incredibilmente bello, mostruosamente terrificante o assolutamente autorevole, chiunque lo veda è inebetito dalla sua immagine e incapace di agire o persino parlare contro di lui. Sperimentare Maestà significa essere in presenza del divino… o del diabolico.",
-        "cost": "Due Prove di Risveglio",
-        "dicePool": "Carisma + Ascendente contro Autocontrollo + Fermezza",
-        "system": "Le persone in presenza del vampiro possono solo guardarlo a bocca aperta o distogliere gli occhi per paura o sottomissione. Chiunque voglia agire in qualsiasi modo in opposizione al fruitore, a parte per difendersi, deve prevalere in un confronto di Autocontrollo + Fermezza contro Carisma + Ascendente del vampiro. Una vittoria consente un turno di libertà più uno per punto di margine; solo una vittoria critica consente di resistere all’effetto per l’intera scena.",
-        "duration": "Una scena"
-      },
-      {
-        "id": "d3_9",
-        "level": 1,
-        "amalgama": "Proteide 1",
-        "title": "Occhi del Serpente",
-        "description": "Gli occhi del vampiro si trasformano diventando simili a quelli di un serpente, capaci di immobilizzare un mortale che incrocia il loro sguardo. L'utente può anche ipnotizzare altri vampiri con questo potere, anche se l'effetto è di breve durata e probabilmente susciterà l'ira della vittima.",
-        "cost": "Gratuito",
-        "dicePool": "Carisma + Acendente vs. Prontezza + Autocontrollo",
-        "system": "Incrociando lo sguardo di un mortale (Vampire: The Masquerade, p. 255), il vampiro può immobilizzare la vittima, tenendola congelata sul posto finché mantiene il contatto visivo. L'effetto può essere mantenuto su una sola vittima alla volta e termina se essa subisce danni o viene rimossa con la forza. La vittima è ancora capace di parlare, ma non di urlare. Per paralizzare un vampiro nello stesso modo, l'utente deve vincere una sfida di Carisma + Ascendente contro Prontezza + Autocontrollo. La vittima vampiro può sfuggire alla paralisi in qualsiasi turno successivo al primo spendendo un punto di Forza di Volontà.",
-        "duration": "Fino a quando il contatto visivo viene interrotto o la scena finisce."
-      },
-      {
-        "id": "d3_10",
         "level": 2,
         "title": "Melpominee",
         "description": "La voce dell'utente diventa simile a quella di una sirena, capace di incantare o terrorizzare da sola, senza che l'utente debba essere presente. La voce può influenzare chiunque nel raggio di ascolto ma non conserva la sua capacità se registrata o trasmessa elettronicamente.",
@@ -553,7 +501,7 @@
         "duration": "N.A."
       },
       {
-        "id": "d3_11",
+        "id": "d3_6",
         "level": 3,
         "amalgama": "Auspex 1",
         "title": "Voce Lanciata",
@@ -563,10 +511,59 @@
         "duration": "Una Scena."
       },
       {
+        "id": "d3_7",
+        "level": 3,
+        "title": "Incanto",
+        "description": "Il vampiro focalizza il suo fascino innaturale su una singola persona, scatenando un rapimento estatico o un'infatuazione simile al colpo di fulmine o all'incontro con l'idolo di una vita. La persona fa del suo meglio per restare nelle grazie del vampiro, ma senza arrivare a fare del male a se stessa o ai propri cari.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Carisma + Ascendente contro Autocontrollo + Prontezza",
+        "system": " Il vampiro deve solo catturare l'attenzione della vittima e prevalere in un confronto di Carisma + Ascendente contro Autocontrollo + Prontezza. L'effetto dura circa un'ora, più uno per punto nel margine di successo. L'effetto può essere rinnovato indefinitamente, ma un fallimento ne pone fine e rende il soggetto immune per il resto della notte. Se prevale, il vampiro somma un numero di dadi pari al suo Ascendente a qualsiasi riserva Sociale contro il soggetto. Le richieste che risultano ovviamente nel ferimento del soggetto o di coloro che ama e quelle che si oppongono ai suoi Precetti falliscono e richiedono subito un nuovo confronto come sopra, o l'Incanto si spezza di colpo.",
+        "duration": "Un'ora più uno per punto di margine"
+      },
+      {
+        "id": "d3_8",
+        "level": 3,
+        "title": "Sguardo Terrificante",
+        "description": "Svelando per un attimo la sua vera natura, il vampiro suscita un terrore indicibile in un singolo soggetto. I mortali si rannicchiano, scappano o si paralizzano per la paura, mentre i vampiri si sottomettono come cani bastonati o fuggono in preda a un frenetico Rötschreck.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Carisma + Ascendente contro Autocontrollo + Fermezza",
+        "system": "Scoprendo le zanne e il viso deformato da una smorfia predatoria, il Cainita esegue un confronto di Carisma + Ascendente contro Autocontrollo + Fermezza del bersaglio. Fallimento: I mortali non possono agire se non per autodifesa, arretrando per un turno. I vampiri non sono influenzati. Vittoria: I mortali fuggono spaventati. I vampiri non possono agire se non per autodifesa e arretrano per un turno a meno che non spendano punti Volontà pari al margine di successo del fruitore (minimo 1). Vittoria critica: I mortali si paralizzano o si rannicchiano in posizione fetale. I vampiri devono eseguire un test di frenesia da paura (Difficoltà 3). Se lo superano, sono comunque influenzati come sopra.",
+        "duration": "Un turno"
+      },
+      {
+        "id": "d3_9",
+        "level": 3,
+        "title": "Ventriloquio",
+        "description": "Il vampiro può fare in modo che la sua voce emani daun punto qualsiasi entro il suo campo visivo, bisbiglioo grido che sia. La voce è udibile come se il vampiro sitrovasse in quel punto e può essere sentita da chiunquea portata di udito, a seconda della sua intensità.\nLa voce può anche essere “depositata” in un luogo econtinuare ad attrarre o terrorizzare chi vi si trattiene aseconda del potere utilizzato.",
+        "cost": "Una Prova di Risveglio",
+        "system": "non è necessario alcun tiro a parte la Prova diRisveglio. Se questo potere è usato in sinergia con VoceIrresistibile, Melpomene o poteri analoghi, i relativi tiridevono essere effettuati come di consueto.",
+        "duration": "una scena"
+      },
+      {
+        "id": "d3_10",
+        "level": 4,
+        "title": "Convocazione",
+        "description": "Il Fratello può richiamare a sé qualsiasi persona, mortale o vampiro, su cui abbia precedentemente usato Soggezione, Incanto o Maestà, o che abbia assaporato il suo Sangue almeno una volta. Il soggetto è consapevole di chi lo sta convocando e della sua posizione. La chiamata perdura per una notte; successivamente, l'effetto svanisce, ma il fruitore può riattivarlo nelle notti successive per farsi gradualmente raggiungere o nel caso in cui il soggetto sia riluttante. Chiunque sia Convocato si sente attratto verso il vampiro e cerca di raggiungerlo, evitando però di mettersi in pericolo fisico o finanziario. Non venderà la sua casa per comprare un biglietto né mancherà a un incontro vitale, ma potrebbe saltare una normale giornata di lavoro o impegni sociali.",
+        "cost": "Una Prova di Risveglio",
+        "dicePool": "Persuasione + Ascendente contro Autocontrollo + Intelligenza",
+        "system": "Il vampiro si concentra per 5 minuti sulla persona da convocare, quindi tira Persuasione + Ascendente contro Autocontrollo + Intelligenza. Se vince, il bersaglio sente la chiamata, ma può scegliere di non obbedire. Con una vittoria critica, il bersaglio arriva nel più breve tempo possibile senza mettere in pericolo immediato la propria incolumità.",
+        "duration": "Una notte"
+      },
+      {
+        "id": "d3_12",
+        "level": 4,
+        "amalgama": "Dominazione 1",
+        "title": "Voce Irresistibile",
+        "description": "L'Ascendente del vampiro diventa un tramite della sua Dominazione: ora gli basta che le vittime sentano la sua voce per farsi obbedire tramite quella Disciplina.",
+        "cost": "Nessun costo aggiuntivo",
+        "system": "La voce del vampiro è ora sufficiente per Dominare un bersaglio. Ciò non si applica alla voce trasmessa da media elettronici quali telefoni, televisione o altoparlanti nel campanello.",
+        "duration": "Passivo"
+      },
+      {
         "id": "d3_12",
         "level": 4,
         "title": "Impregnare L'edificio",
-        "description": "Mentre è presente in un edificio o in un locale simile, il vampiro è in grado di estendere i poteri di Incantare, Intimorire e Maestà attraverso la struttura stessa dell'edificio. Chiunque si trovi nell'edificio o lo guardi sarà influenzato da questi poteri, reagendo all'edificio come se il vampiro stesso fosse presente.",
+        "description": "Se presente in un edificio o località analoga, il vampiro può estendere i poteri di Soggezione, Spaventare e Maestà permeandone la struttura stessa. Chiunque si trovi nell’edificio o lo stia guardando è influenzato daquei poteri e reagisce all’edificio come se il vampiro fosse presente.",
         "cost": "Gratuito",
         "dicePool": "Come il potere trasmesso",
         "system": "Chiunque veda l'edificio dall'esterno o si trovi all'interno deve resistere al potere usato come se il vampiro fosse presente, a meno che il vampiro non sia in vista, nel qual caso essi stessi diventano il focus. Poiché un edificio generalmente non effettua test di abilità, applica i bonus invece a qualsiasi reazione la vittima ha verso il luogo. Un nightclub sotto l'influenza di Incantare avrà code che si snodano intorno all'isolato, mentre un rifugio sotto Intimorire allontanerà tutti tranne i più tenaci investigatori. L'uso di Maestà deve essere fatto con estrema cautela, poiché i risultati possono essere spettacolari e volatili, superando di gran lunga l'effetto dei poteri più sottili.",
@@ -703,7 +700,7 @@
         "description": "Il vampiro può creare brevi ma vivide allucinazioni, distraendo e attirando l'attenzione di coloro che ne sono affetti. Un'allucinazione può influenzare un singolo senso: visivo, uditivo, tattitle, ecc., e dura abbastanza a lungo da fare impressione prima di cessare. L'utente decide i dettagli dell'allucinazione, ma a causa della sua natura breve non può trasmettere più di qualcosa intravisto con la coda dell'occhio o una voce debolmente udibile (ad esempio, non può essere usato per creare una falsa identità).",
         "cost": "Una Prova di Risveglio.",
         "dicePool": "Persuasione + Oscurazione contro Autocontrollo + Prontezza",
-        "system": "Il vampiro tira Manipolazione + Oscurazione. Chiunque non preparato e a vista del vampiro e idoneo a sperimentare l'allucinazione (essendo in linea di vista del suo punto di apparizione o essendo il bersaglio di una sensazione tattitle) viene distratto, perdendo due dadi sulla loro prossima azione. Inoltre, coloro che non riescono a resistere usando Compostezza + Prontezza perdono la loro prossima azione attiva se falliscono. (Tuttavia, possono ancora difendersi e resistere normalmente, con una penalità di due dadi.) A differenza della maggior parte dei poteri di Presenza, Chimeria può essere utilizzato durante un conflitto fisico stressante come il combattimento, ma i bersagli possono essere colpiti solo una volta per conflitto.\n\nAltri effetti risultanti dall'allucinazione sono a discrezione del Narratore, ma si consiglia di essere prudenti. Queste allucinazioni non possono mai essere registrate o trasmesse (come con Spettro nella Macchina).",
+        "system": "Il vampiro tira Manipolazione + Oscurazione. Chiunque non preparato e a vista del vampiro e idoneo a sperimentare l'allucinazione (essendo in linea di vista del suo punto di apparizione o essendo il bersaglio di una sensazione tattitle) viene distratto, perdendo due dadi sulla loro prossima azione. Inoltre, coloro che non riescono a resistere usando Compostezza + Prontezza perdono la loro prossima azione attiva se falliscono. (Tuttavia, possono ancora difendersi e resistere normalmente, con una penalità di due dadi.) A differenza della maggior parte dei poteri di Presenza, Chimeria può essere utilizzato durante un conflitto fisico stressante come il combattimento, ma i bersagli possono essere colpiti solo una volta per conflitto. \nAltri effetti risultanti dall'allucinazione sono a discrezione del Narratore, ma si consiglia di essere prudenti. Queste allucinazioni non possono mai essere registrate o trasmesse (come con Spettro nella Macchina).",
         "duration": "Un Turno."
       },
       {

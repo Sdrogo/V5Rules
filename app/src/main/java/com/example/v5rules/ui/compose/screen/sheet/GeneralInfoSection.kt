@@ -20,7 +20,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
@@ -113,7 +112,7 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = clanExpanded) },
                             colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
                             modifier = Modifier
-                                .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                                .menuAnchor()
                                 .fillMaxWidth()
                                 .focusRequester(focusRequester)
                                 .onKeyEvent {
@@ -180,7 +179,7 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = predatorExpanded) },
                             colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
                             modifier = Modifier
-                                .menuAnchor(MenuAnchorType.PrimaryNotEditable)
+                                .menuAnchor()
                                 .fillMaxWidth()
                                 .focusRequester(focusRequester)
                                 .onKeyEvent {

@@ -391,7 +391,7 @@
     "id": 13,
     "title": "Discendente di Vasantasena",
     "content": "Vasantasena e il suo sire Unmada viaggiarono per il mondo medievale, predicando contro il Legame di Sangue. Ripudiavano il Vinculum, la gerarchia tradizionale dei Fratelli e ogni perdita del libero arbitrio. Infine, denunciarono la crudele tirannia degli Antidiluviani e si unirono al Sabbat agli albori della setta. Tuttavia, così come la Camarilla, anche il Sabbat tradì la loro causa, istituendo gerarchie e schiavismo rituale tramite la vitae. Vasantasena ripudiò il Sabbat, fondando una fazione di Malkavian che abbracciava la libertà dalle sette.\n\nI discendenti di Vasantasena sono numerosi e variegati, tutti seguendola quando abbandonò il Sabbat prima della sua recente e bestiale degradazione. Alcuni si unirono alla Camarilla, altri agli Anarchici. Tutti possiedono e brandiscono come una lama affilata il fanatismo e il fascino della loro progenitrice, combattendo per una causa comune.",
-    "level": "Solo personaggi Malkavian",
+    "limitation": "Solo personaggi Malkavian",
     "powers": [
       {
         "title": "Agente del Caos",

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9b1cfa43c88c87e089b42f0d231d6c21",
+    "identityHash": "6700ba5fc2f8d89f2b9bc6dece88a5a3",
     "entities": [
       {
         "tableName": "characters",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `clan` TEXT, `generation` INTEGER NOT NULL, `sire` TEXT NOT NULL, `concept` TEXT NOT NULL, `ambition` TEXT NOT NULL, `desire` TEXT NOT NULL, `predator` TEXT, `attributes` TEXT NOT NULL, `abilities` TEXT NOT NULL, `disciplines` TEXT NOT NULL, `advantages` TEXT NOT NULL, `backgrounds` TEXT NOT NULL, `loresheets` TEXT NOT NULL, `health` TEXT NOT NULL, `willpower` TEXT NOT NULL, `humanity` TEXT NOT NULL, `experience` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `clan` TEXT, `generation` INTEGER NOT NULL, `sire` TEXT NOT NULL, `concept` TEXT NOT NULL, `ambition` TEXT NOT NULL, `desire` TEXT NOT NULL, `predator` TEXT, `attributes` TEXT NOT NULL, `abilities` TEXT NOT NULL, `disciplines` TEXT NOT NULL, `advantages` TEXT NOT NULL, `backgrounds` TEXT NOT NULL, `directFlaws` TEXT, `loresheets` TEXT NOT NULL, `health` TEXT NOT NULL, `willpower` TEXT NOT NULL, `humanity` TEXT NOT NULL, `experience` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -93,6 +93,12 @@
             "notNull": true
           },
           {
+            "fieldPath": "directFlaws",
+            "columnName": "directFlaws",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
             "fieldPath": "loresheets",
             "columnName": "loresheets",
             "affinity": "TEXT",
@@ -136,7 +142,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9b1cfa43c88c87e089b42f0d231d6c21')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6700ba5fc2f8d89f2b9bc6dece88a5a3')"
     ]
   }
 }

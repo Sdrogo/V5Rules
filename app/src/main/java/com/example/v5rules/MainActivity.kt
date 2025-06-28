@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -12,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.v5rules.ui.theme.V5RulesTheme
+import com.example.v5rules.viewModel.BackgroundViewModel
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
@@ -28,6 +30,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         Log.d("MainActivity", "onCreate called")
         setContent {
@@ -51,6 +54,7 @@ fun V5RulesApp(
     val kindredViewModel: KindredViewModel = hiltViewModel<KindredViewModel>()
     val pgViewModel: PgViewModel = hiltViewModel<PgViewModel>()
     val characterSheetViewModel: CharacterSheetViewModel = hiltViewModel<CharacterSheetViewModel>()
+    val backgroundViewModel: BackgroundViewModel = hiltViewModel<BackgroundViewModel>()
 
     val navController = rememberNavController()
 
@@ -69,7 +73,8 @@ fun V5RulesApp(
             npcGeneratorViewModel = npcGeneratorViewModel,
             kindredViewModel = kindredViewModel,
             pgViewModel = pgViewModel,
-            characterSheetViewModel = characterSheetViewModel
+            characterSheetViewModel = characterSheetViewModel,
+            backgroundViewModel = backgroundViewModel
         )
     }
 }
