@@ -70,19 +70,24 @@ sealed class CharacterSheetEvent {
     data class AdvantageFlawLevelChanged(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
     class PredatorChanged(val predator: PredatorType) : CharacterSheetEvent()
     // Eventi per Merits/Flaws di un Background specifico
-    data class BackgroundMeritAdded(val backgroundId: Int, val merit: Advantage, val level: Int) : CharacterSheetEvent()
-    data class BackgroundMeritRemoved(val backgroundId: Int, val merit: Advantage) : CharacterSheetEvent()
-    data class BackgroundMeritLevelChanged(val backgroundId: Int, val meritId: Int, val newLevel: Int) : CharacterSheetEvent()
+    data class BackgroundMeritAdded(val background: Background, val merit: Advantage, val level: Int) : CharacterSheetEvent()
+    data class BackgroundMeritRemoved(val background: Background, val merit: Advantage) : CharacterSheetEvent()
+    data class BackgroundMeritLevelChanged(val background: Background, val meritId: Int, val newLevel: Int) : CharacterSheetEvent()
 
-    data class BackgroundFlawAdded(val backgroundId: Int, val flaw: Advantage, val level: Int) : CharacterSheetEvent()
-    data class BackgroundFlawRemoved(val backgroundId: Int, val flaw: Advantage) : CharacterSheetEvent()
-    data class BackgroundFlawLevelChanged(val backgroundId: Int, val flawId: Int, val newLevel: Int) : CharacterSheetEvent()
+    data class BackgroundFlawAdded(val background: Background, val flaw: Advantage, val level: Int) : CharacterSheetEvent()
+    data class BackgroundFlawRemoved(val background: Background, val flaw: Advantage) : CharacterSheetEvent()
+    data class BackgroundFlawLevelChanged(val background: Background, val flawId: Int, val newLevel: Int) : CharacterSheetEvent()
 
     // Eventi per DirectFlaws del personaggio (se li tieni separati)
     data class CharacterDirectFlawAdded(val directFlaw: Advantage, val level: Int) : CharacterSheetEvent()
     data class CharacterDirectFlawRemoved(val directFlaw: Advantage) : CharacterSheetEvent()
-    data class CharacterDirectFlawLevelChanged(val directFlawId: Int, val newLevel: Int) : CharacterSheetEvent()
+    data class CharacterDirectFlawLevelChanged(val directFlaw: Advantage, val newLevel: Int) : CharacterSheetEvent()
 
+    data class AddNoteToBackground(val background: Background, val note: String) : CharacterSheetEvent()
+    data class AddNoteToBackgroundFlaw(val background: Background, val flaw: Advantage, val note: String) : CharacterSheetEvent()
+    data class AddNoteToDirectFlaw(val advantage: Advantage, val note: String) : CharacterSheetEvent()
+    data class AddNoteToMerit(val background: Background,  val merit: Advantage,val note: String) : CharacterSheetEvent()
+    data class AddNoteToFlaw(val background: Background,  val flaw: Advantage,val note: String) : CharacterSheetEvent()
 
     // Azioni
     object SaveClicked: CharacterSheetEvent()

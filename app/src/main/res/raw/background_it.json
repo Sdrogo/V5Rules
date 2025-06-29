@@ -33,18 +33,19 @@
         "title": "Infamia",
         "description": "L’altra faccia della luccicante medaglia della Fama ha il proprio assortimento di pro e contro. Un Fratello famigerato può faticare a mettersi in buona luce presso il Principe, oppure i mortali possono infastidirlo nelle sue attività notturne. Altri individui sgradevoli, però, potrebbero considerare un vampiro con Infamia una risorsa utile e rivelarsi più inclini ad aiutare una canaglia della loro risma. Sebbene ciò non giovi di certo alla sua immagine pubblica, altre organizzazioni o persone equivoche lo ritengono uno dei loro, consentendogli talvolta di fare leva su questa solidarietà per realizzare i suoi piani. Meglio però che stia attento a non fare arrabbiare anche loro…",
         "isFlaw": true
+      },
+      {
+        "id": 20006,
+        "title": "Segreto Oscuro",
+        "description": "Una versione meno grave di Infamia. Il Difetto restituisce un punto in meno rispetto a una Infamia equivalente, in quanto le gesta sinistre restano nascoste a tutti tranne il vampiro e forse uno o due nemici motivati. La versione di Infamia da un pallino vale un punto anche come Segreto Oscuro, perché è più facile da scoprire rispetto a un segreto che può davvero mettere in pericolo di vita.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 2
       }
     ],
     "merits": [],
     "flaws": [
-      {
-      "id": 10019,
-      "title": "Segreto Oscuro",
-      "description": "Una versione meno grave di Infamia. Il Difetto restituisce un punto in meno rispetto a una Infamia equivalente, in quanto le gesta sinistre restano nascoste a tutti tranne il vampiro e forse uno o due nemici motivati. La versione di Infamia da un pallino vale un punto anche come Segreto Oscuro, perché è più facile da scoprire rispetto a un segreto che può davvero mettere in pericolo di vita.",
-      "isFlaw": true,
-      "minLevel": 1,
-      "maxLevel": 2
-    }
+
     ]
   },
   {
@@ -56,7 +57,9 @@
         "id": 20003,
         "title": "Nessun Rifugio",
         "description": "Il vampiro deve compiere qualche sforzo (almeno un test semplice) per trovare un nuovo riparo ogni mattina.",
-        "isFlaw": true
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
       }
     ],
     "merits": [
@@ -183,7 +186,7 @@
         "description": "Il rifugio sembra il covo di un serial killer, e in tutta franchezza lo è. I vicini ignari potrebbero fare una soffiata alla polizia o anche solo parlare del luogo spaventoso che hanno visto. Le riserve Sociali per sedurre o mettere a loro agio gli ospiti mortali subiscono due dadi di penalità.",
         "isFlaw": true,
         "minLevel": 1,
-        "maxLevel": 5
+        "maxLevel": 1
       },
       {
         "id": 10018,
@@ -215,46 +218,24 @@
     "title": "Influenza",
     "description": "Influenza si basa sul potere politico e aggiunge alla cronaca intrighi e conflitti istituzionali. Usare Influenza è qualcosa di più del semplice manipolare in astratto la politica e i media di una città: i vampiri di certi clan possono esercitare questo vantaggio in vari settori più facilmente di altri. I Brujah hanno un’affinità per gli attivisti o le milizie locali, mentre i Malkavian avranno più probabilmente Influenza su strane conventicole o cerchie misticheggianti. Nel definire le Influenze e decidere in che modo si ricollegano al personaggio, cercate di pensare anche al suo archetipo di Predatore: chi dovrà manipolare per avere aiuto nella caccia? Influenza conferisce anche una protezione di riserva per il dominio della coterie. In una coterie, avere un ampio spettro di Influenza (come una estesa rete di Contatti) offre al gruppo flessibilità di pianificazione e reazione alle azioni nemiche. Ad esempio, avere influenza in un ufficio politico locale non sarà efficace nel bloccare una strada al traffico quanto un distretto di polizia, ma l’ufficio del consigliere comunale può senz’altro inserire le guardie del Rifugio negli elenchi approvati dei “gruppi di azione giovanile”.",
     "directFlaws": [
-      {
-        "id": 20004,
-        "title": "Disprezzato e Malvisto",
-        "description": "Questi due Difetti offrono interessanti spunti di gioco qualora si desideri aumentare l’autosufficienza del vampiro nel suo Dominio. Disprezzato mette un gruppo o una regione della città in attiva opposizione al Fratello e persino i neutrali mantengono un grado di freddezza, mentre Malvisto gli mette contro chiunque nella stessa misura: il vampiro può fare leva su entrambi quando vuole infiammare gli animi del suo quartiere. Naturalmente, quando invia i propri Alleati e Seguaci in altri territori, possono incontrare più problemi del solito anche se quei Difetti non li influenzano direttamente (così come i Contatti del personaggio). Il vampiro può imbattersi in tali conseguenze durante un’escursione notturna: un Toreador malvisto perché ha caricato un video che sbeffeggia la squadra di calcio locale resta invischiato in interminabili discussioni sportive ogni volta che vorrebbe solo nutrirsi in santa pace. È anche possibile combinare Disprezzato o Malvisto con la normale Influenza: il consigliere comunale è disposto a incontrare il Fratello solo in un parcheggio sotterraneo e pretende di essere pagato in contanti, ma autorizza comunque il suo nightclub a restare aperto tutta la notte e avere una piattaforma di carico.",
-        "isFlaw": true
-      }
-    ],
+        {
+          "id": 20004,
+          "title": "Malvisto",
+          "description": "Penalità di un dado alle riserve Sociali che coinvolgono qualsiasi gruppo della città tranne Contatti, Alleati o altri leali sostenitori.",
+          "isFlaw": true,
+          "minLevel": 1,
+          "maxLevel": 1
+        },
+        {
+          "id": 20005,
+          "title": "Disprezzato",
+          "description": "Un gruppo o regione vive solo per angariare il vampiro e la sua fazione. Penalità di due dadi alle riserve per convincere un attore neutrale a dare il suo appoggio politico o fargli un favore. Il Narratore deve cogliere ogni opportunità per coinvolgere chi lo odia nella storia.",
+          "isFlaw": true,
+          "minLevel": 2,
+          "maxLevel": 2
+        }
+      ],
     "merits": [],
-    "flaws": [
-      {
-        "id": 10020,
-        "title": "Malvisto",
-        "description": "Penalità di un dado alle riserve Sociali che coinvolgono qualsiasi gruppo della città tranne Contatti, Alleati o altri leali sostenitori.",
-        "isFlaw": true,
-        "minLevel": 1,
-        "maxLevel": 1
-      },
-      {
-        "id": 10021,
-        "title": "Disprezzato",
-        "description": "Un gruppo o regione vive solo per angariare il vampiro e la sua fazione. Penalità di due dadi alle riserve per convincere un attore neutrale a dare il suo appoggio politico o fargli un favore. Il Narratore deve cogliere ogni opportunità per coinvolgere chi lo odia nella storia.",
-        "isFlaw": true,
-        "minLevel": 2,
-        "maxLevel": 2
-      }
-    ]
-  },
-  {
-    "id": 7,
-    "title": "Sapienze di Tenebra",
-    "description": "Questi Tratti esistono per sottolineare un particolare aspetto del mondo al Narratore e al giocatore interessato, senza costringere tutti gli altri a conoscere ogni minuzia dell’ambientazione di Vampiri. Una Sapienza di Tenebra porta in primo piano un gruppo, un evento storico o un anziano così come si relaziona a quello specifico giocatore, incoraggiandolo a fare suo quell’aspetto e rammentando al Narratore che i misteri vampirici esistono per servire la storia che va in scena al suo tavolo in quella sessione, non come lezioni obbligatorie. Una Linea di Sangue è un tipo specifico di Sapienza di Tenebra che agisce come elemento di background separato ed esclusivo.",
-    "merits": [
-      {
-        "id": 20006,
-        "title": "Linea di Sangue",
-        "description": "Il personaggio è stato Abbracciato da una particolare stirpe vampirica che manifesta qualità uniche. Ciò gli dà accesso a una seconda Sapienza di Tenebra che solo i membri della sua linea di sangue possiedono. Ogni altra regola e limitazione del Background Sapienza di Tenebra (V5 p. 193) si applica normalmente: “Linea di Sangue” è un Background separato, pertanto il personaggio può disporre sia di un Vantaggio derivato da essa che uno dal Background Sapienza di Tenebra. Quasi tutti gli Hecata possiedono anche una Linea di Sangue separata.\nCome per Sapienza di Tenebra, è possibile avere una sola Linea di Sangue, sebbene sia possibile avere una Linea di Sangue e una Sapienza di Tenebra. Il Narratore può decidere che alcune Sapienze di Tenebra già pubblicate e relative a stirpi vampiriche minori (come “Discendente di Hardestadt” e “Discendente di Helena” in V5 p. 390-391) contino come Linee di Sangue, consentendo ai giocatori che le possiedono di acquisire una ulteriore Sapienza di Tenebra non collegata al lignaggio.",
-        "minLevel": 1,
-        "maxLevel": 5
-      }
-    ],
     "flaws": []
   },
   {
@@ -318,14 +299,6 @@
     "id": 11,
     "title": "Favori",
     "description": "In molti casi, un Fratello più vecchio o più esperto aiuta il personaggio nel ruolo di Mawla. Un sire che promuova l'avanzamento dei suoi infanti è un Mawla piuttosto standard, o forse un membro di una fazione o setta che ha \"reclutato\" il personaggio gli viene assegnato come ufficiale politico o confessore per assicurarsi che non sperperi il potenziale che i suoi creatori videro in lui. Tuttavia, il Fratello può anche avere un Mawla più giovane: un amico fedele dei suoi giorni da mortale, anch'egli Abbracciato e incredibilmente ancora degno di fiducia. Un numero maggiore di pallini indica un Mawla in una posizione più preziosa: un neonato da un pallino potrebbe valerne anche due o tre se è l'informatore del personaggio nel seguito del Barone o del Principe locale. Spetta al Narratore decidere se nella cronaca l'avere una spia nel campo nemico valga di più o di meno di una spia nella corte del proprio signore. In tutti gli altri aspetti, i Favori Minori, Importanti e Cruciali funzionano come descritto nel manuale base di Vampiri (p. 314-315). I Favori non possono essere acquistati o cancellati tramite i punti esperienza. Dopo la creazione del personaggio, l’unico modo per ottenerli (o annullarli) è tramite le sue azioni nel gioco.",
-    "directFlaws": [
-      {
-        "id": 20011,
-        "title": "Debiti",
-        "description": "I Debiti conferiscono meno punti se acquisiti come Difetti rispetto al loro costo come Pregi. Avere un Debito è una brutta faccenda, ma essere in Debito Importante con un vampiro di Status superiore (cioè dovergli un Favore Importante) è anche peggio. Una volta per storia, il creditore del personaggio o i suoi scagnozzi possono esigere da lui un favore che non può rifiutare, a meno che non voglia essere emarginato, braccato in una caccia di sangue o peggio. Questo favore può assumere qualsiasi forma e spesso comporta l’esposizione a un pericolo mortale o al potenziale crollo della sua reputazione.\n\nSe un PG si ritrova in Debito Cruciale con un vampiro di Status superiore, tanto vale che si sottoponga al Legame di Sangue e diventi suo servo. Persino i vampiri non Vili possono sperimentare questo livello di indebitamento nella forma di Schiavitù del Debito (p. 127). Ogni debito e favore deve essere annotato separatamente. I Debiti non possono essere acquistati o cancellati tramite i punti esperienza. Dopo la creazione del personaggio, l’unico modo per ottenerli (o annullarli) è tramite le sue azioni nel gioco.",
-        "isFlaw": true
-      }
-    ],
     "merits": [
       {
         "id": 10019,

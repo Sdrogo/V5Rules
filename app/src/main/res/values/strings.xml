@@ -52,7 +52,11 @@
     <string name="clan_disciplines">Discipline:</string>
     <string name="clan_weakness">Debolezza:</string>
     <string name="clan_compulsion">Compulsione: %1$s</string>
+    <string name="search_merits">Cerca Pregi</string>
 
+    <string name="collapse">Collapse  %1$s</string>
+    <string name="expand_stuff">Expand  %1$s</string>
+    <string name="remove_stuff">Remove  %1$s</string>
 
     <string name="predator_type_screen_title">Archetipi Predatore</string>
     <string name="predator_type_screen_description">Descrizione:</string>
@@ -67,7 +71,7 @@
     <string name="clan">Clan</string>
     <string name="discipline">Discipline</string>
     <string name="lore_screen_title">Lore</string>
-    <string name="kindred_screen_button_label">Kindred</string>
+    <string name="kindred_screen_button_label">I Fratelli</string>
     <string name="pg_screen_button_label">Personaggi</string>
     <string name="loresheet_title_screen">Sapienze di Tenebra</string>
 
@@ -127,6 +131,21 @@
     <string name="character_screen_mental">Mentali</string>
     <string name="character_list_title">Lista Schede</string>
     <string name="background_title_screen">Background</string>
+    <string name="search_flaws">Cerca Difetti</string>
+    <string name="search_backgrounds">Cerca Background</string>
+    <string name="close">Chiudi</string>
+    <string name="add_flaw">Aggiungi Difetto</string>
+    <string name="add_background">Aggiungi Background</string>
+    <string name="add_merit">Aggiungi Pregio</string>
+    <string name="flaw">Difetto</string>
+    <string name="background">Background</string>
+    <string name="merit">Pregio</string>
+    <string name="remove">Rimuovi</string>
+    <string name="no_background_selected">Nessun Background selezionato.</string>
+    <string name="no_flaw_selected">Nessun Difetto selezionato.</string>
+    <string name="no_loresheet_selected">Nessuna Sapienza di Tenebra selezionato.</string>
+    <string name="add_loresheet">Aggiungi Sapienza di Tenebra</string>
+    <string name="add_note">Aggiungi/modifica Nota</string>
 
     <string-array name="abilities">
         <item>Atletica</item>

@@ -50,11 +50,11 @@ fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) 
 
 @Composable
 fun RangeDots(min: Int, max: Int) {
-
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .wrapContentWidth()
+            .padding(horizontal = 8.dp)
     ) {
         if(min != max){
             Text(
@@ -62,7 +62,7 @@ fun RangeDots(min: Int, max: Int) {
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .wrapContentWidth()
-                    .padding(8.dp)
+                    .padding(horizontal = 8.dp)
             )
         }
         for (i in 1..min) Text(
@@ -71,11 +71,11 @@ fun RangeDots(min: Int, max: Int) {
         )
         if(min != max){
             Text(
-                text = " o ",
+                text = " - ",
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .wrapContentWidth()
-                    .padding(8.dp)
+                    .padding(horizontal = 8.dp)
             )
             for (i in 1..max) Text(
                 "●",
@@ -86,7 +86,7 @@ fun RangeDots(min: Int, max: Int) {
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .wrapContentWidth()
-                    .padding(8.dp)
+                    .padding(horizontal = 8.dp)
             )
         }
     }
@@ -139,6 +139,30 @@ fun DotsOnlyForLevel(level: Int) {
         for (i in 1..level) Text(
             "●",
             color = MaterialTheme.colorScheme.tertiary,
+        )
+    }
+}
+
+
+@Composable
+fun DotsWithMinMax(
+    level: Int = 1,
+    maxLevel: Int = 5,
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .wrapContentWidth()
+    ) {
+        for (i in 1..(level?:1)) Text(
+            "●",
+            color = MaterialTheme.colorScheme.primary,
+            fontSize = 24.sp // Imposta la dimensione del font desiderata
+        )
+        for (i in (level?:1) + 1..(maxLevel ?:5)) Text(
+            "○",
+            color = MaterialTheme.colorScheme.primary,
+            fontSize = 24.sp // Imposta la dimensione del font desiderata
         )
     }
 }
