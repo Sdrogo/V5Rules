@@ -154,12 +154,12 @@ fun DotsWithMinMax(
         modifier = Modifier
             .wrapContentWidth()
     ) {
-        for (i in 1..(level?:1)) Text(
+        for (i in 1..level) Text(
             "●",
             color = MaterialTheme.colorScheme.primary,
             fontSize = 24.sp // Imposta la dimensione del font desiderata
         )
-        for (i in (level?:1) + 1..(maxLevel ?:5)) Text(
+        for (i in level + 1..maxLevel) Text(
             "○",
             color = MaterialTheme.colorScheme.primary,
             fontSize = 24.sp // Imposta la dimensione del font desiderata

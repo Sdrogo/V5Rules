@@ -105,7 +105,7 @@ fun BackgroundSection(
                         onMeritSelected = { merit ->
                             viewModel.onEvent(
                                 CharacterSheetEvent.BackgroundMeritAdded(
-                                    selectedBackground!!,
+                                    characterBackgrounds,
                                     merit,
                                     merit.minLevel ?: 1
                                 )
