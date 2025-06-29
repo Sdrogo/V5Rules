@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -28,9 +26,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.v5rules.R
 import com.example.v5rules.data.Loresheet
 import com.example.v5rules.data.LoresheetPower
+import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DotsOnlyForLevel
 import com.example.v5rules.ui.compose.component.DotsWithMinMax
 import com.example.v5rules.utils.CharacterSheetEvent
@@ -41,16 +42,17 @@ fun LoresheetList(
     loresheets: List<Loresheet>,
     viewModel: CharacterSheetViewModel
 ) {
-    LazyColumn {
-        items(loresheets) { loresheet ->
-            LoresheetItem(
-                loresheet = loresheet,
-                viewModel = viewModel,
-                onRemove = {viewModel.onEvent(CharacterSheetEvent.LoresheetRemoved(loresheet)) }
-            )
-        }
+   Column {
+       loresheets.forEach { loresheet ->
+           LoresheetItem(
+               loresheet = loresheet,
+               viewModel = viewModel,
+               onRemove = {viewModel.onEvent(CharacterSheetEvent.LoresheetRemoved(loresheet)) }
+           )
+       }
     }
 }
+
 @Composable
 fun LoresheetItem(
     loresheet: Loresheet,
@@ -117,7 +119,9 @@ fun LoresheetItem(
                     )
                 )
             }
-            Text(text = loresheet.content, style = MaterialTheme.typography.bodyMedium)
+            ContentExpander(stringResource(R.string.discipline_description)) {
+                Text(text = loresheet.content, style = MaterialTheme.typography.bodyMedium)
+            }
         }
         LoresheetPowerSection(
             powers = characterLoresheet?.powers?.subList(0, loresheet.level) ?: emptyList()

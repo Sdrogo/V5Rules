@@ -147,6 +147,7 @@
     <string name="add_loresheet">Aggiungi Sapienza di Tenebra</string>
     <string name="add_note">Aggiungi/modifica Nota</string>
     <string name="delete_note">Cancella Nota</string>
+    <string name="search_loresheet">Cerca Loresheet</string>
 
     <string-array name="abilities">
         <item>Atletica</item>

@@ -726,7 +726,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedDirectFlaws =
                                 currentState.character.directFlaws?.map { directFlaw ->
-                                    if (directFlaw.id == event.directFlaw.id) {
+                                    if (directFlaw.identifier == event.directFlaw.identifier) {
                                         directFlaw.copy(level = event.newLevel)
                                     } else {
                                         directFlaw

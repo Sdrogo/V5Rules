@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -29,17 +30,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Background
-import com.example.v5rules.ui.compose.component.background.bottomSheet.BackgroundFlawsSelectionBottomSheet
+import com.example.v5rules.ui.compose.component.bottomSheet.BackgroundFlawsSelectionBottomSheet
 import com.example.v5rules.ui.compose.component.background.BackgroundList
-import com.example.v5rules.ui.compose.component.background.bottomSheet.BackgroundSelectionBottomSheet
-import com.example.v5rules.ui.compose.component.background.bottomSheet.DirectFlawSelectionBottomSheet
+import com.example.v5rules.ui.compose.component.bottomSheet.BackgroundSelectionBottomSheet
+import com.example.v5rules.ui.compose.component.bottomSheet.DirectFlawSelectionBottomSheet
 import com.example.v5rules.ui.compose.component.background.DirectFlawsList
-import com.example.v5rules.ui.compose.component.background.bottomSheet.MeritsSelectionBottomSheet
+import com.example.v5rules.ui.compose.component.bottomSheet.MeritsSelectionBottomSheet
 import com.example.v5rules.ui.compose.component.loresheet.LoresheetList
-import com.example.v5rules.ui.compose.component.loresheet.LoresheetSelectionBottomSheet
+import com.example.v5rules.ui.compose.component.bottomSheet.LoresheetSelectionBottomSheet
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import kotlinx.coroutines.launch
@@ -82,7 +82,6 @@ fun BackgroundSection(
     } else if (showAddBackgroundSheet) {
         BackgroundSelectionBottomSheet(
             allBackgrounds = allBackgrounds,
-            characterBackgrounds = characterBackgrounds,
             onBackgroundSelected = { background ->
                 viewModel.onEvent(
                     CharacterSheetEvent.BackgroundAdded(
@@ -144,7 +143,6 @@ fun BackgroundSection(
     } else if (showAddDirectFlawsSheet) {
         DirectFlawSelectionBottomSheet(
             allDirectFlaws = allDirectFlaws,
-            characterDirectFlaws = characterDirectFlaws.orEmpty(),
             onDirectFlawSelected = { flaw ->
                 viewModel.onEvent(
                     CharacterSheetEvent.CharacterDirectFlawAdded(
@@ -159,150 +157,191 @@ fun BackgroundSection(
                 showAddDirectFlawsSheet = false
             }
         )
-    } else Column(modifier = Modifier.padding(16.dp)) {
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp)
-                .border(
-                    1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)
-                ),
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+    } else LazyColumn(
+        modifier = Modifier.padding(16.dp)
+    ) {
+        item {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp)
+                    .border(
+                        1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)
+                    ),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             )
-        {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = stringResource(R.string.lore_screen_title),
-                        style = MaterialTheme.typography.headlineSmall,
-                        modifier = Modifier.weight(1f) // Take up available space
-                    )
-                    IconButton(onClick = {
-                        showAddLoresheetSheet = true
-                    }) { // Show the bottom sheet
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = stringResource(R.string.add_loresheet),
-                            tint = MaterialTheme.colorScheme.primary
+            {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = stringResource(R.string.lore_screen_title),
+                            style = MaterialTheme.typography.headlineSmall,
+                            modifier = Modifier.weight(1f) // Take up available space
                         )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                if (characterLoresheets.isNotEmpty()) {
-                    LoresheetList(
-                        loresheets = characterLoresheets,
-                        viewModel = viewModel
-                    )
-                } else {
-                    Text(stringResource(R.string.no_loresheet_selected), style = MaterialTheme.typography.bodyMedium)
-                }
-            }
-        }
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp)
-                .border(1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)),
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = stringResource(R.string.background),
-                        style = MaterialTheme.typography.headlineSmall,
-                        modifier = Modifier.weight(1f)
-                    )
-                    IconButton(onClick = {
-                        showAddBackgroundSheet = true
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = stringResource(R.string.add_background),
-                            tint = MaterialTheme.colorScheme.primary
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                if (characterBackgrounds.isNotEmpty()) {
-                    BackgroundList(
-                        backgrounds = characterBackgrounds,
-                        viewModel = viewModel,
-                        allGameBackgrounds = allBackgrounds,
-                        onAddMeritClick = { background ->
-                            selectedBackground = background
-                            showAddMeritsSheet = true
-                        },
-                        onAddFlawClick = { background ->
-                            selectedBackground = background
-                            showAddFlawsToBackgroundSheet = true
-                        },
-                        onRemove = { background ->
-                            viewModel.onEvent(CharacterSheetEvent.BackgroundRemoved(background))
-                            selectedBackground = null
-                        },
-                        onAddNoteToBackground = {background, note ->
-                            viewModel.onEvent(CharacterSheetEvent.AddNoteToBackground(background, note))
-                        },
-                        onRemoveNote = {background ->
-                            viewModel.onEvent(CharacterSheetEvent.RemoveNoteToBackground(background))
+                        IconButton(onClick = {
+                            showAddLoresheetSheet = true
+                        }) { // Show the bottom sheet
+                            Icon(
+                                imageVector = Icons.Default.Add,
+                                contentDescription = stringResource(R.string.add_loresheet),
+                                tint = MaterialTheme.colorScheme.primary
+                            )
                         }
-                    )
-                } else {
-                    Text(stringResource(R.string.no_background_selected), style = MaterialTheme.typography.bodyMedium)
-                }
-            }
-        }
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp)
-                .border(1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)),
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = stringResource(R.string.flaw),
-                        style = MaterialTheme.typography.headlineSmall,
-                        modifier = Modifier.weight(1f) // Take up available space
-                    )
-                    IconButton(onClick = {
-                        showAddDirectFlawsSheet = true
-                    }) { // Show the bottom sheet
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = stringResource(R.string.add_flaw),
-                            tint = MaterialTheme.colorScheme.primary
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    if (characterLoresheets.isNotEmpty()) {
+                        LoresheetList(
+                            loresheets = characterLoresheets,
+                            viewModel = viewModel
+                        )
+                    } else {
+                        Text(
+                            stringResource(R.string.no_loresheet_selected),
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
                 }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                if (characterDirectFlaws.orEmpty().isNotEmpty()) {
-                    DirectFlawsList(
-                        flaws = characterDirectFlaws.orEmpty(),
-                        onRemove = { advantage ->
-                            viewModel.onEvent(CharacterSheetEvent.CharacterDirectFlawRemoved(advantage))
-                        },
-                        onAddNote = {flaw, note ->
-                            viewModel.onEvent(CharacterSheetEvent.AddNoteToDirectFlaw(flaw, note))
-                        },
-                         onRemoveNote = {flaw ->
-                             viewModel.onEvent(CharacterSheetEvent.RemoveNoteToDirectFlaw(flaw))
-                         },
-                        onDirectFlawLevelChanged = { flaw, newLevel ->
-                            viewModel.onEvent(CharacterSheetEvent.CharacterDirectFlawLevelChanged(flaw,newLevel))
+            }
+        }
+        item {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp)
+                    .border(1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = stringResource(R.string.background),
+                            style = MaterialTheme.typography.headlineSmall,
+                            modifier = Modifier.weight(1f)
+                        )
+                        IconButton(onClick = {
+                            showAddBackgroundSheet = true
+                        }) {
+                            Icon(
+                                imageVector = Icons.Default.Add,
+                                contentDescription = stringResource(R.string.add_background),
+                                tint = MaterialTheme.colorScheme.primary
+                            )
                         }
-                    )
-                } else {
-                    Text(stringResource(R.string.no_flaw_selected), style = MaterialTheme.typography.bodyMedium)
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    if (characterBackgrounds.isNotEmpty()) {
+                        BackgroundList(
+                            backgrounds = characterBackgrounds,
+                            viewModel = viewModel,
+                            allGameBackgrounds = allBackgrounds,
+                            onAddMeritClick = { background ->
+                                selectedBackground = background
+                                showAddMeritsSheet = true
+                            },
+                            onAddFlawClick = { background ->
+                                selectedBackground = background
+                                showAddFlawsToBackgroundSheet = true
+                            },
+                            onRemove = { background ->
+                                viewModel.onEvent(CharacterSheetEvent.BackgroundRemoved(background))
+                                selectedBackground = null
+                            },
+                            onAddNoteToBackground = { background, note ->
+                                viewModel.onEvent(
+                                    CharacterSheetEvent.AddNoteToBackground(
+                                        background,
+                                        note
+                                    )
+                                )
+                            },
+                            onRemoveNote = { background ->
+                                viewModel.onEvent(
+                                    CharacterSheetEvent.RemoveNoteToBackground(
+                                        background
+                                    )
+                                )
+                            }
+                        )
+                    } else {
+                        Text(
+                            stringResource(R.string.no_background_selected),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
                 }
             }
         }
+        item {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp)
+                    .border(1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = stringResource(R.string.flaw),
+                            style = MaterialTheme.typography.headlineSmall,
+                            modifier = Modifier.weight(1f) // Take up available space
+                        )
+                        IconButton(onClick = {
+                            showAddDirectFlawsSheet = true
+                        }) { // Show the bottom sheet
+                            Icon(
+                                imageVector = Icons.Default.Add,
+                                contentDescription = stringResource(R.string.add_flaw),
+                                tint = MaterialTheme.colorScheme.primary
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    if (characterDirectFlaws.orEmpty().isNotEmpty()) {
+                        DirectFlawsList(
+                            flaws = characterDirectFlaws.orEmpty(),
+                            onRemove = { advantage ->
+                                viewModel.onEvent(
+                                    CharacterSheetEvent.CharacterDirectFlawRemoved(
+                                        advantage
+                                    )
+                                )
+                            },
+                            onAddNote = { flaw, note ->
+                                viewModel.onEvent(
+                                    CharacterSheetEvent.AddNoteToDirectFlaw(
+                                        flaw,
+                                        note
+                                    )
+                                )
+                            },
+                            onRemoveNote = { flaw ->
+                                viewModel.onEvent(CharacterSheetEvent.RemoveNoteToDirectFlaw(flaw))
+                            },
+                            onDirectFlawLevelChanged = { flaw, newLevel ->
+                                viewModel.onEvent(
+                                    CharacterSheetEvent.CharacterDirectFlawLevelChanged(
+                                        flaw,
+                                        newLevel
+                                    )
+                                )
+                            }
+                        )
+                    } else {
+                        Text(
+                            stringResource(R.string.no_flaw_selected),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.component.background.bottomSheet
+package com.example.v5rules.ui.compose.component.bottomSheet
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,14 +26,15 @@ import com.example.v5rules.R
 import com.example.v5rules.data.Advantage
 import com.example.v5rules.data.Background
 
+
 @Composable
-fun BackgroundFlawsSelectionBottomSheet(
+fun MeritsSelectionBottomSheet(
     background: Background,
-    onFlawSelected: (Advantage) -> Unit,
+    onMeritSelected: (Advantage) -> Unit,
     onDismiss: () -> Unit
 ) {
     var searchText by remember { mutableStateOf("") }
-    val filteredFlaws = background.flaws.orEmpty().sortedBy { it.title }.filter { flaw ->
+    val filteredMerits = background.merits.orEmpty().sortedBy { it.title }.filter { flaw ->
         flaw.title.contains(searchText, ignoreCase = true)
     }
     Column(
@@ -49,24 +50,28 @@ fun BackgroundFlawsSelectionBottomSheet(
             TextField(
                 value = searchText,
                 onValueChange = { searchText = it },
-                label = { Text(stringResource(R.string.search_flaws)) },
-                modifier = Modifier.weight(1f),
-                singleLine = true,
+                label = { Text(stringResource(R.string.search_merits)) },
+                modifier = Modifier.weight(1f), // Occupa lo spazio disponibile
+                singleLine = true, // Opzionale: per un aspetto più compatto
                 trailingIcon = {
-                    IconButton(onClick = onDismiss) {
+                    IconButton(onClick = onDismiss) { // Azione: pulisce il testo
                         Icon(
                             imageVector = Icons.Default.Close,
-                            contentDescription = stringResource(R.string.close)
+                            contentDescription = stringResource(R.string.close) // Per l'accessibilità
                         )
                     }
                 }
             )
         }
         LazyColumn(modifier = Modifier) {
-            items(filteredFlaws) { flaw ->
+            items(filteredMerits) { merit ->
                 AdvantageSelectionBottomSheetItem(
-                    advantage = flaw,
-                    onAdvantageSelected = { onFlawSelected(flaw) }
+                    advantage = merit,
+                    onAdvantageSelected = {
+                        onMeritSelected(
+                            merit
+                        )
+                    }
                 )
             }
         }

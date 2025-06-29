@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.component.background.bottomSheet
+package com.example.v5rules.ui.compose.component.bottomSheet
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -36,7 +36,6 @@ import com.example.v5rules.ui.compose.component.RangeDots
 @Composable
 fun DirectFlawSelectionBottomSheet(
     allDirectFlaws: List<Advantage>,
-    characterDirectFlaws: List<Advantage>,
     onDirectFlawSelected: (Advantage) -> Unit,
     onDismiss: () -> Unit
 ) {

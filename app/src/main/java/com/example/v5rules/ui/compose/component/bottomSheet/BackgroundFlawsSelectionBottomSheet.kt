@@ -1,6 +1,5 @@
-package com.example.v5rules.ui.compose.component.background.bottomSheet
+package com.example.v5rules.ui.compose.component.bottomSheet
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,19 +23,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
+import com.example.v5rules.data.Advantage
 import com.example.v5rules.data.Background
 
-
 @Composable
-fun BackgroundSelectionBottomSheet(
-    allBackgrounds: List<Background>,
-    characterBackgrounds: List<Background>,
-    onBackgroundSelected: (Background) -> Unit,
+fun BackgroundFlawsSelectionBottomSheet(
+    background: Background,
+    onFlawSelected: (Advantage) -> Unit,
     onDismiss: () -> Unit
 ) {
     var searchText by remember { mutableStateOf("") }
-    val filteredBackgrounds = allBackgrounds.filter { background ->
-        background.title.contains(searchText, ignoreCase = true)
+    val filteredFlaws = background.flaws.orEmpty().sortedBy { it.title }.filter { flaw ->
+        flaw.title.contains(searchText, ignoreCase = true)
     }
     Column(
         modifier = Modifier
@@ -51,42 +49,26 @@ fun BackgroundSelectionBottomSheet(
             TextField(
                 value = searchText,
                 onValueChange = { searchText = it },
-                label = { Text(stringResource(R.string.search_backgrounds)) },
-                modifier = Modifier.weight(1f), // Occupa lo spazio disponibile
-                singleLine = true, // Opzionale: per un aspetto più compatto
+                label = { Text(stringResource(R.string.search_flaws)) },
+                modifier = Modifier.weight(1f),
+                singleLine = true,
                 trailingIcon = {
-                        IconButton(onClick = onDismiss) { // Azione: pulisce il testo
-                            Icon(
-                                imageVector = Icons.Default.Close,
-                                contentDescription = stringResource(R.string.close) // Per l'accessibilità
-                            )
-                        }
+                    IconButton(onClick = onDismiss) {
+                        Icon(
+                            imageVector = Icons.Default.Close,
+                            contentDescription = stringResource(R.string.close)
+                        )
+                    }
                 }
             )
         }
-
         LazyColumn(modifier = Modifier) {
-            items(filteredBackgrounds) { background ->
-                BackgroundSelectionBottomSheetItem(
-                    background = background,
-                    ononBackgroundSelected = { onBackgroundSelected(it) }
+            items(filteredFlaws) { flaw ->
+                AdvantageSelectionBottomSheetItem(
+                    advantage = flaw,
+                    onAdvantageSelected = { onFlawSelected(flaw) }
                 )
             }
         }
     }
-}
-
-@Composable
-fun BackgroundSelectionBottomSheetItem(
-    background: Background,
-    ononBackgroundSelected: (Background) -> Unit
-) {
-
-    Text(
-        text = background.title,
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { ononBackgroundSelected(background) }
-            .padding(16.dp)
-    )
 }

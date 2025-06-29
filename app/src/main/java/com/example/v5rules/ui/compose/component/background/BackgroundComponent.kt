@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.Add
@@ -57,8 +55,8 @@ fun BackgroundList(
     onRemove: (Background) -> Unit,
     onRemoveNote: (Background) -> Unit
 ) {
-    LazyColumn {
-        items(backgrounds) { characterBackground ->
+    Column {
+        backgrounds.forEach { characterBackground ->
             BackgroundItem(
                 characterBackground = characterBackground,
                 viewModel = viewModel,
