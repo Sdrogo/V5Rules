@@ -50,24 +50,24 @@ fun BackgroundFlawsSelectionBottomSheet(
                 value = searchText,
                 onValueChange = { searchText = it },
                 label = { Text(stringResource(R.string.search_flaws)) },
-                modifier = Modifier.weight(1f), // Occupa lo spazio disponibile
-                singleLine = true, // Opzionale: per un aspetto più compatto
+                modifier = Modifier.weight(1f),
+                singleLine = true,
                 trailingIcon = {
-                    IconButton(onClick = onDismiss) { // Azione: pulisce il testo
+                    IconButton(onClick = onDismiss) {
                         Icon(
                             imageVector = Icons.Default.Close,
-                            contentDescription = stringResource(R.string.close) // Per l'accessibilità
+                            contentDescription = stringResource(R.string.close)
                         )
                     }
                 }
             )
-            LazyColumn(modifier = Modifier) {
-                items(filteredFlaws) { flaw ->
-                    AdvantageSelectionBottomSheetItem(
-                        advantage = flaw,
-                        onAdvantageSelected = { onFlawSelected(flaw) }
-                    )
-                }
+        }
+        LazyColumn(modifier = Modifier) {
+            items(filteredFlaws) { flaw ->
+                AdvantageSelectionBottomSheetItem(
+                    advantage = flaw,
+                    onAdvantageSelected = { onFlawSelected(flaw) }
+                )
             }
         }
     }

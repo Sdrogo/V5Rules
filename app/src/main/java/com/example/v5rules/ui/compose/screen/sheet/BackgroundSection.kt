@@ -98,7 +98,7 @@ fun BackgroundSection(
                 showAddBackgroundSheet = false
             }
         )
-    } else if (showAddMeritsSheet && selectedBackground != null) { // Controlla che l'ID non sia null
+    } else if (showAddMeritsSheet && selectedBackground != null) {
         allBackgrounds.find { it.id == (selectedBackground!!.id) }?.let {
             characterBackgrounds.find { characterBg -> characterBg.identifier == selectedBackground!!.identifier }
                 ?.let { characterBackgrounds ->
@@ -247,6 +247,9 @@ fun BackgroundSection(
                         },
                         onAddNoteToBackground = {background, note ->
                             viewModel.onEvent(CharacterSheetEvent.AddNoteToBackground(background, note))
+                        },
+                        onRemoveNote = {background ->
+                            viewModel.onEvent(CharacterSheetEvent.RemoveNoteToBackground(background))
                         }
                     )
                 } else {
@@ -284,12 +287,17 @@ fun BackgroundSection(
                 if (characterDirectFlaws.orEmpty().isNotEmpty()) {
                     DirectFlawsList(
                         flaws = characterDirectFlaws.orEmpty(),
-                        viewModel = viewModel,
                         onRemove = { advantage ->
                             viewModel.onEvent(CharacterSheetEvent.CharacterDirectFlawRemoved(advantage))
                         },
                         onAddNote = {flaw, note ->
                             viewModel.onEvent(CharacterSheetEvent.AddNoteToDirectFlaw(flaw, note))
+                        },
+                         onRemoveNote = {flaw ->
+                             viewModel.onEvent(CharacterSheetEvent.RemoveNoteToDirectFlaw(flaw))
+                         },
+                        onDirectFlawLevelChanged = { flaw, newLevel ->
+                            viewModel.onEvent(CharacterSheetEvent.CharacterDirectFlawLevelChanged(flaw,newLevel))
                         }
                     )
                 } else {

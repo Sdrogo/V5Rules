@@ -38,24 +38,25 @@ import com.example.v5rules.R
 import com.example.v5rules.data.Advantage
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DotsWithMinMax
-import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 
 
 @Composable
 fun DirectFlawsList(
     flaws: List<Advantage>,
-    viewModel: CharacterSheetViewModel,
     onRemove: (Advantage) -> Unit,
-    onAddNote: (Advantage, String) -> Unit
+    onAddNote: (Advantage, String) -> Unit,
+    onRemoveNote: (Advantage) -> Unit,
+    onDirectFlawLevelChanged: (Advantage, Int) -> Unit
 ) {
     LazyColumn {
         items(flaws) { characterDirectFlaw ->
             AdvantageItem(
                 characterDirectFlaw = characterDirectFlaw,
-                viewModel = viewModel,
                 onAddNote = onAddNote,
-                onRemove = onRemove
+                onRemove = onRemove,
+                onRemoveNote = onRemoveNote,
+                onDirectFlawLevelChanged = onDirectFlawLevelChanged
             )
         }
     }
@@ -63,13 +64,13 @@ fun DirectFlawsList(
 
 @Composable
 fun AdvantageItem(
-    characterDirectFlaw: Advantage, // Il Background specifico del personaggio con i suoi dati (livello, merits/flaws scelti)
-    viewModel: CharacterSheetViewModel,
+    characterDirectFlaw: Advantage,
     onAddNote: (Advantage, String) -> Unit,
+    onRemoveNote: (Advantage) -> Unit,
+    onDirectFlawLevelChanged: (Advantage, Int) -> Unit,
     onRemove: (Advantage) -> Unit// Lista di tutti i background disponibili nel gioco
 ) {
     var expanded by remember { mutableStateOf(false) }
-    var showNoteTextInput by remember { mutableStateOf(false) }
     val minLevel = characterDirectFlaw.minLevel ?: 1
     val maxLevel = characterDirectFlaw.maxLevel ?: 5
     var noteText by remember { mutableStateOf("") }
@@ -121,65 +122,17 @@ fun AdvantageItem(
             }
         }
         if (expanded) {
-            Column {
-                characterDirectFlaw.note?.let {
-                    Text(text = it)
-                }
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    TextField(
-                        value = noteText,
-                        onValueChange = { noteText = it },
-                        label = { Text(stringResource(R.string.add_note)) },
-                        modifier = Modifier.weight(1f), // Occupa lo spazio disponibile nella Row
-                        singleLine = true,
-                        trailingIcon = {
-                            IconButton(onClick = {
-                                onAddNote(
-                                    characterDirectFlaw,
-                                    noteText
-                                )
-                                keyboardController?.hide()
-                                focusManager.clearFocus()
-                            }) {
-                                Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.Send, // Usa AutoMirrored se l'icona deve supportare RTL
-                                    contentDescription = stringResource(R.string.add_note)
-                                )
-                            }
-                        }
-                    )
-                }
-                ContentExpander(stringResource(R.string.discipline_description)) {
-                    Text(
-                        text = characterDirectFlaw.description,
-                        style = MaterialTheme.typography.bodySmall
-                    )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { expanded = !expanded })
+            {
+                Column {
                     if (minLevel != maxLevel) {
                         Slider(
                             value = (characterDirectFlaw.level ?: 1).toFloat(),
                             onValueChange = { newValue ->
-                                val newIntValue = newValue.toInt()
-                                if (newIntValue >= (characterDirectFlaw.minLevel
-                                        ?: 1)
-                                ) { // Usa minLevel del background se definito
-                                    viewModel.onEvent(
-                                        CharacterSheetEvent.CharacterDirectFlawLevelChanged(
-                                            characterDirectFlaw,
-                                            newIntValue
-                                        )
-                                    )
-                                } else if (newIntValue == 0) { // Opzione per rimuovere se il livello è 0
-                                    viewModel.onEvent(
-                                        CharacterSheetEvent.CharacterDirectFlawRemoved(
-                                            characterDirectFlaw
-                                        )
-                                    )
-                                }
+                                onDirectFlawLevelChanged(characterDirectFlaw, newValue.toInt())
                             },
                             valueRange = (characterDirectFlaw.minLevel?.toFloat()
                                 ?: 0f)..(characterDirectFlaw.maxLevel?.toFloat() ?: 5f),
@@ -191,8 +144,56 @@ fun AdvantageItem(
                             )
                         )
                     }
+                    characterDirectFlaw.note?.let {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(text = it)
+                            IconButton(onClick = { onRemoveNote(characterDirectFlaw) }) {
+                                Icon(
+                                    imageVector = Icons.Default.Delete, // Usa AutoMirrored se l'icona deve supportare RTL
+                                    contentDescription = stringResource(R.string.delete_note)
+                                )
+                            }
+                        }
+                    }
+                    if (characterDirectFlaw.note == null) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            TextField(
+                                value = noteText,
+                                onValueChange = { noteText = it },
+                                label = { Text(stringResource(R.string.add_note)) },
+                                modifier = Modifier.weight(1f), // Occupa lo spazio disponibile nella Row
+                                singleLine = true,
+                                trailingIcon = {
+                                    IconButton(onClick = {
+                                        onAddNote(
+                                            characterDirectFlaw,
+                                            noteText
+                                        )
+                                        keyboardController?.hide()
+                                        focusManager.clearFocus()
+                                    }) {
+                                        Icon(
+                                            imageVector = Icons.AutoMirrored.Filled.Send, // Usa AutoMirrored se l'icona deve supportare RTL
+                                            contentDescription = stringResource(R.string.add_note)
+                                        )
+                                    }
+                                }
+                            )
+                        }
+                    }
+                    ContentExpander(stringResource(R.string.discipline_description)) {
+                        Text(
+                            text = characterDirectFlaw.description,
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
-                Spacer(modifier = Modifier.height(8.dp))
             }
         }
     }

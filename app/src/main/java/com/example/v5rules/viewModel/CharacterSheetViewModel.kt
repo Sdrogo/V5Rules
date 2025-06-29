@@ -686,7 +686,7 @@ class CharacterSheetViewModel @Inject constructor(
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
                                     val updatedFlaws = bg.flaws?.map { flaw ->
-                                        if (flaw.id == event.flawId) {
+                                        if (flaw.identifier == event.flaw.identifier) {
                                             flaw.copy(level = event.newLevel)
                                         } else {
                                             flaw
@@ -726,7 +726,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedDirectFlaws =
                                 currentState.character.directFlaws?.map { directFlaw ->
-                                    if (directFlaw.identifier == event.directFlaw.identifier) {
+                                    if (directFlaw.id == event.directFlaw.id) {
                                         directFlaw.copy(level = event.newLevel)
                                     } else {
                                         directFlaw
@@ -802,7 +802,7 @@ class CharacterSheetViewModel @Inject constructor(
                     is CharacterSheetEvent.AddNoteToBackground -> {
                         _uiState.update { currentState ->
                             val updatedBackgrounds =
-                                currentState.character.backgrounds.orEmpty().map { background ->
+                                currentState.character.backgrounds.map { background ->
                                     if (background.identifier == event.background.identifier) {
                                         background.copy(note = event.note)
                                     } else {
@@ -874,6 +874,94 @@ class CharacterSheetViewModel @Inject constructor(
                                     val updatedFlaws = bg.flaws?.map { flaw ->
                                         if (flaw.identifier == event.flaw.identifier) {
                                             flaw.copy(note = event.note)
+                                        } else {
+                                            flaw
+                                        }
+                                    }
+                                    bg.copy(flaws = updatedFlaws)
+                                } else {
+                                    bg
+                                }
+                            }
+                            currentState.copy(character = currentState.character.copy(backgrounds = updatedBackgrounds))
+                        }
+                    }
+
+
+                    is CharacterSheetEvent.RemoveNoteToDirectFlaw -> {
+                        _uiState.update { currentState ->
+                            val updatedFlaws =
+                                currentState.character.directFlaws?.map { background ->
+                                    if (background.identifier == event.advantage.identifier) {
+                                        background.copy(note = null)
+                                    } else {
+                                        background
+                                    }
+                                }
+                            currentState.copy(character = currentState.character.copy(directFlaws = updatedFlaws))
+                        }
+                    }
+
+                    is CharacterSheetEvent.RemoveNoteToBackground -> {
+                        _uiState.update { currentState ->
+                            val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
+                                if (bg.identifier == event.background.identifier) {
+                                    bg.copy(note = null)
+                                } else {
+                                    bg
+                                }
+                            }
+                            currentState.copy(character = currentState.character.copy(backgrounds = updatedBackgrounds))
+                        }
+                    }
+
+                    is CharacterSheetEvent.RemoveNoteToBackgroundFlaw -> {
+                        _uiState.update { currentState ->
+                            val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
+                                if (bg.identifier == event.background.identifier) {
+                                    val updatedFlaws = bg.flaws?.map { flaw ->
+                                        if (flaw.identifier == event.flaw.identifier) {
+                                            flaw.copy(note = null)
+                                        } else {
+                                            flaw
+                                        }
+                                    }
+                                    bg.copy(flaws = updatedFlaws)
+                                } else {
+                                    bg
+                                }
+                            }
+                            currentState.copy(character = currentState.character.copy(backgrounds = updatedBackgrounds))
+                        }
+                    }
+
+                    is CharacterSheetEvent.RemoveNoteToMerit -> {
+                        _uiState.update { currentState ->
+                            val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
+                                if (bg.identifier == event.background.identifier) {
+                                    val updatedMerits = bg.merits?.map { merit ->
+                                        if (merit.identifier == event.merit.identifier) {
+                                            merit.copy(note = null)
+                                        } else {
+                                            merit
+                                        }
+                                    }
+                                    bg.copy(merits = updatedMerits)
+                                } else {
+                                    bg
+                                }
+                            }
+                            currentState.copy(character = currentState.character.copy(backgrounds = updatedBackgrounds))
+                        }
+                    }
+
+                    is CharacterSheetEvent.RemoveNoteToFlaw -> {
+                        _uiState.update { currentState ->
+                            val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
+                                if (bg.identifier == event.background.identifier) {
+                                    val updatedFlaws = bg.flaws?.map { flaw ->
+                                        if (flaw.identifier == event.flaw.identifier) {
+                                            flaw.copy(note = null)
                                         } else {
                                             flaw
                                         }
