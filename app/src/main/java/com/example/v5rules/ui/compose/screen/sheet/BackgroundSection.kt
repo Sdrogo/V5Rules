@@ -47,8 +47,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BackgroundSection(
-    viewModel: CharacterSheetViewModel,
-    navController: NavHostController
+    viewModel: CharacterSheetViewModel
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val allLoresheets by viewModel.loreSheets.collectAsState() // All available loresheets

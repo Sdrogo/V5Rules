@@ -122,7 +122,7 @@ fun CharacterSheetScreen(
                     1 -> AttributeSection(character, viewModel, isLandscape)
                     2 -> AbilitySection(character, viewModel)
                     3 -> DisciplineSection(viewModel, navController)
-                    4 -> BackgroundSection(viewModel,navController)
+                    4 -> BackgroundSection(viewModel)
                     //... altre sezioni...
                 }
             }

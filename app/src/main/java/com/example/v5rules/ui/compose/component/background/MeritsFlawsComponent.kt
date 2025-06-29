@@ -38,7 +38,6 @@ import com.example.v5rules.R
 import com.example.v5rules.data.Advantage
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DotsWithMinMax
-import com.example.v5rules.viewModel.CharacterSheetViewModel
 
 
 @Composable
