@@ -2,7 +2,9 @@ package com.example.v5rules.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Entity(tableName = "characters")
 data class Character(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
@@ -27,6 +29,7 @@ data class Character(
     val experience: Experience = Experience(),
 )
 
+@Serializable
 data class Attributes(
     val strength: Int = 1,
     val dexterity: Int= 1,
@@ -39,6 +42,7 @@ data class Attributes(
     val resolve: Int= 1
 )
 
+@Serializable
 data class Ability(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
@@ -46,19 +50,25 @@ data class Ability(
     val specialization: String? = null // Specializzazione opzionale
 )
 
+@Serializable
 data class Health(
     val max: Int = 0,
     var current: Int = 0 // Usiamo var perché può cambiare
 )
 
+@Serializable
 data class Willpower(
     val max: Int = 0,
     var current: Int = 0 // Usiamo var perché può cambiare
 )
+
+@Serializable
 data class Humanity(
-    val current: Int = 7,
+    val current: Int = 0,
     var stains: Int = 0 // Usiamo var perché può cambiare
 )
+
+@Serializable
 data class Experience(
     val total: Int = 0,
     val spent: Int = 0

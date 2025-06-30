@@ -24,7 +24,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.BackgroundNav
-import com.example.v5rules.CharacterSheetCreationNav
 import com.example.v5rules.CharacterSheetListNav
 import com.example.v5rules.ClansNav
 import com.example.v5rules.DisciplinesNav
@@ -216,21 +215,6 @@ fun HomeScreen(navController: NavHostController) {
                     Text(text = stringResource(id = R.string.npc_generator_title))
                 }
             }
-            item {
-                Button(
-                    onClick = { navController.navigate(CharacterSheetCreationNav) },
-                    modifier = Modifier
-                        .fillMaxWidth(widthByOrientation)
-                        .padding(8.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = animatedRed, // Your desired button color
-                        contentColor = MaterialTheme.colorScheme.secondary // Text color for contrast
-                    )
-                ) {
-                    Text(text = stringResource(id = R.string.character_screen_title))
-                }
-            }
-
             item {
                 Button(
                     onClick = { navController.navigate(CharacterSheetListNav) },

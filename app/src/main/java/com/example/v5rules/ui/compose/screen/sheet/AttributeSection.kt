@@ -35,8 +35,17 @@ import com.example.v5rules.viewModel.CharacterSheetViewModel
 fun AttributeSection(
     character: Character, viewModel: CharacterSheetViewModel, isLandscape: Boolean
 ) {
-    // CHIAVE per forzare la ricomposizione
     var refreshKey by remember { mutableIntStateOf(0) }
+
+    var forza by remember(character.attributes.strength) { mutableIntStateOf(character.attributes.strength) }
+    var destrezza by remember(character.attributes.dexterity) { mutableIntStateOf(character.attributes.dexterity) }
+    var costituzione by remember(character.attributes.stamina) { mutableIntStateOf(character.attributes.stamina) }
+    var charisma by remember(character.attributes.charisma) { mutableIntStateOf(character.attributes.charisma) }
+    var persuasione by remember(character.attributes.manipulation) { mutableIntStateOf(character.attributes.manipulation) }
+    var autocontrollo by remember(character.attributes.composure) { mutableIntStateOf(character.attributes.composure) }
+    var intelligenza by remember(character.attributes.intelligence) { mutableIntStateOf(character.attributes.intelligence) }
+    var prontezza by remember(character.attributes.wits) { mutableIntStateOf(character.attributes.wits) }
+    var fermezza by remember(character.attributes.resolve) { mutableIntStateOf(character.attributes.resolve) }
 
     // LaunchedEffect che osserva la refreshKey
     LaunchedEffect(refreshKey) {
@@ -75,15 +84,13 @@ fun AttributeSection(
                             .align(Alignment.CenterHorizontally)
                             .padding(top = 8.dp)
                     )
-
-                    // Forza
-                    // Usa remember con character.attributes.strength come chiave
-                    var forza by remember(character.attributes.strength) { mutableIntStateOf(character.attributes.strength) }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
-                                stringResource(R.string.character_screen_attributes_strength), forza,
+                                stringResource(R.string.character_screen_attributes_strength),
+                                forza,
                                 textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
@@ -98,14 +105,8 @@ fun AttributeSection(
                             )
                         })
 
-                    // Destrezza
-                    // Usa remember con character.attributes.dexterity come chiave
-                    var destrezza by remember(character.attributes.dexterity) {
-                        mutableIntStateOf(
-                            character.attributes.dexterity
-                        )
-                    }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
@@ -124,15 +125,8 @@ fun AttributeSection(
                                 ), modifier = Modifier.fillMaxWidth()
                             )
                         })
-
-                    // Costituzione
-                    // Usa remember con character.attributes.stamina come chiave
-                    var costituzione by remember(character.attributes.stamina) {
-                        mutableIntStateOf(
-                            character.attributes.stamina
-                        )
-                    }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
@@ -150,6 +144,12 @@ fun AttributeSection(
                                             costituzione
                                         )
                                     )
+                                    viewModel.onEvent(
+                                        CharacterSheetEvent.MaxHealthChanged(
+                                            costituzione + 3
+                                        )
+                                    )
+
                                 }, valueRange = 1f..5f, steps = 3, colors = SliderDefaults.colors(
                                     activeTrackColor = MaterialTheme.colorScheme.primary,
                                 ), modifier = Modifier.fillMaxWidth()
@@ -160,7 +160,6 @@ fun AttributeSection(
             }
         }
         item {
-            // Attributi Mentali
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -185,14 +184,8 @@ fun AttributeSection(
                             .align(Alignment.CenterHorizontally)
                             .padding(top = 8.dp)
                     )
-
-                    // Charisma
-                    var charisma by remember(character.attributes.charisma) {
-                        mutableIntStateOf(
-                            character.attributes.charisma
-                        )
-                    }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
@@ -211,13 +204,9 @@ fun AttributeSection(
                                 ), modifier = Modifier.fillMaxWidth()
                             )
                         })
-                    // Persuasione
-                    var persuasione by remember(character.attributes.manipulation) {
-                        mutableIntStateOf(
-                            character.attributes.manipulation
-                        )
-                    }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
@@ -240,14 +229,8 @@ fun AttributeSection(
                                 ), modifier = Modifier.fillMaxWidth()
                             )
                         })
-
-                    // Autocontrollo
-                    var autocontrollo by remember(character.attributes.composure) {
-                        mutableIntStateOf(
-                            character.attributes.composure
-                        )
-                    }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
@@ -264,6 +247,10 @@ fun AttributeSection(
                                         CharacterSheetEvent.ComposureChanged(
                                             autocontrollo
                                         )
+                                    )
+                                    viewModel.onEvent(
+                                        CharacterSheetEvent.MaxWillpowerChanged(
+                                            autocontrollo + fermezza)
                                     )
                                 }, valueRange = 1f..5f, steps = 3, colors = SliderDefaults.colors(
                                     activeTrackColor = MaterialTheme.colorScheme.primary, // Colore della parte piena
@@ -300,14 +287,8 @@ fun AttributeSection(
                             .align(Alignment.CenterHorizontally) // Centra orizzontalmente
                             .padding(top = 8.dp)
                     )
-
-                    // Intelligenza
-                    var intelligenza by remember(character.attributes.intelligence) {
-                        mutableIntStateOf(
-                            character.attributes.intelligence
-                        )
-                    }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
@@ -335,14 +316,13 @@ fun AttributeSection(
                                 modifier = Modifier.fillMaxWidth()
                             )
                         })
-
-                    // Prontezza
-                    var prontezza by remember(character.attributes.wits) { mutableIntStateOf(character.attributes.wits) }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
-                                stringResource(R.string.character_screen_attributes_wits), prontezza,
+                                stringResource(R.string.character_screen_attributes_wits),
+                                prontezza,
                                 textStyle = MaterialTheme.typography.headlineSmall
                             )
                         },
@@ -352,7 +332,9 @@ fun AttributeSection(
                                 onValueChange = { newValue ->
                                     prontezza = newValue.toInt()
                                     viewModel.onEvent(CharacterSheetEvent.WitsChanged(prontezza))
+                                    viewModel.onEvent(CharacterSheetEvent.MaxWillpowerChanged(autocontrollo + fermezza))
                                 },
+
                                 colors = SliderDefaults.colors(
                                     activeTrackColor = MaterialTheme.colorScheme.primary, // Colore della parte piena
                                 ),
@@ -361,14 +343,8 @@ fun AttributeSection(
                                 modifier = Modifier.fillMaxWidth()
                             )
                         })
-
-                    // Fermezza
-                    var fermezza by remember(character.attributes.resolve) {
-                        mutableIntStateOf(
-                            character.attributes.resolve
-                        )
-                    }
-                    CustomContentExpander(maxWith = if (isLandscape) 0.45f else 1f,
+                    CustomContentExpander(
+                        maxWith = if (isLandscape) 0.45f else 1f,
                         padding = 0.dp,
                         header = {
                             DotsForAttribute(
@@ -393,8 +369,11 @@ fun AttributeSection(
                             )
                         })
                     Spacer(modifier = Modifier.height(8.dp))
+
                 }
             }
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = stringResource(R.string.attribute_distribution))
         }
     }
     // Osserva i cambiamenti nel personaggio e aggiorna la chiave se necessario

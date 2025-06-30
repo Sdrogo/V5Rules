@@ -67,7 +67,7 @@
     <string name="expand">Expand…</string>
     <string name="home">Home</string>
     <string name="rules">Rules</string>
-    <string name="predator">Predator Type</string>
+    <string name="predator">Archetipo Predatore</string>
     <string name="clan">Clan</string>
     <string name="discipline">Discipline</string>
     <string name="lore_screen_title">Lore</string>
@@ -79,7 +79,7 @@
     <string name="character_screen_name">Nome</string>
     <string name="character_screen_clan">Clan</string>
     <string name="character_screen_sire">Sire</string>
-    <string name="character_screen_generation">Generation</string>
+    <string name="character_screen_generation">Generazione</string>
     <string name="character_screen_concept">Concetto</string>
     <string name="character_screen_ambition">Ambizione</string>
     <string name="character_screen_desire">Desiderio</string>
@@ -137,7 +137,7 @@
     <string name="add_flaw">Aggiungi Difetto</string>
     <string name="add_background">Aggiungi Background</string>
     <string name="add_merit">Aggiungi Pregio</string>
-    <string name="flaw">Difetto</string>
+    <string name="flaw">Difetti</string>
     <string name="background">Background</string>
     <string name="merit">Pregio</string>
     <string name="remove">Rimuovi</string>
@@ -150,6 +150,14 @@
     <string name="search_loresheet">Cerca Loresheet</string>
     <string name="specialization">"Specializzazione: %1$s"</string>
     <string name="add_specialization">Aggiungi specializzazione</string>
+    <string name="create_new_sheet">Crea nuova scheda</string>
+    <string name="error_loading_data">Errore nel caricare la scheda</string>
+    <string name="no_characters_found_create_new">Nessuna Scheda nel DB</string>
+    <string name="attribute_distribution">Un Attributo a 4 pallini. Un Attributo a 1 pallino. Tre Attributi a 3 pallini. Quattro Attributi a 2 pallini.</string>
+    <string name="ability_distribution">Scegliete una distribuzione di Abilità:\n• Tuttofare: un’Abilità a 3, otto Abilità a 2 e dieci Abilità a 1.\n• Equilibrato: tre Abilità a 3, cinque Abilità a 2 e sette Abilità a 1.\n• Specialista: un’Abilità a 4, tre Abilità a 3, tre Abilità a 2 e tre Abilità a 1.</string>
+    <string name="edit_sheet">Modifica Scheda</string>
+    <string name="character_name">Nome:</string>
+
 
     <string-array name="abilities">
         <item>Atletica</item>

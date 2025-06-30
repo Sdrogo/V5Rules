@@ -68,7 +68,6 @@ fun CharacterSheetScreen(
                 .padding()
         ) {
             val (tabRow, content, buttons) = createRefs()
-
             // TabRow scorrevole
             ScrollableTabRow(selectedTabIndex = selectedTabIndex,
                 modifier = Modifier

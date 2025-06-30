@@ -2,6 +2,7 @@ package com.example.v5rules.ui.compose.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -28,7 +29,8 @@ import com.example.v5rules.R
 fun CommonScaffold(
     navController: NavHostController,
     title: String,
-    content: @Composable (paddingValues: androidx.compose.foundation.layout.PaddingValues) -> Unit
+    floatingActionButton: @Composable () -> Unit = {}, // NUOVO PARAMETRO
+    content: @Composable (PaddingValues) -> Unit
 ) {
     MaterialTheme {
         Scaffold(
@@ -55,12 +57,14 @@ fun CommonScaffold(
                             }
                         }
                     },
+
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors( // Use centerAlignedTopAppBarColors
                         containerColor = MaterialTheme.colorScheme.tertiary, // Set the container color to red
                         titleContentColor = MaterialTheme.colorScheme.secondary
-                    )
+                    ),
                 )
-            }
+            },
+            floatingActionButton = floatingActionButton,
         ) { innerPadding ->
             Box(modifier = Modifier
                 .padding(innerPadding)

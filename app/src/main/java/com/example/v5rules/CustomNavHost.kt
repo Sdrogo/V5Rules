@@ -40,6 +40,7 @@ import com.example.v5rules.ui.compose.screen.rule.RulesDetailsScreen
 import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetListScreen
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetScreen
+import com.example.v5rules.ui.compose.screen.sheet.visualization.CharacterSheetScreenVisualization
 import com.example.v5rules.viewModel.BackgroundViewModel
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
@@ -85,6 +86,7 @@ object LoresheetNav
 
 @Serializable
 object BackgroundNav
+
 @Serializable
 object CharacterSheetListNav
 
@@ -138,6 +140,10 @@ data class BackgroundDetailsNav(val name: String, val id: Int)
 
 @Serializable
 data class CharacterSheetEditNav(val id: Int)
+
+@Serializable
+data class CharacterSheetVisualizationNav(val id: Int)
+
 
 @Composable
 fun CustomNavHost(
@@ -425,6 +431,15 @@ fun CustomNavHost(
                 navController = navController,
                 id = entry.id,
             )
+        }
+        composable<CharacterSheetVisualizationNav> (
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<CharacterSheetVisualizationNav>()
+            CharacterSheetScreenVisualization(
+                viewModel = hiltViewModel<CharacterSheetViewModel>(),
+                navController = navController,
+                id = entry.id,)
         }
         composable<CharacterSheetListNav>(
             enterTransition = { enterTransition },

@@ -1,5 +1,8 @@
 package com.example.v5rules.data
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Discipline(
     val id: String,
     val title: String,
@@ -14,6 +17,7 @@ data class Discipline(
     val selectedDisciplinePowers: List<DisciplinePower> = emptyList()//Poteri selezionati
 )
 
+@Serializable
 data class DisciplinePower(
     val id: String,
     val title: String,
@@ -30,6 +34,7 @@ data class DisciplinePower(
     val table: Table? = null,
 )
 
+@Serializable
 data class Ritual(
     val id: String,
     val level: Int,
@@ -41,6 +46,8 @@ data class Ritual(
     val system: String? = null,
     val table: Table? = null
 )
+
+@Serializable
 data class Table(
     val headers: List<String>,
     val columns: List<List<String>>

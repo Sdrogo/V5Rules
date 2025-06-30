@@ -195,3 +195,84 @@ fun AdvantageItem(
         }
     }
 }
+
+
+
+@Composable
+fun DirectFlawsListVisualization(
+    flaws: List<Advantage>
+) {
+    Column {
+        flaws.forEach { characterDirectFlaw ->
+            AdvantageItemVisualization(
+                characterDirectFlaw = characterDirectFlaw
+            )
+        }
+    }
+}
+
+@Composable
+fun AdvantageItemVisualization(
+    characterDirectFlaw: Advantage
+) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { expanded = !expanded }) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = characterDirectFlaw.title,
+                    style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier.weight(1f)
+                )
+                if ((characterDirectFlaw.level ?: 1) > 0 &&
+                    characterDirectFlaw.minLevel == null ||
+                    (characterDirectFlaw.level ?: 1) <= (characterDirectFlaw.maxLevel ?: 5)
+                ) {
+                    DotsWithMinMax(
+                        level = (characterDirectFlaw.level ?: 1),
+                        maxLevel = (characterDirectFlaw.maxLevel ?: 5)
+                    )
+                    Spacer(Modifier.width(8.dp))
+                }
+                Icon(
+                    imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                    contentDescription = if (expanded) stringResource(
+                        R.string.collapse,
+                        characterDirectFlaw.title
+                    ) else stringResource(R.string.expand_stuff, characterDirectFlaw.title)
+                )
+            }
+        }
+        if (expanded) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { expanded = !expanded })
+            {
+                Column {
+                    characterDirectFlaw.note?.let {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(text = it)
+                        }
+                    }
+                    characterDirectFlaw.note?.let { Text(text = it) }
+                    ContentExpander(stringResource(R.string.discipline_description)) {
+                        Text(
+                            text = characterDirectFlaw.description,
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
+            }
+        }
+    }
+}
