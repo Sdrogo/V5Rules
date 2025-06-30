@@ -79,9 +79,8 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         value = character.name,
                         onValueChange = { viewModel.onEvent(CharacterSheetEvent.NameChanged(it)) },
-                        label = { Text(stringResource(R.string.character_screen_name)) })
-
-
+                        label = { Text(stringResource(R.string.character_screen_name)) }
+                    )
                     var clanExpanded by remember { mutableStateOf(false) }
                     ExposedDropdownMenuBox(
                         expanded = clanExpanded,

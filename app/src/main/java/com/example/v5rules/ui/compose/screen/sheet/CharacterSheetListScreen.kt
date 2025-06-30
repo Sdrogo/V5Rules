@@ -2,6 +2,7 @@ package com.example.v5rules.ui.compose.screen.sheet
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,56 +13,87 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.example.v5rules.CharacterSheetCreationNav
 import com.example.v5rules.R
 import com.example.v5rules.data.Character
 import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.viewModel.CharacterSheetListViewModel
 import com.example.v5rules.CharacterSheetEditNav
+import com.example.v5rules.CharacterSheetVisualizationNav
 
 
 @Composable
 fun CharacterSheetListScreen(
     navController: NavHostController,
-    viewModel: CharacterSheetListViewModel = hiltViewModel() // Usa hiltViewModel()
+    viewModel: CharacterSheetListViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    CommonScaffold(
-        navController = navController,
-        title = stringResource(R.string.character_list_title)
-    ) { _ ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(),
-            contentAlignment = Alignment.Center
+    Box(modifier = Modifier
+        .fillMaxSize()
+    )
+    {
+        CommonScaffold(
+            navController = navController,
+            title = stringResource(R.string.character_list_title)
         ) {
-            if (uiState.isLoading) {
-                CircularProgressIndicator()
-            } else if (uiState.error != null) {
-                Text(text = "Errore: ${uiState.error}")
-            } else {
-                CharacterList(
-                    characters = uiState.characterList,
-                    navController = navController
-                )
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                if (uiState.isLoading) {
+                    CircularProgressIndicator()
+                } else if (uiState.error != null) {
+                    Text(text = stringResource(R.string.error_loading_data, uiState.error ?: ""))
+                } else if (uiState.characterList.isEmpty()) {
+                    Text(text = stringResource(R.string.no_characters_found_create_new))
+                } else {
+                    CharacterList(
+                        characters = uiState.characterList,
+                        navController = navController
+                    )
+                }
             }
+        }
+        FloatingActionButton(
+            onClick = { navController.navigate(CharacterSheetCreationNav) },
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(end = 16.dp, bottom = 56.dp)
+            , shape = CircleShape,
+            containerColor = MaterialTheme.colorScheme.tertiary,
+            contentColor = MaterialTheme.colorScheme.primary,
+            elevation = FloatingActionButtonDefaults.elevation(),
+            interactionSource = remember { MutableInteractionSource() }
+        ) {
+            Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.create_new_sheet))
         }
     }
 }
@@ -74,7 +106,6 @@ fun CharacterList(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
         items(characters) { char ->
             CharacterCard(character = char, navController = navController)
@@ -87,48 +118,50 @@ fun CharacterCard(character: Character, navController: NavHostController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
             .border(
                 width = 1.dp,
                 color = MaterialTheme.colorScheme.tertiary,
                 shape = RoundedCornerShape(8.dp)
             )
-            .clickable {
-                // Naviga alla schermata di dettaglio del personaggio, passando l'ID
-                navController.navigate(CharacterSheetEditNav(character.id))
-            },
+            .clickable { navController.navigate(CharacterSheetVisualizationNav(character.id)) },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(8.dp)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            // Immagine del clan (usa il tuo componente ClanImage)
-            ClanImage(
-                clanName = character.clan?.name ?: "Unknown", // Gestisci il caso in cui il clan è null
-                tintColor = MaterialTheme.colorScheme.tertiary, // o un altro colore appropriato
-                width = 48.dp // Imposta una dimensione appropriata
-            )
-
-            Spacer(modifier = Modifier.width(16.dp))
-
-            // Nome del personaggio e altre info
-            Column {
-                Text(
-                    text = character.name,
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.primary
+        Box {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                ClanImage(
+                    clanName = character.clan?.name
+                        ?: "Unknown",
+                    tintColor = MaterialTheme.colorScheme.tertiary,
+                    width = 48.dp
                 )
-                // Aggiungi altre info qui, se vuoi (es. concept, sire, ecc.)
-                Text(
-                    text = "Clan: ${character.clan?.name ?: "Sconosciuto"}", // Mostra il nome del clan
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+
+                Spacer(modifier = Modifier.width(16.dp))
+                Column {
+                    Text(
+                        text = character.name,
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Text(
+                        text = "Clan: ${character.clan?.name ?: "Sconosciuto"}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+            IconButton(
+                modifier = Modifier.padding(16.dp).align(Alignment.CenterEnd),
+                onClick = { navController.navigate(CharacterSheetEditNav(character.id)) }
+            ) {
+                Icon(Icons.Filled.Edit, contentDescription = stringResource(R.string.edit_sheet))
             }
         }
+
     }
 }

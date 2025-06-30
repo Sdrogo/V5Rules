@@ -1,4 +1,4 @@
-package com.example.v5rules.ui.compose.screen.sheet
+package com.example.v5rules.ui.compose.screen.sheet.visualization
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -18,55 +18,25 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material3.Card
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateMapOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
 import com.example.v5rules.data.Ability
 import com.example.v5rules.data.Character
-import com.example.v5rules.ui.compose.component.CustomContentExpander
 import com.example.v5rules.ui.compose.component.DotsForAttribute
-import com.example.v5rules.utils.CharacterSheetEvent
-import com.example.v5rules.viewModel.CharacterSheetViewModel
 
 @Composable
-fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
+fun AbilitySectionVisualization(character: Character) {
 
-    val expandedStates = remember { mutableStateMapOf<String, Boolean>() }
-    val allAbilities = viewModel.allAbilities
     val pagerState = rememberPagerState(pageCount = { 3 })
-
-    LaunchedEffect(character.abilities, allAbilities) {
-        allAbilities.forEach { abilityName ->
-            expandedStates.putIfAbsent(
-                abilityName, false
-            )
-        }
-        val validAbilityNames = character.abilities.map { it.name }.toSet() + allAbilities.toSet()
-        expandedStates.keys.retainAll(validAbilityNames)
-    }
     LazyColumn {
         item {
             HorizontalPager(
@@ -114,7 +84,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                             ?: Ability(
                                                 name = abilityName, level = 0
                                             )
-                                    AbilityItem(ability, viewModel, expandedStates)
+                                    AbilityItem(ability)
                                 }
                             }
                         }
@@ -160,7 +130,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                             ?: Ability(
                                                 name = abilityName, level = 0
                                             )
-                                    AbilityItem(ability, viewModel, expandedStates)
+                                    AbilityItem(ability)
                                 }
                             }
                         }
@@ -205,7 +175,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                             ?: Ability(
                                                 name = abilityName, level = 0
                                             )
-                                    AbilityItem(ability, viewModel, expandedStates)
+                                    AbilityItem(ability)
                                 }
                             }
                         }
@@ -237,88 +207,19 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                 }
             }
         }
-        item {
-            Text(text = stringResource(R.string.ability_distribution))
-        }
     }
 }
 
 @Composable
 fun AbilityItem(
     ability: Ability,
-    viewModel: CharacterSheetViewModel,
-    expandedStates: MutableMap<String, Boolean>
 ) {
-    // Usa *direttamente* lo stato di espansione dalla mappa
-    val isExpanded = expandedStates[ability.name] ?: false
-    var specializationText by remember { mutableStateOf("") }
-    val keyboardController = LocalSoftwareKeyboardController.current
-    val focusManager = LocalFocusManager.current
-
-    CustomContentExpander(
-        maxWith = 1f,
-        initialState = isExpanded, // Inizializza con lo stato corretto
-        header = {
-            Column {
-                DotsForAttribute(
-                    label = "${ability.name} - ",
-                    level = ability.level,
-                    textStyle = MaterialTheme.typography.bodyMedium
-                )
-                ability.specialization?.let { Text(stringResource(R.string.specialization, it)) }
-            }
-
-        },
-        content = {
-            Column(modifier = Modifier.padding(8.dp)) {
-                Slider(
-                    value = ability.level.toFloat(), onValueChange = { newValue ->
-                        viewModel.onEvent(
-                            CharacterSheetEvent.AbilityChanged(
-                                ability.name, // Usa il nome dell'abilità
-                                newValue.toInt()
-                            )
-                        )
-                    }, valueRange = 0f..5f, steps = 4, colors = SliderDefaults.colors(
-                        activeTrackColor = MaterialTheme.colorScheme.tertiary
-                    )
-                )
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    TextField(
-                        value = specializationText,
-                        onValueChange = { specializationText = it },
-                        label = { Text(stringResource(R.string.add_specialization)) },
-                        modifier = Modifier.weight(1f),
-                        singleLine = true,
-                        trailingIcon = {
-                            IconButton(onClick = {
-                                viewModel.onEvent(
-                                    CharacterSheetEvent.AbilitySpecializationChanged(
-                                        ability.name,
-                                        specializationText
-                                    )
-                                )
-                                keyboardController?.hide()
-                                focusManager.clearFocus()
-                            }) {
-                                Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.Send,
-                                    contentDescription = stringResource(R.string.add_specialization)
-                                )
-                            }
-                        }
-                    )
-                }
-            }
-        }
-    )
-
-    LaunchedEffect(isExpanded) {
-        expandedStates[ability.name] = isExpanded
+    Column {
+        DotsForAttribute(
+            label = "${ability.name} - ",
+            level = ability.level,
+            textStyle = MaterialTheme.typography.bodyMedium
+        )
+        ability.specialization?.let { Text(stringResource(R.string.specialization, it), style = MaterialTheme.typography.bodySmall, modifier = Modifier.padding(start = 16.dp)) }
     }
 }

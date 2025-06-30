@@ -14,7 +14,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.viewModel.BackgroundViewModel
-import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.KindredViewModel
