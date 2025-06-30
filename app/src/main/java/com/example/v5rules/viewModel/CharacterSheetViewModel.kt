@@ -283,10 +283,27 @@ class CharacterSheetViewModel @Inject constructor(
                         )
                     }
 
-                    is CharacterSheetEvent.AbilitySpecializationChanged -> setAbilitySpecialization(
-                        event.abilityName,
-                        event.specialization
-                    )
+                    is CharacterSheetEvent.AbilitySpecializationChanged -> {
+                        _uiState.update { currentState ->
+                            val currentAbilities = currentState.character.abilities.toMutableList()
+                            val abilityIndex =
+                                currentAbilities.indexOfFirst { it.name == event.abilityName }
+                            val updatedAbilities = if (abilityIndex != -1) {
+                                currentAbilities.apply {
+                                    set(
+                                        abilityIndex,
+                                        currentAbilities[abilityIndex].copy(specialization = event.specialization)
+                                    )
+                                }
+                            } else {
+                                currentAbilities + Ability(
+                                    name = event.abilityName,
+                                    specialization = event.specialization
+                                )
+                            }
+                            currentState.copy(character = currentState.character.copy(abilities = updatedAbilities))
+                        }
+                    }
 
                     is CharacterSheetEvent.DisciplineChanged -> {
                         _uiState.update { currentState ->
@@ -980,6 +997,7 @@ class CharacterSheetViewModel @Inject constructor(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                _uiState.update { it.copy(isLoading = true) }
                 _clans.value = mainRepository.loadClans(Locale.getDefault())
                 _predator.value = mainRepository.loadPredatorType(Locale.getDefault())
                 _disciplines.value = mainRepository.loadDisciplines(Locale.getDefault())
@@ -1081,34 +1099,6 @@ class CharacterSheetViewModel @Inject constructor(
             } catch (e: Exception) {
                 _uiState.update { it.copy(isLoading = false, error = e.message) }
             }
-        }
-    }
-
-    private fun setAbilitySpecialization(abilityName: String, specialization: String?) {
-        _uiState.update { currentState ->
-            val currentAbilities = currentState.character.abilities.toMutableList()
-            val abilityIndex = currentAbilities.indexOfFirst { it.name == abilityName }
-
-            val updatedAbilities = if (abilityIndex != -1) {
-                currentAbilities.apply {
-                    set(
-                        abilityIndex,
-                        currentAbilities[abilityIndex].copy(specialization = specialization)
-                    )
-                }
-            } else {
-                // Se l'abilità non esiste, potresti volerla aggiungere con livello 1
-                currentAbilities + Ability(
-                    name = abilityName,
-                    level = 1,
-                    specialization = specialization
-                )
-            }
-            currentState.copy(
-                character = currentState.character.copy(
-                    abilities = updatedAbilities
-                )
-            )
         }
     }
 }

@@ -31,7 +31,7 @@ sealed class CharacterSheetEvent {
     data class ResolveChanged(val resolve: Int): CharacterSheetEvent()
 
     data class AbilityChanged(val abilityName: String, val level: Int) : CharacterSheetEvent()
-    data class AbilitySpecializationChanged(val abilityName: String, val specialization: String?) : CharacterSheetEvent() //Potresti avere bisogno di questo.
+    data class AbilitySpecializationChanged(val abilityName: String, val specialization: String) : CharacterSheetEvent() //Potresti avere bisogno di questo.
 
     //... Eventi per Discipline, Advantages, Backgrounds, Loresheets...
     data class DisciplineChanged(val discipline: Discipline): CharacterSheetEvent()

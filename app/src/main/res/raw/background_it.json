@@ -299,6 +299,32 @@
     "id": 11,
     "title": "Favori",
     "description": "In molti casi, un Fratello più vecchio o più esperto aiuta il personaggio nel ruolo di Mawla. Un sire che promuova l'avanzamento dei suoi infanti è un Mawla piuttosto standard, o forse un membro di una fazione o setta che ha \"reclutato\" il personaggio gli viene assegnato come ufficiale politico o confessore per assicurarsi che non sperperi il potenziale che i suoi creatori videro in lui. Tuttavia, il Fratello può anche avere un Mawla più giovane: un amico fedele dei suoi giorni da mortale, anch'egli Abbracciato e incredibilmente ancora degno di fiducia. Un numero maggiore di pallini indica un Mawla in una posizione più preziosa: un neonato da un pallino potrebbe valerne anche due o tre se è l'informatore del personaggio nel seguito del Barone o del Principe locale. Spetta al Narratore decidere se nella cronaca l'avere una spia nel campo nemico valga di più o di meno di una spia nella corte del proprio signore. In tutti gli altri aspetti, i Favori Minori, Importanti e Cruciali funzionano come descritto nel manuale base di Vampiri (p. 314-315). I Favori non possono essere acquistati o cancellati tramite i punti esperienza. Dopo la creazione del personaggio, l’unico modo per ottenerli (o annullarli) è tramite le sue azioni nel gioco.",
+    "directFlaws":[
+      {
+        "id": 20009,
+        "title": "Debito Minore",
+        "description": "• Neonato, AncillaAnziano, •• Primogenito o membro di Consiglio Anarchico, Principe o Barone",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 3
+      },
+      {
+        "id": 20010,
+        "title": "Debito Importante",
+        "description": "• Neonato, Ancilla, •• Anziano, Primogenito o membro di Consiglio Anarchico, ••• Principe o Barone",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 4
+      },
+      {
+        "id": 20011,
+        "title": "Debito Cruciale",
+        "description": "•• Neonato, Ancilla Anziano, ••• Primogenito o membro di Consiglio Anarchico, Principe o Barone",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 4
+      }
+    ],
     "merits": [
       {
         "id": 10019,
@@ -318,30 +344,7 @@
       }
     ],
     "flaws": [
-      {
-        "id": 10021,
-        "title": "Debito Minore",
-        "description": "• Neonato, AncillaAnziano, •• Primogenito o membro di Consiglio Anarchico, Principe o Barone",
-        "isFlaw": true,
-        "minLevel": 1,
-        "maxLevel": 3
-      },
-      {
-        "id": 10022,
-        "title": "Debito Importante",
-        "description": "• Neonato, Ancilla, •• Anziano, Primogenito o membro di Consiglio Anarchico, ••• Principe o Barone",
-        "isFlaw": true,
-        "minLevel": 2,
-        "maxLevel": 4
-      },
-      {
-        "id": 10023,
-        "title": "Debito Cruciale",
-        "description": "•• Neonato, Ancilla Anziano, ••• Primogenito o membro di Consiglio Anarchico, Principe o Barone",
-        "isFlaw": true,
-        "minLevel": 2,
-        "maxLevel": 4
-      }
+
     ]
   },
   {
@@ -367,7 +370,7 @@
     "description": "I Seguaci possono fare cose e raggiungere luoghi dove Alleati e Contatti non arrivano, spingendosi addirittura a commettere omicidi o altri crimini. I mortali possono anche provare abbastanza amore o lealtà per il personaggio da compiere cose simili senza essere ghoul o asserviti. Dato che i Seguaci dovrebbero essere individui sviluppati con nomi e personalità, non guasta esaminare le loro motivazioni e condizionamenti, e il Narratore deve chiedersi cosa potrebbe guastare il rapporto che hanno con il personaggio.\n\nIl rapporto in sé può variare. Alcuni Fratelli mantengono semplicemente i loro Seguaci come affidabili galoppini capaci di uscire alla luce del sole. Altri li usano come confidenti o orecchie solidali che li aiutino a sopportare il fardello della vita eterna e la tristezza che l’accompagna. Quale che sia la responsabilità che un vampiro prova per il suo Seguace, le responsabilità di quest’ultimo nei suoi confronti la superano di gran lunga. Nelle cronache a stile di gioco di troupe (p. 198), i giocatori interpretano spesso i Seguaci di altri personaggi. In queste cronache in particolare, i giocatori devono essere consapevoli delle dinamiche di potere e delle sfide di recitazione coinvolte (vedere Differenziali di Potenza, p. 220).",
     "directFlaws": [
       {
-        "id": 20011,
+        "id": 20012,
         "title": "Molestatori",
         "description": "La tentazione di questo Difetto, che il Narratore dovrebbe assolutamente incoraggiare, è quella di usare il Molestatore come un Seguace “gratuito” – il che, com’è ovvio, si ritorcerà contro il vampiro nel momento peggiore, appena avrà iniziato a dipendere da lui. Il Narratore deve chiedere al giocatore di rispondere a due domande quando sceglie questo Difetto: cosa vuole il molestatore dal PG, e perché il vampiro non l’ha ancora ammazzato? Sarà la tensione tra queste due risposte a indirizzare la sottotrama del molestatore. Più che per altri Difetti, questo dovrebbe essere creato in collaborazione con l’intero gruppo per evitare spiacevoli parallelismi con la vita reale degli altri giocatori. Non dimenticate di esaminare Limiti e Veli (V5 p. 421) per regolamentare l’interpretazione del molestatore, chi dovrà controllarlo e il suo ruolo nel gioco (se ne ha uno). Escogitare una variante di Molestatore per un’intera coterie è un po’ più difficile, a parte quando la coterie è un complesso musicale.",
         "isFlaw": true,
