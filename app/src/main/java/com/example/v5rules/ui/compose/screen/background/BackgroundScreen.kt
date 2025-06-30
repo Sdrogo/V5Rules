@@ -97,7 +97,7 @@ fun BackgroundScreen(backgroundViewModel: BackgroundViewModel, navController: Na
                                 horizontalArrangement = Arrangement.SpaceAround,
                                 maxItemsInEachRow = maxRowItem
                             ) {
-                                filteredBackgrounds.forEach {
+                                filteredBackgrounds.sortedBy { it.title }.forEach {
                                     BackgroundLineItem(
                                         background = it,
                                         navController = navController,

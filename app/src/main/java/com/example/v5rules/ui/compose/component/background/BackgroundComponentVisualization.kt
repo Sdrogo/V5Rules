@@ -62,13 +62,16 @@ fun BackgroundItemVisualization(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = characterBackground.title,
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.weight(1f)
                 )
-                DotsWithMinMax(
-                    level = (characterBackground.level),
-                    maxLevel = (characterBackground.maxLevel ?: 5)
-                )
+                if(characterBackground.maxLevel != null && characterBackground.maxLevel != 0){
+                    DotsWithMinMax(
+                        level = (characterBackground.level),
+                        maxLevel = (characterBackground.maxLevel)
+                    )
+                }
                 Spacer(Modifier.width(8.dp))
                 Icon(
                     imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
@@ -117,26 +120,28 @@ fun AdvantageDisplayItemVisualization(
         ) {
             Text(
                 text = advantage.title,
-                style = MaterialTheme.typography.titleSmall,
+                style = MaterialTheme.typography.bodyLarge,
+                color = if(advantage.isFlaw == true) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.primary,
                 modifier = Modifier.weight(1f)
             )
             DotsWithMinMax(level = (advantage.level ?: 1), maxLevel = (advantage.maxLevel ?: 5))
             Spacer(Modifier.width(8.dp))
+            Icon(
+                imageVector = if (itemExpanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                contentDescription = if (itemExpanded) stringResource(
+                    R.string.collapse,
+                    advantage.title
+                ) else stringResource(R.string.expand_stuff, advantage.title)
+            )
         }
-        Icon(
-            imageVector = if (itemExpanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-            contentDescription = if (itemExpanded) stringResource(
-                R.string.collapse,
-                advantage.title
-            ) else stringResource(R.string.expand_stuff, advantage.title)
-        )
+
     }
 
     if (itemExpanded) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 8.dp)
         ) {
             Column {
                 advantage.note?.let {
@@ -147,8 +152,7 @@ fun AdvantageDisplayItemVisualization(
                 ContentExpander(title = stringResource(R.string.discipline_description)) {
                     Text(
                         text = advantage.description,
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(horizontal = 8.dp)
+                        style = MaterialTheme.typography.bodySmall
                     )
                 }
                 Spacer(modifier = Modifier.height(8.dp))

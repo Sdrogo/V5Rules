@@ -67,7 +67,7 @@ fun GeneralInfoSectionVisualization(character: Character) {
                     character.predator?.name?.let {
                         Row {
                             Text(
-                                text = stringResource(R.string.predator),
+                                text = stringResource(R.string.predator).plus(": "),
                                 style = MaterialTheme.typography.titleMedium
                             )
                             Spacer(modifier = Modifier.width(16.dp))

@@ -81,7 +81,7 @@ fun BackgroundSection(
         )
     } else if (showAddBackgroundSheet) {
         BackgroundSelectionBottomSheet(
-            allBackgrounds = allBackgrounds,
+            allBackgrounds = allBackgrounds ,
             onBackgroundSelected = { background ->
                 viewModel.onEvent(
                     CharacterSheetEvent.BackgroundAdded(

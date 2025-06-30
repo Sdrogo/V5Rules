@@ -229,7 +229,8 @@ fun AdvantageItemVisualization(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = characterDirectFlaw.title,
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.weight(1f)
                 )
                 if ((characterDirectFlaw.level ?: 1) > 0 &&
@@ -243,11 +244,11 @@ fun AdvantageItemVisualization(
                     Spacer(Modifier.width(8.dp))
                 }
                 Icon(
-                    imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                    contentDescription = if (expanded) stringResource(
-                        R.string.collapse,
-                        characterDirectFlaw.title
-                    ) else stringResource(R.string.expand_stuff, characterDirectFlaw.title)
+                        imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                contentDescription = if (expanded) stringResource(
+                    R.string.collapse,
+                    characterDirectFlaw.title
+                ) else stringResource(R.string.expand_stuff, characterDirectFlaw.title)
                 )
             }
         }

@@ -35,6 +35,7 @@ fun BackgroundSelectionBottomSheet(
 ) {
     var searchText by remember { mutableStateOf("") }
     val filteredBackgrounds = allBackgrounds.filter { background ->
+        !(background.maxLevel == 0 && (background.merits?.isEmpty() == true || background.merits == null)) &&
         background.title.contains(searchText, ignoreCase = true)
     }
     Column(

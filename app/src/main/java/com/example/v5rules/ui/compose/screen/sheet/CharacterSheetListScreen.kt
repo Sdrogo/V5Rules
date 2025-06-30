@@ -1,5 +1,6 @@
 package com.example.v5rules.ui.compose.screen.sheet
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -33,6 +35,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -87,7 +90,8 @@ fun CharacterSheetListScreen(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(end = 16.dp, bottom = 56.dp)
-            , shape = CircleShape,
+            ,
+            shape = CircleShape,
             containerColor = MaterialTheme.colorScheme.tertiary,
             contentColor = MaterialTheme.colorScheme.primary,
             elevation = FloatingActionButtonDefaults.elevation(),
@@ -108,7 +112,10 @@ fun CharacterList(
             .fillMaxSize()
     ) {
         items(characters) { char ->
-            CharacterCard(character = char, navController = navController)
+            Column {
+                CharacterCard(character = char, navController = navController)
+                Spacer(modifier = Modifier.height(16.dp))
+            }
         }
     }
 }
@@ -125,9 +132,9 @@ fun CharacterCard(character: Character, navController: NavHostController) {
             )
             .clickable { navController.navigate(CharacterSheetVisualizationNav(character.id)) },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(8.dp)
+        shape = RoundedCornerShape(8.dp),
     ) {
-        Box {
+        Box (modifier = Modifier.padding(end = 16.dp)) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -149,17 +156,24 @@ fun CharacterCard(character: Character, navController: NavHostController) {
                         color = MaterialTheme.colorScheme.primary
                     )
                     Text(
-                        text = "Clan: ${character.clan?.name ?: "Sconosciuto"}",
+                        text = character.concept,
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             }
             IconButton(
-                modifier = Modifier.padding(16.dp).align(Alignment.CenterEnd),
-                onClick = { navController.navigate(CharacterSheetEditNav(character.id)) }
+                onClick = { navController.navigate(CharacterSheetEditNav(character.id)) },
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .clip(CircleShape)
+                    .background(MaterialTheme.colorScheme.tertiary)
             ) {
-                Icon(Icons.Filled.Edit, contentDescription = stringResource(R.string.edit_sheet))
+                Icon(
+                    Icons.Filled.Edit,
+                    contentDescription = stringResource(R.string.edit_sheet),
+                    tint = MaterialTheme.colorScheme.primary
+                )
             }
         }
 

@@ -4,6 +4,8 @@
     "title": "Alleati",
     "description": "Gli Alleati possono essere complessi come un team di ricercatori che il vampiro sovvenziona di nascosto o semplici come amici d’infanzia o membri della famiglia. Gli Alleati si manifestano per aiutarlo, naturalmente entro le loro possibilità. Quanti pallini investe negli Alleati deciderà quanto possono dimostrarsi affidabili in caso di bisogno. Quando assegnate un numero qualunque di pallini a questo Background, pensate a quali altri aspetti del personaggio potrebbero giustificare l’accesso a un Alleato: per un Fratello con un archetipo Sirena, l’Alleato potrebbe essere il suo agente che lo aiuta a presentarsi al nuovo Toreador entrato nei Primogeniti in una mostra d’arte. Oppure, un Ventrue con l’archetipo Padrino avrà probabilmente tanto Alleati quanto Nemici derivanti dalla sua famiglia criminale in vita e da una famiglia rivale appena sbarcata in città. Gli Alleati non sono mai vampiri, a prescindere dal loro livello di competenza.",
     "prerequisites": null,
+    "minLevel": 1,
+    "maxLevel": 5,
     "directFlaws": [
       {
         "id": 20001,
@@ -19,7 +21,9 @@
     "id": 2,
     "title": "Contatti",
     "description": "Se gli Alleati possono fare succedere delle cose, i Contatti aiutano a scoprire le cose che accadono agli altri. Il modo in cui il personaggio accede a un particolare Contatto non deve necessariamente avere sinergia con il suo background o Concetto (un Fratello intraprendente ha occhi e orecchie dappertutto, come è noto), ma una ragione concreta per quello specifico Contatto migliorerà la storia rendendola più plausibile. Le coterie di strada possono fare leva su Contatti da uno o due pallini che forniscono loro oggetti e informazioni del livello appropriato all’ambiente che condividono con esse. Non fermatevi qui, però: ideate un nome e una personalità basilare per il Contatto, annotandoli sulla Mappa Relazionale o nei vostri appunti. Un personaggio che lavorava come conduttore radiofonico, per esempio, potrebbe conoscere i tecnici del suo studio, mentre un imbalsamatore avrà un collegamento alla sua agenzia di pompe funebri. Il modo in cui la morte del personaggio ha cambiato il suo rapporto con loro – o se non l’ha cambiato affatto – offre succose opportunità di ruolo persino in una rapida scena dedicata all’acquisto di stupefacenti. Mano a mano che il vampiro invecchia e incontra nuovi mortali da aggiungere al suo arsenale, recitando la sua parte e agendo con debito opportunismo nei loro confronti, può crearsi nuovi Contatti e aprire nuove possibili occasioni di storie e risorse.",
-    "directFlaws": [ ],
+    "minLevel": 1,
+    "maxLevel": 5,
+    "directFlaws": [],
     "merits": [],
     "flaws": []
   },
@@ -27,6 +31,8 @@
     "id": 3,
     "title": "Fama",
     "description": "Scegliere Fama come Background significa generalmente che i PNG della cronaca vorranno avere a che fare con il personaggio. In un’ambientazione moderna un vampiro può avere Fama in due modi, ognuno dei quali presenta i suoi pericoli. La fama mortale e una posizione sotto gli occhi del pubblico mette un Fratello a rischio di essere fiutato dall’Inquisizione o ricattato dai suoi simili privi di scrupoli. Scegliere di avere Fama tra i Fratelli riduce tali possibilità, ma significa che i membri di altre sette o fazioni potranno considerarlo un potenziale alleato, una minaccia o una fonte di informazioni o accesso a Cainiti ancora più famosi. Il Narratore può fabbricare una Sapienza di Tenebra basata sulla Fama del personaggio, o offrire al giocatore la possibilità di ricevere la sua Fama dal gruppo o dalla leggenda di una Sapienza di Tenebra già esistente. Avere Fama può rendere difficile raggiungere un luogo senza farsi notare, se una fila di mortali tampina il vampiro nella speranza di postare sui social qualche selfie con lui, ma può anche proteggerlo in alcuni modi. I Fratelli rischiano di violare la Masquerade se aggrediscono o fanno del male direttamente a un personaggio Famoso, perché il suo seguito umano e i paparazzi sono sempre nei dintorni. Il vampiro può inoltre sfuggire ai nemici entrando in circoli o alberghi esclusivi dove le prenotazioni di accesso vanno effettuate con anni di anticipo.",
+    "minLevel": 1,
+    "maxLevel": 5,
     "directFlaws": [
       {
         "id": 20002,
@@ -45,13 +51,14 @@
     ],
     "merits": [],
     "flaws": [
-
     ]
   },
   {
     "id": 4,
     "title": "Rifugio",
     "description": "Scegliere Fama come Background significa generalmente che i PNG della cronaca vorranno avere a che fare con il personaggio. In un’ambientazione moderna un vampiro può avere Fama in due modi, ognuno dei quali presenta i suoi pericoli. La fama mortale e una posizione sotto gli occhi del pubblico mette un Fratello a rischio di essere fiutato dall’Inquisizione o ricattato dai suoi simili privi di scrupoli. Scegliere di avere Fama tra i Fratelli riduce tali possibilità, ma significa che i membri di altre sette o fazioni potranno considerarlo un potenziale alleato, una minaccia o una fonte di informazioni o accesso a Cainiti ancora più famosi. Il Narratore può fabbricare una Sapienza di Tenebra basata sulla Fama del personaggio, o offrire al giocatore la possibilità di ricevere la sua Fama dal gruppo o dalla leggenda di una Sapienza di Tenebra già esistente. Avere Fama può rendere difficile raggiungere un luogo senza farsi notare, se una fila di mortali tampina il vampiro nella speranza di postare sui social qualche selfie con lui, ma può anche proteggerlo in alcuni modi. I Fratelli rischiano di violare la Masquerade se aggrediscono o fanno del male direttamente a un personaggio Famoso, perché il suo seguito umano e i paparazzi sono sempre nei dintorni. Il vampiro può inoltre sfuggire ai nemici entrando in circoli o alberghi esclusivi dove le prenotazioni di accesso vanno effettuate con anni di anticipo.",
+    "minLevel": 1,
+    "maxLevel": 5,
     "directFlaws": [
       {
         "id": 20003,
@@ -202,6 +209,8 @@
     "id": 5,
     "title": "Gregge",
     "description": "Alcuni archetipi di Predatore si basano su questo Background più di altri, come il Consensualista, mentre l'archetipo Sanguisuga non potrebbe affatto farne un uso efficace. La cronaca può anche aiutare a decidere in che modo viene usato il Gregge o se è permesso in primo luogo, in quanto territori contesi, domini in zona di guerra o coterie nomadi o fuggiasche rendono difficile accedere a questo Vantaggio. Un Gregge può anche incorporarsi in altri Background, consentendo di ottenere più spunti narrativi dai mortali. Seguaci e Alleati possono essere collegati al Gregge di un giocatore e il Narratore può permettere l'utilizzo di analoghe combinazioni anche con altri Background.",
+    "minLevel": 1,
+    "maxLevel": 5,
     "flaws": [
       {
         "id": 10022,
@@ -217,52 +226,58 @@
     "id": 6,
     "title": "Influenza",
     "description": "Influenza si basa sul potere politico e aggiunge alla cronaca intrighi e conflitti istituzionali. Usare Influenza è qualcosa di più del semplice manipolare in astratto la politica e i media di una città: i vampiri di certi clan possono esercitare questo vantaggio in vari settori più facilmente di altri. I Brujah hanno un’affinità per gli attivisti o le milizie locali, mentre i Malkavian avranno più probabilmente Influenza su strane conventicole o cerchie misticheggianti. Nel definire le Influenze e decidere in che modo si ricollegano al personaggio, cercate di pensare anche al suo archetipo di Predatore: chi dovrà manipolare per avere aiuto nella caccia? Influenza conferisce anche una protezione di riserva per il dominio della coterie. In una coterie, avere un ampio spettro di Influenza (come una estesa rete di Contatti) offre al gruppo flessibilità di pianificazione e reazione alle azioni nemiche. Ad esempio, avere influenza in un ufficio politico locale non sarà efficace nel bloccare una strada al traffico quanto un distretto di polizia, ma l’ufficio del consigliere comunale può senz’altro inserire le guardie del Rifugio negli elenchi approvati dei “gruppi di azione giovanile”.",
+    "minLevel": 1,
+    "maxLevel": 5,
     "directFlaws": [
-        {
-          "id": 20004,
-          "title": "Malvisto",
-          "description": "Penalità di un dado alle riserve Sociali che coinvolgono qualsiasi gruppo della città tranne Contatti, Alleati o altri leali sostenitori.",
-          "isFlaw": true,
-          "minLevel": 1,
-          "maxLevel": 1
-        },
-        {
-          "id": 20005,
-          "title": "Disprezzato",
-          "description": "Un gruppo o regione vive solo per angariare il vampiro e la sua fazione. Penalità di due dadi alle riserve per convincere un attore neutrale a dare il suo appoggio politico o fargli un favore. Il Narratore deve cogliere ogni opportunità per coinvolgere chi lo odia nella storia.",
-          "isFlaw": true,
-          "minLevel": 2,
-          "maxLevel": 2
-        }
-      ],
+      {
+        "id": 20004,
+        "title": "Malvisto",
+        "description": "Penalità di un dado alle riserve Sociali che coinvolgono qualsiasi gruppo della città tranne Contatti, Alleati o altri leali sostenitori.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 20005,
+        "title": "Disprezzato",
+        "description": "Un gruppo o regione vive solo per angariare il vampiro e la sua fazione. Penalità di due dadi alle riserve per convincere un attore neutrale a dare il suo appoggio politico o fargli un favore. Il Narratore deve cogliere ogni opportunità per coinvolgere chi lo odia nella storia.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      }
+    ],
     "merits": [],
     "flaws": []
   },
   {
     "id": 8,
     "title": "Maschera",
+    "minLevel": 1,
+    "maxLevel": 5,
     "description": "Intrighi politici e orrore politico implicano identità scambiate o alternative, un elemento chiave di questo Background. Al suo livello più essenziale, consente al personaggio di conservare un lavoro, guidare un'auto, pagare le bollette, usare la carta di credito e rimanere in altro modo ancorato alla società mortale. Una cronaca che enfatizzi le identità scambiate o alternative può anche consentire a un personaggio con più Maschere di mitigare i problemi derivanti dalla Fama o nascondersi dagli Avversari – per un po'.",
-    "merits": [  {
-      "id": 20007,
-      "title": "Azzerato",
-      "description": "Qualcuno in alto loco ha cancellato tutti i registri reali del vampiro. Ufficialmente, non esiste.",
-      "minLevel": 1,
-      "maxLevel": 1
-    },
+    "merits": [
+      {
+        "id": 20007,
+        "title": "Azzerato",
+        "description": "Qualcuno in alto loco ha cancellato tutti i registri reali del vampiro. Ufficialmente, non esiste.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
       {
         "id": 20023,
         "title": "Falsario",
         "description": "Il vampiro può creare o procurare Maschere. Creare una Maschera richiede tre giorni per pallino e potrebbe farlo risaltare in rete. Procurarne una, invece, richiede solo un giorno per pallino ma ha un costo in cambio. Il prezzo esatto dipenderà da fattori come la sua influenza, il margine ottenuto nel test Sociale, o altri elementi decisi dal Narratore.",
         "minLevel": 1,
         "maxLevel": 1
-
-      }],
-    "flaws": [  {
-      "id": 20007,
-      "title": "Azzerato e Falsario",
-      "description": "Azzerato offre una buona sinergia con i personaggi che fungono da spie o agenti per la loro setta, ombre sfuggenti per scopi loro o per quelli dei loro mandatari. Falsario offre al vampiro la capacità di fabbricare maschere per altri in cambio di un compenso e con poco rischio. Questo Background costituisce un ottimo spunto di storia criminale collaterale: i personaggi possono vendere la loro perizia in cambio di soldi o favori, generando al contempo potenziali pericoli da parte di cacciatori e nemici dei loro clienti.",
-      "isFlaw": true
-    },
+      }
+    ],
+    "flaws": [
+      {
+        "id": 20007,
+        "title": "Azzerato e Falsario",
+        "description": "Azzerato offre una buona sinergia con i personaggi che fungono da spie o agenti per la loro setta, ombre sfuggenti per scopi loro o per quelli dei loro mandatari. Falsario offre al vampiro la capacità di fabbricare maschere per altri in cambio di un compenso e con poco rischio. Questo Background costituisce un ottimo spunto di storia criminale collaterale: i personaggi possono vendere la loro perizia in cambio di soldi o favori, generando al contempo potenziali pericoli da parte di cacciatori e nemici dei loro clienti.",
+        "isFlaw": true
+      },
       {
         "id": 20008,
         "title": "Noto Defunto",
@@ -278,11 +293,14 @@
         "isFlaw": true,
         "minLevel": 2,
         "maxLevel": 2
-      }]
+      }
+    ]
   },
   {
     "id": 9,
     "title": "Mawla",
+    "minLevel": 1,
+    "maxLevel": 5,
     "description": "In molti casi, un Fratello più vecchio o più esperto aiuta il personaggio nel ruolo di Mawla. Un sire che promuova l'avanzamento dei suoi infanti è un Mawla piuttosto standard, o forse un membro di una fazione o setta che ha \"reclutato\" il personaggio gli viene assegnato come ufficiale politico o confessore per assicurarsi che non sperperi il potenziale che i suoi creatori videro in lui. Tuttavia, il Fratello può anche avere un Mawla più giovane: un amico fedele dei suoi giorni da mortale, anch'egli Abbracciato e incredibilmente ancora degno di fiducia. Un numero maggiore di pallini indica un Mawla in una posizione più preziosa: un neonato da un pallino potrebbe valerne anche due o tre se è l'informatore del personaggio nel seguito del Barone o del Principe locale. Spetta al Narratore decidere se nella cronaca l'avere una spia nel campo nemico valga di più o di meno di una spia nella corte del proprio signore.",
     "directFlaws": [
       {
@@ -299,7 +317,9 @@
     "id": 11,
     "title": "Favori",
     "description": "In molti casi, un Fratello più vecchio o più esperto aiuta il personaggio nel ruolo di Mawla. Un sire che promuova l'avanzamento dei suoi infanti è un Mawla piuttosto standard, o forse un membro di una fazione o setta che ha \"reclutato\" il personaggio gli viene assegnato come ufficiale politico o confessore per assicurarsi che non sperperi il potenziale che i suoi creatori videro in lui. Tuttavia, il Fratello può anche avere un Mawla più giovane: un amico fedele dei suoi giorni da mortale, anch'egli Abbracciato e incredibilmente ancora degno di fiducia. Un numero maggiore di pallini indica un Mawla in una posizione più preziosa: un neonato da un pallino potrebbe valerne anche due o tre se è l'informatore del personaggio nel seguito del Barone o del Principe locale. Spetta al Narratore decidere se nella cronaca l'avere una spia nel campo nemico valga di più o di meno di una spia nella corte del proprio signore. In tutti gli altri aspetti, i Favori Minori, Importanti e Cruciali funzionano come descritto nel manuale base di Vampiri (p. 314-315). I Favori non possono essere acquistati o cancellati tramite i punti esperienza. Dopo la creazione del personaggio, l’unico modo per ottenerli (o annullarli) è tramite le sue azioni nel gioco.",
-    "directFlaws":[
+    "minLevel": 0,
+    "maxLevel": 0,
+    "directFlaws": [
       {
         "id": 20009,
         "title": "Debito Minore",
@@ -344,13 +364,14 @@
       }
     ],
     "flaws": [
-
     ]
   },
   {
     "id": 12,
     "title": "Risorse",
     "description": "Nel Mondo di Tenebra e in quello dei vivi, i soldi parlano sempre. Considerate le Risorse come l'ultima spiaggia per la persuasione o l'interrogazione quando il carisma fallisce o quando altri Background non possono risolvere il problema. Le Risorse possono sempre raggiungere una persona. I vampiri giovani come i PG capiscono meglio cosa i mortali possono fare per loro, rispetto a Fratelli più vecchi che li vedono solo come cibo o animali da compagnia. E i PG hanno sia la conoscenza che i mezzi per motivarli. Magari non si potrà fermare un anziano con i soldi, ma una corposa mazzetta può convincere moltissimi piromani, giornalisti o poliziotti mortali a fare del loro meglio per intralciarlo.\n\nDefinite la fonte delle Risorse del personaggio, quanto più individuale, tanto meglio sarà per la storia. Vende le sue predizioni Malkavian (adeguatamente censurate) agli azionisti diurni o vive delle royalties maturate grazie a una canzone in voga decenni prima? Ha trovato nel bosco un borsone pieno di soldi della mafia? Riflettete sul suo archetipo di Predatore come possibile spiegazione delle sue Risorse: esige una decima dai suoi adoratori come Osiride o rapina le sue vittime in cerca di contanti e droga come Randagio?\n\nIl Narratore dovrebbe anche riflettere prima di consentire livelli di Risorse molto elevati (4+). Riuscire a entrare in un club esclusivo diventa molto meno interessante quando un personaggio può limitarsi a comprare l'intero locale con una semplice telefonata.",
+    "minLevel": 1,
+    "maxLevel": 5,
     "directFlaws": [
       {
         "id": 20013,
@@ -368,6 +389,8 @@
     "id": 13,
     "title": "Seguaci",
     "description": "I Seguaci possono fare cose e raggiungere luoghi dove Alleati e Contatti non arrivano, spingendosi addirittura a commettere omicidi o altri crimini. I mortali possono anche provare abbastanza amore o lealtà per il personaggio da compiere cose simili senza essere ghoul o asserviti. Dato che i Seguaci dovrebbero essere individui sviluppati con nomi e personalità, non guasta esaminare le loro motivazioni e condizionamenti, e il Narratore deve chiedersi cosa potrebbe guastare il rapporto che hanno con il personaggio.\n\nIl rapporto in sé può variare. Alcuni Fratelli mantengono semplicemente i loro Seguaci come affidabili galoppini capaci di uscire alla luce del sole. Altri li usano come confidenti o orecchie solidali che li aiutino a sopportare il fardello della vita eterna e la tristezza che l’accompagna. Quale che sia la responsabilità che un vampiro prova per il suo Seguace, le responsabilità di quest’ultimo nei suoi confronti la superano di gran lunga. Nelle cronache a stile di gioco di troupe (p. 198), i giocatori interpretano spesso i Seguaci di altri personaggi. In queste cronache in particolare, i giocatori devono essere consapevoli delle dinamiche di potere e delle sfide di recitazione coinvolte (vedere Differenziali di Potenza, p. 220).",
+    "minLevel": 1,
+    "maxLevel": 5,
     "directFlaws": [
       {
         "id": 20012,
@@ -385,19 +408,20 @@
     "id": 14,
     "title": "Status",
     "description": "Lo Status in genere non si trasferisce da una setta all’altra, in quanto ciascuna di esse dà valore a risultati e virtù differenti. Può inoltre applicarsi in modo più ristretto che a un’intera setta, denotando ad esempio una carica in un tempio del Ministero o una cappella Tremere.\nStatus e Fama si sovrappongono grosso modo, ma in genere il primo conferisce rispetto. Un vampiro può avere Fama per aver ucciso un rivale in modo spettacolare, ma un guerriero Banu Haqim potrebbe anche (o invece) avere un pallino di Status nel suo clan per la stessa azione.\n\nLo Status può anche sovrapporsi alle Sapienze di Tenebra, le quali possono giustificare uno Status alquanto torbido o nebuloso: un agente doppiogiochista di Theo Bell potrebbe avere un effettivo Status nel soviet Anarchico e uno Status di copertura stabilito nella Camarilla grazie a qualche tipo di manovra sottobanco. Uno Status locale, limitato o torbido deve essere discusso con il Narratore per assicurarsi che la cronaca si concentri sulle sfide adatte o influenzate da questo Status.",
+    "minLevel": 1,
+    "maxLevel": 5,
     "directFlaws": [
-
     ],
     "merits": [],
     "flaws": [
       {
-      "id": 10024,
-      "title": "Segreti Cittadini",
-      "description": "In qualche modo, il vampiro è venuto a conoscenza di un segreto scomodo sulla struttura di potere dei Fratelli della città, forse nello specifico riguardo a uno di loro. L’esatta natura dell’informazione dev’essere definita insieme al Narratore. Se il segreto si riferisce solo a un’attività mortale (“Il sindaco si scopa di nascosto un soldato della mafia russa”), sarà solo un modo per spiegare l’Influenza del PG.\n\nAlcuni attori potenti della città sanno che il personaggio ha questa informazione o ne hanno il forte sospetto; si spera che abbia stilato un piano di emergenza per rendere pubblico il segreto nel caso di una sua misteriosa sparizione. Può vendere l’informazione a caro prezzo, ma il suo valore più grande sta nella protezione: chi vuole che rimanga segreta avrà tutto l’interesse a rendere felice il personaggio. Naturalmente, se questi sfida troppo la fortuna, potrebbe anche decidere che zittirlo per sempre è l’alternativa migliore.\n\nQuesto Background è più simile a Influenza che a Status entro alcune circostanze; deciderà il Narratore quando o se sommarlo a una riserva Sociale, o forse a un test di Ricerca o Intuito.\n\nUn personaggio può acquisire questo Background fino a un massimo di tre volte, ognuna riguardante un segreto diverso.",
-      "isFlaw": true,
+        "id": 10024,
+        "title": "Segreti Cittadini",
+        "description": "In qualche modo, il vampiro è venuto a conoscenza di un segreto scomodo sulla struttura di potere dei Fratelli della città, forse nello specifico riguardo a uno di loro. L’esatta natura dell’informazione dev’essere definita insieme al Narratore. Se il segreto si riferisce solo a un’attività mortale (“Il sindaco si scopa di nascosto un soldato della mafia russa”), sarà solo un modo per spiegare l’Influenza del PG.\n\nAlcuni attori potenti della città sanno che il personaggio ha questa informazione o ne hanno il forte sospetto; si spera che abbia stilato un piano di emergenza per rendere pubblico il segreto nel caso di una sua misteriosa sparizione. Può vendere l’informazione a caro prezzo, ma il suo valore più grande sta nella protezione: chi vuole che rimanga segreta avrà tutto l’interesse a rendere felice il personaggio. Naturalmente, se questi sfida troppo la fortuna, potrebbe anche decidere che zittirlo per sempre è l’alternativa migliore.\n\nQuesto Background è più simile a Influenza che a Status entro alcune circostanze; deciderà il Narratore quando o se sommarlo a una riserva Sociale, o forse a un test di Ricerca o Intuito.\n\nUn personaggio può acquisire questo Background fino a un massimo di tre volte, ognuna riguardante un segreto diverso.",
+        "isFlaw": true,
         "minLevel": 1,
         "maxLevel": 1
-    },
+      },
       {
         "id": 10025,
         "title": "Evitato",
@@ -405,7 +429,8 @@
         "isFlaw": true,
         "minLevel": 2,
         "maxLevel": 2
-      },   {
+      },
+      {
         "id": 10026,
         "title": "Sospetto",
         "description": "La setta non lo vede di buon occhio: ha infranto un accordo, un giuramento o simili. Può cercare di non farsi vedere, ma a meno che non riesca a rimediare subisce una penalità di due dadi a tutti i test Sociali con quella fazione.",
@@ -414,5 +439,538 @@
         "maxLevel": 2
       }
     ]
+  },
+  {
+    "id": 15,
+    "title": "Linguista",
+    "description": "Tutti conoscono perfettamente la loro lingua natale e (a parte forse un fascinoso accento ungherese) l’idioma dominante nell’ambientazione. Per esempio, un vampiro libanese in una cronaca a Città del Messico può parlare e leggere arabo (o aramaico, se è un vampiro molto vecchio) e spagnolo. Un Narratore generoso può permettere ai vampiri la cui lingua natale coincide con quella dell’ambientazione di acquisire comunque una seconda lingua. Ogni pallino in Linguista consente al personaggio di parlare, leggere e scrivere correttamente una lingua aggiuntiva oltre le due di base. Non bisogna pensare troppo ai cambiamenti delle lingue nel corso dei secoli: ai fini del gioco si presume che l’inglese sia rimasto grosso modo invariato, ad esempio, sebbene leggere documenti antichi o cantare in un dialetto sconosciuto possa aumentare la Difficoltà dei test di Accademiche e Occulto.",
+    "minLevel": 1,
+    "maxLevel": 5,
+    "directFlaws": [
+      {
+        "id": 20024,
+        "title": "Analfabeta",
+        "description": "Il vampiro non sa leggere né scrivere. Le sue Abilità Accademiche e Scienze non possono superare 1 e non può avere in esse alcuna specialità riguardante la sapienza moderna.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Aspetto",
+    "description": "Non tutti i vampiri sembrano attori di True Blood. Alcuni sono persino meglio. E qualcuno, naturalmente, molto peggio. Questi modificatori si applicano solo quando il vampiro può essere visto; il Narratore deciderà se si applicano ai conflitti Sociali in base al singolo episodio di conflitto (o alla singola riserva di dadi). ",
+    "minLevel": 0,
+    "maxLevel": 0,
+    "directFlaws": [
+      {
+        "id": 20025,
+        "title": "Ripugnante",
+        "description": "Sottrae due dadi da tutte le riserve Sociali pertinenti.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 20026,
+        "title": "Brutto",
+        "description": "Sottrae un dado da tutte le riserve Sociali pertinenti.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 20038,
+        "title": "Fetore",
+        "description": "Il fiato e l’odore corporeo del personaggio sono disgustosi a un livello soprannaturale, olezzante di tombe scoperchiate e carne putrida. Persino i Nosferatu si lamentano del tanfo. Il vampiro può attuare piccoli rimedi per attenuare il fetore, ad esempio versandosi addosso copiose quantità di dopobarba, ma ciò provoca altri problemi. Subisce -1 dado a tutte le riserve di seduzione e analoghe azioni sociali e -2 dadi alle riserve di Furtività contro gli avversari che possono fiutarlo, a meno che non sia sopravento.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 20039,
+        "title": "Trasparente",
+        "description": "Quale che sia la ragione, il personaggio non è affatto bravo a mentire, e si vede benissimo. Può avere una tremenda faccia da poker, o forse i genitori gli hanno inculcato un forte istinto a essere sincero anche quando non va a suo vantaggio. Subisce -1 dado a tutte le riserve basate su Sotterfugio, e non può acquisire pallini in questa Abilità.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "merits": [
+      {
+        "id": 10023,
+        "title": "Attraente",
+        "description": "Un dado extra a tutte le riserve Sociali pertinenti.",
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 10021,
+        "title": "Aspetto Strepitoso",
+        "description": "Due dadi extra a tutte le riserve Sociali pertinenti.",
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 10027,
+        "title": "Faccia d’angelo",
+        "description": "Il personaggio appare del tutto innocente e incolpevole, rendendogli molto più facile convincere gli altri delle sue buone intenzioni. Ottiene +2 dadi a ogni tiro correlato a evitare i sospetti o sviare la colpa, a discrezione del Narratore.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10028,
+        "title": "Segno Particolare",
+        "description": "Il personaggio ostenta un segno caratteristico memorabile come un colore insolito degli occhi, pupille atipiche o una peculiare carnagione, che gli offre +2 dadi nelle interazioni sociali con gli sconosciuti (la novità si esaurisce in fretta). Subisce però una penalità di 1 dado ai tentativi di camuffarsi.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10029,
+        "title": "Volto Famoso",
+        "description": "Il personaggio assomiglia vagamente o esattamente a una celebrità molto nota. A volte ciò funziona a suo vantaggio, altre volte può sfociare in cose tipo \"Charlize Theron ha appena morso sul collo quel poliziotto!\". Il personaggio ottiene +2 dadi alle riserve Sociali nelle circostanze in cui può fare leva sulla somiglianza, ma subisce una penalità analoga quando tenta di nascondersi in una folla o in altre aree dove preferirebbe non dare nell’occhio.",
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "flaws": []
+  },
+  {
+    "id": 17,
+    "title": "Dipendenza",
+    "description": "Il vampiro è assuefatto a una sostanza diversa dal sangue. I Fratelli con questo Tratto cercano sangue che contiene la sostanza e bevono da chi ne fa uso. La dipendenza da un tipo specifico di sangue o il rifiuto di bere sangue contenente la sostanza contano entrambi come Esclusione di Preda (p. 181). Si veda p. 310 per gli effetti di sostanze comuni sul sangue ingerito; questi permangono a prescindere dallo specifico Pregio o Difetto acquisito. La sostanza desiderata va specificata all'acquisizione del Tratto.",
+    "directFlaws": [
+      {
+        "id": 20027,
+        "title": "Assuefazione Incurabile",
+        "description": "Sottrae due dadi da tutte le riserve quando l’ultima persona di cui si è nutrito non usava la droga scelta, tranne nelle azioni che gli procurano subito la sua droga.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 20028,
+        "title": "Dipendenza",
+        "description": "Sottrae un dado da tutte le riserve quando l’ultima persona di cui si è nutrito non usava la droga scelta, tranne nelle azioni che gli procurano subito la sua droga.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "merits": [
+      {
+        "id": 10030,
+        "title": "Dipendenza ad Alta Funzionalità",
+        "description": "un dado extra a una categoria di riserve (specificata alla scelta della sostanza) quando l’ultima persona di cui si è nutrito usava la droga scelta.",
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "minLevel": 0,
+    "maxLevel": 0
+  },
+  {
+    "id": 18,
+    "title": "Arcaismo",
+    "description": "Solo le ancillae e i vampiri più vecchi possono acquisire uno dei seguenti Difetti.",
+    "directFlaws": [
+      {
+        "id": 20029,
+        "title": "Arcaico",
+        "description": "Incapace di adattarsi al presente, o ha passato molto tempo in torpore. Non può usare computer o cellulari e il suo valore di Tecnologia è per sempre fissato a 0. Il Narratore può penalizzare di un dado altre riserve legate a tecnologie molto moderne.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 20030,
+        "title": "Legato al Passato",
+        "description": "Il vampiro non capisce la mentalità moderna o non vuole farlo. Manifesta una o più Convinzioni superate come: \"la parola del papa è legge\", \"le donne sono delicati fiorellini\", \"le classi inferiori esistono solo per servire\" o \"bruciate i bagagli dei vostri nemici\". Tale moralità arcaica preserva la sua Umanità ma risulta odiosa a molti; sottrae un dado dalle riserve Sociali che coinvolgono tali convinzioni arcaiche, tranne quando interagisce con vampiri coevi o più vecchi, i quali possono invece ammirare la sua virtù incrollabile.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "minLevel": 0,
+    "maxLevel": 0
+  },
+  {
+    "id": 19,
+    "title": "Legame",
+    "description": "Non tutti i vampiri reagiscono ugualmente al Legame di Sangue. Alcuni cadono sotto l'influsso di un regnante con rapita facilità; altri resistono con ogni fibra del loro essere. Si possono mischiare questi Pregi e Difetti: ad esempio, un Fratello può essere un Tossico del Sangue con Legame Breve. Altre informazioni sui Legami di Sangue sono a p. 233. \n• Resistenza al Legame: Il Sangue si ribella al controllo. Ottieni un dado extra alle riserve di dadi per resistere a un Legame di Sangue per ogni livello acquisito in questo Pregio (massimo 3).\n•• Legame Breve: I Legami di Sangue perdono efficacia più rapidamente del solito, diminuendo a ogni plenilunio e novilunio (cioè di due ogni mese) se non rafforzati.\n••••• Invincolabile: Il vampiro non sviluppa mai il Legame. Inoltre, se fosse a corto di soldi, potrebbe probabilmente vendere la sua vitae agli alchimisti.",
+    "directFlaws": [
+      {
+        "id": 20031,
+        "title": "Schiavo del Legame.",
+        "description": "Il vampiro si lega istantaneamente alla vitae di un altro; un solo sorso di Sangue è sufficiente a legarlo, non tre. Inizia asservito al suo sire o il Narratore deve escogitare una ragione per la rottura di quel primo legame. Forse il sire è stato distrutto o è rimasto più di sei mesi in un’altra città?",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 20032,
+        "title": "Tossico del Sangue",
+        "description": "Quando attecchisce, il Legame sembra più dolce. Il vampiro sottrae un dado dalle riserve quando agisce contro un Legame di Sangue.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 20033,
+        "title": "Legame Prolungato",
+        "description": "I Legami di Sangue perdono efficacia più lentamente del solito, diminuendo di uno ogni tre mesi se non rafforzati.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "minLevel": 1,
+    "maxLevel": 4
+  },
+  {
+    "id": 20,
+    "title": "Nutrizione",
+    "description": "In questa categoria generale rientrano diversi Pregi e Difetti. Un vampiro con uno di essi non possiede necessariamente gli altri.",
+    "directFlaws": [
+      {
+        "id": 20034,
+        "title": "Vegano",
+        "description": "Si nutre solo di sangue animale e deve spendere due punti Volontà per bere sangue umano. I Ventrue non possono acquisire questo Difetto.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 20035,
+        "title": "Organofago",
+        "description": "Può saziare la sua Fame solo mangiando carne e organi umani, specialmente se ricchi di sangue come cuore, fegato, polmoni, placenta e milza (oggi quasi tutti i Fratelli organofagi preparano frullati con gli organi). Solo il cuore, però, conferisce Risonanza, e non sempre.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 20036,
+        "title": "Sete del Matusalemme",
+        "description": "La sua Fame può essere saziata solo dal sangue di creature soprannaturali (un Alchimista potrebbe riuscire ad addensare la vitae di Sangue debole quanto basta per saziarlo). In caso contrario, essa rimane costantemente a un minimo di 1 (o più, a seconda della sua Potenza del Sangue – p. 215).",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 20037,
+        "title": "Esclusione di Preda",
+        "description": "Rifiuta di cacciare un certo tipo di preda: tossici, donne, bambini, un'etnia o minoranza, ecc. Se si ciba di tali prede, riceve Macchie come se avesse violato un Precetto della cronaca. A discrezione del Narratore, può provocare Macchie anche guardare altri Fratelli nutrirsi dalle prede escluse senza interferire. I Ventrue con questo Difetto ricevono una restrizione aggiuntiva, rendendo la loro scelta di prede assai limitata.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 20040,
+        "title": "Intimista",
+        "description": "Il vampiro considera l’atto della nutrizione estremamente personale e non può bere sangue dai mortali quando qualcuno lo sta guardando. Ciò significa che deve spesso nutrirsi da vittime inconsapevoli e farsi in quattro per trovare (o creare) soggetti drogati o privi di conoscenza.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "merits": [
+      {
+        "id": 10031,
+        "title": "Segugio Ematico",
+        "description": "Il vampiro può annusare la Risonanza del sangue di un umano senza assaggiarlo. Deve comunque trovarsi a portata di olfatto ed eseguire un test di Fermezza + Allerta a Difficoltà 3. La Difficoltà aumenta in caso di profumo o distanza e si riduce se il contatto è più intimo.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10032,
+        "title": "Riconoscere la Vena",
+        "description": "Un modo sicuro per far incazzare un Fratello è nutrirsi delle sue vacche. I vampiri sorvegliano gelosamente i loro greggi e il personaggio ha imparato come evitarle: è in grado di fiutare i mortali che fanno parte di un Gregge o le Bambole di Sangue altrui. Una vittoria in un test di Fermezza + Allerta a Difficoltà 2 permette al vampiro di fiutare se un mortale è stato dissanguato di recente. Una vittoria critica gli consente di capire se la nutrizione avviene su basi regolari, nel qual caso il mortale farà probabilmente parte del Gregge di qualcuno.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10033,
+        "title": "Stomaco di Ferro",
+        "description": "Può nutrirsi di sangue freddo o rancido e plasma frazionato. Nessuno di questi fornisce Risonanza.\nI Ventrue non possono acquisire questo Pregio.",
+        "minLevel": 3,
+        "maxLevel": 3
+      },
+      {
+        "id": 10040,
+        "title": "Fortuna del Diavolo",
+        "description": "Sarà sempre qualcun altro a subire le conseguenze degli errori del personaggio, fintanto che c’è qualcuno a disposizione per prendersi la colpa. Che ciò si debba al fatto che la sua faccia ispira simpatia, a un angelo custode o a qualcosa di molto più tenebroso, il personaggio riesce sempre a svicolare, sfuggire e schivare i guai, sebbene abbia un costante bisogno di nuovi amici mano a mano che li brucia come un incendio incontrollato.\nUna volta per sessione, una disgrazia – un'aggressione, un'accusa, una colpa o qualcosa di simile – originariamente diretta a lui si abbatte invece su qualcuno che gli sta vicino. Questo sventurato può essere un seguace, un alleato, un compagno di coterie o persino un Punto di Riferimento; il Narratore è l'arbitro finale su cosa costituisce una disgrazia adeguata.",
+        "minLevel": 4,
+        "maxLevel": 4
+      },
+      {
+        "id": 10041,
+        "title": "Modalità Notturna",
+        "description": "Il corpo del vampiro non riacquista automaticamente l’aspetto che aveva al momento della morte ogni sera, cosa che gli permette di tenere nuove acconciature, tatuaggi e altre alterazioni corporali a suo piacimento. È comunque capace di tornare al suo stato di morte originale e può \"guarire\" da ogni modifica posteriore come se fossero danni Aggravati. Questo Pregio è disponibile solo ai Fratelli con Potenza del Sangue 1 o inferiore. (Se in qualsiasi momento il Sangue del personaggio diventa più potente, il Pregio non gli conferisce più alcun beneficio, ma ricompare se ritorna a Potenza del Sangue 1.)",
+        "minLevel": 2,
+        "maxLevel": 2
+      }
+    ],
+    "minLevel": 0,
+    "maxLevel": 0
+  },
+  {
+    "id": 21,
+    "title": "Pregi e Difett i Mitici",
+    "description": "Ogni linea di sangue ha le sue peculiarità, maledizioni e ferite dell’anima. Resti di antenati divenuti polvere germinano nella vitae che propaga la maledizione da sire a infante. Altri vampiri, invece, sviluppano debolezze sul momento: disturbi psicosomatici aggravati dall’Abbraccio o invisibili maree nel flusso millenario del Sangue.",
+    "flaws": [
+      {
+        "id": 10034,
+        "title": "Esca per Paletti",
+        "description": "Anziché entrare in torpore, il vampiro subisce la Morte Ultima se trafitto al cuore.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 10035,
+        "title": "Flagello Folcloristico.",
+        "description": "Subisce danni Aggravati da una debolezza tipica delle credenze popolari. Queste includono:\nLuce ultravioletta: subisce danni pari a quelli della luce solare.\nArgento o armi placcate in argento: subisce danni pari a quelli dell'arma; il semplice contatto con una monetina o un cucchiaio infligge un livello di danno Aggravato.\nAcqua santa: subisce danni pari a quelli del fuoco.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 10036,
+        "title": "Barriera Folcloristica.",
+        "description": "Il vampiro deve arrestarsi o arretrare davanti a una barriera del folclore, o spendere un punto Volontà per oltrepassarla. Ogni barriera acquisita conta come Difetto da un punto a se stante. Le barriere includono: •Simboli sacri impugnati da un credente (anche se privo di Vera Fede) •Attraversare corsi d’acqua visibili •Entrare in una casa senza invito del proprietario •Animali bianchi •Aglio •Rose selvatiche •Semi sparsi a terra da contare",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10037,
+        "title": "Stigmate",
+        "description": "Sanguina da piaghe aperte su mani, piedi e fronte quando la sua Fame sale a 4. Ciò attira l'attenzione e può penalizzare alcuni test a discrezione del Narratore.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 10038,
+        "title": "Esclusione di Preda",
+        "description": "Rifiuta di cacciare un certo tipo di preda: tossici, donne, bambini, un'etnia o minoranza, ecc. Se si ciba di tali prede, riceve Macchie come se avesse violato un Precetto della cronaca. A discrezione del Narratore, può provocare Macchie anche guardare altri Fratelli nutrirsi dalle prede escluse senza interferire. I Ventrue con questo Difetto ricevono una restrizione aggiuntiva, rendendo la loro scelta di prede assai limitata.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10042,
+        "title": "Inedia Putrescente",
+        "description": "Il corpo non morto del Fratello è costantemente in procinto di tornare a essere un cadavere, e solo tenendo a bada la Fame può ritardarne la decomposizione. In qualsiasi momento nel quale la Fame del vampiro sale a 3 o più, il suo corpo avvizzisce e imputridisce, imponendogli una penalità di 2 dadi ai test Fisici e alle interazioni sociali con i mortali, per non parlare del rischio di violare la Masquerade.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      },
+      {
+        "id": 10043,
+        "title": "Maledizione Raddoppiata",
+        "description": "Il vampiro è afflitto da una Debolezza supplementare, che lo obbliga a faticare sotto il peso aggiuntivo della natura fallace del fondatore del suo clan. Il personaggio acquisisce la Debolezza alternativa del suo clan (p. 56) in aggiunta a quella normale. Il Narratore può proibire questo Difetto qualora la seconda Debolezza possa causare problemi o avere scarso impatto nella cronaca.",
+        "isFlaw": true,
+        "minLevel": 2,
+        "maxLevel": 2
+      }
+    ],
+    "merits": [
+      {
+        "id": 10039,
+        "title": "Mangiare Cibo",
+        "description": "Può ingerire cibo senza fatica e persino gustarlo, anche se non gli procura nutrimento e deve espellerlo prima di coricarsi per il giorno.",
+        "minLevel": 2,
+        "maxLevel": 2
+      }
+    ],
+    "minLevel": 0,
+    "maxLevel": 0
+  },
+  {
+    "id": 23,
+    "title": "Bucket Difetti",
+    "description": "bla bla bla",
+    "directFlaws": [
+      {
+        "id": 20050,
+        "title": "Debito di Prestazione",
+        "description": "Il vampiro deve due favori minori a un altro Fratello (o un favore a due Fratelli diversi). Il creditore ha più potere e influenza di lui nella società vampirica, ma non necessariamente nella sua stessa setta: riceve 1 dado bonus nei conflitti Sociali contro il personaggio finché permane il debito. Può richiedere la riscossione di uno o entrambi in qualsiasi momento, ma in pratica lo farà invariabilmente quando il personaggio non vuole (o proprio non gli è possibile) ripagarlo. Tuttavia, se il giocatore riesce a ripagare entrambi i debiti, non dovrà acquisire un altro Difetto per \"bilanciare\" il personaggio. Il creditore continua a divertirsi a sfoggiare la sua superiorità, però, e conserva il bonus di un dado nei suoi confronti.\nÈ possibile acquisire questo Difetto congiuntamente a uno o più Favori Minori (V5 p. 193 e 315) alla creazione del personaggio, ma il creditore non può essere il personaggio di un altro giocatore. Per una descrizione approfondita dei Debiti di Prestazione come Background vedere Favori e Debiti, p. 115.",
+        "minLevel": 1,
+        "maxLevel": 1,
+        "isFlaw": true
+      },
+      {
+        "id": 20051,
+        "title": "Fame di Conoscenza",
+        "description": "Il personaggio ha sempre temuto di non avere il tempo di imparare tutto ciò che voleva sulle cose davvero importanti. Be’, ormai quel problema è risolto. Il tempo per imparare non è però sempre il presente – il personaggio mette un riluttante segnalibro ai suoi studi e si occupa di questioni più potenzialmente fatali.\nAlla creazione del personaggio, scegliete un ambito di studi che gli interessa padroneggiare. Quando si imbatte in libri, videotutorial, cicli di conferenze o altri metodi di apprendimento riguardanti il campo preferito, deve effettuare un tiro di Volontà con Difficoltà 3 per resistere alla tentazione di soddisfare la sua brama di conoscenza.",
+        "minLevel": 1,
+        "maxLevel": 1,
+        "isFlaw": true
+      },
+      {
+        "id": 20052,
+        "title": "Smidollato",
+        "description": "Il personaggio fatica ad asserire la propria personalità se messo a confronto con la volontà di un altro. Non è necessariamente remissivo; forse si sente più tranquillo se segue l’esempio di qualcun altro. Può far parte del seguito o del Gregge di un vampiro, ma non gli concede obbligatoriamente la sua lealtà.\nSubisce penalità di 1 dado alle riserve Sociali contro il suo capo o superiore. Anche quando è consapevole del tentativo di influenzarlo a livello mentale o emotivo (con Dominazione o Ascendente), non può avvalersi dei sistemi di resistenza attiva per evitarne gli effetti.",
+        "minLevel": 2,
+        "maxLevel": 2,
+        "isFlaw": true
+      },
+      {
+        "id": 20053,
+        "title": "Temerario",
+        "description": "Il personaggio è uno di quegli individui che si sente obbligato a cogliere ogni minima opportunità di sperimentare appieno la vita.\nSe ha la possibilità di indulgere in una tentazione rischiosa che non ha mai sperimentato prima (sniffare una nuova droga, bere sangue di vampiro, accettare le seduzioni di un Fratello), subisce una penalità di 2 dadi a tutte le azioni finché non si arrende alla nuova esperienza o non termina la scena. Questo Difetto non lo obbliga a compiere azioni suicide… ma il personaggio non è sempre in grado di prevedere le piene conseguenze di ciò che sta per fare.",
+        "minLevel": 1,
+        "maxLevel": 1,
+        "isFlaw": true
+      }
+    ],
+    "minLevel": 0,
+    "maxLevel": 0
+  },
+  {
+    "id": 24,
+    "title": "Bagagliaio Fornito",
+    "description": "I vampiri con questo Pregio hanno sempre a portata di mano gli arnesi del loro mestiere, che siano mercenari, operatori a contratto o Anarchici. Il personaggio ha facile accesso a un arsenale o deposito di attrezzi e dispositivi, nessuno dei quali può superare il valore di quelli disponibili a un personaggio con Risorse 2. Questo include oggetti come doppietta a canne mozze, tronchesi, nastro isolante, paletti fatti in casa, e simili. Ottiene +2 dadi alle riserve di Disponibilità (V5 p. 407) per gli oggetti inclusi in questa categoria di Risorse. La perdita dello spazio di stoccaggio (auto, rifugio, ecc.) può interrompere il Pregio finché il deposito non viene ricostruito.",
+    "minLevel": 1,
+    "maxLevel": 1
+  },
+  {
+    "id": 25,
+    "title": "Intoccabile",
+    "description": "Il vampiro è talmente ben collegato o informato che le autorità sono molto riluttanti a punirlo anche per i crimini più efferati. Una volta per storia, il personaggio può sfuggire a ogni castigo ufficiale per un delitto che altrimenti lo condannerebbe alla distruzione o all'espulsione dalla setta. Potrebbe comunque ricevere rimproveri privati o affrontare conseguenze tramite canali non ufficiali. La Corte o il Consiglio spesso ignora i suoi crimini minori, ma i Fratelli di livello inferiore potrebbero perseguitarlo a causa della sua apparente impunità.",
+    "minLevel": 5,
+    "maxLevel": 5
+  },
+  {
+    "id": 26,
+    "title": "Introiti Paralleli",
+    "description": "Questo Pregio permette al personaggio, che vive sul filo del rasoio, di arrabattarsi continuamente per ottenere ciò che gli serve. Una volta per sessione, può mettere le mani su un oggetto, un'informazione o accedere a un evento come se avesse due pallini nell'appropriato Background di Risorse, Contatti o Influenza. Gli oggetti ottenuti con Risorse dovranno probabilmente essere restituiti. Spesso, questo richiede di spendere parte della notte a riscuotere favori o a fare pressione sulla propria rete personale.",
+    "minLevel": 2,
+    "maxLevel": 2
+  },
+  {
+    "id": 27,
+    "title": "Volontà Temprata",
+    "description": "Lo spirito caparbio del personaggio non si è piegato all'Abbraccio, e lo avverte quando qualcuno cerca di costringerlo contro la sua volontà. È sempre consapevole di quando qualcuno sta usando Ascendente o Dominazione su di lui. Una volta per sessione, quando resiste a una di queste Discipline, ottiene +2 dadi alla riserva di resistenza. Questo Pregio è disponibile solo ai personaggi senza pallini in Ascendente o Dominazione; se acquisisce queste Discipline in seguito, il Pregio non conferisce più alcun beneficio finché possiede quei poteri.",
+    "minLevel": 2,
+    "maxLevel": 2
+  },
+  {
+    "id": 22,
+    "title": "Pregi e Difett dei Sangue Debole",
+    "description": "Questi Tratti si applicano solo ai Sangue debole. Non hanno valore in pallini; ogni Difetto bilancia un Pregio e viceversa. Pertanto, non contano ai fini del massimo di pallini in Vantaggi e Difetti acquisibile alla creazione del personaggio o tramite l’esperienza.",
+    "direcyFlaws": [
+      {
+        "id": 10050,
+        "title": "Carne Morta",
+        "description": "Anziché entrare in torpore, il vampiro subisce la Morte Ultima se trafitto al cuore.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10051,
+        "title": "Dipendenza dalla Vitae",
+        "description": "Il suo Sangue non può alimentare da solo i poteri vampirici. A meno che non beva abbastanza sangue di vampiro da saziare un livello di Fame a settimana, perde la capacità di ottenere e usare le Discipline (inclusa Alchimia dei Sangue debole). Recupera i suoi poteri non appena sazia almeno un livello di Fame con il sangue vampirico.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10052,
+        "title": "Denti da Latte",
+        "description": "Il vampiro non ha mai sviluppato le zanne, o quelle che ha sono inutili per la nutrizione. Deve tagliare le vittime o estrarne il sangue con una siringa.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10053,
+        "title": "Fragilità Mortale",
+        "description": "Non può Risvegliare il Sangue per risanarsi e guarisce invece come un mortale (p. 127). Se ha questo Difetto, non può acquisire Resilienza Vampirica.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10054,
+        "title": "Indole Bestiale",
+        "description": "È afflitto da una Bestia pari a quella di un “autentico” vampiro. Deve effettuare test di frenesia secondo le regole normali.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10055,
+        "title": "Maledizione di Clan",
+        "description": "In alcune città, chi governa bracca e stermina i Sangue debole. Altrove, uno Sceriffo “benevolo” può limitarsi a marchiarli a fuoco perché non dimentichino il loro posto (in seguito molti sono comunque braccati e sterminati, spesso per torti percepiti o semplice capriccio). Il vampiro porta uno di questi marchi indelebili e la Camarilla si accerta di tenerlo d’occhio in attesa del suo inevitabile sgarro. Può acquisire Contatto nella Camarilla insieme a questo Difetto; la setta prospera su tali doppi giochi.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10056,
+        "title": "Ostracismo Anarchico",
+        "description": "Ha infranto qualche regola non scritta o si è considerato uno tra gli uguali, dove però alcuni sono più uguali di altri. Comunque sia, gli Anarchici del regno lo conoscono e lo evitano. Preferirebbero gettarlo in pasto alla Camarilla che ascoltare le sue scuse. Se ha questo Difetto non può acquisire Compagni Anarchici.",
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "merits": [
+      {
+        "id": 10057,
+        "title": "Affinità in una Disciplina",
+        "description": "Ha un’affinità per una Disciplina scelta alla creazione. Ottiene un pallino in questa Disciplina e può imparare e mantenere altri pallini tramite i punti esperienza, come fosse un normale vampiro (costo analogo alle Discipline non di clan). Bere sangue della Risonanza adatta non gli conferisce pallini extra nella Disciplina, temporanea o meno che sia.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10058,
+        "title": "Alchimista Sangue debole",
+        "description": "I Crepuscolari cambiano mano a mano che si nutrono, e l’Alchimia è la maestria di tale processo. Che sia apparsa spontaneamente o l’abbia appresa confrontando appunti coi suoi simili, il vampiro ha ottenuto un pallino e una formula (p. 281) di Alchimia dei Sangue debole. Può acquisire normalmente altri pallini e formule tramite l’esperienza. La luce del sole dimezza la sua Salute (arrotondare per eccesso), ma per il resto si limita a rimuovere le sue capacità vampiriche, incluse Discipline e benefici alla Salute, senza infliggere altri danni. Subisce tuttavia i morsi della Fame, e prima o poi dovrà pur dormire. Se la sua Salute scende sotto il livello di danni attualmente sostenuto come risultato di ciò, subisce gli effetti della Menomazione o del torpore (a seconda del tipo di danni) finché non si mette al riparo dal sole.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10059,
+        "title": "Compagni Anarchici",
+        "description": "Il vampiro ha fatto amicizia con una coterie Anarchica che tollera la sua presenza o lo tratta persino con affetto, come un cagnolino. Essa agisce come Mawla Anarchica da un pallino, almeno finché lui segue la linea di partito. Va annotata sulla Mappa Relazionale.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10060,
+        "title": "Contatto nella Camarilla",
+        "description": "Ha attirato l’attenzione di un reclutatore della setta che gli ha promesso di ammetterlo e la possibilità di diventare un vero vampiro. Non deve far altro che stare pronto, riferire le attività sue e della coterie e prepararsi a eseguire qualsiasi incarico. Ha l’equivalente di una Mawla Camarilla da un pallino che lo tratta con disprezzo. Va annotata sulla Mappa Relazionale.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10061,
+        "title": "Resilienza Vampirica",
+        "description": "Subisce danni come un normale vampiro, considerando le comuni ferite da taglio e penetrazione come danni Superficiali.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10062,
+        "title": "Sangue Concatenato",
+        "description": "Può creare Legami di Sangue ed eseguire l’Abbraccio come un vampiro normale. Qualsiasi vampiro creato in tal modo sarà un Sangue debole.",
+        "minLevel": 1,
+        "maxLevel": 1
+      },
+      {
+        "id": 10063,
+        "title": "Sembianza Vitale",
+        "description": "Il suo cuore batte, può mangiare cibo e godersi le attività sessuali come un mortale. Solo le indagini mediche più avanzate possono svelare qualcosa di anomalo, a patto ovviamente che si svolgano di notte.",
+        "minLevel": 1,
+        "maxLevel": 1
+      }
+    ],
+    "minLevel": 0,
+    "maxLevel": 0
   }
 ]

@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.background.BackgroundListVisualization
 import com.example.v5rules.ui.compose.component.background.DirectFlawsListVisualization
-import com.example.v5rules.ui.compose.component.loresheet.LoresheetList
+import com.example.v5rules.ui.compose.component.loresheet.LoresheetListVisualization
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 
 @Composable
@@ -61,9 +61,8 @@ fun BackgroundSectionVisualization(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     if (characterLoresheets.isNotEmpty()) {
-                        LoresheetList(
-                            loresheets = characterLoresheets,
-                            viewModel = viewModel
+                        LoresheetListVisualization(
+                            loresheets = characterLoresheets
                         )
                     } else {
                         Text(
