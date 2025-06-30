@@ -7,6 +7,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -150,7 +151,6 @@ fun CustomNavHost(
     npcGeneratorViewModel: NPCGeneratorViewModel,
     kindredViewModel: KindredViewModel,
     pgViewModel: PgViewModel,
-    characterSheetViewModel: CharacterSheetViewModel,
     backgroundViewModel: BackgroundViewModel
 ) {
     NavHost(navController = navController, startDestination = HomeNav) {
@@ -412,7 +412,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }){
             CharacterSheetScreen(
-                viewModel = characterSheetViewModel,
+                viewModel = hiltViewModel<CharacterSheetViewModel>(),
                 navController = navController
             )
         }
@@ -421,7 +421,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<CharacterSheetEditNav>()
             CharacterSheetScreen(
-                viewModel = characterSheetViewModel,
+                viewModel = hiltViewModel<CharacterSheetViewModel>(),
                 navController = navController,
                 id = entry.id,
             )

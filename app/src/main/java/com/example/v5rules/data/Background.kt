@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Background(
     val id: Int,
+    val identifier: String? = null,
     val title: String,
     val description: String,
     val prerequisites: String? = null,
@@ -16,6 +17,7 @@ data class Background(
     val flaws: List<Advantage>? = null,
     val minLevel: Int?= null,
     val maxLevel: Int? = null,
+    val note: String? = null,
 )
 
 

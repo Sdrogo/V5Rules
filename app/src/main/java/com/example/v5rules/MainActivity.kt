@@ -53,7 +53,6 @@ fun V5RulesApp(
     val loresheetViewModel: LoresheetViewModel = hiltViewModel<LoresheetViewModel>()
     val kindredViewModel: KindredViewModel = hiltViewModel<KindredViewModel>()
     val pgViewModel: PgViewModel = hiltViewModel<PgViewModel>()
-    val characterSheetViewModel: CharacterSheetViewModel = hiltViewModel<CharacterSheetViewModel>()
     val backgroundViewModel: BackgroundViewModel = hiltViewModel<BackgroundViewModel>()
 
     val navController = rememberNavController()
@@ -73,7 +72,6 @@ fun V5RulesApp(
             npcGeneratorViewModel = npcGeneratorViewModel,
             kindredViewModel = kindredViewModel,
             pgViewModel = pgViewModel,
-            characterSheetViewModel = characterSheetViewModel,
             backgroundViewModel = backgroundViewModel
         )
     }

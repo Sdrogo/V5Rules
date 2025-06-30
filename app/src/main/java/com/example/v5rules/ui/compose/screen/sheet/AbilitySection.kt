@@ -18,20 +18,29 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
@@ -54,21 +63,20 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
         allAbilities.forEach { abilityName ->
             expandedStates.putIfAbsent(
                 abilityName, false
-            ) // Inizializza a false SOLO se non esiste già
+            )
         }
-
         // Rimuovi gli stati di espansione per abilità che non esistono più nel personaggio *e* non sono nella lista completa
         val validAbilityNames = character.abilities.map { it.name }.toSet() + allAbilities.toSet()
         expandedStates.keys.retainAll(validAbilityNames)
     }
 
-    LazyColumn{
+    LazyColumn {
         item {
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier.padding(horizontal = 8.dp),
                 contentPadding = PaddingValues(horizontal = 16.dp)
-            ){ page ->
+            ) { page ->
                 when (page) {
                     0 -> {
                         Card(
@@ -108,15 +116,17 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                 physicalAbilities.forEach { abilityName ->
                                     // Cerca l'abilità nel personaggio.  Se non c'è, crea un'abilità temporanea con livello 0.
                                     val ability =
-                                        character.abilities.firstOrNull { it.name == abilityName } ?: Ability(
-                                            name = abilityName, level = 0
-                                        )
+                                        character.abilities.firstOrNull { it.name == abilityName }
+                                            ?: Ability(
+                                                name = abilityName, level = 0
+                                            )
                                     AbilityItem(ability, viewModel, expandedStates)
                                 }
                             }
                         }
 
                     }
+
                     1 -> {
                         Card(
                             modifier = Modifier
@@ -151,15 +161,18 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                     stringResource(R.string.character_screen_abilities_subterfuge),
                                 ).sorted()
                                 socialAbilities.forEach { abilityName ->
-                                    val ability = character.abilities.firstOrNull { it.name == abilityName } ?: Ability(
-                                        name = abilityName, level = 0
-                                    )
+                                    val ability =
+                                        character.abilities.firstOrNull { it.name == abilityName }
+                                            ?: Ability(
+                                                name = abilityName, level = 0
+                                            )
                                     AbilityItem(ability, viewModel, expandedStates)
                                 }
                             }
                         }
                     }
-                    2 ->{
+
+                    2 -> {
                         Card(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -193,9 +206,11 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                     stringResource(R.string.character_screen_abilities_technology),
                                 ).sorted()
                                 mentalAbilities.forEach { abilityName ->
-                                    val ability = character.abilities.firstOrNull { it.name == abilityName } ?: Ability(
-                                        name = abilityName, level = 0
-                                    )
+                                    val ability =
+                                        character.abilities.firstOrNull { it.name == abilityName }
+                                            ?: Ability(
+                                                name = abilityName, level = 0
+                                            )
                                     AbilityItem(ability, viewModel, expandedStates)
                                 }
                             }
@@ -239,15 +254,23 @@ fun AbilityItem(
 ) {
     // Usa *direttamente* lo stato di espansione dalla mappa
     val isExpanded = expandedStates[ability.name] ?: false
+    var specializationText by remember { mutableStateOf("") }
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val focusManager = LocalFocusManager.current
 
-    CustomContentExpander(maxWith = 1f,
+    CustomContentExpander(
+        maxWith = 1f,
         initialState = isExpanded, // Inizializza con lo stato corretto
         header = {
-            DotsForAttribute(
-                label = "${ability.name} - ${ability.specialization.orEmpty()}",
-                level = ability.level,
-                textStyle = MaterialTheme.typography.bodyMedium
-            )
+            Column {
+                DotsForAttribute(
+                    label = "${ability.name} - ",
+                    level = ability.level,
+                    textStyle = MaterialTheme.typography.bodyMedium
+                )
+                ability.specialization?.let { Text(stringResource(R.string.specialization, it)) }
+            }
+
         },
         content = {
             Column(modifier = Modifier.padding(8.dp)) {
@@ -263,25 +286,42 @@ fun AbilityItem(
                         activeTrackColor = MaterialTheme.colorScheme.tertiary
                     )
                 )
-
-                OutlinedTextField(
-                    value = ability.specialization ?: "",
-                    onValueChange = { newSpecialization ->
-                        viewModel.onEvent(
-                            CharacterSheetEvent.AbilitySpecializationChanged(ability.name, // Usa il nome dell'abilità
-                                newSpecialization.ifBlank { null })
-                        )
-                    },
-                    label = { Text("Specializzazione (opzionale)") },
-                    modifier = Modifier.fillMaxWidth()
-                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    TextField(
+                        value = specializationText,
+                        onValueChange = { specializationText = it },
+                        label = { Text(stringResource(R.string.add_specialization)) },
+                        modifier = Modifier.weight(1f),
+                        singleLine = true,
+                        trailingIcon = {
+                            IconButton(onClick = {
+                                viewModel.onEvent(
+                                    CharacterSheetEvent.AbilitySpecializationChanged(
+                                        ability.name,
+                                        specializationText
+                                    )
+                                )
+                                keyboardController?.hide()
+                                focusManager.clearFocus()
+                            }) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.Send, // Usa AutoMirrored se l'icona deve supportare RTL
+                                    contentDescription = stringResource(R.string.add_specialization)
+                                )
+                            }
+                        }
+                    )
+                }
             }
-        })
+        }
+    )
 
     LaunchedEffect(isExpanded) {
         expandedStates[ability.name] = isExpanded
-        if (!isExpanded) {
-            viewModel.onEvent(CharacterSheetEvent.AbilitySpecializationChanged(ability.name, null))
-        }
     }
 }
