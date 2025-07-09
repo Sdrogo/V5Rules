@@ -166,7 +166,7 @@
     <string name="health">Salute</string>
     <string name="willpower">Volontà</string>
     <string name="humanity">Umanità</string>
-
+    <string name="vital_stats_header">Statistiche Vitali</string>
 
     <string-array name="abilities">
         <item>Atletica</item>
@@ -198,6 +198,6 @@
         <item>Tecnologia</item>
 
     </string-array>
-        <!-- ... altre stringhe ... -->
 
 </resources>
+

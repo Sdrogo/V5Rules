@@ -1,7 +1,6 @@
 package com.example.v5rules.ui.compose.screen.sheet.visualization
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,7 +17,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
-import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.CustomContentExpander
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 

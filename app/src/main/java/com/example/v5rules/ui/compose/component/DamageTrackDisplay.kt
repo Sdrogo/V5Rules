@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -26,9 +27,9 @@ fun DamageTrackDisplay(
     allowsAggravated: Boolean = true,
     boxSize: Dp = 24.dp,
     boxPadding: Dp = 2.dp,
-    borderColor: Color = Color.Gray,
-    superficialColor: Color = Color.Red,
-    aggravatedColor: Color = Color.Red // O un altro colore scuro per distinguerlo
+    borderColor: Color = MaterialTheme.colorScheme.primary,
+    superficialColor: Color = MaterialTheme.colorScheme.tertiary,
+    aggravatedColor: Color = MaterialTheme.colorScheme.tertiary // O un altro colore scuro per distinguerlo
 ) {
     Row(modifier = modifier) {
         damageTrack.forEachIndexed { index, damageType ->

@@ -210,7 +210,7 @@ fun AbilityItem(
 ) {
     Column {
         DotsForAttribute(
-            label = "${ability.name} - ",
+            label = "${ability.name}",
             level = ability.level,
             textStyle = MaterialTheme.typography.bodyMedium
         )

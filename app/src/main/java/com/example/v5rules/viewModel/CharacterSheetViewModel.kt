@@ -326,22 +326,6 @@ class CharacterSheetViewModel @Inject constructor(
                             }
                         }
                     }
-                    // Humanity
-                    is CharacterSheetEvent.HumanityChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                humanity = it.character.humanity.copy(current = event.current)
-                            )
-                        )
-                    }
-
-                    is CharacterSheetEvent.StainsChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                humanity = it.character.humanity.copy(stains = event.stains)
-                            )
-                        )
-                    }
                     // Experience
                     is CharacterSheetEvent.TotalExperienceChanged -> _uiState.update {
                         it.copy(
@@ -1056,6 +1040,28 @@ class CharacterSheetViewModel @Inject constructor(
                         }
                     }
 
+                    is CharacterSheetEvent.HumanityChanged -> {
+                        _uiState.update { currentState ->
+                            val newHumanity = event.current.coerceIn(0, 10)
+                            currentState.copy(
+                                character = currentState.character.copy(
+                                    humanity = currentState.character.humanity.copy(current = newHumanity)
+                                )
+                            )
+                        }
+                    }
+
+                    is CharacterSheetEvent.StainsChanged -> {
+                        _uiState.update { currentState ->
+                            val newStains = event.stains.coerceAtLeast(0)
+                            currentState.copy(
+                                character = currentState.character.copy(
+                                    humanity = currentState.character.humanity.copy(stains = newStains)
+                                )
+                            )
+                        }
+                    }
+
                     is CharacterSheetEvent.RemoveNoteToFlaw -> {
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
@@ -1199,11 +1205,10 @@ class CharacterSheetViewModel @Inject constructor(
         newSize: Int
     ): List<DamageType> {
         val newBoxes = MutableList(newSize) { DamageType.EMPTY }
-        // Copia i valori esistenti, fino al minimo tra la vecchia e la nuova dimensione
         for (i in 0 until minOf(currentBoxes.size, newSize)) {
             newBoxes[i] = currentBoxes[i]
         }
-        return newBoxes.toList() // Ritorna una lista immutabile
+        return newBoxes.toList()
     }
 
 }
