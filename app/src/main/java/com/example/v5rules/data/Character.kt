@@ -1,5 +1,6 @@
 package com.example.v5rules.data
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.serialization.Serializable
@@ -10,7 +11,8 @@ data class Character(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String = "",
     val clan: Clan? = null,
-    val generation: Int = 12,
+    @ColumnInfo(defaultValue = "12")
+    val generation: Int? = 12,
     val sire: String = "",
     val concept: String = "",
     val ambition: String = "",
@@ -27,6 +29,8 @@ data class Character(
     val willpower: Willpower = Willpower(),
     val humanity: Humanity = Humanity(),
     val experience: Experience = Experience(),
+    @ColumnInfo(defaultValue = "1")
+    val hunger: Int? = 1,
 )
 
 @Serializable
@@ -52,14 +56,12 @@ data class Ability(
 
 @Serializable
 data class Health(
-    val max: Int = 0,
-    var current: Int = 0 // Usiamo var perché può cambiare
+    val boxes: List<DamageType> = emptyList()
 )
 
 @Serializable
 data class Willpower(
-    val max: Int = 0,
-    var current: Int = 0 // Usiamo var perché può cambiare
+    val boxes: List<DamageType> = emptyList()
 )
 
 @Serializable
@@ -73,3 +75,9 @@ data class Experience(
     val total: Int = 0,
     val spent: Int = 0
 )
+
+enum class DamageType {
+    EMPTY,
+    SUPERFICIAL,
+    AGGRAVATED
+}

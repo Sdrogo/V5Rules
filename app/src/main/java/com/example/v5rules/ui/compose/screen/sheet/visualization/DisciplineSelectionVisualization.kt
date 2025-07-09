@@ -2,8 +2,6 @@ package com.example.v5rules.ui.compose.screen.sheet.visualization
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -24,10 +22,10 @@ fun DisciplineSelectionVisualization(viewModel: CharacterSheetViewModel, navCont
     val uiState by viewModel.uiState.collectAsState()
     val characterDisciplines = uiState.character.disciplines
 
-    LazyColumn(modifier = Modifier
+    Column(modifier = Modifier
         .fillMaxWidth()
         .padding(8.dp)) {
-        items(characterDisciplines) { discipline ->
+        characterDisciplines.forEach {  discipline ->
             Column {
                 CustomContentExpander(
                     useFullWidth = true,

@@ -40,12 +40,11 @@ sealed class CharacterSheetEvent {
     data class DisciplineLevelChanged(val disciplineName: String, val newLevel: Int) : CharacterSheetEvent() // Per cambiare il livello
 
     // Health
-    data class MaxHealthChanged(val max: Int): CharacterSheetEvent()
-    data class CurrentHealthChanged(val current: Int): CharacterSheetEvent()
+
+    data class HealthBoxClicked(val index: Int): CharacterSheetEvent()
 
     // Willpower
-    data class MaxWillpowerChanged(val max: Int): CharacterSheetEvent()
-    data class CurrentWillpowerChanged(val current: Int): CharacterSheetEvent()
+    data class WillpowerBoxClicked(val index: Int): CharacterSheetEvent()
 
     // Humanity
     data class HumanityChanged(val current: Int): CharacterSheetEvent()

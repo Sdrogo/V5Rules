@@ -157,6 +157,14 @@
     <string name="ability_distribution">Scegliete una distribuzione di Abilità:\n• Tuttofare: un’Abilità a 3, otto Abilità a 2 e dieci Abilità a 1.\n• Equilibrato: tre Abilità a 3, cinque Abilità a 2 e sette Abilità a 1.\n• Specialista: un’Abilità a 4, tre Abilità a 3, tre Abilità a 2 e tre Abilità a 1.</string>
     <string name="edit_sheet">Modifica Scheda</string>
     <string name="character_name">Nome:</string>
+    <string name="sheet_general_info_title">Info Generali</string>
+    <string name="sheet_attribute_title">Attributi</string>
+    <string name="sheet_ability_title">Abilità</string>
+    <string name="sheet_discipline_title">Discipline</string>
+    <string name="sheet_background_title">Background</string>
+    <string name="hunger">Fame</string>
+    <string name="health">Salute</string>
+    <string name="willpower">Volontà</string>
 
 
     <string-array name="abilities">

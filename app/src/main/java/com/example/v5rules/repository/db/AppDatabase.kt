@@ -10,15 +10,19 @@ import com.example.v5rules.data.Character
 
 @Database(
     entities = [Character::class],
-    version = 2,
-    exportSchema = true,
+    version = 3,
     autoMigrations = [
         AutoMigration (
             from = 1,
             to = 2,
-            spec = Migration1To2::class // Reference your new spec class
+            spec = Migration1To2::class
+        ),
+        AutoMigration (
+            from = 2,
+            to = 3
         )
-    ]
+    ],
+    exportSchema = true
 )
 @TypeConverters(
     ClanConverter::class,
@@ -35,7 +39,6 @@ import com.example.v5rules.data.Character
     AdvantageListConverter::class
 )
 
-// Metti le entità
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao(): CharacterDao
 }

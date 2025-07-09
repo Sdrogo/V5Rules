@@ -56,7 +56,7 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
     val uiState by viewModel.uiState.collectAsState()
     val clans by viewModel.clans.collectAsState()
     val predatorType by viewModel.predator.collectAsState()
-    var generation by remember { mutableFloatStateOf(character.generation.toFloat()) }
+    var generation by remember { mutableFloatStateOf((character.generation?: 12.0).toFloat()) }
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current // Per controllare la tastiera
