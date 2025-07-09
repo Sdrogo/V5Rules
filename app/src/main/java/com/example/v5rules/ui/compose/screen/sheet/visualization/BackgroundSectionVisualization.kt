@@ -107,7 +107,7 @@ fun BackgroundSectionVisualization(
                                     Spacer(modifier = Modifier.height(8.dp))
 
                                     if (characterDirectFlaws.isNotEmpty()) {
-                                        DirectFlawsListVisualization(flaws = characterDirectFlaws.orEmpty())
+                                        DirectFlawsListVisualization(flaws = characterDirectFlaws)
                                     } else {
                                         Text(
                                             stringResource(R.string.no_flaw_selected),
@@ -123,7 +123,6 @@ fun BackgroundSectionVisualization(
 
                 }
             }
-            Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -144,6 +143,8 @@ fun BackgroundSectionVisualization(
                     )
                 }
             }
+            Spacer(modifier = Modifier.height(4.dp))
+
         }
     } else {
         Column {
@@ -217,7 +218,7 @@ fun BackgroundSectionVisualization(
                                     Spacer(modifier = Modifier.height(8.dp))
 
                                     if (characterDirectFlaws.isNotEmpty()) {
-                                        DirectFlawsListVisualization(flaws = characterDirectFlaws.orEmpty())
+                                        DirectFlawsListVisualization(flaws = characterDirectFlaws)
                                     } else {
                                         Text(
                                             stringResource(R.string.no_flaw_selected),
@@ -270,7 +271,6 @@ fun BackgroundSectionVisualization(
                     }
                 }
             }
-            Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -291,6 +291,7 @@ fun BackgroundSectionVisualization(
                     )
                 }
             }
+            Spacer(modifier = Modifier.height(4.dp))
         }
     }
 

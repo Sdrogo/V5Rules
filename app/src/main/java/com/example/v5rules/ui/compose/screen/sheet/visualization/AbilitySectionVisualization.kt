@@ -180,7 +180,6 @@ fun AbilitySectionVisualization(character: Character) {
                 }
             }
         }
-        Spacer(modifier = Modifier.height(8.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
@@ -201,6 +200,7 @@ fun AbilitySectionVisualization(character: Character) {
                 )
             }
         }
+        Spacer(modifier = Modifier.height(4.dp))
     }
 }
 
@@ -210,7 +210,7 @@ fun AbilityItem(
 ) {
     Column {
         DotsForAttribute(
-            label = "${ability.name}",
+            label = ability.name,
             level = ability.level,
             textStyle = MaterialTheme.typography.bodyMedium
         )

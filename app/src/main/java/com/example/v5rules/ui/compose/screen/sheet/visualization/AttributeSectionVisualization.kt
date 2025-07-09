@@ -182,7 +182,6 @@ fun AttributeSectionVisualization(
 
             }
         }
-        Spacer(modifier = Modifier.height(8.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
@@ -203,5 +202,6 @@ fun AttributeSectionVisualization(
                 )
             }
         }
+        Spacer(modifier = Modifier.height(4.dp))
     }
 }
