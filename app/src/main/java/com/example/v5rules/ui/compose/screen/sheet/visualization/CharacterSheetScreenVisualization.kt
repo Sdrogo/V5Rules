@@ -54,7 +54,7 @@ fun CharacterSheetScreenVisualization(
 
     CommonScaffold(
         navController = navController,
-        title = stringResource(R.string.character_screen_title)
+        title = character.name
     ) { _ ->
         Column(
             modifier = Modifier
