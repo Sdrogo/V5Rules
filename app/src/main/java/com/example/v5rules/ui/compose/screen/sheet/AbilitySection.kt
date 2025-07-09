@@ -21,6 +21,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -72,7 +74,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
-                            Column(modifier = Modifier.padding(8.dp)) {
+                            Column(modifier = Modifier.padding(horizontal = 8.dp)) {
                                 Text(
                                     text = stringResource(R.string.character_screen_physical),
                                     style = MaterialTheme.typography.titleMedium,
@@ -114,7 +116,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
-                            Column(modifier = Modifier.padding(8.dp)) {
+                            Column(modifier = Modifier.padding(horizontal = 8.dp)) {
                                 Text(
                                     text = stringResource(R.string.character_screen_social),
                                     style = MaterialTheme.typography.titleMedium,
@@ -156,7 +158,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
-                            Column(modifier = Modifier.padding(8.dp)) {
+                            Column(modifier = Modifier.padding(horizontal = 8.dp)) {
                                 Text(
                                     text = stringResource(R.string.character_screen_mental),
                                     style = MaterialTheme.typography.titleMedium,
@@ -194,8 +196,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
             Spacer(modifier = Modifier.height(8.dp))
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 8.dp),
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
                 repeat(pagerState.pageCount) { iteration ->
@@ -228,17 +229,23 @@ fun InteractiveAbilityRow(
     dotSize: Dp = 20.dp,
     textStyle: TextStyle = MaterialTheme.typography.bodyMedium,
 ) {
-    var specializationText by remember { mutableStateOf(ability.specialization ?: "") }
+    var specializationText by remember(ability.specialization) { mutableStateOf(ability.specialization ?: "") }
+    var isExpanded by remember { mutableStateOf(false) }
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
 
-    Column(modifier = Modifier.padding(vertical = 4.dp)) {
+    Column{
         Row(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = ability.name, style = textStyle, modifier = Modifier.weight(1f))
+            IconButton(onClick = { isExpanded = !isExpanded }) {
+                Icon(
+                    imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
+                    contentDescription = if (isExpanded) stringResource(R.string.collapse) else stringResource(R.string.expand)
+                )
+            }
             Row(horizontalArrangement = Arrangement.End) {
                 for (i in 1..maxDots) {
                     Box(
@@ -264,47 +271,53 @@ fun InteractiveAbilityRow(
                     )
                 }
             }
+
         }
 
         ability.specialization?.let {
-            Text(
-                text = stringResource(R.string.specialization, it),
-                style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.padding(start = 8.dp, top = 2.dp)
-            )
+            if (it.isNotEmpty()) {
+                Text(
+                    text = stringResource(R.string.specialization, it),
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.padding(start = 8.dp, top = 2.dp)
+                )
+            }
         }
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 4.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TextField(
-                value = specializationText,
-                onValueChange = { specializationText = it },
-                label = { Text(stringResource(R.string.add_specialization)) },
-                modifier = Modifier.weight(1f),
-                singleLine = true,
-                textStyle = MaterialTheme.typography.bodySmall,
-                trailingIcon = {
-                    IconButton(onClick = {
-                        viewModel.onEvent(
-                            CharacterSheetEvent.AbilitySpecializationChanged(
-                                ability.name,
-                                specializationText
+        if (isExpanded) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                TextField(
+                    value = specializationText,
+                    onValueChange = { specializationText = it },
+                    label = { Text(stringResource(R.string.add_specialization)) },
+                    modifier = Modifier.weight(1f),
+                    singleLine = true,
+                    textStyle = MaterialTheme.typography.bodySmall,
+                    trailingIcon = {
+                        IconButton(onClick = {
+                            viewModel.onEvent(
+                                CharacterSheetEvent.AbilitySpecializationChanged(
+                                    ability.name,
+                                    specializationText
+                                )
                             )
-                        )
-                        keyboardController?.hide()
-                        focusManager.clearFocus()
-                    }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.Send,
-                            contentDescription = stringResource(R.string.add_specialization)
-                        )
+                            isExpanded = false // Collapse after submitting
+                            keyboardController?.hide()
+                            focusManager.clearFocus()
+                        }) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.Send,
+                                contentDescription = stringResource(R.string.add_specialization)
+                            )
+                        }
                     }
-                }
-            )
+                )
+            }
         }
     }
 }

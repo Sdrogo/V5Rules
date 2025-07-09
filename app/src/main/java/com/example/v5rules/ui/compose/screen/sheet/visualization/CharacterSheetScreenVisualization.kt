@@ -73,7 +73,7 @@ fun CharacterSheetScreenVisualization(
                             .clickable {
                                 isGeneralSectionExpanded = !isGeneralSectionExpanded
                             }
-                            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                            .background(MaterialTheme.colorScheme.tertiary.copy(alpha = 0.7f))
                             .padding(horizontal = 16.dp, vertical = 8.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
@@ -100,7 +100,7 @@ fun CharacterSheetScreenVisualization(
                             .clickable {
                                 isAttributeSectionExpanded = !isAttributeSectionExpanded
                             }
-                            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                            .background(MaterialTheme.colorScheme.tertiary.copy(alpha = 0.7f))
                             .padding(horizontal = 16.dp, vertical = 8.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
@@ -127,7 +127,7 @@ fun CharacterSheetScreenVisualization(
                             .clickable {
                                 isAbilitySectionExpanded = !isAbilitySectionExpanded
                             }
-                            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                            .background(MaterialTheme.colorScheme.tertiary.copy(alpha = 0.7f))
                             .padding(horizontal = 16.dp, vertical = 8.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
@@ -154,7 +154,7 @@ fun CharacterSheetScreenVisualization(
                             .clickable {
                                 isDisciplineSectionExpanded = !isDisciplineSectionExpanded
                             }
-                            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                            .background(MaterialTheme.colorScheme.tertiary.copy(alpha = 0.7f))
                             .padding(horizontal = 16.dp, vertical = 8.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
@@ -181,7 +181,7 @@ fun CharacterSheetScreenVisualization(
                             .clickable {
                                 isBackgroundSectionExpanded = !isBackgroundSectionExpanded
                             }
-                            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                            .background(MaterialTheme.colorScheme.tertiary.copy(alpha = 0.7f))
                             .padding(horizontal = 16.dp, vertical = 8.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
@@ -208,7 +208,7 @@ fun CharacterSheetScreenVisualization(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clickable { isHealthSectionExpanded = !isHealthSectionExpanded }
-                    .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f))
+                    .background(MaterialTheme.colorScheme.tertiary.copy(alpha = 0.7f))
                     .padding(horizontal = 16.dp, vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
