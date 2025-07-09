@@ -92,6 +92,7 @@ sealed class CharacterSheetEvent {
     data class RemoveNoteToDirectFlaw(val advantage: Advantage) : CharacterSheetEvent()
     data class RemoveNoteToMerit(val background: Background,  val merit: Advantage) : CharacterSheetEvent()
     data class RemoveNoteToFlaw(val background: Background,  val flaw: Advantage) : CharacterSheetEvent()
+    data class HungerChanged(val newHunger:Int) : CharacterSheetEvent()
 
     // Azioni
     object SaveClicked: CharacterSheetEvent()

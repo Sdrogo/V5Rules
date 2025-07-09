@@ -165,6 +165,7 @@
     <string name="hunger">Fame</string>
     <string name="health">Salute</string>
     <string name="willpower">Volontà</string>
+    <string name="humanity">Umanità</string>
 
 
     <string-array name="abilities">
@@ -197,5 +198,6 @@
         <item>Tecnologia</item>
 
     </string-array>
+        <!-- ... altre stringhe ... -->
 
 </resources>

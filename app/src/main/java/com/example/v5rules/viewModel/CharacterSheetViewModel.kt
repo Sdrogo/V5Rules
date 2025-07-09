@@ -1047,6 +1047,15 @@ class CharacterSheetViewModel @Inject constructor(
                         }
                     }
 
+                    is CharacterSheetEvent.HungerChanged -> {
+                        _uiState.update { currentState ->
+                            val validHunger = event.newHunger.coerceIn(0, 5)
+                            currentState.copy(
+                                character = currentState.character.copy(hunger = validHunger)
+                            )
+                        }
+                    }
+
                     is CharacterSheetEvent.RemoveNoteToFlaw -> {
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->

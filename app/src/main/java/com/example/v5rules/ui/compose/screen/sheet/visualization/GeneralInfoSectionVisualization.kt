@@ -27,7 +27,7 @@ fun GeneralInfoSectionVisualization(character: Character) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .padding(vertical = 8.dp, horizontal = 16.dp)
             .background(Color.Yellow)
     ) {
             Card(

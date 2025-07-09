@@ -24,7 +24,7 @@ fun DisciplineSelectionVisualization(viewModel: CharacterSheetViewModel, navCont
 
     Column(modifier = Modifier
         .fillMaxWidth()
-        .padding(8.dp)) {
+        .padding( horizontal = 8.dp)) {
         characterDisciplines.forEach {  discipline ->
             Column {
                 CustomContentExpander(

@@ -348,7 +348,7 @@ fun AttributeSection(
                                 value = fermezza.toFloat(),
                                 onValueChange = { newValue ->
                                     fermezza = newValue.toInt()
-                                    viewModel.onEvent(CharacterSheetEvent.ComposureChanged(fermezza))
+                                    viewModel.onEvent(CharacterSheetEvent.ResolveChanged(fermezza))
                                 },
                                 colors = SliderDefaults.colors(
                                     activeTrackColor = MaterialTheme.colorScheme.primary, // Colore della parte piena
