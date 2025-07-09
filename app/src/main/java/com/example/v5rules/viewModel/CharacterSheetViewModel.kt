@@ -9,6 +9,7 @@ import com.example.v5rules.data.Advantage
 import com.example.v5rules.data.Background
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
+import com.example.v5rules.data.DamageType
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.Loresheet
 import com.example.v5rules.data.PredatorType
@@ -141,12 +142,29 @@ class CharacterSheetViewModel @Inject constructor(
                         )
                     }
 
-                    is CharacterSheetEvent.StaminaChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                attributes = it.character.attributes.copy(stamina = event.stamina)
+                    is CharacterSheetEvent.StaminaChanged -> {
+                        _uiState.update { currentState ->
+                            val newStamina = event.stamina
+                            val newCharacter = currentState.character.copy(
+                                attributes = currentState.character.attributes.copy(stamina = newStamina)
                             )
-                        )
+
+                            // Calcola il nuovo numero di health boxes basato sulla nuova stamina
+                            val newMaxHealthBoxes =
+                                calculateMaxHealthBoxes(newStamina) // Funzione helper da definire
+
+                            // Sincronizza la lista health.boxes
+                            val updatedHealthBoxes = synchronizeDamageTrack(
+                                currentBoxes = newCharacter.health.boxes,
+                                newSize = newMaxHealthBoxes
+                            )
+
+                            currentState.copy(
+                                character = newCharacter.copy(
+                                    health = newCharacter.health.copy(boxes = updatedHealthBoxes)
+                                )
+                            )
+                        }
                     }
 
                     is CharacterSheetEvent.CharismaChanged -> _uiState.update {
@@ -165,12 +183,30 @@ class CharacterSheetViewModel @Inject constructor(
                         )
                     }
 
-                    is CharacterSheetEvent.ComposureChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                attributes = it.character.attributes.copy(composure = event.composure)
+                    is CharacterSheetEvent.ComposureChanged -> {
+                        _uiState.update { currentState ->
+                            val newComposure = event.composure
+                            var updatedCharacter = currentState.character.copy(
+                                attributes = currentState.character.attributes.copy(composure = newComposure)
                             )
-                        )
+
+                            // Calcola il nuovo numero di willpower boxes
+                            val newMaxWillpower = calculateMaxWillpowerBoxes(
+                                resolve = updatedCharacter.attributes.resolve, // Usa il valore corrente di resolve
+                                composure = newComposure
+                            )
+
+                            // Sincronizza la lista willpower.boxes
+                            val updatedWillpowerBoxes = synchronizeDamageTrack(
+                                currentBoxes = updatedCharacter.willpower.boxes,
+                                newSize = newMaxWillpower
+                            )
+
+                            updatedCharacter = updatedCharacter.copy(
+                                willpower = updatedCharacter.willpower.copy(boxes = updatedWillpowerBoxes)
+                            )
+                            currentState.copy(character = updatedCharacter)
+                        }
                     }
 
                     is CharacterSheetEvent.IntelligenceChanged -> _uiState.update {
@@ -189,12 +225,30 @@ class CharacterSheetViewModel @Inject constructor(
                         )
                     }
 
-                    is CharacterSheetEvent.ResolveChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                attributes = it.character.attributes.copy(resolve = event.resolve)
+                    is CharacterSheetEvent.ResolveChanged -> {
+                        _uiState.update { currentState ->
+                            val newResolve = event.resolve
+                            var updatedCharacter = currentState.character.copy(
+                                attributes = currentState.character.attributes.copy(resolve = newResolve)
                             )
-                        )
+
+                            // Calcola il nuovo numero di willpower boxes
+                            val newMaxWillpower = calculateMaxWillpowerBoxes(
+                                resolve = newResolve,
+                                composure = updatedCharacter.attributes.composure // Usa il valore corrente di composure
+                            )
+
+                            // Sincronizza la lista willpower.boxes
+                            val updatedWillpowerBoxes = synchronizeDamageTrack(
+                                currentBoxes = updatedCharacter.willpower.boxes,
+                                newSize = newMaxWillpower
+                            )
+
+                            updatedCharacter = updatedCharacter.copy(
+                                willpower = updatedCharacter.willpower.copy(boxes = updatedWillpowerBoxes)
+                            )
+                            currentState.copy(character = updatedCharacter)
+                        }
                     }
                     //Ability
                     is CharacterSheetEvent.AbilityChanged -> {
@@ -218,53 +272,59 @@ class CharacterSheetViewModel @Inject constructor(
                             currentState.copy(character = currentState.character.copy(abilities = updatedAbilities))
                         }
                     }
-                    // Health
-                    is CharacterSheetEvent.MaxHealthChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                health = it.character.health.copy(max = event.max)
-                            )
-                        )
-                    }
 
-                    is CharacterSheetEvent.CurrentHealthChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(health = it.character.health.copy(current = event.current))
-                        )
-                    }
-                    // Willpower
-                    is CharacterSheetEvent.MaxWillpowerChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                willpower = it.character.willpower.copy(
-                                    max = event.max
+
+// Quando un box di Health viene cliccato
+                    is CharacterSheetEvent.HealthBoxClicked -> {
+                        _uiState.update { currentState ->
+                            val currentHealthBoxes =
+                                currentState.character.health.boxes.toMutableList()
+                            val clickedIndex = event.index
+
+                            if (clickedIndex < currentHealthBoxes.size) {
+                                val currentDamageType = currentHealthBoxes[clickedIndex]
+                                val nextDamageType = when (currentDamageType) {
+                                    DamageType.EMPTY -> DamageType.SUPERFICIAL
+                                    DamageType.SUPERFICIAL -> DamageType.AGGRAVATED
+                                    DamageType.AGGRAVATED -> DamageType.EMPTY
+                                }
+                                currentHealthBoxes[clickedIndex] = nextDamageType
+
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        health = currentState.character.health.copy(boxes = currentHealthBoxes)
+                                    )
                                 )
-                            )
-                        )
+                            } else {
+                                currentState
+                            }
+                        }
                     }
 
-                    is CharacterSheetEvent.CurrentWillpowerChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                willpower = it.character.willpower.copy(current = event.current)
-                            )
-                        )
-                    }
-                    // Humanity
-                    is CharacterSheetEvent.HumanityChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                humanity = it.character.humanity.copy(current = event.current)
-                            )
-                        )
-                    }
+                    is CharacterSheetEvent.WillpowerBoxClicked -> {
+                        _uiState.update { currentState ->
+                            val currentWillpowerBoxes =
+                                currentState.character.willpower.boxes.toMutableList()
+                            val clickedIndex = event.index
 
-                    is CharacterSheetEvent.StainsChanged -> _uiState.update {
-                        it.copy(
-                            character = it.character.copy(
-                                humanity = it.character.humanity.copy(stains = event.stains)
-                            )
-                        )
+                            if (clickedIndex < currentWillpowerBoxes.size) {
+                                val currentDamageType = currentWillpowerBoxes[clickedIndex]
+                                // Willpower di solito non ha AGGRAVATED
+                                val nextDamageType = when (currentDamageType) {
+                                    DamageType.EMPTY -> DamageType.SUPERFICIAL
+                                    DamageType.SUPERFICIAL -> DamageType.AGGRAVATED
+                                    DamageType.AGGRAVATED -> DamageType.EMPTY
+                                }
+                                currentWillpowerBoxes[clickedIndex] = nextDamageType
+                                currentState.copy(
+                                    character = currentState.character.copy(
+                                        willpower = currentState.character.willpower.copy(boxes = currentWillpowerBoxes)
+                                    )
+                                )
+                            } else {
+                                currentState
+                            }
+                        }
                     }
                     // Experience
                     is CharacterSheetEvent.TotalExperienceChanged -> _uiState.update {
@@ -904,7 +964,6 @@ class CharacterSheetViewModel @Inject constructor(
                         }
                     }
 
-
                     is CharacterSheetEvent.RemoveNoteToDirectFlaw -> {
                         _uiState.update { currentState ->
                             val updatedFlaws =
@@ -972,6 +1031,37 @@ class CharacterSheetViewModel @Inject constructor(
                         }
                     }
 
+                    is CharacterSheetEvent.HungerChanged -> {
+                        _uiState.update { currentState ->
+                            val validHunger = event.newHunger.coerceIn(0, 5)
+                            currentState.copy(
+                                character = currentState.character.copy(hunger = validHunger)
+                            )
+                        }
+                    }
+
+                    is CharacterSheetEvent.HumanityChanged -> {
+                        _uiState.update { currentState ->
+                            val newHumanity = event.current.coerceIn(0, 10)
+                            currentState.copy(
+                                character = currentState.character.copy(
+                                    humanity = currentState.character.humanity.copy(current = newHumanity)
+                                )
+                            )
+                        }
+                    }
+
+                    is CharacterSheetEvent.StainsChanged -> {
+                        _uiState.update { currentState ->
+                            val newStains = event.stains.coerceAtLeast(0)
+                            currentState.copy(
+                                character = currentState.character.copy(
+                                    humanity = currentState.character.humanity.copy(stains = newStains)
+                                )
+                            )
+                        }
+                    }
+
                     is CharacterSheetEvent.RemoveNoteToFlaw -> {
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
@@ -1013,7 +1103,7 @@ class CharacterSheetViewModel @Inject constructor(
 
                 _uiState.update { it.copy(isLoading = false) }
             } catch (e: Exception) {
-                _uiState.update { it.copy(error = "Errore durante il caricamento dei clan") }
+                _uiState.update { it.copy(error = "Errore durante il caricamento dei clan di default: ${e.message}") }
             }
         }
     }
@@ -1101,4 +1191,24 @@ class CharacterSheetViewModel @Inject constructor(
             }
         }
     }
+
+    private fun calculateMaxHealthBoxes(stamina: Int): Int {
+        return stamina + 3
+    }
+
+    private fun calculateMaxWillpowerBoxes(resolve: Int, composure: Int): Int {
+        return resolve + composure
+    }
+
+    private fun synchronizeDamageTrack(
+        currentBoxes: List<DamageType>,
+        newSize: Int
+    ): List<DamageType> {
+        val newBoxes = MutableList(newSize) { DamageType.EMPTY }
+        for (i in 0 until minOf(currentBoxes.size, newSize)) {
+            newBoxes[i] = currentBoxes[i]
+        }
+        return newBoxes.toList()
+    }
+
 }

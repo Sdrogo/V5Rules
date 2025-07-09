@@ -40,12 +40,11 @@ sealed class CharacterSheetEvent {
     data class DisciplineLevelChanged(val disciplineName: String, val newLevel: Int) : CharacterSheetEvent() // Per cambiare il livello
 
     // Health
-    data class MaxHealthChanged(val max: Int): CharacterSheetEvent()
-    data class CurrentHealthChanged(val current: Int): CharacterSheetEvent()
+
+    data class HealthBoxClicked(val index: Int): CharacterSheetEvent()
 
     // Willpower
-    data class MaxWillpowerChanged(val max: Int): CharacterSheetEvent()
-    data class CurrentWillpowerChanged(val current: Int): CharacterSheetEvent()
+    data class WillpowerBoxClicked(val index: Int): CharacterSheetEvent()
 
     // Humanity
     data class HumanityChanged(val current: Int): CharacterSheetEvent()
@@ -93,6 +92,7 @@ sealed class CharacterSheetEvent {
     data class RemoveNoteToDirectFlaw(val advantage: Advantage) : CharacterSheetEvent()
     data class RemoveNoteToMerit(val background: Background,  val merit: Advantage) : CharacterSheetEvent()
     data class RemoveNoteToFlaw(val background: Background,  val flaw: Advantage) : CharacterSheetEvent()
+    data class HungerChanged(val newHunger:Int) : CharacterSheetEvent()
 
     // Azioni
     object SaveClicked: CharacterSheetEvent()

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -25,13 +24,12 @@ import com.example.v5rules.ui.compose.component.ClanImage
 
 @Composable
 fun GeneralInfoSectionVisualization(character: Character) {
-    LazyColumn(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .padding(vertical = 8.dp, horizontal = 16.dp)
             .background(Color.Yellow)
     ) {
-        item {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -67,7 +65,7 @@ fun GeneralInfoSectionVisualization(character: Character) {
                     character.predator?.name?.let {
                         Row {
                             Text(
-                                text = stringResource(R.string.predator),
+                                text = stringResource(R.string.predator).plus(": "),
                                 style = MaterialTheme.typography.titleMedium
                             )
                             Spacer(modifier = Modifier.width(16.dp))
@@ -117,5 +115,4 @@ fun GeneralInfoSectionVisualization(character: Character) {
                 }
             }
         }
-    }
 }

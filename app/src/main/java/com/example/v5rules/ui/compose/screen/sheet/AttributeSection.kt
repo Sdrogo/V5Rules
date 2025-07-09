@@ -144,11 +144,6 @@ fun AttributeSection(
                                             costituzione
                                         )
                                     )
-                                    viewModel.onEvent(
-                                        CharacterSheetEvent.MaxHealthChanged(
-                                            costituzione + 3
-                                        )
-                                    )
 
                                 }, valueRange = 1f..5f, steps = 3, colors = SliderDefaults.colors(
                                     activeTrackColor = MaterialTheme.colorScheme.primary,
@@ -248,10 +243,6 @@ fun AttributeSection(
                                             autocontrollo
                                         )
                                     )
-                                    viewModel.onEvent(
-                                        CharacterSheetEvent.MaxWillpowerChanged(
-                                            autocontrollo + fermezza)
-                                    )
                                 }, valueRange = 1f..5f, steps = 3, colors = SliderDefaults.colors(
                                     activeTrackColor = MaterialTheme.colorScheme.primary, // Colore della parte piena
                                 ), modifier = Modifier.fillMaxWidth()
@@ -332,11 +323,10 @@ fun AttributeSection(
                                 onValueChange = { newValue ->
                                     prontezza = newValue.toInt()
                                     viewModel.onEvent(CharacterSheetEvent.WitsChanged(prontezza))
-                                    viewModel.onEvent(CharacterSheetEvent.MaxWillpowerChanged(autocontrollo + fermezza))
                                 },
 
                                 colors = SliderDefaults.colors(
-                                    activeTrackColor = MaterialTheme.colorScheme.primary, // Colore della parte piena
+                                    activeTrackColor = MaterialTheme.colorScheme.primary,
                                 ),
                                 valueRange = 1f..5f,
                                 steps = 3,
@@ -358,7 +348,7 @@ fun AttributeSection(
                                 value = fermezza.toFloat(),
                                 onValueChange = { newValue ->
                                     fermezza = newValue.toInt()
-                                    viewModel.onEvent(CharacterSheetEvent.ComposureChanged(fermezza))
+                                    viewModel.onEvent(CharacterSheetEvent.ResolveChanged(fermezza))
                                 },
                                 colors = SliderDefaults.colors(
                                     activeTrackColor = MaterialTheme.colorScheme.primary, // Colore della parte piena

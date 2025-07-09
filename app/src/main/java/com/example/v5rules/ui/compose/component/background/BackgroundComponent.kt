@@ -131,33 +131,35 @@ fun BackgroundItem(
         }
         if (expanded) {
             Column {
-                Slider(
-                    value = characterBackground.level.toFloat(),
-                    onValueChange = { newValue ->
-                        val newIntValue = newValue.toInt()
-                        if (newIntValue >= (characterBackground.minLevel
-                                ?: 0)
-                        ) { // Usa minLevel del background se definito
-                            viewModel.onEvent(
-                                CharacterSheetEvent.BackgroundLevelChanged(
-                                    characterBackground, // Passa l'intero oggetto o solo l'ID/nome come hai definito nell'evento
-                                    newIntValue
+                if(characterBackground.maxLevel != 0){
+                    Slider(
+                        value = characterBackground.level.toFloat(),
+                        onValueChange = { newValue ->
+                            val newIntValue = newValue.toInt()
+                            if (newIntValue >= (characterBackground.minLevel
+                                    ?: 0)
+                            ) { // Usa minLevel del background se definito
+                                viewModel.onEvent(
+                                    CharacterSheetEvent.BackgroundLevelChanged(
+                                        characterBackground, // Passa l'intero oggetto o solo l'ID/nome come hai definito nell'evento
+                                        newIntValue
+                                    )
                                 )
-                            )
-                        } else if (newIntValue == 0) { // Opzione per rimuovere se il livello è 0
-                            viewModel.onEvent(
-                                CharacterSheetEvent.BackgroundRemoved(characterBackground)
-                            )
-                        }
-                    },
-                    valueRange = (characterBackground.minLevel?.toFloat()
-                        ?: 0f)..(characterBackground.maxLevel?.toFloat() ?: 5f),
-                    steps = ((characterBackground.maxLevel ?: 5) - (characterBackground.minLevel
-                        ?: 0) - 1).coerceAtLeast(0),
-                    colors = SliderDefaults.colors(
-                        activeTrackColor = MaterialTheme.colorScheme.tertiary
+                            } else if (newIntValue == 0) { // Opzione per rimuovere se il livello è 0
+                                viewModel.onEvent(
+                                    CharacterSheetEvent.BackgroundRemoved(characterBackground)
+                                )
+                            }
+                        },
+                        valueRange = (characterBackground.minLevel?.toFloat()
+                            ?: 0f)..(characterBackground.maxLevel?.toFloat() ?: 5f),
+                        steps = ((characterBackground.maxLevel ?: 5) - (characterBackground.minLevel
+                            ?: 0) - 1).coerceAtLeast(0),
+                        colors = SliderDefaults.colors(
+                            activeTrackColor = MaterialTheme.colorScheme.tertiary
+                        )
                     )
-                )
+                }
                 characterBackground.note?.let {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(text = it)
@@ -442,7 +444,6 @@ fun AdvantageDisplayItem(
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                     if (currentMinLevel < currentMaxLevel || (advantage.level ?: 1) > 0) {
-
                         if (currentMinLevel != currentMaxLevel) {
                             advantage.level?.toFloat()?.let {
                                 Slider(
