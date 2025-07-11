@@ -64,7 +64,6 @@ class CharacterSheetViewModel @Inject constructor(
         viewModelScope.launch {
             eventChannel.consumeAsFlow().collect { event ->
                 when (event) {
-                    //... Gestione degli altri eventi...
                     is CharacterSheetEvent.SaveClicked -> saveSheet()
                     is CharacterSheetEvent.DeleteClicked -> deleteSheet()
                     is CharacterSheetEvent.CleanupClicked -> cleanupSheet()
@@ -147,11 +146,9 @@ class CharacterSheetViewModel @Inject constructor(
                                 attributes = currentState.character.attributes.copy(stamina = newStamina)
                             )
 
-                            // Calcola il nuovo numero di health boxes basato sulla nuova stamina
                             val newMaxHealthBoxes =
-                                calculateMaxHealthBoxes(newStamina) // Funzione helper da definire
+                                calculateMaxHealthBoxes(newStamina)
 
-                            // Sincronizza la lista health.boxes
                             val updatedHealthBoxes = synchronizeDamageTrack(
                                 currentBoxes = newCharacter.health.boxes,
                                 newSize = newMaxHealthBoxes
@@ -188,13 +185,11 @@ class CharacterSheetViewModel @Inject constructor(
                                 attributes = currentState.character.attributes.copy(composure = newComposure)
                             )
 
-                            // Calcola il nuovo numero di willpower boxes
                             val newMaxWillpower = calculateMaxWillpowerBoxes(
-                                resolve = updatedCharacter.attributes.resolve, // Usa il valore corrente di resolve
+                                resolve = updatedCharacter.attributes.resolve,
                                 composure = newComposure
                             )
 
-                            // Sincronizza la lista willpower.boxes
                             val updatedWillpowerBoxes = synchronizeDamageTrack(
                                 currentBoxes = updatedCharacter.willpower.boxes,
                                 newSize = newMaxWillpower
@@ -230,13 +225,11 @@ class CharacterSheetViewModel @Inject constructor(
                                 attributes = currentState.character.attributes.copy(resolve = newResolve)
                             )
 
-                            // Calcola il nuovo numero di willpower boxes
                             val newMaxWillpower = calculateMaxWillpowerBoxes(
                                 resolve = newResolve,
                                 composure = updatedCharacter.attributes.composure // Usa il valore corrente di composure
                             )
 
-                            // Sincronizza la lista willpower.boxes
                             val updatedWillpowerBoxes = synchronizeDamageTrack(
                                 currentBoxes = updatedCharacter.willpower.boxes,
                                 newSize = newMaxWillpower
@@ -305,7 +298,6 @@ class CharacterSheetViewModel @Inject constructor(
 
                             if (clickedIndex < currentWillpowerBoxes.size) {
                                 val currentDamageType = currentWillpowerBoxes[clickedIndex]
-                                // Willpower di solito non ha AGGRAVATED
                                 val nextDamageType = when (currentDamageType) {
                                     DamageType.EMPTY -> DamageType.SUPERFICIAL
                                     DamageType.SUPERFICIAL -> DamageType.AGGRAVATED
@@ -322,7 +314,6 @@ class CharacterSheetViewModel @Inject constructor(
                             }
                         }
                     }
-                    // Experience
                     is CharacterSheetEvent.TotalExperienceChanged -> _uiState.update {
                         it.copy(
                             character = it.character.copy(

@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -66,15 +65,13 @@ private fun DamageBox(
         Canvas(modifier = Modifier.matchParentSize()) {
             when (damageType) {
                 DamageType.EMPTY -> {
-                    // Il bordo è già disegnato dal Modifier.border
                 }
                 DamageType.SUPERFICIAL -> {
-                    // Disegna una singola linea diagonale (/)
                     drawLine(
                         color = superficialColor,
                         start = Offset(0f, size.height),
                         end = Offset(size.width, 0f),
-                        strokeWidth = Stroke.DefaultMiter
+                        strokeWidth = 8.0f
                     )
                 }
                 DamageType.AGGRAVATED -> {
@@ -85,21 +82,21 @@ private fun DamageBox(
                             color = aggravatedColor,
                             start = Offset(0f, 0f),
                             end = Offset(size.width, size.height),
-                            strokeWidth = Stroke.DefaultMiter
+                            strokeWidth = 8.0f
                         )
                         // Linea /
                         drawLine(
                             color = aggravatedColor,
                             start = Offset(0f, size.height),
                             end = Offset(size.width, 0f),
-                            strokeWidth = Stroke.DefaultMiter
+                            strokeWidth = 8.0f
                         )
                     } else {
                         drawLine(
                             color = superficialColor,
                             start = Offset(0f, size.height),
                             end = Offset(size.width, 0f),
-                            strokeWidth = Stroke.DefaultMiter
+                            strokeWidth = 8.0f
                         )
                     }
                 }
