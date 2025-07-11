@@ -55,12 +55,13 @@ sealed class CharacterSheetEvent {
     data class SpentExperienceChanged(val spent: Int): CharacterSheetEvent()
 
     //BACKGROUNDS section
+    // In CharacterSheetEvent.kt (o dove è definito)
     data class LoresheetAdded(val loresheet: Loresheet, val level: Int) : CharacterSheetEvent()
     data class LoresheetRemoved(val loresheet: Loresheet) : CharacterSheetEvent()
     data class LoresheetLevelChanged(val loresheetName: String, val level: Int) : CharacterSheetEvent()
     data class BackgroundAdded(val background: Background, val level: Int) : CharacterSheetEvent()
     data class BackgroundRemoved(val background: Background) : CharacterSheetEvent()
-    data class BackgroundLevelChanged(val background: Background, val level: Int) : CharacterSheetEvent()
+    data class BackgroundLevelChanged(val background: Background, val newLevel: Int) : CharacterSheetEvent()
     data class AdvantageAdded(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()
     data class AdvantageRemoved(val advantage: Advantage, val background: Background) : CharacterSheetEvent()
     data class AdvantageLevelChanged(val advantage: Advantage, val background: Background, val level: Int) : CharacterSheetEvent()

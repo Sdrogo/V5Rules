@@ -3,7 +3,6 @@ package com.example.v5rules.viewModel
 import android.content.res.Resources
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.R
 import com.example.v5rules.data.Ability
 import com.example.v5rules.data.Advantage
 import com.example.v5rules.data.Background
@@ -58,7 +57,6 @@ class CharacterSheetViewModel @Inject constructor(
     val directFlaws: StateFlow<List<Advantage>> = _directFlaws.asStateFlow()
     private val _selectedTabIndex = MutableStateFlow(0)
     val selectedTabIndex: StateFlow<Int> = _selectedTabIndex.asStateFlow()
-    val allAbilities: List<String> = resources.getStringArray(R.array.abilities).toList().sorted()
 
     private val eventChannel = Channel<CharacterSheetEvent>()
 
@@ -273,8 +271,6 @@ class CharacterSheetViewModel @Inject constructor(
                         }
                     }
 
-
-// Quando un box di Health viene cliccato
                     is CharacterSheetEvent.HealthBoxClicked -> {
                         _uiState.update { currentState ->
                             val currentHealthBoxes =
@@ -522,21 +518,16 @@ class CharacterSheetViewModel @Inject constructor(
 
                     is CharacterSheetEvent.BackgroundLevelChanged -> {
                         _uiState.update { currentState ->
-                            val backgrounds =
-                                currentState.character.backgrounds.toMutableList()
-                            val backgroundIndex =
-                                backgrounds.indexOfFirst { it.identifier == event.background.identifier }
-                            if (backgroundIndex != -1) {
-                                val currentBackground = backgrounds[backgroundIndex]
-                                val updatedBackground =
-                                    currentBackground.copy(level = event.level)
-                                backgrounds[backgroundIndex] = updatedBackground
-                                currentState.copy(
-                                    character = currentState.character.copy(
-                                        backgrounds = backgrounds
-                                    )
-                                )
-                            } else currentState
+                            val updatedBackgrounds = currentState.character.backgrounds.map {
+                                if (it.identifier == event.background.identifier) {
+                                    it.copy(level = event.newLevel)
+                                } else {
+                                    it
+                                }
+                            }
+                            currentState.copy(
+                                character = currentState.character.copy(backgrounds = updatedBackgrounds)
+                            )
                         }
                     }
 
@@ -734,7 +725,6 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    // Assicurati che il difetto non sia già presente
                                     val newFlaw = event.flaw.copy(level = event.level)
                                     bg.copy(flaws = (bg.flaws ?: emptyList()) + newFlaw)
                                 } else {

@@ -74,7 +74,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
-                            Column(modifier = Modifier.padding(horizontal = 8.dp)) {
+                            Column(modifier = Modifier.padding(8.dp)) {
                                 Text(
                                     text = stringResource(R.string.character_screen_physical),
                                     style = MaterialTheme.typography.titleMedium,
@@ -116,7 +116,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
-                            Column(modifier = Modifier.padding(horizontal = 8.dp)) {
+                            Column(modifier = Modifier.padding(8.dp)) {
                                 Text(
                                     text = stringResource(R.string.character_screen_social),
                                     style = MaterialTheme.typography.titleMedium,
@@ -158,7 +158,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
-                            Column(modifier = Modifier.padding(horizontal = 8.dp)) {
+                            Column(modifier = Modifier.padding(8.dp)) {
                                 Text(
                                     text = stringResource(R.string.character_screen_mental),
                                     style = MaterialTheme.typography.titleMedium,
@@ -240,12 +240,6 @@ fun InteractiveAbilityRow(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = ability.name, style = textStyle, modifier = Modifier.weight(1f))
-            IconButton(onClick = { isExpanded = !isExpanded }) {
-                Icon(
-                    imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
-                    contentDescription = if (isExpanded) stringResource(R.string.collapse) else stringResource(R.string.expand)
-                )
-            }
             Row(horizontalArrangement = Arrangement.End) {
                 for (i in 1..maxDots) {
                     Box(
@@ -264,14 +258,21 @@ fun InteractiveAbilityRow(
                                 shape = CircleShape
                             )
                             .clickable {
+                                // <<< MODIFICA CHIAVE QUI >>>
+                                val newLevel = if (i == ability.level) 0 else i
                                 viewModel.onEvent(
-                                    CharacterSheetEvent.AbilityChanged(ability.name, i)
+                                    CharacterSheetEvent.AbilityChanged(ability.name, newLevel)
                                 )
                             }
                     )
                 }
             }
-
+            IconButton(onClick = { isExpanded = !isExpanded }) {
+                Icon(
+                    imageVector = if (isExpanded) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
+                    contentDescription = if (isExpanded) stringResource(R.string.collapse) else stringResource(R.string.expand)
+                )
+            }
         }
 
         ability.specialization?.let {
