@@ -28,7 +28,7 @@ fun DamageTrackDisplay(
     boxPadding: Dp = 2.dp,
     borderColor: Color = MaterialTheme.colorScheme.primary,
     superficialColor: Color = MaterialTheme.colorScheme.tertiary,
-    aggravatedColor: Color = MaterialTheme.colorScheme.tertiary // O un altro colore scuro per distinguerlo
+    aggravatedColor: Color = MaterialTheme.colorScheme.tertiary
 ) {
     Row(modifier = modifier) {
         damageTrack.forEachIndexed { index, damageType ->
@@ -133,7 +133,7 @@ fun WillpowerTrackPreview() {
             damageTrack = listOf(
                 DamageType.EMPTY,
                 DamageType.SUPERFICIAL,
-                DamageType.SUPERFICIAL, // Anche se fosse AGGRAVATED, si mostrerebbe come superficiale
+                DamageType.SUPERFICIAL,
                 DamageType.EMPTY
             ),
             onBoxClick = {},
