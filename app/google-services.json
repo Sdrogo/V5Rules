@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "655159677254",
+    "project_id": "vtm5-ultimate-app",
+    "storage_bucket": "vtm5-ultimate-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655159677254:android:9138c63fc7be5d246d9547",
+        "android_client_info": {
+          "package_name": "com.example.v5rules"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655159677254-cvkhslv6fb9ung3d752v3nblvprdh9p1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.v5rules",
+            "certificate_hash": "182ea365f35060d0fdefb8fec922a73c921535ec"
+          }
+        },
+        {
+          "client_id": "655159677254-lemvapnibb8o0uutggridq6b47ul6a2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5RLPR4b5tt--3S1PugY-78toFpmKIG3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655159677254-lemvapnibb8o0uutggridq6b47ul6a2v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
