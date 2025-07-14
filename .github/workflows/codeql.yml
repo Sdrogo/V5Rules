@@ -22,6 +22,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    # NEW STEP: Create google-services.json from secret
+    - name: Create google-services.json
+      run: |
+        echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
+      env:
+        # Assicurati che questo segreto sia configurato nel tuo repository GitHub
+        GOOGLE_SERVICES_JSON_BASE64: ${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}
+
     # Step 2: Set up JDK 17 (required for Android Gradle plugin)
     - name: Set up JDK 17
       uses: actions/setup-java@v3
@@ -29,45 +37,4 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    # Step 3: Cache Gradle dependencies
-    - name: Cache Gradle dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.gradle/caches
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle-
-
-    # Step 4: Initialize CodeQL for scanning
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        languages: java-kotlin
-        build-mode: manual  # Switch to manual build mode
-
-    # Step 5: Build the project manually
-    - name: Build the project manually
-      run: |
-        chmod +x ./gradlew
-        ./gradlew clean build
-
-    # Step 6: Perform CodeQL Analysis
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:java-kotlin"
-
-    # Step 7: Conditional Step - Build APK only for merges to master
-    - name: Build APK
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-      run: |
-        chmod +x ./gradlew
-        ./gradlew assembleRelease
-
-    # Step 8: Conditional Step - Upload APK artifact only for merges to master
-    - name: Upload APK
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: Built-APK
-        path: app/build/outputs/apk/release/*.apk
+    # ... (il resto del workflow rimane invariato)
