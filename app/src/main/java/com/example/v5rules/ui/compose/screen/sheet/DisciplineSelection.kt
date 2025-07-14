@@ -1,19 +1,25 @@
 package com.example.v5rules.ui.compose.screen.sheet
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
@@ -22,18 +28,14 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.v5rules.DisciplinePowerNav
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.ui.compose.component.CustomContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
-import com.example.v5rules.ui.compose.component.DotsForAttribute
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import kotlinx.coroutines.launch
-import androidx.compose.foundation.layout.imePadding  // Import per la tastiera
-import androidx.compose.foundation.layout.navigationBarsPadding // Importante!
-import androidx.compose.material.icons.filled.Delete
-import com.example.v5rules.DisciplinePowerNav
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,28 +50,14 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel, navController: NavHost
 
     var showAddPowerSheet by remember { mutableStateOf(false) }
 
-    val expandedStates = remember { mutableStateMapOf<String, Boolean>() }
-
-    LaunchedEffect(characterDisciplines) {
-        characterDisciplines.forEach { discipline ->
-            if (!expandedStates.containsKey(discipline.title)) {
-                expandedStates[discipline.title] = false
-            }
-        }
-        val disciplineNames = characterDisciplines.map { it.title }.toSet()
-        expandedStates.keys.retainAll(disciplineNames)
-    }
-
-    // Only one 'expanded' variable is needed:
     var expanded by remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current // Initialize here
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     if (showAddPowerSheet) {
         ModalBottomSheet(
             onDismissRequest = {
-                coroutineScope.launch { sheetState.hide() }
                 showAddPowerSheet = false
             },
             sheetState = sheetState
@@ -121,7 +109,7 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel, navController: NavHost
                     modifier = Modifier
                         .menuAnchor()
                         .fillMaxWidth()
-                        .focusRequester(focusRequester) // Corrected: No parentheses
+                        .focusRequester(focusRequester)
                         .onKeyEvent {
                             if (it.key == Key.Escape) {
                                 expanded = false
@@ -133,7 +121,7 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel, navController: NavHost
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                     keyboardActions = KeyboardActions(
                         onDone = {
-                            keyboardController?.hide()  // Use keyboardController directly
+                            keyboardController?.hide()
                             focusManager.clearFocus()
                         }
                     )
@@ -151,7 +139,7 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel, navController: NavHost
                             onClick = {
                                 viewModel.onEvent(CharacterSheetEvent.DisciplineChanged(discipline))
                                 expanded = false
-                                keyboardController?.hide() // Use keyboardController
+                                keyboardController?.hide()
                                 focusManager.clearFocus()
                             },
                             leadingIcon = {
@@ -173,26 +161,10 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel, navController: NavHost
                 CustomContentExpander(
                     useFullWidth = true,
                     header = {
-                        DisciplineHeaderItem(discipline)
+                        DisciplineHeaderItem(discipline, viewModel) // Pass viewModel
                     },
                     content = {
                         Column(modifier = Modifier.padding(8.dp)) {
-                            Slider(
-                                value = discipline.level.toFloat(),
-                                onValueChange = { newValue ->
-                                    viewModel.onEvent(
-                                        CharacterSheetEvent.DisciplineLevelChanged(
-                                            discipline.title,
-                                            newValue.toInt()
-                                        )
-                                    )
-                                },
-                                valueRange = 0f..5f,
-                                steps = 4,
-                                colors = SliderDefaults.colors(
-                                    activeTrackColor = MaterialTheme.colorScheme.tertiary
-                                )
-                            )
                             val disciplinePowers =
                                 discipline.selectedDisciplinePowers.filter { it.level > 0 }
                             disciplinePowers.forEach { power ->
@@ -220,7 +192,7 @@ fun DisciplineSection(viewModel: CharacterSheetViewModel, navController: NavHost
 }
 
 @Composable
-fun DisciplineHeaderItem(discipline: Discipline) {
+fun DisciplineHeaderItem(discipline: Discipline, viewModel: CharacterSheetViewModel) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -232,10 +204,52 @@ fun DisciplineHeaderItem(discipline: Discipline) {
             contentDescription = discipline.title,
             size = 32.dp
         )
-
-        DotsForAttribute(label = discipline.title, level = discipline.level)
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = discipline.title, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.width(8.dp))
+        InteractiveDisciplineDots(
+            currentValue = discipline.level,
+            onValueChange = { newLevel ->
+                viewModel.onEvent(
+                    CharacterSheetEvent.DisciplineLevelChanged(
+                        discipline.title,
+                        newLevel
+                    )
+                )
+            }
+        )
     }
 }
+
+@Composable
+private fun InteractiveDisciplineDots(
+    currentValue: Int,
+    onValueChange: (Int) -> Unit
+) {
+    Row {
+        for (i in 1..5) {
+            Box(
+                modifier = Modifier
+                    .size(22.dp)
+                    .padding(2.dp)
+                    .clip(CircleShape)
+                    .background(
+                        if (i <= currentValue) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                    )
+                    .border(
+                        width = 1.dp,
+                        color = if (i <= currentValue) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f),
+                        shape = CircleShape
+                    )
+                    .clickable {
+                        val newLevel = if (i == currentValue) 0 else i
+                        onValueChange(newLevel)
+                    }
+            )
+        }
+    }
+}
+
 
 @Composable
 fun DisciplinePowerItem(

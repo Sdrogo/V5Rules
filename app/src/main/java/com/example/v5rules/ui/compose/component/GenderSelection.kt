@@ -1,11 +1,8 @@
 package com.example.v5rules.ui.compose.component
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -16,44 +13,36 @@ import androidx.compose.ui.res.stringResource
 import com.example.v5rules.R
 import com.example.v5rules.data.Gender
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun GenderSelection(
     selectedGender: Gender,
-    widthOfFlow: Float,
-    isLandscape: Boolean = true,
-    onGenderSelected: (Gender) -> Unit
+    onGenderSelected: (Gender) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    FlowRow(
-        modifier = Modifier
-            .fillMaxWidth(widthOfFlow),
-        maxItemsInEachRow = if(isLandscape) 2 else 1,
-        horizontalArrangement = Arrangement.SpaceEvenly
-
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(if (isLandscape) 0.4f else 1f),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
-        ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             RadioButton(
                 selected = selectedGender == Gender.MALE,
-                onClick = { onGenderSelected(Gender.MALE) },
-                enabled = selectedGender != Gender.MALE
+                onClick = { onGenderSelected(Gender.MALE) }
             )
-            Text(modifier = Modifier.wrapContentSize(), text = stringResource(id = R.string.male), color = MaterialTheme.colorScheme.primary)
+            Text(
+                text = stringResource(id = R.string.male),
+                color = MaterialTheme.colorScheme.primary
+            )
         }
-        Row(
-            modifier = Modifier.fillMaxWidth(if (isLandscape) 0.4f else 1f),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
-        ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             RadioButton(
                 selected = selectedGender == Gender.FEMALE,
-                onClick = { onGenderSelected(Gender.FEMALE) },
-                enabled = selectedGender != Gender.FEMALE
+                onClick = { onGenderSelected(Gender.FEMALE) }
             )
-            Text(modifier = Modifier.wrapContentSize(), text = stringResource(id = R.string.female),color = MaterialTheme.colorScheme.primary)
+            Text(
+                text = stringResource(id = R.string.female),
+                color = MaterialTheme.colorScheme.primary
+            )
         }
     }
 }

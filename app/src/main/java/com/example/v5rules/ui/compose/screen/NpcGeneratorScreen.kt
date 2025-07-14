@@ -2,22 +2,36 @@ package com.example.v5rules.ui.compose.screen
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.FilterChip
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,216 +41,353 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.constraintlayout.compose.ConstraintSet
-import androidx.constraintlayout.compose.Dimension
-import androidx.compose.ui.layout.layoutId
 import androidx.navigation.NavHostController
+import com.example.v5rules.CharacterSheetEditNav
 import com.example.v5rules.R
 import com.example.v5rules.data.FavoriteNpc
-import com.example.v5rules.data.RegenerationType
+import com.example.v5rules.data.Npc
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.GenderSelection
-import com.example.v5rules.ui.compose.component.GenerateButton
-import com.example.v5rules.ui.compose.component.GeneratedName
 import com.example.v5rules.ui.compose.component.IncludeSecondNameCheckbox
 import com.example.v5rules.ui.compose.component.NationalityDropdown
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.viewModel.NpcNationalityUiState
+import com.example.v5rules.viewModel.NpcNavigationEvent
+import kotlinx.coroutines.flow.collectLatest
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun NPCGeneratorScreen(
     modifier: Modifier,
     viewModel: NPCGeneratorViewModel,
     navController: NavHostController,
 ) {
-    val LoadingState by viewModel.npc_nationality_uiState.collectAsState()
+    val loadingState by viewModel.nationalityState.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
-    val favoriteNpcs by viewModel.favoriteNpcs.collectAsState()
-    val isLandscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+    val orientation = LocalConfiguration.current.orientation
+
+    // Handle navigation
+    LaunchedEffect(Unit) {
+        viewModel.navigationEvent.collectLatest { event ->
+            when (event) {
+                is NpcNavigationEvent.ToCharacterSheet -> {
+                    navController.navigate(CharacterSheetEditNav(event.characterId))
+                }
+            }
+        }
+    }
 
     CommonScaffold(
         navController = navController,
         title = stringResource(id = R.string.npc_generator_title)
-    ) {
-
-        val options = listOf(
-            RegenerationType.NAME to stringResource(id = R.string.generate_name_button_label),
-            RegenerationType.SECOND_NAME to stringResource(id = R.string.generate_second_name_button_label),
-            RegenerationType.FAMILY_NAME to stringResource(id = R.string.generate_family_name_button_label),
-            RegenerationType.ALL to stringResource(id = R.string.generate_all_button_label)
-        )
-
-        val constraintSet = ConstraintSet {
-            val topSection = createRefFor("topSection")
-            val generatedName = createRefFor("generatedName")
-            val bottomSection = createRefFor("bottomSection")
-
-            constrain(topSection) {
-                top.linkTo(parent.top)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-                width = Dimension.fillToConstraints
-                height = Dimension.percent(if (isLandscape) 0.4f else 0.3f)
-            }
-            constrain(generatedName) {
-                top.linkTo(topSection.bottom)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-                width = Dimension.fillToConstraints
-                height = Dimension.percent(if (isLandscape) 0.2f else 0.3f)
-            }
-            constrain(bottomSection) {
-                top.linkTo(generatedName.bottom)
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-                bottom.linkTo(parent.bottom)
-                width = Dimension.fillToConstraints
-                height = Dimension.fillToConstraints // Importante per lo scrolling
-            }
-        }
-        when (LoadingState) {
+    ) { paddingValues ->
+        when (loadingState) {
             is NpcNationalityUiState.Error -> Text(
-                "Error: ${(LoadingState as NpcNationalityUiState.Error).message}",
-                color = MaterialTheme.colorScheme.primary
-            )
-
-            NpcNationalityUiState.Loading -> Text(
-                "Loading...",
+                "Error: ${(loadingState as NpcNationalityUiState.Error).message}",
                 color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(paddingValues)
             )
 
-            is NpcNationalityUiState.Success ->
-                ConstraintLayout(
-                    constraintSet,
+            NpcNationalityUiState.Loading -> Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+
+            is NpcNationalityUiState.Success -> {
+                Column(
                     modifier = modifier
                         .fillMaxSize()
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    FlowRow(
-                        modifier = modifier
-                            .layoutId("topSection")
-                            .fillMaxWidth(),
-                        verticalArrangement = Arrangement.Center,
-                        maxItemsInEachRow = 2,
-
-                        ) {
-                        FavoritesDropdown(
-                            favoriteNpcs = favoriteNpcs,
-                            width = if (isLandscape) 0.49f else 1f
-                        )
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth(if (isLandscape) 0.49f else 1f),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Spacer(modifier = modifier.width(16.dp))
-                            Text(stringResource(id = R.string.nationality_selector_label))
-
-                            Spacer(modifier = modifier.width(16.dp))
-                            NationalityDropdown(
-                                nationalities = viewModel.nationalities,
-                                onNationalitySelected = { viewModel.setSelectedNationality(it) }
-                            )
-                        }
-
-                        GenderSelection(
-                            selectedGender = uiState.selectedGender,
-                            widthOfFlow = 0.49f,
-                            isLandscape = isLandscape,
-                            onGenderSelected = { viewModel.setSelectedGender(it) }
-                        )
-                        IncludeSecondNameCheckbox(
-                            includeSecondName = uiState.includeSecondName,
-                            width = 0.49f,
-                            onIncludeSecondNameChange = { viewModel.setIncludeSecondName(it) }
-                        )
-                    }
-
-                    GeneratedName(  // No modifier passato qui
-                        npc = uiState.npc,
-                        widthFloat = 1f,
-                        viewModel = viewModel,
-                        modifier = modifier.layoutId("generatedName") // Solo layoutId
-                    )
-
-                    FlowRow(
-                        modifier = modifier.layoutId("bottomSection"),
-                        horizontalArrangement = Arrangement.Center,
-                        maxItemsInEachRow = if (isLandscape) 3 else 2 // Keep your existing layout logic
+                    LazyColumn(
+                        modifier = Modifier.weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
-                        options.forEach { (type, label) ->
-                            FilterChip(
-                                selected = uiState.selectedRegenerationTypes.contains(type),
-                                onClick = {
-                                    viewModel.toggleRegenerationType(type) // Use a dedicated function
-                                },
-                                label = { Text(label) },
-                                enabled = when (type) {
-                                    RegenerationType.SECOND_NAME -> uiState.firstGeneration && uiState.includeSecondName
-                                    else -> uiState.firstGeneration
+                        item {
+                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                                Row {
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        SettingsCard(viewModel = viewModel)
+                                    }
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Box(
+                                            modifier = Modifier.padding(8.dp)
+                                        ){
+                                            if (uiState.favoriteNpcs.isNotEmpty()) {
+                                                FavoritesDropdown(
+                                                    favoriteNpcs = uiState.favoriteNpcs,
+                                                    onFavoriteSelected = { viewModel.selectFavorite(it) }
+                                                )
+                                            }
+                                        }
+                                        GeneratedNameSection(
+                                            npc = uiState.npc,
+                                            includeSecondName = uiState.includeSecondName,
+                                            onRegenerateName = viewModel::regenerateName,
+                                            onRegenerateSecondName = viewModel::regenerateSecondName,
+                                            onRegenerateFamilyName = viewModel::regenerateFamilyName,
+                                            onToggleFavorite = {
+                                                uiState.npc?.let {
+                                                    viewModel.toggleFavorite()
+                                                }
+                                            }
+                                        )
+                                    }
                                 }
-                            )
+                            } else {
+                                Column {
+                                    if (uiState.favoriteNpcs.isNotEmpty()) {
+                                        FavoritesDropdown(
+                                            favoriteNpcs = uiState.favoriteNpcs,
+                                            onFavoriteSelected = { viewModel.selectFavorite(it) }
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    SettingsCard(viewModel = viewModel)
+                                    Spacer(modifier = Modifier.height(16.dp))
+                                    GeneratedNameSection(
+                                        npc = uiState.npc,
+                                        includeSecondName = uiState.includeSecondName,
+                                        onRegenerateName = viewModel::regenerateName,
+                                        onRegenerateSecondName = viewModel::regenerateSecondName,
+                                        onRegenerateFamilyName = viewModel::regenerateFamilyName,
+                                        onToggleFavorite = {
+                                            uiState.npc?.let {
+                                                viewModel.toggleFavorite()
+                                            }
+                                        }
+                                    )
+                                }
+                            }
                         }
-                        GenerateButton( // Your existing button
-                            selectedNationality = uiState.selectedNationality,
-                            firstGeneration = uiState.firstGeneration,
-                            isListEmpty = uiState.selectedRegenerationTypes.isEmpty(),
-                            width = if (isLandscape) 0.3f else 1f,
-                            onGenerateNPC = { viewModel.generateNPC() }
-                        )
                     }
+                    ActionButtons(
+                        onGenerateClick = viewModel::generateAll,
+                        onCreateClick = viewModel::createCharacterFromNpc,
+                        isCreateEnabled = uiState.npc != null
+                    )
                 }
+            }
         }
     }
 }
 
+@Composable
+private fun ActionButtons(
+    onGenerateClick: () -> Unit,
+    onCreateClick: () -> Unit,
+    isCreateEnabled: Boolean
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(
+            8.dp,
+            Alignment.CenterHorizontally
+        )
+    ) {
+        Button(
+            onClick = onGenerateClick,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary,
+                contentColor = MaterialTheme.colorScheme.secondary
+            )
+        ) {
+            Text(stringResource(R.string.generate_all_button_label))
+        }
+        Button(
+            onClick = onCreateClick,
+            enabled = isCreateEnabled,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiary,
+                contentColor = MaterialTheme.colorScheme.secondary
+            )
+        ) {
+            Text(stringResource(R.string.create_character))
+        }
+    }
+}
+
+@Composable
+private fun GeneratedNameSection(
+    npc: Npc?,
+    includeSecondName: Boolean,
+    onRegenerateName: () -> Unit,
+    onRegenerateSecondName: () -> Unit,
+    onRegenerateFamilyName: () -> Unit,
+    onToggleFavorite: () -> Unit,
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        if (npc == null) {
+            Text(
+                text = stringResource(R.string.generate_an_npc_to_start),
+                style = MaterialTheme.typography.headlineSmall,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(32.dp)
+                    .fillMaxWidth()
+            )
+        } else {
+            Column(
+                modifier = Modifier.padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = npc.nome,
+                        style = MaterialTheme.typography.headlineMedium,
+                        modifier = Modifier.weight(1f)
+                    )
+                    IconButton(onClick = onRegenerateName) {
+                        Icon(
+                            Icons.Default.Refresh,
+                            contentDescription = stringResource(R.string.regenerate_name)
+                        )
+                    }
+                }
+
+                if (includeSecondName && npc.secondName != null) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = npc.secondName,
+                            style = MaterialTheme.typography.headlineMedium,
+                            modifier = Modifier.weight(1f)
+                        )
+                        IconButton(onClick = onRegenerateSecondName) {
+                            Icon(
+                                Icons.Default.Refresh,
+                                contentDescription = stringResource(R.string.regenerate_second_name)
+                            )
+                        }
+                    }
+                }
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = npc.cognome,
+                        style = MaterialTheme.typography.headlineMedium,
+                        modifier = Modifier.weight(1f)
+                    )
+                    IconButton(onClick = onRegenerateFamilyName) {
+                        Icon(
+                            Icons.Default.Refresh,
+                            contentDescription = stringResource(R.string.regenerate_family_name)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                IconButton(onClick = onToggleFavorite) {
+                    Icon(
+                        imageVector = if (npc.isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
+                        contentDescription = "Favorite",
+                        tint = if (npc.isFavorite) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SettingsCard(viewModel: NPCGeneratorViewModel) {
+    val uiState by viewModel.uiState.collectAsState()
+
+    OutlinedCard(modifier = Modifier.fillMaxWidth()) {
+        Column(
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .padding(top = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.settings),
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    stringResource(id = R.string.nationality_selector_label),
+                    modifier = Modifier.weight(1f)
+                )
+                NationalityDropdown(
+                    nationalities = viewModel.nationalities,
+                    onNationalitySelected = { viewModel.setSelectedNationality(it) }
+                )
+            }
+            GenderSelection(
+                selectedGender = uiState.selectedGender,
+                onGenderSelected = { viewModel.setSelectedGender(it) }
+            )
+            IncludeSecondNameCheckbox(
+                includeSecondName = uiState.includeSecondName,
+                onIncludeSecondNameChange = { viewModel.setIncludeSecondName(it) }
+            )
+        }
+    }
+}
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FavoritesDropdown(
-    width: Float,
     favoriteNpcs: List<FavoriteNpc>,
-    onFavoriteSelected: (FavoriteNpc) -> Unit = {}
+    onFavoriteSelected: (FavoriteNpc) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     var expanded by remember { mutableStateOf(false) }
 
-    if (favoriteNpcs.isNotEmpty()) {
-        ExposedDropdownMenuBox(
-            expanded = expanded,
-            onExpandedChange = { expanded = !expanded }
-        ) {
-            TextField(
-                readOnly = true,
-                value = "Preferiti (${favoriteNpcs.size})",
-                onValueChange = {},
-                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-                colors = ExposedDropdownMenuDefaults.textFieldColors(),
-                modifier = Modifier
-                    .menuAnchor()
-                    .fillMaxWidth(width)
-            )
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = { expanded = !expanded },
+        modifier = modifier
+    ) {
+        TextField(
+            readOnly = true,
+            value = stringResource(R.string.favorites_count, favoriteNpcs.size),
+            onValueChange = {},
+            label = { Text(stringResource(R.string.favorites)) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            colors = ExposedDropdownMenuDefaults.textFieldColors(),
+            modifier = Modifier
+                .menuAnchor()
+                .fillMaxWidth()
+        )
 
-            ExposedDropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false }
-            ) {
-                favoriteNpcs.forEach { favorite ->
-                    DropdownMenuItem(
-                        text = {
-                            Text(buildString {
-                                append(favorite.name)
-                                if (!favorite.secondName.isNullOrEmpty()) append(" ${favorite.secondName}")
-                                append(" ${favorite.familyName}")
-                                append(" (${favorite.nationality})")
-                            })
-                        },
-                        onClick = {
-                            expanded = false
-                            onFavoriteSelected(favorite)
-                        },
-                    )
-                }
+        ExposedDropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            favoriteNpcs.forEach { favorite ->
+                DropdownMenuItem(
+                    text = {
+                        Text(buildString {
+                            append(favorite.name)
+                            if (!favorite.secondName.isNullOrEmpty()) append(" ${favorite.secondName}")
+                            append(" ${favorite.familyName}")
+                            append(" (${favorite.nationality})")
+                        })
+                    },
+                    onClick = {
+                        expanded = false
+                        onFavoriteSelected(favorite)
+                    },
+                )
             }
         }
     }

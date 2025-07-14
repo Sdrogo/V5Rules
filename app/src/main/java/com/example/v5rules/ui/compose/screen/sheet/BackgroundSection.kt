@@ -99,13 +99,13 @@ fun BackgroundSection(
     } else if (showAddMeritsSheet && selectedBackground != null) {
         allBackgrounds.find { it.id == (selectedBackground!!.id) }?.let {
             characterBackgrounds.find { characterBg -> characterBg.identifier == selectedBackground!!.identifier }
-                ?.let { characterBackgrounds ->
+                ?.let { characterBackground ->
                     MeritsSelectionBottomSheet(
                         background = it,
                         onMeritSelected = { merit ->
                             viewModel.onEvent(
                                 CharacterSheetEvent.BackgroundMeritAdded(
-                                    characterBackgrounds,
+                                    characterBackground,
                                     merit,
                                     merit.minLevel ?: 1
                                 )
@@ -215,6 +215,7 @@ fun BackgroundSection(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
+
                         Text(
                             text = stringResource(R.string.background),
                             style = MaterialTheme.typography.headlineSmall,
@@ -236,7 +237,6 @@ fun BackgroundSection(
                     if (characterBackgrounds.isNotEmpty()) {
                         BackgroundList(
                             backgrounds = characterBackgrounds,
-                            viewModel = viewModel,
                             allGameBackgrounds = allBackgrounds,
                             onAddMeritClick = { background ->
                                 selectedBackground = background
@@ -246,25 +246,7 @@ fun BackgroundSection(
                                 selectedBackground = background
                                 showAddFlawsToBackgroundSheet = true
                             },
-                            onRemove = { background ->
-                                viewModel.onEvent(CharacterSheetEvent.BackgroundRemoved(background))
-                                selectedBackground = null
-                            },
-                            onAddNoteToBackground = { background, note ->
-                                viewModel.onEvent(
-                                    CharacterSheetEvent.AddNoteToBackground(
-                                        background,
-                                        note
-                                    )
-                                )
-                            },
-                            onRemoveNote = { background ->
-                                viewModel.onEvent(
-                                    CharacterSheetEvent.RemoveNoteToBackground(
-                                        background
-                                    )
-                                )
-                            }
+                            onEvent = {event -> viewModel.onEvent(event)}
                         )
                     } else {
                         Text(
@@ -306,32 +288,7 @@ fun BackgroundSection(
                     if (characterDirectFlaws.orEmpty().isNotEmpty()) {
                         DirectFlawsList(
                             flaws = characterDirectFlaws.orEmpty(),
-                            onRemove = { advantage ->
-                                viewModel.onEvent(
-                                    CharacterSheetEvent.CharacterDirectFlawRemoved(
-                                        advantage
-                                    )
-                                )
-                            },
-                            onAddNote = { flaw, note ->
-                                viewModel.onEvent(
-                                    CharacterSheetEvent.AddNoteToDirectFlaw(
-                                        flaw,
-                                        note
-                                    )
-                                )
-                            },
-                            onRemoveNote = { flaw ->
-                                viewModel.onEvent(CharacterSheetEvent.RemoveNoteToDirectFlaw(flaw))
-                            },
-                            onDirectFlawLevelChanged = { flaw, newLevel ->
-                                viewModel.onEvent(
-                                    CharacterSheetEvent.CharacterDirectFlawLevelChanged(
-                                        flaw,
-                                        newLevel
-                                    )
-                                )
-                            }
+                            onEvent = {event -> viewModel.onEvent(event)}
                         )
                     } else {
                         Text(
@@ -342,6 +299,5 @@ fun BackgroundSection(
                 }
             }
         }
-
     }
 }

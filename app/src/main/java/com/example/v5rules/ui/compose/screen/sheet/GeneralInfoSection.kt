@@ -59,7 +59,7 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
     var generation by remember { mutableFloatStateOf((character.generation?: 12.0).toFloat()) }
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current // Per controllare la tastiera
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     LazyColumn(
         modifier = Modifier

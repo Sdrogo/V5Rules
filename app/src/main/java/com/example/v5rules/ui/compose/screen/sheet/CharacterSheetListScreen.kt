@@ -93,11 +93,10 @@ fun CharacterSheetListScreen(
             ,
             shape = CircleShape,
             containerColor = MaterialTheme.colorScheme.tertiary,
-            contentColor = MaterialTheme.colorScheme.primary,
             elevation = FloatingActionButtonDefaults.elevation(),
             interactionSource = remember { MutableInteractionSource() }
         ) {
-            Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.create_new_sheet))
+            Icon(Icons.Filled.Add, tint = MaterialTheme.colorScheme.onTertiary,   contentDescription = stringResource(R.string.create_new_sheet))
         }
     }
 }
@@ -134,7 +133,7 @@ fun CharacterCard(character: Character, navController: NavHostController) {
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(8.dp),
     ) {
-        Box (modifier = Modifier.padding(end = 16.dp)) {
+        Box (modifier = Modifier.background(MaterialTheme.colorScheme.secondary)) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -144,7 +143,7 @@ fun CharacterCard(character: Character, navController: NavHostController) {
                 ClanImage(
                     clanName = character.clan?.name
                         ?: "Unknown",
-                    tintColor = MaterialTheme.colorScheme.tertiary,
+                    tintColor = MaterialTheme.colorScheme.onSecondary,
                     width = 48.dp
                 )
 
@@ -153,12 +152,12 @@ fun CharacterCard(character: Character, navController: NavHostController) {
                     Text(
                         text = character.name,
                         style = MaterialTheme.typography.headlineSmall,
-                        color = MaterialTheme.colorScheme.primary
+                        color = MaterialTheme.colorScheme.onSecondary
                     )
                     Text(
                         text = character.concept,
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = MaterialTheme.colorScheme.onSecondary
                     )
                 }
             }
@@ -166,16 +165,16 @@ fun CharacterCard(character: Character, navController: NavHostController) {
                 onClick = { navController.navigate(CharacterSheetEditNav(character.id)) },
                 modifier = Modifier
                     .align(Alignment.CenterEnd)
+                    .padding(end = 16.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.tertiary)
             ) {
                 Icon(
                     Icons.Filled.Edit,
                     contentDescription = stringResource(R.string.edit_sheet),
-                    tint = MaterialTheme.colorScheme.primary
+                    tint = MaterialTheme.colorScheme.onTertiary
                 )
             }
         }
-
     }
 }

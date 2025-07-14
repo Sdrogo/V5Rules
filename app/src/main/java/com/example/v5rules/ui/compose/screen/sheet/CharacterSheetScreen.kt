@@ -46,14 +46,12 @@ fun CharacterSheetScreen(
     val selectedTabIndex by viewModel.selectedTabIndex.collectAsState()
 
 
-    // LaunchedEffect per caricare il personaggio se l'ID è presente
     LaunchedEffect(key1 = id) {
         if (id != null) {
             viewModel.setCharacter(id)
         }
     }
 
-    // Indice della tab selezionata
     val tabs = listOf(
         "Info Generali", "Attributi", "Abilità", "Discipline", "Background" /*... altre tab... */
     )
@@ -118,7 +116,7 @@ fun CharacterSheetScreen(
                 //... (Contenuto come prima, ma usa when per selezionare la sezione)...
                 when (selectedTabIndex) {
                     0 -> GeneralInfoSection(character, viewModel)
-                    1 -> AttributeSection(character, viewModel, isLandscape)
+                    1 -> AttributeSection(character, viewModel)
                     2 -> AbilitySection(character, viewModel)
                     3 -> DisciplineSection(viewModel, navController)
                     4 -> BackgroundSection(viewModel)

@@ -157,12 +157,12 @@ fun HungerDisplay(
                         }
                         onHungerChange(newHunger)
                     }
-                    .border(1.dp, MaterialTheme.colorScheme.primary)
+                    .border(1.dp, MaterialTheme.colorScheme.onTertiary  )
                     .then(
                         if (i <= currentHunger) {
                             Modifier.background(MaterialTheme.colorScheme.tertiary)
                         } else {
-                            Modifier
+                            Modifier.background(MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f))
                         }
                     )
             )

@@ -5,9 +5,13 @@ import android.content.res.Resources
 import androidx.room.Room
 import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.CharacterRepositoryImpl
+import com.example.v5rules.repository.FavoriteNpcRepository
+import com.example.v5rules.repository.FavoriteNpcRepositoryImpl
 import com.example.v5rules.repository.MainRepository
 import com.example.v5rules.repository.dao.CharacterDao
+import com.example.v5rules.repository.dao.FavoriteNpcDao
 import com.example.v5rules.repository.db.AppDatabase
+import com.example.v5rules.repository.db.AppDatabase.Companion.MIGRATION_3_4
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +25,7 @@ object AppModule {
     @Singleton
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, "app_database")
+            .addMigrations(MIGRATION_3_4)
             .build()
 
     @Provides
@@ -43,5 +48,16 @@ object AppModule {
     @Singleton
     fun provideResources(@ApplicationContext context: Context): Resources {
         return context.resources
+    }
+    @Provides
+    @Singleton
+    fun provideFavoriteNpcDao(appDatabase: AppDatabase): FavoriteNpcDao {
+        return appDatabase.favoriteNpcDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideFavoriteNpcRepository(favoriteNpcDao: FavoriteNpcDao): FavoriteNpcRepository {
+        return FavoriteNpcRepositoryImpl(favoriteNpcDao)
     }
 }

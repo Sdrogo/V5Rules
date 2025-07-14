@@ -15,8 +15,6 @@ import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -33,7 +31,7 @@ import com.example.v5rules.data.Loresheet
 import com.example.v5rules.data.LoresheetPower
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DotsOnlyForLevel
-import com.example.v5rules.ui.compose.component.DotsWithMinMax
+import com.example.v5rules.ui.compose.component.background.InteractiveBackgroundDots
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 
@@ -73,15 +71,19 @@ fun LoresheetItem(
                 .fillMaxWidth()
                 .clickable { expanded = !expanded }) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = loresheet.title,
-                    style = MaterialTheme.typography.titleSmall,
-                    modifier = Modifier.weight(1f)
+                Text(text = loresheet.title, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+
+                InteractiveBackgroundDots(
+                    currentValue = loresheet.level,
+                    minValue = 1,
+                    maxValue = 5,
+                    onValueChange = { newLevel -> viewModel.onEvent(
+                        CharacterSheetEvent.LoresheetLevelChanged(
+                            loresheet.title,
+                            newLevel
+                        )
+                    ) }
                 )
-                if (loresheet.level > 0) {
-                    DotsWithMinMax(level = (loresheet.level))
-                    Spacer(Modifier.width(8.dp))
-                }
                 Icon(imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
                     contentDescription = if (expanded) "Collapse ${loresheet.title}" else "Expand ${loresheet.title}"
                 )
@@ -95,30 +97,6 @@ fun LoresheetItem(
             }
         }
         if (expanded) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Slider(
-                    value = loresheet.level.toFloat(),
-                    onValueChange = { newValue ->
-                        if (newValue > 0) {
-                            viewModel.onEvent(
-                                CharacterSheetEvent.LoresheetLevelChanged(
-                                    loresheet.title,
-                                    newValue.toInt()
-                                )
-                            )
-                        } else {
-                            viewModel.onEvent(
-                                CharacterSheetEvent.LoresheetRemoved(loresheet)
-                            )
-                        }
-                    },
-                    valueRange = 0f..5f,
-                    steps = 4,
-                    colors = SliderDefaults.colors(
-                        activeTrackColor = MaterialTheme.colorScheme.tertiary
-                    )
-                )
-            }
             ContentExpander(stringResource(R.string.discipline_description)) {
                 Text(text = loresheet.content, style = MaterialTheme.typography.bodyMedium)
             }

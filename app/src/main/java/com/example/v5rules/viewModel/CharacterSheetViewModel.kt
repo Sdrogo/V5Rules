@@ -1,9 +1,7 @@
 package com.example.v5rules.viewModel
 
-import android.content.res.Resources
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.R
 import com.example.v5rules.data.Ability
 import com.example.v5rules.data.Advantage
 import com.example.v5rules.data.Background
@@ -28,8 +26,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CharacterSheetViewModel @Inject constructor(
     private val mainRepository: MainRepository,
-    private val characterRepository: CharacterRepository,
-    resources: Resources
+    private val characterRepository: CharacterRepository
 ) : ViewModel() {
 
     // Stato
@@ -58,7 +55,6 @@ class CharacterSheetViewModel @Inject constructor(
     val directFlaws: StateFlow<List<Advantage>> = _directFlaws.asStateFlow()
     private val _selectedTabIndex = MutableStateFlow(0)
     val selectedTabIndex: StateFlow<Int> = _selectedTabIndex.asStateFlow()
-    val allAbilities: List<String> = resources.getStringArray(R.array.abilities).toList().sorted()
 
     private val eventChannel = Channel<CharacterSheetEvent>()
 
@@ -66,7 +62,6 @@ class CharacterSheetViewModel @Inject constructor(
         viewModelScope.launch {
             eventChannel.consumeAsFlow().collect { event ->
                 when (event) {
-                    //... Gestione degli altri eventi...
                     is CharacterSheetEvent.SaveClicked -> saveSheet()
                     is CharacterSheetEvent.DeleteClicked -> deleteSheet()
                     is CharacterSheetEvent.CleanupClicked -> cleanupSheet()
@@ -149,11 +144,9 @@ class CharacterSheetViewModel @Inject constructor(
                                 attributes = currentState.character.attributes.copy(stamina = newStamina)
                             )
 
-                            // Calcola il nuovo numero di health boxes basato sulla nuova stamina
                             val newMaxHealthBoxes =
-                                calculateMaxHealthBoxes(newStamina) // Funzione helper da definire
+                                calculateMaxHealthBoxes(newStamina)
 
-                            // Sincronizza la lista health.boxes
                             val updatedHealthBoxes = synchronizeDamageTrack(
                                 currentBoxes = newCharacter.health.boxes,
                                 newSize = newMaxHealthBoxes
@@ -190,13 +183,11 @@ class CharacterSheetViewModel @Inject constructor(
                                 attributes = currentState.character.attributes.copy(composure = newComposure)
                             )
 
-                            // Calcola il nuovo numero di willpower boxes
                             val newMaxWillpower = calculateMaxWillpowerBoxes(
-                                resolve = updatedCharacter.attributes.resolve, // Usa il valore corrente di resolve
+                                resolve = updatedCharacter.attributes.resolve,
                                 composure = newComposure
                             )
 
-                            // Sincronizza la lista willpower.boxes
                             val updatedWillpowerBoxes = synchronizeDamageTrack(
                                 currentBoxes = updatedCharacter.willpower.boxes,
                                 newSize = newMaxWillpower
@@ -232,13 +223,11 @@ class CharacterSheetViewModel @Inject constructor(
                                 attributes = currentState.character.attributes.copy(resolve = newResolve)
                             )
 
-                            // Calcola il nuovo numero di willpower boxes
                             val newMaxWillpower = calculateMaxWillpowerBoxes(
                                 resolve = newResolve,
                                 composure = updatedCharacter.attributes.composure // Usa il valore corrente di composure
                             )
 
-                            // Sincronizza la lista willpower.boxes
                             val updatedWillpowerBoxes = synchronizeDamageTrack(
                                 currentBoxes = updatedCharacter.willpower.boxes,
                                 newSize = newMaxWillpower
@@ -273,8 +262,6 @@ class CharacterSheetViewModel @Inject constructor(
                         }
                     }
 
-
-// Quando un box di Health viene cliccato
                     is CharacterSheetEvent.HealthBoxClicked -> {
                         _uiState.update { currentState ->
                             val currentHealthBoxes =
@@ -309,7 +296,6 @@ class CharacterSheetViewModel @Inject constructor(
 
                             if (clickedIndex < currentWillpowerBoxes.size) {
                                 val currentDamageType = currentWillpowerBoxes[clickedIndex]
-                                // Willpower di solito non ha AGGRAVATED
                                 val nextDamageType = when (currentDamageType) {
                                     DamageType.EMPTY -> DamageType.SUPERFICIAL
                                     DamageType.SUPERFICIAL -> DamageType.AGGRAVATED
@@ -326,7 +312,6 @@ class CharacterSheetViewModel @Inject constructor(
                             }
                         }
                     }
-                    // Experience
                     is CharacterSheetEvent.TotalExperienceChanged -> _uiState.update {
                         it.copy(
                             character = it.character.copy(
@@ -448,15 +433,25 @@ class CharacterSheetViewModel @Inject constructor(
                                 currentDisciplines.indexOfFirst { it.title == event.disciplineName }
                             if (disciplineIndex != -1) {
                                 val currentDiscipline = currentDisciplines[disciplineIndex]
-                                val updatedDiscipline =
-                                    currentDiscipline.copy(level = event.newLevel) //Aggiorna solo il livello
+
+                                val validPowers = currentDiscipline.selectedDisciplinePowers.filter { power ->
+                                    power.level <= event.newLevel
+                                }
+
+                                val updatedDiscipline = currentDiscipline.copy(
+                                    level = event.newLevel,
+                                    selectedDisciplinePowers = validPowers
+                                )
                                 currentDisciplines[disciplineIndex] = updatedDiscipline
+
                                 currentState.copy(
                                     character = currentState.character.copy(
                                         disciplines = currentDisciplines
                                     )
                                 )
-                            } else currentState // Disciplina non trovata (non dovrebbe succedere)
+                            } else {
+                                currentState
+                            }
                         }
                     }
 
@@ -522,21 +517,16 @@ class CharacterSheetViewModel @Inject constructor(
 
                     is CharacterSheetEvent.BackgroundLevelChanged -> {
                         _uiState.update { currentState ->
-                            val backgrounds =
-                                currentState.character.backgrounds.toMutableList()
-                            val backgroundIndex =
-                                backgrounds.indexOfFirst { it.identifier == event.background.identifier }
-                            if (backgroundIndex != -1) {
-                                val currentBackground = backgrounds[backgroundIndex]
-                                val updatedBackground =
-                                    currentBackground.copy(level = event.level)
-                                backgrounds[backgroundIndex] = updatedBackground
-                                currentState.copy(
-                                    character = currentState.character.copy(
-                                        backgrounds = backgrounds
-                                    )
-                                )
-                            } else currentState
+                            val updatedBackgrounds = currentState.character.backgrounds.map {
+                                if (it.identifier == event.background.identifier) {
+                                    it.copy(level = event.newLevel)
+                                } else {
+                                    it
+                                }
+                            }
+                            currentState.copy(
+                                character = currentState.character.copy(backgrounds = updatedBackgrounds)
+                            )
                         }
                     }
 
@@ -734,7 +724,6 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    // Assicurati che il difetto non sia già presente
                                     val newFlaw = event.flaw.copy(level = event.level)
                                     bg.copy(flaws = (bg.flaws ?: emptyList()) + newFlaw)
                                 } else {

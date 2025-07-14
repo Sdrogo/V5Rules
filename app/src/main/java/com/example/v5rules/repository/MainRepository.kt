@@ -71,7 +71,7 @@ class MainRepository(context: Context) : CharacterRepository {
         throw UnsupportedOperationException("Not implemented in MainRepository")
     }
 
-    override suspend fun saveCharacter(character: Character) {
+    override suspend fun saveCharacter(character: Character) : Int {
         throw UnsupportedOperationException("Not implemented in MainRepository")
     }
 
