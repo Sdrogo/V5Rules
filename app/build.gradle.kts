@@ -4,7 +4,8 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
-    }
+    alias(libs.plugins.googleGmsGoogleServices)
+}
 
 android {
     namespace = "com.example.v5rules"
@@ -63,6 +64,11 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
+    implementation(libs.firebase.firestore)
     ksp(libs.androidx.room.compiler) // Usa ksp, non kapt
     implementation(libs.androidx.room.runtime)
     implementation(libs.coil.compose)

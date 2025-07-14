@@ -17,6 +17,7 @@ import com.example.v5rules.viewModel.BackgroundViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.KindredViewModel
+import com.example.v5rules.viewModel.LoginViewModel
 import com.example.v5rules.viewModel.LoreViewModel
 import com.example.v5rules.viewModel.LoresheetViewModel
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
@@ -29,6 +30,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         Log.d("MainActivity", "onCreate called")
@@ -53,6 +55,7 @@ fun V5RulesApp(
     val kindredViewModel: KindredViewModel = hiltViewModel<KindredViewModel>()
     val pgViewModel: PgViewModel = hiltViewModel<PgViewModel>()
     val backgroundViewModel: BackgroundViewModel = hiltViewModel<BackgroundViewModel>()
+    val loginViewModel: LoginViewModel = hiltViewModel<LoginViewModel>()
 
     val navController = rememberNavController()
 
@@ -71,7 +74,8 @@ fun V5RulesApp(
             npcGeneratorViewModel = npcGeneratorViewModel,
             kindredViewModel = kindredViewModel,
             pgViewModel = pgViewModel,
-            backgroundViewModel = backgroundViewModel
+            backgroundViewModel = backgroundViewModel,
+            loginViewModel = loginViewModel
         )
     }
 }

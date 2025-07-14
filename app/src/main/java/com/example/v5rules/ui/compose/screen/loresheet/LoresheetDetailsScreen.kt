@@ -38,7 +38,7 @@ import com.example.v5rules.viewModel.LoresheetViewModel
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun LoresheetDetailsScreen(
-    id: Int,
+    id: String,
     name: String,
     loresheetViewModel: LoresheetViewModel,
     navController: NavHostController,
@@ -70,15 +70,13 @@ fun LoresheetDetailsScreen(
                     horizontalArrangement = Arrangement.SpaceAround,
                     maxItemsInEachRow = maxRowItem
                 ) {
-                    loresheet.limitation?.let {
-                        Text(
-                            text = it,
-                            style = MaterialTheme.typography.headlineSmall,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.tertiary,
-                            modifier = Modifier.wrapContentWidth()
-                        )
-                    }
+                    Text(
+                        text = loresheet.limitation,
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.tertiary,
+                        modifier = Modifier.wrapContentSize()
+                    )
                     Surface(
                         modifier = Modifier
                             .padding(8.dp)

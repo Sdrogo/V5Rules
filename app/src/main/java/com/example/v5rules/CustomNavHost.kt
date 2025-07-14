@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.example.v5rules.ui.compose.screen.HomeScreen
+import com.example.v5rules.ui.compose.screen.LoginScreen
 import com.example.v5rules.ui.compose.screen.NPCGeneratorScreen
 import com.example.v5rules.ui.compose.screen.background.BackgroundDetailsScreen
 import com.example.v5rules.ui.compose.screen.background.BackgroundScreen
@@ -46,16 +47,21 @@ import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.KindredViewModel
+import com.example.v5rules.viewModel.LoginViewModel
 import com.example.v5rules.viewModel.LoreViewModel
 import com.example.v5rules.viewModel.LoresheetViewModel
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
 import com.example.v5rules.viewModel.PgViewModel
 import com.example.v5rules.viewModel.PredatorTypeViewModel
 import com.example.v5rules.viewModel.RulesViewModel
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.serialization.Serializable
 
 @Serializable
 object HomeNav
+
+@Serializable
+object LoginNav
 
 @Serializable
 object DisciplinesNav
@@ -133,16 +139,16 @@ data class RulesDetailsNav(val title: String)
 data class SubRuleNav(val title: String, val section: String)
 
 @Serializable
-data class LoresheetDetailsNav(val name: String, val id: Int)
+data class LoresheetDetailsNav(val name: String, val id: String)
 
 @Serializable
-data class BackgroundDetailsNav(val name: String, val id: Int)
+data class BackgroundDetailsNav(val name: String, val id: String)
 
 @Serializable
-data class CharacterSheetEditNav(val id: Int)
+data class CharacterSheetEditNav(val id: String)
 
 @Serializable
-data class CharacterSheetVisualizationNav(val id: Int)
+data class CharacterSheetVisualizationNav(val id: String)
 
 
 @Composable
@@ -157,9 +163,11 @@ fun CustomNavHost(
     npcGeneratorViewModel: NPCGeneratorViewModel,
     kindredViewModel: KindredViewModel,
     pgViewModel: PgViewModel,
-    backgroundViewModel: BackgroundViewModel
+    backgroundViewModel: BackgroundViewModel,
+    loginViewModel: LoginViewModel,
 ) {
-    NavHost(navController = navController, startDestination = HomeNav) {
+
+    NavHost(navController = navController, startDestination = if (FirebaseAuth.getInstance().currentUser != null) HomeNav else  LoginNav) {
         val enterTransition = fadeIn(
             animationSpec = tween(
                 durationMillis = 500, // Duration of the animation
@@ -179,14 +187,30 @@ fun CustomNavHost(
 
         composable<HomeNav>(
             enterTransition = { enterTransition },
-            exitTransition = { exitTransition })
-        {
+            exitTransition = { exitTransition }
+        ) {
             HomeScreen(navController)
+        }
+
+        composable<LoginNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ) {
+            LoginScreen(
+                viewModel = loginViewModel,
+                onLoginSuccess = {
+                    navController.navigate(HomeNav) {
+                        popUpTo(LoginNav) {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
         composable<BackgroundNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }
-        ){
+        ) {
             BackgroundScreen(backgroundViewModel, navController)
         }
         composable<DisciplinesNav>(
@@ -416,7 +440,7 @@ fun CustomNavHost(
         }
         composable<CharacterSheetCreationNav>(
             enterTransition = { enterTransition },
-            exitTransition = { exitTransition }){
+            exitTransition = { exitTransition }) {
             CharacterSheetScreen(
                 viewModel = hiltViewModel<CharacterSheetViewModel>(),
                 navController = navController
@@ -432,18 +456,19 @@ fun CustomNavHost(
                 id = entry.id,
             )
         }
-        composable<CharacterSheetVisualizationNav> (
+        composable<CharacterSheetVisualizationNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<CharacterSheetVisualizationNav>()
             CharacterSheetScreenVisualization(
                 viewModel = hiltViewModel<CharacterSheetViewModel>(),
                 navController = navController,
-                id = entry.id,)
+                id = entry.id,
+            )
         }
         composable<CharacterSheetListNav>(
             enterTransition = { enterTransition },
-            exitTransition = { exitTransition }){
+            exitTransition = { exitTransition }) {
             CharacterSheetListScreen(
                 navController = navController
             )

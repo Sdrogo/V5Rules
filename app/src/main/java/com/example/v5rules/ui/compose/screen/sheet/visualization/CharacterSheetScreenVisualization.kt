@@ -35,7 +35,7 @@ import com.example.v5rules.viewModel.CharacterSheetViewModel
 fun CharacterSheetScreenVisualization(
     viewModel: CharacterSheetViewModel,
     navController: NavHostController,
-    id: Int? = null
+    id: String? = null
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val character = uiState.character

@@ -137,7 +137,8 @@
     <string name="add_flaw">Aggiungi Difetto</string>
     <string name="add_background">Aggiungi Background</string>
     <string name="add_merit">Aggiungi Pregio</string>
-    <string name="flaw">Difetti</string>
+    <string name="flaw">Difetto</string>
+    <string name="flaws">Difetto</string>
     <string name="background">Background</string>
     <string name="merit">Pregio</string>
     <string name="remove">Rimuovi</string>
@@ -178,6 +179,7 @@
     <string name="name">Nome</string>
     <string name="second_name">Secondo Nome</string>
     <string name="family_name">Cognome</string>
+    <string name="default_web_client_id">951277915811-72prvbh745jcs4s5gru6f7lf63hvicnj.apps.googleusercontent.com</string>
 
     <string-array name="abilities">
         <item>Atletica</item>

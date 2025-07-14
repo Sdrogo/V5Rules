@@ -26,7 +26,7 @@ import java.util.Locale
 import javax.inject.Inject
 
 sealed class NpcNavigationEvent {
-    data class ToCharacterSheet(val characterId: Int) : NpcNavigationEvent()
+    data class ToCharacterSheet(val characterId: String) : NpcNavigationEvent()
 }
 
 @HiltViewModel

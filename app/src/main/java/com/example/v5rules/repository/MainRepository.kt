@@ -63,7 +63,7 @@ class MainRepository(context: Context) : CharacterRepository {
         return rulesReader.readPg(language)
     }
 
-    override suspend fun getCharacter(id: Int): Character? {
+    override suspend fun getCharacter(id: String): Character? {
         throw UnsupportedOperationException("Not implemented in MainRepository")
     }
 
@@ -71,7 +71,7 @@ class MainRepository(context: Context) : CharacterRepository {
         throw UnsupportedOperationException("Not implemented in MainRepository")
     }
 
-    override suspend fun saveCharacter(character: Character) : Int {
+    override suspend fun saveCharacter(character: Character) : String {
         throw UnsupportedOperationException("Not implemented in MainRepository")
     }
 

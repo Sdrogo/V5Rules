@@ -5,8 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class PredatorType(
-    val name: String,
-    val description: String,
-    val huntPool: String,
-    val paragraphs: List<String>,
+    val name: String = "",
+    val description: String = "",
+    val huntPool: String = "",
+    val paragraphs: List<String> = emptyList(),
 )

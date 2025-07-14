@@ -1,6 +1,7 @@
 package com.example.v5rules.data
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 data class Npc(
@@ -21,9 +22,18 @@ enum class Gender {
 
 @Entity(tableName = "favorite_npcs")
 data class FavoriteNpc(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val name: String,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+    val name: String = "",
     val secondName: String? = null,
-    val familyName: String,
-    val nationality: String
-)
+    val familyName: String = "",
+    val nationality: String = ""
+) {
+    @Ignore
+    constructor(
+        name: String,
+        secondName: String?,
+        familyName: String,
+        nationality: String
+    ) : this(0, name, secondName, familyName, nationality)
+}

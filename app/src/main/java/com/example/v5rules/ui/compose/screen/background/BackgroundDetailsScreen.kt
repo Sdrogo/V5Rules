@@ -38,7 +38,7 @@ import com.example.v5rules.viewModel.BackgroundViewModel
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun BackgroundDetailsScreen(
-    id: Int,
+    id: String,
     name: String,
     backgroundViewModel: BackgroundViewModel,
     navController: NavHostController,
@@ -93,7 +93,7 @@ fun BackgroundDetailsScreen(
                     }
                 }
             }
-            items(background.merits.orEmpty()) { merit ->
+            items(background.merits) { merit ->
                 Spacer(modifier = Modifier.height(8.dp))
                 Column {
 
@@ -150,7 +150,7 @@ fun BackgroundDetailsScreen(
                     }
                 }
             }
-            items(background.directFlaws.orEmpty()) { flaw ->
+            items(background.directFlaws) { flaw ->
                 Column {
                     FlowRow(
                         modifier = Modifier
@@ -206,7 +206,7 @@ fun BackgroundDetailsScreen(
                     }
                 }
             }
-            items(background.flaws.orEmpty()) { flaw ->
+            items(background.flaws) { flaw ->
                 Spacer(modifier = Modifier.height(8.dp))
                 Column {
                     FlowRow(

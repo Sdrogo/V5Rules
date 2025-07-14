@@ -2,41 +2,33 @@ package com.example.v5rules.di
 
 import android.content.Context
 import android.content.res.Resources
-import androidx.room.Room
+import androidx.credentials.CredentialManager
 import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.CharacterRepositoryImpl
 import com.example.v5rules.repository.FavoriteNpcRepository
 import com.example.v5rules.repository.FavoriteNpcRepositoryImpl
 import com.example.v5rules.repository.MainRepository
-import com.example.v5rules.repository.dao.CharacterDao
-import com.example.v5rules.repository.dao.FavoriteNpcDao
-import com.example.v5rules.repository.db.AppDatabase
-import com.example.v5rules.repository.db.AppDatabase.Companion.MIGRATION_3_4
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
+
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    @Provides
-    @Singleton
-    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
-        Room.databaseBuilder(context, AppDatabase::class.java, "app_database")
-            .addMigrations(MIGRATION_3_4)
-            .build()
-
-    @Provides
-    fun provideCharacterDao(database: AppDatabase): CharacterDao = database.characterDao()
 
     @Provides
     @Singleton
     fun provideCharacterRepository(
-        characterDao: CharacterDao
-    ): CharacterRepository =
-        CharacterRepositoryImpl(characterDao)
+        firestore: FirebaseFirestore,
+        auth: FirebaseAuth
+    ): CharacterRepository {
+        return CharacterRepositoryImpl(firestore, auth)
+    }
 
     @Provides
     @Singleton
@@ -49,15 +41,27 @@ object AppModule {
     fun provideResources(@ApplicationContext context: Context): Resources {
         return context.resources
     }
+
     @Provides
     @Singleton
-    fun provideFavoriteNpcDao(appDatabase: AppDatabase): FavoriteNpcDao {
-        return appDatabase.favoriteNpcDao()
+    fun provideFavoriteNpcRepository(
+        firestore: FirebaseFirestore,
+        auth: FirebaseAuth
+    ): FavoriteNpcRepository {
+        return FavoriteNpcRepositoryImpl(firestore, auth)
     }
 
     @Provides
     @Singleton
-    fun provideFavoriteNpcRepository(favoriteNpcDao: FavoriteNpcDao): FavoriteNpcRepository {
-        return FavoriteNpcRepositoryImpl(favoriteNpcDao)
+    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
+    
+    @Provides
+    @Singleton
+    fun provideFirebaseFirestore(): FirebaseFirestore = FirebaseFirestore.getInstance()
+
+    @Provides
+    @Singleton
+    fun provideCredentialManager(@ApplicationContext context: Context): CredentialManager {
+        return CredentialManager.create(context)
     }
 }

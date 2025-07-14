@@ -11,8 +11,8 @@ data class Chapter(
 )
 @Serializable
 data class Paragraph(
-    val title: String,
-    val content: String,
+    val title: String = "",
+    val content: String = "",
     val table: Table? = null,
-    val subParagraphs: List<Paragraph>? = null,
+    val subParagraphs: List<Paragraph> = emptyList(),
 )
