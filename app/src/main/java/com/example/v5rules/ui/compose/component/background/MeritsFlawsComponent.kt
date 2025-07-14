@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.Delete
@@ -250,10 +250,10 @@ fun DotsWithMinMax(level: Int, maxLevel: Int) {
                     .size(16.dp)
                     .padding(1.dp)
                     .background(
-                        if (index < level) MaterialTheme.colorScheme.error else Color.Transparent,
-                        shape = RoundedCornerShape(3.dp)
+                        if (index < level) MaterialTheme.colorScheme.tertiary else Color.Transparent,
+                        shape = CircleShape
                     )
-                    .border(1.dp, MaterialTheme.colorScheme.onSurface, shape = RoundedCornerShape(3.dp))
+                    .border(1.dp, MaterialTheme.colorScheme.primary, shape = CircleShape)
             )
         }
     }

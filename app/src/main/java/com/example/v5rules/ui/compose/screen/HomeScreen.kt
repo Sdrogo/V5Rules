@@ -54,9 +54,9 @@ fun HomeScreen(navController: NavHostController) {
             animationSpec = infiniteRepeatable(tween(5000), RepeatMode.Reverse),
             label = "color"
         )
-        val animatedWhite by infiniteTransition.animateColor(
-            initialValue = MaterialTheme.colorScheme.primary,
-            targetValue = MaterialTheme.colorScheme.onTertiary,
+        val animatedLogo by infiniteTransition.animateColor(
+            initialValue = MaterialTheme.colorScheme.onBackground,
+            targetValue = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.25f),
             animationSpec = infiniteRepeatable(tween(5000), RepeatMode.Reverse),
             label = "color"
         )
@@ -69,7 +69,7 @@ fun HomeScreen(navController: NavHostController) {
             item(span = { GridItemSpan(this.maxLineSpan) }) {
                 TintedImage(
                     R.drawable.logo_v5,
-                    animatedWhite,
+                    animatedLogo,
                     300.dp
                 )
             }

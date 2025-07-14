@@ -1,6 +1,7 @@
 package com.example.v5rules.ui.compose.component
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -60,6 +61,7 @@ private fun DamageBox(
     Box(
         modifier = modifier
             .border(1.dp, borderColor)
+            .background(MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f))
             .clickable(onClick = onClick)
     ) {
         Canvas(modifier = Modifier.matchParentSize()) {
@@ -133,6 +135,7 @@ fun WillpowerTrackPreview() {
             damageTrack = listOf(
                 DamageType.EMPTY,
                 DamageType.SUPERFICIAL,
+                DamageType.AGGRAVATED,
                 DamageType.SUPERFICIAL,
                 DamageType.EMPTY
             ),

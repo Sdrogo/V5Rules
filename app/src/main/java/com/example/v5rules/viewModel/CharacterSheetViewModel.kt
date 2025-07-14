@@ -1,6 +1,5 @@
 package com.example.v5rules.viewModel
 
-import android.content.res.Resources
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.Ability
@@ -27,8 +26,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CharacterSheetViewModel @Inject constructor(
     private val mainRepository: MainRepository,
-    private val characterRepository: CharacterRepository,
-    resources: Resources
+    private val characterRepository: CharacterRepository
 ) : ViewModel() {
 
     // Stato
@@ -435,15 +433,25 @@ class CharacterSheetViewModel @Inject constructor(
                                 currentDisciplines.indexOfFirst { it.title == event.disciplineName }
                             if (disciplineIndex != -1) {
                                 val currentDiscipline = currentDisciplines[disciplineIndex]
-                                val updatedDiscipline =
-                                    currentDiscipline.copy(level = event.newLevel) //Aggiorna solo il livello
+
+                                val validPowers = currentDiscipline.selectedDisciplinePowers.filter { power ->
+                                    power.level <= event.newLevel
+                                }
+
+                                val updatedDiscipline = currentDiscipline.copy(
+                                    level = event.newLevel,
+                                    selectedDisciplinePowers = validPowers
+                                )
                                 currentDisciplines[disciplineIndex] = updatedDiscipline
+
                                 currentState.copy(
                                     character = currentState.character.copy(
                                         disciplines = currentDisciplines
                                     )
                                 )
-                            } else currentState // Disciplina non trovata (non dovrebbe succedere)
+                            } else {
+                                currentState
+                            }
                         }
                     }
 

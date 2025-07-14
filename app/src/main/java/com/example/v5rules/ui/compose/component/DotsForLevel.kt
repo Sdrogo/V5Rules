@@ -1,19 +1,25 @@
 package com.example.v5rules.ui.compose.component
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) {
@@ -37,14 +43,24 @@ fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) 
             modifier = Modifier
                 .weight(0.5f)
         )
-        for (i in 1..level) Text(
-            "●",
-            color = MaterialTheme.colorScheme.tertiary,
-        )
-        for (i in level..5) Text(
-            "○",
-            color = MaterialTheme.colorScheme.tertiary,
-        )
+        Row {
+            for (i in 1..5) {
+                Box(
+                    modifier = Modifier
+                        .size(22.dp)
+                        .padding(2.dp)
+                        .clip(CircleShape)
+                        .background(
+                            if (i <= level) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                        )
+                        .border(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primary,
+                            shape = CircleShape
+                        )
+                )
+            }
+        }
     }
 }
 
@@ -56,7 +72,7 @@ fun RangeDots(min: Int, max: Int) {
             .wrapContentWidth()
             .padding(horizontal = 8.dp)
     ) {
-        if(min != max){
+        if (min != max) {
             Text(
                 text = "(",
                 color = MaterialTheme.colorScheme.primary,
@@ -65,11 +81,25 @@ fun RangeDots(min: Int, max: Int) {
                     .padding(horizontal = 8.dp)
             )
         }
-        for (i in 1..min) Text(
-            "●",
-            color = MaterialTheme.colorScheme.tertiary,
-        )
-        if(min != max){
+        Row {
+            for (i in 1..min) {
+                Box(
+                    modifier = Modifier
+                        .size(22.dp)
+                        .padding(2.dp)
+                        .clip(CircleShape)
+                        .background(
+                            MaterialTheme.colorScheme.tertiary
+                        )
+                        .border(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primary,
+                            shape = CircleShape
+                        )
+                )
+            }
+        }
+        if (min != max) {
             Text(
                 text = " - ",
                 color = MaterialTheme.colorScheme.primary,
@@ -77,10 +107,24 @@ fun RangeDots(min: Int, max: Int) {
                     .wrapContentWidth()
                     .padding(horizontal = 8.dp)
             )
-            for (i in 1..max) Text(
-                "●",
-                color = MaterialTheme.colorScheme.tertiary,
-            )
+            Row {
+                for (i in 1..max) {
+                    Box(
+                        modifier = Modifier
+                            .size(22.dp)
+                            .padding(2.dp)
+                            .clip(CircleShape)
+                            .background(
+                                MaterialTheme.colorScheme.tertiary
+                            )
+                            .border(
+                                width = 1.dp,
+                                color = MaterialTheme.colorScheme.primary,
+                                shape = CircleShape
+                            )
+                    )
+                }
+            }
             Text(
                 text = ")",
                 color = MaterialTheme.colorScheme.primary,
@@ -116,16 +160,24 @@ fun DotsForAttribute(
             modifier = Modifier
                 .weight(0.5f)
         )
-        for (i in 1..level) Text(
-            "●",
-            color = MaterialTheme.colorScheme.primary,
-            fontSize = 24.sp // Imposta la dimensione del font desiderata
-        )
-        for (i in level + 1..5) Text(
-            "○",
-            color = MaterialTheme.colorScheme.primary,
-            fontSize = 24.sp // Imposta la dimensione del font desiderata
-        )
+        Row {
+            for (i in 1..5) {
+                Box(
+                    modifier = Modifier
+                        .size(22.dp)
+                        .padding(2.dp)
+                        .clip(CircleShape)
+                        .background(
+                            if (i <= level) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                        )
+                        .border(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primary,
+                            shape = CircleShape
+                        )
+                )
+            }
+        }
     }
 }
 
@@ -136,10 +188,24 @@ fun DotsOnlyForLevel(level: Int) {
         modifier = Modifier
             .wrapContentWidth()
     ) {
-        for (i in 1..level) Text(
-            "●",
-            color = MaterialTheme.colorScheme.tertiary,
-        )
+        Row {
+            for (i in 1..level) {
+                Box(
+                    modifier = Modifier
+                        .size(22.dp)
+                        .padding(2.dp)
+                        .clip(CircleShape)
+                        .background(
+                            MaterialTheme.colorScheme.tertiary
+                        )
+                        .border(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primary,
+                            shape = CircleShape
+                        )
+                )
+            }
+        }
     }
 }
 
@@ -154,15 +220,23 @@ fun DotsWithMinMax(
         modifier = Modifier
             .wrapContentWidth()
     ) {
-        for (i in 1..level) Text(
-            "●",
-            color = MaterialTheme.colorScheme.primary,
-            fontSize = 24.sp // Imposta la dimensione del font desiderata
-        )
-        for (i in level + 1..maxLevel) Text(
-            "○",
-            color = MaterialTheme.colorScheme.primary,
-            fontSize = 24.sp // Imposta la dimensione del font desiderata
-        )
+        Row {
+            for (i in 1..maxLevel) {
+                Box(
+                    modifier = Modifier
+                        .size(22.dp)
+                        .padding(2.dp)
+                        .clip(CircleShape)
+                        .background(
+                            if (i <= level) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                        )
+                        .border(
+                            width = 1.dp,
+                            color = MaterialTheme.colorScheme.primary,
+                            shape = CircleShape
+                        )
+                )
+            }
+        }
     }
 }
