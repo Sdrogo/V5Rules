@@ -18,12 +18,13 @@ class CharacterRepositoryImpl @Inject constructor(
         return characterDao.getCharacterById(id)
     }
 
-    override suspend fun saveCharacter(character: Character) {
+    override suspend fun saveCharacter(character: Character) : Int {
         if (character.id == 0) {
             characterDao.insertCharacter(character)
         } else {
             characterDao.updateCharacter(character)
         }
+        return character.id
     }
 
     override suspend fun deleteCharacter(character: Character) {

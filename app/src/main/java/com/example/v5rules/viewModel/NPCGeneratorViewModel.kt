@@ -2,33 +2,43 @@ package com.example.v5rules.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.v5rules.data.Character
 import com.example.v5rules.data.FavoriteNpc
 import com.example.v5rules.data.Gender
 import com.example.v5rules.data.NationalityNpc
 import com.example.v5rules.data.Npc
-import com.example.v5rules.data.RegenerationType
+import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.Locale
 import javax.inject.Inject
+import kotlin.text.append
+
+sealed class NpcNavigationEvent {
+    data class ToCharacterSheet(val characterId: Int) : NpcNavigationEvent()
+}
 
 @HiltViewModel
-class NPCGeneratorViewModel @Inject constructor(private val mainRepository: MainRepository) :
-    ViewModel() {
+class NPCGeneratorViewModel @Inject constructor(
+    private val mainRepository: MainRepository,
+    private val characterRepository: CharacterRepository
+) : ViewModel() {
 
     data class UiState(
         val selectedGender: Gender,
         val includeSecondName: Boolean,
         val firstGeneration: Boolean,
         val selectedNationality: String?,
-        val npc: Npc?,
-        val selectedRegenerationTypes: Set<RegenerationType>
+        val npc: Npc?
     )
 
     private val _npc_nationality_uiState = MutableStateFlow<NpcNationalityUiState>(
@@ -45,12 +55,15 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
             selectedGender = Gender.MALE,
             includeSecondName = false,
             firstGeneration = false,
-            selectedNationality = "albanese",
-            npc = null, // Inizializza npc a null
-            selectedRegenerationTypes = emptySet()
+            selectedNationality = null,
+            npc = null
         )
     )
-    val uiState: StateFlow<UiState> = _uiState
+    val uiState: StateFlow<UiState> = _uiState.asStateFlow()
+
+    private val _navigationEvent = MutableSharedFlow<NpcNavigationEvent>()
+    val navigationEvent: SharedFlow<NpcNavigationEvent> = _navigationEvent.asSharedFlow()
+
 
     init {
         fetchNpcNames()
@@ -78,7 +91,7 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
     }
 
     fun setSelectedGender(gender: Gender) {
-        _uiState.update { it.copy(selectedGender = gender) } // Usa .update e .copy
+        _uiState.update { it.copy(selectedGender = gender) }
         if (_uiState.value.firstGeneration) {
             regenerateName()
             if (_uiState.value.includeSecondName) regenerateSecondName()
@@ -86,144 +99,104 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
     }
 
     fun setIncludeSecondName(include: Boolean) {
-        _uiState.update {  // Usa .update e .copy
+        _uiState.update {
             if (!include) {
-                _uiState.value.selectedRegenerationTypes.toMutableSet().remove(RegenerationType.SECOND_NAME)
                 it.copy(
                     includeSecondName = false,
-                    npc = it.npc?.copy(secondName = null) // Crea una nuova copia dell'NPC
+                    npc = it.npc?.copy(secondName = null)
                 )
             } else {
-                if (it.firstGeneration) regenerateSecondName()
-                it.copy(includeSecondName = true) // Crea una nuova copia di UiState
+                it.copy(includeSecondName = true)
             }
+        }
+        if (include && _uiState.value.firstGeneration) {
+            regenerateSecondName()
         }
     }
 
     fun setSelectedNationality(nationality: String?) {
-        _uiState.update { // Usa .update e .copy
+        _uiState.update {
             it.copy(
                 selectedNationality = nationality,
-                npc = null, // Resetta l'NPC quando cambi nazionalità
-                firstGeneration = false // Resetta firstGeneration
+                npc = null,
+                firstGeneration = false
             )
         }
-        generateNPC()
     }
 
-    fun generateNPC() {
-        _uiState.update { currentState -> // Usa .update
-            resetFavoriteStatus() // Resetta *prima* di generare
-            val nomiCognomiMap =
-                allNamesByNationality.find { it.nationality == currentState.selectedNationality }
-            nomiCognomiMap?.let {
-                val nomiMaschili = it.nomi_maschili
-                val nomiFemminili = it.nomi_femminili
-                val cognomi = it.cognomi
-                val random = kotlin.random.Random.Default
-                val nome = if (currentState.selectedGender == Gender.MALE) {
-                    nomiMaschili.randomOrNull(random)
-                } else {
-                    nomiFemminili.randomOrNull(random)
-                }
-                val secondoNome =
-                    if (currentState.selectedGender == Gender.MALE && currentState.includeSecondName) {
-                        nomiMaschili.randomOrNull(random)
-                    } else {
-                        nomiFemminili.randomOrNull(random)
-                    }
-                val cognome = cognomi.randomOrNull(random)
-                if (!currentState.firstGeneration) {
-                    _uiState.value = currentState.copy(
-                        firstGeneration = true,
-                        npc = Npc(
-                            nome = nome.orEmpty(),
-                            secondName = if (currentState.includeSecondName) secondoNome.orEmpty() else null,
-                            cognome = cognome.orEmpty()
-                        )
-                    )
-                } else {
-                    currentState.selectedRegenerationTypes.forEach { regenerationType ->
-                        when (regenerationType) {
-                            RegenerationType.NAME -> regenerateName()
-                            RegenerationType.SECOND_NAME -> if (currentState.includeSecondName) regenerateSecondName()
-                            RegenerationType.FAMILY_NAME -> regenerateCognome()
-                            RegenerationType.ALL -> {
-                                regenerateName()
-                                regenerateCognome()
-                                if (currentState.includeSecondName) regenerateSecondName()
-                            }
-                        }
-                    }
-                }
-                currentState.copy( // Crea una *nuova* copia di UiState
-                    firstGeneration = true,
-                    npc = currentState.npc
+    fun generateAll() {
+        resetFavoriteStatus()
+        val currentState = _uiState.value
+        val namesMap = allNamesByNationality.find { it.nationality == currentState.selectedNationality } ?: return
+        val random = kotlin.random.Random.Default
+
+        val maleNames = namesMap.nomi_maschili
+        val femaleNames = namesMap.nomi_femminili
+        val familyNames = namesMap.cognomi
+
+        val newName = if (currentState.selectedGender == Gender.MALE) maleNames.randomOrNull(random) else femaleNames.randomOrNull(random)
+        val newSecondName = if (currentState.includeSecondName) {
+            if (currentState.selectedGender == Gender.MALE) maleNames.randomOrNull(random) else femaleNames.randomOrNull(random)
+        } else null
+        val newFamilyName = familyNames.randomOrNull(random)
+
+        _uiState.update {
+            it.copy(
+                firstGeneration = true,
+                npc = Npc(
+                    nome = newName.orEmpty(),
+                    secondName = newSecondName,
+                    cognome = newFamilyName.orEmpty()
                 )
-            } ?: currentState // Se nomiCognomiMap è null, restituisci lo stato corrente
+            )
         }
     }
 
-
-    private fun regenerateName() {
-        _uiState.update { currentState -> // Usa .update
-            resetFavoriteStatus()
-            val nomiCognomiMap =
-                allNamesByNationality.find { it.nationality == currentState.selectedNationality }
-            nomiCognomiMap?.let {
-                val random = kotlin.random.Random.Default
-                val nomiMaschili = it.nomi_maschili
-                val nomiFemminili = it.nomi_femminili
-                val nome = if (currentState.selectedGender == Gender.MALE) {
-                    nomiMaschili.randomOrNull(random)
-                } else {
-                    nomiFemminili.randomOrNull(random)
-                }
-
-                currentState.copy( // Crea una *nuova* copia di UiState
-                    npc = currentState.npc?.copy(nome = nome.orEmpty()) // Crea una *nuova* copia di Npc
-                )
-            } ?: currentState
+    fun regenerateName() {
+        resetFavoriteStatus()
+        val currentState = _uiState.value
+        val namesMap = allNamesByNationality.find { it.nationality == currentState.selectedNationality } ?: return
+        val random = kotlin.random.Random.Default
+        val names = if (currentState.selectedGender == Gender.MALE) namesMap.nomi_maschili else namesMap.nomi_femminili
+        _uiState.update {
+            it.copy(npc = it.npc?.copy(nome = names.randomOrNull(random).orEmpty()))
         }
     }
 
-    private fun regenerateSecondName() {
-        _uiState.update { currentState ->  // Usa .update
-            resetFavoriteStatus()
-            val nomiCognomiMap =
-                allNamesByNationality.find { it.nationality == currentState.selectedNationality }
-            nomiCognomiMap?.let {
-                val random = kotlin.random.Random.Default
-                val nomiMaschili = it.nomi_maschili
-                val nomiFemminili = it.nomi_femminili
-
-                val secondoNome = if (currentState.selectedGender == Gender.MALE) {
-                    nomiMaschili.randomOrNull(random)
-                } else {
-                    nomiFemminili.randomOrNull(random)
-                }
-                currentState.copy( // Crea una *nuova* copia di UiState
-                    npc = currentState.npc?.copy(secondName = secondoNome.orEmpty()) // Crea una *nuova* copia di Npc
-                )
-            } ?: currentState
+    fun regenerateSecondName() {
+        if (!_uiState.value.includeSecondName) return
+        resetFavoriteStatus()
+        val currentState = _uiState.value
+        val namesMap = allNamesByNationality.find { it.nationality == currentState.selectedNationality } ?: return
+        val random = kotlin.random.Random.Default
+        val names = if (currentState.selectedGender == Gender.MALE) namesMap.nomi_maschili else namesMap.nomi_femminili
+        _uiState.update {
+            it.copy(npc = it.npc?.copy(secondName = names.randomOrNull(random).orEmpty()))
         }
     }
 
-    private fun regenerateCognome() {
-        _uiState.update { currentState ->  // Usa .update
-            resetFavoriteStatus()
-            val nomiCognomiMap =
-                allNamesByNationality.find { it.nationality == currentState.selectedNationality }
-            nomiCognomiMap?.let {
-                val random = kotlin.random.Random.Default
-                val cognomi = it.cognomi
+    fun regenerateFamilyName() {
+        resetFavoriteStatus()
+        val currentState = _uiState.value
+        val namesMap = allNamesByNationality.find { it.nationality == currentState.selectedNationality } ?: return
+        val random = kotlin.random.Random.Default
+        _uiState.update {
+            it.copy(npc = it.npc?.copy(cognome = namesMap.cognomi.randomOrNull(random).orEmpty()))
+        }
+    }
 
-                val cognome = cognomi.randomOrNull(random)
-
-                currentState.copy( // Crea una *nuova* copia di UiState
-                    npc = currentState.npc?.copy(cognome = cognome.orEmpty()) // Crea una *nuova* copia di Npc
-                )
-            } ?: currentState
+    fun createCharacterFromNpc() {
+        val currentNpc = _uiState.value.npc ?: return
+        viewModelScope.launch(Dispatchers.IO) {
+            val newCharacter = Character(
+                name = buildString {
+                    append(currentNpc.nome)
+                    currentNpc.secondName?.let { append(" $it") }
+                    append(" ${currentNpc.cognome}")
+                }.trim()
+            )
+            val newId = characterRepository.saveCharacter(newCharacter)
+            _navigationEvent.emit(NpcNavigationEvent.ToCharacterSheet(newId))
         }
     }
 
@@ -269,33 +242,13 @@ class NPCGeneratorViewModel @Inject constructor(private val mainRepository: Main
         }
     }
 
-    fun toggleRegenerationType(type: RegenerationType) {
-        val currentSelection = _uiState.value.selectedRegenerationTypes.toMutableSet() // Create a mutable copy
-        if(type == RegenerationType.ALL){
-            currentSelection.remove(RegenerationType.NAME)
-            currentSelection.remove(RegenerationType.SECOND_NAME)
-            currentSelection.remove(RegenerationType.FAMILY_NAME)
-        }
-        if (currentSelection.contains(type)) {
-            currentSelection.remove(type)
-        } else {
-            if (currentSelection.contains(RegenerationType.ALL) && type != RegenerationType.ALL)
-                currentSelection.remove(RegenerationType.ALL)
-            currentSelection.add(type)
-        }
-        _uiState.update { currentState ->
-            currentState.copy(selectedRegenerationTypes = currentSelection)
-        }
-    }
-
     private fun resetFavoriteStatus() {
-        _uiState.update { currentState -> // Usa .update
-            currentState.copy(
-                npc = currentState.npc?.copy(isFavorite = false) // Crea una *nuova* copia di Npc
-            )
+        if (_uiState.value.npc?.isFavorite == true) {
+            _uiState.update { it.copy(npc = it.npc?.copy(isFavorite = false)) }
         }
     }
 }
+
 
 sealed class NpcNationalityUiState {
     object Loading : NpcNationalityUiState()

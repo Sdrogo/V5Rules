@@ -167,6 +167,17 @@
     <string name="willpower">Volontà</string>
     <string name="humanity">Umanità</string>
     <string name="vital_stats_header">Statistiche Vitali</string>
+    <string name="generate_an_npc_to_start">Genera un NPC per iniziare</string>
+    <string name="settings">Settings</string>
+    <string name="favorites_count">Preferiti %1$s</string>
+    <string name="favorites">Preferiti</string>
+    <string name="regenerate_name">Rigenera Nome</string>
+    <string name="regenerate_second_name">Rigenera Secondo Nome</string>
+    <string name="regenerate_family_name">Rigenera Cognome</string>
+    <string name="create_character">Crea Personaggio</string>
+    <string name="name">Nome</string>
+    <string name="second_name">Secondo Nome</string>
+    <string name="family_name">Cognome</string>
 
     <string-array name="abilities">
         <item>Atletica</item>
