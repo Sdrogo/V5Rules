@@ -21,7 +21,6 @@ class RulesViewModel @Inject constructor(
     val rulesUiState: StateFlow<RulesUiState> = _rulesUiState
     var allRules: List<Chapter> = emptyList()
 
-
     val currentLocale = Locale.getDefault()
 
     init {
