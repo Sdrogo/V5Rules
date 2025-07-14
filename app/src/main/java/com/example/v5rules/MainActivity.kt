@@ -26,7 +26,6 @@ import com.example.v5rules.viewModel.PredatorTypeViewModel
 import com.example.v5rules.viewModel.RulesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
