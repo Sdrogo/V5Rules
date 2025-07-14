@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -64,7 +63,7 @@ fun NPCGeneratorScreen(
     viewModel: NPCGeneratorViewModel,
     navController: NavHostController,
 ) {
-    val loadingState by viewModel.npc_nationality_uiState.collectAsState()
+    val loadingState by viewModel.nationalityState.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
     val orientation = LocalConfiguration.current.orientation
 
@@ -116,7 +115,16 @@ fun NPCGeneratorScreen(
                                         SettingsCard(viewModel = viewModel)
                                     }
                                     Column(modifier = Modifier.weight(1f)) {
-                                        Spacer(modifier = Modifier.width(16.dp))
+                                        Box(
+                                            modifier = Modifier.padding(8.dp)
+                                        ){
+                                            if (uiState.favoriteNpcs.isNotEmpty()) {
+                                                FavoritesDropdown(
+                                                    favoriteNpcs = uiState.favoriteNpcs,
+                                                    onFavoriteSelected = { viewModel.selectFavorite(it) }
+                                                )
+                                            }
+                                        }
                                         GeneratedNameSection(
                                             npc = uiState.npc,
                                             includeSecondName = uiState.includeSecondName,
@@ -125,9 +133,7 @@ fun NPCGeneratorScreen(
                                             onRegenerateFamilyName = viewModel::regenerateFamilyName,
                                             onToggleFavorite = {
                                                 uiState.npc?.let {
-                                                    viewModel.toggleFavorite(
-                                                        it
-                                                    )
+                                                    viewModel.toggleFavorite()
                                                 }
                                             }
                                         )
@@ -135,6 +141,13 @@ fun NPCGeneratorScreen(
                                 }
                             } else {
                                 Column {
+                                    if (uiState.favoriteNpcs.isNotEmpty()) {
+                                        FavoritesDropdown(
+                                            favoriteNpcs = uiState.favoriteNpcs,
+                                            onFavoriteSelected = { viewModel.selectFavorite(it) }
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.height(8.dp))
                                     SettingsCard(viewModel = viewModel)
                                     Spacer(modifier = Modifier.height(16.dp))
                                     GeneratedNameSection(
@@ -145,9 +158,7 @@ fun NPCGeneratorScreen(
                                         onRegenerateFamilyName = viewModel::regenerateFamilyName,
                                         onToggleFavorite = {
                                             uiState.npc?.let {
-                                                viewModel.toggleFavorite(
-                                                    it
-                                                )
+                                                viewModel.toggleFavorite()
                                             }
                                         }
                                     )
@@ -292,7 +303,6 @@ private fun GeneratedNameSection(
 @Composable
 private fun SettingsCard(viewModel: NPCGeneratorViewModel) {
     val uiState by viewModel.uiState.collectAsState()
-    val favoriteNpcs by viewModel.favoriteNpcs.collectAsState()
 
     OutlinedCard(modifier = Modifier.fillMaxWidth()) {
         Column(
@@ -306,13 +316,6 @@ private fun SettingsCard(viewModel: NPCGeneratorViewModel) {
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
-
-            if (favoriteNpcs.isNotEmpty()) {
-                FavoritesDropdown(
-                    favoriteNpcs = favoriteNpcs,
-                    onFavoriteSelected = { TODO() }
-                )
-            }
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,

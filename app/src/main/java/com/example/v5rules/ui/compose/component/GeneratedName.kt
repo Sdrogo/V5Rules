@@ -60,7 +60,7 @@ fun GeneratedName(
                 FavoriteHeartIcon(
                     modifier = Modifier.wrapContentSize(),
                     isFavorite = npc.isFavorite,
-                    onToggleFavorite = { viewModel.toggleFavorite(npc) }
+                    onToggleFavorite = { viewModel.toggleFavorite() }
                 )
             }
         } else {

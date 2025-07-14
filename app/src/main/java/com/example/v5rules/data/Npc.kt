@@ -1,6 +1,7 @@
 package com.example.v5rules.data
 
-import java.util.UUID
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 data class Npc(
     val nome: String,
@@ -18,18 +19,11 @@ enum class Gender {
     FEMALE
 }
 
-enum class RegenerationType {
-    NAME,
-    SECOND_NAME,
-    FAMILY_NAME,
-    ALL
-}
-
+@Entity(tableName = "favorite_npcs")
 data class FavoriteNpc(
-    val id: String = UUID.randomUUID().toString(),
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val secondName: String? = null,
     val familyName: String,
-    val nationality: String,
-    var isFavorite: Boolean = false // Inizia con cuore vuoto
+    val nationality: String
 )
