@@ -1,6 +1,5 @@
 package com.example.v5rules.ui.compose.screen.sheet
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,7 +20,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -38,11 +36,11 @@ import com.example.v5rules.viewModel.CharacterSheetViewModel
 fun CharacterSheetScreen(
     viewModel: CharacterSheetViewModel,
     navController: NavHostController,
-    id: Int? = null
+    id: String? = null
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val character = uiState.character
-    val isLandscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+    //val isLandscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
     val selectedTabIndex by viewModel.selectedTabIndex.collectAsState()
 
 

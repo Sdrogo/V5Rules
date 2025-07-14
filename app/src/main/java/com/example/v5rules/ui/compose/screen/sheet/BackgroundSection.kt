@@ -86,7 +86,7 @@ fun BackgroundSection(
                 viewModel.onEvent(
                     CharacterSheetEvent.BackgroundAdded(
                         background,
-                        background.minLevel ?: 1
+                        background.minLevel
                     )
                 )
                 scope.launch { sheetState.hide() }
@@ -268,7 +268,7 @@ fun BackgroundSection(
                 Column(modifier = Modifier.padding(16.dp)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
-                            text = stringResource(R.string.flaw),
+                            text = stringResource(R.string.flaws),
                             style = MaterialTheme.typography.headlineSmall,
                             modifier = Modifier.weight(1f) // Take up available space
                         )
@@ -285,9 +285,9 @@ fun BackgroundSection(
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    if (characterDirectFlaws.orEmpty().isNotEmpty()) {
+                    if (characterDirectFlaws.isNotEmpty()) {
                         DirectFlawsList(
-                            flaws = characterDirectFlaws.orEmpty(),
+                            flaws = characterDirectFlaws,
                             onEvent = {event -> viewModel.onEvent(event)}
                         )
                     } else {

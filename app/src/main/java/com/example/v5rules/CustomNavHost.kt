@@ -139,16 +139,16 @@ data class RulesDetailsNav(val title: String)
 data class SubRuleNav(val title: String, val section: String)
 
 @Serializable
-data class LoresheetDetailsNav(val name: String, val id: Int)
+data class LoresheetDetailsNav(val name: String, val id: String)
 
 @Serializable
-data class BackgroundDetailsNav(val name: String, val id: Int)
+data class BackgroundDetailsNav(val name: String, val id: String)
 
 @Serializable
-data class CharacterSheetEditNav(val id: Int)
+data class CharacterSheetEditNav(val id: String)
 
 @Serializable
-data class CharacterSheetVisualizationNav(val id: Int)
+data class CharacterSheetVisualizationNav(val id: String)
 
 
 @Composable
@@ -166,13 +166,8 @@ fun CustomNavHost(
     backgroundViewModel: BackgroundViewModel,
     loginViewModel: LoginViewModel,
 ) {
-    val startDestination = if (FirebaseAuth.getInstance().currentUser != null) {
-        HomeNav
-    } else {
-        LoginNav
-    }
 
-    NavHost(navController = navController, startDestination = startDestination) {
+    NavHost(navController = navController, startDestination = if (FirebaseAuth.getInstance().currentUser != null) HomeNav else  LoginNav) {
         val enterTransition = fadeIn(
             animationSpec = tween(
                 durationMillis = 500, // Duration of the animation

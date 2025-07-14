@@ -83,7 +83,7 @@ fun BackgroundSectionVisualization(
                     }
 
                     1 -> {
-                        if (characterDirectFlaws?.isNotEmpty() == true) {
+                        if (characterDirectFlaws.isNotEmpty()) {
                             Card(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -98,7 +98,7 @@ fun BackgroundSectionVisualization(
                                 Column(modifier = Modifier.padding(16.dp)) {
                                     Row(verticalAlignment = Alignment.CenterVertically) {
                                         Text(
-                                            text = stringResource(R.string.flaw),
+                                            text = stringResource(R.string.flaws),
                                             style = MaterialTheme.typography.headlineSmall,
                                             modifier = Modifier.weight(1f)
                                         )
@@ -194,7 +194,7 @@ fun BackgroundSectionVisualization(
                     }
 
                     1 -> {
-                        if (characterDirectFlaws?.isNotEmpty() == true) {
+                        if (characterDirectFlaws.isNotEmpty()) {
                             Card(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -209,7 +209,7 @@ fun BackgroundSectionVisualization(
                                 Column(modifier = Modifier.padding(16.dp)) {
                                     Row(verticalAlignment = Alignment.CenterVertically) {
                                         Text(
-                                            text = stringResource(R.string.flaw),
+                                            text = stringResource(R.string.flaws),
                                             style = MaterialTheme.typography.headlineSmall,
                                             modifier = Modifier.weight(1f)
                                         )

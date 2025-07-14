@@ -16,7 +16,6 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.R // Make sure to import your R class
 
 data class LoginUiState(
     val isLoading: Boolean = false,
@@ -32,10 +31,9 @@ class LoginViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState = _uiState.asStateFlow()
 
-    // This function builds the request for the UI to use.
     fun buildGoogleSignInRequest(serverClientId: String): GetCredentialRequest {
         val googleIdOption = GetGoogleIdOption.Builder()
-            .setFilterByAuthorizedAccounts(false) // Show all Google accounts on the device.
+            .setFilterByAuthorizedAccounts(false)
             .setServerClientId(serverClientId)
             .build()
 
@@ -48,19 +46,23 @@ class LoginViewModel @Inject constructor(
         _uiState.update { it.copy(isLoading = true, error = null) }
     }
 
-    // This function handles the result from the CredentialManager
     fun handleSignInResult(result: GetCredentialResponse) {
-        val credential = result.credential
-        if (credential is GoogleIdTokenCredential) {
-            val idToken = credential.idToken
+        try {
+            val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(result.credential.data)
+            val idToken = googleIdTokenCredential.idToken
             firebaseAuthWithGoogle(idToken)
-        } else {
-            _uiState.update { it.copy(isLoading = false, error = "Sign-in credential was not a Google ID Token.") }
+        } catch (e: Exception) {
+            _uiState.update {
+                it.copy(
+                    isLoading = false,
+                    error = "Sign-in credential was not a valid Google ID Token. ${e.message.toString()}"
+                )
+            }
         }
     }
 
     fun onSignInFailed(e: GetCredentialException) {
-        _uiState.update { it.copy(isLoading = false, error = "Google Sign-In failed: ${e.message}") }
+        _uiState.update { it.copy(isLoading = false, error = "Sign-in failed: ${e.message}") }
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {

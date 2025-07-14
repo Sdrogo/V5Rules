@@ -50,7 +50,7 @@ fun BackgroundList(
     allGameBackgrounds: List<Background>,
     onAddMeritClick: (Background) -> Unit,
     onAddFlawClick: (Background) -> Unit,
-    onEvent:(CharacterSheetEvent) -> Unit,
+    onEvent: (CharacterSheetEvent) -> Unit,
 ) {
     Column {
         backgrounds.forEach { characterBackground ->
@@ -59,7 +59,7 @@ fun BackgroundList(
                 BackgroundItem(
                     characterBackground = characterBackground,
                     gameBackground = gameBackground,
-                    onEvent = {onEvent},
+                    onEvent = onEvent,
                     onAddMeritClick = onAddMeritClick,
                     onAddFlawClick = onAddFlawClick,
                 )
@@ -80,8 +80,8 @@ fun BackgroundItem(
     var noteText by remember { mutableStateOf(characterBackground.note ?: "") }
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
-    val minLevel = gameBackground.minLevel ?: 1
-    val maxLevel = gameBackground.maxLevel ?: 5
+    val minLevel = gameBackground.minLevel
+    val maxLevel = gameBackground.maxLevel
 
     Column(
         modifier = Modifier
@@ -89,12 +89,23 @@ fun BackgroundItem(
             .padding(horizontal = 8.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = gameBackground.title, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+            Text(
+                text = gameBackground.title,
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.weight(1f)
+            )
             InteractiveBackgroundDots(
                 currentValue = characterBackground.level,
                 minValue = minLevel,
                 maxValue = maxLevel,
-                onValueChange = { newLevel -> onEvent(CharacterSheetEvent.BackgroundLevelChanged(characterBackground, newLevel)) }
+                onValueChange = { newLevel ->
+                    onEvent(
+                        CharacterSheetEvent.BackgroundLevelChanged(
+                            characterBackground,
+                            newLevel
+                        )
+                    )
+                }
             )
             Spacer(Modifier.width(8.dp))
             IconButton(
@@ -118,13 +129,25 @@ fun BackgroundItem(
         if (expanded) {
             Column(modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 8.dp)) {
                 ContentExpander(stringResource(id = R.string.discipline_description)) {
-                    Text(text = gameBackground.description, style = MaterialTheme.typography.bodySmall)
+                    Text(
+                        text = gameBackground.description,
+                        style = MaterialTheme.typography.bodySmall
+                    )
                 }
                 characterBackground.note?.let {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(text = it, modifier = Modifier.weight(1f))
-                        IconButton(onClick = { onEvent(CharacterSheetEvent.RemoveNoteToBackground(characterBackground)) }) {
-                            Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete Note")
+                        IconButton(onClick = {
+                            onEvent(
+                                CharacterSheetEvent.RemoveNoteToBackground(
+                                    characterBackground
+                                )
+                            )
+                        }) {
+                            Icon(
+                                imageVector = Icons.Default.Delete,
+                                contentDescription = "Delete Note"
+                            )
                         }
                     }
                 }
@@ -140,54 +163,126 @@ fun BackgroundItem(
                             singleLine = true,
                             trailingIcon = {
                                 IconButton(onClick = {
-                                    onEvent(CharacterSheetEvent.AddNoteToBackground(characterBackground, noteText))
+                                    onEvent(
+                                        CharacterSheetEvent.AddNoteToBackground(
+                                            characterBackground,
+                                            noteText
+                                        )
+                                    )
                                     keyboardController?.hide()
                                     focusManager.clearFocus()
                                 }) {
-                                    Icon(imageVector = Icons.AutoMirrored.Filled.Send, contentDescription = "Add Note")
+                                    Icon(
+                                        imageVector = Icons.AutoMirrored.Filled.Send,
+                                        contentDescription = "Add Note"
+                                    )
                                 }
                             }
                         )
                     }
                 }
-                if (!characterBackground.merits.isNullOrEmpty()) {
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-                    Text(stringResource(R.string.merit), style = MaterialTheme.typography.titleSmall)
-                    characterBackground.merits.forEach { merit ->
-                        BackgroundAdvantageItem(
-                            advantage = merit,
-                            isFlaw = false,
-                            onRemove = { onEvent(CharacterSheetEvent.BackgroundMeritRemoved(characterBackground, merit)) },
-                            onLevelChanged = { newLevel -> onEvent(CharacterSheetEvent.BackgroundMeritLevelChanged(characterBackground, merit.id, newLevel))},
-                                onAddNote = { note -> onEvent(CharacterSheetEvent.AddNoteToMerit(characterBackground, merit, note)) },
-                            onRemoveNote = { onEvent(CharacterSheetEvent.RemoveNoteToMerit(characterBackground, merit)) }
-                        )
-                    }
+                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+                Text(stringResource(R.string.merit), style = MaterialTheme.typography.titleSmall)
+                characterBackground.merits.forEach { merit ->
+                    BackgroundAdvantageItem(
+                        advantage = merit,
+                        isFlaw = false,
+                        onRemove = {
+                            onEvent(
+                                CharacterSheetEvent.BackgroundMeritRemoved(
+                                    characterBackground,
+                                    merit
+                                )
+                            )
+                        },
+                        onLevelChanged = { newLevel ->
+                            onEvent(
+                                CharacterSheetEvent.BackgroundMeritLevelChanged(
+                                    characterBackground,
+                                    merit.id,
+                                    newLevel
+                                )
+                            )
+                        },
+                        onAddNote = { note ->
+                            onEvent(
+                                CharacterSheetEvent.AddNoteToMerit(
+                                    characterBackground,
+                                    merit,
+                                    note
+                                )
+                            )
+                        },
+                        onRemoveNote = {
+                            onEvent(
+                                CharacterSheetEvent.RemoveNoteToMerit(
+                                    characterBackground,
+                                    merit
+                                )
+                            )
+                        }
+                    )
                 }
-                if (!characterBackground.flaws.isNullOrEmpty()) {
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-                    Text(stringResource(R.string.flaw), style = MaterialTheme.typography.titleSmall, color = MaterialTheme.colorScheme.error)
-                    characterBackground.flaws.forEach { flaw ->
-                        BackgroundAdvantageItem(
-                            advantage = flaw,
-                            isFlaw = true,
-                            onRemove = { onEvent(CharacterSheetEvent.BackgroundFlawRemoved(characterBackground, flaw)) },
-                            onLevelChanged = { newLevel -> onEvent(CharacterSheetEvent.BackgroundFlawLevelChanged(characterBackground, flaw, newLevel)) },
-                            onAddNote = { note -> onEvent(CharacterSheetEvent.AddNoteToFlaw(characterBackground, flaw, note)) },
-                            onRemoveNote = { onEvent(CharacterSheetEvent.RemoveNoteToFlaw(characterBackground, flaw)) }
-                        )
-                    }
+
+                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+                Text(
+                    stringResource(R.string.flaws),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.error
+                )
+                characterBackground.flaws.forEach { flaw ->
+                    BackgroundAdvantageItem(
+                        advantage = flaw,
+                        isFlaw = true,
+                        onRemove = {
+                            onEvent(
+                                CharacterSheetEvent.BackgroundFlawRemoved(
+                                    characterBackground,
+                                    flaw
+                                )
+                            )
+                        },
+                        onLevelChanged = { newLevel ->
+                            onEvent(
+                                CharacterSheetEvent.BackgroundFlawLevelChanged(
+                                    characterBackground,
+                                    flaw,
+                                    newLevel
+                                )
+                            )
+                        },
+                        onAddNote = { note ->
+                            onEvent(
+                                CharacterSheetEvent.AddNoteToFlaw(
+                                    characterBackground,
+                                    flaw,
+                                    note
+                                )
+                            )
+                        },
+                        onRemoveNote = {
+                            onEvent(
+                                CharacterSheetEvent.RemoveNoteToFlaw(
+                                    characterBackground,
+                                    flaw
+                                )
+                            )
+                        }
+                    )
                 }
                 Row {
-                    Button(onClick = { onAddMeritClick(characterBackground) }, modifier = Modifier.padding(end = 8.dp)) {
+                    Button(
+                        onClick = { onAddMeritClick(characterBackground) },
+                        modifier = Modifier.padding(end = 8.dp)
+                    ) {
                         Icon(imageVector = Icons.Default.Add, contentDescription = null)
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("Add Merit")
+                        Text(stringResource(R.string.merit))
                     }
                     Button(onClick = { onAddFlawClick(characterBackground) }) {
                         Icon(imageVector = Icons.Default.Add, contentDescription = null)
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("Add Flaw")
+                        Text(stringResource(R.string.flaw))
                     }
                 }
 
@@ -213,7 +308,11 @@ fun BackgroundAdvantageItem(
 
     Column(modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = advantage.title, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
+            Text(
+                text = advantage.title,
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.weight(1f)
+            )
             InteractiveAdvantageDots(
                 currentValue = advantage.level ?: 0,
                 minValue = advantage.minLevel ?: 1,
@@ -222,10 +321,17 @@ fun BackgroundAdvantageItem(
                 onValueChange = onLevelChanged
             )
             IconButton(onClick = onRemove, modifier = Modifier.size(24.dp)) {
-                Icon(imageVector = Icons.Default.Delete, contentDescription = "Remove", tint = MaterialTheme.colorScheme.error)
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = "Remove",
+                    tint = MaterialTheme.colorScheme.error
+                )
             }
             IconButton(onClick = { expanded = !expanded }, modifier = Modifier.size(24.dp)) {
-                Icon(imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown, contentDescription = "Expand")
+                Icon(
+                    imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                    contentDescription = "Expand"
+                )
             }
         }
         if (expanded) {
@@ -255,7 +361,10 @@ fun BackgroundAdvantageItem(
                             keyboardController?.hide()
                             focusManager.clearFocus()
                         }) {
-                            Icon(imageVector = Icons.AutoMirrored.Filled.Send, contentDescription = "Add Note")
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.Send,
+                                contentDescription = "Add Note"
+                            )
                         }
                     }
                 )
@@ -273,8 +382,10 @@ private fun InteractiveAdvantageDots(
     isFlaw: Boolean,
     onValueChange: (Int) -> Unit
 ) {
-    val filledColor = if (isFlaw) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.tertiary
-    val borderColor = if (isFlaw) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.primary
+    val filledColor =
+        if (isFlaw) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.tertiary
+    val borderColor =
+        if (isFlaw) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.primary
     Row {
         for (i in minValue..maxValue) {
             Box(

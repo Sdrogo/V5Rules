@@ -137,7 +137,8 @@
     <string name="add_flaw">Aggiungi Difetto</string>
     <string name="add_background">Aggiungi Background</string>
     <string name="add_merit">Aggiungi Pregio</string>
-    <string name="flaw">Difetti</string>
+    <string name="flaw">Difetto</string>
+    <string name="flaws">Difetto</string>
     <string name="background">Background</string>
     <string name="merit">Pregio</string>
     <string name="remove">Rimuovi</string>

@@ -544,7 +544,7 @@ class CharacterSheetViewModel @Inject constructor(
                                     else
                                         currentBackground.merits
                                 val updatedAdvantages =
-                                    currentAdvanges.orEmpty() + event.advantage.copy(level = event.level)
+                                    currentAdvanges + event.advantage.copy(level = event.level)
                                 val updatedBackground =
                                     if (event.advantage.isFlaw == true)
                                         currentBackground.copy(flaws = updatedAdvantages)
@@ -580,7 +580,7 @@ class CharacterSheetViewModel @Inject constructor(
                                         currentBackground.flaws
                                     else
                                         currentBackground.merits
-                                val updatedAdvantages = currentAdvanges.orEmpty() - event.advantage
+                                val updatedAdvantages = currentAdvanges - event.advantage
                                 val updatedBackground =
                                     if (event.advantage.isFlaw == true)
                                         currentBackground.copy(flaws = updatedAdvantages)
@@ -612,9 +612,9 @@ class CharacterSheetViewModel @Inject constructor(
                             if (backgroundIndex != -1) {
                                 val advantages =
                                     if (event.advantage.isFlaw == true)
-                                        backgrounds[backgroundIndex].flaws.orEmpty().toMutableList()
+                                        backgrounds[backgroundIndex].flaws.toMutableList()
                                     else
-                                        backgrounds[backgroundIndex].merits.orEmpty()
+                                        backgrounds[backgroundIndex].merits
                                             .toMutableList()
                                 val updatedVantage =
                                     advantages.find {
@@ -654,7 +654,7 @@ class CharacterSheetViewModel @Inject constructor(
                                 val currentBackground = backgrounds[backgroundIndex]
                                 val currentAdvanges = currentBackground.flaws
                                 val updatedAdvantages =
-                                    currentAdvanges.orEmpty() + event.advantage.copy(level = event.level)
+                                    currentAdvanges+ event.advantage.copy(level = event.level)
                                 val updatedBackground =
                                     currentBackground.copy(flaws = updatedAdvantages)
                                 backgrounds[backgroundIndex] = updatedBackground
@@ -679,7 +679,7 @@ class CharacterSheetViewModel @Inject constructor(
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
                                     val newMerit = event.merit.copy(level = event.level)
-                                    bg.copy(merits = (bg.merits ?: emptyList()) + newMerit)
+                                    bg.copy(merits = (bg.merits) + newMerit)
                                 } else
                                     bg
                             }
@@ -691,7 +691,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    bg.copy(merits = bg.merits?.filterNot { it.id == event.merit.id })
+                                    bg.copy(merits = bg.merits.filterNot { it.id == event.merit.id })
                                 } else {
                                     bg
                                 }
@@ -704,7 +704,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val updatedMerits = bg.merits?.map { merit ->
+                                    val updatedMerits = bg.merits.map { merit ->
                                         if (merit.id == event.meritId) {
                                             merit.copy(level = event.newLevel)
                                         } else {
@@ -725,7 +725,7 @@ class CharacterSheetViewModel @Inject constructor(
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
                                     val newFlaw = event.flaw.copy(level = event.level)
-                                    bg.copy(flaws = (bg.flaws ?: emptyList()) + newFlaw)
+                                    bg.copy(flaws = (bg.flaws) + newFlaw)
                                 } else {
                                     bg
                                 }
@@ -738,7 +738,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    bg.copy(flaws = bg.flaws?.filterNot { it.id == event.flaw.id })
+                                    bg.copy(flaws = bg.flaws.filterNot { it.id == event.flaw.id })
                                 } else {
                                     bg
                                 }
@@ -751,7 +751,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val updatedFlaws = bg.flaws?.map { flaw ->
+                                    val updatedFlaws = bg.flaws.map { flaw ->
                                         if (flaw.identifier == event.flaw.identifier) {
                                             flaw.copy(level = event.newLevel)
                                         } else {
@@ -773,7 +773,7 @@ class CharacterSheetViewModel @Inject constructor(
                                 identifier = UUID.randomUUID().toString(),
                                 level = event.level
                             )
-                            val updatedDirectFlaws = currentState.character.directFlaws?.plus(
+                            val updatedDirectFlaws = currentState.character.directFlaws.plus(
                                 newDirectFlaw
                             )
                             currentState.copy(character = currentState.character.copy(directFlaws = updatedDirectFlaws))
@@ -783,7 +783,7 @@ class CharacterSheetViewModel @Inject constructor(
                     is CharacterSheetEvent.CharacterDirectFlawRemoved -> {
                         _uiState.update { currentState ->
                             val updatedDirectFlaws =
-                                currentState.character.directFlaws?.filterNot { it.identifier == event.directFlaw.identifier }
+                                currentState.character.directFlaws.filterNot { it.identifier == event.directFlaw.identifier }
                             currentState.copy(character = currentState.character.copy(directFlaws = updatedDirectFlaws))
                         }
                     }
@@ -791,7 +791,7 @@ class CharacterSheetViewModel @Inject constructor(
                     is CharacterSheetEvent.CharacterDirectFlawLevelChanged -> {
                         _uiState.update { currentState ->
                             val updatedDirectFlaws =
-                                currentState.character.directFlaws?.map { directFlaw ->
+                                currentState.character.directFlaws.map { directFlaw ->
                                     if (directFlaw.identifier == event.directFlaw.identifier) {
                                         directFlaw.copy(level = event.newLevel)
                                     } else {
@@ -811,7 +811,7 @@ class CharacterSheetViewModel @Inject constructor(
                             if (backgroundIndex != -1) {
                                 val currentBackground = backgrounds[backgroundIndex]
                                 val currentAdvanges = currentBackground.merits
-                                val updatedAdvantages = currentAdvanges.orEmpty() - event.advantage
+                                val updatedAdvantages = currentAdvanges - event.advantage
                                 val updatedBackground =
                                     currentBackground.copy(merits = updatedAdvantages)
                                 backgrounds[backgroundIndex] = updatedBackground
@@ -839,9 +839,9 @@ class CharacterSheetViewModel @Inject constructor(
                                 backgrounds.indexOfFirst { it.title == event.background.title }
                             if (backgroundIndex != -1) {
                                 val advantages =
-                                    backgrounds[backgroundIndex].merits.orEmpty().toMutableList()
+                                    backgrounds[backgroundIndex].merits.toMutableList()
                                 val updatedVantage =
-                                    backgrounds[backgroundIndex].merits.orEmpty().find {
+                                    backgrounds[backgroundIndex].merits.find {
                                         it.id == event.advantage.id
                                     }?.copy(level = event.level)
                                 if (updatedVantage != null) {
@@ -882,7 +882,7 @@ class CharacterSheetViewModel @Inject constructor(
                     is CharacterSheetEvent.AddNoteToDirectFlaw -> {
                         _uiState.update { currentState ->
                             val updatedFlaws =
-                                currentState.character.directFlaws?.map { background ->
+                                currentState.character.directFlaws.map { background ->
                                     if (background.identifier == event.advantage.identifier) {
                                         background.copy(note = event.note)
                                     } else {
@@ -897,7 +897,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val updatedFlaws = bg.flaws?.map { flaw ->
+                                    val updatedFlaws = bg.flaws.map { flaw ->
                                         if (flaw.identifier == event.flaw.identifier) {
                                             flaw.copy(note = event.note)
                                         } else {
@@ -917,7 +917,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val updatedMerits = bg.merits?.map { merit ->
+                                    val updatedMerits = bg.merits.map { merit ->
                                         if (merit.identifier == event.merit.identifier) {
                                             merit.copy(note = event.note)
                                         } else {
@@ -937,7 +937,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val updatedFlaws = bg.flaws?.map { flaw ->
+                                    val updatedFlaws = bg.flaws.map { flaw ->
                                         if (flaw.identifier == event.flaw.identifier) {
                                             flaw.copy(note = event.note)
                                         } else {
@@ -956,7 +956,7 @@ class CharacterSheetViewModel @Inject constructor(
                     is CharacterSheetEvent.RemoveNoteToDirectFlaw -> {
                         _uiState.update { currentState ->
                             val updatedFlaws =
-                                currentState.character.directFlaws?.map { background ->
+                                currentState.character.directFlaws.map { background ->
                                     if (background.identifier == event.advantage.identifier) {
                                         background.copy(note = null)
                                     } else {
@@ -984,7 +984,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val updatedFlaws = bg.flaws?.map { flaw ->
+                                    val updatedFlaws = bg.flaws.map { flaw ->
                                         if (flaw.identifier == event.flaw.identifier) {
                                             flaw.copy(note = null)
                                         } else {
@@ -1004,7 +1004,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val updatedMerits = bg.merits?.map { merit ->
+                                    val updatedMerits = bg.merits.map { merit ->
                                         if (merit.identifier == event.merit.identifier) {
                                             merit.copy(note = null)
                                         } else {
@@ -1055,7 +1055,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val updatedFlaws = bg.flaws?.map { flaw ->
+                                    val updatedFlaws = bg.flaws.map { flaw ->
                                         if (flaw.identifier == event.flaw.identifier) {
                                             flaw.copy(note = null)
                                         } else {
@@ -1087,7 +1087,7 @@ class CharacterSheetViewModel @Inject constructor(
                     mainRepository.loadBackground(Locale.getDefault())
                         .sortedBy { it.title }
                 _directFlaws.value =
-                    _backgrounds.value.flatMap { it.directFlaws.orEmpty() }
+                    _backgrounds.value.flatMap { it.directFlaws }
                         .sortedBy { it.title }
 
                 _uiState.update { it.copy(isLoading = false) }
@@ -1097,7 +1097,7 @@ class CharacterSheetViewModel @Inject constructor(
         }
     }
 
-    fun setCharacter(id: Int) {
+    fun setCharacter(id: String) {
         _uiState.update { it.copy(isLoading = true) }
         viewModelScope.launch {
             try {
