@@ -53,14 +53,12 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
     val uiState by viewModel.uiState.collectAsState()
     val clans by viewModel.clans.collectAsState()
     val predatorType by viewModel.predator.collectAsState()
-    // var generation by remember { mutableFloatStateOf((character.generation?: 12.0).toFloat()) } // Rimosso
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current
 
-    // Nuove variabili per la gestione del Dropdown della Generazione
     var generationExpanded by remember { mutableStateOf(false) }
-    val generations = remember { (1..16).toList() } // Lista di numeri da 1 a 16
+    val generations = remember { (1..16).toList() }
 
     LazyColumn(
         modifier = Modifier
@@ -273,8 +271,6 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                             )
                         }
                     }
-                    // *** FINE NUOVO DROPDOWN ***
-
 
                     // Sire
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),

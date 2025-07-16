@@ -23,6 +23,13 @@ import java.util.Locale
 import java.util.UUID
 import javax.inject.Inject
 
+sealed class DialogState {
+    data object None : DialogState()
+    data object ShowSaveConfirmation : DialogState()
+    data object ShowCleanupConfirmation : DialogState()
+    data object ShowDeleteConfirmation : DialogState()
+}
+
 @HiltViewModel
 class CharacterSheetViewModel @Inject constructor(
     private val mainRepository: MainRepository,
@@ -36,7 +43,7 @@ class CharacterSheetViewModel @Inject constructor(
         val isSaving: Boolean = false,
         val error: String? = null,
         val message: String = "",
-        val selectedTab: Int = 0
+        val dialogState: DialogState = DialogState.None
     )
 
     private val _uiState = MutableStateFlow(CharacterSheetState())
@@ -62,6 +69,22 @@ class CharacterSheetViewModel @Inject constructor(
         viewModelScope.launch {
             eventChannel.consumeAsFlow().collect { event ->
                 when (event) {
+                    is CharacterSheetEvent.ConfirmSave -> {
+                        saveSheet()
+                        _uiState.update { it.copy(dialogState = DialogState.None) }
+                    }
+                    is CharacterSheetEvent.ConfirmCleanup -> {
+                        cleanupSheet()
+                        _uiState.update { it.copy(dialogState = DialogState.None) }
+                    }
+                    is CharacterSheetEvent.ConfirmDelete -> {
+                        deleteSheet()
+                        _uiState.update { it.copy(dialogState = DialogState.None) }
+                    }
+                    is CharacterSheetEvent.ShowSaveConfirmation -> _uiState.update { it.copy(dialogState = DialogState.ShowSaveConfirmation) }
+                    is CharacterSheetEvent.ShowCleanupConfirmation -> _uiState.update { it.copy(dialogState = DialogState.ShowCleanupConfirmation) }
+                    is CharacterSheetEvent.ShowDeleteConfirmation -> _uiState.update { it.copy(dialogState = DialogState.ShowDeleteConfirmation) }
+                    is CharacterSheetEvent.DismissDialog -> _uiState.update { it.copy(dialogState = DialogState.None) }
                     is CharacterSheetEvent.SaveClicked -> saveSheet()
                     is CharacterSheetEvent.DeleteClicked -> deleteSheet()
                     is CharacterSheetEvent.CleanupClicked -> cleanupSheet()

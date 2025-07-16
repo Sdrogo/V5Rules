@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -15,6 +16,7 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRowDefaults.SecondaryIndicator
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -31,6 +33,7 @@ import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
+import com.example.v5rules.viewModel.DialogState
 
 @Composable
 fun CharacterSheetScreen(
@@ -42,6 +45,23 @@ fun CharacterSheetScreen(
     val character = uiState.character
     //val isLandscape = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
     val selectedTabIndex by viewModel.selectedTabIndex.collectAsState()
+
+
+    // Handle showing the confirmation dialog
+    if (uiState.dialogState != DialogState.None) {
+        ConfirmationDialog(
+            dialogState = uiState.dialogState,
+            onConfirm = {
+                when (uiState.dialogState) {
+                    is DialogState.ShowSaveConfirmation -> viewModel.onEvent(CharacterSheetEvent.ConfirmSave)
+                    is DialogState.ShowCleanupConfirmation -> viewModel.onEvent(CharacterSheetEvent.ConfirmCleanup)
+                    is DialogState.ShowDeleteConfirmation -> viewModel.onEvent(CharacterSheetEvent.ConfirmDelete)
+                    else -> {}
+                }
+            },
+            onDismiss = { viewModel.onEvent(CharacterSheetEvent.DismissDialog) }
+        )
+    }
 
 
     LaunchedEffect(key1 = id) {
@@ -132,7 +152,7 @@ fun CharacterSheetScreen(
                 .padding(horizontal = 16.dp, vertical = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Button(
-                    onClick = { viewModel.onEvent(CharacterSheetEvent.SaveClicked) },
+                    onClick = { viewModel.onEvent(CharacterSheetEvent.ShowSaveConfirmation) },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.tertiary,
                         contentColor = MaterialTheme.colorScheme.secondary
@@ -141,7 +161,7 @@ fun CharacterSheetScreen(
                     Text("Save")
                 }
                 Button(
-                    onClick = { viewModel.onEvent(CharacterSheetEvent.CleanupClicked) },
+                    onClick = { viewModel.onEvent(CharacterSheetEvent.ShowCleanupConfirmation) },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.tertiary,
                         contentColor = MaterialTheme.colorScheme.secondary
@@ -150,7 +170,7 @@ fun CharacterSheetScreen(
                     Text("Cleanup")
                 }
                 Button(
-                    onClick = { viewModel.onEvent(CharacterSheetEvent.DeleteClicked) },
+                    onClick = { viewModel.onEvent(CharacterSheetEvent.ShowDeleteConfirmation) },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.tertiary,
                         contentColor = MaterialTheme.colorScheme.secondary
@@ -161,4 +181,47 @@ fun CharacterSheetScreen(
             }
         }
     }
+}
+
+
+@Composable
+fun ConfirmationDialog(
+    dialogState: DialogState,
+    onConfirm: () -> Unit,
+    onDismiss: () -> Unit
+) {
+    val title: String
+    val text: String
+
+    when (dialogState) {
+        is DialogState.ShowSaveConfirmation -> {
+            title = "Confirm Save"
+            text = "Are you sure you want to save the changes?"
+        }
+        is DialogState.ShowCleanupConfirmation -> {
+            title = "Confirm Cleanup"
+            text = "Are you sure you want to clear all fields? This action cannot be undone."
+        }
+        is DialogState.ShowDeleteConfirmation -> {
+            title = "Confirm Deletion"
+            text = "Are you sure you want to permanently delete this character?"
+        }
+        else -> return
+    }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(text = title) },
+        text = { Text(text = text) },
+        confirmButton = {
+            TextButton(onClick = onConfirm) {
+                Text("Confirm")
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text("Cancel")
+            }
+        }
+    )
 }

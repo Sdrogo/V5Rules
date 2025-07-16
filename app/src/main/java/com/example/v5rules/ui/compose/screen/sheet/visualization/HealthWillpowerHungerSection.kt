@@ -67,7 +67,7 @@ fun HealthWillpowerHungerSection(
                 style = MaterialTheme.typography.titleMedium
             )
             HungerDisplay(
-                currentHunger = (character.hunger ?: 0),
+                currentHunger = (character.hunger),
                 onHungerChange = { newHunger ->
                     onEvent(CharacterSheetEvent.HungerChanged(newHunger))
                 }
