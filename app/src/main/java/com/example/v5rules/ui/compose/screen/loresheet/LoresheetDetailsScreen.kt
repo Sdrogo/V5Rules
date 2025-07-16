@@ -70,13 +70,15 @@ fun LoresheetDetailsScreen(
                     horizontalArrangement = Arrangement.SpaceAround,
                     maxItemsInEachRow = maxRowItem
                 ) {
-                    Text(
-                        text = loresheet.limitation,
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.tertiary,
-                        modifier = Modifier.wrapContentSize()
-                    )
+                    loresheet.limitation?.let { text ->
+                        Text(
+                            text = text,
+                            style = MaterialTheme.typography.headlineSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.tertiary,
+                            modifier = Modifier.wrapContentSize()
+                        )
+                    }
                     Surface(
                         modifier = Modifier
                             .padding(8.dp)

@@ -21,13 +21,10 @@ import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -56,10 +53,14 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
     val uiState by viewModel.uiState.collectAsState()
     val clans by viewModel.clans.collectAsState()
     val predatorType by viewModel.predator.collectAsState()
-    var generation by remember { mutableFloatStateOf((character.generation?: 12.0).toFloat()) }
+    // var generation by remember { mutableFloatStateOf((character.generation?: 12.0).toFloat()) } // Rimosso
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current
+
+    // Nuove variabili per la gestione del Dropdown della Generazione
+    var generationExpanded by remember { mutableStateOf(false) }
+    val generations = remember { (1..16).toList() } // Lista di numeri da 1 a 16
 
     LazyColumn(
         modifier = Modifier
@@ -215,31 +216,66 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                         }
                     }
 
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.padding(8.dp)
+                    // *** NUOVO DROPDOWN PER LA GENERAZIONE ***
+                    ExposedDropdownMenuBox(
+                        expanded = generationExpanded,
+                        onExpandedChange = {
+                            generationExpanded = !generationExpanded
+                            if (generationExpanded) {
+                                focusRequester.requestFocus()
+                            } else {
+                                focusManager.clearFocus()
+                            }
+                        }
                     ) {
-                        Text(
-                            stringResource(R.string.character_screen_generation),
-                            style = MaterialTheme.typography.bodyMedium
+                        val selectedGeneration = character.generation
+                        OutlinedTextField(
+                            value = selectedGeneration.toString().plus("°"),
+                            onValueChange = {},
+                            readOnly = true,
+                            label = { Text(stringResource(R.string.character_screen_generation)) },
+                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = generationExpanded) },
+                            colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
+                            modifier = Modifier
+                                .menuAnchor()
+                                .fillMaxWidth()
+                                .focusRequester(focusRequester)
+                                .onKeyEvent {
+                                    if (it.key == Key.Escape) {
+                                        generationExpanded = false
+                                        true
+                                    } else {
+                                        false
+                                    }
+                                },
+                            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                            keyboardActions = KeyboardActions(
+                                onDone = {
+                                    keyboardController?.hide()
+                                    focusManager.clearFocus()
+                                }
+                            )
                         )
-                        Spacer(Modifier.weight(0.7f))
-                        Text("${generation.toInt()}°")
                     }
-                    Slider(
-                        value = generation,
-                        onValueChange = { newValue ->
-                            generation = newValue
-                            viewModel.onEvent(CharacterSheetEvent.GenerationChanged(newValue.toInt()))
-                        },
-                        valueRange = 1f..16f,
-                        steps = 14,
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = SliderDefaults.colors(
-                            activeTrackColor = MaterialTheme.colorScheme.tertiary, // Colore della parte piena
-                        )
-                    )
+                    DropdownMenu(
+                        expanded = generationExpanded,
+                        onDismissRequest = { generationExpanded = false },
+                        modifier = Modifier
+                            .focusable(false)
+                            .align(Alignment.Start)
+
+                    ) {
+                        generations.forEach { gen ->
+                            DropdownMenuItem(onClick = {
+                                viewModel.onEvent(CharacterSheetEvent.GenerationChanged(gen))
+                                generationExpanded = false
+                            }, text = { Text(gen.toString()) }
+                            )
+                        }
+                    }
+                    // *** FINE NUOVO DROPDOWN ***
+
+
                     // Sire
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
                         value = character.sire,

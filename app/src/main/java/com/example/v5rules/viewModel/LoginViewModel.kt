@@ -16,11 +16,13 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.delay
 
 data class LoginUiState(
     val isLoading: Boolean = false,
     val error: String? = null,
-    val isSuccess: Boolean = false
+    val isSuccess: Boolean = false,
+    val isLoggedOut: Boolean = false
 )
 
 @HiltViewModel
@@ -72,8 +74,26 @@ class LoginViewModel @Inject constructor(
                 firebaseAuth.signInWithCredential(credential).await()
                 _uiState.update { it.copy(isLoading = false, isSuccess = true) }
             } catch (e: Exception) {
-                _uiState.update { it.copy(isLoading = false, error = "Firebase Auth failed: ${e.message}") }
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        error = "Firebase Auth failed: ${e.message}"
+                    )
+                }
             }
         }
+    }
+
+    fun signOut() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true, isLoggedOut = false) }
+            firebaseAuth.signOut()
+            delay(500)
+            _uiState.update { it.copy(isLoading = false, isLoggedOut = true) }
+        }
+    }
+
+    fun onLogoutNavigated() {
+        _uiState.update { it.copy(isLoggedOut = false) }
     }
 }

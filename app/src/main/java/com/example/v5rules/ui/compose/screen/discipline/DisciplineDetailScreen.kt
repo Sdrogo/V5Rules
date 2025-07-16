@@ -113,10 +113,10 @@ fun DisciplineDetailScreen(
                     }
                 }
                 item {
-                    if (!discipline.rituals.isNullOrEmpty()) RitualInfo(disciplineId = disciplineId)
+                    if (discipline.rituals.isNotEmpty()) RitualInfo(disciplineId = disciplineId)
                 }
                 item {
-                    discipline.rituals?.let { ritualsList ->
+                    discipline.rituals.let { ritualsList ->
                         FlowRow(
                             modifier = Modifier
                                 .fillMaxSize()

@@ -66,7 +66,7 @@ fun BackgroundItemVisualization(
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.weight(1f)
                 )
-                if(characterBackground.maxLevel != null && characterBackground.maxLevel != 0){
+                if(characterBackground.maxLevel != 0){
                     DotsWithMinMax(
                         level = (characterBackground.level),
                         maxLevel = (characterBackground.maxLevel)
@@ -94,10 +94,10 @@ fun BackgroundItemVisualization(
                     style = MaterialTheme.typography.bodySmall
                 )
             }
-            characterBackground.merits?.forEach { merit ->
+            characterBackground.merits.forEach { merit ->
                 AdvantageDisplayItemVisualization(advantage = merit)
             }
-            characterBackground.flaws?.forEach { flaw ->
+            characterBackground.flaws.forEach { flaw ->
                 AdvantageDisplayItemVisualization(advantage = flaw)
             }
             Spacer(modifier = Modifier.height(8.dp))

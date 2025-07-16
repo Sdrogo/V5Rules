@@ -155,7 +155,7 @@ fun BackgroundLineItem(background: Background, navController: NavHostController,
                 )
             }
         }
-        background.directFlaws?.forEach { flaw ->
+        background.directFlaws.forEach { flaw ->
             Column(modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 8.dp)

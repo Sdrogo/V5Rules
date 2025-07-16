@@ -14,5 +14,5 @@ data class Paragraph(
     val title: String = "",
     val content: String = "",
     val table: Table? = null,
-    val subParagraphs: List<Paragraph> = emptyList(),
+    val subParagraphs: List<Paragraph>? = emptyList(),
 )

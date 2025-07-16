@@ -95,7 +95,7 @@ fun ClanDetail(
                 )
             }
         }
-        items(clan.paragraphs.orEmpty()) {
+        items(clan.paragraphs) {
             ContentExpander(
                 title = it.title,
                 style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
@@ -111,25 +111,23 @@ fun ClanDetail(
                         fontSize = 16.sp,
                         modifier = Modifier.padding(horizontal = 16.dp)
                     )
-                    if (it.subParagraphs != null) {
-                        it.subParagraphs.let { sub ->
-                            sub.forEach { subItem ->
-                                ContentExpander(
-                                    title = subItem.title,
-                                    style = MaterialTheme.typography.headlineSmall,
-                                    fontWeight = FontWeight.Bold
-                                ) {
-                                    Text(
-                                        text = AnnotatedString(
-                                            subItem.content,
-                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                        ),
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        color = MaterialTheme.colorScheme.primary,
-                                        fontSize = 16.sp,
-                                        modifier = Modifier.padding(horizontal = 16.dp)
-                                    )
-                                }
+                    it.subParagraphs.let { sub ->
+                        sub?.forEach { subItem ->
+                            ContentExpander(
+                                title = subItem.title,
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold
+                            ) {
+                                Text(
+                                    text = AnnotatedString(
+                                        subItem.content,
+                                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                    ),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    fontSize = 16.sp,
+                                    modifier = Modifier.padding(horizontal = 16.dp)
+                                )
                             }
                         }
                     }
@@ -166,7 +164,7 @@ fun ClanDetail(
             }
         }
         item {
-            clan.weakness?.let {
+            clan.weakness.let {
                 ContentExpander(
                     title = stringResource(id = R.string.clan_weakness),
                     style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
@@ -184,7 +182,7 @@ fun ClanDetail(
                 }
             }
         }
-        items(clan.compulsion.orEmpty()) {
+        items(clan.compulsion) {
             ContentExpander(
                 title = stringResource(id = R.string.clan_compulsion, it.name),
                 style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold

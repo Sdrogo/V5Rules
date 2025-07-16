@@ -68,7 +68,7 @@ fun KindredDetailsScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                         ) {
-                            if (section.subParagraphs != null) {
+                            if (section.subParagraphs?.isNotEmpty() == true) {
                                 Text(
                                     text = section.title,
                                     style = MaterialTheme.typography.headlineSmall,

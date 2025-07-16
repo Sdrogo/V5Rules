@@ -42,6 +42,7 @@ import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetListScreen
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetScreen
 import com.example.v5rules.ui.compose.screen.sheet.visualization.CharacterSheetScreenVisualization
+import com.example.v5rules.ui.compose.screen.user.UserProfileScreen
 import com.example.v5rules.viewModel.BackgroundViewModel
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
@@ -98,6 +99,9 @@ object CharacterSheetListNav
 
 @Serializable
 object CharacterSheetCreationNav
+
+@Serializable
+object UserProfileNav
 
 @Serializable
 data class DisciplineDetailsNav(val disciplineId: String)
@@ -167,12 +171,12 @@ fun CustomNavHost(
     loginViewModel: LoginViewModel,
 ) {
 
-    NavHost(navController = navController, startDestination = if (FirebaseAuth.getInstance().currentUser != null) HomeNav else  LoginNav) {
+    NavHost(navController = navController, startDestination = if (FirebaseAuth.getInstance().currentUser != null) HomeNav else LoginNav) {
         val enterTransition = fadeIn(
             animationSpec = tween(
-                durationMillis = 500, // Duration of the animation
-                delayMillis = 100, // Delay before the animation starts
-                easing = LinearOutSlowInEasing // Easing curve for the animation
+                durationMillis = 500,
+                delayMillis = 100,
+                easing = LinearOutSlowInEasing
             ),
             initialAlpha = 0.0f
         )
@@ -437,6 +441,7 @@ fun CustomNavHost(
                 loresheetViewModel = loresheetViewModel,
                 navController = navController
             )
+
         }
         composable<CharacterSheetCreationNav>(
             enterTransition = { enterTransition },
@@ -472,6 +477,13 @@ fun CustomNavHost(
             CharacterSheetListScreen(
                 navController = navController
             )
+        }
+
+        composable<UserProfileNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ) {
+            UserProfileScreen(navController = navController)
         }
     }
 }
