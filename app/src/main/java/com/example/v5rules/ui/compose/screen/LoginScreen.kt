@@ -58,42 +58,46 @@ fun LoginScreen(
     LaunchedEffect(Unit) {
         onTitleChanged(title)
     }
+
     Box(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
-        Column {
+        Row(
+            modifier = Modifier.align(Alignment.TopCenter),
+        ) {
             TintedImage(
                 R.drawable.logo_v5,
                 animatedRed,
-                300.dp
+                300.dp,
             )
-            if (uiState.isLoading) {
-                CircularProgressIndicator()
-            } else {
-                Button(onClick = {
-                    scope.launch {
-                        viewModel.onSignInStarted()
-                        try {
-                            val serverClientId = context.getString(R.string.default_web_client_id)
-                            val request = viewModel.buildGoogleSignInRequest(serverClientId)
-                            val result = credentialManager.getCredential(
-                                context = context,
-                                request = request
-                            )
-                            viewModel.handleSignInResult(result)
-                        } catch (e: GetCredentialException) {
-                            viewModel.onSignInFailed(e)
-                        }
-                    }
-                }) {
-                    // You can add the Google logo here as an Icon
-                    Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
-                    Text("Sign in with Google")
-                }
-            }
-        }
         }
 
+        if (uiState.isLoading) {
+            CircularProgressIndicator()
+        } else {
+            Button(onClick = {
+                scope.launch {
+                    viewModel.onSignInStarted()
+                    try {
+                        val serverClientId = context.getString(R.string.default_web_client_id)
+                        val request = viewModel.buildGoogleSignInRequest(serverClientId)
+                        val result = credentialManager.getCredential(
+                            context = context,
+                            request = request
+                        )
+                        viewModel.handleSignInResult(result)
+                    } catch (e: GetCredentialException) {
+                        viewModel.onSignInFailed(e)
+                    }
+                }
+            }) {
+                // You can add the Google logo here as an Icon
+                Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
+                Text("Sign in with Google")
+            }
+        }
+    }
 }
