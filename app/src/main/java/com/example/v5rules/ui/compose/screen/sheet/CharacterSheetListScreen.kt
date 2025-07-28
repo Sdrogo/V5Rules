@@ -30,6 +30,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -44,7 +45,6 @@ import com.example.v5rules.CharacterSheetCreationNav
 import com.example.v5rules.R
 import com.example.v5rules.data.Character
 import com.example.v5rules.ui.compose.component.ClanImage
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.viewModel.CharacterSheetListViewModel
 import com.example.v5rules.CharacterSheetEditNav
 import com.example.v5rules.CharacterSheetVisualizationNav
@@ -53,50 +53,53 @@ import com.example.v5rules.CharacterSheetVisualizationNav
 @Composable
 fun CharacterSheetListScreen(
     navController: NavHostController,
-    viewModel: CharacterSheetListViewModel = hiltViewModel()
+    viewModel: CharacterSheetListViewModel = hiltViewModel(),
+    onTitleChanged: (String) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
-
-    Box(modifier = Modifier
-        .fillMaxSize()
+    val title = stringResource(R.string.character_list_title)
+    LaunchedEffect(Unit) {
+        onTitleChanged(title)
+    }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
     )
     {
-        CommonScaffold(
-            navController = navController,
-            title = stringResource(R.string.character_list_title)
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            contentAlignment = Alignment.Center
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                if (uiState.isLoading) {
-                    CircularProgressIndicator()
-                } else if (uiState.error != null) {
-                    Text(text = stringResource(R.string.error_loading_data, uiState.error ?: ""))
-                } else if (uiState.characterList.isEmpty()) {
-                    Text(text = stringResource(R.string.no_characters_found_create_new))
-                } else {
-                    CharacterList(
-                        characters = uiState.characterList,
-                        navController = navController
-                    )
-                }
+            if (uiState.isLoading) {
+                CircularProgressIndicator()
+            } else if (uiState.error != null) {
+                Text(text = stringResource(R.string.error_loading_data, uiState.error ?: ""))
+            } else if (uiState.characterList.isEmpty()) {
+                Text(text = stringResource(R.string.no_characters_found_create_new))
+            } else {
+                CharacterList(
+                    characters = uiState.characterList,
+                    navController = navController
+                )
             }
         }
         FloatingActionButton(
             onClick = { navController.navigate(CharacterSheetCreationNav) },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
-                .padding(end = 16.dp, bottom = 56.dp)
-            ,
+                .padding(end = 16.dp, bottom = 56.dp),
             shape = CircleShape,
             containerColor = MaterialTheme.colorScheme.tertiary,
             elevation = FloatingActionButtonDefaults.elevation(),
             interactionSource = remember { MutableInteractionSource() }
         ) {
-            Icon(Icons.Filled.Add, tint = MaterialTheme.colorScheme.onTertiary,   contentDescription = stringResource(R.string.create_new_sheet))
+            Icon(
+                Icons.Filled.Add,
+                tint = MaterialTheme.colorScheme.onTertiary,
+                contentDescription = stringResource(R.string.create_new_sheet)
+            )
         }
     }
 }
@@ -133,7 +136,7 @@ fun CharacterCard(character: Character, navController: NavHostController) {
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(8.dp),
     ) {
-        Box (modifier = Modifier.background(MaterialTheme.colorScheme.secondary)) {
+        Box(modifier = Modifier.background(MaterialTheme.colorScheme.secondary)) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()

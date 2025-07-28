@@ -1,0 +1,28 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Regola per la collezione 'users'
+    // - Chiunque sia autenticato può LEGGERE i dati degli utenti (per permettere la ricerca via email).
+    // - Solo il proprietario del documento può SCRIVERE i propri dati.
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth.uid == userId;
+
+      // La TUA regola originale per le sotto-collezioni. È corretta e la manteniamo.
+      // Un utente può leggere/scrivere qualsiasi cosa DENTRO il proprio documento.
+      match /{document=**} {
+        allow read, write: if request.auth.uid == userId;
+      }
+    }
+
+    // Regola per la collezione 'friend_requests'
+    // - CREAZIONE: Un utente può creare una richiesta solo se il senderId è il suo.
+    // - LETTURA/AGGIORNAMENTO/CANCELLAZIONE: Permesso solo al mittente o al destinatario.
+    match /friend_requests/{requestId} {
+      allow create: if request.auth.uid == request.resource.data.senderId;
+      allow read, update, delete: if request.auth.uid == resource.data.senderId || request.auth.uid == resource.data.recipientId;
+    }
+  }
+}

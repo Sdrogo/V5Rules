@@ -158,6 +158,8 @@ data class CharacterSheetVisualizationNav(val id: String)
 @Composable
 fun CustomNavHost(
     navController: NavHostController,
+    startDestination: Any,
+    onTitleChanged: (String) -> Unit,
     disciplineViewModel: DisciplineViewModel,
     clanViewModel: ClanViewModel,
     predatorTypeViewModel: PredatorTypeViewModel,
@@ -171,7 +173,7 @@ fun CustomNavHost(
     loginViewModel: LoginViewModel,
 ) {
 
-    NavHost(navController = navController, startDestination = if (FirebaseAuth.getInstance().currentUser != null) HomeNav else LoginNav) {
+    NavHost(navController = navController, startDestination = startDestination) {
         val enterTransition = fadeIn(
             animationSpec = tween(
                 durationMillis = 500,
@@ -189,17 +191,11 @@ fun CustomNavHost(
             targetAlpha = 1f
         )
 
-        composable<HomeNav>(
-            enterTransition = { enterTransition },
-            exitTransition = { exitTransition }
-        ) {
-            HomeScreen(navController)
+        composable<HomeNav> {
+            HomeScreen(navController, onTitleChanged)
         }
 
-        composable<LoginNav>(
-            enterTransition = { enterTransition },
-            exitTransition = { exitTransition }
-        ) {
+        composable<LoginNav> {
             LoginScreen(
                 viewModel = loginViewModel,
                 onLoginSuccess = {
@@ -208,19 +204,18 @@ fun CustomNavHost(
                             inclusive = true
                         }
                     }
-                }
+                },
+                onTitleChanged = onTitleChanged
             )
         }
-        composable<BackgroundNav>(
-            enterTransition = { enterTransition },
-            exitTransition = { exitTransition }
-        ) {
-            BackgroundScreen(backgroundViewModel, navController)
+        composable<BackgroundNav> {
+            BackgroundScreen(backgroundViewModel, navController, onTitleChanged = onTitleChanged)
         }
         composable<DisciplinesNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
-            DisciplineScreen(disciplineViewModel, navController)
+            DisciplineScreen(disciplineViewModel, navController,
+            onTitleChanged =onTitleChanged)
         }
         composable<DisciplineDetailsNav>(
             enterTransition = { enterTransition },
@@ -229,7 +224,8 @@ fun CustomNavHost(
             DisciplineDetailScreen(
                 disciplineId = entry.disciplineId,
                 disciplineViewModel,
-                navController
+                navController,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<DisciplinePowerNav>(
@@ -240,7 +236,7 @@ fun CustomNavHost(
                 disciplineId = entry.disciplineId,
                 disciplinePowerId = entry.subDisciplineId,
                 viewModel = disciplineViewModel,
-                navController = navController
+                onTitleChanged =  onTitleChanged
             )
         }
         composable<RitualNav>(
@@ -251,7 +247,7 @@ fun CustomNavHost(
                 disciplineId = entry.disciplineId,
                 ritualId = entry.ritualId,
                 viewModel = disciplineViewModel,
-                navController = navController
+                onTitleChanged = onTitleChanged
             )
         }
         composable<PredatorTypesNav>(
@@ -259,7 +255,8 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) {
             PredatorTypeListScreen(
                 viewModel = predatorTypeViewModel,
-                navController = navController
+                navController = navController,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<PredatorTypeDetailsNav>(
@@ -268,14 +265,14 @@ fun CustomNavHost(
             val entry = backStackEntry.toRoute<PredatorTypeDetailsNav>()
             PredatorTypeDetailsScreen(
                 predatorTypeViewModel,
-                navController,
-                entry.predatorName
+                entry.predatorName,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<ClansNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
-            ClanListScreen(viewModel = clanViewModel, navController = navController)
+            ClanListScreen(viewModel = clanViewModel, navController = navController, onTitleChanged =onTitleChanged)
         }
         composable<ClanDetailsNav>(
             enterTransition = { enterTransition },
@@ -283,15 +280,15 @@ fun CustomNavHost(
             val entry = backStackEntry.toRoute<ClanDetailsNav>()
             ClanDetailScreen(
                 clanViewModel = clanViewModel,
-                navController = navController,
-                clanName = entry.clanName
+                clanName = entry.clanName,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<LoreNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             LoreListScreen(
-                viewModel = loreViewModel, navController = navController
+                viewModel = loreViewModel, navController = navController, onTitleChanged =onTitleChanged
             )
         }
         composable<LoreDetailsNav>(
@@ -301,7 +298,8 @@ fun CustomNavHost(
             LoreDetailsScreen(
                 loreViewModel = loreViewModel,
                 navController = navController,
-                title = entry.title
+                title = entry.title,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<BackgroundDetailsNav>(
@@ -310,9 +308,9 @@ fun CustomNavHost(
             val entry = backStackEntry.toRoute<BackgroundDetailsNav>()
             BackgroundDetailsScreen(
                 backgroundViewModel = backgroundViewModel,
-                navController = navController,
                 name = entry.name,
-                id = entry.id
+                id = entry.id,
+                onTitleChanged = onTitleChanged
             )
         }
 
@@ -325,14 +323,15 @@ fun CustomNavHost(
                 loreViewModel = loreViewModel,
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
-                navController = navController
+                onTitleChanged = onTitleChanged
             )
         }
         composable<KindredNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             KindredListScreen(
-                viewModel = kindredViewModel, navController = navController
+                viewModel = kindredViewModel, navController = navController,
+                onTitleChanged = onTitleChanged
             )
         }
 
@@ -343,7 +342,8 @@ fun CustomNavHost(
             KindredDetailsScreen(
                 kindredViewModel = kindredViewModel,
                 navController = navController,
-                title = entry.title
+                title = entry.title,
+                onTitleChanged = onTitleChanged
             )
         }
 
@@ -355,14 +355,15 @@ fun CustomNavHost(
                 kindredViewModel = kindredViewModel,
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
-                navController = navController
+                onTitleChanged = onTitleChanged
             )
         }
         composable<PgNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             PgListScreen(
-                viewModel = pgViewModel, navController = navController
+                viewModel = pgViewModel, navController = navController,
+                onTitleChanged = onTitleChanged
             )
         }
 
@@ -373,7 +374,8 @@ fun CustomNavHost(
             PgDetailsScreen(
                 pgViewModel = pgViewModel,
                 navController = navController,
-                title = entry.title
+                title = entry.title,
+                onTitleChanged = onTitleChanged
             )
         }
 
@@ -385,7 +387,7 @@ fun CustomNavHost(
                 pgViewModel = pgViewModel,
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
-                navController = navController
+                onTitleChanged = onTitleChanged
             )
         }
 
@@ -395,14 +397,15 @@ fun CustomNavHost(
             NPCGeneratorScreen(
                 modifier = Modifier,
                 viewModel = npcGeneratorViewModel,
-                navController = navController
+                navController = navController,
+                onTitleChanged = onTitleChanged
             )
         }
 
         composable<RulesNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
-            RuleListScreen(viewModel = rulesViewModel, navController = navController)
+            RuleListScreen(viewModel = rulesViewModel, navController = navController, onTitleChanged = onTitleChanged)
         }
         composable<RulesDetailsNav>(
             enterTransition = { enterTransition },
@@ -411,7 +414,8 @@ fun CustomNavHost(
             RulesDetailsScreen(
                 rulesViewModel = rulesViewModel,
                 navController = navController,
-                title = entry.title
+                title = entry.title,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<SubRuleNav>(
@@ -422,14 +426,11 @@ fun CustomNavHost(
                 rulesViewModel = rulesViewModel,
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
-                navController = navController
+                onTitleChanged = onTitleChanged
             )
         }
-        composable<LoresheetNav>(
-            enterTransition = { enterTransition },
-            exitTransition = { exitTransition }
-        ) {
-            LoresheetScreen(loresheetViewModel = loresheetViewModel, navController = navController)
+        composable<LoresheetNav> {
+            LoresheetScreen(loresheetViewModel = loresheetViewModel, navController = navController, onTitleChanged = onTitleChanged)
         }
         composable<LoresheetDetailsNav>(
             enterTransition = { enterTransition },
@@ -439,7 +440,7 @@ fun CustomNavHost(
                 id = entry.id,
                 name = entry.name,
                 loresheetViewModel = loresheetViewModel,
-                navController = navController
+                onTitleChanged = onTitleChanged
             )
 
         }
@@ -448,7 +449,8 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) {
             CharacterSheetScreen(
                 viewModel = hiltViewModel<CharacterSheetViewModel>(),
-                navController = navController
+                navController = navController,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<CharacterSheetEditNav>(
@@ -459,6 +461,7 @@ fun CustomNavHost(
                 viewModel = hiltViewModel<CharacterSheetViewModel>(),
                 navController = navController,
                 id = entry.id,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<CharacterSheetVisualizationNav>(
@@ -469,21 +472,27 @@ fun CustomNavHost(
                 viewModel = hiltViewModel<CharacterSheetViewModel>(),
                 navController = navController,
                 id = entry.id,
+                onTitleChanged = onTitleChanged
             )
         }
         composable<CharacterSheetListNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             CharacterSheetListScreen(
-                navController = navController
+                navController = navController,
+                onTitleChanged = onTitleChanged
             )
         }
 
-        composable<UserProfileNav>(
-            enterTransition = { enterTransition },
-            exitTransition = { exitTransition }
-        ) {
-            UserProfileScreen(navController = navController)
+        composable<UserProfileNav> {
+            UserProfileScreen(
+                onLogout = {
+                    FirebaseAuth.getInstance().signOut()
+                    Thread.sleep(1000)
+                },
+                onTitleChanged = onTitleChanged
+            )
         }
+
     }
 }

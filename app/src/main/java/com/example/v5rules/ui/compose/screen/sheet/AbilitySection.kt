@@ -258,7 +258,6 @@ fun InteractiveAbilityRow(
                                 shape = CircleShape
                             )
                             .clickable {
-                                // <<< MODIFICA CHIAVE QUI >>>
                                 val newLevel = if (i == ability.level) 0 else i
                                 viewModel.onEvent(
                                     CharacterSheetEvent.AbilityChanged(ability.name, newLevel)

@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.coil.compose)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.runtime)
     ksp(libs.hilt.android.compiler) // Usa ksp, non kapt
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

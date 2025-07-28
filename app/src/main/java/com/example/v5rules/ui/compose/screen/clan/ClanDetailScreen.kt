@@ -15,6 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
@@ -23,11 +24,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Clan
 import com.example.v5rules.ui.compose.component.ClanImage
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.viewModel.ClanViewModel
@@ -35,14 +34,15 @@ import com.example.v5rules.viewModel.ClanViewModel
 @Composable
 fun ClanDetailScreen(
     clanViewModel: ClanViewModel,
-    navController: NavHostController,
-    clanName: String
+    clanName: String,
+    onTitleChanged: (String) -> Unit
 ) {
     val clan = clanViewModel.allClans.find { it.name == clanName }
-    CommonScaffold(navController = navController, title = clanName) {
-        clan?.let { clan ->
-            ClanDetail(clan = clan)
-        }
+    LaunchedEffect(Unit) {
+        onTitleChanged(clanName)
+    }
+    clan?.let { clan ->
+        ClanDetail(clan = clan)
     }
 }
 

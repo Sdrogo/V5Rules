@@ -12,14 +12,13 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.Ritual
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
@@ -28,20 +27,22 @@ import com.example.v5rules.viewModel.DisciplineViewModel
 @Composable
 fun RitualScreen(
     viewModel: DisciplineViewModel,
-    navController: NavHostController,
     disciplineId: String,
-    ritualId: String
+    ritualId: String,
+    onTitleChanged: (String) -> Unit
 ) {
 
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val ritual = discipline?.rituals?.find { it.id == ritualId }
-    CommonScaffold(navController = navController, title = ritual?.title ?: "") {
-        Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
-            if (ritual != null) {
-                LazyColumn(modifier = Modifier.padding(8.dp)) { // Wrap content in LazyColumn
-                    item { // Use 'item' to add individual composables to the LazyColumn
-                        DisciplineInfo(ritual = ritual, discipline = discipline)
-                    }
+    val title = ritual?.title ?: ""
+    LaunchedEffect(Unit) {
+        onTitleChanged(title)
+    }
+    Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
+        if (ritual != null) {
+            LazyColumn(modifier = Modifier.padding(8.dp)) { // Wrap content in LazyColumn
+                item { // Use 'item' to add individual composables to the LazyColumn
+                    DisciplineInfo(ritual = ritual, discipline = discipline)
                 }
             }
         }
@@ -62,10 +63,10 @@ fun DisciplineInfo(ritual: Ritual, discipline: Discipline) {
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.background)
                 .border(
-                1.dp,
-                MaterialTheme.colorScheme.tertiary,
-                RoundedCornerShape(8.dp)
-            )
+                    1.dp,
+                    MaterialTheme.colorScheme.tertiary,
+                    RoundedCornerShape(8.dp)
+                )
         ) {
             Column(
                 modifier = Modifier.padding(8.dp)
@@ -95,7 +96,7 @@ fun DisciplineInfo(ritual: Ritual, discipline: Discipline) {
         if (ritual.table != null) {
             TableContent(headerList = ritual.table.headers, contentList = ritual.table.columns)
         }
-        Row{
+        Row {
             Spacer(modifier = Modifier.weight(1f))
             DisciplineIcon(
                 disciplineId = discipline.id,
