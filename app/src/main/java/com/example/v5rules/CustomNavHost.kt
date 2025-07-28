@@ -157,6 +157,7 @@ data class CharacterSheetVisualizationNav(val id: String)
 
 @Composable
 fun CustomNavHost(
+    modifier: Modifier = Modifier,
     navController: NavHostController,
     startDestination: Any,
     onTitleChanged: (String) -> Unit,
@@ -173,7 +174,7 @@ fun CustomNavHost(
     loginViewModel: LoginViewModel,
 ) {
 
-    NavHost(navController = navController, startDestination = startDestination) {
+    NavHost(navController = navController, startDestination = startDestination, modifier = modifier) {
         val enterTransition = fadeIn(
             animationSpec = tween(
                 durationMillis = 500,
@@ -188,14 +189,20 @@ fun CustomNavHost(
                 delayMillis = 0,
                 easing = FastOutLinearInEasing
             ),
-            targetAlpha = 1f
+            targetAlpha = 0f
         )
 
-        composable<HomeNav> {
+        composable<HomeNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ) {
             HomeScreen(navController, onTitleChanged)
         }
 
-        composable<LoginNav> {
+        composable<LoginNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ) {
             LoginScreen(
                 viewModel = loginViewModel,
                 onLoginSuccess = {
@@ -208,7 +215,10 @@ fun CustomNavHost(
                 onTitleChanged = onTitleChanged
             )
         }
-        composable<BackgroundNav> {
+        composable<BackgroundNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ) {
             BackgroundScreen(backgroundViewModel, navController, onTitleChanged = onTitleChanged)
         }
         composable<DisciplinesNav>(
@@ -484,7 +494,10 @@ fun CustomNavHost(
             )
         }
 
-        composable<UserProfileNav> {
+        composable<UserProfileNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ) {
             UserProfileScreen(
                 onLogout = {
                     FirebaseAuth.getInstance().signOut()
