@@ -23,7 +23,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -40,7 +39,6 @@ import com.example.v5rules.viewModel.BackgroundViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.KindredViewModel
-import com.example.v5rules.viewModel.LoginViewModel
 import com.example.v5rules.viewModel.LoreViewModel
 import com.example.v5rules.viewModel.LoresheetViewModel
 import com.example.v5rules.viewModel.NPCGeneratorViewModel
@@ -81,7 +79,6 @@ fun V5RulesApp() {
     val kindredViewModel: KindredViewModel = hiltViewModel()
     val pgViewModel: PgViewModel = hiltViewModel()
     val backgroundViewModel: BackgroundViewModel = hiltViewModel()
-    val loginViewModel: LoginViewModel = hiltViewModel()
 
     val navController = rememberNavController()
     var currentUser by remember { mutableStateOf(FirebaseAuth.getInstance().currentUser) }
@@ -103,20 +100,7 @@ fun V5RulesApp() {
         }
     }
 
-    // Navigazione forzata al logout
-    LaunchedEffect(currentUser) {
-        if (currentUser == null) {
-            navController.navigate(LoginNav) {
-                popUpTo(navController.graph.id) {
-                    inclusive = true
-                }
-                launchSingleTop = true
-            }
-        }
-    }
-
-    val startDestination = if (currentUser != null) HomeNav else LoginNav
-    val isLoggedIn = currentUser != null
+    val isLoggedIn = currentUser?.uid != null
 
     CompositionLocalProvider(LocalAuthUser provides currentUser) {
         Scaffold(
@@ -144,7 +128,7 @@ fun V5RulesApp() {
                         }
                     },
                     actions = {
-                        if (isLoggedIn) {
+                        if(isLoggedIn){
                             IconButton(onClick = { navController.navigate(UserProfileNav) }) {
                                 Icon(
                                     imageVector = Icons.Filled.AccountCircle,
@@ -169,7 +153,6 @@ fun V5RulesApp() {
             ) {
                 CustomNavHost(
                     navController = navController,
-                    startDestination = startDestination,
                     onTitleChanged = { title -> currentTitle = title }, // Passa la callback
                     disciplineViewModel = disciplineViewModel,
                     clanViewModel = clanViewModel,
@@ -180,8 +163,7 @@ fun V5RulesApp() {
                     npcGeneratorViewModel = npcGeneratorViewModel,
                     kindredViewModel = kindredViewModel,
                     pgViewModel = pgViewModel,
-                    backgroundViewModel = backgroundViewModel,
-                    loginViewModel = loginViewModel
+                    backgroundViewModel = backgroundViewModel
                 )
             }
         }
