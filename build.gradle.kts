@@ -11,5 +11,4 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     id("com.google.devtools.ksp") version "1.9.22-1.0.17" apply false
     alias(libs.plugins.googleGmsGoogleServices) apply false
-    alias(libs.plugins.googleFirebaseFirebasePerf) apply false
 }

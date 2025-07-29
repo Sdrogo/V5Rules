@@ -5,7 +5,6 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
     alias(libs.plugins.googleGmsGoogleServices)
-    alias(libs.plugins.googleFirebaseFirebasePerf)
 }
 
 android {
