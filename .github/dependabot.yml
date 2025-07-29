@@ -1,0 +1,49 @@
+# File: .github/dependabot.yml
+
+version: 2
+updates:
+  # Configurazione per Gradle (dipendenze Android/Kotlin)
+  - package-ecosystem: "gradle"
+    # La directory dove si trova il file build.gradle
+    directory: "/"
+    # Con quale frequenza controllare gli aggiornamenti
+    schedule:
+      interval: "weekly" # Puoi scegliere tra "daily", "weekly", "monthly"
+      day: "monday"      # Opzionale: specifica il giorno della settimana per i controlli
+      time: "09:00"      # Opzionale: specifica l'ora del controllo (in formato HH:MM)
+      timezone: "Europe/Rome" # Opzionale: specifica il fuso orario
+    # Assegna automaticamente le Pull Request a te o a un team
+    # Sostituisci "tuo-username-github" con il tuo vero username
+    assignees:
+      - "tuo-username-github"
+    # Aggiungi automaticamente dei revisori alle Pull Request
+    # reviewers:
+    #   - "altro-username-github"
+    #   - "nome-team"
+    # Aggiungi un prefisso standard ai messaggi di commit
+    commit-message:
+      prefix: "deps"
+    # Raggruppa gli aggiornamenti per ridurre il numero di PR
+    # Ad esempio, raggruppa tutti gli aggiornamenti di androidx.compose
+    groups:
+      androidx-compose:
+        patterns:
+          - "androidx.compose*"
+      androidx-lifecycle:
+        patterns:
+          - "androidx.lifecycle*"
+      firebase:
+        patterns:
+          - "com.google.firebase*"
+
+  # Configurazione per GitHub Actions (workflow del CI/CD)
+  - package-ecosystem: "github-actions"
+    # La directory dove si trovano i tuoi workflow
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    assignees:
+      - "tuo-username-github"
+    commit-message:
+      prefix: "ci"
