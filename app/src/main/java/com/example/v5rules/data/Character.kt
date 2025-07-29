@@ -24,7 +24,8 @@ data class Character(
     val willpower: Willpower = Willpower(),
     val humanity: Humanity = Humanity(),
     val experience: Experience = Experience(),
-    val hunger: Int = 1
+    val hunger: Int = 1,
+    val learnedRituals: List<Ritual> = emptyList()
 )
 
 @Serializable

@@ -10,5 +10,5 @@ import androidx.compose.ui.graphics.vector.ImageVector
 sealed class BottomNavItem(val route: Any, val icon: ImageVector, @StringRes val title: Int) {
     object Home : BottomNavItem(HomeNav, Icons.Filled.Home, R.string.home)
     object Rules : BottomNavItem(RulesNav, Icons.Filled.Menu, R.string.rules)
-    object Character : BottomNavItem(UserProfileNav, Icons.Filled.AccountBox, R.string.characters)
+    object Character : BottomNavItem(CharacterSheetListNav, Icons.Filled.AccountBox, R.string.characters)
 }

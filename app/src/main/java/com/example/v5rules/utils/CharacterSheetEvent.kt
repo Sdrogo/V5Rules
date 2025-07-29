@@ -7,6 +7,8 @@ import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.data.Loresheet
 import com.example.v5rules.data.PredatorType
+import com.example.v5rules.data.Ritual
+import com.example.v5rules.data.RitualPower
 
 
 // Eventi
@@ -37,10 +39,17 @@ sealed class CharacterSheetEvent {
     data class DisciplineChanged(val discipline: Discipline): CharacterSheetEvent()
     data class DisciplinePowerAdded(val disciplineName: String, val power: DisciplinePower) : CharacterSheetEvent()
     data class DisciplinePowerRemoved(val disciplineName: String, val power: DisciplinePower) : CharacterSheetEvent()
-    data class DisciplineLevelChanged(val disciplineName: String, val newLevel: Int) : CharacterSheetEvent() // Per cambiare il livello
+    data class DisciplineLevelChanged(val discipline: Discipline, val newLevel: Int) : CharacterSheetEvent() // Per cambiare il livello
+    data class AddRitual(val disciplineName: String, val ritual: Ritual) : CharacterSheetEvent()
 
+    data class RemoveRitual(val disciplineName: String, val ritual: Ritual) : CharacterSheetEvent()
+
+    data class updateRitualLevel(val disciplineName: String, val ritual: Ritual, val level: Int) : CharacterSheetEvent()
+
+    data class RitualPowerAdded(val ritual: Ritual, val power: RitualPower) : CharacterSheetEvent()
     // Health
 
+    data class RitualPowerRemoved(val ritual: Ritual, val power: RitualPower) : CharacterSheetEvent()
     data class HealthBoxClicked(val index: Int): CharacterSheetEvent()
 
     // Willpower

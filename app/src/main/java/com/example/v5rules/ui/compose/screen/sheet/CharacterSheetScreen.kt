@@ -71,7 +71,7 @@ fun CharacterSheetScreen(
     }
 
     val tabs = listOf(
-        "Info Generali", "Attributi", "Abilità", "Discipline", "Background" /*... altre tab... */
+        "Info Generali", "Attributi", "Abilità", "Discipline", "Background"
     )
 
     ConstraintLayout(
@@ -91,21 +91,21 @@ fun CharacterSheetScreen(
                     width = Dimension.fillToConstraints
                 }
                 .zIndex(1f),
-            edgePadding = 0.dp, // Rimuovi il padding predefinito di TabRow
-            containerColor = MaterialTheme.colorScheme.surface, // Colore di sfondo di TabRow
+            edgePadding = 0.dp,
+            containerColor = MaterialTheme.colorScheme.surface,
             indicator = { tabPositions ->
                 SecondaryIndicator(
                     Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
-                    color = MaterialTheme.colorScheme.secondary // Colore dell'indicatore
+                    color = MaterialTheme.colorScheme.secondary
                 )
             },
-            divider = { } // Nascondi il divider tra le tab
+            divider = { }
         ) {
             tabs.forEachIndexed { index, tab ->
                 Tab(
                     selected = selectedTabIndex == index,
                     onClick = { viewModel.selectTab(index) },
-                    modifier = Modifier.widthIn(min = 80.dp), // Larghezza minima per ogni tab
+                    modifier = Modifier.widthIn(min = 80.dp),
                     text = {
                         Text(
                             tab,
@@ -122,22 +122,20 @@ fun CharacterSheetScreen(
         Column(
             modifier = Modifier
                 .constrainAs(content) {
-                    top.linkTo(tabRow.bottom) // Collega al bottom di TabRow
+                    top.linkTo(tabRow.bottom)
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                     bottom.linkTo(buttons.top)
-                    width = Dimension.fillToConstraints // Aggiungi vincolo per la larghezza
+                    width = Dimension.fillToConstraints
                     height = Dimension.fillToConstraints
                 }
         ) {
-            //... (Contenuto come prima, ma usa when per selezionare la sezione)...
             when (selectedTabIndex) {
                 0 -> GeneralInfoSection(character, viewModel)
                 1 -> AttributeSection(character, viewModel)
                 2 -> AbilitySection(character, viewModel)
                 3 -> DisciplineSection(viewModel, navController)
                 4 -> BackgroundSection(viewModel)
-                //... altre sezioni...
             }
         }
 
