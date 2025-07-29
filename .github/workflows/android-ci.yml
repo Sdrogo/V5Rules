@@ -51,12 +51,16 @@ jobs:
       # Step 5: Rendi eseguibile il wrapper di Gradle
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
-      # Step 6: Esegui il build (necessario per l'analisi di CodeQL)
+        
+      # Step 6: Pulisce tutti i file di build precedenti per forzare una build pulita
+      - name: Clean project
+        run: ./gradlew clean
+        
+      # Step 7: Esegui il build (necessario per l'analisi di CodeQL)
       - name: Build Release for Analysis
         run: ./gradlew assembleRelease
 
-      # Step 7: Esegui l'analisi di CodeQL
+      # Step 8: Esegui l'analisi di CodeQL
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
