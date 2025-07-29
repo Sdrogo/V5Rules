@@ -151,4 +151,28 @@ class FriendRepository @Inject constructor(
             FriendshipActionResult.Error(e.message ?: "An unknown error occurred.")
         }
     }
+
+    /**
+     * Ottiene la lista di amici dell'utente corrente.
+     */
+    suspend fun getFriends(): Result<List<String>> {
+        val currentUser = auth.currentUser
+            ?: return Result.failure(Exception("User not logged in."))
+
+        return try {
+            val friendsQuery = firestore.collection("friends")
+                .whereArrayContains("userIds", currentUser.uid)
+                .get()
+                .await()
+
+            val friendIds = friendsQuery.documents.flatMap { document ->
+                val userIds = document.get("userIds") as? List<String> ?: emptyList()
+                userIds.filter { it != currentUser.uid }
+            }
+
+            Result.success(friendIds)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 }
