@@ -56,6 +56,22 @@ jobs:
       - name: Clean project
         run: ./gradlew clean
         
+      # Step 7: Recupera le credenziali
+      - name: Decode Keystore and Create Properties
+        env:
+          RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
+          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+        run: |
+          echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > my-release-key.keystore
+          echo "storePassword=$RELEASE_STORE_PASSWORD" > keystore.properties
+          echo "keyAlias=$RELEASE_KEY_ALIAS" >> keystore.properties
+          echo "keyPassword=$RELEASE_KEY_PASSWORD" >> keystore.properties
+
+      - name: Build with Gradle
+        run: ./gradlew assembleRelease
+        
       # Step 7: Esegui il build (necessario per l'analisi di CodeQL)
       - name: Build Release for Analysis
         run: ./gradlew assembleRelease

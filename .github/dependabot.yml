@@ -15,7 +15,7 @@ updates:
     # Assegna automaticamente le Pull Request a te o a un team
     # Sostituisci "tuo-username-github" con il tuo vero username
     assignees:
-      - "tuo-username-github"
+      - "Sdrogo"
     # Aggiungi automaticamente dei revisori alle Pull Request
     # reviewers:
     #   - "altro-username-github"
