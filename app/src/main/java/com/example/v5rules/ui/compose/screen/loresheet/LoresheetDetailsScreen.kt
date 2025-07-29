@@ -73,7 +73,7 @@ fun LoresheetDetailsScreen(
                         text = text,
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.wrapContentSize()
                     )
                 }
@@ -84,7 +84,7 @@ fun LoresheetDetailsScreen(
                         .background(MaterialTheme.colorScheme.background)
                         .border(
                             1.dp,
-                            MaterialTheme.colorScheme.tertiary,
+                            MaterialTheme.colorScheme.secondary,
                             RoundedCornerShape(8.dp)
                         ),
                     shape = RoundedCornerShape(8.dp)

@@ -63,7 +63,7 @@ fun BackgroundSectionVisualization(
                                 .padding(8.dp)
                                 .border(
                                     1.dp,
-                                    MaterialTheme.colorScheme.tertiary,
+                                    MaterialTheme.colorScheme.secondary,
                                     RoundedCornerShape(8.dp)
                                 ),
                             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
@@ -90,7 +90,7 @@ fun BackgroundSectionVisualization(
                                     .padding(8.dp)
                                     .border(
                                         1.dp,
-                                        MaterialTheme.colorScheme.tertiary,
+                                        MaterialTheme.colorScheme.secondary,
                                         RoundedCornerShape(8.dp)
                                     ),
                                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
@@ -130,7 +130,7 @@ fun BackgroundSectionVisualization(
             ) {
                 repeat(pagerStateNoLoresheet.pageCount) { iteration ->
                     val color = if (pagerStateNoLoresheet.currentPage == iteration) {
-                        MaterialTheme.colorScheme.tertiary
+                        MaterialTheme.colorScheme.secondary
                     } else {
                         Color.LightGray
                     }
@@ -162,7 +162,7 @@ fun BackgroundSectionVisualization(
                                     .padding(8.dp)
                                     .border(
                                         1.dp,
-                                        MaterialTheme.colorScheme.tertiary,
+                                        MaterialTheme.colorScheme.secondary,
                                         RoundedCornerShape(8.dp)
                                     ),
                                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
@@ -201,7 +201,7 @@ fun BackgroundSectionVisualization(
                                     .padding(8.dp)
                                     .border(
                                         1.dp,
-                                        MaterialTheme.colorScheme.tertiary,
+                                        MaterialTheme.colorScheme.secondary,
                                         RoundedCornerShape(8.dp)
                                     ),
                                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
@@ -240,7 +240,7 @@ fun BackgroundSectionVisualization(
                                     .padding(8.dp)
                                     .border(
                                         1.dp,
-                                        MaterialTheme.colorScheme.tertiary,
+                                        MaterialTheme.colorScheme.secondary,
                                         RoundedCornerShape(8.dp)
                                     ),
                                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
@@ -278,7 +278,7 @@ fun BackgroundSectionVisualization(
             ) {
                 repeat(pagerState.pageCount) { iteration ->
                     val color = if (pagerState.currentPage == iteration) {
-                        MaterialTheme.colorScheme.tertiary
+                        MaterialTheme.colorScheme.secondary
                     } else {
                         Color.LightGray
                     }

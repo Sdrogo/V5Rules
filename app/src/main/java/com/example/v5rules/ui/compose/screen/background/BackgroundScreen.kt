@@ -68,7 +68,7 @@ fun BackgroundScreen(
                     trailingIcon = {
                         TintedImage(
                             R.drawable.malkavian_symbol,
-                            MaterialTheme.colorScheme.tertiary,
+                            MaterialTheme.colorScheme.secondary,
                             48.dp
                         )
                     },
@@ -77,13 +77,13 @@ fun BackgroundScreen(
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                     colors = TextFieldDefaults.colors(
-                        focusedContainerColor = MaterialTheme.colorScheme.secondary,
+                        focusedContainerColor = MaterialTheme.colorScheme.primary,
                         unfocusedContainerColor = MaterialTheme.colorScheme.background,
-                        focusedTextColor = MaterialTheme.colorScheme.tertiary,
-                        unfocusedIndicatorColor = MaterialTheme.colorScheme.tertiary,
-                        focusedLabelColor = MaterialTheme.colorScheme.tertiary,
-                        disabledContainerColor = MaterialTheme.colorScheme.tertiary,
-                        focusedIndicatorColor = MaterialTheme.colorScheme.tertiary
+                        focusedTextColor = MaterialTheme.colorScheme.secondary,
+                        unfocusedIndicatorColor = MaterialTheme.colorScheme.secondary,
+                        focusedLabelColor = MaterialTheme.colorScheme.secondary,
+                        disabledContainerColor = MaterialTheme.colorScheme.secondary,
+                        focusedIndicatorColor = MaterialTheme.colorScheme.secondary
                     )
                 )
                 LazyColumn(
@@ -156,7 +156,7 @@ fun BackgroundLineItem(background: Background, navController: NavHostController,
                 Text(
                     text = it,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     modifier = Modifier
                         .wrapContentWidth()
                         .padding(horizontal = 8.dp)
@@ -173,7 +173,7 @@ fun BackgroundLineItem(background: Background, navController: NavHostController,
                     text = flaw.title,
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     modifier = Modifier
                         .wrapContentWidth()
                         .padding(horizontal = 8.dp)
@@ -182,7 +182,7 @@ fun BackgroundLineItem(background: Background, navController: NavHostController,
                     Text(
                         text = it,
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier
                             .wrapContentWidth()
                             .padding(horizontal = 8.dp)

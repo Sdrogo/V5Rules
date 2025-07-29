@@ -182,7 +182,7 @@ fun SubDisciplineItem(
             Text(
                 text = it,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.wrapContentWidth()
             )
         }
@@ -190,7 +190,7 @@ fun SubDisciplineItem(
             Text(
                 text = it,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.wrapContentWidth()
             )
         }

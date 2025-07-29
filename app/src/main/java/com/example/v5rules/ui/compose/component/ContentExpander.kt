@@ -43,7 +43,7 @@ fun ContentExpander(
             fontWeight = fontWeight,
             modifier = Modifier.clickable { expandedDescription = !expandedDescription },
             color = if (expandedDescription) {
-                MaterialTheme.colorScheme.tertiary
+                MaterialTheme.colorScheme.secondary
             } else {
                 MaterialTheme.colorScheme.primary
             }

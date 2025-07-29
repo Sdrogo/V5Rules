@@ -17,6 +17,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -29,6 +32,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -82,14 +86,12 @@ fun V5RulesApp() {
 
     val navController = rememberNavController()
     var currentUser by remember { mutableStateOf(FirebaseAuth.getInstance().currentUser) }
-
-    // State for the Scaffold
     var currentTitle by remember { mutableStateOf("") }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val canNavigateBack = navBackStackEntry?.destination?.route != HomeNav.javaClass.name &&
-            navBackStackEntry?.destination?.route != LoginNav.javaClass.name
+    val currentRoute = navBackStackEntry?.destination?.route
+    val canNavigateBack = currentRoute != HomeNav.javaClass.name &&
+            currentRoute != LoginNav.javaClass.name
 
-    // Listener per lo stato di autenticazione
     DisposableEffect(Unit) {
         val listener = FirebaseAuth.AuthStateListener { auth ->
             currentUser = auth.currentUser
@@ -100,7 +102,15 @@ fun V5RulesApp() {
         }
     }
 
-    val isLoggedIn = currentUser?.uid != null
+    val isLoggedIn = currentUser != null
+    val startDestination = if (currentUser != null) HomeNav else LoginNav
+    val bottomNavItems = listOf(
+        BottomNavItem.Home,
+        BottomNavItem.Rules,
+        BottomNavItem.Character
+    )
+    val showBottomBar = isLoggedIn && bottomNavItems.any { it.route::class.java.name == currentRoute }
+
 
     CompositionLocalProvider(LocalAuthUser provides currentUser) {
         Scaffold(
@@ -110,7 +120,7 @@ fun V5RulesApp() {
                         Text(
                             text = currentTitle,
                             style = MaterialTheme.typography.headlineMedium,
-                            color = MaterialTheme.colorScheme.secondary,
+                            color = MaterialTheme.colorScheme.primary,
                             textAlign = TextAlign.Center,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis
@@ -122,7 +132,7 @@ fun V5RulesApp() {
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                     contentDescription = "Go Back",
-                                    tint = MaterialTheme.colorScheme.secondary
+                                    tint = MaterialTheme.colorScheme.primary
                                 )
                             }
                         }
@@ -133,16 +143,46 @@ fun V5RulesApp() {
                                 Icon(
                                     imageVector = Icons.Filled.AccountCircle,
                                     contentDescription = "User Profile",
-                                    tint = MaterialTheme.colorScheme.secondary
+                                    tint = MaterialTheme.colorScheme.primary
                                 )
                             }
                         }
                     },
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.tertiary,
-                        titleContentColor = MaterialTheme.colorScheme.secondary
+                        containerColor = MaterialTheme.colorScheme.secondary,
+                        titleContentColor = MaterialTheme.colorScheme.primary
                     ),
                 )
+            },
+            bottomBar = {
+                if (showBottomBar) {
+                    NavigationBar(
+                        containerColor = MaterialTheme.colorScheme.secondary) {
+                        bottomNavItems.forEach { item ->
+                            NavigationBarItem(
+                                selected = currentRoute == item.route::class.java.name,
+                                onClick = {
+                                    navController.navigate(item.route) {
+                                        popUpTo(navController.graph.startDestinationId) {
+                                            saveState = true
+                                        }
+                                        launchSingleTop = true
+                                        restoreState = true
+                                    }
+                                },
+                                icon = { Icon(item.icon, contentDescription = stringResource( item.title)) },
+                                label = { Text(stringResource( item.title)) },
+                                colors = NavigationBarItemDefaults.colors(
+                                    selectedIconColor = MaterialTheme.colorScheme.primary, // Usa un altro colore per l'icona selezionata
+                                    selectedTextColor = MaterialTheme.colorScheme.primary,
+                                    indicatorColor = MaterialTheme.colorScheme.onSecondary, // Cambia il colore della "pillola"
+                                    unselectedIconColor = MaterialTheme.colorScheme.primary, // Colore più tenue per l'icona non selezionata
+                                    unselectedTextColor = MaterialTheme.colorScheme.primary
+                                )
+                            )
+                        }
+                    }
+                }
             }
         ) { innerPadding ->
             Box(
@@ -153,7 +193,8 @@ fun V5RulesApp() {
             ) {
                 CustomNavHost(
                     navController = navController,
-                    onTitleChanged = { title -> currentTitle = title }, // Passa la callback
+                    onTitleChanged = { title -> currentTitle = title },
+                    startDestination = startDestination,
                     disciplineViewModel = disciplineViewModel,
                     clanViewModel = clanViewModel,
                     predatorTypeViewModel = predatorTypeViewModel,

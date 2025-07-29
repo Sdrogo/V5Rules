@@ -65,7 +65,7 @@ fun BackgroundDetailsScreen(
                         text = it,
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.tertiary
+                        color = MaterialTheme.colorScheme.secondary
 
                     )
                 }
@@ -76,7 +76,7 @@ fun BackgroundDetailsScreen(
                         .background(MaterialTheme.colorScheme.background)
                         .border(
                             1.dp,
-                            MaterialTheme.colorScheme.tertiary,
+                            MaterialTheme.colorScheme.secondary,
                             RoundedCornerShape(8.dp)
                         ),
                     shape = RoundedCornerShape(8.dp)
@@ -120,7 +120,7 @@ fun BackgroundDetailsScreen(
                             text = prerequisite,
                             style = MaterialTheme.typography.headlineSmall,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.tertiary,
+                            color = MaterialTheme.colorScheme.secondary,
                             modifier = Modifier.wrapContentWidth()
                         )
                     }
@@ -132,7 +132,7 @@ fun BackgroundDetailsScreen(
                         .background(MaterialTheme.colorScheme.background)
                         .border(
                             1.dp,
-                            MaterialTheme.colorScheme.tertiary,
+                            MaterialTheme.colorScheme.secondary,
                             RoundedCornerShape(8.dp)
                         ),
                     shape = RoundedCornerShape(8.dp)
@@ -161,7 +161,7 @@ fun BackgroundDetailsScreen(
                         text = flaw.title,
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.wrapContentWidth()
                     )
                     Spacer(Modifier.width(16.dp))
@@ -176,7 +176,7 @@ fun BackgroundDetailsScreen(
                             text = prerequisite,
                             style = MaterialTheme.typography.headlineSmall,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.tertiary,
+                            color = MaterialTheme.colorScheme.secondary,
                             modifier = Modifier.wrapContentWidth()
                         )
                     }
@@ -189,7 +189,7 @@ fun BackgroundDetailsScreen(
                         .background(MaterialTheme.colorScheme.background)
                         .border(
                             1.dp,
-                            MaterialTheme.colorScheme.tertiary,
+                            MaterialTheme.colorScheme.secondary,
                             RoundedCornerShape(8.dp)
                         ),
                     shape = RoundedCornerShape(8.dp)
@@ -219,7 +219,7 @@ fun BackgroundDetailsScreen(
                         text = flaw.title,
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.wrapContentWidth()
                     )
                     Spacer(Modifier.width(16.dp))
@@ -236,7 +236,7 @@ fun BackgroundDetailsScreen(
                         .background(MaterialTheme.colorScheme.background)
                         .border(
                             1.dp,
-                            MaterialTheme.colorScheme.tertiary,
+                            MaterialTheme.colorScheme.secondary,
                             RoundedCornerShape(8.dp)
                         ),
                     shape = RoundedCornerShape(8.dp)

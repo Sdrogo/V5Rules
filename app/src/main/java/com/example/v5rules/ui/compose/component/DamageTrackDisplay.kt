@@ -28,8 +28,8 @@ fun DamageTrackDisplay(
     boxSize: Dp = 24.dp,
     boxPadding: Dp = 2.dp,
     borderColor: Color = MaterialTheme.colorScheme.primary,
-    superficialColor: Color = MaterialTheme.colorScheme.tertiary,
-    aggravatedColor: Color = MaterialTheme.colorScheme.tertiary
+    superficialColor: Color = MaterialTheme.colorScheme.secondary,
+    aggravatedColor: Color = MaterialTheme.colorScheme.secondary
 ) {
     Row(modifier = modifier) {
         damageTrack.forEachIndexed { index, damageType ->
@@ -61,7 +61,7 @@ private fun DamageBox(
     Box(
         modifier = modifier
             .border(1.dp, borderColor)
-            .background(MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f))
+            .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.5f))
             .clickable(onClick = onClick)
     ) {
         Canvas(modifier = Modifier.matchParentSize()) {

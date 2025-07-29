@@ -51,10 +51,13 @@ fun CharacterSheetScreenVisualization(
             viewModel.setCharacter(id)
         }
     }
-    LaunchedEffect(Unit) {
-        onTitleChanged(character.name)
-    }
 
+    LaunchedEffect(character.name) {
+        if (character.name.isNotEmpty()) {
+            onTitleChanged(character.name)
+        }
+    }
+    
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -72,7 +75,7 @@ fun CharacterSheetScreenVisualization(
                         .clickable {
                             isGeneralSectionExpanded = !isGeneralSectionExpanded
                         }
-                        .background(MaterialTheme.colorScheme.tertiary)
+                        .background(MaterialTheme.colorScheme.secondary)
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -80,11 +83,11 @@ fun CharacterSheetScreenVisualization(
                     Text(
                         text = stringResource(R.string.sheet_general_info_title),
                         style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onTertiary
+                        color = MaterialTheme.colorScheme.primary
                     )
                     Icon(
                         imageVector = if (isGeneralSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                        tint = MaterialTheme.colorScheme.onTertiary,
+                        tint = MaterialTheme.colorScheme.primary,
                         contentDescription = if (isGeneralSectionExpanded) stringResource(
                             R.string.collapse
                         ) else stringResource(R.string.expand)
@@ -101,7 +104,7 @@ fun CharacterSheetScreenVisualization(
                         .clickable {
                             isAttributeSectionExpanded = !isAttributeSectionExpanded
                         }
-                        .background(MaterialTheme.colorScheme.tertiary)
+                        .background(MaterialTheme.colorScheme.secondary)
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -109,11 +112,11 @@ fun CharacterSheetScreenVisualization(
                     Text(
                         text = stringResource(R.string.sheet_attribute_title),
                         style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onTertiary
+                        color = MaterialTheme.colorScheme.primary
                     )
                     Icon(
                         imageVector = if (isAttributeSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                        tint = MaterialTheme.colorScheme.onTertiary,
+                        tint = MaterialTheme.colorScheme.primary,
                         contentDescription = if (isAttributeSectionExpanded) stringResource(
                             R.string.collapse
                         ) else stringResource(R.string.expand)
@@ -130,7 +133,7 @@ fun CharacterSheetScreenVisualization(
                         .clickable {
                             isAbilitySectionExpanded = !isAbilitySectionExpanded
                         }
-                        .background(MaterialTheme.colorScheme.tertiary)
+                        .background(MaterialTheme.colorScheme.secondary)
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -138,11 +141,11 @@ fun CharacterSheetScreenVisualization(
                     Text(
                         text = stringResource(R.string.sheet_ability_title),
                         style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onTertiary
+                        color = MaterialTheme.colorScheme.primary
                     )
                     Icon(
                         imageVector = if (isAbilitySectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                        tint = MaterialTheme.colorScheme.onTertiary,
+                        tint = MaterialTheme.colorScheme.primary,
                         contentDescription = if (isAbilitySectionExpanded) stringResource(
                             R.string.collapse
                         ) else stringResource(R.string.expand)
@@ -159,7 +162,7 @@ fun CharacterSheetScreenVisualization(
                         .clickable {
                             isDisciplineSectionExpanded = !isDisciplineSectionExpanded
                         }
-                        .background(MaterialTheme.colorScheme.tertiary)
+                        .background(MaterialTheme.colorScheme.secondary)
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -167,11 +170,11 @@ fun CharacterSheetScreenVisualization(
                     Text(
                         text = stringResource(R.string.sheet_discipline_title),
                         style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onTertiary
+                        color = MaterialTheme.colorScheme.primary
                     )
                     Icon(
                         imageVector = if (isDisciplineSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                        tint = MaterialTheme.colorScheme.onTertiary,
+                        tint = MaterialTheme.colorScheme.primary,
                         contentDescription = if (isDisciplineSectionExpanded) stringResource(
                             R.string.collapse
                         ) else stringResource(R.string.expand)
@@ -188,7 +191,7 @@ fun CharacterSheetScreenVisualization(
                         .clickable {
                             isBackgroundSectionExpanded = !isBackgroundSectionExpanded
                         }
-                        .background(MaterialTheme.colorScheme.tertiary)
+                        .background(MaterialTheme.colorScheme.secondary)
                         .padding(horizontal = 16.dp, vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -196,11 +199,11 @@ fun CharacterSheetScreenVisualization(
                     Text(
                         text = stringResource(R.string.sheet_background_title),
                         style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onTertiary
+                        color = MaterialTheme.colorScheme.primary
                     )
                     Icon(
                         imageVector = if (isBackgroundSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                        tint = MaterialTheme.colorScheme.onTertiary,
+                        tint = MaterialTheme.colorScheme.primary,
                         contentDescription = if (isBackgroundSectionExpanded) stringResource(
                             R.string.collapse
                         ) else stringResource(R.string.expand)
@@ -217,7 +220,7 @@ fun CharacterSheetScreenVisualization(
             modifier = Modifier
                 .fillMaxWidth()
                 .clickable { isHealthSectionExpanded = !isHealthSectionExpanded }
-                .background(MaterialTheme.colorScheme.tertiary)
+                .background(MaterialTheme.colorScheme.secondary)
                 .padding(horizontal = 16.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
@@ -225,11 +228,11 @@ fun CharacterSheetScreenVisualization(
             Text(
                 text = stringResource(R.string.vital_stats_header),
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onTertiary
+                color = MaterialTheme.colorScheme.primary
             )
             Icon(
                 imageVector = if (isHealthSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                tint = MaterialTheme.colorScheme.onTertiary,
+                tint = MaterialTheme.colorScheme.primary,
                 contentDescription = if (isHealthSectionExpanded) stringResource(R.string.collapse) else stringResource(
                     R.string.expand
                 )

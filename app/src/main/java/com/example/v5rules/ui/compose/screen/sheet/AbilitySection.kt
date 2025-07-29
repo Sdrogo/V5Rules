@@ -70,7 +70,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                 .padding(8.dp)
                                 .border(
                                     width = 1.dp,
-                                    color = MaterialTheme.colorScheme.tertiary,
+                                    color = MaterialTheme.colorScheme.secondary,
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
@@ -112,7 +112,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                 .padding(8.dp)
                                 .border(
                                     width = 1.dp,
-                                    color = MaterialTheme.colorScheme.tertiary,
+                                    color = MaterialTheme.colorScheme.secondary,
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
@@ -154,7 +154,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
                                 .padding(8.dp)
                                 .border(
                                     width = 1.dp,
-                                    color = MaterialTheme.colorScheme.tertiary,
+                                    color = MaterialTheme.colorScheme.secondary,
                                     shape = RoundedCornerShape(8.dp)
                                 )
                         ) {
@@ -201,7 +201,7 @@ fun AbilitySection(character: Character, viewModel: CharacterSheetViewModel) {
             ) {
                 repeat(pagerState.pageCount) { iteration ->
                     val color = if (pagerState.currentPage == iteration) {
-                        MaterialTheme.colorScheme.tertiary
+                        MaterialTheme.colorScheme.secondary
                     } else {
                         Color.LightGray
                     }
@@ -248,7 +248,7 @@ fun InteractiveAbilityRow(
                             .padding(2.dp)
                             .clip(CircleShape)
                             .background(
-                                if (i <= ability.level) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                                if (i <= ability.level) MaterialTheme.colorScheme.secondary else Color.Transparent
                             )
                             .border(
                                 width = 1.dp,

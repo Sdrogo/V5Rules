@@ -1,10 +1,5 @@
 package com.example.v5rules.ui.compose.screen
 
-import androidx.compose.animation.animateColor
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -12,7 +7,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.credentials.CredentialManager
 import androidx.credentials.exceptions.GetCredentialException
@@ -33,14 +27,7 @@ fun LoginScreen(
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     val credentialManager = remember { CredentialManager.create(context) }
-    val title = stringResource(R.string.app_name)
-    val infiniteTransition = rememberInfiniteTransition(label = "infinite transition")
-    val animatedRed by infiniteTransition.animateColor(
-        initialValue = MaterialTheme.colorScheme.tertiary,
-        targetValue = MaterialTheme.colorScheme.onPrimary,
-        animationSpec = infiniteRepeatable(tween(5000), RepeatMode.Reverse),
-        label = "color"
-    )
+    val title = ""
 
     // This effect navigates away on successful login
     LaunchedEffect(key1 = uiState.isSuccess) {
@@ -70,13 +57,13 @@ fun LoginScreen(
         ) {
             TintedImage(
                 R.drawable.logo_v5,
-                animatedRed,
+                MaterialTheme.colorScheme.onTertiary,
                 300.dp,
             )
         }
 
         if (uiState.isLoading) {
-            CircularProgressIndicator()
+            CircularProgressIndicator(color = MaterialTheme.colorScheme.tertiary)
         } else {
             Button(onClick = {
                 scope.launch {
@@ -93,7 +80,11 @@ fun LoginScreen(
                         viewModel.onSignInFailed(e)
                     }
                 }
-            }) {
+            },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.tertiary, // Your desired button color
+                    contentColor = MaterialTheme.colorScheme.primary // Text color for contrast
+                )) {
                 // You can add the Google logo here as an Icon
                 Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
                 Text("Sign in with Google")

@@ -250,7 +250,7 @@ fun DotsWithMinMax(level: Int, maxLevel: Int) {
                     .size(16.dp)
                     .padding(1.dp)
                     .background(
-                        if (index < level) MaterialTheme.colorScheme.tertiary else Color.Transparent,
+                        if (index < level) MaterialTheme.colorScheme.secondary else Color.Transparent,
                         shape = CircleShape
                     )
                     .border(1.dp, MaterialTheme.colorScheme.primary, shape = CircleShape)

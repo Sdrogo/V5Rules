@@ -7,9 +7,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -68,15 +69,23 @@ fun UserProfileScreen(
         )
     }
 
-
     Box(
         modifier = Modifier
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         if (loginState.isLoading) {
-            CircularProgressIndicator()
+            CircularProgressIndicator(color = MaterialTheme.colorScheme.tertiary)
         } else {
+            Text(
+                text = "Welcome, ${currentUser?.displayName ?: currentUser?.email ?: "Guest"}!",
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier
+                    .padding(bottom = 8.dp)
+                    .align(Alignment.TopCenter)
+                    .padding(top = 16.dp)
+                    .wrapContentWidth()
+            )
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -84,25 +93,28 @@ fun UserProfileScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(
-                    text = "Welcome, ${currentUser?.displayName ?: currentUser?.email ?: "Guest"}!",
-                    style = MaterialTheme.typography.headlineMedium,
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
-                // ... (altri dettagli utente)
-
                 Spacer(modifier = Modifier.height(32.dp))
 
-                // Pulsante per aprire la modale "Add Friend"
-                Button(onClick = { profileViewModel.showAddFriendDialog() }) {
+                Button(
+                    onClick = { profileViewModel.showAddFriendDialog() },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.tertiary,
+                        contentColor = MaterialTheme.colorScheme.primary
+                    )
+                ) {
                     Text("Add Friend")
                 }
-
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Pulsante di Logout
-                Button(onClick = onLogout) {
-                    Text(text = stringResource(id = R.string.logout_button_label)) // Aggiungi questa stringa in strings.xml
+                Button(
+                    onClick = onLogout,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.tertiary,
+                        contentColor = MaterialTheme.colorScheme.primary
+                    )
+                ) {
+                    Text(text = stringResource(id = R.string.logout_button_label)).toString()
+
                 }
             }
         }
@@ -143,10 +155,14 @@ private fun AddFriendDialog(
         confirmButton = {
             TextButton(
                 onClick = onConfirm,
-                enabled = !isLoading
+                enabled = !isLoading,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.tertiary,
+                    contentColor = MaterialTheme.colorScheme.primary
+                )
             ) {
                 if (isLoading) {
-                    CircularProgressIndicator(modifier = Modifier.size(24.dp))
+                    CircularProgressIndicator(color = MaterialTheme.colorScheme.tertiary)
                 } else {
                     Text("Send Request")
                 }

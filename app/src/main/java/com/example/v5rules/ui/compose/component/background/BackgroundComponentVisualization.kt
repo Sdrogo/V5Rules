@@ -121,7 +121,7 @@ fun AdvantageDisplayItemVisualization(
             Text(
                 text = advantage.title,
                 style = MaterialTheme.typography.bodyLarge,
-                color = if(advantage.isFlaw == true) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.primary,
+                color = if(advantage.isFlaw == true) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.primary,
                 modifier = Modifier.weight(1f)
             )
             DotsWithMinMax(level = (advantage.level ?: 1), maxLevel = (advantage.maxLevel ?: 5))

@@ -62,7 +62,7 @@ fun ClanDetail(
                 Spacer(modifier = Modifier.weight(1f))
                 ClanImage(
                     clanName = clan.name,
-                    tintColor = MaterialTheme.colorScheme.tertiary,
+                    tintColor = MaterialTheme.colorScheme.secondary,
                     width = 200.dp
                 )
                 Spacer(modifier = Modifier.weight(1f))
@@ -72,7 +72,7 @@ fun ClanDetail(
                 Spacer(modifier = Modifier.weight(1f))
                 ClanImage(
                     clanName = clan.name,
-                    tintColor = MaterialTheme.colorScheme.tertiary,
+                    tintColor = MaterialTheme.colorScheme.secondary,
                     width = 400.dp,
                     true
                 )
@@ -146,7 +146,7 @@ fun ClanDetail(
                         .fillMaxWidth()
                         .border(
                             1.dp,
-                            MaterialTheme.colorScheme.tertiary,
+                            MaterialTheme.colorScheme.secondary,
                             RoundedCornerShape(8.dp)
                         ),
                     shape = RoundedCornerShape(8.dp)

@@ -76,7 +76,7 @@ fun PredatorTypeDetailsScreen(
                             .background(MaterialTheme.colorScheme.background)
                             .border(
                                 1.dp,
-                                MaterialTheme.colorScheme.tertiary,
+                                MaterialTheme.colorScheme.secondary,
                                 RoundedCornerShape(8.dp)
                             ),
                         shape = RoundedCornerShape(8.dp)

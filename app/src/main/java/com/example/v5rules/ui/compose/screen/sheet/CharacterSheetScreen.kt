@@ -96,7 +96,7 @@ fun CharacterSheetScreen(
             indicator = { tabPositions ->
                 SecondaryIndicator(
                     Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
-                    color = MaterialTheme.colorScheme.tertiary // Colore dell'indicatore
+                    color = MaterialTheme.colorScheme.secondary // Colore dell'indicatore
                 )
             },
             divider = { } // Nascondi il divider tra le tab
@@ -154,8 +154,8 @@ fun CharacterSheetScreen(
             Button(
                 onClick = { viewModel.onEvent(CharacterSheetEvent.ShowSaveConfirmation) },
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary,
-                    contentColor = MaterialTheme.colorScheme.secondary
+                    containerColor = MaterialTheme.colorScheme.secondary,
+                    contentColor = MaterialTheme.colorScheme.primary
                 )
             ) {
                 Text("Save")
@@ -163,8 +163,8 @@ fun CharacterSheetScreen(
             Button(
                 onClick = { viewModel.onEvent(CharacterSheetEvent.ShowCleanupConfirmation) },
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary,
-                    contentColor = MaterialTheme.colorScheme.secondary
+                    containerColor = MaterialTheme.colorScheme.secondary,
+                    contentColor = MaterialTheme.colorScheme.primary
                 )
             ) {
                 Text("Cleanup")
@@ -172,8 +172,8 @@ fun CharacterSheetScreen(
             Button(
                 onClick = { viewModel.onEvent(CharacterSheetEvent.ShowDeleteConfirmation) },
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary,
-                    contentColor = MaterialTheme.colorScheme.secondary
+                    containerColor = MaterialTheme.colorScheme.secondary,
+                    contentColor = MaterialTheme.colorScheme.primary
                 )
             ) {
                 Text("Delete")

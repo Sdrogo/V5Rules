@@ -50,7 +50,7 @@ fun AttributeSectionVisualization(
                             .padding(8.dp)
                             .border(
                                 width = 1.dp,
-                                color = MaterialTheme.colorScheme.tertiary,
+                                color = MaterialTheme.colorScheme.secondary,
                                 shape = RoundedCornerShape(8.dp)
                             ),
                     ) {
@@ -95,7 +95,7 @@ fun AttributeSectionVisualization(
                             .padding(8.dp)
                             .border(
                                 width = 1.dp,
-                                color = MaterialTheme.colorScheme.tertiary,
+                                color = MaterialTheme.colorScheme.secondary,
                                 shape = RoundedCornerShape(8.dp)
                             ),
                     ) {
@@ -141,7 +141,7 @@ fun AttributeSectionVisualization(
                             .padding(8.dp)
                             .border(
                                 width = 1.dp,
-                                color = MaterialTheme.colorScheme.tertiary,
+                                color = MaterialTheme.colorScheme.secondary,
                                 shape = RoundedCornerShape(8.dp)
                             ),
                     ) {
@@ -189,7 +189,7 @@ fun AttributeSectionVisualization(
         ) {
             repeat(pagerState.pageCount) { iteration ->
                 val color = if (pagerState.currentPage == iteration) {
-                    MaterialTheme.colorScheme.tertiary
+                    MaterialTheme.colorScheme.secondary
                 } else {
                     Color.LightGray
                 }

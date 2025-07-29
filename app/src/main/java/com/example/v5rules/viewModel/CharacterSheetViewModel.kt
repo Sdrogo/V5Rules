@@ -1119,7 +1119,6 @@ class CharacterSheetViewModel @Inject constructor(
             }
         }
     }
-
     fun setCharacter(id: String) {
         _uiState.update { it.copy(isLoading = true) }
         viewModelScope.launch {

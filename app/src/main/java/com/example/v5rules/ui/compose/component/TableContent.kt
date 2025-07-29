@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun TableContent(headerList: List<String>, contentList: List<List<String>>) {
-    val accentColor = MaterialTheme.colorScheme.tertiary
+    val accentColor = MaterialTheme.colorScheme.secondary
     val textColor = MaterialTheme.colorScheme.primary
     val backgroundColor = MaterialTheme.colorScheme.background
     Column {

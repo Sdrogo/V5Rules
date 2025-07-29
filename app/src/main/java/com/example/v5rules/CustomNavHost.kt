@@ -158,6 +158,7 @@ data class CharacterSheetVisualizationNav(val id: String)
 fun CustomNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
+    startDestination: Any,
     onTitleChanged: (String) -> Unit,
     disciplineViewModel: DisciplineViewModel,
     clanViewModel: ClanViewModel,
@@ -171,11 +172,8 @@ fun CustomNavHost(
     backgroundViewModel: BackgroundViewModel
 ) {
 
-    NavHost(
-        navController = navController,
-        startDestination = LoginNav,
-        modifier = modifier
-    ) {
+    NavHost(navController = navController, startDestination = startDestination, modifier = modifier)
+    {
         val enterTransition = fadeIn(
             animationSpec = tween(
                 durationMillis = 500,

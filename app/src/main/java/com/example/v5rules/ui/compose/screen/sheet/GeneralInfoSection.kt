@@ -71,7 +71,7 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                     .fillMaxWidth()
                     .background(MaterialTheme.colorScheme.background)
                     .border(
-                        1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)
+                        1.dp, MaterialTheme.colorScheme.secondary, RoundedCornerShape(8.dp)
                     ),
             ) {
                 Column ( modifier = Modifier.padding(8.dp)){
@@ -102,7 +102,7 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                                 selectedClan?.name?.let {
                                     ClanImage(
                                         it,
-                                        tintColor = MaterialTheme.colorScheme.tertiary,
+                                        tintColor = MaterialTheme.colorScheme.secondary,
                                         width = 24.dp,
                                     )
                                 }
@@ -147,7 +147,7 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                                 Row(verticalAlignment = Alignment.CenterVertically) {
                                     ClanImage(
                                         clanName = clan.name,
-                                        tintColor = MaterialTheme.colorScheme.tertiary,
+                                        tintColor = MaterialTheme.colorScheme.secondary,
                                         width = 30.dp
                                     )
                                     Spacer(modifier = Modifier.width(8.dp))

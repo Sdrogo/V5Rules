@@ -91,7 +91,7 @@ fun NPCGeneratorScreen(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            CircularProgressIndicator()
+            CircularProgressIndicator(color = MaterialTheme.colorScheme.tertiary)
         }
 
         is NpcNationalityUiState.Success -> {
@@ -190,8 +190,8 @@ private fun ActionButtons(
         Button(
             onClick = onGenerateClick,
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary,
-                contentColor = MaterialTheme.colorScheme.secondary
+                containerColor = MaterialTheme.colorScheme.secondary,
+                contentColor = MaterialTheme.colorScheme.primary
             )
         ) {
             Text(stringResource(R.string.generate_all_button_label))
@@ -200,8 +200,8 @@ private fun ActionButtons(
             onClick = onCreateClick,
             enabled = isCreateEnabled,
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary,
-                contentColor = MaterialTheme.colorScheme.secondary
+                containerColor = MaterialTheme.colorScheme.secondary,
+                contentColor = MaterialTheme.colorScheme.primary
             )
         ) {
             Text(stringResource(R.string.create_character))

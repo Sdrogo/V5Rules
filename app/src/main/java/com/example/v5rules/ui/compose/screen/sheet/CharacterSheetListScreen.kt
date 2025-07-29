@@ -73,7 +73,7 @@ fun CharacterSheetListScreen(
             contentAlignment = Alignment.Center
         ) {
             if (uiState.isLoading) {
-                CircularProgressIndicator()
+                CircularProgressIndicator(color = MaterialTheme.colorScheme.tertiary)
             } else if (uiState.error != null) {
                 Text(text = stringResource(R.string.error_loading_data, uiState.error ?: ""))
             } else if (uiState.characterList.isEmpty()) {
@@ -91,13 +91,13 @@ fun CharacterSheetListScreen(
                 .align(Alignment.BottomEnd)
                 .padding(end = 16.dp, bottom = 56.dp),
             shape = CircleShape,
-            containerColor = MaterialTheme.colorScheme.tertiary,
+            containerColor = MaterialTheme.colorScheme.secondary,
             elevation = FloatingActionButtonDefaults.elevation(),
             interactionSource = remember { MutableInteractionSource() }
         ) {
             Icon(
                 Icons.Filled.Add,
-                tint = MaterialTheme.colorScheme.onTertiary,
+                tint = MaterialTheme.colorScheme.primary,
                 contentDescription = stringResource(R.string.create_new_sheet)
             )
         }
@@ -129,14 +129,14 @@ fun CharacterCard(character: Character, navController: NavHostController) {
             .fillMaxWidth()
             .border(
                 width = 1.dp,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
                 shape = RoundedCornerShape(8.dp)
             )
             .clickable { navController.navigate(CharacterSheetVisualizationNav(character.id)) },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(8.dp),
     ) {
-        Box(modifier = Modifier.background(MaterialTheme.colorScheme.secondary)) {
+        Box(modifier = Modifier.background(MaterialTheme.colorScheme.primary)) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -170,12 +170,12 @@ fun CharacterCard(character: Character, navController: NavHostController) {
                     .align(Alignment.CenterEnd)
                     .padding(end = 16.dp)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.tertiary)
+                    .background(MaterialTheme.colorScheme.secondary)
             ) {
                 Icon(
                     Icons.Filled.Edit,
                     contentDescription = stringResource(R.string.edit_sheet),
-                    tint = MaterialTheme.colorScheme.onTertiary
+                    tint = MaterialTheme.colorScheme.primary
                 )
             }
         }

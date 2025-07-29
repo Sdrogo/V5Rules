@@ -94,7 +94,7 @@ fun ClanItem(clan: Clan, navController: NavHostController, maxWidth: Float = 1f)
     ) {
         ClanImage(
             clanName = clan.name,
-            tintColor = MaterialTheme.colorScheme.tertiary,
+            tintColor = MaterialTheme.colorScheme.secondary,
             width = 40.dp,
         )
         Text(

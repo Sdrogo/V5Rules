@@ -51,7 +51,7 @@ fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) 
                         .padding(2.dp)
                         .clip(CircleShape)
                         .background(
-                            if (i <= level) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                            if (i <= level) MaterialTheme.colorScheme.secondary else Color.Transparent
                         )
                         .border(
                             width = 1.dp,
@@ -82,14 +82,14 @@ fun RangeDots(min: Int, max: Int) {
             )
         }
         Row {
-            for (i in 1..min) {
+            (1..min).forEach { i ->
                 Box(
                     modifier = Modifier
                         .size(22.dp)
                         .padding(2.dp)
                         .clip(CircleShape)
                         .background(
-                            MaterialTheme.colorScheme.tertiary
+                            MaterialTheme.colorScheme.secondary
                         )
                         .border(
                             width = 1.dp,
@@ -108,14 +108,14 @@ fun RangeDots(min: Int, max: Int) {
                     .padding(horizontal = 8.dp)
             )
             Row {
-                for (i in 1..max) {
+                (1..max).forEach { i ->
                     Box(
                         modifier = Modifier
                             .size(22.dp)
                             .padding(2.dp)
                             .clip(CircleShape)
                             .background(
-                                MaterialTheme.colorScheme.tertiary
+                                MaterialTheme.colorScheme.secondary
                             )
                             .border(
                                 width = 1.dp,
@@ -168,7 +168,7 @@ fun DotsForAttribute(
                         .padding(2.dp)
                         .clip(CircleShape)
                         .background(
-                            if (i <= level) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                            if (i <= level) MaterialTheme.colorScheme.secondary else Color.Transparent
                         )
                         .border(
                             width = 1.dp,
@@ -189,14 +189,14 @@ fun DotsOnlyForLevel(level: Int) {
             .wrapContentWidth()
     ) {
         Row {
-            for (i in 1..level) {
+            (1..level).forEach { i ->
                 Box(
                     modifier = Modifier
                         .size(22.dp)
                         .padding(2.dp)
                         .clip(CircleShape)
                         .background(
-                            MaterialTheme.colorScheme.tertiary
+                            MaterialTheme.colorScheme.secondary
                         )
                         .border(
                             width = 1.dp,
@@ -228,7 +228,7 @@ fun DotsWithMinMax(
                         .padding(2.dp)
                         .clip(CircleShape)
                         .background(
-                            if (i <= level) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                            if (i <= level) MaterialTheme.colorScheme.secondary else Color.Transparent
                         )
                         .border(
                             width = 1.dp,
