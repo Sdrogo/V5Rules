@@ -38,7 +38,7 @@ updates:
 
   # Configurazione per GitHub Actions (workflow del CI/CD)
   - package-ecosystem: "github-actions"
-    # La directory dove si trovano i tuoi workflow
+    # La directory dove si trovano i workflow
     directory: "/"
     schedule:
       interval: "weekly"
