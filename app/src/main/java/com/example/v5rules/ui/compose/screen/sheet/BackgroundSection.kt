@@ -166,7 +166,7 @@ fun BackgroundSection(
                     .fillMaxWidth()
                     .padding(bottom = 8.dp)
                     .border(
-                        1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)
+                        1.dp, MaterialTheme.colorScheme.secondary, RoundedCornerShape(8.dp)
                     ),
                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             )
@@ -210,7 +210,7 @@ fun BackgroundSection(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 8.dp)
-                    .border(1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)),
+                    .border(1.dp, MaterialTheme.colorScheme.secondary, RoundedCornerShape(8.dp)),
                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
@@ -262,7 +262,7 @@ fun BackgroundSection(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 8.dp)
-                    .border(1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)),
+                    .border(1.dp, MaterialTheme.colorScheme.secondary, RoundedCornerShape(8.dp)),
                 elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {

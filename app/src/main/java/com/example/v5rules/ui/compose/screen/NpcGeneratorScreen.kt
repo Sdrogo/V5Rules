@@ -48,7 +48,6 @@ import com.example.v5rules.CharacterSheetEditNav
 import com.example.v5rules.R
 import com.example.v5rules.data.FavoriteNpc
 import com.example.v5rules.data.Npc
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.GenderSelection
 import com.example.v5rules.ui.compose.component.IncludeSecondNameCheckbox
 import com.example.v5rules.ui.compose.component.NationalityDropdown
@@ -62,11 +61,15 @@ fun NPCGeneratorScreen(
     modifier: Modifier,
     viewModel: NPCGeneratorViewModel,
     navController: NavHostController,
+    onTitleChanged: (String) -> Unit
 ) {
     val loadingState by viewModel.nationalityState.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
     val orientation = LocalConfiguration.current.orientation
-
+    val title = stringResource(id = R.string.npc_generator_title)
+    LaunchedEffect(Unit) {
+        onTitleChanged(title)
+    }
     // Handle navigation
     LaunchedEffect(Unit) {
         viewModel.navigationEvent.collectLatest { event ->
@@ -78,78 +81,48 @@ fun NPCGeneratorScreen(
         }
     }
 
-    CommonScaffold(
-        navController = navController,
-        title = stringResource(id = R.string.npc_generator_title)
-    ) { paddingValues ->
-        when (loadingState) {
-            is NpcNationalityUiState.Error -> Text(
-                "Error: ${(loadingState as NpcNationalityUiState.Error).message}",
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.padding(paddingValues)
-            )
+    when (loadingState) {
+        is NpcNationalityUiState.Error -> Text(
+            "Error: ${(loadingState as NpcNationalityUiState.Error).message}",
+            color = MaterialTheme.colorScheme.primary
+        )
 
-            NpcNationalityUiState.Loading -> Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
+        NpcNationalityUiState.Loading -> Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            CircularProgressIndicator(color = MaterialTheme.colorScheme.tertiary)
+        }
+
+        is NpcNationalityUiState.Success -> {
+            Column(
+                modifier = modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                CircularProgressIndicator()
-            }
-
-            is NpcNationalityUiState.Success -> {
-                Column(
-                    modifier = modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                LazyColumn(
+                    modifier = Modifier.weight(1f),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    LazyColumn(
-                        modifier = Modifier.weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        item {
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                                Row {
-                                    Column(modifier = Modifier.weight(1f)) {
-                                        SettingsCard(viewModel = viewModel)
-                                    }
-                                    Column(modifier = Modifier.weight(1f)) {
-                                        Box(
-                                            modifier = Modifier.padding(8.dp)
-                                        ){
-                                            if (uiState.favoriteNpcs.isNotEmpty()) {
-                                                FavoritesDropdown(
-                                                    favoriteNpcs = uiState.favoriteNpcs,
-                                                    onFavoriteSelected = { viewModel.selectFavorite(it) }
-                                                )
-                                            }
-                                        }
-                                        GeneratedNameSection(
-                                            npc = uiState.npc,
-                                            includeSecondName = uiState.includeSecondName,
-                                            onRegenerateName = viewModel::regenerateName,
-                                            onRegenerateSecondName = viewModel::regenerateSecondName,
-                                            onRegenerateFamilyName = viewModel::regenerateFamilyName,
-                                            onToggleFavorite = {
-                                                uiState.npc?.let {
-                                                    viewModel.toggleFavorite()
-                                                }
-                                            }
-                                        )
-                                    }
-                                }
-                            } else {
-                                Column {
-                                    if (uiState.favoriteNpcs.isNotEmpty()) {
-                                        FavoritesDropdown(
-                                            favoriteNpcs = uiState.favoriteNpcs,
-                                            onFavoriteSelected = { viewModel.selectFavorite(it) }
-                                        )
-                                    }
-                                    Spacer(modifier = Modifier.height(8.dp))
+                    item {
+                        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                            Row {
+                                Column(modifier = Modifier.weight(1f)) {
                                     SettingsCard(viewModel = viewModel)
-                                    Spacer(modifier = Modifier.height(16.dp))
+                                }
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Box(
+                                        modifier = Modifier.padding(8.dp)
+                                    ) {
+                                        if (uiState.favoriteNpcs.isNotEmpty()) {
+                                            FavoritesDropdown(
+                                                favoriteNpcs = uiState.favoriteNpcs,
+                                                onFavoriteSelected = { viewModel.selectFavorite(it) }
+                                            )
+                                        }
+                                    }
                                     GeneratedNameSection(
                                         npc = uiState.npc,
                                         includeSecondName = uiState.includeSecondName,
@@ -164,14 +137,38 @@ fun NPCGeneratorScreen(
                                     )
                                 }
                             }
+                        } else {
+                            Column {
+                                if (uiState.favoriteNpcs.isNotEmpty()) {
+                                    FavoritesDropdown(
+                                        favoriteNpcs = uiState.favoriteNpcs,
+                                        onFavoriteSelected = { viewModel.selectFavorite(it) }
+                                    )
+                                }
+                                Spacer(modifier = Modifier.height(8.dp))
+                                SettingsCard(viewModel = viewModel)
+                                Spacer(modifier = Modifier.height(16.dp))
+                                GeneratedNameSection(
+                                    npc = uiState.npc,
+                                    includeSecondName = uiState.includeSecondName,
+                                    onRegenerateName = viewModel::regenerateName,
+                                    onRegenerateSecondName = viewModel::regenerateSecondName,
+                                    onRegenerateFamilyName = viewModel::regenerateFamilyName,
+                                    onToggleFavorite = {
+                                        uiState.npc?.let {
+                                            viewModel.toggleFavorite()
+                                        }
+                                    }
+                                )
+                            }
                         }
                     }
-                    ActionButtons(
-                        onGenerateClick = viewModel::generateAll,
-                        onCreateClick = viewModel::createCharacterFromNpc,
-                        isCreateEnabled = uiState.npc != null
-                    )
                 }
+                ActionButtons(
+                    onGenerateClick = viewModel::generateAll,
+                    onCreateClick = viewModel::createCharacterFromNpc,
+                    isCreateEnabled = uiState.npc != null
+                )
             }
         }
     }
@@ -193,8 +190,8 @@ private fun ActionButtons(
         Button(
             onClick = onGenerateClick,
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary,
-                contentColor = MaterialTheme.colorScheme.secondary
+                containerColor = MaterialTheme.colorScheme.secondary,
+                contentColor = MaterialTheme.colorScheme.primary
             )
         ) {
             Text(stringResource(R.string.generate_all_button_label))
@@ -203,8 +200,8 @@ private fun ActionButtons(
             onClick = onCreateClick,
             enabled = isCreateEnabled,
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.tertiary,
-                contentColor = MaterialTheme.colorScheme.secondary
+                containerColor = MaterialTheme.colorScheme.secondary,
+                contentColor = MaterialTheme.colorScheme.primary
             )
         ) {
             Text(stringResource(R.string.create_character))

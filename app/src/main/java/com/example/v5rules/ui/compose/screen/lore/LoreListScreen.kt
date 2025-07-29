@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -24,21 +25,19 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.LoreDetailsNav
 import com.example.v5rules.R
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.viewModel.LoreUiState
 import com.example.v5rules.viewModel.LoreViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun LoreListScreen(viewModel : LoreViewModel, navController: NavHostController) {
+fun LoreListScreen(viewModel : LoreViewModel, navController: NavHostController, onTitleChanged: (String) -> Unit) {
 
     val uiState by viewModel.loreUiState.collectAsState()
+    val title = stringResource(id = R.string.lore_screen_title)
 
-    CommonScaffold(
-        navController = navController,
-        title = stringResource(id = R.string.lore_screen_title)
-    )
-    {
+    LaunchedEffect(Unit) {
+        onTitleChanged(title)
+    }
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -86,7 +85,6 @@ fun LoreListScreen(viewModel : LoreViewModel, navController: NavHostController) 
                 )
             }
         }
-    }
 }
 
 

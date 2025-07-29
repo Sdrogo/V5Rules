@@ -12,14 +12,13 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
@@ -28,20 +27,22 @@ import com.example.v5rules.viewModel.DisciplineViewModel
 @Composable
 fun DisciplinePowerScreen(
     viewModel: DisciplineViewModel,
-    navController: NavHostController,
     disciplineId: String,
-    disciplinePowerId: String
+    disciplinePowerId: String,
+    onTitleChanged: (String) -> Unit
 ) {
 
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val disciplinePower = discipline?.disciplinePowers?.find { it.id == disciplinePowerId }
-    CommonScaffold(navController = navController, title = disciplinePower?.title ?: "") {
-        Column( modifier = Modifier.background(color = MaterialTheme.colorScheme.background)){
-            if (disciplinePower != null) {
-                LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)) { // Wrap content in LazyColumn
-                    item { // Use 'item' to add individual composables to the LazyColumn
-                        DisciplinePowerInfo(disciplinePower = disciplinePower, discipline = discipline)
-                    }
+    val title = disciplinePower?.title ?: ""
+    LaunchedEffect(Unit) {
+        onTitleChanged(title)
+    }
+    Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
+        if (disciplinePower != null) {
+            LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)) { // Wrap content in LazyColumn
+                item { // Use 'item' to add individual composables to the LazyColumn
+                    DisciplinePowerInfo(disciplinePower = disciplinePower, discipline = discipline)
                 }
             }
         }
@@ -68,7 +69,7 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
                 .background(MaterialTheme.colorScheme.background)
                 .border(
                     1.dp,
-                    MaterialTheme.colorScheme.tertiary,
+                    MaterialTheme.colorScheme.secondary,
                     RoundedCornerShape(8.dp)
                 )
         ) {
@@ -83,9 +84,9 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
                     isHidden = disciplinePower.cost.isNullOrEmpty()
                 )
                 TextBlock(
-                        title = stringResource(id = R.string.discipline_ingredients),
-                component = disciplinePower.ingredients.orEmpty(),
-                isHidden = disciplinePower.ingredients.isNullOrEmpty()
+                    title = stringResource(id = R.string.discipline_ingredients),
+                    component = disciplinePower.ingredients.orEmpty(),
+                    isHidden = disciplinePower.ingredients.isNullOrEmpty()
                 )
                 TextBlock(
                     title = stringResource(id = R.string.discipline_dice_pool),
@@ -111,7 +112,7 @@ fun DisciplinePowerInfo(disciplinePower: DisciplinePower, discipline: Discipline
                 contentList = disciplinePower.table.columns
             )
         }
-        Row{
+        Row {
             Spacer(modifier = Modifier.weight(1f))
             DisciplineIcon(
                 disciplineId = discipline.id,

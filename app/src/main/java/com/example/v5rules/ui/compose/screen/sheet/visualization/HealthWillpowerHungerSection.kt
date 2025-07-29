@@ -67,7 +67,7 @@ fun HealthWillpowerHungerSection(
                 style = MaterialTheme.typography.titleMedium
             )
             HungerDisplay(
-                currentHunger = (character.hunger ?: 0),
+                currentHunger = (character.hunger),
                 onHungerChange = { newHunger ->
                     onEvent(CharacterSheetEvent.HungerChanged(newHunger))
                 }
@@ -157,12 +157,12 @@ fun HungerDisplay(
                         }
                         onHungerChange(newHunger)
                     }
-                    .border(1.dp, MaterialTheme.colorScheme.onTertiary  )
+                    .border(1.dp, MaterialTheme.colorScheme.onSecondary  )
                     .then(
                         if (i <= currentHunger) {
-                            Modifier.background(MaterialTheme.colorScheme.tertiary)
+                            Modifier.background(MaterialTheme.colorScheme.secondary)
                         } else {
-                            Modifier.background(MaterialTheme.colorScheme.secondary.copy(alpha = 0.5f))
+                            Modifier.background(MaterialTheme.colorScheme.primary.copy(alpha = 0.5f))
                         }
                     )
             )

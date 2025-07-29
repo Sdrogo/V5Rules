@@ -180,6 +180,11 @@
     <string name="second_name">Secondo Nome</string>
     <string name="family_name">Cognome</string>
     <string name="default_web_client_id">951277915811-72prvbh745jcs4s5gru6f7lf63hvicnj.apps.googleusercontent.com</string>
+    <string name="logout_button_label">Logout</string>
+    <string name="clan_list_title">Clans</string>
+    <string name="user">User</string>
+    <string name="characters">Characters</string>
+    <string name="user_profile_title">User Profile</string>
 
     <string-array name="abilities">
         <item>Atletica</item>

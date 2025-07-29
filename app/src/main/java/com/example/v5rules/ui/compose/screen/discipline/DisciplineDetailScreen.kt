@@ -20,6 +20,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -41,7 +42,6 @@ import com.example.v5rules.RitualNav
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.data.Ritual
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.DotsForLevel
@@ -52,47 +52,73 @@ import com.example.v5rules.viewModel.DisciplineViewModel
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun DisciplineDetailScreen(
-    disciplineId: String, viewModel: DisciplineViewModel, navController: NavHostController
+    disciplineId: String, viewModel: DisciplineViewModel, navController: NavHostController, onTitleChanged: (String) -> Unit
 ) {
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val orientation = LocalConfiguration.current.orientation
     val isLandscape = orientation == Configuration.ORIENTATION_LANDSCAPE
-    CommonScaffold(navController = navController, title = discipline?.title ?: "") {
-
-        if (discipline != null) {
-            LazyColumn(
-                modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .wrapContentWidth()
-            ) {
-                item {
-                    Spacer(modifier = Modifier.padding(8.dp))
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.padding(bottom = 16.dp)
-                    ) {
-                        Spacer(Modifier.weight(1f))
-                        DisciplineIcon(
-                            disciplineId = discipline.id,
-                            contentDescription = discipline.title,
-                            size = 128.dp
-                        )
-                        Spacer(Modifier.weight(1f))
-                    }
-                    ContentExpander(
-                        stringResource(
-                            id = R.string.discipline_characteristics
-                        ),
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontWeight = FontWeight.Bold,
-                        initialState = false
-                    ) {
-                        DisciplineInfo(
-                            discipline, orientation == Configuration.ORIENTATION_LANDSCAPE
-                        )
-                    }
+    val title = discipline?.title ?: ""
+    LaunchedEffect(Unit) {
+        onTitleChanged(title)
+    }
+    if (discipline != null) {
+        LazyColumn(
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .wrapContentWidth()
+        ) {
+            item {
+                Spacer(modifier = Modifier.padding(8.dp))
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                ) {
+                    Spacer(Modifier.weight(1f))
+                    DisciplineIcon(
+                        disciplineId = discipline.id,
+                        contentDescription = discipline.title,
+                        size = 128.dp
+                    )
+                    Spacer(Modifier.weight(1f))
                 }
-                item {
+                ContentExpander(
+                    stringResource(
+                        id = R.string.discipline_characteristics
+                    ),
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Bold,
+                    initialState = false
+                ) {
+                    DisciplineInfo(
+                        discipline, orientation == Configuration.ORIENTATION_LANDSCAPE
+                    )
+                }
+            }
+            item {
+                FlowRow(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(8.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    maxItemsInEachRow = 3
+                ) {
+                    discipline.disciplinePowers.groupBy { it.level }.entries.toList()
+                        .distinctBy { it.value.first().id }.forEach { (level, subDisciplines) ->
+                            DisciplineList(
+                                level = level,
+                                subDisciplines = subDisciplines,
+                                disciplineId = disciplineId,
+                                navController = navController,
+                                isLandscape = isLandscape
+                            )
+                        }
+                }
+            }
+            item {
+                if (discipline.rituals.isNotEmpty()) RitualInfo(disciplineId = disciplineId)
+            }
+            item {
+                discipline.rituals.let { ritualsList ->
                     FlowRow(
                         modifier = Modifier
                             .fillMaxSize()
@@ -100,11 +126,11 @@ fun DisciplineDetailScreen(
                         horizontalArrangement = Arrangement.SpaceEvenly,
                         maxItemsInEachRow = 3
                     ) {
-                        discipline.disciplinePowers.groupBy { it.level }.entries.toList()
-                            .distinctBy { it.value.first().id }.forEach { (level, subDisciplines) ->
-                                DisciplineList(
+                        ritualsList.groupBy { it.level }.entries.toList()
+                            .forEach { (level, rituals) ->
+                                RitualsList(
                                     level = level,
-                                    subDisciplines = subDisciplines,
+                                    rituals = rituals,
                                     disciplineId = disciplineId,
                                     navController = navController,
                                     isLandscape = isLandscape
@@ -112,35 +138,10 @@ fun DisciplineDetailScreen(
                             }
                     }
                 }
-                item {
-                    if (!discipline.rituals.isNullOrEmpty()) RitualInfo(disciplineId = disciplineId)
-                }
-                item {
-                    discipline.rituals?.let { ritualsList ->
-                        FlowRow(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(8.dp),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            maxItemsInEachRow = 3
-                        ) {
-                            ritualsList.groupBy { it.level }.entries.toList()
-                                .forEach { (level, rituals) ->
-                                    RitualsList(
-                                        level = level,
-                                        rituals = rituals,
-                                        disciplineId = disciplineId,
-                                        navController = navController,
-                                        isLandscape = isLandscape
-                                    )
-                                }
-                        }
-                    }
-                }
             }
-        } else {
-            Text(text = "Discipline not found", style = MaterialTheme.typography.bodyMedium)
         }
+    } else {
+        Text(text = "Discipline not found", style = MaterialTheme.typography.bodyMedium)
     }
 }
 
@@ -155,9 +156,10 @@ fun SubDisciplineItem(
     isLandscape: Boolean = false
 ) {
     val widthValue = if (isLandscape && !isTablet()) 0.3f else 1f
-    FlowRow(verticalArrangement = Arrangement.Center,
+    FlowRow(
+        verticalArrangement = Arrangement.Center,
         horizontalArrangement = Arrangement.SpaceBetween,
-        maxItemsInEachRow = if (isLandscape&& !isTablet()) 1 else 3,
+        maxItemsInEachRow = if (isLandscape && !isTablet()) 1 else 3,
         modifier = Modifier
             .background(color = MaterialTheme.colorScheme.background)
             .padding(8.dp)
@@ -180,7 +182,7 @@ fun SubDisciplineItem(
             Text(
                 text = it,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.wrapContentWidth()
             )
         }
@@ -188,7 +190,7 @@ fun SubDisciplineItem(
             Text(
                 text = it,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
                 modifier = Modifier.wrapContentWidth()
             )
         }
@@ -204,11 +206,12 @@ fun RitualItem(
 ) {
 
     val widthValue = if (isLandscape) 0.3f else 1f
-    Column(modifier = Modifier
-        .background(color = MaterialTheme.colorScheme.background)
-        .fillMaxWidth(widthValue)
-        .padding(8.dp)
-        .clickable { navController.navigate(RitualNav(disciplineId, ritual.id)) }) {
+    Column(
+        modifier = Modifier
+            .background(color = MaterialTheme.colorScheme.background)
+            .fillMaxWidth(widthValue)
+            .padding(8.dp)
+            .clickable { navController.navigate(RitualNav(disciplineId, ritual.id)) }) {
         Text(
             text = ritual.title,
             style = MaterialTheme.typography.bodyLarge,
@@ -275,7 +278,7 @@ fun DisciplineList(
                     }
                     if (text != null) {
                         Spacer(modifier = Modifier.height(8.dp))
-                        Box(modifier = Modifier.fillMaxWidth(if(isLandscape && !isTablet())0.4f else 1f)) {
+                        Box(modifier = Modifier.fillMaxWidth(if (isLandscape && !isTablet()) 0.4f else 1f)) {
                             Text(
                                 text = AnnotatedString(
                                     text,

@@ -95,9 +95,19 @@ sealed class CharacterSheetEvent {
     data class RemoveNoteToFlaw(val background: Background,  val flaw: Advantage) : CharacterSheetEvent()
     data class HungerChanged(val newHunger:Int) : CharacterSheetEvent()
 
-    // Azioni
-    object SaveClicked: CharacterSheetEvent()
-    object DeleteClicked: CharacterSheetEvent()
-    object CleanupClicked: CharacterSheetEvent()
+    // Events to show dialogs
+    data object ShowSaveConfirmation : CharacterSheetEvent()
+    data object ShowCleanupConfirmation : CharacterSheetEvent()
+    data object ShowDeleteConfirmation : CharacterSheetEvent()
 
+    // Events for dialog actions
+    data object ConfirmSave : CharacterSheetEvent()
+    data object ConfirmCleanup : CharacterSheetEvent()
+    data object ConfirmDelete : CharacterSheetEvent()
+    data object DismissDialog : CharacterSheetEvent()
+
+    // Legacy events to be removed
+    data object SaveClicked : CharacterSheetEvent()
+    data object CleanupClicked : CharacterSheetEvent()
+    data object DeleteClicked : CharacterSheetEvent()
 }

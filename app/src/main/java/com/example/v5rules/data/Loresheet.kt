@@ -7,7 +7,7 @@ data class Loresheet(
     val id: String = "",
     val title: String = "",
     val content: String = "",
-    val limitation: String = "",
+    val limitation: String? = null,
     val powers: List<LoresheetPower> = emptyList(),
     val level: Int = 0,
 )
@@ -16,6 +16,6 @@ data class Loresheet(
 data class LoresheetPower(
     val title: String  = "",
     val level: Int  = 1,
-    val limitation: String = "",
+    val limitation: String? = null,
     val content: String = ""
 )

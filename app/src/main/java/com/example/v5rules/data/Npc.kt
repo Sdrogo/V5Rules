@@ -1,17 +1,14 @@
 package com.example.v5rules.data
 
-import androidx.room.Entity
-import androidx.room.Ignore
-import androidx.room.PrimaryKey
 
 data class Npc(
-    val nome: String,
-    val secondName: String?,
-    val cognome: String,
+    val nome: String = "",
+    val secondName: String? = "",
+    val cognome: String = "",
     var isFavorite: Boolean = false
 ) {
     override fun toString(): String {
-        return "${nome} ${secondName.orEmpty() + " "}${cognome}"
+        return "$nome $secondName $cognome"
     }
 }
 
@@ -20,16 +17,13 @@ enum class Gender {
     FEMALE
 }
 
-@Entity(tableName = "favorite_npcs")
 data class FavoriteNpc(
-    @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val name: String = "",
-    val secondName: String? = null,
+    val secondName: String? = "",
     val familyName: String = "",
     val nationality: String = ""
 ) {
-    @Ignore
     constructor(
         name: String,
         secondName: String?,

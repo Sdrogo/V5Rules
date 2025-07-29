@@ -15,6 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
@@ -23,11 +24,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.Clan
 import com.example.v5rules.ui.compose.component.ClanImage
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.TextBlock
 import com.example.v5rules.viewModel.ClanViewModel
@@ -35,14 +34,15 @@ import com.example.v5rules.viewModel.ClanViewModel
 @Composable
 fun ClanDetailScreen(
     clanViewModel: ClanViewModel,
-    navController: NavHostController,
-    clanName: String
+    clanName: String,
+    onTitleChanged: (String) -> Unit
 ) {
     val clan = clanViewModel.allClans.find { it.name == clanName }
-    CommonScaffold(navController = navController, title = clanName) {
-        clan?.let { clan ->
-            ClanDetail(clan = clan)
-        }
+    LaunchedEffect(Unit) {
+        onTitleChanged(clanName)
+    }
+    clan?.let { clan ->
+        ClanDetail(clan = clan)
     }
 }
 
@@ -62,7 +62,7 @@ fun ClanDetail(
                 Spacer(modifier = Modifier.weight(1f))
                 ClanImage(
                     clanName = clan.name,
-                    tintColor = MaterialTheme.colorScheme.tertiary,
+                    tintColor = MaterialTheme.colorScheme.secondary,
                     width = 200.dp
                 )
                 Spacer(modifier = Modifier.weight(1f))
@@ -72,7 +72,7 @@ fun ClanDetail(
                 Spacer(modifier = Modifier.weight(1f))
                 ClanImage(
                     clanName = clan.name,
-                    tintColor = MaterialTheme.colorScheme.tertiary,
+                    tintColor = MaterialTheme.colorScheme.secondary,
                     width = 400.dp,
                     true
                 )
@@ -95,7 +95,7 @@ fun ClanDetail(
                 )
             }
         }
-        items(clan.paragraphs.orEmpty()) {
+        items(clan.paragraphs) {
             ContentExpander(
                 title = it.title,
                 style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
@@ -111,25 +111,23 @@ fun ClanDetail(
                         fontSize = 16.sp,
                         modifier = Modifier.padding(horizontal = 16.dp)
                     )
-                    if (it.subParagraphs != null) {
-                        it.subParagraphs.let { sub ->
-                            sub.forEach { subItem ->
-                                ContentExpander(
-                                    title = subItem.title,
-                                    style = MaterialTheme.typography.headlineSmall,
-                                    fontWeight = FontWeight.Bold
-                                ) {
-                                    Text(
-                                        text = AnnotatedString(
-                                            subItem.content,
-                                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
-                                        ),
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        color = MaterialTheme.colorScheme.primary,
-                                        fontSize = 16.sp,
-                                        modifier = Modifier.padding(horizontal = 16.dp)
-                                    )
-                                }
+                    it.subParagraphs.let { sub ->
+                        sub?.forEach { subItem ->
+                            ContentExpander(
+                                title = subItem.title,
+                                style = MaterialTheme.typography.headlineSmall,
+                                fontWeight = FontWeight.Bold
+                            ) {
+                                Text(
+                                    text = AnnotatedString(
+                                        subItem.content,
+                                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Justify)
+                                    ),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    fontSize = 16.sp,
+                                    modifier = Modifier.padding(horizontal = 16.dp)
+                                )
                             }
                         }
                     }
@@ -148,7 +146,7 @@ fun ClanDetail(
                         .fillMaxWidth()
                         .border(
                             1.dp,
-                            MaterialTheme.colorScheme.tertiary,
+                            MaterialTheme.colorScheme.secondary,
                             RoundedCornerShape(8.dp)
                         ),
                     shape = RoundedCornerShape(8.dp)
@@ -166,7 +164,7 @@ fun ClanDetail(
             }
         }
         item {
-            clan.weakness?.let {
+            clan.weakness.let {
                 ContentExpander(
                     title = stringResource(id = R.string.clan_weakness),
                     style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold
@@ -184,7 +182,7 @@ fun ClanDetail(
                 }
             }
         }
-        items(clan.compulsion.orEmpty()) {
+        items(clan.compulsion) {
             ContentExpander(
                 title = stringResource(id = R.string.clan_compulsion, it.name),
                 style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold

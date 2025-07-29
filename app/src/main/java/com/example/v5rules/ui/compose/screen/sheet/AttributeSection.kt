@@ -62,7 +62,7 @@ fun AttributeSection(
                 .padding(vertical = 4.dp)
                 .border(
                     width = 1.dp,
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     shape = RoundedCornerShape(8.dp)
                 ),
         ) {
@@ -114,7 +114,7 @@ fun AttributeSection(
                 .padding(vertical = 4.dp)
                 .border(
                     width = 1.dp,
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     shape = RoundedCornerShape(8.dp)
                 ),
         ) {
@@ -166,7 +166,7 @@ fun AttributeSection(
                 .padding(vertical = 4.dp)
                 .border(
                     width = 1.dp,
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     shape = RoundedCornerShape(8.dp)
                 ),
         ) {
@@ -240,7 +240,7 @@ private fun InteractiveAttributeRow(
                         .padding(2.dp)
                         .clip(CircleShape)
                         .background(
-                            if (i <= currentValue) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                            if (i <= currentValue) MaterialTheme.colorScheme.secondary else Color.Transparent
                         )
                         .border(
                             width = 1.dp,

@@ -234,7 +234,7 @@ private fun InteractiveDisciplineDots(
                     .padding(2.dp)
                     .clip(CircleShape)
                     .background(
-                        if (i <= currentValue) MaterialTheme.colorScheme.tertiary else Color.Transparent
+                        if (i <= currentValue) MaterialTheme.colorScheme.secondary else Color.Transparent
                     )
                     .border(
                         width = 1.dp,

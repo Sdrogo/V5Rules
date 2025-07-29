@@ -383,7 +383,7 @@ private fun InteractiveAdvantageDots(
     onValueChange: (Int) -> Unit
 ) {
     val filledColor =
-        if (isFlaw) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.tertiary
+        if (isFlaw) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.secondary
     val borderColor =
         if (isFlaw) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.primary
     Row {
@@ -424,7 +424,7 @@ fun InteractiveBackgroundDots(
                     .size(22.dp)
                     .padding(2.dp)
                     .clip(CircleShape)
-                    .background(if (i <= currentValue) MaterialTheme.colorScheme.tertiary else Color.Transparent)
+                    .background(if (i <= currentValue) MaterialTheme.colorScheme.secondary else Color.Transparent)
                     .border(
                         1.dp,
                         if (i <= currentValue) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(

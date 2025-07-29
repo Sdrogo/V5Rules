@@ -35,7 +35,7 @@ fun GeneralInfoSectionVisualization(character: Character) {
                     .fillMaxWidth()
                     .background(MaterialTheme.colorScheme.background)
                     .border(
-                        1.dp, MaterialTheme.colorScheme.tertiary, RoundedCornerShape(8.dp)
+                        1.dp, MaterialTheme.colorScheme.secondary, RoundedCornerShape(8.dp)
                     ),
             ) {
                 Column(modifier = Modifier.padding(8.dp)) {
@@ -56,7 +56,7 @@ fun GeneralInfoSectionVisualization(character: Character) {
                             Spacer(modifier = Modifier.width(16.dp))
                             ClanImage(
                                 clanName = it,
-                                tintColor = MaterialTheme.colorScheme.tertiary,
+                                tintColor = MaterialTheme.colorScheme.secondary,
                                 width = 24.dp
                             )
                             Text(text = it)

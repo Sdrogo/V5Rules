@@ -15,17 +15,19 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.ClanDetailsNav
+import com.example.v5rules.R
 import com.example.v5rules.data.Clan
 import com.example.v5rules.ui.compose.component.ClanImage
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.viewModel.ClanUiState
 import com.example.v5rules.viewModel.ClanViewModel
 
@@ -33,48 +35,50 @@ import com.example.v5rules.viewModel.ClanViewModel
 @Composable
 fun ClanListScreen(
     viewModel: ClanViewModel,
-    navController: NavHostController
+    navController: NavHostController,
+    onTitleChanged: (String) -> Unit
 ) {
     val uiState by viewModel.clanUiState.collectAsState()
-
-    CommonScaffold(navController = navController, title = "Clans") {
-        when (uiState) {
-            is ClanUiState.Loading -> Text("Loading...")
-            is ClanUiState.Success -> {
-                val clans = (uiState as ClanUiState.Success).clans
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 8.dp)
-                        .background(color = MaterialTheme.colorScheme.background)
-                ) {
-                    item {
-                        val orientation = LocalConfiguration.current.orientation
-                        val widthByOrientation =
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 0.5f
-                        val numberOfRow =
-                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 3 else 2
-                        FlowRow(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(vertical = 8.dp),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            maxItemsInEachRow = numberOfRow
-                        ) {
-                            clans.forEach {
-                                ClanItem(
-                                    clan = it,
-                                    navController = navController,
-                                    widthByOrientation
-                                )
-                            }
+    val title = stringResource(R.string.clan_list_title)
+    LaunchedEffect(Unit) {
+        onTitleChanged(title)
+    }
+    when (uiState) {
+        is ClanUiState.Loading -> Text("Loading...")
+        is ClanUiState.Success -> {
+            val clans = (uiState as ClanUiState.Success).clans
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 8.dp)
+                    .background(color = MaterialTheme.colorScheme.background)
+            ) {
+                item {
+                    val orientation = LocalConfiguration.current.orientation
+                    val widthByOrientation =
+                        if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.3f else 0.5f
+                    val numberOfRow =
+                        if (orientation == Configuration.ORIENTATION_LANDSCAPE) 3 else 2
+                    FlowRow(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(vertical = 8.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        maxItemsInEachRow = numberOfRow
+                    ) {
+                        clans.forEach {
+                            ClanItem(
+                                clan = it,
+                                navController = navController,
+                                widthByOrientation
+                            )
                         }
                     }
                 }
             }
-
-            is ClanUiState.Error -> Text("Error: ${(uiState as ClanUiState.Error).message}")
         }
+
+        is ClanUiState.Error -> Text("Error: ${(uiState as ClanUiState.Error).message}")
     }
 }
 
@@ -90,7 +94,7 @@ fun ClanItem(clan: Clan, navController: NavHostController, maxWidth: Float = 1f)
     ) {
         ClanImage(
             clanName = clan.name,
-            tintColor = MaterialTheme.colorScheme.tertiary,
+            tintColor = MaterialTheme.colorScheme.secondary,
             width = 40.dp,
         )
         Text(

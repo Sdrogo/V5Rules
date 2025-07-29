@@ -28,14 +28,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 
 @Composable
 fun CharacterSheetScreenVisualization(
     viewModel: CharacterSheetViewModel,
     navController: NavHostController,
-    id: String? = null
+    id: String? = null,
+    onTitleChanged: (String) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val character = uiState.character
@@ -52,200 +52,201 @@ fun CharacterSheetScreenVisualization(
         }
     }
 
-    CommonScaffold(
-        navController = navController,
-        title = character.name
-    ) { _ ->
-        Column(
+    LaunchedEffect(character.name) {
+        if (character.name.isNotEmpty()) {
+            onTitleChanged(character.name)
+        }
+    }
+    
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding()
+    ) {
+        LazyColumn(
             modifier = Modifier
-                .fillMaxSize()
-                .padding()
+                .fillMaxWidth()
+                .weight(1f)
         ) {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-            ) {
-                item {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                isGeneralSectionExpanded = !isGeneralSectionExpanded
-                            }
-                            .background(MaterialTheme.colorScheme.tertiary)
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(
-                            text = stringResource(R.string.sheet_general_info_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onTertiary
-                        )
-                        Icon(
-                            imageVector = if (isGeneralSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                            tint = MaterialTheme.colorScheme.onTertiary,
-                            contentDescription = if (isGeneralSectionExpanded) stringResource(
-                                R.string.collapse
-                            ) else stringResource(R.string.expand)
-                        )
-                    }
-                    if (isGeneralSectionExpanded) {
-                        GeneralInfoSectionVisualization(character)
-                    }
-                }
-                item {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                isAttributeSectionExpanded = !isAttributeSectionExpanded
-                            }
-                            .background(MaterialTheme.colorScheme.tertiary)
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(
-                            text = stringResource(R.string.sheet_attribute_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onTertiary
-                        )
-                        Icon(
-                            imageVector = if (isAttributeSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                            tint = MaterialTheme.colorScheme.onTertiary,
-                            contentDescription = if (isAttributeSectionExpanded) stringResource(
-                                R.string.collapse
-                            ) else stringResource(R.string.expand)
-                        )
-                    }
-                    if (isAttributeSectionExpanded) {
-                        AttributeSectionVisualization(character)
-                    }
-                }
-                item {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                isAbilitySectionExpanded = !isAbilitySectionExpanded
-                            }
-                            .background(MaterialTheme.colorScheme.tertiary)
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(
-                            text = stringResource(R.string.sheet_ability_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onTertiary
-                        )
-                        Icon(
-                            imageVector = if (isAbilitySectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                            tint = MaterialTheme.colorScheme.onTertiary,
-                            contentDescription = if (isAbilitySectionExpanded) stringResource(
-                                R.string.collapse
-                            ) else stringResource(R.string.expand)
-                        )
-                    }
-                    if (isAbilitySectionExpanded) {
-                        AbilitySectionVisualization(character)
-                    }
-                }
-                item {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                isDisciplineSectionExpanded = !isDisciplineSectionExpanded
-                            }
-                            .background(MaterialTheme.colorScheme.tertiary)
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(
-                            text = stringResource(R.string.sheet_discipline_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onTertiary
-                        )
-                        Icon(
-                            imageVector = if (isDisciplineSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                            tint = MaterialTheme.colorScheme.onTertiary,
-                            contentDescription = if (isDisciplineSectionExpanded) stringResource(
-                                R.string.collapse
-                            ) else stringResource(R.string.expand)
-                        )
-                    }
-                    if (isDisciplineSectionExpanded) {
-                        DisciplineSelectionVisualization(viewModel, navController)
-                    }
-                }
-                item {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                isBackgroundSectionExpanded = !isBackgroundSectionExpanded
-                            }
-                            .background(MaterialTheme.colorScheme.tertiary)
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(
-                            text = stringResource(R.string.sheet_background_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.onTertiary
-                        )
-                        Icon(
-                            imageVector = if (isBackgroundSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                            tint = MaterialTheme.colorScheme.onTertiary,
-                            contentDescription = if (isBackgroundSectionExpanded) stringResource(
-                                R.string.collapse
-                            ) else stringResource(R.string.expand)
-                        )
-                    }
-
-                    if (isBackgroundSectionExpanded) {
-                        BackgroundSectionVisualization(viewModel)
-                    }
-                }
-            }
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { isHealthSectionExpanded = !isHealthSectionExpanded }
-                    .background(MaterialTheme.colorScheme.tertiary)
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(R.string.vital_stats_header),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onTertiary
-                )
-                Icon(
-                    imageVector = if (isHealthSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
-                    tint = MaterialTheme.colorScheme.onTertiary,
-                    contentDescription = if (isHealthSectionExpanded) stringResource(R.string.collapse) else stringResource(
-                        R.string.expand
-                    )
-                )
-            }
-
-            if (isHealthSectionExpanded) {
-                HealthWillpowerHungerSection(
-                    character = character,
-                    onEvent = viewModel::onEvent,
+            item {
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(bottom = 8.dp)
-                )
+                        .clickable {
+                            isGeneralSectionExpanded = !isGeneralSectionExpanded
+                        }
+                        .background(MaterialTheme.colorScheme.secondary)
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = stringResource(R.string.sheet_general_info_title),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Icon(
+                        imageVector = if (isGeneralSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
+                        tint = MaterialTheme.colorScheme.primary,
+                        contentDescription = if (isGeneralSectionExpanded) stringResource(
+                            R.string.collapse
+                        ) else stringResource(R.string.expand)
+                    )
+                }
+                if (isGeneralSectionExpanded) {
+                    GeneralInfoSectionVisualization(character)
+                }
             }
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            isAttributeSectionExpanded = !isAttributeSectionExpanded
+                        }
+                        .background(MaterialTheme.colorScheme.secondary)
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = stringResource(R.string.sheet_attribute_title),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Icon(
+                        imageVector = if (isAttributeSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
+                        tint = MaterialTheme.colorScheme.primary,
+                        contentDescription = if (isAttributeSectionExpanded) stringResource(
+                            R.string.collapse
+                        ) else stringResource(R.string.expand)
+                    )
+                }
+                if (isAttributeSectionExpanded) {
+                    AttributeSectionVisualization(character)
+                }
+            }
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            isAbilitySectionExpanded = !isAbilitySectionExpanded
+                        }
+                        .background(MaterialTheme.colorScheme.secondary)
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = stringResource(R.string.sheet_ability_title),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Icon(
+                        imageVector = if (isAbilitySectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
+                        tint = MaterialTheme.colorScheme.primary,
+                        contentDescription = if (isAbilitySectionExpanded) stringResource(
+                            R.string.collapse
+                        ) else stringResource(R.string.expand)
+                    )
+                }
+                if (isAbilitySectionExpanded) {
+                    AbilitySectionVisualization(character)
+                }
+            }
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            isDisciplineSectionExpanded = !isDisciplineSectionExpanded
+                        }
+                        .background(MaterialTheme.colorScheme.secondary)
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = stringResource(R.string.sheet_discipline_title),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Icon(
+                        imageVector = if (isDisciplineSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
+                        tint = MaterialTheme.colorScheme.primary,
+                        contentDescription = if (isDisciplineSectionExpanded) stringResource(
+                            R.string.collapse
+                        ) else stringResource(R.string.expand)
+                    )
+                }
+                if (isDisciplineSectionExpanded) {
+                    DisciplineSelectionVisualization(viewModel, navController)
+                }
+            }
+            item {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            isBackgroundSectionExpanded = !isBackgroundSectionExpanded
+                        }
+                        .background(MaterialTheme.colorScheme.secondary)
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = stringResource(R.string.sheet_background_title),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                    Icon(
+                        imageVector = if (isBackgroundSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
+                        tint = MaterialTheme.colorScheme.primary,
+                        contentDescription = if (isBackgroundSectionExpanded) stringResource(
+                            R.string.collapse
+                        ) else stringResource(R.string.expand)
+                    )
+                }
+
+                if (isBackgroundSectionExpanded) {
+                    BackgroundSectionVisualization(viewModel)
+                }
+            }
+        }
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable { isHealthSectionExpanded = !isHealthSectionExpanded }
+                .background(MaterialTheme.colorScheme.secondary)
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = stringResource(R.string.vital_stats_header),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.primary
+            )
+            Icon(
+                imageVector = if (isHealthSectionExpanded) Icons.Filled.KeyboardArrowDown else Icons.Filled.KeyboardArrowUp,
+                tint = MaterialTheme.colorScheme.primary,
+                contentDescription = if (isHealthSectionExpanded) stringResource(R.string.collapse) else stringResource(
+                    R.string.expand
+                )
+            )
+        }
+
+        if (isHealthSectionExpanded) {
+            HealthWillpowerHungerSection(
+                character = character,
+                onEvent = viewModel::onEvent,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp)
+            )
         }
     }
 }

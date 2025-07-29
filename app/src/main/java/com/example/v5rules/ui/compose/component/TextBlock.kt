@@ -23,7 +23,7 @@ fun TextBlock(title: String, component: String, isHidden: Boolean) {
                 text = title,
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
                 fontSize = 16.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -49,7 +49,7 @@ fun TextBlockList(title: String, component: List<String>, isHidden: Boolean) {
                 text = title,
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.tertiary,
+                color = MaterialTheme.colorScheme.secondary,
                 fontSize = 16.sp
             )
             Spacer(modifier = Modifier.height(8.dp))

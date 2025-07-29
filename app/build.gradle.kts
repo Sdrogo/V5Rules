@@ -18,10 +18,6 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        ksp {
-            arg("room.schemaLocation", "$projectDir/schemas")
-        }
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -69,10 +65,9 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
     implementation(libs.firebase.firestore)
-    ksp(libs.androidx.room.compiler) // Usa ksp, non kapt
-    implementation(libs.androidx.room.runtime)
     implementation(libs.coil.compose)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.runtime)
     ksp(libs.hilt.android.compiler) // Usa ksp, non kapt
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -89,14 +84,10 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.com.google.code.gson)
-    implementation(libs.room.ktx)
     implementation(libs.serialization)
     implementation (libs.kotlinx.coroutines.core)
     implementation(libs.androidx.constraintlayout) // constraintlayout per View System
     implementation(libs.androidx.constraintlayout.compose)
-    implementation(libs.androidx.room.runtime) // o la versione più recente
-    ksp(libs.androidx.room.compiler) // o la versione più recente
-    implementation(libs.room.ktx)
     ksp(libs.hilt.android.compiler)
 
 }

@@ -33,92 +33,99 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.BackgroundDetailsNav
 import com.example.v5rules.R
 import com.example.v5rules.data.Background
-import com.example.v5rules.ui.compose.component.CommonScaffold
 import com.example.v5rules.ui.compose.component.TintedImage
 import com.example.v5rules.viewModel.BackgroundUiState
 import com.example.v5rules.viewModel.BackgroundViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun BackgroundScreen(backgroundViewModel: BackgroundViewModel, navController: NavHostController) {
+fun BackgroundScreen(
+    backgroundViewModel: BackgroundViewModel, navController: NavHostController,
+    onTitleChanged: (String) -> Unit
+) {
     val uiState by backgroundViewModel.backgroundUiState.collectAsState()
     var searchText by remember { mutableStateOf("") }
     val filteredBackgrounds by backgroundViewModel.filteredBackgrounds.collectAsState()
 
-    CommonScaffold(
-        navController = navController,
-        title = stringResource(id = R.string.background_title_screen)
-    ) {
-        LaunchedEffect(Unit) {
-            backgroundViewModel.updateSearchQuery("")
-        }
-        when (uiState) {
-            is BackgroundUiState.Loading -> Text("Loading...")
-            is BackgroundUiState.Success -> {
-                Column {
-                    TextField(
-                        value = searchText,
-                        onValueChange = {
-                            searchText = it
-                            backgroundViewModel.updateSearchQuery(it)
-                        },
-                        shape = RoundedCornerShape(8.dp),
-                        trailingIcon = { TintedImage(R.drawable.malkavian_symbol, MaterialTheme.colorScheme.tertiary, 48.dp)  },
-                        label = { Text("Search") },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 8.dp),
-                        colors = TextFieldDefaults.colors(
-                            focusedContainerColor = MaterialTheme.colorScheme.secondary,
-                            unfocusedContainerColor = MaterialTheme.colorScheme.background,
-                            focusedTextColor = MaterialTheme.colorScheme.tertiary,
-                            unfocusedIndicatorColor = MaterialTheme.colorScheme.tertiary,
-                            focusedLabelColor = MaterialTheme.colorScheme.tertiary,
-                            disabledContainerColor = MaterialTheme.colorScheme.tertiary,
-                            focusedIndicatorColor = MaterialTheme.colorScheme.tertiary
+    LaunchedEffect(Unit) {
+        backgroundViewModel.updateSearchQuery("")
+    }
+    val title = stringResource(R.string.background_title_screen)
+    LaunchedEffect(Unit) {
+        onTitleChanged(title)
+    }
+    when (uiState) {
+        is BackgroundUiState.Loading -> Text("Loading...")
+        is BackgroundUiState.Success -> {
+            Column {
+                TextField(
+                    value = searchText,
+                    onValueChange = {
+                        searchText = it
+                        backgroundViewModel.updateSearchQuery(it)
+                    },
+                    shape = RoundedCornerShape(8.dp),
+                    trailingIcon = {
+                        TintedImage(
+                            R.drawable.malkavian_symbol,
+                            MaterialTheme.colorScheme.secondary,
+                            48.dp
                         )
+                    },
+                    label = { Text("Search") },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = MaterialTheme.colorScheme.primary,
+                        unfocusedContainerColor = MaterialTheme.colorScheme.background,
+                        focusedTextColor = MaterialTheme.colorScheme.secondary,
+                        unfocusedIndicatorColor = MaterialTheme.colorScheme.secondary,
+                        focusedLabelColor = MaterialTheme.colorScheme.secondary,
+                        disabledContainerColor = MaterialTheme.colorScheme.secondary,
+                        focusedIndicatorColor = MaterialTheme.colorScheme.secondary
                     )
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(horizontal = 16.dp)
-                            .background(color = MaterialTheme.colorScheme.background)
-                    ) {
-                        item {
-                            val orientation = LocalConfiguration.current.orientation
-                            val widthByOrientation =
-                                if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.4f else 1f
-                            val maxRowItem =
-                                if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
+                )
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp)
+                        .background(color = MaterialTheme.colorScheme.background)
+                ) {
+                    item {
+                        val orientation = LocalConfiguration.current.orientation
+                        val widthByOrientation =
+                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 0.4f else 1f
+                        val maxRowItem =
+                            if (orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
 
-                            FlowRow(
-                                modifier = Modifier
-                                    .fillMaxSize(),
-                                horizontalArrangement = Arrangement.SpaceAround,
-                                maxItemsInEachRow = maxRowItem
-                            ) {
-                                filteredBackgrounds.sortedBy { it.title }.forEach {
-                                    BackgroundLineItem(
-                                        background = it,
-                                        navController = navController,
-                                        maxWidth = widthByOrientation
-                                    )
-                                }
+                        FlowRow(
+                            modifier = Modifier
+                                .fillMaxSize(),
+                            horizontalArrangement = Arrangement.SpaceAround,
+                            maxItemsInEachRow = maxRowItem
+                        ) {
+                            filteredBackgrounds.sortedBy { it.title }.forEach {
+                                BackgroundLineItem(
+                                    background = it,
+                                    navController = navController,
+                                    maxWidth = widthByOrientation
+                                )
                             }
                         }
                     }
                 }
-
             }
 
-            is BackgroundUiState.Error -> Text("Error: ${(uiState as BackgroundUiState.Error).message}")
         }
+
+        is BackgroundUiState.Error -> Text("Error: ${(uiState as BackgroundUiState.Error).message}")
     }
 }
 
 @Composable
 fun BackgroundLineItem(background: Background, navController: NavHostController, maxWidth: Float) {
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxWidth(maxWidth)
             .background(color = MaterialTheme.colorScheme.background)
@@ -131,9 +138,10 @@ fun BackgroundLineItem(background: Background, navController: NavHostController,
                 )
             }
     ) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
         ) {
             Text(
                 text = background.title,
@@ -148,23 +156,24 @@ fun BackgroundLineItem(background: Background, navController: NavHostController,
                 Text(
                     text = it,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     modifier = Modifier
                         .wrapContentWidth()
                         .padding(horizontal = 8.dp)
                 )
             }
         }
-        background.directFlaws?.forEach { flaw ->
-            Column(modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 8.dp)
+        background.directFlaws.forEach { flaw ->
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp)
             ) {
                 Text(
                     text = flaw.title,
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = MaterialTheme.colorScheme.secondary,
                     modifier = Modifier
                         .wrapContentWidth()
                         .padding(horizontal = 8.dp)
@@ -173,7 +182,7 @@ fun BackgroundLineItem(background: Background, navController: NavHostController,
                     Text(
                         text = it,
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.tertiary,
+                        color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier
                             .wrapContentWidth()
                             .padding(horizontal = 8.dp)
