@@ -26,6 +26,7 @@ credentialsPlayServicesAuth = "1.5.0"
 googleid = "1.1.1"
 firebaseFirestore = "24.11.1"
 runtime = "1.8.3"
+googleFirebaseFirebasePerf = "2.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -67,3 +68,4 @@ androidx-runtime = { group = "androidx.compose.runtime", name = "runtime", versi
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 googleGmsGoogleServices = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+googleFirebaseFirebasePerf = { id = "com.google.firebase.firebase-perf", version.ref = "googleFirebaseFirebasePerf" }

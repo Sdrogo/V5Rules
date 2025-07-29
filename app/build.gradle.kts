@@ -5,6 +5,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
     alias(libs.plugins.googleGmsGoogleServices)
+    alias(libs.plugins.googleFirebaseFirebasePerf)
 }
 
 android {
@@ -25,22 +26,35 @@ android {
 
     }
 
+    signingConfigs {
+        create("release") {
+            val keystoreFile = rootProject.file("keystore.jks")
+            if (keystoreFile.exists()) {
+                storeFile = keystoreFile
+                storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+                keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+                keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -56,7 +70,7 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.androidx.compose.bom)) // Importa il BOM
+    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.hilt.navigation.compose)
@@ -67,8 +81,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.coil.compose)
     implementation(libs.hilt.android)
-    implementation(libs.androidx.runtime)
-    ksp(libs.hilt.android.compiler) // Usa ksp, non kapt
+    ksp(libs.hilt.android.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -77,17 +90,15 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    debugImplementation(libs.androidx.ui.tooling) //debugImplementation per evitare di includerlo nella release
+    debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.androidx.ui.test.junit4)
-    implementation(libs.androidx.material3) // NESSUNA VERSIONE, il BOM gestisce la versione!
+    implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.com.google.code.gson)
     implementation(libs.serialization)
     implementation (libs.kotlinx.coroutines.core)
-    implementation(libs.androidx.constraintlayout) // constraintlayout per View System
+    implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.constraintlayout.compose)
-    ksp(libs.hilt.android.compiler)
-
 }
