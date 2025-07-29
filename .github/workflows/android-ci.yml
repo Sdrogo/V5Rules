@@ -64,10 +64,10 @@ jobs:
           RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
           RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
         run: |
-          echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > ${{ github.workspace }}/app/my-release-key.keystore
-          echo "storePassword=$RELEASE_STORE_PASSWORD" > ${{ github.workspace }}/app/keystore.properties
-          echo "keyAlias=$RELEASE_KEY_ALIAS" >> ${{ github.workspace }}/app/keystore.properties
-          echo "keyPassword=$RELEASE_KEY_PASSWORD" >> ${{ github.workspace }}/app/keystore.properties
+          echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > my-release-key.keystore
+          echo "storePassword=$RELEASE_STORE_PASSWORD" > keystore.properties
+          echo "keyAlias=$RELEASE_KEY_ALIAS" >> keystore.properties
+          echo "keyPassword=$RELEASE_KEY_PASSWORD" >> keystore.properties
 
       - name: Build with Gradle
         run: ./gradlew assembleRelease
