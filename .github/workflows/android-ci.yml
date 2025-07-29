@@ -53,8 +53,8 @@ jobs:
         run: chmod +x gradlew
 
       # Step 6: Esegui il build (necessario per l'analisi di CodeQL)
-      - name: Build with Gradle
-        run: ./gradlew build
+      - name: Build Release for Analysis
+        run: ./gradlew assembleRelease
 
       # Step 7: Esegui l'analisi di CodeQL
       - name: Perform CodeQL Analysis
