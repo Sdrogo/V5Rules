@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
 import com.example.v5rules.data.Discipline
-import com.example.v5rules.data.Ritual
+import com.example.v5rules.data.RitualPower
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock
@@ -33,7 +33,7 @@ fun RitualScreen(
 ) {
 
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
-    val ritual = discipline?.rituals?.find { it.id == ritualId }
+    val ritual = discipline?.ritual?.ritualsPowers?.find { it.id == ritualId }
     val title = ritual?.title ?: ""
     LaunchedEffect(Unit) {
         onTitleChanged(title)
@@ -51,7 +51,7 @@ fun RitualScreen(
 
 
 @Composable
-fun DisciplineInfo(ritual: Ritual, discipline: Discipline) {
+fun DisciplineInfo(ritual: RitualPower, discipline: Discipline) {
     Column(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
         TextBlock(
             title = stringResource(id = R.string.discipline_rituals_description),

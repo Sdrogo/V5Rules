@@ -41,7 +41,7 @@ import com.example.v5rules.R
 import com.example.v5rules.RitualNav
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
-import com.example.v5rules.data.Ritual
+import com.example.v5rules.data.RitualPower
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.DotsForLevel
@@ -115,10 +115,13 @@ fun DisciplineDetailScreen(
                 }
             }
             item {
-                if (discipline.rituals.isNotEmpty()) RitualInfo(disciplineId = disciplineId)
+                discipline.ritual?.let {
+                    if(it.ritualsPowers.isNotEmpty())
+                        RitualInfo(disciplineId = disciplineId)
+                }
             }
             item {
-                discipline.rituals.let { ritualsList ->
+                discipline.ritual?.let { ritualsList ->
                     FlowRow(
                         modifier = Modifier
                             .fillMaxSize()
@@ -126,7 +129,7 @@ fun DisciplineDetailScreen(
                         horizontalArrangement = Arrangement.SpaceEvenly,
                         maxItemsInEachRow = 3
                     ) {
-                        ritualsList.groupBy { it.level }.entries.toList()
+                        ritualsList.ritualsPowers.groupBy { it.level }.entries.toList()
                             .forEach { (level, rituals) ->
                                 RitualsList(
                                     level = level,
@@ -199,7 +202,7 @@ fun SubDisciplineItem(
 
 @Composable
 fun RitualItem(
-    ritual: Ritual,
+    ritual: RitualPower,
     disciplineId: String,
     navController: NavHostController,
     isLandscape: Boolean = false
@@ -211,7 +214,9 @@ fun RitualItem(
             .background(color = MaterialTheme.colorScheme.background)
             .fillMaxWidth(widthValue)
             .padding(8.dp)
-            .clickable { navController.navigate(RitualNav(disciplineId, ritual.id)) }) {
+            .clickable {
+                navController.navigate(RitualNav(disciplineId, ritual.id))
+            }) {
         Text(
             text = ritual.title,
             style = MaterialTheme.typography.bodyLarge,
@@ -372,7 +377,7 @@ fun RitualInfo(disciplineId: String) {
 @Composable
 fun RitualsList(
     level: Int,
-    rituals: List<Ritual>,
+    rituals: List<RitualPower>,
     disciplineId: String,
     navController: NavHostController,
     isLandscape: Boolean = false

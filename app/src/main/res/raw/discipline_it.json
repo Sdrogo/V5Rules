@@ -145,7 +145,9 @@
         "duration": "Finché il vampiro continua a mormorare."
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d1",
@@ -297,7 +299,9 @@
         "duration": "Una Sessione"
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d2",
@@ -394,7 +398,8 @@
         "dicePool": "Persuasione + Dominazione contro Intelligenza + Fermezza",
         "system": "I comandi terminali ora devono essere resistiti anziché fallire automaticamente (vedere i singoli poteri per le modalità).",
         "duration": "Passivo"
-      },{
+      },
+      {
         "id": "d2_9",
         "level": 1,
         "title": "Devozione Ossequiosa",
@@ -404,7 +409,8 @@
         "dicePool": "N.A.",
         "system": "Qualsiasi tentativo da parte di una terza parte di usare Dominazione su un personaggio già sotto l'influenza della Dominazione del vampiro subisce una penalità ai dadi pari alla Robustezza del vampiro.",
         "duration": "Passiva"
-      },{
+      },
+      {
         "id": "d2_10",
         "level": 2,
         "title": "Favore del Dominatore",
@@ -413,7 +419,8 @@
         "dicePool": "N.A.",
         "system": "I tiri di sfida per i thrall ribelli sotto l'effetto del Favor del Dominatore subiscono una penalità di tre dadi e i thrall non possono spendere Forza di Volontà per essi. Inoltre, un fallimento totale su un tiro di sfida significa che il Vincolo di Sangue non si indebolisce quel mese. (Vedi Vampire: The Masquerade, pp. 233–244.)",
         "duration": "Un Mese"
-      },{
+      },
+      {
         "id": "d2_11",
         "level": 4,
         "title": "Dominio Ancestrale",
@@ -424,7 +431,8 @@
         "dicePool": "Persuasione + Dominazione contro Fermezza + Occulto",
         "system": "Con un test di Persuasione + Dominazione contro Fermezza + Occulto, la vittima agisce per soddisfare la richiesta dell'antenato dominante, a condizione che non comporti autolesionismo. Per ogni generazione che separa l'utente di questo potere dal bersaglio, il vampiro che resiste guadagna un dado aggiuntivo al suo tiro. Ad esempio, quando un vampiro di nona generazione tenta di usare questo potere su un discendente di undicesima generazione, il discendente guadagna due dadi extra in difesa. Il potere non richiede né contatto visivo né comando verbale: la richiesta viene trasmessa silenziosamente da Sangue a Sangue, ma è soggetta a tutte le altre limitazioni della Dominazione.",
         "duration": "Fino a quando il comando non viene eseguito o la scena termina, a seconda di quale si verifica per primo."
-      },{
+      },
+      {
         "id": "d2_12",
         "level": 4,
         "title": "Impiantare Suggerimenti",
@@ -436,7 +444,9 @@
         "duration": "Una Scena"
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d3",
@@ -471,7 +481,8 @@
         "cost": "Gratuito",
         "system": "Il valore di Ascendente del personaggio si somma a qualsiasi tiro di Intimidire. Per attaccare il vampiro occorre un tiro di Fermezza + Autocontrollo con Difficoltà 2.",
         "duration": "Una scena o finché non è disattivato volontariamente."
-      },{
+      },
+      {
         "id": "d3_3",
         "level": 1,
         "title": "Occhi del Serpente",
@@ -589,7 +600,9 @@
         "duration": "In base al potere utilizzato."
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d4",
@@ -737,7 +750,9 @@
         "duration": "Una Scena."
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d5",
@@ -865,7 +880,9 @@
         "duration": "Passivo"
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d6",
@@ -1001,7 +1018,9 @@
         "duration": "Un giorno o più, o finché non è disturbato."
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d7",
@@ -1141,7 +1160,9 @@
         "duration": "Fino a quando la scena termina o la Risonanza viene persa, a seconda di quale si verifica per primo."
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d8",
@@ -1271,7 +1292,8 @@
         "dicePool": "N/A",
         "system": "Gli attacchi che ottengono meno successi rispetto al punteggio di Velocità dell'utente mancano sempre, indipendentemente dal risultato di un test di difesa o schivata (se presente). Questo funziona anche contro attacchi a sorpresa o altri attacchi che non consentono test di difesa, come Colpo Fulmineo. Attivare questo potere richiede un Rouse Check e estenderlo richiede un Check aggiuntivo per ogni turno in cui viene mantenuto attivo.",
         "duration": "Finché l'utente non lo lascia scadere"
-      },{
+      },
+      {
         "id": "d8_13",
         "level": 5,
         "title": "Colpo Invisibile",
@@ -1284,7 +1306,9 @@
         "duration": "Un Turno"
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   },
   {
     "id": "d9",
@@ -1396,220 +1420,227 @@
         "duration": "Una scena o fino a quando i livelli di danno sono esauriti, a seconda di cosa accade prima."
       }
     ],
-    "selectedDisciplinePowers": [{}],
-    "rituals": [
-      {
-        "id": "d9_001",
-        "level": 1,
-        "title": "Cammino del Sangue",
-        "description": "Questo Rituale amplifica gli effetti di \"Assaggio del Sangue\", consentendo al vampiro di scoprire più dettagli del soggetto studiato, presumendo che sia un vampiro.",
-        "ingredients": "Un calice d'argento pieno di Sangue del soggetto (equivalente a una Prova di Risveglio).",
-        "execution": "Il fruitore mescola il suo Sangue a quello del soggetto e recita un incantesimo sul calice per circa un'ora.",
-        "system": "Una vittoria nel tiro del Rituale consente di scoprire Generazione e nome del soggetto, nonché quelli del suo sire. Una vittoria critica rivela inoltre i suoi eventuali Legami di Sangue attivi come regnante o asservito."
-      },
-      {
-        "id": "d9_002",
-        "level": 1,
-        "title": "Passo dell'Insetto",
-        "description": "Il vampiro acquisisce la capacità di aderire ai muri come un grottesco insetto o ragno.",
-        "ingredients": "Un ragno vivo.",
-        "execution": "Il ritualista riempie un'ampolla col suo Sangue e vi schiaccia dentro il ragno, mescolando nella vitae i brandelli dell'insetto prima di berla (ciò non sazia la Fame eventualmente acquisita). Il vampiro può eseguire il Rituale solo su se stesso; bere la miscela non reca benefici agli altri.",
-        "system": "Un Rituale riuscito conferisce la capacità di aderire a muri e soffitti per una scena, mentre una vittoria critica estende la durata all'intera notte. L'incantatore deve aderire alla superficie con mani e piedi e si muove più o meno a metà della propria velocità normale."
-      },
-      {
-        "id": "d9_003",
-        "level": 1,
-        "title": "Pietra Ematica",
-        "description": "Questo Rituale crea una Pietra Ematica, un tracciatore magico del quale il ritualista conosce sempre direzione e distanza approssimativa.",
-        "ingredients": "Una scheggia di minerale di ferro o una piccola calamita e un litro di sangue di qualsiasi provenienza in una ciotola d'argento.",
-        "execution": "Il fruitore versa il suo Sangue nella ciotola e vi recita sopra un incantesimo per un'ora, ripetendo la cantitlena nelle due notti successive. In questo periodo, il ciottolo (o calamita) assorbe il sangue; completato il Rituale con successo, il fluido diventa trasparente.",
-        "system": "Il tiro del Rituale va eseguito alla fine della terza notte. Con una vittoria, l'incantatore sintonizza la sua mente sulla Pietra Ematica, di cui può percepire senza errore direzione e distanza. L'effetto dura finché la pietra non è distrutta o è trascorsa una settimana. Il vampiro può creare e rintracciare un numero di pietre pari alla sua Fermezza."
-      },
-      {
-        "id": "d9_004",
-        "level": 1,
-        "title": "Protezione dai Ghoul",
-        "description": "Questo Rituale, creato dai diffidenti Tremere, serve a proteggersi dai servi dei rivali vendicativi. Fa uso delle normali regole sulle Protezioni.",
-        "ingredients": "Nessuno, a parte il consueto requisito di Sangue del ritualista."
-      },
-      {
-        "id": "d9_005",
-        "level": 1,
-        "title": "Risveglio con la Freschezza della Sera",
-        "description": "Eseguito prima dell'alba, questo Rituale consente al vampiro di svegliarsi al minimo segno di pericolo, perfettamente attento e vigile come se fosse notte.",
-        "ingredients": "Ossa e piume bruciate di un gallo.",
-        "execution": "Il ritualista mescola le ceneri con il suo Sangue e traccia un cerchio con la miscela attorno al suo giaciglio.",
-        "system": "Il tiro del Rituale va eseguito solo all'insorgere di un vero pericolo. Se l'incantatore è minacciato durante il giorno, esegue il tiro in quel momento, svegliandosi in caso di vittoria. Per la durata della scena, il vampiro ignora le penalità per restare sveglio di giorno. Con una vittoria critica, l'effetto permane fino all'alba successiva."
-      },
-      {
-        "id": "d9_006",
-        "level": 2,
-        "title": "Cerchio di Protezione dai Ghoul",
-        "description": "Il Rituale crea un cerchio di Protezione circolare sul terreno o pavimento, progettato per impedire il passaggio dei ghoul. Si basa sulle normali regole dei Cerchi di Protezione (p. 274).",
-        "ingredients": "Il ritualista traccia il cerchio usando l'osso di un dito umano immerso nel Sangue."
-      },
-      {
-        "id": "d9_007",
-        "level": 2,
-        "title": "Comunicare con il Sire",
-        "description": "L'incantatore sfrutta il legame tra sire e infante per aprire un ponte mentale, consentendo al secondo di stabilire un contatto telepatico a lunga distanza. Come per altri Rituali, anche questo sta tornando di moda nell'era delle intercettazioni e della sorveglianza elettronica.",
-        "ingredients": "Un oggetto di proprietà del sire e una ciotola d'argento piena di acqua limpida.",
-        "execution": "Il ritualista immerge l'oggetto nell'acqua e fa colare il suo Sangue nella ciotola, concentrandosi per un massimo di 30 minuti sull'ultimo ricordo del suo sire.",
-        "system": "Il tiro del Rituale va eseguito dopo 15 minuti. Una vittoria consente 10 minuti di comunicazione mentale silenziosa e bidirezionale dopo altri 15 minuti. Una vittoria critica consente di comunicare immediatamente. Qualsiasi forte disturbo a entrambi i capi interrompe il collegamento."
-      },
-      {
-        "id": "d9_008",
-        "level": 2,
-        "title": "Illuminare le Tracce della Preda",
-        "description": "Il Rituale consente al vampiro di percepire l'ubicazione precedente di una persona sotto forma di una pista vagamente luminosa e visibile solo a lui.",
-        "ingredients": "Un nastrino di raso bianco.",
-        "execution": "Il ritualista immerge il nastrino nel proprio Sangue, quindi gli dà fuoco.",
-        "system": "Se il tiro del Rituale risulta in una vittoria, il nastrino prende fuoco anche se bagnato, bruciando vivacemente come una miccia. Terminata la combustione, inizia l'effetto. Mentre il Rituale è attivo, il vampiro può seguire la tenue traccia del bersaglio anche nelle zone dove non ha lasciato impronte, come una città affollata. Per seguire le tracce, deve eseguire un tiro di Intelligenza + Sopravvivenza a una Difficoltà pari a 6 meno il margine di successo nel test del Rituale. Il vampiro deve conoscere il bersaglio di vista e percepisce il suo percorso nelle ultime 24 ore. La pista resta visibile per tutta la notte; una vittoria critica estende la durata a due notti."
-      },
-      {
-        "id": "d9_009",
-        "level": 2,
-        "title": "Protezione dagli Spiriti",
-        "description": "Il Rituale protegge un oggetto dagli esseri incorporei quali spettri, fantasmi e spiriti elementali. Ogni tentativo di manipolarlo o attraversarlo scatena l’effetto. Il Rituale fa uso delle normali regole sulle Protezioni (p. 274).",
-        "ingredients": "Una manciata di sale (in alcune versioni una manciata di polvere di mattoni) mescolata al Sangue."
-      },
-      {
-        "id": "d9_010",
-        "level": 2,
-        "title": "Occhi di Babele",
-        "description": "Inghiottendo la lingua e un occhio di una persona, il vampiro ottiene la capacità di leggere e parlare qualsiasi lingua nota alla vittima.",
-        "ingredients": "La lingua e un occhio di una persona mozzati di fresco.",
-        "execution": "Dopo aver tagliato alla vittima gli ingredienti, il vampiro li mastica e li inghiotte (molto probabilmente acquisendo una Macchia).",
-        "system": "La Prova di Risveglio richiesta dal Rituale consente la dissoluzione soprannaturale degli ingredienti inghiottiti. Fatto ciò viene eseguito il tiro del Rituale; una vittoria conferisce all’incantatore la capacità di leggere e parlare qualsiasi idioma noto alla vittima al suo livello di competenza e per una settimana. Una vittoria critica estende la durata a un mese."
-      },
-      {
-        "id": "d9_011",
-        "level": 2,
-        "title": "Verità di Sangue",
-        "description": "Fino a poco tempo fa noto solo ai visir dei Banu Haqim, questo Rituale crea una pozione mistica capace di separare le bugie dalla verità, ed è abbastanza potente da scoprire talvolta fatti sconosciuti al soggetto stesso.",
-        "ingredients": "½ litro di sangue del soggetto.",
-        "execution": "Il ritualista mescola il suo Sangue con quello del soggetto in un recipiente abbastanza grande per consentirgli di immergervi un dito.",
-        "system": "anziché eseguire il solito tiro del Rituale, il vampiro immerge un dito nella miscela ed esegue un confronto di Fermezza + Stregoneria del Sangue contro Autocontrollo + Occulto per ogni dichiarazione esternata dal soggetto. Il primo confronto fallito pone fine al Rituale. Una vittoria rivela se la dichiarazione è veritiera (per quanto ne sa il soggetto). Con una vittoria critica, il soggetto espande involontariamente la sua risposta fornendo più informazioni, inclusi dettagli visti di sfuggita o inconsciamente dimenticati (il Narratore deve informare il vampiro se non vi sono più informazioni pertinenti a quell’argomento). La miscela ribolle e gorgoglia durante l’esecuzione, trasformandosi in cenere alla fine della scena. Questo Rituale non può penetrare Annebbiare la Mente, Oblio della Mente o altri poteri di cancellazione mentale. L’incantatore può senz’altro intuire la causa di un ricordo cancellato o nebuloso, ma non è in grado di recuperarlo."
-      },
-      {
-        "id": "d9_012",
-        "level": 3,
-        "title": "Cammìnare nel Fuoco",
-        "description": "Pur essendo doloroso da attuare, questo Rituale consente all’incantatore di rendere se stesso e persino i suoi compagni resistenti al fuoco.",
-        "ingredients": "La punta di un dito del ritualista.",
-        "execution": "Il vampiro si mozza la punta di un dito, la getta nel suo Sangue e brucia il tutto in un calice o ciotola d’oro.",
-        "system": "Per mozzare il dito serve un test di Costituzione + Fermezza (Difficoltà 3). Con una vittoria nel tiro del Rituale, una fiamma azzurrina consuma Sangue e dito, segnalandone la riuscita. Per il resto della notte, i danni da fuoco subiti dal ritualista sono dimezzati. Il Rituale può essere eseguito su altri, ma le punte delle dita sacrificate devono provenire tutte dall’incantatore. La mutilazione non è sufficiente per essere considerata come danni al vampiro, e la punta del dito ricresce durante il sonno diurno."
-      },
-      {
-        "id": "d9_013",
-        "level": 3,
-        "title": "Cerchio di Protezione dagli Spiriti",
-        "description": "Questo Rituale crea una barriera circolare sul terreno o pavimento con l'obiettivo di impedire il passaggio degli spiriti. Sebbene sia più complesso da eseguire rispetto ad altri Cerchi di Protezione, è uno dei rituali che compare più frequentemente nei grimori e in altre fonti. Un occultista umano potrebbe potenzialmente ricreare una versione funzionante attraverso una prova di Intelligenza + Occulto (Difficoltà 6), ma senza la vitae o un qualche altro aiuto o elemento soprannaturale, non potrebbe completarne l'esecuzione. Il Rituale segue le regole standard per i Cerchi di Protezione (p. 274).",
-        "ingredients": "Il ritualista traccia il cerchio utilizzando un pugnale di ferro immerso in una miscela di Sangue e sale."
-      },
-      {
-        "id": "d9_014",
-        "level": 3,
-        "title": "Deviazione della Maledizione Lignea",
-        "description": "Grazie a questo Rituale, il vampiro ottiene una protezione contro i paletti. Il primo paletto che tenterebbe di trapassare il suo cuore si sbriciola senza penetrare la sua pelle.",
-        "ingredients": "Schegge o segatura di legno.",
-        "execution": "Il vampiro mescola la segatura col suo Sangue e traccia un cerchio attorno a sé. Successivamente, medita per un’ora all'interno del cerchio e conclude il rituale inserendo una scheggia di legno sotto la lingua.",
-        "system": "Il tiro del Rituale non viene effettuato fino a quando il vampiro non viene minacciato da un paletto. In caso di vittoria, il paletto si sbriciola appena tocca la pelle del vampiro (una vittoria critica acceca l'aggressore per 2 turni, investendo di schegge la sua faccia). L'effetto è attivato solo in risposta a veri tentativi di trapassare il vampiro, non a semplici minacce di posizionare il paletto sul suo torace. La protezione perdura fino alla fine della notte o fino a quando la scheggia non viene rimossa dalla lingua del vampiro, a seconda di cosa si verifichi prima."
-      },
-      {
-        "id": "d9_015",
-        "level": 3,
-        "title": "Protezione dai Lupini",
-        "description": "Questo Rituale protegge un oggetto dai lupi mannari in qualsiasi forma. Ogni tentativo di toccarlo scatena l’effetto.Il Rituale fa uso delle normali regole sulle Protezioni (p. 274).",
-        "ingredients": "una manciata di limatura d’argento mescolata al Sangue."
-      },
-      {
-        "id": "d9_016",
-        "level": 3,
-        "title": "Sangue, Addensando la Miscela",
-        "description": "Questo Rituale consente al vampiro di creare una pozione che, ingerita, conferisce il potere di volare o fluttuare alla sua velocità di corsa per una scena. Il vampiro può trasportare una massa pari a quella di un essere umano, ma in questo caso, la sua velocità si riduce a quella di marcia.",
-        "ingredients": "Limatura d’argento mescolata al Sangue.",
-        "execution": "Il vampiro addensa la miscela in un braciere mentre intona formule di potere.",
-        "system": "Il tiro del Rituale viene eseguito durante la fase di addensamento della miscela (una vittoria critica produce due dosi di pozione). L'efficacia della pozione dura per una notte e si attiva all’ingestione, conferendo al ritualista il potere di volare o fluttuare alla sua velocità di corsa per una scena. Il vampiro può trasportare una massa pari a quella di un essere umano, ma in questo caso, la sua velocità si riduce a quella di marcia. Per afferrare e portare via un soggetto non consenziente o trascinare a terra il vampiro volante, serve un confronto tra Forza + Stregoneria del Sangue del ritualista e Forza + Atletica dell’avversario."
-      },
-      {
-        "id": "d9_017",
-        "level": 3,
-        "title": "Richiamo di Dagon",
-        "description": "Questo Rituale, una tecnica terrificante usata dagli assassini Banu Haqim, consente al fruitore di far scoppiare da lontano i vasi sanguigni della vittima, a patto di averla toccata anche solo di sfuggita in passato. Gli umani muoiono in modo alquanto truculento, e persino i vampiri temono questo sterminatore silenzioso.",
-        "ingredients": "Un pugnale cerimoniale di oro intarsiato.",
-        "execution": "Prima di procedere con il Rituale, il vampiro deve avere apposto il suo Sangue sulla vittima, facendoglielo bere, toccando una ferita aperta o anche solo la pelle nuda: una mera goccia spalmata su un braccio è sufficiente. Passata un’ora, ma entro una settimana, l’incantatore può eseguire il Rituale tagliandosi e versando Sangue con il pugnale cerimoniale. Quando le gocce di vitae cadono a terra, inizia l’effetto.",
-        "system": "Tiro di Fermezza + Stregoneria del Sangue contro Costituzione + Fermezza. Ogni punto nel margine di successo causa un danno alla vittima: i suoi vasi sanguigni scoppiano e i suoi polmoni si riempiono di sangue. I danni sono Aggravati per i mortali, Superficiali per i vampiri. Il ritualista può ripetere il processo altre due volte, eseguendo ogni volta una nuova Prova di Risveglio."
-      },
-      {
-        "id": "d9_018",
-        "level": 4,
-        "title": "Cerchio di Protezione dai Lupini",
-        "description": "Questo Rituale si avvale delle regole dei Cerchi di Protezione (p. 274).",
-        "ingredients": "Il ritualista traccia il cerchio usando un pugnale d’argento immerso in una miscela di Sangue ed erba luparia."
-      },
-      {
-        "id": "d9_018",
-        "level": 4,
-        "title": "Difesa del Rifugio Consacrato",
-        "description": "L'esecutore di questo potente Rituale può proteggere il proprio rifugio dal sole stesso, riparando il suo luogo di riposo dai raggi letali mediante una cappa di oscurità mistica.",
-        "ingredients": "Nessuno, a parte il Sangue del ritualista.",
-        "execution": "L'incantatore traccia una serie di simboli e glifi sopra e intorno all'area da proteggere, prestando particolare attenzione a soglie e finestre. Può proteggere anche una porta aperta se l'area si trova all'interno di un edificio (a discrezione del Narratore, il Rituale protegge anche aree grigie o liminali come i ruderi).",
-        "system": "L'esecuzione richiede un'ora o più, a seconda dello stato dell'area da proteggere. L'area non può essere più grande di un cerchio di sei metri di raggio. Il Rituale fallisce automaticamente se l'incantatore esce dall'area in qualsiasi momento dopo avere attivato la protezione. Il tiro del Rituale va eseguito quando sorge il sole; con una vittoria, la zona si ricopre di ombre oscurando la vista all'esterno, impedendo anche ai raggi del sole di colpire i vampiri che sono dentro. Con una vittoria critica, chi sta dentro può osservare fiocamente l'ambiente esterno. Il Rituale dura tutto il giorno, a meno che non sia interrotto anticipatamente se l'incantatore esce dall'area protetta."
-      },
-      {
-        "id": "d9_019",
-        "level": 4,
-        "title": "Occhi del Falco Notturno",
-        "description": "Connesso ai primitivi poteri di Animalità, questo Rituale consente di possedere un pennuto carnivoro, in genere un corvo o un rapace, dirigendone il volo e vedendo attraverso i suoi occhi.",
-        "ingredients": "Gli occhi del volatitle usato, cavati al termine del Rituale.",
-        "execution": "Il ritualista fa bere il suo Sangue al pennuto ed entra in trance.",
-        "system": "Dopo una vittoria nel tiro del Rituale, l'incantatore può controllare l'uccello e vedere attraverso i suoi occhi. Con una vittoria critica, il pennuto può compiere azioni semplici come raccogliere oggetti o manipolare chiavi o manopole. Il ritualista può utilizzare gran parte delle Discipline non fisiche attraverso l'uccello, incluso Dominazione se possiede Telepatia (p. 254) o un altro modo per comunicare coi bersagli in via non verbale. Non c'è limite alla distanza che il volatitle può raggiungere, ma se il vampiro non gli cava gli occhi alla fine della notte, rimane egli stesso cieco per le tre notti successive."
-      },
-      {
-        "id": "d9_020",
-        "level": 4,
-        "title": "Passaggio Incorporeo",
-        "description": "Il vampiro assume uno stato incorporeo simile a un fantasma, potendo attraversare oggetti solidi e diventando completamente immune ai danni fisici.",
-        "ingredients": "Uno specchio.",
-        "execution": "Il ritualista versa il proprio Sangue sullo specchio, cantitlenando, quindi lo rompe.",
-        "system": "Se il tiro del Rituale risulta in una vittoria, l'incantatore assume una forma incorporea finché tiene in mano una scheggia dello specchio rotto. Mentre è in questo stato, è immune a ogni fonte di danno eccetto fuoco, luce solare e armi arcane o rituali capaci di ferire gli spiriti. Il ritualista può essere visto e udito, ma non può interagire fisicamente con nulla e nessuno. Non può Risvegliare il Sangue quando è incorporeo e non ha accesso a nessun reame spirituale; il Rituale non lo trasforma in uno spettro o spirito. Può attraversare muri e altri oggetti, ma deve farlo in linea retta; non può cambiare direzione mentre è dentro la materia solida. L'effetto dura una scena o finché il vampiro non lascia cadere la scheggia. Tornare allo stato naturale mentre si trova dentro la materia solida può avere diversi effetti deleteri, dalla distruzione alla sepoltura a un semplice fastidio momentaneo (un oggetto incastrato nel braccio del ritualista); il risultato esatto è definito dal Narratore."
-      },
-      {
-        "id": "d9_021",
-        "level": 4,
-        "title": "Protezione dai Cainiti",
-        "description": "Questo Rituale difende un oggetto da tutti i vampiri, eccetto l'incantatore. Ogni tentativo di toccarlo scatena l'effetto; tuttavia, un vampiro che esamini la Protezione con Auspex può leggere il nome del ritualista, vincendo un confronto di Intelligenza + Auspex contro Intelligenza + Stregoneria del Sangue. Il Rituale segue le normali regole sulle Protezioni (p. 274).",
-        "ingredients": "Cenere calda da un fuoco ancora acceso; l'incantatore rischia la frenesia da paura e se soccombe, non può tracciare la Protezione per quella notte."
-      },
-      {
-        "id": "d9_022",
-        "level": 5,
-        "title": "Cuore di Pietra",
-        "description": "Eseguendo questo Rituale, il vampiro trasforma in pietra il suo cuore morto. Ciò lo rende immune ai paletti, ma anche – per qualche bizzarro capriccio di magia simpatica – totalmente privo di rimorsi, un automa gelido e insensibile a qualunque stimolo emotivo e sociale… anche più del solito.",
-        "ingredients": "Una lastra di pietra e una candela di cera intrisa del Sangue dell'incantatore.",
-        "execution": "Il ritualista si stende sulla lastra con la candela sul petto, lasciandola bruciare del tutto nel corso di una notte. Quando la fiamma raggiunge il suo petto, infligge al vampiro un punto di danno Aggravato e un test di frenesia da paura (Difficoltà 3). Se fallisce il test, fallisce anche il Rituale. Se il vampiro non entra in frenesia, può eseguire il tiro del Rituale: una vittoria garantisce il successo, mentre una vittoria critica guarisce il danno causato dalla candela. L’effetto permane indefinitamente, e se l’incantatore volesse invertire il processo dovrà ripetere il Rituale.",
-        "system": "Mentre è sotto l’effetto del Rituale, il cuore del vampiro diventa letteralmente di pietra. I paletti non possono trafiggerlo e, se usati per impalettarlo, si spezzano. Il ritualista manifesta inoltre un totale distacco emotivo, sottraendo 3 dadi a ogni tiro di Rimorso nonché alle riserve Sociali attive (non di resistenza) eccetto Intimidire e Dominazione. Non può avvalersi di Ascendente, ma ottiene 3 dadi bonus nelle riserve usate per resistere agli effetti di quella Disciplina."
-      },
-      {
-        "id": "d9_023",
-        "level": 5,
-        "title": "Fuga verso un Vero Rifugio",
-        "description": "Dopo aver preparato due cerchi mistici per mezzo di un arduo rituale, il vampiro può viaggiare istantaneamente da uno all’altro. Il viaggio è unidirezionale, e il ritualista deve indicare uno dei cerchi come partenza e usare l'altro come punto di “arrivo”.",
-        "ingredients": "Due cerchi bruciacchiati di circa un metro di diametro.",
-        "execution": "Il ritualista brucia i cerchi nel terreno o pavimento con una fiamma scoperta, quindi consacra ciascuno di essi. La consacrazione richiede due ore di cantitlena per notte e due Prove di Risveglio per tre notti consecutive. In totale, il Rituale prevede che il vampiro investa Sangue per ben 12 Prove di Risveglio.",
-        "system": "Una volta completati i cerchi, l’incantatore non deve fare altro che entrare in quello definito come partenza e concentrarsi per un turno eseguendo il tiro del Rituale (deve effettuare il tiro ogni volta che tenta di viaggiare, ma può fare solo un tentativo per scena). Con una vittoria il vampiro svanisce e riappare subito al centro del cerchio di uscita. Non c’è limite alla distanza tra i due cerchi, ma devono essere incisi nel terreno o nel pavimento di un edificio, non dentro un veicolo. Il ritualista può portare con sé una persona o un oggetto con la stessa taglia di un umano adulto. Se uno qualunque dei cerchi è danneggiato, diventano inerti entrambi. Un vampiro può avere solo una coppia di cerchi attivi alla volta."
-      },
-      {
-        "id": "d9_023",
-        "level": 5,
-        "title": "Verga dell'Inesorabile Dissoluzione",
-        "description": "Sono poche le armi capaci di incutere terrore nei Fratelli, ma il paletto creato con questo Rituale li riempie di paura. La Verga dell'Inesorabile Dissoluzione è forse l’origine del mito secondo il quale il paletto nel cuore distrugge i vampiri; non solo essa punta spontaneamente al cuore del Cainita, ma provoca la Morte Ultima quando raggiunge il bersaglio. Se necessario, la Verga provvede da sé a tale scopo, separando la sua punta che poi si fa lentamente strada nel corpo dell'ospite fino al cuore.",
-        "ingredients": "Un paletto di sorbo rosso istoriato di rune malefiche.",
-        "execution": "Il ritualista infonde nel paletto una misura del suo Sangue equivalente a due Prove di Risveglio mentre lo annerisce su un fuoco di legno di quercia e recita l’incantesimo. Il Rituale richiede 5 ore per essere ultimato.",
-        "system": "Il paletto offre un bonus di 3 dadi a qualsiasi tentativo di trafiggere il cuore di un vampiro, che sia martellato nel petto mentre la vittima dorme, impugnato come arma da mischia o scagliato con una balestra. Il paletto non deve necessariamente essere usato dal ritualista. Se il tiro di attacco vince con un margine di 5 o più, il vampiro si trasforma in polvere in un solo turno, come se fosse divorato da un fuoco invisibile. Se il paletto va a segno, ma il tiro non offre un margine sufficiente (meno di 5) per trafiggere il cuore, il paletto si spezza dentro la ferita e la punta comincia a scavare lentamente verso il cuore della vittima. A seconda di dove ha colpito, ciò può richiedere ore o notti, ma a meno che non sia estratta con mezzi chirurgici o mistici, la Morte Ultima è garantita. Per la rimozione chirurgica, qualcuno che non sia la vittima deve superare un tiro di Destrezza + Medicina (Difficoltà 6) in un intervento che dura fino a 4 ore. Se non è possibile trovare assistenza medica, qualcun altro può togliere la punta mozzando l’arto colpito – a meno che la scheggia letale non abbia già raggiunto il torace."
-      }
-    ]
+    "selectedDisciplinePowers": [
+      {}
+    ],
+    "ritual": {
+      "id": "d9_rit",
+      "level": 0,
+      "title": "Stregoneria del Sangue",
+      "ritualsPowers": [
+        {
+          "id": "d9_001",
+          "level": 1,
+          "title": "Cammino del Sangue",
+          "description": "Questo Rituale amplifica gli effetti di \"Assaggio del Sangue\", consentendo al vampiro di scoprire più dettagli del soggetto studiato, presumendo che sia un vampiro.",
+          "ingredients": "Un calice d'argento pieno di Sangue del soggetto (equivalente a una Prova di Risveglio).",
+          "execution": "Il fruitore mescola il suo Sangue a quello del soggetto e recita un incantesimo sul calice per circa un'ora.",
+          "system": "Una vittoria nel tiro del Rituale consente di scoprire Generazione e nome del soggetto, nonché quelli del suo sire. Una vittoria critica rivela inoltre i suoi eventuali Legami di Sangue attivi come regnante o asservito."
+        },
+        {
+          "id": "d9_002",
+          "level": 1,
+          "title": "Passo dell'Insetto",
+          "description": "Il vampiro acquisisce la capacità di aderire ai muri come un grottesco insetto o ragno.",
+          "ingredients": "Un ragno vivo.",
+          "execution": "Il ritualista riempie un'ampolla col suo Sangue e vi schiaccia dentro il ragno, mescolando nella vitae i brandelli dell'insetto prima di berla (ciò non sazia la Fame eventualmente acquisita). Il vampiro può eseguire il Rituale solo su se stesso; bere la miscela non reca benefici agli altri.",
+          "system": "Un Rituale riuscito conferisce la capacità di aderire a muri e soffitti per una scena, mentre una vittoria critica estende la durata all'intera notte. L'incantatore deve aderire alla superficie con mani e piedi e si muove più o meno a metà della propria velocità normale."
+        },
+        {
+          "id": "d9_003",
+          "level": 1,
+          "title": "Pietra Ematica",
+          "description": "Questo Rituale crea una Pietra Ematica, un tracciatore magico del quale il ritualista conosce sempre direzione e distanza approssimativa.",
+          "ingredients": "Una scheggia di minerale di ferro o una piccola calamita e un litro di sangue di qualsiasi provenienza in una ciotola d'argento.",
+          "execution": "Il fruitore versa il suo Sangue nella ciotola e vi recita sopra un incantesimo per un'ora, ripetendo la cantitlena nelle due notti successive. In questo periodo, il ciottolo (o calamita) assorbe il sangue; completato il Rituale con successo, il fluido diventa trasparente.",
+          "system": "Il tiro del Rituale va eseguito alla fine della terza notte. Con una vittoria, l'incantatore sintonizza la sua mente sulla Pietra Ematica, di cui può percepire senza errore direzione e distanza. L'effetto dura finché la pietra non è distrutta o è trascorsa una settimana. Il vampiro può creare e rintracciare un numero di pietre pari alla sua Fermezza."
+        },
+        {
+          "id": "d9_004",
+          "level": 1,
+          "title": "Protezione dai Ghoul",
+          "description": "Questo Rituale, creato dai diffidenti Tremere, serve a proteggersi dai servi dei rivali vendicativi. Fa uso delle normali regole sulle Protezioni.",
+          "ingredients": "Nessuno, a parte il consueto requisito di Sangue del ritualista."
+        },
+        {
+          "id": "d9_005",
+          "level": 1,
+          "title": "Risveglio con la Freschezza della Sera",
+          "description": "Eseguito prima dell'alba, questo Rituale consente al vampiro di svegliarsi al minimo segno di pericolo, perfettamente attento e vigile come se fosse notte.",
+          "ingredients": "Ossa e piume bruciate di un gallo.",
+          "execution": "Il ritualista mescola le ceneri con il suo Sangue e traccia un cerchio con la miscela attorno al suo giaciglio.",
+          "system": "Il tiro del Rituale va eseguito solo all'insorgere di un vero pericolo. Se l'incantatore è minacciato durante il giorno, esegue il tiro in quel momento, svegliandosi in caso di vittoria. Per la durata della scena, il vampiro ignora le penalità per restare sveglio di giorno. Con una vittoria critica, l'effetto permane fino all'alba successiva."
+        },
+        {
+          "id": "d9_006",
+          "level": 2,
+          "title": "Cerchio di Protezione dai Ghoul",
+          "description": "Il Rituale crea un cerchio di Protezione circolare sul terreno o pavimento, progettato per impedire il passaggio dei ghoul. Si basa sulle normali regole dei Cerchi di Protezione (p. 274).",
+          "ingredients": "Il ritualista traccia il cerchio usando l'osso di un dito umano immerso nel Sangue."
+        },
+        {
+          "id": "d9_007",
+          "level": 2,
+          "title": "Comunicare con il Sire",
+          "description": "L'incantatore sfrutta il legame tra sire e infante per aprire un ponte mentale, consentendo al secondo di stabilire un contatto telepatico a lunga distanza. Come per altri Rituali, anche questo sta tornando di moda nell'era delle intercettazioni e della sorveglianza elettronica.",
+          "ingredients": "Un oggetto di proprietà del sire e una ciotola d'argento piena di acqua limpida.",
+          "execution": "Il ritualista immerge l'oggetto nell'acqua e fa colare il suo Sangue nella ciotola, concentrandosi per un massimo di 30 minuti sull'ultimo ricordo del suo sire.",
+          "system": "Il tiro del Rituale va eseguito dopo 15 minuti. Una vittoria consente 10 minuti di comunicazione mentale silenziosa e bidirezionale dopo altri 15 minuti. Una vittoria critica consente di comunicare immediatamente. Qualsiasi forte disturbo a entrambi i capi interrompe il collegamento."
+        },
+        {
+          "id": "d9_008",
+          "level": 2,
+          "title": "Illuminare le Tracce della Preda",
+          "description": "Il Rituale consente al vampiro di percepire l'ubicazione precedente di una persona sotto forma di una pista vagamente luminosa e visibile solo a lui.",
+          "ingredients": "Un nastrino di raso bianco.",
+          "execution": "Il ritualista immerge il nastrino nel proprio Sangue, quindi gli dà fuoco.",
+          "system": "Se il tiro del Rituale risulta in una vittoria, il nastrino prende fuoco anche se bagnato, bruciando vivacemente come una miccia. Terminata la combustione, inizia l'effetto. Mentre il Rituale è attivo, il vampiro può seguire la tenue traccia del bersaglio anche nelle zone dove non ha lasciato impronte, come una città affollata. Per seguire le tracce, deve eseguire un tiro di Intelligenza + Sopravvivenza a una Difficoltà pari a 6 meno il margine di successo nel test del Rituale. Il vampiro deve conoscere il bersaglio di vista e percepisce il suo percorso nelle ultime 24 ore. La pista resta visibile per tutta la notte; una vittoria critica estende la durata a due notti."
+        },
+        {
+          "id": "d9_009",
+          "level": 2,
+          "title": "Protezione dagli Spiriti",
+          "description": "Il Rituale protegge un oggetto dagli esseri incorporei quali spettri, fantasmi e spiriti elementali. Ogni tentativo di manipolarlo o attraversarlo scatena l’effetto. Il Rituale fa uso delle normali regole sulle Protezioni (p. 274).",
+          "ingredients": "Una manciata di sale (in alcune versioni una manciata di polvere di mattoni) mescolata al Sangue."
+        },
+        {
+          "id": "d9_010",
+          "level": 2,
+          "title": "Occhi di Babele",
+          "description": "Inghiottendo la lingua e un occhio di una persona, il vampiro ottiene la capacità di leggere e parlare qualsiasi lingua nota alla vittima.",
+          "ingredients": "La lingua e un occhio di una persona mozzati di fresco.",
+          "execution": "Dopo aver tagliato alla vittima gli ingredienti, il vampiro li mastica e li inghiotte (molto probabilmente acquisendo una Macchia).",
+          "system": "La Prova di Risveglio richiesta dal Rituale consente la dissoluzione soprannaturale degli ingredienti inghiottiti. Fatto ciò viene eseguito il tiro del Rituale; una vittoria conferisce all’incantatore la capacità di leggere e parlare qualsiasi idioma noto alla vittima al suo livello di competenza e per una settimana. Una vittoria critica estende la durata a un mese."
+        },
+        {
+          "id": "d9_011",
+          "level": 2,
+          "title": "Verità di Sangue",
+          "description": "Fino a poco tempo fa noto solo ai visir dei Banu Haqim, questo Rituale crea una pozione mistica capace di separare le bugie dalla verità, ed è abbastanza potente da scoprire talvolta fatti sconosciuti al soggetto stesso.",
+          "ingredients": "½ litro di sangue del soggetto.",
+          "execution": "Il ritualista mescola il suo Sangue con quello del soggetto in un recipiente abbastanza grande per consentirgli di immergervi un dito.",
+          "system": "anziché eseguire il solito tiro del Rituale, il vampiro immerge un dito nella miscela ed esegue un confronto di Fermezza + Stregoneria del Sangue contro Autocontrollo + Occulto per ogni dichiarazione esternata dal soggetto. Il primo confronto fallito pone fine al Rituale. Una vittoria rivela se la dichiarazione è veritiera (per quanto ne sa il soggetto). Con una vittoria critica, il soggetto espande involontariamente la sua risposta fornendo più informazioni, inclusi dettagli visti di sfuggita o inconsciamente dimenticati (il Narratore deve informare il vampiro se non vi sono più informazioni pertinenti a quell’argomento). La miscela ribolle e gorgoglia durante l’esecuzione, trasformandosi in cenere alla fine della scena. Questo Rituale non può penetrare Annebbiare la Mente, Oblio della Mente o altri poteri di cancellazione mentale. L’incantatore può senz’altro intuire la causa di un ricordo cancellato o nebuloso, ma non è in grado di recuperarlo."
+        },
+        {
+          "id": "d9_012",
+          "level": 3,
+          "title": "Cammìnare nel Fuoco",
+          "description": "Pur essendo doloroso da attuare, questo Rituale consente all’incantatore di rendere se stesso e persino i suoi compagni resistenti al fuoco.",
+          "ingredients": "La punta di un dito del ritualista.",
+          "execution": "Il vampiro si mozza la punta di un dito, la getta nel suo Sangue e brucia il tutto in un calice o ciotola d’oro.",
+          "system": "Per mozzare il dito serve un test di Costituzione + Fermezza (Difficoltà 3). Con una vittoria nel tiro del Rituale, una fiamma azzurrina consuma Sangue e dito, segnalandone la riuscita. Per il resto della notte, i danni da fuoco subiti dal ritualista sono dimezzati. Il Rituale può essere eseguito su altri, ma le punte delle dita sacrificate devono provenire tutte dall’incantatore. La mutilazione non è sufficiente per essere considerata come danni al vampiro, e la punta del dito ricresce durante il sonno diurno."
+        },
+        {
+          "id": "d9_013",
+          "level": 3,
+          "title": "Cerchio di Protezione dagli Spiriti",
+          "description": "Questo Rituale crea una barriera circolare sul terreno o pavimento con l'obiettivo di impedire il passaggio degli spiriti. Sebbene sia più complesso da eseguire rispetto ad altri Cerchi di Protezione, è uno dei rituali che compare più frequentemente nei grimori e in altre fonti. Un occultista umano potrebbe potenzialmente ricreare una versione funzionante attraverso una prova di Intelligenza + Occulto (Difficoltà 6), ma senza la vitae o un qualche altro aiuto o elemento soprannaturale, non potrebbe completarne l'esecuzione. Il Rituale segue le regole standard per i Cerchi di Protezione (p. 274).",
+          "ingredients": "Il ritualista traccia il cerchio utilizzando un pugnale di ferro immerso in una miscela di Sangue e sale."
+        },
+        {
+          "id": "d9_014",
+          "level": 3,
+          "title": "Deviazione della Maledizione Lignea",
+          "description": "Grazie a questo Rituale, il vampiro ottiene una protezione contro i paletti. Il primo paletto che tenterebbe di trapassare il suo cuore si sbriciola senza penetrare la sua pelle.",
+          "ingredients": "Schegge o segatura di legno.",
+          "execution": "Il vampiro mescola la segatura col suo Sangue e traccia un cerchio attorno a sé. Successivamente, medita per un’ora all'interno del cerchio e conclude il rituale inserendo una scheggia di legno sotto la lingua.",
+          "system": "Il tiro del Rituale non viene effettuato fino a quando il vampiro non viene minacciato da un paletto. In caso di vittoria, il paletto si sbriciola appena tocca la pelle del vampiro (una vittoria critica acceca l'aggressore per 2 turni, investendo di schegge la sua faccia). L'effetto è attivato solo in risposta a veri tentativi di trapassare il vampiro, non a semplici minacce di posizionare il paletto sul suo torace. La protezione perdura fino alla fine della notte o fino a quando la scheggia non viene rimossa dalla lingua del vampiro, a seconda di cosa si verifichi prima."
+        },
+        {
+          "id": "d9_015",
+          "level": 3,
+          "title": "Protezione dai Lupini",
+          "description": "Questo Rituale protegge un oggetto dai lupi mannari in qualsiasi forma. Ogni tentativo di toccarlo scatena l’effetto.Il Rituale fa uso delle normali regole sulle Protezioni (p. 274).",
+          "ingredients": "una manciata di limatura d’argento mescolata al Sangue."
+        },
+        {
+          "id": "d9_016",
+          "level": 3,
+          "title": "Sangue, Addensando la Miscela",
+          "description": "Questo Rituale consente al vampiro di creare una pozione che, ingerita, conferisce il potere di volare o fluttuare alla sua velocità di corsa per una scena. Il vampiro può trasportare una massa pari a quella di un essere umano, ma in questo caso, la sua velocità si riduce a quella di marcia.",
+          "ingredients": "Limatura d’argento mescolata al Sangue.",
+          "execution": "Il vampiro addensa la miscela in un braciere mentre intona formule di potere.",
+          "system": "Il tiro del Rituale viene eseguito durante la fase di addensamento della miscela (una vittoria critica produce due dosi di pozione). L'efficacia della pozione dura per una notte e si attiva all’ingestione, conferendo al ritualista il potere di volare o fluttuare alla sua velocità di corsa per una scena. Il vampiro può trasportare una massa pari a quella di un essere umano, ma in questo caso, la sua velocità si riduce a quella di marcia. Per afferrare e portare via un soggetto non consenziente o trascinare a terra il vampiro volante, serve un confronto tra Forza + Stregoneria del Sangue del ritualista e Forza + Atletica dell’avversario."
+        },
+        {
+          "id": "d9_017",
+          "level": 3,
+          "title": "Richiamo di Dagon",
+          "description": "Questo Rituale, una tecnica terrificante usata dagli assassini Banu Haqim, consente al fruitore di far scoppiare da lontano i vasi sanguigni della vittima, a patto di averla toccata anche solo di sfuggita in passato. Gli umani muoiono in modo alquanto truculento, e persino i vampiri temono questo sterminatore silenzioso.",
+          "ingredients": "Un pugnale cerimoniale di oro intarsiato.",
+          "execution": "Prima di procedere con il Rituale, il vampiro deve avere apposto il suo Sangue sulla vittima, facendoglielo bere, toccando una ferita aperta o anche solo la pelle nuda: una mera goccia spalmata su un braccio è sufficiente. Passata un’ora, ma entro una settimana, l’incantatore può eseguire il Rituale tagliandosi e versando Sangue con il pugnale cerimoniale. Quando le gocce di vitae cadono a terra, inizia l’effetto.",
+          "system": "Tiro di Fermezza + Stregoneria del Sangue contro Costituzione + Fermezza. Ogni punto nel margine di successo causa un danno alla vittima: i suoi vasi sanguigni scoppiano e i suoi polmoni si riempiono di sangue. I danni sono Aggravati per i mortali, Superficiali per i vampiri. Il ritualista può ripetere il processo altre due volte, eseguendo ogni volta una nuova Prova di Risveglio."
+        },
+        {
+          "id": "d9_018",
+          "level": 4,
+          "title": "Cerchio di Protezione dai Lupini",
+          "description": "Questo Rituale si avvale delle regole dei Cerchi di Protezione (p. 274).",
+          "ingredients": "Il ritualista traccia il cerchio usando un pugnale d’argento immerso in una miscela di Sangue ed erba luparia."
+        },
+        {
+          "id": "d9_018",
+          "level": 4,
+          "title": "Difesa del Rifugio Consacrato",
+          "description": "L'esecutore di questo potente Rituale può proteggere il proprio rifugio dal sole stesso, riparando il suo luogo di riposo dai raggi letali mediante una cappa di oscurità mistica.",
+          "ingredients": "Nessuno, a parte il Sangue del ritualista.",
+          "execution": "L'incantatore traccia una serie di simboli e glifi sopra e intorno all'area da proteggere, prestando particolare attenzione a soglie e finestre. Può proteggere anche una porta aperta se l'area si trova all'interno di un edificio (a discrezione del Narratore, il Rituale protegge anche aree grigie o liminali come i ruderi).",
+          "system": "L'esecuzione richiede un'ora o più, a seconda dello stato dell'area da proteggere. L'area non può essere più grande di un cerchio di sei metri di raggio. Il Rituale fallisce automaticamente se l'incantatore esce dall'area in qualsiasi momento dopo avere attivato la protezione. Il tiro del Rituale va eseguito quando sorge il sole; con una vittoria, la zona si ricopre di ombre oscurando la vista all'esterno, impedendo anche ai raggi del sole di colpire i vampiri che sono dentro. Con una vittoria critica, chi sta dentro può osservare fiocamente l'ambiente esterno. Il Rituale dura tutto il giorno, a meno che non sia interrotto anticipatamente se l'incantatore esce dall'area protetta."
+        },
+        {
+          "id": "d9_019",
+          "level": 4,
+          "title": "Occhi del Falco Notturno",
+          "description": "Connesso ai primitivi poteri di Animalità, questo Rituale consente di possedere un pennuto carnivoro, in genere un corvo o un rapace, dirigendone il volo e vedendo attraverso i suoi occhi.",
+          "ingredients": "Gli occhi del volatitle usato, cavati al termine del Rituale.",
+          "execution": "Il ritualista fa bere il suo Sangue al pennuto ed entra in trance.",
+          "system": "Dopo una vittoria nel tiro del Rituale, l'incantatore può controllare l'uccello e vedere attraverso i suoi occhi. Con una vittoria critica, il pennuto può compiere azioni semplici come raccogliere oggetti o manipolare chiavi o manopole. Il ritualista può utilizzare gran parte delle Discipline non fisiche attraverso l'uccello, incluso Dominazione se possiede Telepatia (p. 254) o un altro modo per comunicare coi bersagli in via non verbale. Non c'è limite alla distanza che il volatitle può raggiungere, ma se il vampiro non gli cava gli occhi alla fine della notte, rimane egli stesso cieco per le tre notti successive."
+        },
+        {
+          "id": "d9_020",
+          "level": 4,
+          "title": "Passaggio Incorporeo",
+          "description": "Il vampiro assume uno stato incorporeo simile a un fantasma, potendo attraversare oggetti solidi e diventando completamente immune ai danni fisici.",
+          "ingredients": "Uno specchio.",
+          "execution": "Il ritualista versa il proprio Sangue sullo specchio, cantitlenando, quindi lo rompe.",
+          "system": "Se il tiro del Rituale risulta in una vittoria, l'incantatore assume una forma incorporea finché tiene in mano una scheggia dello specchio rotto. Mentre è in questo stato, è immune a ogni fonte di danno eccetto fuoco, luce solare e armi arcane o rituali capaci di ferire gli spiriti. Il ritualista può essere visto e udito, ma non può interagire fisicamente con nulla e nessuno. Non può Risvegliare il Sangue quando è incorporeo e non ha accesso a nessun reame spirituale; il Rituale non lo trasforma in uno spettro o spirito. Può attraversare muri e altri oggetti, ma deve farlo in linea retta; non può cambiare direzione mentre è dentro la materia solida. L'effetto dura una scena o finché il vampiro non lascia cadere la scheggia. Tornare allo stato naturale mentre si trova dentro la materia solida può avere diversi effetti deleteri, dalla distruzione alla sepoltura a un semplice fastidio momentaneo (un oggetto incastrato nel braccio del ritualista); il risultato esatto è definito dal Narratore."
+        },
+        {
+          "id": "d9_021",
+          "level": 4,
+          "title": "Protezione dai Cainiti",
+          "description": "Questo Rituale difende un oggetto da tutti i vampiri, eccetto l'incantatore. Ogni tentativo di toccarlo scatena l'effetto; tuttavia, un vampiro che esamini la Protezione con Auspex può leggere il nome del ritualista, vincendo un confronto di Intelligenza + Auspex contro Intelligenza + Stregoneria del Sangue. Il Rituale segue le normali regole sulle Protezioni (p. 274).",
+          "ingredients": "Cenere calda da un fuoco ancora acceso; l'incantatore rischia la frenesia da paura e se soccombe, non può tracciare la Protezione per quella notte."
+        },
+        {
+          "id": "d9_022",
+          "level": 5,
+          "title": "Cuore di Pietra",
+          "description": "Eseguendo questo Rituale, il vampiro trasforma in pietra il suo cuore morto. Ciò lo rende immune ai paletti, ma anche – per qualche bizzarro capriccio di magia simpatica – totalmente privo di rimorsi, un automa gelido e insensibile a qualunque stimolo emotivo e sociale… anche più del solito.",
+          "ingredients": "Una lastra di pietra e una candela di cera intrisa del Sangue dell'incantatore.",
+          "execution": "Il ritualista si stende sulla lastra con la candela sul petto, lasciandola bruciare del tutto nel corso di una notte. Quando la fiamma raggiunge il suo petto, infligge al vampiro un punto di danno Aggravato e un test di frenesia da paura (Difficoltà 3). Se fallisce il test, fallisce anche il Rituale. Se il vampiro non entra in frenesia, può eseguire il tiro del Rituale: una vittoria garantisce il successo, mentre una vittoria critica guarisce il danno causato dalla candela. L’effetto permane indefinitamente, e se l’incantatore volesse invertire il processo dovrà ripetere il Rituale.",
+          "system": "Mentre è sotto l’effetto del Rituale, il cuore del vampiro diventa letteralmente di pietra. I paletti non possono trafiggerlo e, se usati per impalettarlo, si spezzano. Il ritualista manifesta inoltre un totale distacco emotivo, sottraendo 3 dadi a ogni tiro di Rimorso nonché alle riserve Sociali attive (non di resistenza) eccetto Intimidire e Dominazione. Non può avvalersi di Ascendente, ma ottiene 3 dadi bonus nelle riserve usate per resistere agli effetti di quella Disciplina."
+        },
+        {
+          "id": "d9_023",
+          "level": 5,
+          "title": "Fuga verso un Vero Rifugio",
+          "description": "Dopo aver preparato due cerchi mistici per mezzo di un arduo rituale, il vampiro può viaggiare istantaneamente da uno all’altro. Il viaggio è unidirezionale, e il ritualista deve indicare uno dei cerchi come partenza e usare l'altro come punto di “arrivo”.",
+          "ingredients": "Due cerchi bruciacchiati di circa un metro di diametro.",
+          "execution": "Il ritualista brucia i cerchi nel terreno o pavimento con una fiamma scoperta, quindi consacra ciascuno di essi. La consacrazione richiede due ore di cantitlena per notte e due Prove di Risveglio per tre notti consecutive. In totale, il Rituale prevede che il vampiro investa Sangue per ben 12 Prove di Risveglio.",
+          "system": "Una volta completati i cerchi, l’incantatore non deve fare altro che entrare in quello definito come partenza e concentrarsi per un turno eseguendo il tiro del Rituale (deve effettuare il tiro ogni volta che tenta di viaggiare, ma può fare solo un tentativo per scena). Con una vittoria il vampiro svanisce e riappare subito al centro del cerchio di uscita. Non c’è limite alla distanza tra i due cerchi, ma devono essere incisi nel terreno o nel pavimento di un edificio, non dentro un veicolo. Il ritualista può portare con sé una persona o un oggetto con la stessa taglia di un umano adulto. Se uno qualunque dei cerchi è danneggiato, diventano inerti entrambi. Un vampiro può avere solo una coppia di cerchi attivi alla volta."
+        },
+        {
+          "id": "d9_023",
+          "level": 5,
+          "title": "Verga dell'Inesorabile Dissoluzione",
+          "description": "Sono poche le armi capaci di incutere terrore nei Fratelli, ma il paletto creato con questo Rituale li riempie di paura. La Verga dell'Inesorabile Dissoluzione è forse l’origine del mito secondo il quale il paletto nel cuore distrugge i vampiri; non solo essa punta spontaneamente al cuore del Cainita, ma provoca la Morte Ultima quando raggiunge il bersaglio. Se necessario, la Verga provvede da sé a tale scopo, separando la sua punta che poi si fa lentamente strada nel corpo dell'ospite fino al cuore.",
+          "ingredients": "Un paletto di sorbo rosso istoriato di rune malefiche.",
+          "execution": "Il ritualista infonde nel paletto una misura del suo Sangue equivalente a due Prove di Risveglio mentre lo annerisce su un fuoco di legno di quercia e recita l’incantesimo. Il Rituale richiede 5 ore per essere ultimato.",
+          "system": "Il paletto offre un bonus di 3 dadi a qualsiasi tentativo di trafiggere il cuore di un vampiro, che sia martellato nel petto mentre la vittima dorme, impugnato come arma da mischia o scagliato con una balestra. Il paletto non deve necessariamente essere usato dal ritualista. Se il tiro di attacco vince con un margine di 5 o più, il vampiro si trasforma in polvere in un solo turno, come se fosse divorato da un fuoco invisibile. Se il paletto va a segno, ma il tiro non offre un margine sufficiente (meno di 5) per trafiggere il cuore, il paletto si spezza dentro la ferita e la punta comincia a scavare lentamente verso il cuore della vittima. A seconda di dove ha colpito, ciò può richiedere ore o notti, ma a meno che non sia estratta con mezzi chirurgici o mistici, la Morte Ultima è garantita. Per la rimozione chirurgica, qualcuno che non sia la vittima deve superare un tiro di Destrezza + Medicina (Difficoltà 6) in un intervento che dura fino a 4 ore. Se non è possibile trovare assistenza medica, qualcun altro può togliere la punta mozzando l’arto colpito – a meno che la scheggia letale non abbia già raggiunto il torace."
+        }
+      ]
+    }
   },
   {
     "id": "d10",
@@ -1844,193 +1875,200 @@
         "duration": "Un turno."
       }
     ],
-    "selectedDisciplinePowers": [{}],
-    "rituals": [
-      {
-        "id": "d10_001",
-        "level": 1,
-        "title": "Ceneri alle Ceneri",
-        "description": "Un corpo umano (o più corpi), una piccola miscela di sangue, flemma e bile.",
-        "prerequisite": "Una lastra di pietra e una candela di cera intrisa del Sangue dell'incantatore.",
-        "ingredients": "Un corpo umano (o più corpi), una piccola miscela di sangue, flemma e bile.",
-        "execution": "Dopo aver applicato la miscela al cadavere o ai cadaveri e aver eseguito il Rito, i corpi interessati si animano in una forma di falsa vita. Seguono un solo comando dal vampiro, purché sia semplice e il cadavere sia fisicamente in grado di eseguirlo, come \"spazzare il pavimento\", \"tenere chiusa questa porta\" o \"camminare intorno al perimetro della casa\". Non hanno la capacità di pensare o calcolare, quindi comandi condizionati o complicati come \"attaccare la prossima persona a passare attraverso questa arcata\", \"guidare questa macchina\" o \"costruire una baracca\" non funzionano. Possono essere indirizzati verso un bersaglio specifico per l'attacco o un'altra azione se il necromante li indica.",
-        "system": "Il giocatore effettua il proprio tiro del Rito e in caso di successo, risveglia un numero di cadaveri pari al suo punteggio di Oblio, o il numero di corpi che ha preparato (a seconda di quale sia più basso). Un successo critico raddoppia il loro punteggio di Oblio ai fini dei cadaveri risvegliati. L'animazione del cadavere senza mente termina quando viene distrutta o conclude il suo compito. Questi cadaveri non si difendono dagli attacchi e si degradano normalmente; il Rito non conferisce loro alcuna forma di immunità agli elementi o al tempo.",
-        "table": {
-          "headers": [
-            "",
-            "Cadavere"
-          ],
-          "columns": [
-            [
-              "Standard Dice Pools:",
-              "Fisiche 2, Sociali 1, Mentali 1"
+    "selectedDisciplinePowers": [
+      {}
+    ],
+    "ritual": {
+      "id": "d10_rit",
+      "level": 0,
+      "title": "Oblio",
+      "ritualsPowers": [
+        {
+          "id": "d10_001",
+          "level": 1,
+          "title": "Ceneri alle Ceneri",
+          "description": "Un corpo umano (o più corpi), una piccola miscela di sangue, flemma e bile.",
+          "prerequisite": "Una lastra di pietra e una candela di cera intrisa del Sangue dell'incantatore.",
+          "ingredients": "Un corpo umano (o più corpi), una piccola miscela di sangue, flemma e bile.",
+          "execution": "Dopo aver applicato la miscela al cadavere o ai cadaveri e aver eseguito il Rito, i corpi interessati si animano in una forma di falsa vita. Seguono un solo comando dal vampiro, purché sia semplice e il cadavere sia fisicamente in grado di eseguirlo, come \"spazzare il pavimento\", \"tenere chiusa questa porta\" o \"camminare intorno al perimetro della casa\". Non hanno la capacità di pensare o calcolare, quindi comandi condizionati o complicati come \"attaccare la prossima persona a passare attraverso questa arcata\", \"guidare questa macchina\" o \"costruire una baracca\" non funzionano. Possono essere indirizzati verso un bersaglio specifico per l'attacco o un'altra azione se il necromante li indica.",
+          "system": "Il giocatore effettua il proprio tiro del Rito e in caso di successo, risveglia un numero di cadaveri pari al suo punteggio di Oblio, o il numero di corpi che ha preparato (a seconda di quale sia più basso). Un successo critico raddoppia il loro punteggio di Oblio ai fini dei cadaveri risvegliati. L'animazione del cadavere senza mente termina quando viene distrutta o conclude il suo compito. Questi cadaveri non si difendono dagli attacchi e si degradano normalmente; il Rito non conferisce loro alcuna forma di immunità agli elementi o al tempo.",
+          "table": {
+            "headers": [
+              "",
+              "Cadavere"
             ],
-            [
-              "Secondary Attributes:",
-              "Salute 4, Volontà 1"
-            ],
-            [
-              "Exceptional Dice Pools:",
-              "Intimidire 4"
-            ],
-            [
-              "Special:",
-              "I cadaveri senza mente subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni, e deperiscono subendo almeno un danno superficiale alla salute ogni giorno. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non reagiscono a movimenti, parole o interferenze da parte di chiunque altro tranne il loro creatore. I cadaveri senza mente possono sempre contribuire al lavoro di squadra (vedi Vampire: The Masquerade p. 122) per compiti umili come scavare, sollevare o spingere, anche se mancano di Abilità."
-            ],
-            [
-              "General Difficulties:",
-              "3/1"
+            "columns": [
+              [
+                "Standard Dice Pools:",
+                "Fisiche 2, Sociali 1, Mentali 1"
+              ],
+              [
+                "Secondary Attributes:",
+                "Salute 4, Volontà 1"
+              ],
+              [
+                "Exceptional Dice Pools:",
+                "Intimidire 4"
+              ],
+              [
+                "Special:",
+                "I cadaveri senza mente subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni, e deperiscono subendo almeno un danno superficiale alla salute ogni giorno. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non reagiscono a movimenti, parole o interferenze da parte di chiunque altro tranne il loro creatore. I cadaveri senza mente possono sempre contribuire al lavoro di squadra (vedi Vampire: The Masquerade p. 122) per compiti umili come scavare, sollevare o spingere, anche se mancano di Abilità."
+              ],
+              [
+                "General Difficulties:",
+                "3/1"
+              ]
             ]
-          ]
-        }
-      },
-      {
-        "id": "d10_002",
-        "level": 1,
-        "title": "Evocazione dello Spirito",
-        "description": "Questa Cerimonia consente a un vampiro di evocare uno spirito dall'Oltretomba.",
-        "prerequisite": " Il Legame del Freno",
-        "ingredients": "Uno degli oggetti vincolanti dello spirito prescelto, una foto o un'altra rappresentazione visiva dello spirito o il suo nome firmato, il vitae del lanciatore.",
-        "execution": "Il necromante versa il suo vitae sull'oggetto vincolante dello spirito e, studiando la foto o la firma, chiama il nome dello spirito. Lo spirito sente la chiamata del suo oggetto vincolante e inizia un viaggio dalla sua posizione nell'Oltretomba a quella del lanciatore. Sebbene la geografia abbia scale diverse nell'Oltretomba, un viaggio può comunque richiedere diverse notti se lo spirito si trova dall'altro lato del mondo. Se lo Shroud è sufficientemente sottitle nel luogo di evocazione, lo spirito viene attratto attraverso il velo tra i mondi dalla forza dell'oggetto vincolante. Lo spirito evocato non è obbligato a servire il vampiro dopo essere stato chiamato e può agire con ostilità se ritiene che il vampiro stia minacciando il suo oggetto vincolante, che può essere un oggetto, un edificio o addirittura una persona. In alternativa, lo spirito potrebbe essere grato per l'evocazione e la possibilità di compagnia. Gli spiriti evocati in questo modo non si manifestano fisicamente, ma come ombre sui muri, silhouette traballanti dei loro sé viventi, da cui possono emergere voci. Gli spiriti parlano le stesse lingue che parlavano quando erano in vita, a meno che non si siano impegnati a impararne di nuove nell'Oltretomba.",
-        "system": "Il lanciatore unge l'oggetto vincolante con il suo vitae e effettua un tiro di Cerimonia di Oblio. Lo spirito non può passare attraverso lo Shroud se è impenetrabile nel luogo della Cerimonia (vedi p. 205), e spostare l'oggetto vincolante dopo la Cerimonia non aiuta, poiché la capacità dello spirito di passare attraverso lo Shroud scompare se l'oggetto vincolante lascia il luogo della Cerimonia. Lo spirito scompare alla fine della scena a meno che non venga utilizzata una Cerimonia separata per costringerlo o legarlo."
-      },
-      {
-        "id": "d10_003",
-        "level": 2,
-        "title": "Risveglio del Servitore Omoncolare",
-        "description": "I necromanti utilizzano questa Cerimonia per creare spie e predoni da parti del corpo come mani o cranii, o piccoli animali morti come topi o volpi.",
-        "prerequisite": "Dove il velo si Assottiglia",
-        "ingredients": "La parte del corpo o la carcassa dell'animale richiesto, l'arma usata per tagliarla/ucciderla, una piccola miscela di urina, materia fecale e sperma.",
-        "execution": "Il lanciatore riveste una lama (o un altro dispositivo adatto al compito) in una disgustosa miscela di fluidi corporei e la usa per tagliare l'appendice target dalla sua radice o il corpo, o uccide il piccolo animale (che non può essere più grande di un piccolo cane e non può volare, indipendentemente dal fatto che abbia ali). Dopo aver massaggiato il vitae nel bersaglio, questo prende vita come servitore omoncolare, fedelmente leale al suo padrone. L'omuncolo può arrampicarsi sui muri, saltare (anche se mancano le zampe per farlo), e nascondersi efficacemente. Pur non potendo parlare o svolgere compiti che richiedono un pensiero profondo, può comunicare telepaticamente immagini singole al suo creatore.",
-        "system": "Il giocatore del necromante effettua un tiro di Cerimonia di Oblio e, dopo averlo fatto, ottiene un servitore omoncolare che spierà, seguirà o intimidirà su comando del necromante. Se si allontana oltre i 100 metri dal vampiro, cade inerte, risvegliandosi solo quando il vampiro entra in quel raggio. In caso contrario, rimane attivo per un numero di notti pari al numero di successi ottenuti. Una vittoria critica nel tiro mantiene il servo attivo per sempre, mentre un fallimento totale distrugge tutti i componenti coinvolti nella Cerimonia.",
-        "table": {
-          "headers": [
-            "",
-            "Homunculus"
-          ],
-          "columns": [
-            [
-              "Standard Dice Pools:",
-              "Fisiche 1, Sociali 1, Mentali 1"
+          }
+        },
+        {
+          "id": "d10_002",
+          "level": 1,
+          "title": "Evocazione dello Spirito",
+          "description": "Questa Cerimonia consente a un vampiro di evocare uno spirito dall'Oltretomba.",
+          "prerequisite": " Il Legame del Freno",
+          "ingredients": "Uno degli oggetti vincolanti dello spirito prescelto, una foto o un'altra rappresentazione visiva dello spirito o il suo nome firmato, il vitae del lanciatore.",
+          "execution": "Il necromante versa il suo vitae sull'oggetto vincolante dello spirito e, studiando la foto o la firma, chiama il nome dello spirito. Lo spirito sente la chiamata del suo oggetto vincolante e inizia un viaggio dalla sua posizione nell'Oltretomba a quella del lanciatore. Sebbene la geografia abbia scale diverse nell'Oltretomba, un viaggio può comunque richiedere diverse notti se lo spirito si trova dall'altro lato del mondo. Se lo Shroud è sufficientemente sottitle nel luogo di evocazione, lo spirito viene attratto attraverso il velo tra i mondi dalla forza dell'oggetto vincolante. Lo spirito evocato non è obbligato a servire il vampiro dopo essere stato chiamato e può agire con ostilità se ritiene che il vampiro stia minacciando il suo oggetto vincolante, che può essere un oggetto, un edificio o addirittura una persona. In alternativa, lo spirito potrebbe essere grato per l'evocazione e la possibilità di compagnia. Gli spiriti evocati in questo modo non si manifestano fisicamente, ma come ombre sui muri, silhouette traballanti dei loro sé viventi, da cui possono emergere voci. Gli spiriti parlano le stesse lingue che parlavano quando erano in vita, a meno che non si siano impegnati a impararne di nuove nell'Oltretomba.",
+          "system": "Il lanciatore unge l'oggetto vincolante con il suo vitae e effettua un tiro di Cerimonia di Oblio. Lo spirito non può passare attraverso lo Shroud se è impenetrabile nel luogo della Cerimonia (vedi p. 205), e spostare l'oggetto vincolante dopo la Cerimonia non aiuta, poiché la capacità dello spirito di passare attraverso lo Shroud scompare se l'oggetto vincolante lascia il luogo della Cerimonia. Lo spirito scompare alla fine della scena a meno che non venga utilizzata una Cerimonia separata per costringerlo o legarlo."
+        },
+        {
+          "id": "d10_003",
+          "level": 2,
+          "title": "Risveglio del Servitore Omoncolare",
+          "description": "I necromanti utilizzano questa Cerimonia per creare spie e predoni da parti del corpo come mani o cranii, o piccoli animali morti come topi o volpi.",
+          "prerequisite": "Dove il velo si Assottiglia",
+          "ingredients": "La parte del corpo o la carcassa dell'animale richiesto, l'arma usata per tagliarla/ucciderla, una piccola miscela di urina, materia fecale e sperma.",
+          "execution": "Il lanciatore riveste una lama (o un altro dispositivo adatto al compito) in una disgustosa miscela di fluidi corporei e la usa per tagliare l'appendice target dalla sua radice o il corpo, o uccide il piccolo animale (che non può essere più grande di un piccolo cane e non può volare, indipendentemente dal fatto che abbia ali). Dopo aver massaggiato il vitae nel bersaglio, questo prende vita come servitore omoncolare, fedelmente leale al suo padrone. L'omuncolo può arrampicarsi sui muri, saltare (anche se mancano le zampe per farlo), e nascondersi efficacemente. Pur non potendo parlare o svolgere compiti che richiedono un pensiero profondo, può comunicare telepaticamente immagini singole al suo creatore.",
+          "system": "Il giocatore del necromante effettua un tiro di Cerimonia di Oblio e, dopo averlo fatto, ottiene un servitore omoncolare che spierà, seguirà o intimidirà su comando del necromante. Se si allontana oltre i 100 metri dal vampiro, cade inerte, risvegliandosi solo quando il vampiro entra in quel raggio. In caso contrario, rimane attivo per un numero di notti pari al numero di successi ottenuti. Una vittoria critica nel tiro mantiene il servo attivo per sempre, mentre un fallimento totale distrugge tutti i componenti coinvolti nella Cerimonia.",
+          "table": {
+            "headers": [
+              "",
+              "Homunculus"
             ],
-            [
-              "Secondary Attributes:",
-              "Salute 3, Volontà 2"
-            ],
-            [
-              "Exceptional Dice Pools:",
-              "Attletica 4, Furtivitò 5, Intimidire 4"
-            ],
-            [
-              "Special:",
-              "I servitori omuncolari subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non necessitano di occhi o orecchie per percepire tutto ciò che li circonda, come farebbe qualcuno con vista e udito non ostacolati. Possono trasmettere telepaticamente un'unica immagine per scena al loro padrone."
-            ],
-            [
-              "General Difficulties:",
-              "3/2"
+            "columns": [
+              [
+                "Standard Dice Pools:",
+                "Fisiche 1, Sociali 1, Mentali 1"
+              ],
+              [
+                "Secondary Attributes:",
+                "Salute 3, Volontà 2"
+              ],
+              [
+                "Exceptional Dice Pools:",
+                "Attletica 4, Furtivitò 5, Intimidire 4"
+              ],
+              [
+                "Special:",
+                "I servitori omuncolari subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non necessitano di occhi o orecchie per percepire tutto ciò che li circonda, come farebbe qualcuno con vista e udito non ostacolati. Possono trasmettere telepaticamente un'unica immagine per scena al loro padrone."
+              ],
+              [
+                "General Difficulties:",
+                "3/2"
+              ]
             ]
-          ]
-        }
-      },
-      {
-        "id": "d10_004",
-        "level": 2,
-        "title": "Evocazione dello Spirito",
-        "description": "Questa Cerimonia consente a un vampiro di piegare la volontà di uno spettro a suo piacimento.",
-        "prerequisite": "Dove il velo si Assottiglia",
-        "ingredients": "Un feticcio di uno spettro, il vitae del lanciatore, un oggetto (o minaccia) sufficiente a danneggiare il feticcio.",
-        "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante lancia una manciata del proprio vitae nella direzione dello spettro mentre tiene un oggetto distruttivo al feticcio (un coltello, un martello, una pistola, o potenzialmente tiene il feticcio sopra un fuoco) o pronuncia parole minacciose che lo spettro ritiene. Il vampiro e lo spettro si impegnano in una lotta di volontà. Se il vampiro domina lo spettro, lo spettro deve servire come il vampiro decreta, almeno temporaneamente. Se accade il contrario, il vampiro rimane mentalmente debilitato e il feticcio scompare dalla sua presa.",
-        "system": "Il giocatore del vampiro effettua un tiro di Cerimonia di Oblio contro il tiro di Resistenza + Composizione (o Forza di Volontà, se questi tratti non sono definiti) dello spettro. Se non hanno modo di minacciare fisicamente il feticcio, il giocatore deve anche effettuare un tiro di Manipolazione + Intimidazione (Difficoltà pari al tiro di Resistenza + Composizione dello spettro). Se il giocatore ottiene più successi rispetto al tiro di resistenza dello spettro sul suo tiro di Cerimonia di Oblio, il vampiro può comandare allo spettro di svolgere un numero di compiti di moderata difficoltà (spiare, fare ricerca, rispondere alle domande sinceramente, ecc.) pari al numero di successi ottenuti. Per ogni due successi, il vampiro può invece comandare allo spettro di svolgere un compito difficile (come attaccare qualcuno, fare qualcosa di ripugnante per le sensibilità dello spettro, ecc.). In caso di vittoria critica, il vampiro può richiedere qualsiasi azione allo spettro, che farà del suo meglio per completare il compito. Lo spettro rimane al servizio del vampiro fino alla fine della cronaca o finché non ha adempiuto ai comandi del suo padrone, momento in cui torna nell'Underworld con una eterna ostilità nei confronti del necromante. Se lo spettro vince la lotta, il vampiro subisce il margine in danni alla Salute Superficiale. Lo spettro rientra quindi nell'Underworld. La coercizione posta sullo spettro termina immediatamente se il vampiro lo attacca. Se il vampiro danneggia il feticcio minacciato, lo spettro subisce tra uno e tre danni alla Forza di Volontà Aggravati (a seconda dell'importanza del feticcio) e lo spettro viene mandato indietro nell'Underworld per essere tormentato da, e possibilmente convertito in, uno spettro assassino (vedi Vampire: The Masquerade, p. 377)."
-      },
-      {
-        "id": "d10_005",
-        "level": 3,
-        "title": "Ospitare lo Spirito",
-        "description": "Questa Cerimonia consente a un vampiro di aprire il proprio corpo al possesso di un fantasma. I benefici di avere uno spettro che viaggia nel proprio corpo si manifestano sotto forma di una fisicità potenziata, accesso ai ricordi che lo spettro sceglie di condividere e la voce dello spettro che offre consigli al vampiro. Lo spettro può prendere il completo controllo del vampiro se lo desidera, cosa che alcuni necromanti considerano come una benedizione da sperimentare, mentre altri la ritengono la principale ragione per non utilizzare questo potere. Consentire a uno spettro di controllare le proprie azioni per una notte è un modo efficace per confondere e placare la Bestia, oltre a dimostrare abilità fisiche e conoscenze che il vampiro potrebbe non possedere abitualmente.",
-        "prerequisite": "Aura di Decadenza",
-        "ingredients": "Un dono da fare come tributo a uno spettro (che valore abbia per lo spettro dipende dall'individuo), un parassita, due denti estratti dalla bocca del vampiro",
-        "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante presenta un tributo allo spettro, talvolta sotto forma di alcol versato sulla tomba dello spettro, o una borsa di monete da seppellire nella terra, o addirittura la testa appena decapitata di uno dei nemici fino a poco tempo fa vivi dello spettro. Il vampiro estrae quindi due denti dalla propria bocca, di solito con delle pinze, e morde un parassita con i denti rimanenti. Il vampiro apre quindi la bocca e lo spettro può scegliere di saltare dentro, abitando il corpo del vampiro.",
-        "system": "Il giocatore del vampiro effettua un tiro di Cerimonia di Oblio di successo. Se lo spettro accetta la proposta, entra quindi nel corpo del vampiro e può rimanere per un numero di scene pari ai successi ottenuti sul tiro di Cerimonia di Oblio. Con lo spettro dentro di loro, il vampiro guadagna +2 dadi a tutti i tiri di Attributi Fisici e +2 Salute fino alla partenza dello spettro. Il vampiro può sentire lo spettro nella sua testa, con i suoi consigli, blandizie o parole di supporto fornite dal Narratore. Uno spettro può scegliere di affermare il suo possesso invece di agire come passeggero. Se il vampiro si oppone, effettua un tiro di Risolutezza + Composizione contro il Risolutezza + Composizione dello spettro. Se ha successo, il vampiro respinge l'influenza dello spettro. Se fallisce, lo spettro guida il vampiro fino alla fine della scena, anche se non può fare fare al vampiro nulla di autodistruttivo. In caso di vittoria critica, lo spettro viene completamente espulso e ritorna nell'Underworld. In caso di fallimento totale, lo spettro può far fare al vampiro del male a se stesso, ma ritorna nell'Underworld dopo il primo danno subito. Un vampiro il cui corpo cede o viene volontariamente aperto al tentativo di possessione ritrova tutto il danno di Forza di Volontà guarito una volta che lo spettro se ne va, poiché lo spirito sottomette la Bestia per tutto il tempo in cui è presente."
-      },
-      {
-        "id": "d10_006",
-        "level": 3,
-        "title": "Orde dei Non Morti",
-        "description": "Questa Cerimonia consente a un necromante di risvegliare un gruppo di non morti aggressivi e camminanti.",
-        "prerequisite": "Aura di Decadenza",
-        "ingredients": "Un cadavere umano (o più cadaveri umani), un sacrificio umano fresco.",
-        "execution": "Il vampiro deve avere un cadavere separato oltre a un umano preparato per il sacrificio. Il vampiro uccide la vittima sacrificale, versando il loro sangue sul cadavere o sui cadaveri destinati all'animazione. Se la Cerimonia ha successo, i cadaveri si alzano (il sacrificio recente no), ravvivati con il sangue fresco, e servono i comandi del vampiro, anche ordini moderatamente complessi come \"uccidi chiunque entri,\" \"geme se vedi qualcuno passare di qui,\" o \"terrorizza quel quartiere.\" A differenza dei cadaveri risvegliati usando il Dono della Falsa Vita, questi morti animati non rimangono inattivi se lasciati senza comandi, attaccando invece chiunque si trovi intorno a loro tranne il loro padrone.",
-        "system": "Il giocatore effettua il suo tiro di Cerimonia, possibilmente incorrendo in Macchie nel processo a seconda dei Principi della Cronaca e della discrezione del Narratore. A causa della quantità di sangue versato in questa Cerimonia, il lanciatore deve testare per resistere alla frenesia della fame (Difficoltà 2). In caso di successo, un numero di non morti aggressivi pari al punteggio di Oblio del necromante o al numero di cadaveri preparati (il che è inferiore) riceve il dono dell'animazione. Una vittoria critica raddoppia il loro punteggio di Oblio ai fini della determinazione dei cadaveri risvegliati. I cadaveri animati in questo modo non si decompongono e entrano in riposo solo se comandati dal vampiro, se il vampiro subisce la morte definitiva o se vengono distrutti. Secondo le normali regole per gli Avvantaggi temporanei come questi, la loro utilità continua oltre la storia attuale deve essere garantita con Esperienza, come attraverso l'Background dei Servitori (vedi Vampiro: la Masquerade p. 196), altrimenti i cadaveri aggressivi potrebbero diventare instabili e indomabili.",
-        "table": {
-          "headers": [
-            "",
-            "Cadavere Aggressivo"
-          ],
-          "columns": [
-            [
-              "Standard Dice Pools:",
-              "Fisiche 4, Sociali 1, Mentali 1"
+          }
+        },
+        {
+          "id": "d10_004",
+          "level": 2,
+          "title": "Evocazione dello Spirito",
+          "description": "Questa Cerimonia consente a un vampiro di piegare la volontà di uno spettro a suo piacimento.",
+          "prerequisite": "Dove il velo si Assottiglia",
+          "ingredients": "Un feticcio di uno spettro, il vitae del lanciatore, un oggetto (o minaccia) sufficiente a danneggiare il feticcio.",
+          "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante lancia una manciata del proprio vitae nella direzione dello spettro mentre tiene un oggetto distruttivo al feticcio (un coltello, un martello, una pistola, o potenzialmente tiene il feticcio sopra un fuoco) o pronuncia parole minacciose che lo spettro ritiene. Il vampiro e lo spettro si impegnano in una lotta di volontà. Se il vampiro domina lo spettro, lo spettro deve servire come il vampiro decreta, almeno temporaneamente. Se accade il contrario, il vampiro rimane mentalmente debilitato e il feticcio scompare dalla sua presa.",
+          "system": "Il giocatore del vampiro effettua un tiro di Cerimonia di Oblio contro il tiro di Resistenza + Composizione (o Forza di Volontà, se questi tratti non sono definiti) dello spettro. Se non hanno modo di minacciare fisicamente il feticcio, il giocatore deve anche effettuare un tiro di Manipolazione + Intimidazione (Difficoltà pari al tiro di Resistenza + Composizione dello spettro). Se il giocatore ottiene più successi rispetto al tiro di resistenza dello spettro sul suo tiro di Cerimonia di Oblio, il vampiro può comandare allo spettro di svolgere un numero di compiti di moderata difficoltà (spiare, fare ricerca, rispondere alle domande sinceramente, ecc.) pari al numero di successi ottenuti. Per ogni due successi, il vampiro può invece comandare allo spettro di svolgere un compito difficile (come attaccare qualcuno, fare qualcosa di ripugnante per le sensibilità dello spettro, ecc.). In caso di vittoria critica, il vampiro può richiedere qualsiasi azione allo spettro, che farà del suo meglio per completare il compito. Lo spettro rimane al servizio del vampiro fino alla fine della cronaca o finché non ha adempiuto ai comandi del suo padrone, momento in cui torna nell'Underworld con una eterna ostilità nei confronti del necromante. Se lo spettro vince la lotta, il vampiro subisce il margine in danni alla Salute Superficiale. Lo spettro rientra quindi nell'Underworld. La coercizione posta sullo spettro termina immediatamente se il vampiro lo attacca. Se il vampiro danneggia il feticcio minacciato, lo spettro subisce tra uno e tre danni alla Forza di Volontà Aggravati (a seconda dell'importanza del feticcio) e lo spettro viene mandato indietro nell'Underworld per essere tormentato da, e possibilmente convertito in, uno spettro assassino (vedi Vampire: The Masquerade, p. 377)."
+        },
+        {
+          "id": "d10_005",
+          "level": 3,
+          "title": "Ospitare lo Spirito",
+          "description": "Questa Cerimonia consente a un vampiro di aprire il proprio corpo al possesso di un fantasma. I benefici di avere uno spettro che viaggia nel proprio corpo si manifestano sotto forma di una fisicità potenziata, accesso ai ricordi che lo spettro sceglie di condividere e la voce dello spettro che offre consigli al vampiro. Lo spettro può prendere il completo controllo del vampiro se lo desidera, cosa che alcuni necromanti considerano come una benedizione da sperimentare, mentre altri la ritengono la principale ragione per non utilizzare questo potere. Consentire a uno spettro di controllare le proprie azioni per una notte è un modo efficace per confondere e placare la Bestia, oltre a dimostrare abilità fisiche e conoscenze che il vampiro potrebbe non possedere abitualmente.",
+          "prerequisite": "Aura di Decadenza",
+          "ingredients": "Un dono da fare come tributo a uno spettro (che valore abbia per lo spettro dipende dall'individuo), un parassita, due denti estratti dalla bocca del vampiro",
+          "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante presenta un tributo allo spettro, talvolta sotto forma di alcol versato sulla tomba dello spettro, o una borsa di monete da seppellire nella terra, o addirittura la testa appena decapitata di uno dei nemici fino a poco tempo fa vivi dello spettro. Il vampiro estrae quindi due denti dalla propria bocca, di solito con delle pinze, e morde un parassita con i denti rimanenti. Il vampiro apre quindi la bocca e lo spettro può scegliere di saltare dentro, abitando il corpo del vampiro.",
+          "system": "Il giocatore del vampiro effettua un tiro di Cerimonia di Oblio di successo. Se lo spettro accetta la proposta, entra quindi nel corpo del vampiro e può rimanere per un numero di scene pari ai successi ottenuti sul tiro di Cerimonia di Oblio. Con lo spettro dentro di loro, il vampiro guadagna +2 dadi a tutti i tiri di Attributi Fisici e +2 Salute fino alla partenza dello spettro. Il vampiro può sentire lo spettro nella sua testa, con i suoi consigli, blandizie o parole di supporto fornite dal Narratore. Uno spettro può scegliere di affermare il suo possesso invece di agire come passeggero. Se il vampiro si oppone, effettua un tiro di Risolutezza + Composizione contro il Risolutezza + Composizione dello spettro. Se ha successo, il vampiro respinge l'influenza dello spettro. Se fallisce, lo spettro guida il vampiro fino alla fine della scena, anche se non può fare fare al vampiro nulla di autodistruttivo. In caso di vittoria critica, lo spettro viene completamente espulso e ritorna nell'Underworld. In caso di fallimento totale, lo spettro può far fare al vampiro del male a se stesso, ma ritorna nell'Underworld dopo il primo danno subito. Un vampiro il cui corpo cede o viene volontariamente aperto al tentativo di possessione ritrova tutto il danno di Forza di Volontà guarito una volta che lo spettro se ne va, poiché lo spirito sottomette la Bestia per tutto il tempo in cui è presente."
+        },
+        {
+          "id": "d10_006",
+          "level": 3,
+          "title": "Orde dei Non Morti",
+          "description": "Questa Cerimonia consente a un necromante di risvegliare un gruppo di non morti aggressivi e camminanti.",
+          "prerequisite": "Aura di Decadenza",
+          "ingredients": "Un cadavere umano (o più cadaveri umani), un sacrificio umano fresco.",
+          "execution": "Il vampiro deve avere un cadavere separato oltre a un umano preparato per il sacrificio. Il vampiro uccide la vittima sacrificale, versando il loro sangue sul cadavere o sui cadaveri destinati all'animazione. Se la Cerimonia ha successo, i cadaveri si alzano (il sacrificio recente no), ravvivati con il sangue fresco, e servono i comandi del vampiro, anche ordini moderatamente complessi come \"uccidi chiunque entri,\" \"geme se vedi qualcuno passare di qui,\" o \"terrorizza quel quartiere.\" A differenza dei cadaveri risvegliati usando il Dono della Falsa Vita, questi morti animati non rimangono inattivi se lasciati senza comandi, attaccando invece chiunque si trovi intorno a loro tranne il loro padrone.",
+          "system": "Il giocatore effettua il suo tiro di Cerimonia, possibilmente incorrendo in Macchie nel processo a seconda dei Principi della Cronaca e della discrezione del Narratore. A causa della quantità di sangue versato in questa Cerimonia, il lanciatore deve testare per resistere alla frenesia della fame (Difficoltà 2). In caso di successo, un numero di non morti aggressivi pari al punteggio di Oblio del necromante o al numero di cadaveri preparati (il che è inferiore) riceve il dono dell'animazione. Una vittoria critica raddoppia il loro punteggio di Oblio ai fini della determinazione dei cadaveri risvegliati. I cadaveri animati in questo modo non si decompongono e entrano in riposo solo se comandati dal vampiro, se il vampiro subisce la morte definitiva o se vengono distrutti. Secondo le normali regole per gli Avvantaggi temporanei come questi, la loro utilità continua oltre la storia attuale deve essere garantita con Esperienza, come attraverso l'Background dei Servitori (vedi Vampiro: la Masquerade p. 196), altrimenti i cadaveri aggressivi potrebbero diventare instabili e indomabili.",
+          "table": {
+            "headers": [
+              "",
+              "Cadavere Aggressivo"
             ],
-            [
-              "Secondary Attributes:",
-              "Salute 6, Volontà 2"
-            ],
-            [
-              "Exceptional Dice Pools:",
-              "Rissa 6, Intimidire 4, Allerta 3"
-            ],
-            [
-              "Special:",
-              "I cadaveri aggressivi subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non necessitano di occhi o orecchie per percepire tutto ciò che li circonda, come farebbe qualcuno con vista e udito non ostacolati. I morsi dei cadaveri aggressivi infliggono +2 danni aggravati alla salute ai mortali."
-            ],
-            [
-              "General Difficulties:",
-              "4/2"
+            "columns": [
+              [
+                "Standard Dice Pools:",
+                "Fisiche 4, Sociali 1, Mentali 1"
+              ],
+              [
+                "Secondary Attributes:",
+                "Salute 6, Volontà 2"
+              ],
+              [
+                "Exceptional Dice Pools:",
+                "Rissa 6, Intimidire 4, Allerta 3"
+              ],
+              [
+                "Special:",
+                "I cadaveri aggressivi subiscono danni superficiali e aggravati allo stesso modo dei vampiri, ma sono immuni alla luce del sole. Non possono guarire né riparare i danni. Non possono essere dominati o influenzati mentalmente poiché sono vincolati al loro padrone. Non necessitano di occhi o orecchie per percepire tutto ciò che li circonda, come farebbe qualcuno con vista e udito non ostacolati. I morsi dei cadaveri aggressivi infliggono +2 danni aggravati alla salute ai mortali."
+              ],
+              [
+                "General Difficulties:",
+                "4/2"
+              ]
             ]
-          ]
+          }
+        },
+        {
+          "id": "d10_007",
+          "level": 4,
+          "title": "Vincolo dello Spirito",
+          "description": "I vampiri con accesso a questa Cerimonia hanno la capacità di legare spettri a luoghi e persone specifici.",
+          "prerequisite": "Peste Necrotica",
+          "ingredients": "Il ferro di un legame del wraith, il vitae del lanciatore, il sacrificio di un essere umano innocente, sale sufficiente per circondare una proprietà o un individuo. Se il bersaglio del tormento è un individuo, il necromante deve possedere qualcosa del loro corpo, come unghie, capelli, sangue o pelle.",
+          "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante presenta un tributo allo spettro, talvolta sotto forma di alcol versato sulla tomba dello spettro, o una borsa di monete da seppellire nella terra, o addirittura la testa appena decapitata di uno dei nemici fino a poco tempo fa vivi dello spettro. Il vampiro estrae quindi due denti dalla propria bocca, di solito con delle pinze, e morde un parassita con i denti rimanenti. Il vampiro apre quindi la bocca e lo spettro può scegliere di saltare dentro, abitando il corpo del vampiro.",
+          "system": "Il vampiro deve già avere un wraith sotto il loro controllo utilizzando il Comando dello Spirito. Il vampiro uccide un essere umano innocente (anche se l'innocenza è soggettiva, tende ad applicarsi ai giovani, agli assistenti e agli individui genuinamente pii) in o vicino a un luogo o una persona che desidera far infestare dal loro wraith. Successivamente, mescolano il loro vitae con sale sufficiente per circondare il bersaglio del tormento e disegnano un cerchio con la miscela. Il legame del wraith viene posto da qualche parte all'interno del luogo o in possesso del bersaglio. Da questo punto in poi, il wraith è per sempre legato al bersaglio, a meno che il vampiro non annulli la Cerimonia, il legame non si sposti mai dalla posizione o dal possesso del bersaglio, o il wraith venga distrutto. Il legame termina anche se il necromante attacca il wraith. La maggior parte dei wraith legati in questo modo è furiosa o malinconica per la loro condizione, e il loro umore influisce sull'area circostante. Molti necromanti usano questo metodo per difendere i loro rifugi o tormentare i loro nemici."
+        },
+        {
+          "id": "d10_008",
+          "level": 4,
+          "title": "Fendere il Velo",
+          "description": "I vampiri con accesso a questa Cerimonia hanno la capacità di legare spettri a luoghi e persone specifici.",
+          "prerequisite": "Peste Necrotica",
+          "ingredients": "Un bisturi usato per tagliare qualcuno vivo, gesso o carbone, un lenzuolo di seta, un sacrificio umano.",
+          "execution": "Il vampiro appende un lenzuolo di seta su un muro in un luogo dove la densità del Velo è normale, sottitle o logora. Poi uccide un sacrificio umano contro il lenzuolo, di solito attraverso qualche forma di sanguinamento, e mentre il sangue ricopre il lenzuolo, lo taglia aperto con un bisturi. La Cerimonia allarga il portale tra il mondo dei vivi — che i wraith chiamano Territori della Pelle — e i Territori dell'Ombra. I wraith che entrano nei Territori della Pelle attraverso questo metodo si mettono a infestare luoghi e persone, indulgendo nelle loro passioni, e possiedono esseri umani se i loro poteri lo consentono. Alcuni trattano il vampiro con gratitudine per aver fenduto il Velo, mentre altri godono nel molestare il necromante responsabile.",
+          "system": "Il lanciatore uccide il sacrificio umano, il che potrebbe causare Macchie a seconda dei Principi della Cronaca e della discrezione del Narratore. Tagliando il lenzuolo di seta con un bisturi, il giocatore effettua il tiro della Cerimonia (con una Difficoltà ridotta di -1 se il bisturi è stato usato nel sacrificio umano). A causa della quantità di sangue versato in questa Cerimonia, il lanciatore deve tirare per resistere alla frenesia della fame (Difficoltà 2). Per ogni successo ottenuto nel tiro della Cerimonia, la densità del Velo si riduce di un livello, fino a essere assente. Dopo questa Cerimonia, i vampiri possono accedere più facilmente ai Territori dell'Ombra con Ex Nihilo, ma, cosa importante, se il rating del Velo viene ridotto a assente, i wraith possono riversarsi nei Territori della Pelle come meglio credono per il resto del capitolo. Una volta concluso il capitolo, una densità del Velo assente aumenta a logora e il passaggio per i wraith si chiude."
+        },
+        {
+          "id": "d10_009",
+          "level": 5,
+          "title": "Ex Nihilo",
+          "description": "Questa Cerimonia consente a un vampiro e alla sua coterie di migrare nei Territori dell'Ombra, anche se farlo comporta grandi rischi.",
+          "prerequisite": "Spirito Consumato",
+          "ingredients": "Maschere per ogni partecipante, una ciotola contenente una quantità sufficiente del sangue del vampiro in modo che ogni partecipante possa coprire le suole dei loro piedi con esso, due monete di qualsiasi valore per ogni partecipante.",
+          "execution": "Poche Cerimonie di Oblio portano con sé tanti dubbi e timori quanto Ex Nihilo, la capacità di migrare nei Territori dell'Ombra. Questa Cerimonia consente un attraversamento fisico nelle terre dell'entropia. I vampiri che entrano fisicamente nei Territori dell'Ombra possono interagire con i wraith come se fossero solidi, ma non possono portare oggetti oltre quelli che hanno con sé. I vampiri distrutti nei Territori dell'Ombra scompaiono in un vortice di sangue e cenere, aspirati dalla falsa terra sotto i loro piedi. Ex Nihilo attrae molti necromanti e mistici che desiderano studiare i Territori dell'Ombra senza l'impedimento di un limite di tempo. È un metodo imbattibile per intervistare fantasmi ed esplorare le necropoli — le città abitate dagli spiriti. È anche incredibilmente pericoloso, poiché molti wraith — specialmente gli spettri — cercano di distruggere i vampiri, prosciugandoli della loro Forza di Volontà, e c'è sempre il rischio di incontrare il fantasma di qualcuno che il vampiro ha ucciso anni prima. Tali wraith tendono a serbare rancore. Il vampiro deve aver usato la Cerimonia di Fendere il Velo all'interno di questo capitolo, nella posizione che occupa attualmente, affinché Ex Nihilo funzioni. Se la densità del Velo viene ridotta a assente, il vampiro e tutti i compagni possono entrare nei Territori dell'Ombra da quel punto, se indossano maschere per coprire i loro volti, immergono o dipingono i loro piedi con il sangue del vampiro e tengono una moneta in ogni mano.",
+          "system": "L'utilizzatore effettua tre Controlli di Risveglio (sufficienti per esaurire il sangue richiesto) e spende un punto Forza di Volontà per prepararsi all'attraversamento. Effettua quindi il tiro della Cerimonia. Se riuscito, il vampiro, un numero di compagni pari al numero di successi ottenuti e tutti gli oggetti che hanno con sé possono quindi entrare nei Territori dell'Ombra. I Territori dell'Ombra seguono diverse regole che non esistono nel mondo dei vivi:\n● I wraith sono in grado di effettuare attacchi fisici ai vampiri, ma alcuni sono anche capaci di attaccare specificamente la Forza di Volontà di un vampiro, poiché prosciugano la passione di un vampiro. I pool di difesa contro il drenaggio della Forza di Volontà, che un wraith può tentare fino a 3 metri dal vampiro, sono costituiti dal Resilienza + Compostezza del vampiro, contro la Forza + Combattimento del wraith attaccante. Questo attacco infligge danni alla Forza di Volontà aggravati. \n● Anche se non c'è sole (e quindi nessun giorno) nei Territori dell'Ombra, il vampiro deve ancora risvegliare il Sangue ogni 24 ore. Senza luce solare, possono operare senza riposo.\n● I vampiri nei Territori dell'Ombra non possono interagire con il mondo dei vivi in modo significativo. Possono solo toccare o parlare con creature viventi terminando questa Cerimonia, il che richiede la spesa di un punto Forza di Volontà e un altro Controllo di Risveglio in un luogo dove il Velo non è impenetrabile. Possono vedere frammenti di movimento attraverso il Velo, e una Disciplina come Auspex può consentire loro di spiare da oltre il velo, ma per la maggior parte, tutto ciò che viene visto ha una difficoltà di 4 o più per essere percepito. \n● I vampiri possono usare le loro Discipline nei Territori dell'Ombra proprio come possono fare nel mondo dei vivi.\n● Se un vampiro è costretto a nutrirsi nei Territori dell'Ombra, non può ottenere sostentamento dai wraith senza il potere del Banchetto della Passione (vedi p. 206), ma può nutrirsi da mortali o altri vampiri presenti con loro. \n● L'Oblio assorbe gli individui che perdono tutta la Salute o la Forza di Volontà nei Territori dell'Ombra. Non lasciano wraith se vengono distrutti.\n● I vampiri non possono portare i wraith fuori dai Territori dell'Ombra senza una Cerimonia come l'Evocazione dello Spirito (vedi p. 209), che deve essere utilizzata nel mondo dei vivi per avere questo effetto.\n●Durata: Fino a quando il potere non viene disattivato o il vampiro viene distrutto."
+        },
+        {
+          "id": "d10_010",
+          "level": 5,
+          "title": "Benedizione di Lazzaro",
+          "description": "Questa Cerimonia consente a un negromante di riportare in vita un corpo appena deceduto, sebbene non come lo ricorderebbero i suoi parenti e amici.",
+          "prerequisite": "Compimento del Destino",
+          "ingredients": "Un sacrificio umano, incenso, il cuore di qualsiasi mammifero, argento in polvere.",
+          "execution": "Il negromante brucia incenso per profumare l'aria prima di compiere un atto di sacrificio umano, tagliando il cuore della vittima e sostituendolo con il cuore di un altro mammifero, anche se non è necessario cucirlo e farlo funzionare affinché la Cerimonia funzioni. Dopo aver versato una borsa di argento in polvere sugli occhi aperti del mortale morente o morto, il vampiro invita un wraith a prendere il mortale defunto come ospite. I wraith non possono essere costretti a possedere un corpo, ma pochi rifiutano l'opportunità di camminare di nuovo in scarpe semi-viventi.",
+          "system": "Uccidere un mortale per questa Cerimonia può comportare Macchie, a seconda dei Precetti della Cronaca. Se il cuore sostitutivo è stato anch'esso prelevato da qualcuno che il vampiro ha ucciso, quel omicidio potrebbe anch'esso comportare Macchie. Dopo un lancio di Cerimonia riuscito, un wraith può entrare nel corpo appena deceduto e viverci come se fosse il proprio. Il wraith deve essere presente durante l'atto del sacrificio. Il cadavere posseduto si sveglierà portando le ferite che l'hanno ucciso, anche se il cuore sostitutivo è funzionale (indipendentemente dalla sua origine o posizione) e il corpo guarisce un punto di danno alla Salute dopo il possesso. Il danno alla Salute rimanente si riprende nel tempo. Il corpo possiede gli stessi Attributi Fisici, Discipline (se un ghoule) e Background che aveva in vita. Gli Attributi Sociali e Mentali, le Abilità e qualsiasi forma di rating di moralità corrispondono a quelli del wraith. Questa possessione dura indefinitamente, o fino a quando il corpo posseduto muore di nuovo o il wraith viene esorcizzato dall'ospite. Il corpo non ottiene resistenze speciali al danno al di là delle Discipline che potrebbe avere posseduto in vita."
         }
-      },
-      {
-        "id": "d10_007",
-        "level": 4,
-        "title": "Vincolo dello Spirito",
-        "description": "I vampiri con accesso a questa Cerimonia hanno la capacità di legare spettri a luoghi e persone specifici.",
-        "prerequisite": "Peste Necrotica",
-        "ingredients": "Il ferro di un legame del wraith, il vitae del lanciatore, il sacrificio di un essere umano innocente, sale sufficiente per circondare una proprietà o un individuo. Se il bersaglio del tormento è un individuo, il necromante deve possedere qualcosa del loro corpo, come unghie, capelli, sangue o pelle.",
-        "execution": "Il vampiro deve essere in prossimità ravvicinata di uno spettro per poter utilizzare questo potere, tipicamente attraverso l'uso di Evocazione dello Spirito. Il necromante presenta un tributo allo spettro, talvolta sotto forma di alcol versato sulla tomba dello spettro, o una borsa di monete da seppellire nella terra, o addirittura la testa appena decapitata di uno dei nemici fino a poco tempo fa vivi dello spettro. Il vampiro estrae quindi due denti dalla propria bocca, di solito con delle pinze, e morde un parassita con i denti rimanenti. Il vampiro apre quindi la bocca e lo spettro può scegliere di saltare dentro, abitando il corpo del vampiro.",
-        "system": "Il vampiro deve già avere un wraith sotto il loro controllo utilizzando il Comando dello Spirito. Il vampiro uccide un essere umano innocente (anche se l'innocenza è soggettiva, tende ad applicarsi ai giovani, agli assistenti e agli individui genuinamente pii) in o vicino a un luogo o una persona che desidera far infestare dal loro wraith. Successivamente, mescolano il loro vitae con sale sufficiente per circondare il bersaglio del tormento e disegnano un cerchio con la miscela. Il legame del wraith viene posto da qualche parte all'interno del luogo o in possesso del bersaglio. Da questo punto in poi, il wraith è per sempre legato al bersaglio, a meno che il vampiro non annulli la Cerimonia, il legame non si sposti mai dalla posizione o dal possesso del bersaglio, o il wraith venga distrutto. Il legame termina anche se il necromante attacca il wraith. La maggior parte dei wraith legati in questo modo è furiosa o malinconica per la loro condizione, e il loro umore influisce sull'area circostante. Molti necromanti usano questo metodo per difendere i loro rifugi o tormentare i loro nemici."
-      },
-      {
-        "id": "d10_008",
-        "level": 4,
-        "title": "Fendere il Velo",
-        "description": "I vampiri con accesso a questa Cerimonia hanno la capacità di legare spettri a luoghi e persone specifici.",
-        "prerequisite": "Peste Necrotica",
-        "ingredients": "Un bisturi usato per tagliare qualcuno vivo, gesso o carbone, un lenzuolo di seta, un sacrificio umano.",
-        "execution": "Il vampiro appende un lenzuolo di seta su un muro in un luogo dove la densità del Velo è normale, sottitle o logora. Poi uccide un sacrificio umano contro il lenzuolo, di solito attraverso qualche forma di sanguinamento, e mentre il sangue ricopre il lenzuolo, lo taglia aperto con un bisturi. La Cerimonia allarga il portale tra il mondo dei vivi — che i wraith chiamano Territori della Pelle — e i Territori dell'Ombra. I wraith che entrano nei Territori della Pelle attraverso questo metodo si mettono a infestare luoghi e persone, indulgendo nelle loro passioni, e possiedono esseri umani se i loro poteri lo consentono. Alcuni trattano il vampiro con gratitudine per aver fenduto il Velo, mentre altri godono nel molestare il necromante responsabile.",
-        "system": "Il lanciatore uccide il sacrificio umano, il che potrebbe causare Macchie a seconda dei Principi della Cronaca e della discrezione del Narratore. Tagliando il lenzuolo di seta con un bisturi, il giocatore effettua il tiro della Cerimonia (con una Difficoltà ridotta di -1 se il bisturi è stato usato nel sacrificio umano). A causa della quantità di sangue versato in questa Cerimonia, il lanciatore deve tirare per resistere alla frenesia della fame (Difficoltà 2). Per ogni successo ottenuto nel tiro della Cerimonia, la densità del Velo si riduce di un livello, fino a essere assente. Dopo questa Cerimonia, i vampiri possono accedere più facilmente ai Territori dell'Ombra con Ex Nihilo, ma, cosa importante, se il rating del Velo viene ridotto a assente, i wraith possono riversarsi nei Territori della Pelle come meglio credono per il resto del capitolo. Una volta concluso il capitolo, una densità del Velo assente aumenta a logora e il passaggio per i wraith si chiude."
-      },
-      {
-        "id": "d10_009",
-        "level": 5,
-        "title": "Ex Nihilo",
-        "description": "Questa Cerimonia consente a un vampiro e alla sua coterie di migrare nei Territori dell'Ombra, anche se farlo comporta grandi rischi.",
-        "prerequisite": "Spirito Consumato",
-        "ingredients": "Maschere per ogni partecipante, una ciotola contenente una quantità sufficiente del sangue del vampiro in modo che ogni partecipante possa coprire le suole dei loro piedi con esso, due monete di qualsiasi valore per ogni partecipante.",
-        "execution": "Poche Cerimonie di Oblio portano con sé tanti dubbi e timori quanto Ex Nihilo, la capacità di migrare nei Territori dell'Ombra. Questa Cerimonia consente un attraversamento fisico nelle terre dell'entropia. I vampiri che entrano fisicamente nei Territori dell'Ombra possono interagire con i wraith come se fossero solidi, ma non possono portare oggetti oltre quelli che hanno con sé. I vampiri distrutti nei Territori dell'Ombra scompaiono in un vortice di sangue e cenere, aspirati dalla falsa terra sotto i loro piedi. Ex Nihilo attrae molti necromanti e mistici che desiderano studiare i Territori dell'Ombra senza l'impedimento di un limite di tempo. È un metodo imbattibile per intervistare fantasmi ed esplorare le necropoli — le città abitate dagli spiriti. È anche incredibilmente pericoloso, poiché molti wraith — specialmente gli spettri — cercano di distruggere i vampiri, prosciugandoli della loro Forza di Volontà, e c'è sempre il rischio di incontrare il fantasma di qualcuno che il vampiro ha ucciso anni prima. Tali wraith tendono a serbare rancore. Il vampiro deve aver usato la Cerimonia di Fendere il Velo all'interno di questo capitolo, nella posizione che occupa attualmente, affinché Ex Nihilo funzioni. Se la densità del Velo viene ridotta a assente, il vampiro e tutti i compagni possono entrare nei Territori dell'Ombra da quel punto, se indossano maschere per coprire i loro volti, immergono o dipingono i loro piedi con il sangue del vampiro e tengono una moneta in ogni mano.",
-        "system": "L'utilizzatore effettua tre Controlli di Risveglio (sufficienti per esaurire il sangue richiesto) e spende un punto Forza di Volontà per prepararsi all'attraversamento. Effettua quindi il tiro della Cerimonia. Se riuscito, il vampiro, un numero di compagni pari al numero di successi ottenuti e tutti gli oggetti che hanno con sé possono quindi entrare nei Territori dell'Ombra. I Territori dell'Ombra seguono diverse regole che non esistono nel mondo dei vivi:\n● I wraith sono in grado di effettuare attacchi fisici ai vampiri, ma alcuni sono anche capaci di attaccare specificamente la Forza di Volontà di un vampiro, poiché prosciugano la passione di un vampiro. I pool di difesa contro il drenaggio della Forza di Volontà, che un wraith può tentare fino a 3 metri dal vampiro, sono costituiti dal Resilienza + Compostezza del vampiro, contro la Forza + Combattimento del wraith attaccante. Questo attacco infligge danni alla Forza di Volontà aggravati. \n● Anche se non c'è sole (e quindi nessun giorno) nei Territori dell'Ombra, il vampiro deve ancora risvegliare il Sangue ogni 24 ore. Senza luce solare, possono operare senza riposo.\n● I vampiri nei Territori dell'Ombra non possono interagire con il mondo dei vivi in modo significativo. Possono solo toccare o parlare con creature viventi terminando questa Cerimonia, il che richiede la spesa di un punto Forza di Volontà e un altro Controllo di Risveglio in un luogo dove il Velo non è impenetrabile. Possono vedere frammenti di movimento attraverso il Velo, e una Disciplina come Auspex può consentire loro di spiare da oltre il velo, ma per la maggior parte, tutto ciò che viene visto ha una difficoltà di 4 o più per essere percepito. \n● I vampiri possono usare le loro Discipline nei Territori dell'Ombra proprio come possono fare nel mondo dei vivi.\n● Se un vampiro è costretto a nutrirsi nei Territori dell'Ombra, non può ottenere sostentamento dai wraith senza il potere del Banchetto della Passione (vedi p. 206), ma può nutrirsi da mortali o altri vampiri presenti con loro. \n● L'Oblio assorbe gli individui che perdono tutta la Salute o la Forza di Volontà nei Territori dell'Ombra. Non lasciano wraith se vengono distrutti.\n● I vampiri non possono portare i wraith fuori dai Territori dell'Ombra senza una Cerimonia come l'Evocazione dello Spirito (vedi p. 209), che deve essere utilizzata nel mondo dei vivi per avere questo effetto.\n●Durata: Fino a quando il potere non viene disattivato o il vampiro viene distrutto."
-      },
-      {
-        "id": "d10_010",
-        "level": 5,
-        "title": "Benedizione di Lazzaro",
-        "description": "Questa Cerimonia consente a un negromante di riportare in vita un corpo appena deceduto, sebbene non come lo ricorderebbero i suoi parenti e amici.",
-        "prerequisite": "Compimento del Destino",
-        "ingredients": "Un sacrificio umano, incenso, il cuore di qualsiasi mammifero, argento in polvere.",
-        "execution": "Il negromante brucia incenso per profumare l'aria prima di compiere un atto di sacrificio umano, tagliando il cuore della vittima e sostituendolo con il cuore di un altro mammifero, anche se non è necessario cucirlo e farlo funzionare affinché la Cerimonia funzioni. Dopo aver versato una borsa di argento in polvere sugli occhi aperti del mortale morente o morto, il vampiro invita un wraith a prendere il mortale defunto come ospite. I wraith non possono essere costretti a possedere un corpo, ma pochi rifiutano l'opportunità di camminare di nuovo in scarpe semi-viventi.",
-        "system": "Uccidere un mortale per questa Cerimonia può comportare Macchie, a seconda dei Precetti della Cronaca. Se il cuore sostitutivo è stato anch'esso prelevato da qualcuno che il vampiro ha ucciso, quel omicidio potrebbe anch'esso comportare Macchie. Dopo un lancio di Cerimonia riuscito, un wraith può entrare nel corpo appena deceduto e viverci come se fosse il proprio. Il wraith deve essere presente durante l'atto del sacrificio. Il cadavere posseduto si sveglierà portando le ferite che l'hanno ucciso, anche se il cuore sostitutivo è funzionale (indipendentemente dalla sua origine o posizione) e il corpo guarisce un punto di danno alla Salute dopo il possesso. Il danno alla Salute rimanente si riprende nel tempo. Il corpo possiede gli stessi Attributi Fisici, Discipline (se un ghoule) e Background che aveva in vita. Gli Attributi Sociali e Mentali, le Abilità e qualsiasi forma di rating di moralità corrispondono a quelli del wraith. Questa possessione dura indefinitamente, o fino a quando il corpo posseduto muore di nuovo o il wraith viene esorcizzato dall'ospite. Il corpo non ottiene resistenze speciali al danno al di là delle Discipline che potrebbe avere posseduto in vita."
-      }
-    ]
+      ]
+    }
   },
   {
     "id": "d11",
@@ -2113,6 +2151,8 @@
         "system": "L'Alchimista utilizza uno dei suoi metodi di distillazione (Fixatio, Athanor Corporis, o Calcinatio) per produrre l'elisir, che viene poi diluito nel sangue umano. Ogni successo oltre il 2 nel tiro di distillazione consente di svegliare un vampiro dal torpore, purché la sua Potenza del Sangue sia inferiore o uguale al margine di successo."
       }
     ],
-    "selectedDisciplinePowers": [{}]
+    "selectedDisciplinePowers": [
+      {}
+    ]
   }
 ]

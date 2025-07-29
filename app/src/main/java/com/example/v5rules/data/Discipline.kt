@@ -12,8 +12,9 @@ data class Discipline(
     val resonance: String = "",
     val clanAffinity: List<String> = emptyList(),
     val disciplinePowers: List<DisciplinePower> = emptyList(),
-    val rituals: List<Ritual> = emptyList(),
+    val ritual: Ritual? = null,
     val level: Int = 0,
+    val ritualLevel: Int = 0,
     val selectedDisciplinePowers: List<DisciplinePower> = emptyList()
 )
 
@@ -39,6 +40,14 @@ data class Ritual(
     val id: String = "",
     val level: Int = 0,
     val title: String = "",
+    val ritualsPowers: List<RitualPower> = emptyList()
+)
+
+@Serializable
+data class RitualPower(
+    val id: String = "",
+    val level: Int = 0,
+    val title: String = "",
     val description: String = "",
     val prerequisite: String? = null,
     val ingredients: String = "",
@@ -46,7 +55,6 @@ data class Ritual(
     val system: String? = null,
     val table: Table? = null
 )
-
 @Serializable
 data class Table(
     val headers: List<String> = emptyList(),
