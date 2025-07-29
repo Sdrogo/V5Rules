@@ -1,21 +1,41 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# File: app/proguard-rules.pro
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Regole specifiche per le librerie di Firebase
+# Risolve: Missing class com.google.firebase.perf.network.FirebasePerfUrlConnection
+-keep class com.google.firebase.perf.network.** { *; }
+-keep class com.google.android.recaptcha.** { *; }
+-keep class com.google.firebase.appcheck.** { *; }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# Regole generali per Firebase, Google & Play Services
+-keep class com.google.android.gms.common.** { *; }
+-keep class com.google.firebase.** { *; }
+-keepattributes Signature, InnerClasses
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Regole per classi di sistema referenziate da dipendenze comuni
+# Risolve: sun.misc.Unsafe, javax.naming.*
+# noinspection ShrinkerUnresolvedReference
+-keep class sun.misc.Unsafe { *; }
+-keep class javax.naming.** { *; }
+-keep class javax.security.** { *; }
+
+# Regole per Kotlinx Coroutines
+-keepnames class kotlinx.coroutines.internal.MainDispatcherFactory { *; }
+-keepnames class kotlinx.coroutines.flow.internal.ChannelFlow { *; }
+-keepnames class kotlinx.coroutines.flow.internal.CombineKt { *; }
+
+# Regole per Kotlinx Serialization
+-keepattributes *Annotation*
+-keepclassmembers class ** {
+    @kotlinx.serialization.Serializable <methods>;
+}
+-keep class **$$serializer { *; }
+
+# Regole per Google GSON
+-keep class com.google.gson.reflect.TypeToken { *; }
+-keep class * extends com.google.gson.reflect.TypeToken
+
+# Regole per Hilt e ViewModel
+# noinspection ShrinkerUnresolvedReference
+-keepclassmembers class * extends androidx.lifecycle.ViewModel {
+    @com.google.dagger.hilt.android.lifecycle.HiltViewModel <init>(...);
+}
