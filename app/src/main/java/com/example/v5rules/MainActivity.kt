@@ -83,7 +83,6 @@ fun V5RulesApp() {
     val kindredViewModel: KindredViewModel = hiltViewModel()
     val pgViewModel: PgViewModel = hiltViewModel()
     val backgroundViewModel: BackgroundViewModel = hiltViewModel()
-
     val navController = rememberNavController()
     var currentUser by remember { mutableStateOf(FirebaseAuth.getInstance().currentUser) }
     var currentTitle by remember { mutableStateOf("") }
