@@ -83,7 +83,7 @@ fun RangeDots(min: Int, max: Int) {
             )
         }
         Row {
-            (1..min).forEach { i ->
+            (1..min).forEach { _ ->
                 Box(
                     modifier = Modifier
                         .size(22.dp)
@@ -109,7 +109,7 @@ fun RangeDots(min: Int, max: Int) {
                     .padding(horizontal = 8.dp)
             )
             Row {
-                (1..max).forEach { i ->
+                (1..max).forEach { _ ->
                     Box(
                         modifier = Modifier
                             .size(22.dp)
@@ -188,7 +188,7 @@ fun DotsOnlyForLevel(level: Int) {
             .wrapContentWidth()
     ) {
         Row {
-            (1..level).forEach { i ->
+            (1..level).forEach { _ ->
                 Box(
                     modifier = Modifier
                         .size(22.dp)

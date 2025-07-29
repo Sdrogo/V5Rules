@@ -41,8 +41,8 @@ fun ClanDetailScreen(
     LaunchedEffect(Unit) {
         onTitleChanged(clanName)
     }
-    clan?.let { clan ->
-        ClanDetail(clan = clan)
+    clan?.let { selectedClan ->
+        ClanDetail(clan = selectedClan)
     }
 }
 
