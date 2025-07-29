@@ -1,5 +1,6 @@
 package com.example.v5rules.repository
 
+import com.example.v5rules.data.FriendRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
@@ -75,6 +76,79 @@ class FriendRepository @Inject constructor(
 
         } catch (e: Exception) {
             FriendRequestResult.Error(e.message ?: "An unknown error occurred.")
+        }
+    }
+
+    /**
+     * Ottiene tutte le richieste di amicizia inviate e ricevute dall'utente corrente.
+     */
+    suspend fun getFriendRequests(): Result<List<FriendRequest>> {
+        val currentUser = auth.currentUser
+            ?: return Result.failure(Exception("User not logged in."))
+
+        return try {
+            val sentRequests = firestore.collection("friend_requests")
+                .whereEqualTo("senderId", currentUser.uid)
+                .get()
+                .await()
+                .map { document -> document.toObject(FriendRequest::class.java).copy(id = document.id) }
+
+            val receivedRequests = firestore.collection("friend_requests")
+                .whereEqualTo("recipientId", currentUser.uid)
+                .get()
+                .await()
+                .map { document -> document.toObject(FriendRequest::class.java).copy(id = document.id) }
+            
+            Result.success(sentRequests + receivedRequests)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Accetta una richiesta di amicizia.
+     */
+    suspend fun acceptFriendRequest(request: FriendRequest): FriendshipActionResult {
+        return try {
+            // Aggiorna lo stato della richiesta
+            firestore.collection("friend_requests").document(request.id)
+                .update("status", "accepted").await()
+
+            // Crea il documento di amicizia
+            val friendship = hashMapOf(
+                "userIds" to listOf(request.senderId, request.recipientId),
+                "timestamp" to System.currentTimeMillis()
+            )
+            firestore.collection("friends").add(friendship).await()
+            
+            FriendshipActionResult.Success
+        } catch (e: Exception) {
+            FriendshipActionResult.Error(e.message ?: "An unknown error occurred.")
+        }
+    }
+
+    /**
+     * Rifiuta una richiesta di amicizia.
+     */
+    suspend fun declineFriendRequest(requestId: String): FriendshipActionResult {
+        return try {
+            firestore.collection("friend_requests").document(requestId)
+                .update("status", "declined").await()
+            FriendshipActionResult.Success
+        } catch (e: Exception) {
+            FriendshipActionResult.Error(e.message ?: "An unknown error occurred.")
+        }
+    }
+
+    /**
+     * Annulla una richiesta di amicizia (o la rimuove se è stata rifiutata).
+     */
+    suspend fun cancelFriendRequest(requestId: String): FriendshipActionResult {
+        return try {
+            firestore.collection("friend_requests").document(requestId).delete().await()
+            FriendshipActionResult.Success
+        } catch (e: Exception) {
+            FriendshipActionResult.Error(e.message ?: "An unknown error occurred.")
         }
     }
 }
