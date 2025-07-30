@@ -15,6 +15,7 @@ on:
 jobs:
   build-and-analyze:
     runs-on: ubuntu-latest
+    environment: Release
     permissions:
       security-events: write
       actions: read
