@@ -1,0 +1,27 @@
+name: Create Tag on Master Merge
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  tag-release:
+    runs-on: ubuntu-latest
+    # Diamo al job il permesso di scrivere i tag nel repository
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Dobbiamo scaricare tutta la cronologia per trovare l'ultimo tag
+          fetch-depth: 0
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.70.0 # Azione popolare per il versioning semantico
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token con permessi di scrittura
+          DEFAULT_BUMP: patch # Se non trova 'feat' o 'fix', fa un aggiornamento di patch
+          RELEASE_BRANCHES: master # Esegui solo su merge verso master
