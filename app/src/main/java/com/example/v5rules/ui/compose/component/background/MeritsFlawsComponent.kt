@@ -81,23 +81,6 @@ fun AdvantageItem(
                     .weight(1f)
                     .clickable { expanded = !expanded }
             )
-            Spacer(Modifier.width(8.dp))
-            IconButton(onClick = { expanded = !expanded }) {
-                Icon(
-                    imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                    contentDescription = if (expanded) "Collapse" else "Expand"
-                )
-            }
-            Spacer(Modifier.width(8.dp))
-            IconButton(onClick = { onEvent(CharacterSheetEvent.CharacterDirectFlawRemoved(characterDirectFlaw)) })
-            {
-                Icon(
-                    imageVector = Icons.Default.Delete,
-                    contentDescription = stringResource(R.string.remove_stuff, characterDirectFlaw.title),
-                    tint = MaterialTheme.colorScheme.error
-                )
-            }
-            Spacer(Modifier.width(8.dp))
             InteractiveBackgroundDots(
                 currentValue = characterDirectFlaw.level ?: 1,
                 minValue = characterDirectFlaw.minLevel ?: 1,
@@ -106,6 +89,20 @@ fun AdvantageItem(
                     onEvent(CharacterSheetEvent.CharacterDirectFlawLevelChanged(characterDirectFlaw, newLevel))
                 }
             )
+            IconButton(onClick = { onEvent(CharacterSheetEvent.CharacterDirectFlawRemoved(characterDirectFlaw)) })
+            {
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = stringResource(R.string.remove_stuff, characterDirectFlaw.title),
+                    tint = MaterialTheme.colorScheme.error
+                )
+            }
+            IconButton(onClick = { expanded = !expanded }) {
+                Icon(
+                    imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                    contentDescription = if (expanded) "Collapse" else "Expand"
+                )
+            }
         }
 
         if (expanded) {

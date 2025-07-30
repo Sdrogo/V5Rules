@@ -1,5 +1,7 @@
 import org.gradle.kotlin.dsl.android
 import org.gradle.kotlin.dsl.dependencies
+import java.io.FileInputStream
+import java.util.Properties
 
 fun getVersionCode(): Int {
     return if (project.hasProperty("appVersionCode")) {
@@ -47,12 +49,24 @@ android {
 
     signingConfigs {
         create("release") {
-            val keystoreFile = rootProject.file("keystore.jks")
-            if (keystoreFile.exists()) {
+            val keystorePropertiesFile = rootProject.file("keystore.properties")
+            val keystoreFile = rootProject.file("my-release-key.keystore")
+
+            if (keystorePropertiesFile.exists() && keystoreFile.exists()) {
+                val properties = Properties()
+                properties.load(FileInputStream(keystorePropertiesFile))
                 storeFile = keystoreFile
-                storePassword = System.getenv("SIGNING_STORE_PASSWORD")
-                keyAlias = System.getenv("SIGNING_KEY_ALIAS")
-                keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+                storePassword = properties.getProperty("storePassword")
+                keyAlias = properties.getProperty("keyAlias")
+                keyPassword = properties.getProperty("keyPassword")
+            } else {
+                val ciKeystoreFile = rootProject.file("keystore.jks")
+                if (ciKeystoreFile.exists()) {
+                    storeFile = ciKeystoreFile
+                    storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+                    keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+                    keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+                }
             }
         }
     }

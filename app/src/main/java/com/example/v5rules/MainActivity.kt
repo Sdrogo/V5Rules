@@ -161,36 +161,39 @@ fun V5RulesApp() {
                 )
             },
             bottomBar = {
-                NavigationBar(
-                    containerColor = MaterialTheme.colorScheme.secondary
-                ) {
-                    bottomNavItems.forEach { item ->
-                        NavigationBarItem(
-                            selected = currentRoute == item.route::class.java.name,
-                            onClick = {
-                                navController.navigate(item.route) {
-                                    popUpTo(navController.graph.startDestinationId) {
-                                        saveState = true
+
+                if (showBottomBar) {
+                    NavigationBar(
+                        containerColor = MaterialTheme.colorScheme.secondary
+                    ) {
+                        bottomNavItems.forEach { item ->
+                            NavigationBarItem(
+                                selected = currentRoute == item.route::class.java.name,
+                                onClick = {
+                                    navController.navigate(item.route) {
+                                        popUpTo(navController.graph.startDestinationId) {
+                                            saveState = true
+                                        }
+                                        launchSingleTop = true
+                                        restoreState = true
                                     }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            },
-                            icon = {
-                                Icon(
-                                    item.icon,
-                                    contentDescription = stringResource(item.title)
+                                },
+                                icon = {
+                                    Icon(
+                                        item.icon,
+                                        contentDescription = stringResource(item.title)
+                                    )
+                                },
+                                label = { Text(stringResource(item.title)) },
+                                colors = NavigationBarItemDefaults.colors(
+                                    selectedIconColor = MaterialTheme.colorScheme.primary, // Usa un altro colore per l'icona selezionata
+                                    selectedTextColor = MaterialTheme.colorScheme.primary,
+                                    indicatorColor = MaterialTheme.colorScheme.onSecondary, // Cambia il colore della "pillola"
+                                    unselectedIconColor = MaterialTheme.colorScheme.primary, // Colore più tenue per l'icona non selezionata
+                                    unselectedTextColor = MaterialTheme.colorScheme.primary
                                 )
-                            },
-                            label = { Text(stringResource(item.title)) },
-                            colors = NavigationBarItemDefaults.colors(
-                                selectedIconColor = MaterialTheme.colorScheme.primary, // Usa un altro colore per l'icona selezionata
-                                selectedTextColor = MaterialTheme.colorScheme.primary,
-                                indicatorColor = MaterialTheme.colorScheme.onSecondary, // Cambia il colore della "pillola"
-                                unselectedIconColor = MaterialTheme.colorScheme.primary, // Colore più tenue per l'icona non selezionata
-                                unselectedTextColor = MaterialTheme.colorScheme.primary
                             )
-                        )
+                        }
                     }
                 }
             }

@@ -84,9 +84,6 @@ fun LoresheetItem(
                         )
                     ) }
                 )
-                Icon(imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                    contentDescription = if (expanded) "Collapse ${loresheet.title}" else "Expand ${loresheet.title}"
-                )
                 IconButton(onClick = {onRemove(loresheet)}) {
                     Icon(
                         imageVector = Icons.Default.Delete,
@@ -94,6 +91,9 @@ fun LoresheetItem(
                         tint = MaterialTheme.colorScheme.error
                     )
                 }
+                Icon(imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                    contentDescription = if (expanded) "Collapse ${loresheet.title}" else "Expand ${loresheet.title}"
+                )
             }
         }
         if (expanded) {
