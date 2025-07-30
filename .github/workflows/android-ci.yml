@@ -16,11 +16,12 @@ on:
       - "bugfix/*"
 
 jobs:
-  # JOB 1: ANALISI DEL CODICE
+  # JOB 1: ANALISI DEL CODICE (NON CAMBIA)
+  # Questo job viene eseguito su ogni push e PR per garantire la qualità del codice.
   analyze:
     runs-on: ubuntu-latest
     permissions:
-      security-events: write
+      security-events: write # Permesso per CodeQL
       actions: read
       contents: read
 
@@ -35,12 +36,9 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      # CORREZIONE: Aggiunto lo step mancante per creare google-services.json
       - name: Create google-services.json
         run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
-        env:
-          GOOGLE_SERVICES_JSON_BASE64: ${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}
-      
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
@@ -55,19 +53,19 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
-  # JOB 2: CREAZIONE DELL'APK FIRMATO
+  # JOB 2: CREAZIONE DELL'APK FIRMATO (CON VERSIONING)
+  # Questo job viene eseguito solo dopo un merge su master o su push di un tag.
   build-and-release:
     needs: analyze
-    # Si attiva solo su merge su master o su push di un tag
     if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (startsWith(github.ref, 'refs/tags/v'))
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write # Permesso per caricare l'artefatto
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
         # 'fetch-depth: 0' è necessario per contare tutti i commit per il versionCode
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -87,7 +85,7 @@ jobs:
       # Step per calcolare versionCode e versionName
       - name: Set Version Name and Code
         run: |
-          # Se è un tag, usa il nome del tag. Altrimenti, usa "master-build".
+          # Se è un tag, usa il nome del tag. Altrimenti, crea un nome per il build di master.
           if [[ $GITHUB_REF == refs/tags/v* ]]; then
             echo "APP_VERSION_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
           else
@@ -99,7 +97,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      # Passiamo le versioni a Gradle come properties
+      # Passiamo le versioni e i secret a Gradle
       - name: Build Signed Release APK
         run: ./gradlew clean assembleRelease -PappVersionCode=${{ env.APP_VERSION_CODE }} -PappVersionName=${{ env.APP_VERSION_NAME }}
         env:
@@ -112,4 +110,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: V5Rules-Release-${{ env.APP_VERSION_NAME }}
+          # Usiamo un wildcard (*) per trovare l'APK generato dinamicamente
           path: app/build/outputs/apk/release/*.apk
