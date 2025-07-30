@@ -9,6 +9,7 @@ buildscript {
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
-    id("com.google.devtools.ksp") version "1.9.22-1.0.17" apply false
+    alias(libs.plugins.compose.compiler) apply false
+    id("com.google.devtools.ksp") version "2.2.0-2.0.2" apply false
     alias(libs.plugins.googleGmsGoogleServices) apply false
 }
