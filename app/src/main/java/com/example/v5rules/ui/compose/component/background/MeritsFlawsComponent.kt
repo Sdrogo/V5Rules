@@ -81,7 +81,6 @@ fun AdvantageItem(
                     .weight(1f)
                     .clickable { expanded = !expanded }
             )
-            Spacer(Modifier.width(8.dp))
             InteractiveBackgroundDots(
                 currentValue = characterDirectFlaw.level ?: 1,
                 minValue = characterDirectFlaw.minLevel ?: 1,
@@ -90,8 +89,6 @@ fun AdvantageItem(
                     onEvent(CharacterSheetEvent.CharacterDirectFlawLevelChanged(characterDirectFlaw, newLevel))
                 }
             )
-
-            Spacer(Modifier.width(8.dp))
             IconButton(onClick = { onEvent(CharacterSheetEvent.CharacterDirectFlawRemoved(characterDirectFlaw)) })
             {
                 Icon(
@@ -100,7 +97,6 @@ fun AdvantageItem(
                     tint = MaterialTheme.colorScheme.error
                 )
             }
-            Spacer(Modifier.width(8.dp))
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,

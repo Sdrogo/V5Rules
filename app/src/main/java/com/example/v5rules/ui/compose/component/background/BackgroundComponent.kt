@@ -86,7 +86,6 @@ fun BackgroundItem(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 8.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
@@ -107,7 +106,6 @@ fun BackgroundItem(
                     )
                 }
             )
-            Spacer(Modifier.width(8.dp))
             IconButton(
                 onClick = { onEvent(CharacterSheetEvent.BackgroundRemoved(characterBackground)) }
             )
