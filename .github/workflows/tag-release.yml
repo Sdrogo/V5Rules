@@ -1,27 +1,42 @@
-name: Create Tag on Master Merge
+name: Create and Push Tag
 
 on:
+  # 1. Trigger automatico su merge verso master
   push:
     branches:
       - master
+  
+  # 2. Trigger manuale dalla UI di GitHub
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        description: 'Tipo di aggiornamento della versione'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
 
 jobs:
   tag-release:
     runs-on: ubuntu-latest
-    # Diamo al job il permesso di scrivere i tag nel repository
     permissions:
-      contents: write
+      contents: write # Permesso per creare e pushare il tag
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # Dobbiamo scaricare tutta la cronologia per trovare l'ultimo tag
+          # Scarica tutta la cronologia per trovare l'ultimo tag
           fetch-depth: 0
 
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.73.0 # Azione popolare per il versioning semantico
+        uses: anothrNick/github-tag-action@1.70.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token con permessi di scrittura
-          DEFAULT_BUMP: patch # Se non trova 'feat' o 'fix', fa un aggiornamento di patch
-          RELEASE_BRANCHES: master # Esegui solo su merge verso master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Se il trigger è manuale, usa l'input dell'utente.
+          # Altrimenti, usa i messaggi di commit (con un default a 'patch').
+          DEFAULT_BUMP: ${{ github.event.inputs.bump_type || 'patch' }}
+          RELEASE_BRANCHES: master
