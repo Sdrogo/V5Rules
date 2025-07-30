@@ -1,17 +1,27 @@
 # File: app/proguard-rules.pro
 
-# Regole specifiche per le librerie di Firebase
-# Risolve: Missing class com.google.firebase.perf.network.FirebasePerfUrlConnection
+# --- Regole per Firebase e Google Play Services ---
+
+# Mantiene i nomi delle classi di dati per Firestore, Auth, etc.
+-keepnames class com.example.v5rules.data.**
+
+# Mantiene i campi annotati con @PropertyName nelle classi di dati
+-keepattributes Signature
+-keepclassmembers class com.example.v5rules.data.** {
+    @com.google.firebase.firestore.PropertyName <fields>;
+}
+
+# Regole generali per le librerie Firebase e Google
+-keep class com.google.firebase.** { *; }
+-keep class com.google.android.gms.** { *; }
 -keep class com.google.firebase.perf.network.** { *; }
 -keep class com.google.android.recaptcha.** { *; }
 -keep class com.google.firebase.appcheck.** { *; }
 
-# Regole generali per Firebase, Google & Play Services
--keep class com.google.android.gms.common.** { *; }
--keep class com.google.firebase.** { *; }
--keepattributes Signature, InnerClasses
 
-# Risolve: sun.misc.Unsafe, javax.naming.*
+# --- Regole per Librerie Essenziali ---
+
+# Mantiene classi di sistema usate da librerie come OkHttp o Coroutines
 # noinspection ShrinkerUnresolvedReference
 -keep class sun.misc.Unsafe { *; }
 -keep class javax.naming.** { *; }
