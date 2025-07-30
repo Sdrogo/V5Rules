@@ -81,7 +81,7 @@ sealed class CharacterSheetEvent {
     // Eventi per Merits/Flaws di un Background specifico
     data class BackgroundMeritAdded(val background: Background, val merit: Advantage, val level: Int) : CharacterSheetEvent()
     data class BackgroundMeritRemoved(val background: Background, val merit: Advantage) : CharacterSheetEvent()
-    data class BackgroundMeritLevelChanged(val background: Background, val meritId: Int, val newLevel: Int) : CharacterSheetEvent()
+    data class BackgroundMeritLevelChanged(val background: Background, val merit: Advantage, val newLevel: Int) : CharacterSheetEvent()
 
     data class BackgroundFlawAdded(val background: Background, val flaw: Advantage, val level: Int) : CharacterSheetEvent()
     data class BackgroundFlawRemoved(val background: Background, val flaw: Advantage) : CharacterSheetEvent()

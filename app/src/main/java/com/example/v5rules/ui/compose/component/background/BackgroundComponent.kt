@@ -199,7 +199,7 @@ fun BackgroundItem(
                             onEvent(
                                 CharacterSheetEvent.BackgroundMeritLevelChanged(
                                     characterBackground,
-                                    merit.id,
+                                    merit,
                                     newLevel
                                 )
                             )

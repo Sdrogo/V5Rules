@@ -326,15 +326,15 @@
         "description": "• Neonato, AncillaAnziano, •• Primogenito o membro di Consiglio Anarchico, Principe o Barone",
         "isFlaw": true,
         "minLevel": 1,
-        "maxLevel": 3
+        "maxLevel": 2
       },
       {
         "id": 20010,
         "title": "Debito Importante",
         "description": "• Neonato, Ancilla, •• Anziano, Primogenito o membro di Consiglio Anarchico, ••• Principe o Barone",
         "isFlaw": true,
-        "minLevel": 2,
-        "maxLevel": 4
+        "minLevel": 1,
+        "maxLevel": 3
       },
       {
         "id": 20011,
@@ -342,7 +342,7 @@
         "description": "•• Neonato, Ancilla Anziano, ••• Primogenito o membro di Consiglio Anarchico, Principe o Barone",
         "isFlaw": true,
         "minLevel": 2,
-        "maxLevel": 4
+        "maxLevel": 3
       }
     ],
     "merits": [

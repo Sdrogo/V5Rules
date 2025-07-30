@@ -284,23 +284,18 @@ class CharacterSheetViewModel @Inject constructor(
                     //Ability
                     is CharacterSheetEvent.AbilityChanged -> {
                         _uiState.update { currentState ->
-                            val currentAbilities = currentState.character.abilities.toMutableList()
-                            val abilityIndex =
-                                currentAbilities.indexOfFirst { it.name == event.abilityName }
-                            val updatedAbilities = if (abilityIndex != -1) {
-                                currentAbilities.apply {
-                                    set(
-                                        abilityIndex,
-                                        currentAbilities[abilityIndex].copy(level = event.level)
-                                    )
+                            val character = currentState.character
+                            val abilityExists = character.abilities.any { it.name == event.abilityName }
+
+                            val updatedAbilities = if (abilityExists) {
+                                // MODO SICURO: Usa map per creare una nuova lista aggiornata.
+                                character.abilities.map {
+                                    if (it.name == event.abilityName) it.copy(level = event.level) else it
                                 }
                             } else {
-                                currentAbilities + Ability(
-                                    name = event.abilityName,
-                                    level = event.level
-                                )
+                                character.abilities + Ability(name = event.abilityName, level = event.level)
                             }
-                            currentState.copy(character = currentState.character.copy(abilities = updatedAbilities))
+                            currentState.copy(character = character.copy(abilities = updatedAbilities))
                         }
                     }
 
@@ -373,23 +368,17 @@ class CharacterSheetViewModel @Inject constructor(
 
                     is CharacterSheetEvent.AbilitySpecializationChanged -> {
                         _uiState.update { currentState ->
-                            val currentAbilities = currentState.character.abilities.toMutableList()
-                            val abilityIndex =
-                                currentAbilities.indexOfFirst { it.name == event.abilityName }
-                            val updatedAbilities = if (abilityIndex != -1) {
-                                currentAbilities.apply {
-                                    set(
-                                        abilityIndex,
-                                        currentAbilities[abilityIndex].copy(specialization = event.specialization)
-                                    )
+                            val character = currentState.character
+                            val abilityExists = character.abilities.any { it.name == event.abilityName }
+
+                            val updatedAbilities = if (abilityExists) {
+                                character.abilities.map {
+                                    if (it.name == event.abilityName) it.copy(specialization = event.specialization) else it
                                 }
                             } else {
-                                currentAbilities + Ability(
-                                    name = event.abilityName,
-                                    specialization = event.specialization
-                                )
+                                character.abilities + Ability(name = event.abilityName, specialization = event.specialization)
                             }
-                            currentState.copy(character = currentState.character.copy(abilities = updatedAbilities))
+                            currentState.copy(character = character.copy(abilities = updatedAbilities))
                         }
                     }
 
@@ -426,135 +415,99 @@ class CharacterSheetViewModel @Inject constructor(
 
                     is CharacterSheetEvent.DisciplinePowerAdded -> {
                         _uiState.update { currentState ->
-                            val currentDisciplines =
-                                currentState.character.disciplines.toMutableList()
-                            val disciplineIndex =
-                                currentDisciplines.indexOfFirst { it.title == event.disciplineName }
-                            if (disciplineIndex != -1) {
-                                val currentDiscipline = currentDisciplines[disciplineIndex]
-                                val actualDiscipline = currentDiscipline.selectedDisciplinePowers
-                                if (actualDiscipline.none { it.id == event.power.id }) {
-                                    val newPowers = actualDiscipline + event.power
-                                    val updatedDiscipline =
-                                        currentDiscipline.copy(selectedDisciplinePowers = newPowers)
-                                    currentDisciplines[disciplineIndex] = updatedDiscipline
-                                    currentState.copy(
-                                        character = currentState.character.copy(
-                                            disciplines = currentDisciplines
-                                        )
-                                    )
+                            val updatedDisciplines = currentState.character.disciplines.map { discipline ->
+                                if (discipline.title == event.disciplineName) {
+                                    if (discipline.selectedDisciplinePowers.none { it.id == event.power.id }) {
+                                        discipline.copy(selectedDisciplinePowers = discipline.selectedDisciplinePowers + event.power)
+                                    } else {
+                                        discipline
+                                    }
                                 } else {
-                                    currentState
+                                    discipline
                                 }
-                            } else {
-                                currentState
                             }
+                            currentState.copy(character = currentState.character.copy(disciplines = updatedDisciplines))
                         }
                     }
-                    is CharacterSheetEvent.RitualPowerAdded -> {
-                        _uiState.update { currentState ->
-                            val currentRituals =
-                                currentState.character.learnedRituals.toMutableList()
-                            val ritualIndex =
-                                currentRituals.indexOfFirst { it.title == event.ritual.title }
-                            if (ritualIndex != -1) {
-                                val currentRitual = currentRituals[ritualIndex]
-                                if (currentRituals.none { it.id == event.power.id }) {
-                                    currentRituals[ritualIndex] = currentRitual.copy(ritualsPowers = currentRitual.ritualsPowers + event.power)
-                                    currentState.copy(
-                                        character = currentState.character.copy(
-                                            learnedRituals = currentRituals
-                                        )
-                                    )
-                                } else {
-                                    currentState
-                                }
-                            } else {
-                                currentState
-                            }
-                        }
-                    }
-                    is CharacterSheetEvent.RitualPowerRemoved -> {
-                        _uiState.update { currentState ->
-                            val currentRituals =
-                                currentState.character.learnedRituals.toMutableList()
-                            val ritualIndex =
-                                currentRituals.indexOfFirst { it.title == event.ritual.title }
-                            if (ritualIndex != -1) {
-                                val newPowers = currentRituals[ritualIndex].ritualsPowers.filterNot { it.id == event.power.id }
-                                val updatedRitual = currentRituals[ritualIndex].copy(ritualsPowers = newPowers)
-                                currentRituals[ritualIndex] = updatedRitual
-                                currentState.copy(
-                                        character = currentState.character.copy(
-                                            learnedRituals = currentRituals
-                                        )
-                                    )
-                                } else {
-                                    currentState
-                                }
-                        }
-                    }
+
                     is CharacterSheetEvent.DisciplinePowerRemoved -> {
                         _uiState.update { currentState ->
-                            val currentDisciplines =
-                                currentState.character.disciplines.toMutableList()
-                            val disciplineIndex =
-                                currentDisciplines.indexOfFirst { it.title == event.disciplineName }
-                            if (disciplineIndex != -1) {
-                                val currentDiscipline = currentDisciplines[disciplineIndex]
-                                val newPowers =
-                                    currentDiscipline.selectedDisciplinePowers.filterNot { it.id == event.power.id }
-                                val updatedDiscipline =
-                                    currentDiscipline.copy(selectedDisciplinePowers = newPowers)
-                                currentDisciplines[disciplineIndex] = updatedDiscipline
-                                currentState.copy(
-                                    character = currentState.character.copy(
-                                        disciplines = currentDisciplines
-                                    )
-                                )
-                            } else {
-                                currentState
+                            val updatedDisciplines = currentState.character.disciplines.map { discipline ->
+                                if (discipline.title == event.disciplineName) {
+                                    discipline.copy(selectedDisciplinePowers = discipline.selectedDisciplinePowers.filterNot { it.id == event.power.id })
+                                } else {
+                                    discipline
+                                }
                             }
+                            currentState.copy(character = currentState.character.copy(disciplines = updatedDisciplines))
+                        }
+                    }
+
+                    is CharacterSheetEvent.RitualPowerAdded -> {
+                        _uiState.update { currentState ->
+                            val updatedRituals = currentState.character.learnedRituals.map { ritual ->
+                                if (ritual.title == event.ritual.title) {
+                                    if (ritual.ritualsPowers.none { it.id == event.power.id }) {
+                                        ritual.copy(ritualsPowers = ritual.ritualsPowers + event.power)
+                                    } else {
+                                        ritual
+                                    }
+                                } else {
+                                    ritual
+                                }
+                            }
+                            currentState.copy(character = currentState.character.copy(learnedRituals = updatedRituals))
+                        }
+                    }
+
+                    is CharacterSheetEvent.RitualPowerRemoved -> {
+                        _uiState.update { currentState ->
+                            val updatedRituals = currentState.character.learnedRituals.map { ritual ->
+                                if (ritual.title == event.ritual.title) {
+                                    ritual.copy(ritualsPowers = ritual.ritualsPowers.filterNot { it.id == event.power.id })
+                                } else {
+                                    ritual
+                                }
+                            }
+                            currentState.copy(character = currentState.character.copy(learnedRituals = updatedRituals))
                         }
                     }
 
                     is CharacterSheetEvent.DisciplineLevelChanged -> {
                         _uiState.update { currentState ->
-                            val currentDisciplines =
-                                currentState.character.disciplines.toMutableList()
-                            val currentRituals =
-                                currentState.character.learnedRituals.toMutableList()
+                            val character = currentState.character
+                            val disciplineTitle = event.discipline.title
 
-                            val disciplineIndex =
-                                currentDisciplines.indexOfFirst { it.title == event.discipline.title }
-                            val currentRitualsIndex =
-                                currentRituals.indexOfFirst { it.title == event.discipline.title }
+                            if (event.newLevel == 0) {
+                                // MODO SICURO: Creiamo nuove liste filtrando gli elementi da rimuovere.
+                                // Non usiamo più indici, quindi non può esserci un crash.
+                                val updatedDisciplines = character.disciplines.filterNot { it.title == disciplineTitle }
+                                val updatedRituals = character.learnedRituals.filterNot { it.title == disciplineTitle }
 
-                            if (disciplineIndex != -1) {
-                                if (event.newLevel == 0) {
-                                    currentDisciplines.removeAt(disciplineIndex)
-                                    currentRituals.removeAt(currentRitualsIndex)
-                                } else {
-                                    val currentDiscipline = currentDisciplines[disciplineIndex]
-
-                                    val validPowers =
-                                        currentDiscipline.selectedDisciplinePowers.filter { power ->
-                                            power.level <= event.newLevel
-                                        }
-                                    val updatedDiscipline = currentDiscipline.copy(
-                                        level = event.newLevel,
-                                        selectedDisciplinePowers = validPowers,
-                                    )
-                                    currentDisciplines[disciplineIndex] = updatedDiscipline
-                                }
                                 currentState.copy(
-                                    character = currentState.character.copy(
-                                        disciplines = currentDisciplines,
-                                        learnedRituals = currentRituals
+                                    character = character.copy(
+                                        disciplines = updatedDisciplines,
+                                        learnedRituals = updatedRituals
                                     )
                                 )
                             } else {
-                                currentState
+                                // MODO SICURO: Usiamo `map` per aggiornare l'elemento corretto senza rischiare errori di indice.
+                                val updatedDisciplines = character.disciplines.map { discipline ->
+                                    if (discipline.title == disciplineTitle) {
+                                        val validPowers = discipline.selectedDisciplinePowers.filter { power ->
+                                            power.level <= event.newLevel
+                                        }
+                                        discipline.copy(
+                                            level = event.newLevel,
+                                            selectedDisciplinePowers = validPowers
+                                        )
+                                    } else {
+                                        discipline
+                                    }
+                                }
+                                currentState.copy(
+                                    character = character.copy(disciplines = updatedDisciplines)
+                                )
                             }
                         }
                     }
@@ -581,20 +534,16 @@ class CharacterSheetViewModel @Inject constructor(
 
                     is CharacterSheetEvent.LoresheetLevelChanged -> {
                         _uiState.update { currentState ->
-                            val currentLoresheets =
-                                currentState.character.loresheets.toMutableList()
-                            val loresheetIndex =
-                                currentLoresheets.indexOfFirst { it.title == event.loresheetName }
-                            if (loresheetIndex != -1) {
-                                val currentLoresheet = currentLoresheets[loresheetIndex]
-                                val updatedLoresheet =
-                                    currentLoresheet.copy(level = event.level) //Aggiorna solo il livello
-                                currentLoresheets[loresheetIndex] = updatedLoresheet
-                                currentState.copy(character = currentState.character.copy(loresheets = currentLoresheets))
-                            } else currentState // Disciplina non trovata (non dovrebbe succedere)
+                            val updatedLoresheets = currentState.character.loresheets.map { loresheet ->
+                                if (loresheet.title == event.loresheetName) {
+                                    loresheet.copy(level = event.level)
+                                } else {
+                                    loresheet
+                                }
+                            }
+                            currentState.copy(character = currentState.character.copy(loresheets = updatedLoresheets))
                         }
                     }
-
                     is CharacterSheetEvent.BackgroundAdded -> {
                         val updatedCharacter = _uiState.value.character.copy(
                             backgrounds = _uiState.value.character.backgrounds + event.background.copy(
@@ -782,10 +731,14 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val newMerit = event.merit.copy(level = event.level)
-                                    bg.copy(merits = (bg.merits) + newMerit)
-                                } else
+                                    val newMerit = event.merit.copy(
+                                        identifier = UUID.randomUUID().toString(),
+                                        level = event.level
+                                    )
+                                    bg.copy(merits = bg.merits + newMerit)
+                                } else {
                                     bg
+                                }
                             }
                             currentState.copy(character = currentState.character.copy(backgrounds = updatedBackgrounds))
                         }
@@ -795,7 +748,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    bg.copy(merits = bg.merits.filterNot { it.id == event.merit.id })
+                                    bg.copy(merits = bg.merits.filterNot { it.identifier == event.merit.identifier })
                                 } else {
                                     bg
                                 }
@@ -809,7 +762,7 @@ class CharacterSheetViewModel @Inject constructor(
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
                                     val updatedMerits = bg.merits.map { merit ->
-                                        if (merit.id == event.meritId) {
+                                        if (merit.identifier == event.merit.identifier) {
                                             merit.copy(level = event.newLevel)
                                         } else {
                                             merit
@@ -828,8 +781,11 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    val newFlaw = event.flaw.copy(level = event.level)
-                                    bg.copy(flaws = (bg.flaws) + newFlaw)
+                                    val newFlaw = event.flaw.copy(
+                                        identifier = UUID.randomUUID().toString(),
+                                        level = event.level
+                                    )
+                                    bg.copy(flaws = bg.flaws + newFlaw)
                                 } else {
                                     bg
                                 }
@@ -842,7 +798,7 @@ class CharacterSheetViewModel @Inject constructor(
                         _uiState.update { currentState ->
                             val updatedBackgrounds = currentState.character.backgrounds.map { bg ->
                                 if (bg.identifier == event.background.identifier) {
-                                    bg.copy(flaws = bg.flaws.filterNot { it.id == event.flaw.id })
+                                    bg.copy(flaws = bg.flaws.filterNot { it.identifier == event.flaw.identifier })
                                 } else {
                                     bg
                                 }
@@ -1181,7 +1137,6 @@ class CharacterSheetViewModel @Inject constructor(
                     )
 
                     is CharacterSheetEvent.RemoveRitual -> removeRitual(
-                        event.disciplineName,
                         event.ritual
                     )
 
@@ -1279,20 +1234,19 @@ class CharacterSheetViewModel @Inject constructor(
         }
     }
 
-    private fun removeRitual(disciplineName: String, ritual: Ritual) {
+    private fun removeRitual(ritual: Ritual) {
         viewModelScope.launch {
             _uiState.update { currentState ->
                 val character = currentState.character
-                val learnedRituals = character.learnedRituals.filter { it.title == disciplineName }
-
-                if (ritual in learnedRituals) {
-                    return@launch
-                }
-                currentState.copy(
-                    character = character.copy(
-                        learnedRituals = learnedRituals + ritual
+                val originalRituals = character.learnedRituals
+                val updatedRituals = originalRituals.filterNot { it.id == ritual.id }
+                if (updatedRituals.size < originalRituals.size) {
+                    currentState.copy(
+                        character = character.copy(learnedRituals = updatedRituals)
                     )
-                )
+                } else {
+                    currentState
+                }
             }
         }
     }

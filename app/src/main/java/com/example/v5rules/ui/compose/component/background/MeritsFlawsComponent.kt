@@ -82,12 +82,15 @@ fun AdvantageItem(
                     .clickable { expanded = !expanded }
             )
             Spacer(Modifier.width(8.dp))
-            IconButton(onClick = { expanded = !expanded }) {
-                Icon(
-                    imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
-                    contentDescription = if (expanded) "Collapse" else "Expand"
-                )
-            }
+            InteractiveBackgroundDots(
+                currentValue = characterDirectFlaw.level ?: 1,
+                minValue = characterDirectFlaw.minLevel ?: 1,
+                maxValue = characterDirectFlaw.maxLevel ?: 5,
+                onValueChange = { newLevel ->
+                    onEvent(CharacterSheetEvent.CharacterDirectFlawLevelChanged(characterDirectFlaw, newLevel))
+                }
+            )
+
             Spacer(Modifier.width(8.dp))
             IconButton(onClick = { onEvent(CharacterSheetEvent.CharacterDirectFlawRemoved(characterDirectFlaw)) })
             {
@@ -98,14 +101,12 @@ fun AdvantageItem(
                 )
             }
             Spacer(Modifier.width(8.dp))
-            InteractiveBackgroundDots(
-                currentValue = characterDirectFlaw.level ?: 1,
-                minValue = characterDirectFlaw.minLevel ?: 1,
-                maxValue = characterDirectFlaw.maxLevel ?: 5,
-                onValueChange = { newLevel ->
-                    onEvent(CharacterSheetEvent.CharacterDirectFlawLevelChanged(characterDirectFlaw, newLevel))
-                }
-            )
+            IconButton(onClick = { expanded = !expanded }) {
+                Icon(
+                    imageVector = if (expanded) Icons.Filled.KeyboardArrowUp else Icons.Filled.KeyboardArrowDown,
+                    contentDescription = if (expanded) "Collapse" else "Expand"
+                )
+            }
         }
 
         if (expanded) {
