@@ -11,7 +11,6 @@
 -keep class com.google.firebase.** { *; }
 -keepattributes Signature, InnerClasses
 
-# Regole per classi di sistema referenziate da dipendenze comuni
 # Risolve: sun.misc.Unsafe, javax.naming.*
 # noinspection ShrinkerUnresolvedReference
 -keep class sun.misc.Unsafe { *; }
