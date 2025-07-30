@@ -34,10 +34,14 @@ jobs:
       - name: Create google-services.json
         run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
 
-      # MODIFICATO: Usa il nome del secret corretto
       - name: Decode Keystore
         run: echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > keystore.jks
-      
+
+      # --- NUOVO STEP DI DEBUG ---
+      # Questo comando ci mostrerà i file presenti nella directory principale.
+      - name: Verify Files
+        run: ls -la
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
@@ -46,7 +50,6 @@ jobs:
         with:
           languages: java-kotlin
 
-      # MODIFICATO: Usa i nomi dei secret corretti
       - name: Build Release for Analysis
         run: ./gradlew assembleRelease
         env:
