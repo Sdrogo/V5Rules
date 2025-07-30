@@ -35,8 +35,6 @@ jobs:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.70.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Se il trigger è manuale, usa l'input dell'utente.
-          # Altrimenti, usa i messaggi di commit (con un default a 'patch').
+          GITHUB_TOKEN: ${{ secrets.PAT }} 
           DEFAULT_BUMP: ${{ github.event.inputs.bump_type || 'patch' }}
           RELEASE_BRANCHES: master
