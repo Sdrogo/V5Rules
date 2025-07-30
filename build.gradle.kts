@@ -10,6 +10,6 @@ plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.compose.compiler) apply false
-    id("com.google.devtools.ksp") version "2.2.0-2.0.2" apply false
+    alias(libs.plugins.google.devtools.ksp) apply false
     alias(libs.plugins.googleGmsGoogleServices) apply false
 }
