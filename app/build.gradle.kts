@@ -6,6 +6,7 @@ import java.io.FileInputStream
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.compose.compiler)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
@@ -14,12 +15,12 @@ plugins {
 
 android {
     namespace = "com.example.v5rules"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.v5rules"
         minSdk = 25
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -29,18 +30,17 @@ android {
         }
 
     }
-
     signingConfigs {
         create("release") {
-            val keystorePropertiesFile = rootProject.file("keystore.properties")
-            if (keystorePropertiesFile.exists()) {
-                val properties = Properties()
-                properties.load(FileInputStream(keystorePropertiesFile))
+            // FIXED: The path now points to the project root directory, matching the workflow
+            val keystoreFile = rootProject.file("keystore.jks")
 
-                storeFile = file(rootProject.file("my-release-key.keystore"))
-                storePassword = properties.getProperty("storePassword")
-                keyAlias = properties.getProperty("keyAlias")
-                keyPassword = properties.getProperty("keyPassword")
+            // This logic is now correct. If the file exists, the properties will be set.
+            if (keystoreFile.exists()) {
+                storeFile = keystoreFile
+                storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+                keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+                keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
             }
         }
     }
@@ -60,19 +60,21 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "17"
-    }
+
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
-    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 
