@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.70.0 # Azione popolare per il versioning semantico
+        uses: anothrNick/github-tag-action@1.73.0 # Azione popolare per il versioning semantico
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Token con permessi di scrittura
           DEFAULT_BUMP: patch # Se non trova 'feat' o 'fix', fa un aggiornamento di patch
