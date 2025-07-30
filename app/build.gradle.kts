@@ -1,7 +1,21 @@
 import org.gradle.kotlin.dsl.android
 import org.gradle.kotlin.dsl.dependencies
-import java.util.Properties
-import java.io.FileInputStream
+
+fun getVersionCode(): Int {
+    return if (project.hasProperty("appVersionCode")) {
+        project.property("appVersionCode").toString().toInt()
+    } else {
+        1
+    }
+}
+
+fun getVersionName(): String {
+    return if (project.hasProperty("appVersionName")) {
+        project.property("appVersionName").toString()
+    } else {
+        "1.0-LOCAL"
+    }
+}
 
 plugins {
     alias(libs.plugins.androidApplication)
@@ -21,21 +35,19 @@ android {
         applicationId = "com.example.v5rules"
         minSdk = 25
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        // Corretto: Usiamo solo le chiamate alle funzioni, senza duplicati.
+        versionCode = getVersionCode()
+        versionName = getVersionName()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
-
     }
+
     signingConfigs {
         create("release") {
-            // FIXED: The path now points to the project root directory, matching the workflow
             val keystoreFile = rootProject.file("keystore.jks")
-
-            // This logic is now correct. If the file exists, the properties will be set.
             if (keystoreFile.exists()) {
                 storeFile = keystoreFile
                 storePassword = System.getenv("SIGNING_STORE_PASSWORD")
@@ -53,6 +65,14 @@ android {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
+        }
+    }
+    applicationVariants.all {
+        if (buildType.name == "release") {
+            outputs.all {
+                val outputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
+                outputImpl.outputFileName = "V5Rules-${versionName}.apk"
+            }
         }
     }
 
