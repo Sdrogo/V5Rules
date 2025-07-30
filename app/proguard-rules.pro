@@ -1,11 +1,12 @@
 # File: app/proguard-rules.pro
 
-# --- Regole per Firebase e Google Play Services ---
+# --- Regole per Firebase e Classi di Dati ---
 
-# Mantiene i nomi delle classi di dati per Firestore, Auth, etc.
--keepnames class com.example.v5rules.data.**
+# FONDAMENTALE: Mantiene intatte le classi di dati (costruttori, campi, metodi e nomi).
+# Questo risolve sia l'errore del costruttore vuoto sia il NullPointerException.
+-keep class com.example.v5rules.data.** { *; }
 
-# Mantiene i campi annotati con @PropertyName nelle classi di dati
+# Mantiene i campi annotati con @PropertyName (buona pratica, anche se coperto dalla regola sopra)
 -keepattributes Signature
 -keepclassmembers class com.example.v5rules.data.** {
     @com.google.firebase.firestore.PropertyName <fields>;
