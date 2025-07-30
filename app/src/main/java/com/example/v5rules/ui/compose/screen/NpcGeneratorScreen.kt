@@ -45,7 +45,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.CharacterSheetEditNav
+import com.example.v5rules.navigation.CharacterSheetEditNav
 import com.example.v5rules.R
 import com.example.v5rules.data.FavoriteNpc
 import com.example.v5rules.data.Npc

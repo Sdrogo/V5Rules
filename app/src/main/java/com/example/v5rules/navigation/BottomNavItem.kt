@@ -1,10 +1,11 @@
-package com.example.v5rules
+package com.example.v5rules.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.v5rules.R
 
 sealed class BottomNavItem(val route: Any, val icon: ImageVector, val title: Int) {
     object Home : BottomNavItem(HomeNav, Icons.Filled.Home, R.string.home)

@@ -18,18 +18,18 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.BackgroundNav
-import com.example.v5rules.CharacterSheetListNav
-import com.example.v5rules.ClansNav
-import com.example.v5rules.DisciplinesNav
-import com.example.v5rules.KindredNav
-import com.example.v5rules.LoreNav
-import com.example.v5rules.LoresheetNav
-import com.example.v5rules.NPCGeneratorNav
-import com.example.v5rules.PgNav
-import com.example.v5rules.PredatorTypesNav
+import com.example.v5rules.navigation.BackgroundNav
+import com.example.v5rules.navigation.CharacterSheetListNav
+import com.example.v5rules.navigation.ClansNav
+import com.example.v5rules.navigation.DisciplinesNav
+import com.example.v5rules.navigation.KindredNav
+import com.example.v5rules.navigation.LoreNav
+import com.example.v5rules.navigation.LoresheetNav
+import com.example.v5rules.navigation.NPCGeneratorNav
+import com.example.v5rules.navigation.PgNav
+import com.example.v5rules.navigation.PredatorTypesNav
 import com.example.v5rules.R
-import com.example.v5rules.RulesNav
+import com.example.v5rules.navigation.RulesNav
 import com.example.v5rules.ui.compose.component.TintedImage
 
 @Composable

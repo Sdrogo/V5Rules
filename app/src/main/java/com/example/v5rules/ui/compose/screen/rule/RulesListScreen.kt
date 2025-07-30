@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
-import com.example.v5rules.RulesDetailsNav
+import com.example.v5rules.navigation.RulesDetailsNav
 import com.example.v5rules.viewModel.RulesUiState
 import com.example.v5rules.viewModel.RulesViewModel
 

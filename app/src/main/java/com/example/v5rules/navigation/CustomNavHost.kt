@@ -1,4 +1,4 @@
-package com.example.v5rules
+package com.example.v5rules.navigation
 
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing

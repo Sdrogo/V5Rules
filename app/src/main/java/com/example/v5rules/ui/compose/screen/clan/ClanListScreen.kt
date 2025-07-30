@@ -24,7 +24,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.ClanDetailsNav
+import com.example.v5rules.navigation.ClanDetailsNav
 import com.example.v5rules.R
 import com.example.v5rules.data.Clan
 import com.example.v5rules.ui.compose.component.ClanImage

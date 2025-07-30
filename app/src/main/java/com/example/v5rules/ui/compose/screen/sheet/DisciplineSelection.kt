@@ -19,9 +19,9 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.DisciplinePowerNav
+import com.example.v5rules.navigation.DisciplinePowerNav
 import com.example.v5rules.R
-import com.example.v5rules.RitualNav
+import com.example.v5rules.navigation.RitualNav
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.data.Ritual

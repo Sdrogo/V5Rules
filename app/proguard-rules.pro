@@ -1,50 +1,53 @@
 # File: app/proguard-rules.pro
 
-# --- Regole per Firebase e Classi di Dati ---
+# --- Regole per le Classi dell'Applicazione ---
 
-# FONDAMENTALE: Mantiene intatte le classi di dati (costruttori, campi, metodi e nomi).
-# Questo risolve sia l'errore del costruttore vuoto sia il NullPointerException.
+# FONDAMENTALE: Mantiene le classi di navigazione, impedendo che la BottomNav scompaia.
+# Assumendo che le tue classi di navigazione siano nel pacchetto 'navigation'. Se è diverso, modificalo.
+-keep class com.example.v5rules.navigation.** { *; }
+
+# Mantiene intatte le classi di dati (costruttori, campi, metodi e nomi) per Firestore.
 -keep class com.example.v5rules.data.** { *; }
 
-# Mantiene i campi annotati con @PropertyName (buona pratica, anche se coperto dalla regola sopra)
+
+# --- Regole per Firebase e Google Play Services ---
+
+# Mantiene i campi annotati con @PropertyName nelle classi di dati.
 -keepattributes Signature
 -keepclassmembers class com.example.v5rules.data.** {
     @com.google.firebase.firestore.PropertyName <fields>;
 }
 
-# Regole generali per le librerie Firebase e Google
+# Regole generali per le librerie Firebase e Google.
 -keep class com.google.firebase.** { *; }
 -keep class com.google.android.gms.** { *; }
--keep class com.google.firebase.perf.network.** { *; }
--keep class com.google.android.recaptcha.** { *; }
--keep class com.google.firebase.appcheck.** { *; }
 
 
-# --- Regole per Librerie Essenziali ---
+# --- Regole per Librerie Essenziali e Jetpack ---
 
-# Mantiene classi di sistema usate da librerie come OkHttp o Coroutines
+# Mantiene le classi di sistema usate da librerie come OkHttp o Coroutines.
 # noinspection ShrinkerUnresolvedReference
 -keep class sun.misc.Unsafe { *; }
 -keep class javax.naming.** { *; }
 -keep class javax.security.** { *; }
 
-# Regole per Kotlinx Coroutines
+# Regole per Kotlinx Coroutines.
 -keepnames class kotlinx.coroutines.internal.MainDispatcherFactory { *; }
 -keepnames class kotlinx.coroutines.flow.internal.ChannelFlow { *; }
 -keepnames class kotlinx.coroutines.flow.internal.CombineKt { *; }
 
-# Regole per Kotlinx Serialization
+# Regole per Kotlinx Serialization.
 -keepattributes *Annotation*
 -keepclassmembers class ** {
     @kotlinx.serialization.Serializable <methods>;
 }
 -keep class **$$serializer { *; }
 
-# Regole per Google GSON
+# Regole per Google GSON.
 -keep class com.google.gson.reflect.TypeToken { *; }
 -keep class * extends com.google.gson.reflect.TypeToken
 
-# Regole per Hilt e ViewModel
+# Regole per Hilt e ViewModel.
 # noinspection ShrinkerUnresolvedReference
 -keepclassmembers class * extends androidx.lifecycle.ViewModel {
     @com.google.dagger.hilt.android.lifecycle.HiltViewModel <init>(...);

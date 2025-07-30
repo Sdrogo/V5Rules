@@ -36,9 +36,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.v5rules.DisciplinePowerNav
+import com.example.v5rules.navigation.DisciplinePowerNav
 import com.example.v5rules.R
-import com.example.v5rules.RitualNav
+import com.example.v5rules.navigation.RitualNav
 import com.example.v5rules.data.Discipline
 import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.data.RitualPower

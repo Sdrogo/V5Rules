@@ -16,9 +16,9 @@ import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.DotsForAttribute
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
-import com.example.v5rules.DisciplinePowerNav
+import com.example.v5rules.navigation.DisciplinePowerNav
 import com.example.v5rules.R
-import com.example.v5rules.RitualNav
+import com.example.v5rules.navigation.RitualNav
 import com.example.v5rules.data.RitualPower
 
 @Composable

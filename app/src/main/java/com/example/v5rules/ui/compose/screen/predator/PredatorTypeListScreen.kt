@@ -23,7 +23,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.PredatorTypeDetailsNav
+import com.example.v5rules.navigation.PredatorTypeDetailsNav
 import com.example.v5rules.R
 import com.example.v5rules.viewModel.PredatorTypeUiState
 import com.example.v5rules.viewModel.PredatorTypeViewModel

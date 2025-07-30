@@ -38,6 +38,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.v5rules.navigation.BottomNavItem
+import com.example.v5rules.navigation.CustomNavHost
+import com.example.v5rules.navigation.HomeNav
+import com.example.v5rules.navigation.LoginNav
+import com.example.v5rules.navigation.UserProfileNav
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.viewModel.BackgroundViewModel
 import com.example.v5rules.viewModel.ClanViewModel
@@ -109,7 +114,8 @@ fun V5RulesApp() {
         BottomNavItem.Rules,
         BottomNavItem.Character
     )
-    val showBottomBar = isLoggedIn && bottomNavItems.any { it.route::class.java.name == currentRoute }
+    val showBottomBar =
+        isLoggedIn && bottomNavItems.any { it.route::class.java.name == currentRoute }
 
 
     CompositionLocalProvider(LocalAuthUser provides currentUser) {
@@ -138,7 +144,7 @@ fun V5RulesApp() {
                         }
                     },
                     actions = {
-                        if(isLoggedIn){
+                        if (isLoggedIn) {
                             IconButton(onClick = { navController.navigate(UserProfileNav) }) {
                                 Icon(
                                     imageVector = Icons.Filled.AccountCircle,
@@ -155,32 +161,36 @@ fun V5RulesApp() {
                 )
             },
             bottomBar = {
-                if (showBottomBar) {
-                    NavigationBar(
-                        containerColor = MaterialTheme.colorScheme.secondary) {
-                        bottomNavItems.forEach { item ->
-                            NavigationBarItem(
-                                selected = currentRoute == item.route::class.java.name,
-                                onClick = {
-                                    navController.navigate(item.route) {
-                                        popUpTo(navController.graph.startDestinationId) {
-                                            saveState = true
-                                        }
-                                        launchSingleTop = true
-                                        restoreState = true
+                NavigationBar(
+                    containerColor = MaterialTheme.colorScheme.secondary
+                ) {
+                    bottomNavItems.forEach { item ->
+                        NavigationBarItem(
+                            selected = currentRoute == item.route::class.java.name,
+                            onClick = {
+                                navController.navigate(item.route) {
+                                    popUpTo(navController.graph.startDestinationId) {
+                                        saveState = true
                                     }
-                                },
-                                icon = { Icon(item.icon, contentDescription = stringResource( item.title)) },
-                                label = { Text(stringResource( item.title)) },
-                                colors = NavigationBarItemDefaults.colors(
-                                    selectedIconColor = MaterialTheme.colorScheme.primary, // Usa un altro colore per l'icona selezionata
-                                    selectedTextColor = MaterialTheme.colorScheme.primary,
-                                    indicatorColor = MaterialTheme.colorScheme.onSecondary, // Cambia il colore della "pillola"
-                                    unselectedIconColor = MaterialTheme.colorScheme.primary, // Colore più tenue per l'icona non selezionata
-                                    unselectedTextColor = MaterialTheme.colorScheme.primary
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
+                            },
+                            icon = {
+                                Icon(
+                                    item.icon,
+                                    contentDescription = stringResource(item.title)
                                 )
+                            },
+                            label = { Text(stringResource(item.title)) },
+                            colors = NavigationBarItemDefaults.colors(
+                                selectedIconColor = MaterialTheme.colorScheme.primary, // Usa un altro colore per l'icona selezionata
+                                selectedTextColor = MaterialTheme.colorScheme.primary,
+                                indicatorColor = MaterialTheme.colorScheme.onSecondary, // Cambia il colore della "pillola"
+                                unselectedIconColor = MaterialTheme.colorScheme.primary, // Colore più tenue per l'icona non selezionata
+                                unselectedTextColor = MaterialTheme.colorScheme.primary
                             )
-                        }
+                        )
                     }
                 }
             }
