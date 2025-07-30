@@ -30,18 +30,17 @@ android {
         }
 
     }
-
     signingConfigs {
         create("release") {
-            val keystorePropertiesFile = rootProject.file("keystore.properties")
-            if (keystorePropertiesFile.exists()) {
-                val properties = Properties()
-                properties.load(FileInputStream(keystorePropertiesFile))
+            // FIXED: The path now points to the project root directory, matching the workflow
+            val keystoreFile = rootProject.file("keystore.jks")
 
-                storeFile = file(rootProject.file("my-release-key.keystore"))
-                storePassword = properties.getProperty("storePassword")
-                keyAlias = properties.getProperty("keyAlias")
-                keyPassword = properties.getProperty("keyPassword")
+            // This logic is now correct. If the file exists, the properties will be set.
+            if (keystoreFile.exists()) {
+                storeFile = keystoreFile
+                storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+                keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+                keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
             }
         }
     }
