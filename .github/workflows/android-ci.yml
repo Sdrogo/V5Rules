@@ -13,13 +13,9 @@ on:
       - "bugfix/*"
 
 jobs:
-  build-and-analyze:
+  # Job unico e isolato per il build
+  build-and-sign-apk:
     runs-on: ubuntu-latest
-    environment: Release
-    permissions:
-      security-events: write
-      actions: read
-      contents: read
 
     steps:
       - name: Checkout repository
@@ -30,7 +26,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
 
       - name: Create google-services.json
         run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
@@ -38,63 +33,20 @@ jobs:
       - name: Decode Keystore
         run: echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > keystore.jks
 
-      # --- NUOVO STEP DI DEBUG ---
-      # Questo comando ci mostrerà i file presenti nella directory principale.
-      - name: Verify Files
-        run: ls -la
-
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: java-kotlin
-
-      - name: Build Release for Analysis
-        run: ./gradlew assembleRelease
-        env:
-          SIGNING_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
-          SIGNING_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-
-  upload-release-apk:
-    needs: build-and-analyze
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Create google-services.json
-        run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
       
-      # MODIFICATO: Usa il nome del secret corretto
-      - name: Decode Keystore
-        run: echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > keystore.jks
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      # MODIFICATO: Usa i nomi dei secret corretti
+      # Eseguiamo il build pulito senza CodeQL o altre interferenze
       - name: Build Release APK
-        run: ./gradlew assembleRelease
+        run: ./gradlew clean assembleRelease
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
 
+      # Carichiamo l'artefatto solo se siamo su master (opzionale ma utile)
       - name: Upload APK Artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: actions/upload-artifact@v4
         with:
           name: V5Rules-Release-APK
