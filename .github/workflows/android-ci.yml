@@ -14,21 +14,18 @@ on:
       - "bugfix/*"
 
 jobs:
-  # Job 1: Esegue il build, i test e l'analisi di sicurezza su ogni push e PR
+  # Job 1: Build, analyze, and test on every push & PR
   build-and-analyze:
     runs-on: ubuntu-latest
-    # Permessi necessari per CodeQL per caricare i risultati
     permissions:
       security-events: write
       actions: read
       contents: read
 
     steps:
-      # Step 1: Checkout del codice
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Imposta Java (JDK 17) con cache di Gradle integrata
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -36,59 +33,43 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      # Step 3: Crea il file google-services.json dal secret
       - name: Create google-services.json
         run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
-        env:
-          GOOGLE_SERVICES_JSON_BASE64: ${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}
 
-      # Step 4: Inizializza CodeQL prima del build
+      # Decode keystore for the build. This makes signing available for all build types.
+      - name: Decode Keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > keystore.jks
+      
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # Initialize CodeQL before building
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: java-kotlin
 
-      # Step 5: Rendi eseguibile il wrapper di Gradle
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-        
-      # Step 6: Pulisce tutti i file di build precedenti per forzare una build pulita
-      - name: Clean project
-        run: ./gradlew clean
-        
-      # Step 7: Recupera le credenziali
-      - name: Decode Keystore and Create Properties
-        env:
-          RELEASE_KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
-          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
-          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
-          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
-        run: |
-          echo "$RELEASE_KEYSTORE_BASE64" | base64 --decode > my-release-key.keystore
-          echo "storePassword=$RELEASE_STORE_PASSWORD" > keystore.properties
-          echo "keyAlias=$RELEASE_KEY_ALIAS" >> keystore.properties
-          echo "keyPassword=$RELEASE_KEY_PASSWORD" >> keystore.properties
-
-      - name: Build with Gradle
-        run: ./gradlew assembleRelease
-        
-      # Step 7: Esegui il build (necessario per l'analisi di CodeQL)
+      # Build the release version for analysis. Pass signing credentials as env variables.
       - name: Build Release for Analysis
         run: ./gradlew assembleRelease
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
 
-      # Step 8: Esegui l'analisi di CodeQL
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
-  # Job 2: Crea l'APK di release firmato, solo su push verso master
-  create-release-apk:
-    # Esegui questo job solo se il primo ha avuto successo
+  # Job 2: Upload Release APK, only on push to master
+  upload-release-apk:
     needs: build-and-analyze
-    # Esegui solo su push (merge) verso il branch master
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
 
     steps:
+      # No need to build again, we can download the artifact from the previous job.
+      # This is more efficient but requires setting up artifact upload/download between jobs.
+      # For simplicity, we will just rebuild here. If your build gets very long, we can optimize this.
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -100,22 +81,16 @@ jobs:
 
       - name: Create google-services.json
         run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
-        env:
-          GOOGLE_SERVICES_JSON_BASE64: ${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}
-
-      # Step per la firma dell'APK (FONDAMENTALE)
-      - name: Decode Keystore
-        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > app/keystore.jks
-        env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
       
+      - name: Decode Keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > keystore.jks
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Build Release APK
         run: ./gradlew assembleRelease
         env:
-          # Passa le credenziali per la firma come variabili d'ambiente
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
