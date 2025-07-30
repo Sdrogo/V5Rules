@@ -42,6 +42,7 @@ import com.example.v5rules.ui.compose.screen.rule.SubRuleDetail
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetListScreen
 import com.example.v5rules.ui.compose.screen.sheet.CharacterSheetScreen
 import com.example.v5rules.ui.compose.screen.sheet.visualization.CharacterSheetScreenVisualization
+import com.example.v5rules.ui.compose.screen.user.FriendRequestsScreen
 import com.example.v5rules.ui.compose.screen.user.UserProfileScreen
 import com.example.v5rules.viewModel.BackgroundViewModel
 import com.example.v5rules.viewModel.CharacterSheetViewModel
@@ -101,6 +102,9 @@ object CharacterSheetCreationNav
 
 @Serializable
 object UserProfileNav
+
+@Serializable
+object FriendRequestsNav
 
 @Serializable
 data class DisciplineDetailsNav(val disciplineId: String)
@@ -513,6 +517,18 @@ fun CustomNavHost(
                     FirebaseAuth.getInstance().signOut()
                     navController.navigate(LoginNav)
                 },
+                onTitleChanged = onTitleChanged,
+                onNavigateToFriendRequests = {
+                    navController.navigate(FriendRequestsNav)
+                }
+            )
+        }
+
+        composable<FriendRequestsNav>(
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }
+        ) {
+            FriendRequestsScreen(
                 onTitleChanged = onTitleChanged
             )
         }

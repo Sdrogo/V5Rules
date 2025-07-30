@@ -34,7 +34,9 @@ import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun UserProfileScreen(
-    onLogout: () -> Unit, onTitleChanged: (String) -> Unit
+    onLogout: () -> Unit,
+    onTitleChanged: (String) -> Unit,
+    onNavigateToFriendRequests: () -> Unit
 ) {
     // ViewModels
     val loginViewModel: LoginViewModel = hiltViewModel()
@@ -94,7 +96,16 @@ fun UserProfileScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Spacer(modifier = Modifier.height(32.dp))
-
+                Button(
+                    onClick = { onNavigateToFriendRequests() },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.tertiary,
+                        contentColor = MaterialTheme.colorScheme.primary
+                    )
+                ) {
+                    Text("Request Page")
+                }
+                Spacer(modifier = Modifier.height(16.dp))
                 Button(
                     onClick = { profileViewModel.showAddFriendDialog() },
                     colors = ButtonDefaults.buttonColors(
@@ -113,8 +124,7 @@ fun UserProfileScreen(
                         contentColor = MaterialTheme.colorScheme.primary
                     )
                 ) {
-                    Text(text = stringResource(id = R.string.logout_button_label)).toString()
-
+                    Text(text = stringResource(id = R.string.logout_button_label))
                 }
             }
         }
