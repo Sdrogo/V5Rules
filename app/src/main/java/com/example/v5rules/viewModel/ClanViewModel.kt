@@ -22,7 +22,7 @@ class ClanViewModel @Inject constructor(
 
     var allClans: List<Clan> = listOf()
 
-    val currentLocale = Locale.getDefault()
+    val currentLocale: Locale = Locale.getDefault()
 
     init {
         fetchClans(currentLocale)

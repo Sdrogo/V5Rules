@@ -12,7 +12,6 @@ import java.util.Locale
 class NpcReader(private val context: Context) {
     fun readNpc(language: Locale): List<NationalityNpc> {
         val resourceId = when (language) {
-            Locale.ENGLISH -> R.raw.name_list
             Locale.ITALIAN -> R.raw.name_list
             else -> {
                 R.raw.name_list

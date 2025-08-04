@@ -46,7 +46,7 @@ class BackgroundViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
 
-    val currentLocale = Locale.getDefault()
+    val currentLocale: Locale = Locale.getDefault()
 
     init {
         fetchLore(currentLocale)

@@ -21,8 +21,7 @@ class PgViewModel @Inject constructor(
     val pgUiState: StateFlow<PgUiState> = _pgUiState
     var allPg: List<Chapter> = emptyList()
 
-
-    val currentLocale = Locale.getDefault()
+    val currentLocale: Locale = Locale.getDefault()
 
     init {
         fetchLore(currentLocale)

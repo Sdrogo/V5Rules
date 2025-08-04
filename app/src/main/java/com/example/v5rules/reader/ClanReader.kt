@@ -11,7 +11,6 @@ class ClanReader(private val context: Context) {
 
     fun readClans(language: Locale): List<Clan> {
         val resourceId = when (language) {
-            Locale.ENGLISH -> R.raw.clan_it
             Locale.ITALIAN -> R.raw.clan_it
             else -> {
                 R.raw.clan_it

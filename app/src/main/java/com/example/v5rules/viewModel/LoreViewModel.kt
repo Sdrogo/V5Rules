@@ -21,8 +21,7 @@ class LoreViewModel @Inject constructor(
     val loreUiState: StateFlow<LoreUiState> = _loreUiState
     var allLore: List<Chapter> = emptyList()
 
-
-    val currentLocale = Locale.getDefault()
+    val currentLocale: Locale = Locale.getDefault()
 
     init {
         fetchLore(currentLocale)
@@ -31,9 +30,9 @@ class LoreViewModel @Inject constructor(
     private fun fetchLore(currentLocale: Locale) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val Lore = mainRepository.loadLore(currentLocale)
-                allLore = Lore
-                _loreUiState.value = LoreUiState.Success(Lore)
+                val lore = mainRepository.loadLore(currentLocale)
+                allLore = lore
+                _loreUiState.value = LoreUiState.Success(lore)
             } catch (e: Exception) {
                 _loreUiState.value =
                     LoreUiState.Error(e.message ?: "Errore durante il caricamento della lore")

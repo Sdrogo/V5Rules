@@ -17,12 +17,12 @@ class DisciplineViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ) : ViewModel() {
 
-    private val _discipline_uiState = MutableStateFlow<DisciplineUiState>(DisciplineUiState.Loading)
-    val disciplineUiState: StateFlow<DisciplineUiState> = _discipline_uiState
+    private val _disciplineUiState = MutableStateFlow<DisciplineUiState>(DisciplineUiState.Loading)
+    val disciplineUiState: StateFlow<DisciplineUiState> = _disciplineUiState
 
     var allDisciplines: List<Discipline> = listOf()
 
-    val currentLocale = Locale.getDefault()
+    val currentLocale: Locale = Locale.getDefault()
 
     init {
         fetchDisciplines(currentLocale)
@@ -34,9 +34,9 @@ class DisciplineViewModel @Inject constructor(
                 val disciplines =
                     mainRepository.loadDisciplines(currentLocale).sortedBy { it.title }
                 allDisciplines = disciplines
-                _discipline_uiState.value = DisciplineUiState.Success(disciplines)
+                _disciplineUiState.value = DisciplineUiState.Success(disciplines)
             } catch (e: Exception) {
-                _discipline_uiState.value = DisciplineUiState.Error(
+                _disciplineUiState.value = DisciplineUiState.Error(
                     e.message ?: "Errore durante il caricamento delle discipline"
                 )
             }

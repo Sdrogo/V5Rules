@@ -11,7 +11,6 @@ class DisciplineReader(private val context: Context) {
 
     fun readDisciplines(language: Locale): List<Discipline> {
         val resourceId = when (language) {
-            Locale.ENGLISH -> R.raw.discipline_it
             Locale.ITALIAN -> R.raw.discipline_it
             else -> {R.raw.discipline_it}
         }

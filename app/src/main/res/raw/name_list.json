@@ -1,6 +1,6 @@
 [
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Mario",
       "Luigi",
       "Giovanni",
@@ -64,7 +64,7 @@
       "Valerio",
       "Flavio"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Giulia",
       "Maria",
       "Anna",
@@ -229,7 +229,7 @@
     "nationality": "italiano"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Lucas",
       "Hugo",
       "Enzo",
@@ -283,7 +283,7 @@
       "Pierre",
       "Remi"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Emma",
       "Louise",
       "Jade",
@@ -391,7 +391,7 @@
     "nationality": "francese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Maximilian",
       "Alexander",
       "Paul",
@@ -444,7 +444,7 @@
       "Sebastian",
       "Nikolaus"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Mia",
       "Emma",
       "Hannah",
@@ -547,7 +547,7 @@
     "nationality": "tedesco"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Luan",
       "Ermal",
       "Arben",
@@ -572,7 +572,7 @@
       "Endrit",
       "Alban"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Anisa",
       "Besa",
       "Denisa",
@@ -620,7 +620,7 @@
     "nationality": "albanese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Mohammed",
       "Ahmed",
       "Youssef",
@@ -645,7 +645,7 @@
       "Tarik",
       "Fouad"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Fatima",
       "Zahra",
       "Khadija",
@@ -697,7 +697,7 @@
     "nationality": "marocchino"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Juan",
       "Miguel",
       "Carlos",
@@ -722,7 +722,7 @@
       "Ricardo",
       "Pablo"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Maria",
       "Ana",
       "Sofia",
@@ -773,7 +773,7 @@
     "nationality": "filippino"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Alejandro",
       "Daniel",
       "Pablo",
@@ -823,7 +823,7 @@
       "Mateo",
       "Sebastián"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "María",
       "Laura",
       "Paula",
@@ -925,7 +925,7 @@
     "nationality": "spagnolo"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "João",
       "Pedro",
       "Tiago",
@@ -976,7 +976,7 @@
       "Duarte",
       "Henrique"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Maria",
       "Leonor",
       "Matilde",
@@ -1080,7 +1080,7 @@
     "nationality": "portoghese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Dimitrios",
       "Georgios",
       "Nikolaos",
@@ -1121,7 +1121,7 @@
       "Vassilis",
       "Iakovos"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Maria",
       "Eleni",
       "Anna",
@@ -1184,7 +1184,7 @@
     "nationality": "greco"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Mehmet",
       "Mustafa",
       "Ahmet",
@@ -1206,7 +1206,7 @@
       "Ramazan",
       "Uğur"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Ayşe",
       "Fatma",
       "Emine",
@@ -1290,7 +1290,7 @@
     "nationality": "turco"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Mohamed",
       "Ahmed",
       "Ali",
@@ -1335,7 +1335,7 @@
       "Medhat",
       "Ramy"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Nour",
       "Mariam",
       "Sara",
@@ -1431,7 +1431,7 @@
     "nationality": "egiziano"
   },
   {
-  "nomi_maschili": [
+  "nomiMaschili": [
     "Sipho",
     "Thabo",
     "Bongani",
@@ -1457,7 +1457,7 @@
     "Tebogo",
     "Nkosinathi"
   ],
-  "nomi_femminili": [
+  "nomiFemminili": [
     "Nomfundo",
     "Thandeka",
     "Zanele",
@@ -1513,7 +1513,7 @@
   "nationality": "sudafricano"
 },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Abdul",
       "Abubakar",
       "Adebayo",
@@ -1540,7 +1540,7 @@
       "Ismail",
       "Hassan"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Abimbola",
       "Abisola",
       "Adeola",
@@ -1597,7 +1597,7 @@
     "nationality": "nigeriano"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Jakub",
       "Piotr",
       "Kacper",
@@ -1619,7 +1619,7 @@
       "Oskar",
       "Ignacy"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Anna",
       "Maria",
       "Magdalena",
@@ -1666,7 +1666,7 @@
     "nationality": "polacco"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "James",
       "John",
       "Peter",
@@ -1714,7 +1714,7 @@
       "Ethan",
       "Allan"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Mary",
       "Grace",
       "Wanjiru",
@@ -1769,7 +1769,7 @@
     "nationality": "keniota"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Alem",
       "Biruk",
       "Daniel",
@@ -1818,7 +1818,7 @@
       "Chane",
       "Demissie"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Abeba",
       "Birtukan",
       "Desta",
@@ -1909,7 +1909,7 @@
     "nationality": "etiope"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Abdullah",
       "Ahmad",
       "Ali",
@@ -1950,7 +1950,7 @@
       "Najeeb",
       "Nawaf"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Abeer",
       "Afaf",
       "Alanoud",
@@ -2043,7 +2043,7 @@
     "nationality": "saudita"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Alexander",
       "Andrei",
       "Anton",
@@ -2085,7 +2085,7 @@
       "Zakhar",
       "Zhenya"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Alexandra",
       "Anastasia",
       "Anna",
@@ -2169,7 +2169,7 @@
     "nationality": "russo"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Bo",
       "Chen",
       "Da",
@@ -2214,7 +2214,7 @@
       "Hui",
       "Jing"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Ai",
       "Bi",
       "Cai",
@@ -2305,7 +2305,7 @@
     "nationality": "cinese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Haruto",
       "Yuto",
       "Sota",
@@ -2328,7 +2328,7 @@
       "Tsubasa",
       "Daiki"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Yui",
       "Rio",
       "Hina",
@@ -2400,7 +2400,7 @@
     "nationality": "giapponese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Minjun",
       "Seojun",
       "Taehyun",
@@ -2444,7 +2444,7 @@
       "Daehyun",
       "Hoseok"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Eunji",
       "Haeun",
       "Jiwoo",
@@ -2506,7 +2506,7 @@
     "nationality": "coreano"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Aarav",
       "Aryan",
       "Arjun",
@@ -2532,7 +2532,7 @@
       "Dhruv",
       "Nikhil"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Ananya",
       "Aaradhya",
       "Diya",
@@ -2587,7 +2587,7 @@
     "nationality": "indiano"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "João",
       "Pedro",
       "Lucas",
@@ -2626,7 +2626,7 @@
       "Marcos",
       "Augusto"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Maria",
       "Ana",
       "Julia",
@@ -2726,7 +2726,7 @@
     "nationality": "brasiliano"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Santiago",
       "Mateo",
       "Thiago",
@@ -2773,7 +2773,7 @@
       "Uriel",
       "Augusto"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Sofía",
       "Valentina",
       "Martina",
@@ -2871,7 +2871,7 @@
     "nationality": "argentino"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "José",
       "Juan",
       "Carlos",
@@ -2920,7 +2920,7 @@
       "Óscar",
       "Armando"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "María",
       "Guadalupe",
       "Juana",
@@ -3021,7 +3021,7 @@
     "nationality": "messicano"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Liam",
       "Noah",
       "William",
@@ -3071,7 +3071,7 @@
       "Hudson",
       "Adrian"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Olivia",
       "Emma",
       "Ava",
@@ -3174,7 +3174,7 @@
     "nationality": "canadese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "James",
       "John",
       "Robert",
@@ -3224,7 +3224,7 @@
       "Dennis",
       "Jerry"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Mary",
       "Patricia",
       "Jennifer",
@@ -3326,7 +3326,7 @@
     "nationality": "americano"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "William",
       "George",
       "Thomas",
@@ -3376,7 +3376,7 @@
       "Barry",
       "Kevin"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Elizabeth",
       "Mary",
       "Sarah",
@@ -3478,7 +3478,7 @@
     "nationality": "britannico"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "James",
       "Sean",
       "Daniel",
@@ -3529,7 +3529,7 @@
       "Kieran",
       "Tomas"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Emma",
       "Sarah",
       "Aoife",
@@ -3628,7 +3628,7 @@
     "nationality": "irlandese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "James",
       "Jack",
       "Lewis",
@@ -3678,7 +3678,7 @@
       "David",
       "Michael"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Olivia",
       "Isla",
       "Emily",
@@ -3780,7 +3780,7 @@
     "nationality": "scozzese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Dylan",
       "Owen",
       "Rhys",
@@ -3827,7 +3827,7 @@
       "Harri",
       "Cledwyn"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Megan",
       "Elin",
       "Carys",
@@ -3907,7 +3907,7 @@
     "nationality": "gallese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Daan",
       "Sem",
       "Luuk",
@@ -3958,7 +3958,7 @@
       "Daniel",
       "Luca"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Emma",
       "Sophie",
       "Julia",
@@ -4065,7 +4065,7 @@
     "nationality": "olandese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Erik",
       "Anders",
       "Gustav",
@@ -4114,7 +4114,7 @@
       "Anton",
       "Arne"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Anna",
       "Eva",
       "Maria",
@@ -4211,7 +4211,7 @@
     "nationality": "svedese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Lars",
       "Andreas",
       "Per",
@@ -4261,7 +4261,7 @@
       "Daniel",
       "Ola"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Ingrid",
       "Marianne",
       "Anne",
@@ -4362,7 +4362,7 @@
     "nationality": "norvegese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Lars",
       "Jens",
       "Peter",
@@ -4402,7 +4402,7 @@
       "Brian",
       "Frederik"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Hanne",
       "Mette",
       "Anne",
@@ -4471,7 +4471,7 @@
     "nationality": "danese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Matti",
       "Mikko",
       "Juhani",
@@ -4521,7 +4521,7 @@
       "Vesa",
       "Toivo"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Anna",
       "Liisa",
       "Marja",
@@ -4620,7 +4620,7 @@
     "nationality": "finlandese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Jón",
       "Guðmundur",
       "Sigurður",
@@ -4664,7 +4664,7 @@
       "Hjalti",
       "Hlynur"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Guðrún",
       "Anna",
       "Sigríður",
@@ -4757,7 +4757,7 @@
     "nationality": "islandese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "William",
       "Jack",
       "Oliver",
@@ -4805,7 +4805,7 @@
       "Leo",
       "Nicholas"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Charlotte",
       "Olivia",
       "Emily",
@@ -4909,7 +4909,7 @@
     "nationality": "australiano"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Jack",
       "Oliver",
       "William",
@@ -4959,7 +4959,7 @@
       "Sam",
       "Nicholas"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Charlotte",
       "Olivia",
       "Emily",
@@ -5061,7 +5061,7 @@
     "nationality": "neozelandese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Eli",
       "Yosef",
       "Ariel",
@@ -5099,7 +5099,7 @@
       "Dov",
       "Elazar"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Sarah",
       "Leah",
       "Rachel",
@@ -5167,7 +5167,7 @@
     "nationality": "ebraico"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Marko",
       "Nikola",
       "Stefan",
@@ -5213,7 +5213,7 @@
       "Mihajlo",
       "Ratko"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Jovana",
       "Ana",
       "Marija",
@@ -5295,7 +5295,7 @@
     "nationality": "serbo"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Emir",
       "Adnan",
       "Mirza",
@@ -5339,7 +5339,7 @@
       "Goran",
       "Veselin"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Amra",
       "Lejla",
       "Sanela",
@@ -5396,7 +5396,7 @@
     "nationality": "bosniaco"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Luka",
       "Marko",
       "Matej",
@@ -5444,7 +5444,7 @@
       "Tomislav",
       "Aljaž"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Maja",
       "Ana",
       "Sara",
@@ -5530,7 +5530,7 @@
     "nationality": "sloveno"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Aleksandar",
       "Darko",
       "Goran",
@@ -5571,7 +5571,7 @@
       "Borche",
       "Vanco"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Lidija",
       "Jelena",
       "Vesna",
@@ -5641,7 +5641,7 @@
     "nationality": "macedone"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Nikola",
       "Marko",
       "Ivan",
@@ -5690,7 +5690,7 @@
       "Srdjan",
       "Radenko"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Jelena",
       "Ana",
       "Marija",
@@ -5760,7 +5760,7 @@
     "nationality": "montenegrino"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Ivan",
       "Georgi",
       "Stoyan",
@@ -5811,7 +5811,7 @@
       "Zhivko",
       "Marin"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Maria",
       "Elena",
       "Yana",
@@ -5887,7 +5887,7 @@
     "nationality": "bulgaro"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Lirim",
       "Ardit",
       "Dardan",
@@ -5941,7 +5941,7 @@
       "Bekim",
       "Egzon"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Aferdita",
       "Albana",
       "Arta",
@@ -6020,7 +6020,7 @@
     "nationality": "kosovaro"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Mohamed",
       "Ali",
       "Ahmed",
@@ -6045,7 +6045,7 @@
       "Salim",
       "Mourad"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Fatma",
       "Nadia",
       "Amina",
@@ -6098,7 +6098,7 @@
     "nationality": "tunisino"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Mohamed",
       "Ahmed",
       "Ali",
@@ -6123,7 +6123,7 @@
       "Mourad",
       "Miloud"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Fatima",
       "Nadia",
       "Amina",
@@ -6176,7 +6176,7 @@
     "nationality": "algerino"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Mamadou",
       "Abdoulaye",
       "Ibrahima",
@@ -6201,7 +6201,7 @@
       "Daouda",
       "Abdou"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Aminata",
       "Fatou",
       "Khady",
@@ -6254,7 +6254,7 @@
     "nationality": "senegalese"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Ivan",
       "Marko",
       "Ante",
@@ -6278,7 +6278,7 @@
       "Luka",
       "Franjo"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Ana",
       "Marija",
       "Ivana",
@@ -6330,7 +6330,7 @@
     "nationality": "croato"
   },
   {
-    "nomi_maschili": [
+    "nomiMaschili": [
       "Ion",
       "Mihai",
       "Andrei",
@@ -6377,7 +6377,7 @@
       "Ionut",
       "Costel"
     ],
-    "nomi_femminili": [
+    "nomiFemminili": [
       "Maria",
       "Elena",
       "Ana",
