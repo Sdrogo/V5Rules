@@ -18,22 +18,20 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.v5rules.R
 import com.example.v5rules.navigation.BackgroundNav
-import com.example.v5rules.navigation.CharacterSheetListNav
 import com.example.v5rules.navigation.ClansNav
 import com.example.v5rules.navigation.DisciplinesNav
 import com.example.v5rules.navigation.KindredNav
 import com.example.v5rules.navigation.LoreNav
 import com.example.v5rules.navigation.LoresheetNav
-import com.example.v5rules.navigation.NPCGeneratorNav
 import com.example.v5rules.navigation.PgNav
 import com.example.v5rules.navigation.PredatorTypesNav
-import com.example.v5rules.R
 import com.example.v5rules.navigation.RulesNav
 import com.example.v5rules.ui.compose.component.TintedImage
 
 @Composable
-fun HomeScreen(navController: NavHostController, onTitleChanged: (String) -> Unit) {
+fun HomeRulesScreen(navController: NavHostController, onTitleChanged: (String) -> Unit) {
     val title = stringResource(id = R.string.app_name)
 
     val orientation = LocalConfiguration.current.orientation
@@ -183,35 +181,6 @@ fun HomeScreen(navController: NavHostController, onTitleChanged: (String) -> Uni
                 )
             ) {
                 Text(text = stringResource(id = R.string.predator_type_screen_title))
-            }
-        }
-
-        item {
-            Button(
-                onClick = { navController.navigate(NPCGeneratorNav) },
-                modifier = Modifier
-                    .fillMaxWidth(widthByOrientation)
-                    .padding(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary,
-                    contentColor = MaterialTheme.colorScheme.primary
-                )
-            ) {
-                Text(text = stringResource(id = R.string.npc_generator_title))
-            }
-        }
-        item {
-            Button(
-                onClick = { navController.navigate(CharacterSheetListNav) },
-                modifier = Modifier
-                    .fillMaxWidth(widthByOrientation)
-                    .padding(8.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.tertiary,
-                    contentColor = MaterialTheme.colorScheme.primary
-                )
-            ) {
-                Text(text = stringResource(id = R.string.character_screen_title))
             }
         }
     }

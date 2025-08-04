@@ -64,9 +64,9 @@
     <string name="predator_type_screen_detail">Dettagli:</string>
 
     <string name="rules_screen_button_label">Regole</string>
-    <string name="expand">Expand…</string>
+    <string name="expand">Espandi…</string>
     <string name="home">Home</string>
-    <string name="rules">Rules</string>
+    <string name="rules">Regole</string>
     <string name="predator">Archetipo Predatore</string>
     <string name="clan">Clan</string>
     <string name="discipline">Discipline</string>
@@ -138,7 +138,7 @@
     <string name="add_background">Aggiungi Background</string>
     <string name="add_merit">Aggiungi Pregio</string>
     <string name="flaw">Difetto</string>
-    <string name="flaws">Difetto</string>
+    <string name="flaws">Difetti</string>
     <string name="background">Background</string>
     <string name="merit">Pregio</string>
     <string name="remove">Rimuovi</string>
@@ -185,6 +185,7 @@
     <string name="user">User</string>
     <string name="characters">Characters</string>
     <string name="user_profile_title">User Profile</string>
+    <string name="npc_generator">NPC Gen</string>
 
     <string-array name="abilities">
         <item>Atletica</item>

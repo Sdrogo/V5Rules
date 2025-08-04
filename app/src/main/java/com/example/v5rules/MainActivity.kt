@@ -40,7 +40,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.v5rules.navigation.BottomNavItem
 import com.example.v5rules.navigation.CustomNavHost
-import com.example.v5rules.navigation.HomeNav
+import com.example.v5rules.navigation.HomeRulesNav
 import com.example.v5rules.navigation.LoginNav
 import com.example.v5rules.navigation.UserProfileNav
 import com.example.v5rules.ui.theme.V5RulesTheme
@@ -94,7 +94,7 @@ fun V5RulesApp() {
     var currentTitle by remember { mutableStateOf("") }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    val canNavigateBack = currentRoute != HomeNav.javaClass.name &&
+    val canNavigateBack = currentRoute != HomeRulesNav.javaClass.name &&
             currentRoute != LoginNav.javaClass.name
 
     DisposableEffect(Unit) {
@@ -108,10 +108,11 @@ fun V5RulesApp() {
     }
 
     val isLoggedIn = currentUser != null
-    val startDestination = if (currentUser != null) HomeNav else LoginNav
+    val startDestination = if (currentUser != null) HomeRulesNav else LoginNav
     val bottomNavItems = listOf(
-        BottomNavItem.Home,
         BottomNavItem.Rules,
+        BottomNavItem.Disciplines,
+        BottomNavItem.NPCGenerator,
         BottomNavItem.Character
     )
     val showBottomBar =
