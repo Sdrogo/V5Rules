@@ -5,6 +5,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Character(
     var id: String = "",
+    val ownerId: String = "", // Added ownerId
+    val sharedWith: List<String> = emptyList(), // Added sharedWith
     val name: String = "",
     val clan: Clan? = null,
     val generation: Int = 12,

@@ -117,7 +117,7 @@ class NPCGeneratorViewModel @Inject constructor(
         val namesMap = allNamesByNationality.find { it.nationality == currentState.selectedNationality } ?: return
         val random = kotlin.random.Random
 
-        val nameList = if (currentState.selectedGender == Gender.MALE) namesMap.nomi_maschili else namesMap.nomi_femminili
+        val nameList = if (currentState.selectedGender == Gender.MALE) namesMap.nomiMaschili else namesMap.nomiFemminili
         val newName = nameList.randomOrNull(random).orEmpty()
         val newSecondName = if (currentState.includeSecondName) nameList.randomOrNull(random) else null
         val newFamilyName = namesMap.cognomi.randomOrNull(random).orEmpty()
@@ -133,7 +133,7 @@ class NPCGeneratorViewModel @Inject constructor(
     fun regenerateName() {
         val currentState = _generationState.value
         val namesMap = allNamesByNationality.find { it.nationality == currentState.selectedNationality } ?: return
-        val names = if (currentState.selectedGender == Gender.MALE) namesMap.nomi_maschili else namesMap.nomi_femminili
+        val names = if (currentState.selectedGender == Gender.MALE) namesMap.nomiMaschili else namesMap.nomiFemminili
         _generationState.update { state ->
             state.copy(npc = state.npc?.copy(nome = names.randomOrNull().orEmpty()))
         }
@@ -143,7 +143,7 @@ class NPCGeneratorViewModel @Inject constructor(
         if (!_generationState.value.includeSecondName) return
         val currentState = _generationState.value
         val namesMap = allNamesByNationality.find { it.nationality == currentState.selectedNationality } ?: return
-        val names = if (currentState.selectedGender == Gender.MALE) namesMap.nomi_maschili else namesMap.nomi_femminili
+        val names = if (currentState.selectedGender == Gender.MALE) namesMap.nomiMaschili else namesMap.nomiFemminili
         _generationState.update { state ->
             state.copy(npc = state.npc?.copy(secondName = names.randomOrNull()))
         }

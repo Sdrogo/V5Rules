@@ -27,6 +27,8 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlin.plugin.serialization")
     alias(libs.plugins.googleGmsGoogleServices)
+    alias(libs.plugins.google.firebase.crashlytics)
+    alias(libs.plugins.google.firebase.firebase.perf)
 }
 
 android {
@@ -114,6 +116,7 @@ kotlin {
 
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
+    implementation(platform(libs.firebase.bom)) // Import the Firebase BoM
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.hilt.navigation.compose)
@@ -124,6 +127,8 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.coil.compose)
     implementation(libs.hilt.android)
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.perf)
     ksp(libs.hilt.android.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -142,6 +147,5 @@ dependencies {
     implementation(libs.com.google.code.gson)
     implementation(libs.serialization)
     implementation (libs.kotlinx.coroutines.core)
-    implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.constraintlayout.compose)
 }

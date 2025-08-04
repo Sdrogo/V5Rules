@@ -239,7 +239,7 @@ fun DisciplineSection(
                                                 currentValue = ritual.level,
                                                 onValueChange = { newLevel ->
                                                     viewModel.onEvent(
-                                                        CharacterSheetEvent.updateRitualLevel(
+                                                        CharacterSheetEvent.UpdateRitualLevel(
                                                             discipline.title,
                                                             ritual,
                                                             newLevel

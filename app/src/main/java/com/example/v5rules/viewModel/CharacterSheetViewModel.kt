@@ -1140,7 +1140,7 @@ class CharacterSheetViewModel @Inject constructor(
                         event.ritual
                     )
 
-                    is CharacterSheetEvent.updateRitualLevel -> {
+                    is CharacterSheetEvent.UpdateRitualLevel -> {
                         _uiState.update { currentState ->
                             val updatedRituals = currentState.character.learnedRituals
                                 .map { ritual ->

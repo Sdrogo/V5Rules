@@ -21,8 +21,7 @@ class KindredViewModel @Inject constructor(
     val kindredUiState: StateFlow<KindredUiState> = _kindredUiState
     var allKindred: List<Chapter> = emptyList()
 
-
-    val currentLocale = Locale.getDefault()
+    val currentLocale: Locale = Locale.getDefault()
 
     init {
         fetchLore(currentLocale)

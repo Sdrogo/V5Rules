@@ -12,7 +12,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.v5rules.ui.compose.screen.HomeScreen
+import com.example.v5rules.ui.compose.screen.HomeRulesScreen
 import com.example.v5rules.ui.compose.screen.LoginScreen
 import com.example.v5rules.ui.compose.screen.NPCGeneratorScreen
 import com.example.v5rules.ui.compose.screen.background.BackgroundDetailsScreen
@@ -58,9 +58,9 @@ import com.example.v5rules.viewModel.RulesViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.serialization.Serializable
 
-@Serializable
-object HomeNav
 
+@Serializable
+object HomeRulesNav
 @Serializable
 object LoginNav
 
@@ -195,11 +195,11 @@ fun CustomNavHost(
             targetAlpha = 0f
         )
 
-        composable<HomeNav>(
+        composable<HomeRulesNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }
         ) {
-            HomeScreen(navController, onTitleChanged)
+            HomeRulesScreen(navController, onTitleChanged)
         }
 
         composable<LoginNav>(
@@ -208,7 +208,7 @@ fun CustomNavHost(
         ) {
             LoginScreen(
                 onLoginSuccess = {
-                    navController.navigate(HomeNav)
+                    navController.navigate(HomeRulesNav)
                 },
                 onTitleChanged = onTitleChanged
             )

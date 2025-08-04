@@ -23,7 +23,7 @@ class PredatorTypeViewModel @Inject constructor(
 
     var allTypes: List<PredatorType> = listOf()
 
-    val currentLocale = Locale.getDefault()
+    val currentLocale: Locale = Locale.getDefault()
 
     init {
         fetchClans(currentLocale)

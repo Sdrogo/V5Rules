@@ -11,7 +11,6 @@ class PredatorTypeReader(private val context: Context) {
 
     fun readPredatorType(language: Locale): List<PredatorType> {
         val resourceId = when (language) {
-            Locale.ENGLISH -> R.raw.predator_it
             Locale.ITALIAN -> R.raw.predator_it
             else -> {
                 R.raw.predator_it}

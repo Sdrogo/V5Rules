@@ -44,7 +44,7 @@ sealed class CharacterSheetEvent {
 
     data class RemoveRitual(val disciplineName: String, val ritual: Ritual) : CharacterSheetEvent()
 
-    data class updateRitualLevel(val disciplineName: String, val ritual: Ritual, val level: Int) : CharacterSheetEvent()
+    data class UpdateRitualLevel(val disciplineName: String, val ritual: Ritual, val level: Int) : CharacterSheetEvent()
 
     data class RitualPowerAdded(val ritual: Ritual, val power: RitualPower) : CharacterSheetEvent()
     // Health
