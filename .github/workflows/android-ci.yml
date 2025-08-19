@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Checkout repository
         # 'fetch-depth: 0' è necessario per contare tutti i commit per il versionCode
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
