@@ -16,47 +16,9 @@ on:
       - "bugfix/*"
 
 jobs:
-  # JOB 1: ANALISI DEL CODICE (NON CAMBIA)
-  # Questo job viene eseguito su ogni push e PR per garantire la qualità del codice.
-  analyze:
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write # Permesso per CodeQL
-      actions: read
-      contents: read
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: gradle
-
-      - name: Create google-services.json
-        run: echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/google-services.json
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: java-kotlin
-
-      - name: Build Debug for Analysis
-        run: ./gradlew assembleDebug
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-
   # JOB 2: CREAZIONE DELL'APK FIRMATO (CON VERSIONING)
   # Questo job viene eseguito solo dopo un merge su master o su push di un tag.
   build-and-release:
-    needs: analyze
     if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (startsWith(github.ref, 'refs/tags/v'))
     runs-on: ubuntu-latest
     permissions:

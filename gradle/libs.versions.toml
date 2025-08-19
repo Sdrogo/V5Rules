@@ -23,9 +23,9 @@ credentials = "1.5.0"
 credentialsPlayServicesAuth = "1.5.0"
 googleid = "1.1.1"
 ksp = "2.2.0-2.0.2"
-googleFirebaseCrashlytics = "3.0.5"
-googleFirebaseFirebasePerf = "2.0.0"
-firebaseBom = "34.0.0"
+googleFirebaseCrashlytics = "3.0.6"
+googleFirebaseFirebasePerf = "2.0.1"
+firebaseBom = "34.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
