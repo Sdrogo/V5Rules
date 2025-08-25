@@ -2,7 +2,7 @@
 agp = "9.0.0-alpha01"
 coilCompose = "2.7.0"
 coreSplashscreen = "1.0.1"
-hiltAndroid = "2.57"
+hiltAndroid = "2.57.1"
 hiltNavigationCompose = "1.2.0"
 kotlin = "2.2.10"
 coreKtx = "1.17.0"
