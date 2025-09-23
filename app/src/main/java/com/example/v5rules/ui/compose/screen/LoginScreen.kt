@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.credentials.CredentialManager
 import androidx.credentials.exceptions.GetCredentialException
 import androidx.credentials.exceptions.NoCredentialException
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import com.example.v5rules.R
 import com.example.v5rules.ui.compose.component.TintedImage
 import com.example.v5rules.viewModel.LoginViewModel
