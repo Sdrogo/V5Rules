@@ -196,6 +196,13 @@ class NPCGeneratorViewModel @Inject constructor(
         }
     }
 
+
+    fun deleteFavorite(favorite: FavoriteNpc) {
+        viewModelScope.launch(Dispatchers.IO) {
+            favoriteNpcRepository.removeFavorite(favorite)
+        }
+    }
+
     fun createCharacterFromNpc() {
         val currentNpc = _generationState.value.npc ?: return
         viewModelScope.launch(Dispatchers.IO) {
