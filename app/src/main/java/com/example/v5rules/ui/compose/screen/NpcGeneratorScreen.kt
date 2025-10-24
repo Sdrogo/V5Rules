@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Refresh
@@ -20,17 +22,14 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MenuAnchorType
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -42,13 +41,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.navigation.CharacterSheetEditNav
 import com.example.v5rules.R
 import com.example.v5rules.data.FavoriteNpc
 import com.example.v5rules.data.Npc
+import com.example.v5rules.navigation.CharacterSheetEditNav
 import com.example.v5rules.ui.compose.component.GenderSelection
 import com.example.v5rules.ui.compose.component.IncludeSecondNameCheckbox
 import com.example.v5rules.ui.compose.component.NationalityDropdown
@@ -68,6 +68,8 @@ fun NPCGeneratorScreen(
     val uiState by viewModel.uiState.collectAsState()
     val orientation = LocalConfiguration.current.orientation
     val title = stringResource(id = R.string.npc_generator_title)
+    var favoritesExpanded by remember { mutableStateOf(false) }
+
     LaunchedEffect(Unit) {
         onTitleChanged(title)
     }
@@ -112,7 +114,7 @@ fun NPCGeneratorScreen(
                             Row {
                                 Column(modifier = Modifier.weight(1f)) {
                                     SettingsCard(viewModel = viewModel)
-                                }
+                                 }
                                 Column(modifier = Modifier.weight(1f)) {
                                     Box(
                                         modifier = Modifier.padding(8.dp)
@@ -120,7 +122,10 @@ fun NPCGeneratorScreen(
                                         if (uiState.favoriteNpcs.isNotEmpty()) {
                                             FavoritesDropdown(
                                                 favoriteNpcs = uiState.favoriteNpcs,
-                                                onFavoriteSelected = { viewModel.selectFavorite(it) }
+                                                onFavoriteSelected = { viewModel.selectFavorite(it) },
+                                                onFavoriteDeleted = { viewModel.deleteFavorite(it) },
+                                                expanded = favoritesExpanded,
+                                                onExpandedChange = { favoritesExpanded = it }
                                             )
                                         }
                                     }
@@ -143,9 +148,12 @@ fun NPCGeneratorScreen(
                                 if (uiState.favoriteNpcs.isNotEmpty()) {
                                     FavoritesDropdown(
                                         favoriteNpcs = uiState.favoriteNpcs,
-                                        onFavoriteSelected = { viewModel.selectFavorite(it) }
+                                        onFavoriteSelected = { viewModel.selectFavorite(it) },
+                                        onFavoriteDeleted = { viewModel.deleteFavorite(it) },
+                                        expanded = favoritesExpanded,
+                                        onExpandedChange = { favoritesExpanded = it }
                                     )
-                                }
+                                 }
                                 Spacer(modifier = Modifier.height(8.dp))
                                 SettingsCard(viewModel = viewModel)
                                 Spacer(modifier = Modifier.height(16.dp))
@@ -341,35 +349,35 @@ private fun SettingsCard(viewModel: NPCGeneratorViewModel) {
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FavoritesDropdown(
     favoriteNpcs: List<FavoriteNpc>,
     onFavoriteSelected: (FavoriteNpc) -> Unit,
+    onFavoriteDeleted: (FavoriteNpc) -> Unit,
     modifier: Modifier = Modifier,
+    expanded: Boolean,
+    onExpandedChange: (Boolean) -> Unit,
 ) {
-    var expanded by remember { mutableStateOf(false) }
+    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
 
-    ExposedDropdownMenuBox(
-        expanded = expanded,
-        onExpandedChange = { expanded = !expanded },
-        modifier = modifier
-    ) {
-        TextField(
-            readOnly = true,
-            value = stringResource(R.string.favorites_count, favoriteNpcs.size),
-            onValueChange = {},
-            label = { Text(stringResource(R.string.favorites)) },
-            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-            colors = ExposedDropdownMenuDefaults.textFieldColors(),
-            modifier = Modifier
-                .menuAnchor(MenuAnchorType.PrimaryNotEditable)
-                .fillMaxWidth()
-        )
+    Box(modifier = modifier.fillMaxWidth()) {
+        OutlinedButton(
+            onClick = { onExpandedChange(!expanded) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(
+                text = stringResource(R.string.favorites_count, favoriteNpcs.size),
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary
+            )
+        }
 
-        ExposedDropdownMenu(
+        DropdownMenu(
             expanded = expanded,
-            onDismissRequest = { expanded = false }
+            onDismissRequest = { onExpandedChange(false) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(max = screenHeight * 0.5f)
         ) {
             favoriteNpcs.forEach { favorite ->
                 DropdownMenuItem(
@@ -382,9 +390,17 @@ fun FavoritesDropdown(
                         })
                     },
                     onClick = {
-                        expanded = false
                         onFavoriteSelected(favorite)
+                        onExpandedChange(false)
                     },
+                    trailingIcon = {
+                        IconButton(onClick = { onFavoriteDeleted(favorite) }) {
+                            Icon(
+                                imageVector = Icons.Default.Delete,
+                                contentDescription = "Delete Favorite"
+                            )
+                        }
+                    }
                 )
             }
         }
