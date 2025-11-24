@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           # Scarica tutta la cronologia per trovare l'ultimo tag
           fetch-depth: 0
