@@ -129,6 +129,7 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.perf)
+    implementation(libs.androidx.compose.animation)
     ksp(libs.hilt.android.compiler)
     testImplementation(libs.junit)
     //androidTestImplementation(libs.androidx.junit)

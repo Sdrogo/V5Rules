@@ -186,6 +186,8 @@
     <string name="characters">Characters</string>
     <string name="user_profile_title">User Profile</string>
     <string name="npc_generator">NPC Gen</string>
+    <string name="name_order_label_eastern">Ordine Nome: Cognome, Nome, (Secondo Nome)</string>
+    <string name="name_order_label_western">Ordine Nome: Nome, (Secondo Nome), Cognome</string>
 
     <string-array name="abilities">
         <item>Atletica</item>

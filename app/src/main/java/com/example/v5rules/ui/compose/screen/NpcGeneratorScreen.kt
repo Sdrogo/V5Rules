@@ -1,6 +1,11 @@
 package com.example.v5rules.ui.compose.screen
 
 import android.content.res.Configuration
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -47,7 +52,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
 import com.example.v5rules.data.FavoriteNpc
+import com.example.v5rules.data.NameOrder
 import com.example.v5rules.data.Npc
+import com.example.v5rules.data.NpcNationality
 import com.example.v5rules.navigation.CharacterSheetEditNav
 import com.example.v5rules.ui.compose.component.GenderSelection
 import com.example.v5rules.ui.compose.component.IncludeSecondNameCheckbox
@@ -131,6 +138,7 @@ fun NPCGeneratorScreen(
                                     }
                                     GeneratedNameSection(
                                         npc = uiState.npc,
+                                        selectedNationality = uiState.selectedNationality, // PASSAGGIO NUOVO
                                         includeSecondName = uiState.includeSecondName,
                                         onRegenerateName = viewModel::regenerateName,
                                         onRegenerateSecondName = viewModel::regenerateSecondName,
@@ -159,6 +167,7 @@ fun NPCGeneratorScreen(
                                 Spacer(modifier = Modifier.height(16.dp))
                                 GeneratedNameSection(
                                     npc = uiState.npc,
+                                    selectedNationality = uiState.selectedNationality, // PASSAGGIO NUOVO
                                     includeSecondName = uiState.includeSecondName,
                                     onRegenerateName = viewModel::regenerateName,
                                     onRegenerateSecondName = viewModel::regenerateSecondName,
@@ -221,6 +230,7 @@ private fun ActionButtons(
 @Composable
 private fun GeneratedNameSection(
     npc: Npc?,
+    selectedNationality: String?,
     includeSecondName: Boolean,
     onRegenerateName: () -> Unit,
     onRegenerateSecondName: () -> Unit,
@@ -243,52 +253,104 @@ private fun GeneratedNameSection(
                     .fillMaxWidth()
             )
         } else {
+            val currentNationality = NpcNationality.entries.find {
+                it.displayName.equals(selectedNationality, ignoreCase = true)
+            }
+            val isEasternOrder = currentNationality?.nameOrder == NameOrder.EASTERN // Usa l'enum
             Column(
                 modifier = Modifier.padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = npc.nome,
-                        style = MaterialTheme.typography.headlineMedium,
-                        modifier = Modifier.weight(1f)
-                    )
-                    IconButton(onClick = onRegenerateName) {
-                        Icon(
-                            Icons.Default.Refresh,
-                            contentDescription = stringResource(R.string.regenerate_name)
-                        )
-                    }
-                }
-
-                if (includeSecondName && npc.secondName != null) {
+                if (isEasternOrder) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
-                            text = npc.secondName,
+                            text = npc.cognome,
                             style = MaterialTheme.typography.headlineMedium,
                             modifier = Modifier.weight(1f)
                         )
-                        IconButton(onClick = onRegenerateSecondName) {
+                        IconButton(onClick = onRegenerateFamilyName) {
                             Icon(
                                 Icons.Default.Refresh,
-                                contentDescription = stringResource(R.string.regenerate_second_name)
+                                contentDescription = stringResource(R.string.regenerate_family_name)
                             )
                         }
                     }
-                }
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = npc.cognome,
-                        style = MaterialTheme.typography.headlineMedium,
-                        modifier = Modifier.weight(1f)
-                    )
-                    IconButton(onClick = onRegenerateFamilyName) {
-                        Icon(
-                            Icons.Default.Refresh,
-                            contentDescription = stringResource(R.string.regenerate_family_name)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = npc.nome,
+                            style = MaterialTheme.typography.headlineMedium,
+                            modifier = Modifier.weight(1f)
                         )
+                        IconButton(onClick = onRegenerateName) {
+                            Icon(
+                                Icons.Default.Refresh,
+                                contentDescription = stringResource(R.string.regenerate_name)
+                            )
+                        }
+                    }
+                    //TODO: valutare se tenere il secondo nome in ordine orientale
+//                    if (includeSecondName && npc.secondName != null) {
+//                        Row(verticalAlignment = Alignment.CenterVertically) {
+//                            Text(
+//                                text = npc.secondName,
+//                                style = MaterialTheme.typography.headlineMedium,
+//                                modifier = Modifier.weight(1f)
+//                            )
+//                            IconButton(onClick = onRegenerateSecondName) {
+//                                Icon(
+//                                    Icons.Default.Refresh,
+//                                    contentDescription = stringResource(R.string.regenerate_second_name)
+//                                )
+//                            }
+//                        }
+//                    }
+
+                }
+                else {
+
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = npc.nome,
+                            style = MaterialTheme.typography.headlineMedium,
+                            modifier = Modifier.weight(1f)
+                        )
+                        IconButton(onClick = onRegenerateName) {
+                            Icon(
+                                Icons.Default.Refresh,
+                                contentDescription = stringResource(R.string.regenerate_name)
+                            )
+                        }
+                    }
+
+                    if (includeSecondName && npc.secondName != null) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(
+                                text = npc.secondName,
+                                style = MaterialTheme.typography.headlineMedium,
+                                modifier = Modifier.weight(1f)
+                            )
+                            IconButton(onClick = onRegenerateSecondName) {
+                                Icon(
+                                    Icons.Default.Refresh,
+                                    contentDescription = stringResource(R.string.regenerate_second_name)
+                                )
+                            }
+                        }
+                    }
+
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = npc.cognome,
+                            style = MaterialTheme.typography.headlineMedium,
+                            modifier = Modifier.weight(1f)
+                        )
+                        IconButton(onClick = onRegenerateFamilyName) {
+                            Icon(
+                                Icons.Default.Refresh,
+                                contentDescription = stringResource(R.string.regenerate_family_name)
+                            )
+                        }
                     }
                 }
 
@@ -309,6 +371,10 @@ private fun GeneratedNameSection(
 @Composable
 private fun SettingsCard(viewModel: NPCGeneratorViewModel) {
     val uiState by viewModel.uiState.collectAsState()
+    val currentNationality = NpcNationality.entries.find {
+        it.displayName.equals(uiState.selectedNationality, ignoreCase = true)
+    }
+    val supportsSecondName = currentNationality?.supportsSecondName ?: false
 
     OutlinedCard(modifier = Modifier.fillMaxWidth()) {
         Column(
@@ -340,10 +406,17 @@ private fun SettingsCard(viewModel: NPCGeneratorViewModel) {
                 selectedGender = uiState.selectedGender,
                 onGenderSelected = { viewModel.setSelectedGender(it) }
             )
-            IncludeSecondNameCheckbox(
-                includeSecondName = uiState.includeSecondName,
-                onIncludeSecondNameChange = { viewModel.setIncludeSecondName(it) }
-            )
+            AnimatedVisibility(
+                visible = supportsSecondName,
+                enter = slideInVertically(initialOffsetY = { -it }) + expandVertically(expandFrom = Alignment.Top),
+                exit = slideOutVertically(targetOffsetY = { -it }) + shrinkVertically(shrinkTowards = Alignment.Top)
+            ) {
+                IncludeSecondNameCheckbox(
+                    includeSecondName = uiState.includeSecondName,
+                    onIncludeSecondNameChange = { viewModel.setIncludeSecondName(it) },
+                )
+            }
+            Spacer(modifier = Modifier.height(4.dp))
         }
     }
 }
