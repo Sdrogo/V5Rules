@@ -39,7 +39,7 @@ jobs:
       - name: Run Lint and Unit Tests
         run: ./gradlew lintDebug testDebugUnitTest
 
-  # JOB 2: CREAZIONE APK E RELEASE
+ # JOB 2: CREAZIONE APK E RELEASE
   build-and-release:
     needs: check-quality
     if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (startsWith(github.ref, 'refs/tags/v'))
@@ -65,6 +65,11 @@ jobs:
 
       - name: Decode Keystore
         run: echo "${{ secrets.RELEASE_KEYSTORE_BASE64 }}" | base64 --decode > keystore.jks
+      
+      # --- AGGIUNGI QUESTO STEP MANCANTE ---
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      # -------------------------------------
 
       - name: Set Version Name and Code
         id: versioning
