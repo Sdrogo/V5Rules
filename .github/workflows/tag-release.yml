@@ -35,6 +35,6 @@ jobs:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.75.0
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: ${{ github.event.inputs.bump_type || 'patch' }}
           RELEASE_BRANCHES: master
