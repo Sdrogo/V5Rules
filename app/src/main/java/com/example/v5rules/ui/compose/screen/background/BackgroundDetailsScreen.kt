@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -61,12 +60,13 @@ fun BackgroundDetailsScreen(
                     .padding(top = 8.dp)
             ) {
                 background.prerequisites?.let {
+
                     Text(
-                        text = it,
+                        text = "Prerequisito: $it",
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.secondary
-
+                        color = MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.wrapContentWidth()
                     )
                 }
                 Surface(
@@ -81,7 +81,6 @@ fun BackgroundDetailsScreen(
                         ),
                     shape = RoundedCornerShape(8.dp)
                 ) {
-
                     Text(
                         text = background.description,
                         Modifier
@@ -97,10 +96,11 @@ fun BackgroundDetailsScreen(
 
                 FlowRow(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxWidth()
                         .padding(top = 8.dp),
                     horizontalArrangement = Arrangement.Center
                 ) {
+                    // titolo e pallini come figli di FlowRow così possono andare a capo separatamente
                     Text(
                         text = merit.title,
                         style = MaterialTheme.typography.headlineSmall,
@@ -108,23 +108,24 @@ fun BackgroundDetailsScreen(
                         color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.wrapContentWidth()
                     )
-                    Spacer(Modifier.width(16.dp))
+
                     merit.minLevel?.let { min ->
                         merit.maxLevel?.let { max ->
-                            RangeDots(min, max)
-                            Spacer(Modifier.width(16.dp))
+                            RangeDots(min, max, modifier = Modifier)
                         }
                     }
                     merit.prerequisites?.let { prerequisite ->
                         Text(
-                            text = prerequisite,
+                            text = "Prerequisito: $prerequisite",
                             style = MaterialTheme.typography.headlineSmall,
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.secondary,
                             modifier = Modifier.wrapContentWidth()
                         )
                     }
+
                 }
+
                 Surface(
                     modifier = Modifier
                         .padding(8.dp)
@@ -153,7 +154,7 @@ fun BackgroundDetailsScreen(
             Column {
                 FlowRow(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxWidth()
                         .padding(top = 8.dp),
                     horizontalArrangement = Arrangement.Center
                 ) {
@@ -164,23 +165,28 @@ fun BackgroundDetailsScreen(
                         color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.wrapContentWidth()
                     )
-                    Spacer(Modifier.width(16.dp))
+
                     flaw.minLevel?.let { min ->
                         flaw.maxLevel?.let { max ->
-                            RangeDots(min, max)
-                            Spacer(Modifier.width(16.dp))
+                            RangeDots(min, max, modifier = Modifier)
                         }
+
                     }
+
                     flaw.prerequisites?.let { prerequisite ->
                         Text(
                             text = prerequisite,
-                            style = MaterialTheme.typography.headlineSmall,
-                            fontWeight = FontWeight.Bold,
+                            style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.secondary,
-                            modifier = Modifier.wrapContentWidth()
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 4.dp, start = 0.dp)
                         )
                     }
                 }
+
+                // Prerequisite on its own line
+
 
                 Surface(
                     modifier = Modifier
@@ -211,7 +217,7 @@ fun BackgroundDetailsScreen(
             Column {
                 FlowRow(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxWidth()
                         .padding(top = 8.dp),
                     horizontalArrangement = Arrangement.Center
                 ) {
@@ -222,13 +228,26 @@ fun BackgroundDetailsScreen(
                         color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.wrapContentWidth()
                     )
-                    Spacer(Modifier.width(16.dp))
+
                     flaw.minLevel?.let { min ->
                         flaw.maxLevel?.let { max ->
-                            RangeDots(min, max)
+                            RangeDots(min, max, modifier = Modifier)
                         }
                     }
                 }
+
+                // Prerequisite on its own line
+                flaw.prerequisites?.let { prerequisite ->
+                    Text(
+                        text = prerequisite,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 4.dp, start = 0.dp)
+                    )
+                }
+
                 Surface(
                     modifier = Modifier
                         .padding(8.dp)

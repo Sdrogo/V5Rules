@@ -5,8 +5,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.FavoriteNpc
 import com.example.v5rules.data.Gender
+import com.example.v5rules.data.NameOrder
 import com.example.v5rules.data.NationalityNpc
 import com.example.v5rules.data.Npc
+import com.example.v5rules.data.NpcNationality
 import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.FavoriteNpcRepository
 import com.example.v5rules.repository.MainRepository
@@ -88,9 +90,14 @@ class NPCGeneratorViewModel @Inject constructor(
 
     fun setSelectedGender(gender: Gender) {
         _generationState.update { it.copy(selectedGender = gender) }
+
         if (_generationState.value.firstGeneration) {
             regenerateName()
             if (_generationState.value.includeSecondName) regenerateSecondName()
+
+            if (_generationState.value.selectedNationality?.equals("islandese", ignoreCase = true) == true) {
+                regenerateFamilyName()
+            }
         }
     }
 
@@ -108,7 +115,18 @@ class NPCGeneratorViewModel @Inject constructor(
     }
 
     fun setSelectedNationality(nationality: String?) {
-        _generationState.update { it.copy(selectedNationality = nationality) }
+        val culture = getNpcNationality(nationality) // Ottiene il nuovo enum
+
+        // Controlla se il secondo nome è supportato dalla nuova cultura
+        val supportsSecondName = culture?.supportsSecondName ?: false
+
+        _generationState.update {
+            // Aggiorna la nazionalità e forza includeSecondName a false se non supportato
+            it.copy(
+                selectedNationality = nationality,
+                includeSecondName = if (supportsSecondName) it.includeSecondName else false
+            )
+        }
         generateAll()
     }
 
@@ -120,7 +138,9 @@ class NPCGeneratorViewModel @Inject constructor(
         val nameList = if (currentState.selectedGender == Gender.MALE) namesMap.nomiMaschili else namesMap.nomiFemminili
         val newName = nameList.randomOrNull(random).orEmpty()
         val newSecondName = if (currentState.includeSecondName) nameList.randomOrNull(random) else null
-        val newFamilyName = namesMap.cognomi.randomOrNull(random).orEmpty()
+
+        val availableSurnames = getFamilyNamesForGender(currentState.selectedNationality, currentState.selectedGender, namesMap.cognomi)
+        val newFamilyName = availableSurnames.randomOrNull(random).orEmpty()
 
         _generationState.update {
             it.copy(
@@ -152,8 +172,12 @@ class NPCGeneratorViewModel @Inject constructor(
     fun regenerateFamilyName() {
         val currentState = _generationState.value
         val namesMap = allNamesByNationality.find { it.nationality == currentState.selectedNationality } ?: return
+        val random = kotlin.random.Random
+
+        val availableSurnames = getFamilyNamesForGender(currentState.selectedNationality, currentState.selectedGender, namesMap.cognomi)
+
         _generationState.update { state ->
-            state.copy(npc = state.npc?.copy(cognome = namesMap.cognomi.randomOrNull().orEmpty()))
+            state.copy(npc = state.npc?.copy(cognome = availableSurnames.randomOrNull(random).orEmpty()))
         }
     }
 
@@ -204,19 +228,113 @@ class NPCGeneratorViewModel @Inject constructor(
     }
 
     fun createCharacterFromNpc() {
-        val currentNpc = _generationState.value.npc ?: return
+        val currentState = _generationState.value
+        val currentNpc = currentState.npc ?: return
         viewModelScope.launch(Dispatchers.IO) {
-            val newCharacter = Character(
-                name = buildString {
+
+            // Determina l'ordine corretto del nome completo in base alla nazionalità usando l'enum
+            val culture = getNpcNationality(currentState.selectedNationality) // Usa getNpcNationality qui
+            val nameOrder = culture?.nameOrder ?: NameOrder.WESTERN // Usa NameOrder qui
+
+            val fullName = buildString {
+                if (nameOrder == NameOrder.EASTERN) {
+                    // Ordine Orientale: COGNOME, NOME, (SECONDO NOME)
+                    append(currentNpc.cognome)
+                    append(" ")
                     append(currentNpc.nome)
                     currentNpc.secondName?.let { append(" $it") }
-                    append(" ${currentNpc.cognome}")
-                }.trim()
+                } else {
+                    // Ordine Occidentale: NOME, (SECONDO NOME), COGNOME
+                    append(currentNpc.nome)
+                    currentNpc.secondName?.let { append(" $it") }
+                    append(" ")
+                    append(currentNpc.cognome)
+                }
+            }.trim()
+
+            val newCharacter = Character(
+                name = fullName
             )
             val newId = characterRepository.saveCharacter(newCharacter)
             _navigationEvent.emit(NpcNavigationEvent.ToCharacterSheet(newId))
         }
     }
+
+    /**
+     * Cerca e restituisce l'oggetto NpcNationality corrispondente alla stringa di nazionalità.
+     */
+    private fun getNpcNationality(nationality: String?): NpcNationality? { // Rinomina NpcCulture in NpcNationality
+        // Usa `entries` per iterare su tutti i valori dell'enum.
+        return NpcNationality.entries.find { // Usa NpcNationality.entries
+            it.displayName.equals(nationality, ignoreCase = true)
+        }
+    }
+    // ...
+    private fun getFamilyNamesForGender(nationality: String?, gender: Gender, allSurnames: List<String>): List<String> {
+        val normalizedNationality = nationality?.lowercase(Locale.ROOT) ?: return allSurnames
+        val culture = getNpcNationality(normalizedNationality) ?: return allSurnames // Usa getNpcNationality qui
+
+        // Caso veloce: se la nazionalità non ha regole specifiche per i cognomi.
+        if (!culture.hasGenderFamilyNameRules) return allSurnames
+        return when (culture) {
+
+            NpcNationality.ISLANDESE -> {
+                val suffix = if (gender == Gender.MALE) "son" else "dóttir"
+                val filtered = allSurnames.filter { it.endsWith(suffix, ignoreCase = true) }
+
+                if (filtered.isNotEmpty()) filtered else allSurnames
+            }
+            NpcNationality.RUSSO -> {
+                if (gender == Gender.FEMALE) {
+                    val maleSuffixes = listOf("ov", "ev", "in", "yev", "sky", "ski", "iy", "yy")
+                    val femaleSuffixes = listOf("ova", "eva", "ina", "yeva", "skaya", "ska", "aya", "yaya")
+
+                    allSurnames.map { surname ->
+                        var femaleSurname = surname
+                        maleSuffixes.forEachIndexed { index, maleSuffix ->
+                            if (surname.endsWith(maleSuffix, ignoreCase = true)) {
+                                femaleSurname = surname.dropLast(maleSuffix.length) + femaleSuffixes[index]
+                                return@map femaleSurname
+                            }
+                        }
+                        femaleSurname
+                    }
+                } else {
+                    allSurnames
+                }
+            }
+            NpcNationality.LITUANO -> {
+                if (gender == Gender.FEMALE) {
+                    allSurnames.map { surname ->
+                        when {
+                            surname.endsWith("as", ignoreCase = true) -> surname.dropLast(2) + "aitė"
+                            surname.endsWith("is", ignoreCase = true) -> surname.dropLast(2) + "ytė"
+                            surname.endsWith("us", ignoreCase = true) -> surname.dropLast(2) + "utė"
+                            else -> surname
+                        }
+                    }
+                } else {
+                    allSurnames
+                }
+            }
+            NpcNationality.LETTONE -> {
+                if (gender == Gender.FEMALE) {
+                    allSurnames.map { surname ->
+                        when {
+                            surname.endsWith("s", ignoreCase = true) -> surname.dropLast(1) + "a"
+                            surname.endsWith("š", ignoreCase = true) -> surname.dropLast(1) + "a"
+                            surname.endsWith("is", ignoreCase = true) -> surname.dropLast(2) + "e"
+                            else -> surname
+                        }
+                    }
+                } else {
+                    allSurnames
+                }
+            }
+            else -> allSurnames
+        }
+    }
+
 }
 
 data class UiState(

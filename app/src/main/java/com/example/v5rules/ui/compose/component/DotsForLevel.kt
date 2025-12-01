@@ -66,10 +66,10 @@ fun DotsForLevel(level: Int, isLandscape: Boolean = false, onClick: () -> Unit) 
 }
 
 @Composable
-fun RangeDots(min: Int, max: Int) {
+fun RangeDots(min: Int, max: Int, modifier: Modifier = Modifier) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
+        modifier = modifier
             .wrapContentWidth()
             .padding(horizontal = 8.dp)
     ) {
