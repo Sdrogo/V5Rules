@@ -45,6 +45,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -289,23 +290,6 @@ private fun GeneratedNameSection(
                             )
                         }
                     }
-                    //TODO: valutare se tenere il secondo nome in ordine orientale
-//                    if (includeSecondName && npc.secondName != null) {
-//                        Row(verticalAlignment = Alignment.CenterVertically) {
-//                            Text(
-//                                text = npc.secondName,
-//                                style = MaterialTheme.typography.headlineMedium,
-//                                modifier = Modifier.weight(1f)
-//                            )
-//                            IconButton(onClick = onRegenerateSecondName) {
-//                                Icon(
-//                                    Icons.Default.Refresh,
-//                                    contentDescription = stringResource(R.string.regenerate_second_name)
-//                                )
-//                            }
-//                        }
-//                    }
-
                 }
                 else {
 
@@ -431,7 +415,7 @@ fun FavoritesDropdown(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
 ) {
-    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
+    val screenHeight = LocalWindowInfo.current.containerSize.height.dp
 
     Box(modifier = modifier.fillMaxWidth()) {
         OutlinedButton(
