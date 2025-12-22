@@ -155,7 +155,7 @@ fun V5RulesApp() {
                             }
                         }
                     },
-                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.secondary,
                         titleContentColor = MaterialTheme.colorScheme.primary
                     ),
@@ -207,7 +207,7 @@ fun V5RulesApp() {
             ) {
                 CustomNavHost(
                     navController = navController,
-                    onTitleChanged = { title -> currentTitle = title },
+                    onTitleChanged = { _ -> },
                     startDestination = startDestination,
                     disciplineViewModel = disciplineViewModel,
                     clanViewModel = clanViewModel,
