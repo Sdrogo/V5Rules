@@ -166,8 +166,9 @@ class FriendRepository @Inject constructor(
                 .await()
 
             val friendIds = friendsQuery.documents.flatMap { document ->
-                val userIds = document.get("userIds") as? List<String> ?: emptyList()
-                userIds.filter { it != currentUser.uid }
+                (document.get("userIds") as? List<*>)
+                    ?.mapNotNull { it as? String }
+                    ?.filter { it != currentUser.uid } ?: emptyList()
             }
 
             Result.success(friendIds)

@@ -11,10 +11,9 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.SecondaryScrollableTabRow
 import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRowDefaults.SecondaryIndicator
-import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
+import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -81,7 +80,7 @@ fun CharacterSheetScreen(
     ) {
         val (tabRow, content, buttons) = createRefs()
         // TabRow scorrevole
-        ScrollableTabRow(
+        SecondaryScrollableTabRow(
             selectedTabIndex = selectedTabIndex,
             modifier = Modifier
                 .constrainAs(tabRow) {
@@ -93,9 +92,9 @@ fun CharacterSheetScreen(
                 .zIndex(1f),
             edgePadding = 0.dp,
             containerColor = MaterialTheme.colorScheme.surface,
-            indicator = { tabPositions ->
-                SecondaryIndicator(
-                    Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
+            indicator = {
+                TabRowDefaults.SecondaryIndicator(
+                    modifier = Modifier.tabIndicatorOffset(selectedTabIndex),
                     color = MaterialTheme.colorScheme.secondary
                 )
             },
