@@ -149,4 +149,5 @@ dependencies {
     implementation(libs.serialization)
     implementation (libs.kotlinx.coroutines.core)
     implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.androidx.compose.material.icons.extended)
 }
