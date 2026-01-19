@@ -25,7 +25,7 @@ googleid = "1.1.1"
 ksp = "2.2.20-2.0.3"
 googleFirebaseCrashlytics = "3.0.6"
 googleFirebaseFirebasePerf = "2.0.2"
-firebaseBom = "34.7.0"
+firebaseBom = "34.8.0"
 animation = "1.10.0"
 
 [libraries]
