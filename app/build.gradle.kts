@@ -1,4 +1,4 @@
-import org.gradle.kotlin.dsl.android
+import com.android.build.api.dsl.ApplicationExtension
 import org.gradle.kotlin.dsl.dependencies
 import java.io.FileInputStream
 import java.util.Properties
@@ -21,7 +21,6 @@ fun getVersionName(): String {
 
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.compose.compiler)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
@@ -31,7 +30,7 @@ plugins {
     alias(libs.plugins.google.firebase.firebase.perf)
 }
 
-android {
+configure<ApplicationExtension>  {
     namespace = "com.example.v5rules"
     compileSdk = 36
 
@@ -83,14 +82,6 @@ android {
             signingConfig = signingConfigs.getByName("release")
         }
     }
-    applicationVariants.all {
-        if (buildType.name == "release") {
-            outputs.all {
-                val outputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
-                outputImpl.outputFileName = "V5Rules-${versionName}.apk"
-            }
-        }
-    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -104,6 +95,14 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+}
+
+androidComponents {
+    onVariants(selector().withBuildType("release")) { variant ->
+        variant.outputs.forEach { output ->
+            (output as com.android.build.api.variant.impl.VariantOutputImpl).outputFileName.set("V5Rules-${output.versionName.get()}.apk")
         }
     }
 }
