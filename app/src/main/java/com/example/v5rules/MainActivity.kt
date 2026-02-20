@@ -45,6 +45,7 @@ import com.example.v5rules.navigation.LoginNav
 import com.example.v5rules.navigation.UserProfileNav
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.viewModel.BackgroundViewModel
+import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
 import com.example.v5rules.viewModel.KindredViewModel
@@ -88,6 +89,8 @@ fun V5RulesApp() {
     val kindredViewModel: KindredViewModel = hiltViewModel()
     val pgViewModel: PgViewModel = hiltViewModel()
     val backgroundViewModel: BackgroundViewModel = hiltViewModel()
+    val characterSheetViewModel: CharacterSheetViewModel = hiltViewModel()
+
 
     val navController = rememberNavController()
     var currentUser by remember { mutableStateOf(FirebaseAuth.getInstance().currentUser) }
@@ -218,7 +221,8 @@ fun V5RulesApp() {
                     npcGeneratorViewModel = npcGeneratorViewModel,
                     kindredViewModel = kindredViewModel,
                     pgViewModel = pgViewModel,
-                    backgroundViewModel = backgroundViewModel
+                    backgroundViewModel = backgroundViewModel,
+                    CharacterSheetViewModel = characterSheetViewModel
                 )
             }
         }
