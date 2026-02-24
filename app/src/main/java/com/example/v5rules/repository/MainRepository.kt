@@ -63,7 +63,7 @@ class MainRepository(context: Context) : CharacterRepository {
         return rulesReader.readPg(language)
     }
 
-    override suspend fun getCharacter(id: String): Character? {
+    override suspend fun getCharacter(id: String): Character {
         throw UnsupportedOperationException("Not implemented in MainRepository")
     }
 
