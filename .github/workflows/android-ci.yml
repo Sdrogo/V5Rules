@@ -2,15 +2,10 @@ name: Android CI & Release
 
 on:
   push:
-    branches:
-      - "master"
-      - "feature/*"
-      - "bugfix/*"
-    tags:
-      - 'v*.*.*'
+    branches: ["master", "feature/*", "bugfix/*"]
+    tags: ['v*.*.*'] # Questo ora è il trigger principale per la release
   pull_request:
-    branches:
-      - "master"
+    branches: ["master"]
 
 jobs:
   # JOB 1: CONTROLLO QUALITÀ (LINT & TEST)
@@ -42,11 +37,10 @@ jobs:
  # JOB 2: CREAZIONE APK E RELEASE
   build-and-release:
     needs: check-quality
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || (startsWith(github.ref, 'refs/tags/v'))
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -74,13 +68,9 @@ jobs:
       - name: Set Version Name and Code
         id: versioning
         run: |
-          if [[ $GITHUB_REF == refs/tags/v* ]]; then
-            VERSION_NAME=${GITHUB_REF#refs/tags/}
-          else
-            VERSION_NAME="master-${GITHUB_SHA::7}"
-          fi
+          # Essendo triggerato dal tag, VERSION_NAME sarà sempre v1.x.x
+          VERSION_NAME=${GITHUB_REF#refs/tags/}
           VERSION_CODE=$(git rev-list --count HEAD)
-          
           echo "APP_VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
           echo "APP_VERSION_CODE=$VERSION_CODE" >> $GITHUB_ENV
 
@@ -92,11 +82,10 @@ jobs:
           SIGNING_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
 
       - name: Upload APK Artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4 # Usa v4 o superiore
         with:
           name: V5Rules-App-${{ env.APP_VERSION_NAME }}
           path: app/build/outputs/apk/release/*.apk
-          retention-days: 14
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
