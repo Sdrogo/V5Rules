@@ -92,7 +92,7 @@ jobs:
           SIGNING_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
 
       - name: Upload APK Artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: V5Rules-App-${{ env.APP_VERSION_NAME }}
           path: app/build/outputs/apk/release/*.apk
