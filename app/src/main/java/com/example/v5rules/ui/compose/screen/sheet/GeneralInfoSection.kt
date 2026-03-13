@@ -2,24 +2,27 @@ package com.example.v5rules.ui.compose.screen.sheet
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.focusable
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -32,20 +35,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.input.key.Key
-import androidx.compose.ui.input.key.key
-import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
 import com.example.v5rules.data.Character
 import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
+import kotlin.collections.forEach
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -56,9 +54,6 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
     val predatorType by viewModel.predator.collectAsState()
     val focusManager = LocalFocusManager.current
     val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current
-
-    var generationExpanded by remember { mutableStateOf(false) }
     val generations = remember { (1..16).toList() }
 
     LazyColumn(
@@ -81,197 +76,30 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
                         onValueChange = { viewModel.onEvent(CharacterSheetEvent.NameChanged(it)) },
                         label = { Text(stringResource(R.string.character_screen_name)) }
                     )
-                    var clanExpanded by remember { mutableStateOf(false) }
-                    ExposedDropdownMenuBox(
-                        expanded = clanExpanded,
-                        onExpandedChange = {
-                            clanExpanded = !clanExpanded
-                            if (clanExpanded) {
-                                focusRequester.requestFocus()
-                            } else {
-                                focusManager.clearFocus()
-                            }
-                        }
-                    ) {
-                        val selectedClan = uiState.character.clan
-                        OutlinedTextField(
-                            value = selectedClan?.name ?: "",
-                            onValueChange = {},
-                            readOnly = true,
-                            label = { Text(stringResource(R.string.clan)) },
-                            leadingIcon = {
-                                selectedClan?.name?.let {
-                                    ClanImage(
-                                        it,
-                                        tintColor = MaterialTheme.colorScheme.secondary,
-                                        width = 24.dp,
-                                    )
-                                }
-                            },
-                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = clanExpanded) },
-                            colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
-                            modifier = Modifier
-                                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
-                                .fillMaxWidth()
-                                .focusRequester(focusRequester)
-                                .onKeyEvent {
-                                    if (it.key == Key.Escape) {
-                                        clanExpanded = false
-                                        true
-                                    } else {
-                                        false
-                                    }
-                                },
-                            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-                            keyboardActions = KeyboardActions(
-                                onDone = {
-                                    keyboardController?.hide()
-                                    focusManager.clearFocus()
-                                }
-                            )
-                        )
-                    }
-                    DropdownMenu(
-                        expanded = clanExpanded,
-                        onDismissRequest = { clanExpanded = false },
-                        modifier = Modifier
-                            .focusable(false)
-                            .align(Alignment.Start)
-
-                    ) {
-                        clans.forEach { clan ->
-                            DropdownMenuItem(onClick = {
-                                viewModel.onEvent(CharacterSheetEvent.ClanChanged(clan))
-                                clanExpanded = false
-
-                            }, text = {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    ClanImage(
-                                        clanName = clan.name,
-                                        tintColor = MaterialTheme.colorScheme.secondary,
-                                        width = 30.dp
-                                    )
-                                    Spacer(modifier = Modifier.width(8.dp))
-                                    Text(clan.name)
-                                }
-                            })
-                        }
-                    }
-                    var predatorExpanded by remember { mutableStateOf(false) }
-                    ExposedDropdownMenuBox(
-                        expanded = predatorExpanded,
-                        onExpandedChange = {
-                            predatorExpanded = !predatorExpanded
-                            if (predatorExpanded) {
-                                focusRequester.requestFocus()
-                            } else {
-                                focusManager.clearFocus()
-                            }
-                        }
-                    ) {
-                        val selectedPredator = uiState.character.predator
-                        OutlinedTextField(
-                            value = selectedPredator?.name ?: "",
-                            onValueChange = {},
-                            readOnly = true,
-                            label = { Text(stringResource(R.string.predator)) },
-                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = predatorExpanded) },
-                            colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
-                            modifier = Modifier
-                                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
-                                .fillMaxWidth()
-                                .focusRequester(focusRequester)
-                                .onKeyEvent {
-                                    if (it.key == Key.Escape) {
-                                        predatorExpanded = false
-                                        true
-                                    } else {
-                                        false
-                                    }
-                                },
-                            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-                            keyboardActions = KeyboardActions(
-                                onDone = {
-                                    keyboardController?.hide()
-                                    focusManager.clearFocus()
-                                }
-                            )
-                        )
-                    }
-                    DropdownMenu(
-                        expanded = predatorExpanded,
-                        onDismissRequest = { predatorExpanded = false },
-                        modifier = Modifier
-                            .focusable(false)
-                            .align(Alignment.Start)
-
-                    ) {
-                        predatorType.forEach { predator ->
-                            DropdownMenuItem(onClick = {
-                                viewModel.onEvent(CharacterSheetEvent.PredatorChanged(predator))
-                                predatorExpanded = false
-                            }, text = { Text(predator.name) }
-                            )
-                        }
-                    }
-
-                    // *** NUOVO DROPDOWN PER LA GENERAZIONE ***
-                    ExposedDropdownMenuBox(
-                        expanded = generationExpanded,
-                        onExpandedChange = {
-                            generationExpanded = !generationExpanded
-                            if (generationExpanded) {
-                                focusRequester.requestFocus()
-                            } else {
-                                focusManager.clearFocus()
-                            }
-                        }
-                    ) {
-                        val selectedGeneration = character.generation
-                        OutlinedTextField(
-                            value = selectedGeneration.toString().plus("°"),
-                            onValueChange = {},
-                            readOnly = true,
-                            label = { Text(stringResource(R.string.character_screen_generation)) },
-                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = generationExpanded) },
-                            colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
-                            modifier = Modifier
-                                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
-                                .fillMaxWidth()
-                                .focusRequester(focusRequester)
-                                .onKeyEvent {
-                                    if (it.key == Key.Escape) {
-                                        generationExpanded = false
-                                        true
-                                    } else {
-                                        false
-                                    }
-                                },
-                            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-                            keyboardActions = KeyboardActions(
-                                onDone = {
-                                    keyboardController?.hide()
-                                    focusManager.clearFocus()
-                                }
-                            )
-                        )
-                    }
-                    DropdownMenu(
-                        expanded = generationExpanded,
-                        onDismissRequest = { generationExpanded = false },
-                        modifier = Modifier
-                            .focusable(false)
-                            .align(Alignment.Start)
-
-                    ) {
-                        generations.forEach { gen ->
-                            DropdownMenuItem(onClick = {
-                                viewModel.onEvent(CharacterSheetEvent.GenerationChanged(gen))
-                                generationExpanded = false
-                            }, text = { Text(gen.toString()) }
-                            )
-                        }
-                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                    ClanSelector(
+                        selectedClan = uiState.character.clan,
+                        clans = clans,
+                        onClanSelected = { viewModel.onEvent(CharacterSheetEvent.ClanChanged(it)) },
+                        focusRequester = focusRequester,
+                        focusManager = focusManager
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    PredatorSelector(
+                        selectedPredator = uiState.character.predator,
+                        predators = predatorType,
+                        onPredatorSelected = { viewModel.onEvent(CharacterSheetEvent.PredatorChanged(it)) },
+                        focusRequester = focusRequester,
+                        focusManager = focusManager
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    GenerationSelector(
+                        selectedGeneration = character.generation,
+                        generations = generations,
+                        onGenerationSelected = { viewModel.onEvent(CharacterSheetEvent.GenerationChanged(it)) },
+                        focusRequester = focusRequester,
+                        focusManager = focusManager
+                    )
 
                     // Sire
                     OutlinedTextField(modifier = Modifier.fillMaxWidth(),
@@ -301,3 +129,232 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
         }
     }
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ClanSelector(
+    selectedClan: com.example.v5rules.data.Clan?,
+    clans: List<com.example.v5rules.data.Clan>,
+    onClanSelected: (com.example.v5rules.data.Clan) -> Unit,
+    focusRequester: FocusRequester,
+    focusManager: androidx.compose.ui.focus.FocusManager,
+    modifier: Modifier = Modifier
+) {
+    var clanExpanded by remember { mutableStateOf(false) }
+    
+    ExposedDropdownMenuBox(
+        expanded = clanExpanded,
+        onExpandedChange = {
+            clanExpanded = !clanExpanded
+            if (clanExpanded) {
+                focusRequester.requestFocus()
+            } else {
+                focusManager.clearFocus()
+            }
+        },
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(4.dp))
+                .padding(12.dp)
+                .clickable { clanExpanded = !clanExpanded }
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+                Box(modifier = Modifier.weight(1f)) {
+                    selectedClan?.name?.let {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            ClanImage(
+                                it,
+                                tintColor = MaterialTheme.colorScheme.secondary,
+                                width = 24.dp,
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(it)
+                        }
+                    } ?: run {
+                        Text(
+                            stringResource(R.string.clan),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+                Icon(
+                    imageVector = if (clanExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                    contentDescription = null,
+                    tint = if (!clanExpanded) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
+
+                )
+            }
+        }
+        
+        DropdownMenu(
+            expanded = clanExpanded,
+            onDismissRequest = { 
+                clanExpanded = false
+                focusManager.clearFocus()
+            }
+        ) {
+            clans.forEach { clan ->
+                DropdownMenuItem(
+                    onClick = {
+                        onClanSelected(clan)
+                        clanExpanded = false
+                    },
+                    text = {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            ClanImage(
+                                clanName = clan.name,
+                                tintColor = MaterialTheme.colorScheme.secondary,
+                                width = 30.dp
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(clan.name)
+                        }
+                    }
+                )
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PredatorSelector(
+    selectedPredator: com.example.v5rules.data.PredatorType?,
+    predators: List<com.example.v5rules.data.PredatorType>,
+    onPredatorSelected: (com.example.v5rules.data.PredatorType) -> Unit,
+    focusRequester: FocusRequester,
+    focusManager: androidx.compose.ui.focus.FocusManager,
+    modifier: Modifier = Modifier
+) {
+    var predatorExpanded by remember { mutableStateOf(false) }
+    
+    ExposedDropdownMenuBox(
+        expanded = predatorExpanded,
+        onExpandedChange = {
+            predatorExpanded = !predatorExpanded
+            if (predatorExpanded) {
+                focusRequester.requestFocus()
+            } else {
+                focusManager.clearFocus()
+            }
+        },
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(4.dp))
+                .padding(12.dp)
+                .clickable { predatorExpanded = !predatorExpanded }
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+                Box(modifier = Modifier.weight(1f)) {
+                    selectedPredator?.name?.let {
+                        Text(it)
+                    } ?: run {
+                        Text(
+                            stringResource(R.string.predator),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+                Icon(
+                    imageVector = if (predatorExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                    contentDescription = null,
+                    tint = if (!predatorExpanded) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+        
+        DropdownMenu(
+            expanded = predatorExpanded,
+            onDismissRequest = { 
+                predatorExpanded = false
+                focusManager.clearFocus()
+            }
+        ) {
+            predators.forEach { predator ->
+                DropdownMenuItem(
+                    onClick = {
+                        onPredatorSelected(predator)
+                        predatorExpanded = false
+                    },
+                    text = { Text(predator.name) }
+                )
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun GenerationSelector(
+    selectedGeneration: Int,
+    generations: List<Int>,
+    onGenerationSelected: (Int) -> Unit,
+    focusRequester: FocusRequester,
+    focusManager: androidx.compose.ui.focus.FocusManager,
+    modifier: Modifier = Modifier
+) {
+    var generationExpanded by remember { mutableStateOf(false) }
+    
+    ExposedDropdownMenuBox(
+        expanded = generationExpanded,
+        onExpandedChange = {
+            generationExpanded = !generationExpanded
+            if (generationExpanded) {
+                focusRequester.requestFocus()
+            } else {
+                focusManager.clearFocus()
+            }
+        },
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(4.dp))
+                .padding(12.dp)
+                .clickable { generationExpanded = !generationExpanded }
+                .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryNotEditable)
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+                Box(modifier = Modifier.weight(1f)) {
+                    Text(selectedGeneration.toString().plus("°"))
+                }
+                Icon(
+                    imageVector = if (generationExpanded) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                    contentDescription = null,
+                    tint = if (!generationExpanded) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+        
+        DropdownMenu(
+            expanded = generationExpanded,
+            onDismissRequest = { 
+                generationExpanded = false
+                focusManager.clearFocus()
+            }
+        ) {
+            generations.forEach { gen ->
+                DropdownMenuItem(
+                    onClick = {
+                        onGenerationSelected(gen)
+                        generationExpanded = false
+                    },
+                    text = { Text(gen.toString()) }
+                )
+            }
+        }
+    }
+}
+
+
+
+
