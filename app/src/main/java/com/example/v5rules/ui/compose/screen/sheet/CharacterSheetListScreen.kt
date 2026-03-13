@@ -39,7 +39,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.v5rules.navigation.CharacterSheetCreationNav
 import com.example.v5rules.R
@@ -53,7 +52,7 @@ import com.example.v5rules.navigation.CharacterSheetVisualizationNav
 @Composable
 fun CharacterSheetListScreen(
     navController: NavHostController,
-    viewModel: CharacterSheetListViewModel = hiltViewModel(),
+    viewModel: CharacterSheetListViewModel,
     onTitleChanged: (String) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
