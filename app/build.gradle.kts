@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.android
-import org.gradle.kotlin.dsl.dependencies
 import java.io.FileInputStream
 import java.util.Properties
 
@@ -21,7 +19,6 @@ fun getVersionName(): String {
 
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.compose.compiler)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
@@ -39,7 +36,6 @@ android {
         applicationId = "com.example.v5rules"
         minSdk = 25
         targetSdk = 36
-        // Corretto: Usiamo solo le chiamate alle funzioni, senza duplicati.
         versionCode = getVersionCode()
         versionName = getVersionName()
 
@@ -83,14 +79,6 @@ android {
             signingConfig = signingConfigs.getByName("release")
         }
     }
-    applicationVariants.all {
-        if (buildType.name == "release") {
-            outputs.all {
-                val outputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
-                outputImpl.outputFileName = "V5Rules-${versionName}.apk"
-            }
-        }
-    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -108,6 +96,17 @@ android {
     }
 }
 
+// NUOVA API VARIANT (AGP 8+ / 9+): Questa va FUORI dal blocco android!
+androidComponents {
+    onVariants(selector().withBuildType("release")) { variant ->
+        variant.outputs.forEach { output ->
+            // In Kotlin DSL, per cambiare il nome file dinamicamente, si casta
+            // all'implementazione interna VariantOutputImpl. Questo è l'approccio standard.
+            (output as com.android.build.api.variant.impl.VariantOutputImpl).outputFileName.set("V5Rules-${getVersionName()}.apk")
+        }
+    }
+}
+
 kotlin {
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
@@ -116,7 +115,7 @@ kotlin {
 
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
-    implementation(platform(libs.firebase.bom)) // Import the Firebase BoM
+    implementation(platform(libs.firebase.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.hilt.navigation.compose)
@@ -130,18 +129,26 @@ dependencies {
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.perf)
     implementation(libs.androidx.compose.animation)
+    implementation(libs.androidx.compose.material.icons.extended)
     ksp(libs.hilt.android.compiler)
+
+    // UNIT TEST (Logica)
     testImplementation(libs.junit)
-    //androidTestImplementation(libs.androidx.junit)
-    //androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.turbine)
+
+    // UI TEST (Jetpack Compose)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
+
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.androidx.ui.test.junit4)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
