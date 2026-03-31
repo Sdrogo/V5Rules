@@ -139,8 +139,10 @@ dependencies {
     testImplementation(libs.turbine)
 
     // UI TEST (Jetpack Compose)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    debugImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
