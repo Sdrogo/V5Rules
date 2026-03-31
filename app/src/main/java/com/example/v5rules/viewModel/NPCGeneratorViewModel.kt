@@ -69,6 +69,12 @@ class NPCGeneratorViewModel @Inject constructor(
 
     var nationalities: List<String> = emptyList()
     private var allNamesByNationality: List<NationalityNpc> = emptyList()
+    private val ICELANDIC_FIXED_SURNAMES = listOf(
+        "Nguyen", "Blöndal", "Thorarensen", "Hansen", "Waage", "Nielsen",
+        "Möller", "Briem", "Kvaran", "Thoroddsen", "Olsen", "Bergmann",
+        "Jensen", "Fjeldsted", "Hall", "Hjaltested", "Scheving", "Johnson",
+        "Schram", "Andersen"
+    )
 
     init {
         fetchNpcNames()
@@ -95,9 +101,97 @@ class NPCGeneratorViewModel @Inject constructor(
             regenerateName()
             if (_generationState.value.includeSecondName) regenerateSecondName()
 
-            if (_generationState.value.selectedNationality?.equals("islandese", ignoreCase = true) == true) {
-                regenerateFamilyName()
+            updateCurrentFamilyNameGender(gender)
+        }
+    }
+
+    private fun updateCurrentFamilyNameGender(newGender: Gender) {
+        val currentState = _generationState.value
+        val currentNpc = currentState.npc ?: return
+        val nationality = currentState.selectedNationality ?: return
+        val currentSurname = currentNpc.cognome
+
+        val updatedSurname = when (nationality.uppercase()) {
+            NpcNationality.RUSSO.name -> transformRussian(currentSurname, newGender)
+            NpcNationality.ISLANDESE.name -> transformIcelandic(currentSurname, newGender)
+            NpcNationality.LETTONE.name -> transformLatvian(currentSurname, newGender)
+            NpcNationality.LITUANO.displayName -> transformLithuanian(currentSurname, newGender)
+            NpcNationality.POLACCO.name -> transformPolish(currentSurname, newGender)
+            else -> currentSurname
+        }
+        _generationState.update { it.copy(npc = currentNpc.copy(cognome = updatedSurname)) }
+    }
+    private fun transformRussian(surname: String, gender: Gender): String {
+        val maleSuffixes = listOf("ov", "ev", "in", "yev", "sky", "ski", "iy", "yy")
+        val femaleSuffixes = listOf("ova", "eva", "ina", "yeva", "skaya", "ska", "aya", "yaya")
+
+        return if (gender == Gender.FEMALE) {
+            maleSuffixes.forEachIndexed { index, s ->
+                if (surname.endsWith(s, true)) return surname.dropLast(s.length) + femaleSuffixes[index]
             }
+            surname
+        } else {
+            femaleSuffixes.forEachIndexed { index, s ->
+                if (surname.endsWith(s, true)) return surname.dropLast(s.length) + maleSuffixes[index]
+            }
+            surname
+        }
+    }
+
+    private fun transformIcelandic(surname: String, gender: Gender): String {
+        if (ICELANDIC_FIXED_SURNAMES.any { it.equals(surname.trim(), true) }) return surname
+
+        val suffix = if (gender == Gender.MALE) "son" else "dóttir"
+        // Rimuove eventuali suffissi esistenti per tornare alla radice e applicare quello nuovo
+        val root = surname.trim().removeSuffix("son").removeSuffix("dóttir")
+        return root + suffix
+    }
+
+    private fun transformLatvian(surname: String, gender: Gender): String {
+        return if (gender == Gender.FEMALE) {
+            when {
+                surname.endsWith("s", true) || surname.endsWith("š", true) -> surname.dropLast(1) + "a"
+                surname.endsWith("is", true) -> surname.dropLast(2) + "e"
+                else -> surname
+            }
+        } else {
+            when {
+                surname.endsWith("a", true) -> surname.dropLast(1) + "s"
+                surname.endsWith("e", true) -> surname.dropLast(1) + "is"
+                else -> surname
+            }
+        }
+    }
+
+    private fun transformLithuanian(surname: String, gender: Gender): String {
+        return if (gender == Gender.FEMALE) {
+            when {
+                surname.endsWith("as", true) -> surname.dropLast(2) + "ienė"
+                surname.endsWith("is", true) || surname.endsWith("ys", true) -> surname.dropLast(2) + "ienė"
+                surname.endsWith("us", true) -> surname.dropLast(2) + "uvienė"
+                surname.endsWith("ius", true) -> surname.dropLast(3) + "iuvienė"
+                surname.endsWith("ov", true) -> surname + "a" // Supporto per russi in Lituania
+                else -> surname
+            }
+        } else {
+            when {
+                surname.endsWith("ienė", true) -> surname.dropLast(4) + "as"
+                surname.endsWith("uvienė", true) -> surname.dropLast(6) + "us"
+                surname.endsWith("iuvienė", true) -> surname.dropLast(7) + "ius"
+                else -> surname
+            }
+        }
+    }
+
+    private fun transformPolish(surname: String, gender: Gender): String {
+        return if (gender == Gender.FEMALE) {
+            if (surname.endsWith("ski", true) || surname.endsWith("cki", true) || surname.endsWith("dzki", true)) {
+                surname.dropLast(1) + "a"
+            } else surname
+        } else {
+            if (surname.endsWith("ska", true) || surname.endsWith("cka", true) || surname.endsWith("dzka", true)) {
+                surname.dropLast(1) + "i"
+            } else surname
         }
     }
 
@@ -115,13 +209,11 @@ class NPCGeneratorViewModel @Inject constructor(
     }
 
     fun setSelectedNationality(nationality: String?) {
-        val culture = getNpcNationality(nationality) // Ottiene il nuovo enum
+        val culture = getNpcNationality(nationality)
 
-        // Controlla se il secondo nome è supportato dalla nuova cultura
         val supportsSecondName = culture?.supportsSecondName ?: false
 
         _generationState.update {
-            // Aggiorna la nazionalità e forza includeSecondName a false se non supportato
             it.copy(
                 selectedNationality = nationality,
                 includeSecondName = if (supportsSecondName) it.includeSecondName else false
@@ -269,72 +361,24 @@ class NPCGeneratorViewModel @Inject constructor(
             it.displayName.equals(nationality, ignoreCase = true)
         }
     }
-    // ...
+
     private fun getFamilyNamesForGender(nationality: String?, gender: Gender, allSurnames: List<String>): List<String> {
         val normalizedNationality = nationality?.lowercase(Locale.ROOT) ?: return allSurnames
-        val culture = getNpcNationality(normalizedNationality) ?: return allSurnames // Usa getNpcNationality qui
+        val culture = getNpcNationality(normalizedNationality) ?: return allSurnames
 
-        // Caso veloce: se la nazionalità non ha regole specifiche per i cognomi.
         if (!culture.hasGenderFamilyNameRules) return allSurnames
-        return when (culture) {
 
-            NpcNationality.ISLANDESE -> {
-                val suffix = if (gender == Gender.MALE) "son" else "dóttir"
-                val filtered = allSurnames.filter { it.endsWith(suffix, ignoreCase = true) }
-
-                if (filtered.isNotEmpty()) filtered else allSurnames
+        return allSurnames.map { surname ->
+            when (culture) {
+                NpcNationality.ISLANDESE -> transformIcelandic(surname, gender)
+                NpcNationality.RUSSO -> transformRussian(surname, gender)
+                NpcNationality.LITUANO -> transformLithuanian(surname, gender)
+                NpcNationality.LETTONE -> transformLatvian(surname, gender)
+                NpcNationality.POLACCO -> transformPolish(surname, gender)
+                else -> surname
             }
-            NpcNationality.RUSSO -> {
-                if (gender == Gender.FEMALE) {
-                    val maleSuffixes = listOf("ov", "ev", "in", "yev", "sky", "ski", "iy", "yy")
-                    val femaleSuffixes = listOf("ova", "eva", "ina", "yeva", "skaya", "ska", "aya", "yaya")
-
-                    allSurnames.map { surname ->
-                        var femaleSurname = surname
-                        maleSuffixes.forEachIndexed { index, maleSuffix ->
-                            if (surname.endsWith(maleSuffix, ignoreCase = true)) {
-                                femaleSurname = surname.dropLast(maleSuffix.length) + femaleSuffixes[index]
-                                return@map femaleSurname
-                            }
-                        }
-                        femaleSurname
-                    }
-                } else {
-                    allSurnames
-                }
-            }
-            NpcNationality.LITUANO -> {
-                if (gender == Gender.FEMALE) {
-                    allSurnames.map { surname ->
-                        when {
-                            surname.endsWith("as", ignoreCase = true) -> surname.dropLast(2) + "aitė"
-                            surname.endsWith("is", ignoreCase = true) -> surname.dropLast(2) + "ytė"
-                            surname.endsWith("us", ignoreCase = true) -> surname.dropLast(2) + "utė"
-                            else -> surname
-                        }
-                    }
-                } else {
-                    allSurnames
-                }
-            }
-            NpcNationality.LETTONE -> {
-                if (gender == Gender.FEMALE) {
-                    allSurnames.map { surname ->
-                        when {
-                            surname.endsWith("s", ignoreCase = true) -> surname.dropLast(1) + "a"
-                            surname.endsWith("š", ignoreCase = true) -> surname.dropLast(1) + "a"
-                            surname.endsWith("is", ignoreCase = true) -> surname.dropLast(2) + "e"
-                            else -> surname
-                        }
-                    }
-                } else {
-                    allSurnames
-                }
-            }
-            else -> allSurnames
-        }
+        }.distinct()
     }
-
 }
 
 data class UiState(
