@@ -32,10 +32,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.v5rules.navigation.BottomNavItem
@@ -44,16 +44,6 @@ import com.example.v5rules.navigation.HomeRulesNav
 import com.example.v5rules.navigation.LoginNav
 import com.example.v5rules.navigation.UserProfileNav
 import com.example.v5rules.ui.theme.V5RulesTheme
-import com.example.v5rules.viewModel.BackgroundViewModel
-import com.example.v5rules.viewModel.ClanViewModel
-import com.example.v5rules.viewModel.DisciplineViewModel
-import com.example.v5rules.viewModel.KindredViewModel
-import com.example.v5rules.viewModel.LoreViewModel
-import com.example.v5rules.viewModel.LoresheetViewModel
-import com.example.v5rules.viewModel.NPCGeneratorViewModel
-import com.example.v5rules.viewModel.PgViewModel
-import com.example.v5rules.viewModel.PredatorTypeViewModel
-import com.example.v5rules.viewModel.RulesViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.AndroidEntryPoint
@@ -77,17 +67,6 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun V5RulesApp() {
-    // ViewModels
-    val disciplineViewModel: DisciplineViewModel = hiltViewModel()
-    val clanViewModel: ClanViewModel = hiltViewModel()
-    val predatorTypeViewModel: PredatorTypeViewModel = hiltViewModel()
-    val rulesViewModel: RulesViewModel = hiltViewModel()
-    val loreViewModel: LoreViewModel = hiltViewModel()
-    val npcGeneratorViewModel: NPCGeneratorViewModel = hiltViewModel()
-    val loresheetViewModel: LoresheetViewModel = hiltViewModel()
-    val kindredViewModel: KindredViewModel = hiltViewModel()
-    val pgViewModel: PgViewModel = hiltViewModel()
-    val backgroundViewModel: BackgroundViewModel = hiltViewModel()
 
     val navController = rememberNavController()
     var currentUser by remember { mutableStateOf(FirebaseAuth.getInstance().currentUser) }
@@ -155,9 +134,12 @@ fun V5RulesApp() {
                             }
                         }
                     },
-                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.secondary,
-                        titleContentColor = MaterialTheme.colorScheme.primary
+                        scrolledContainerColor = Color.Unspecified,
+                        navigationIconContentColor = MaterialTheme.colorScheme.primary,
+                        titleContentColor = MaterialTheme.colorScheme.primary,
+                        actionIconContentColor = MaterialTheme.colorScheme.primary
                     ),
                 )
             },
@@ -208,17 +190,7 @@ fun V5RulesApp() {
                 CustomNavHost(
                     navController = navController,
                     onTitleChanged = { title -> currentTitle = title },
-                    startDestination = startDestination,
-                    disciplineViewModel = disciplineViewModel,
-                    clanViewModel = clanViewModel,
-                    predatorTypeViewModel = predatorTypeViewModel,
-                    rulesViewModel = rulesViewModel,
-                    loreViewModel = loreViewModel,
-                    loresheetViewModel = loresheetViewModel,
-                    npcGeneratorViewModel = npcGeneratorViewModel,
-                    kindredViewModel = kindredViewModel,
-                    pgViewModel = pgViewModel,
-                    backgroundViewModel = backgroundViewModel
+                    startDestination = startDestination
                 )
             }
         }

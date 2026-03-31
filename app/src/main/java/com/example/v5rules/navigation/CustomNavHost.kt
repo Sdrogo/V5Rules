@@ -163,17 +163,7 @@ fun CustomNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
     startDestination: Any,
-    onTitleChanged: (String) -> Unit,
-    disciplineViewModel: DisciplineViewModel,
-    clanViewModel: ClanViewModel,
-    predatorTypeViewModel: PredatorTypeViewModel,
-    rulesViewModel: RulesViewModel,
-    loreViewModel: LoreViewModel,
-    loresheetViewModel: LoresheetViewModel,
-    npcGeneratorViewModel: NPCGeneratorViewModel,
-    kindredViewModel: KindredViewModel,
-    pgViewModel: PgViewModel,
-    backgroundViewModel: BackgroundViewModel
+    onTitleChanged: (String) -> Unit
 ) {
 
     NavHost(navController = navController, startDestination = startDestination, modifier = modifier)
@@ -217,13 +207,13 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }
         ) {
-            BackgroundScreen(backgroundViewModel, navController, onTitleChanged = onTitleChanged)
+            BackgroundScreen(hiltViewModel<BackgroundViewModel>(), navController, onTitleChanged = onTitleChanged)
         }
         composable<DisciplinesNav>(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             DisciplineScreen(
-                disciplineViewModel, navController,
+                hiltViewModel<DisciplineViewModel>(), navController,
                 onTitleChanged = onTitleChanged
             )
         }
@@ -233,7 +223,7 @@ fun CustomNavHost(
             val entry = backStackEntry.toRoute<DisciplineDetailsNav>()
             DisciplineDetailScreen(
                 disciplineId = entry.disciplineId,
-                disciplineViewModel,
+                hiltViewModel<DisciplineViewModel>(),
                 navController,
                 onTitleChanged = onTitleChanged
             )
@@ -245,7 +235,7 @@ fun CustomNavHost(
             DisciplinePowerScreen(
                 disciplineId = entry.disciplineId,
                 disciplinePowerId = entry.subDisciplineId,
-                viewModel = disciplineViewModel,
+                viewModel = hiltViewModel<DisciplineViewModel>(),
                 onTitleChanged = onTitleChanged
             )
         }
@@ -256,7 +246,7 @@ fun CustomNavHost(
             RitualScreen(
                 disciplineId = entry.disciplineId,
                 ritualId = entry.ritualId,
-                viewModel = disciplineViewModel,
+                viewModel = hiltViewModel<DisciplineViewModel>(),
                 onTitleChanged = onTitleChanged
             )
         }
@@ -264,7 +254,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             PredatorTypeListScreen(
-                viewModel = predatorTypeViewModel,
+                viewModel = hiltViewModel<PredatorTypeViewModel>(),
                 navController = navController,
                 onTitleChanged = onTitleChanged
             )
@@ -274,7 +264,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<PredatorTypeDetailsNav>()
             PredatorTypeDetailsScreen(
-                predatorTypeViewModel,
+                hiltViewModel<PredatorTypeViewModel>(),
                 entry.predatorName,
                 onTitleChanged = onTitleChanged
             )
@@ -283,7 +273,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             ClanListScreen(
-                viewModel = clanViewModel,
+                viewModel = hiltViewModel<ClanViewModel>(),
                 navController = navController,
                 onTitleChanged = onTitleChanged
             )
@@ -293,7 +283,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<ClanDetailsNav>()
             ClanDetailScreen(
-                clanViewModel = clanViewModel,
+                clanViewModel = hiltViewModel<ClanViewModel>(),
                 clanName = entry.clanName,
                 onTitleChanged = onTitleChanged
             )
@@ -302,7 +292,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             LoreListScreen(
-                viewModel = loreViewModel,
+                viewModel = hiltViewModel<LoreViewModel>(),
                 navController = navController,
                 onTitleChanged = onTitleChanged
             )
@@ -312,7 +302,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<LoreDetailsNav>()
             LoreDetailsScreen(
-                loreViewModel = loreViewModel,
+                loreViewModel = hiltViewModel<LoreViewModel>(),
                 navController = navController,
                 title = entry.title,
                 onTitleChanged = onTitleChanged
@@ -323,7 +313,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<BackgroundDetailsNav>()
             BackgroundDetailsScreen(
-                backgroundViewModel = backgroundViewModel,
+                backgroundViewModel = hiltViewModel<BackgroundViewModel>(),
                 name = entry.name,
                 id = entry.id,
                 onTitleChanged = onTitleChanged
@@ -336,7 +326,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<SubLoreNav>()
             SubLoreDetail(
-                loreViewModel = loreViewModel,
+                loreViewModel = hiltViewModel<LoreViewModel>(),
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
                 onTitleChanged = onTitleChanged
@@ -346,7 +336,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             KindredListScreen(
-                viewModel = kindredViewModel, navController = navController,
+                viewModel = hiltViewModel<KindredViewModel>(), navController = navController,
                 onTitleChanged = onTitleChanged
             )
         }
@@ -356,7 +346,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<LoreDetailsNav>()
             KindredDetailsScreen(
-                kindredViewModel = kindredViewModel,
+                kindredViewModel =  hiltViewModel<KindredViewModel>(),
                 navController = navController,
                 title = entry.title,
                 onTitleChanged = onTitleChanged
@@ -368,7 +358,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<SubKindredNav>()
             SubKindredDetail(
-                kindredViewModel = kindredViewModel,
+                kindredViewModel =  hiltViewModel<KindredViewModel>(),
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
                 onTitleChanged = onTitleChanged
@@ -378,7 +368,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             PgListScreen(
-                viewModel = pgViewModel, navController = navController,
+                viewModel =  hiltViewModel<PgViewModel>(), navController = navController,
                 onTitleChanged = onTitleChanged
             )
         }
@@ -388,7 +378,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<LoreDetailsNav>()
             PgDetailsScreen(
-                pgViewModel = pgViewModel,
+                pgViewModel = hiltViewModel<PgViewModel>(),
                 navController = navController,
                 title = entry.title,
                 onTitleChanged = onTitleChanged
@@ -400,7 +390,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<SubKindredNav>()
             SubPgDetail(
-                pgViewModel = pgViewModel,
+                pgViewModel = hiltViewModel<PgViewModel>(),
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
                 onTitleChanged = onTitleChanged
@@ -412,7 +402,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) {
             NPCGeneratorScreen(
                 modifier = Modifier,
-                viewModel = npcGeneratorViewModel,
+                viewModel = hiltViewModel<NPCGeneratorViewModel>(),
                 navController = navController,
                 onTitleChanged = onTitleChanged
             )
@@ -422,7 +412,7 @@ fun CustomNavHost(
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) {
             RuleListScreen(
-                viewModel = rulesViewModel,
+                viewModel = hiltViewModel<RulesViewModel>(),
                 navController = navController,
                 onTitleChanged = onTitleChanged
             )
@@ -432,7 +422,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<RulesDetailsNav>()
             RulesDetailsScreen(
-                rulesViewModel = rulesViewModel,
+                rulesViewModel = hiltViewModel<RulesViewModel>(),
                 navController = navController,
                 title = entry.title,
                 onTitleChanged = onTitleChanged
@@ -443,7 +433,7 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) { backStackEntry ->
             val entry = backStackEntry.toRoute<SubRuleNav>()
             SubRuleDetail(
-                rulesViewModel = rulesViewModel,
+                rulesViewModel = hiltViewModel<RulesViewModel>(),
                 chapterTitle = entry.title,
                 sectionTitle = entry.section,
                 onTitleChanged = onTitleChanged
@@ -451,7 +441,7 @@ fun CustomNavHost(
         }
         composable<LoresheetNav> {
             LoresheetScreen(
-                loresheetViewModel = loresheetViewModel,
+                loresheetViewModel = hiltViewModel<LoresheetViewModel>(),
                 navController = navController,
                 onTitleChanged = onTitleChanged
             )
@@ -463,7 +453,7 @@ fun CustomNavHost(
             LoresheetDetailsScreen(
                 id = entry.id,
                 name = entry.name,
-                loresheetViewModel = loresheetViewModel,
+                loresheetViewModel = hiltViewModel<LoresheetViewModel>(),
                 onTitleChanged = onTitleChanged
             )
 
