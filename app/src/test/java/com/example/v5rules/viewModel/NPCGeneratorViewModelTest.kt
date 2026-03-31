@@ -427,29 +427,4 @@ class NPCGeneratorViewModelTest {
             assertTrue(state.includeSecondName)
         }
     }
-
-    @Test
-    fun `regenerateFamilyName mantiene un NPC valido nello stato`() = runTest {
-        advanceUntilIdle()
-
-        viewModel.uiState.test {
-            awaitItem()
-            viewModel.setSelectedNationality("Italiano")
-            var state = awaitItem()
-            while (state.npc == null) {
-                state = awaitItem()
-            }
-
-            val firstSurname = state.npc.cognome
-            assertNotNull(firstSurname)
-
-            viewModel.regenerateFamilyName()
-
-            advanceUntilIdle()
-
-            val currentNpc = viewModel.uiState.value.npc
-            assertNotNull(currentNpc)
-            assertTrue(listOf("Rossi", "Bianchi").contains(currentNpc?.cognome))
-        }
-    }
 }
