@@ -45,6 +45,7 @@ import com.example.v5rules.ui.compose.screen.sheet.visualization.CharacterSheetS
 import com.example.v5rules.ui.compose.screen.user.FriendRequestsScreen
 import com.example.v5rules.ui.compose.screen.user.UserProfileScreen
 import com.example.v5rules.viewModel.BackgroundViewModel
+import com.example.v5rules.viewModel.CharacterSheetListViewModel
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.viewModel.ClanViewModel
 import com.example.v5rules.viewModel.DisciplineViewModel
@@ -494,7 +495,8 @@ fun CustomNavHost(
             exitTransition = { exitTransition }) {
             CharacterSheetListScreen(
                 navController = navController,
-                onTitleChanged = onTitleChanged
+                onTitleChanged = onTitleChanged,
+                viewModel = hiltViewModel<CharacterSheetListViewModel>()
             )
         }
 
