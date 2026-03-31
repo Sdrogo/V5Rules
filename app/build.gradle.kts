@@ -38,7 +38,6 @@ configure<ApplicationExtension>  {
         applicationId = "com.example.v5rules"
         minSdk = 25
         targetSdk = 36
-        // Corretto: Usiamo solo le chiamate alle funzioni, senza duplicati.
         versionCode = getVersionCode()
         versionName = getVersionName()
 
@@ -115,7 +114,7 @@ kotlin {
 
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
-    implementation(platform(libs.firebase.bom)) // Import the Firebase BoM
+    implementation(platform(libs.firebase.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.hilt.navigation.compose)
@@ -129,18 +128,28 @@ dependencies {
     implementation(libs.firebase.crashlytics)
     implementation(libs.firebase.perf)
     implementation(libs.androidx.compose.animation)
+    implementation(libs.androidx.compose.material.icons.extended)
     ksp(libs.hilt.android.compiler)
+
+    // UNIT TEST (Logica)
     testImplementation(libs.junit)
-    //androidTestImplementation(libs.androidx.junit)
-    //androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.turbine)
+
+    // UI TEST (Jetpack Compose)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    debugImplementation(platform(libs.androidx.compose.bom))
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
+
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(libs.androidx.ui.test.junit4)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
@@ -148,5 +157,4 @@ dependencies {
     implementation(libs.serialization)
     implementation (libs.kotlinx.coroutines.core)
     implementation(libs.androidx.constraintlayout.compose)
-    implementation(libs.androidx.compose.material.icons.extended)
 }

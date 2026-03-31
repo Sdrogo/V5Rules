@@ -115,7 +115,7 @@ class NPCGeneratorViewModel @Inject constructor(
             NpcNationality.RUSSO.name -> transformRussian(currentSurname, newGender)
             NpcNationality.ISLANDESE.name -> transformIcelandic(currentSurname, newGender)
             NpcNationality.LETTONE.name -> transformLatvian(currentSurname, newGender)
-            NpcNationality.LITUANO.displayName -> transformLithuanian(currentSurname, newGender)
+            NpcNationality.LITUANO.name -> transformLithuanian(currentSurname, newGender)
             NpcNationality.POLACCO.name -> transformPolish(currentSurname, newGender)
             else -> currentSurname
         }

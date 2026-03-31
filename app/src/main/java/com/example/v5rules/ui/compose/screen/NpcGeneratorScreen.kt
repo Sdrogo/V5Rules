@@ -122,6 +122,11 @@ fun NPCGeneratorScreen(
                             Row {
                                 Column(modifier = Modifier.weight(1f)) {
                                     SettingsCard(viewModel = viewModel)
+                                    ActionButtons(
+                                        onGenerateClick = viewModel::generateAll,
+                                        onCreateClick = viewModel::createCharacterFromNpc,
+                                        isCreateEnabled = uiState.npc != null
+                                    )
                                  }
                                 Column(modifier = Modifier.weight(1f)) {
                                     Box(
@@ -183,6 +188,7 @@ fun NPCGeneratorScreen(
                         }
                     }
                 }
+                if(orientation == Configuration.ORIENTATION_PORTRAIT)
                 ActionButtons(
                     onGenerateClick = viewModel::generateAll,
                     onCreateClick = viewModel::createCharacterFromNpc,
