@@ -42,7 +42,7 @@ sealed class CharacterSheetEvent {
     data class DisciplineLevelChanged(val discipline: Discipline, val newLevel: Int) : CharacterSheetEvent() // Per cambiare il livello
     data class AddRitual(val disciplineName: String, val ritual: Ritual) : CharacterSheetEvent()
 
-    data class RemoveRitual(val disciplineName: String, val ritual: Ritual) : CharacterSheetEvent()
+    data class RemoveRitual(val disciplineName: String, val ritualId: String) : CharacterSheetEvent()
 
     data class UpdateRitualLevel(val disciplineName: String, val ritual: Ritual, val level: Int) : CharacterSheetEvent()
 

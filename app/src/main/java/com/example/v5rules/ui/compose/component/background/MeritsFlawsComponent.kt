@@ -237,7 +237,6 @@ fun AdvantageItemVisualization(
     }
 }
 
-// Assumo che DotsWithMinMax sia definito da qualche parte, se non lo è, questa è una possibile implementazione
 @Composable
 fun DotsWithMinMax(level: Int, maxLevel: Int) {
     Row {
