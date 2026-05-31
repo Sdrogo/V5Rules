@@ -46,63 +46,77 @@ fun LoresheetDetailsScreen(
         onTitleChanged(name)
     }
     val uiState by loresheetViewModel.loresheetUiState.collectAsState()
-    val loresheet = (uiState as LoresheetUiState.Success).loresheets.first { it.id == id }
 
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 16.dp)
-            .background(color = MaterialTheme.colorScheme.background)
-    ) {
-        item {
-            val orientation =
-                LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
-            val widthByOrientation =
-                if (orientation) 0.4f else 1f
-            val maxRowItem = if (orientation) 2 else 1
+    when (val state = uiState) {
+        is LoresheetUiState.Loading -> {
+            // Potresti aggiungere un caricamento qui
+        }
 
-            FlowRow(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 8.dp),
-                horizontalArrangement = Arrangement.SpaceAround,
-                maxItemsInEachRow = maxRowItem
-            ) {
-                loresheet.limitation?.let { text ->
-                    Text(
-                        text = text,
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.secondary,
-                        modifier = Modifier.wrapContentSize()
-                    )
-                }
-                Surface(
+        is LoresheetUiState.Error -> {
+            Text(text = state.message)
+        }
+
+        is LoresheetUiState.Success -> {
+            val loresheet = state.loresheets.find { it.id == id }
+            if (loresheet != null) {
+                LazyColumn(
                     modifier = Modifier
-                        .padding(8.dp)
-                        .wrapContentSize()
-                        .background(MaterialTheme.colorScheme.background)
-                        .border(
-                            1.dp,
-                            MaterialTheme.colorScheme.secondary,
-                            RoundedCornerShape(8.dp)
-                        ),
-                    shape = RoundedCornerShape(8.dp)
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp)
+                        .background(color = MaterialTheme.colorScheme.background)
                 ) {
+                    item {
+                        val orientation =
+                            LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+                        val widthByOrientation =
+                            if (orientation) 0.4f else 1f
+                        val maxRowItem = if (orientation) 2 else 1
 
-                    Text(
-                        text = loresheet.content,
-                        Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp)
-                    )
-                }
-                loresheet.powers.forEach { power ->
-                    LoresheetPower(
-                        loresheetPower = power,
-                        widthByOrientation = widthByOrientation,
-                        isLandscape = orientation
-                    )
+                        FlowRow(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(top = 8.dp),
+                            horizontalArrangement = Arrangement.SpaceAround,
+                            maxItemsInEachRow = maxRowItem
+                        ) {
+                            loresheet.limitation?.let { text ->
+                                Text(
+                                    text = text,
+                                    style = MaterialTheme.typography.headlineSmall,
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.wrapContentSize()
+                                )
+                            }
+                            Surface(
+                                modifier = Modifier
+                                    .padding(8.dp)
+                                    .wrapContentSize()
+                                    .background(MaterialTheme.colorScheme.background)
+                                    .border(
+                                        1.dp,
+                                        MaterialTheme.colorScheme.secondary,
+                                        RoundedCornerShape(8.dp)
+                                    ),
+                                shape = RoundedCornerShape(8.dp)
+                            ) {
+
+                                Text(
+                                    text = loresheet.content,
+                                    Modifier
+                                        .fillMaxWidth()
+                                        .padding(8.dp)
+                                )
+                            }
+                            loresheet.powers.forEach { power ->
+                                LoresheetPower(
+                                    loresheetPower = power,
+                                    widthByOrientation = widthByOrientation,
+                                    isLandscape = orientation
+                                )
+                            }
+                        }
+                    }
                 }
             }
         }

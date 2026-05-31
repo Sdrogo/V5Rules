@@ -14,7 +14,6 @@ import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.ui.compose.component.CustomContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.DotsForAttribute
-import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.navigation.DisciplinePowerNav
 import com.example.v5rules.R
@@ -47,7 +46,7 @@ fun DisciplineSelectionVisualization(
                             val disciplinePowers =
                                 discipline.selectedDisciplinePowers.filter { it.level > 0 }
                             disciplinePowers.forEach { power ->
-                                DisciplinePowerItem(power, discipline, viewModel, navController)
+                                DisciplinePowerItem(power, discipline,  navController)
                             }
                             val ritual =
                                 characterRituals.filter { it.title == discipline.title }
@@ -58,7 +57,7 @@ fun DisciplineSelectionVisualization(
                                     style = MaterialTheme.typography.titleLarge
                                 )
                                 powers.forEach { power ->
-                                    RitualPowerItem(discipline, power, viewModel, navController)
+                                    RitualPowerItem(discipline, power, navController)
                                 }
                             }
                         }
@@ -91,7 +90,6 @@ fun DisciplineHeaderItem(discipline: Discipline) {
 fun DisciplinePowerItem(
     power: DisciplinePower,
     discipline: Discipline,
-    viewModel: CharacterSheetViewModel,
     navController: NavHostController
 ) {
     Row(
@@ -99,7 +97,6 @@ fun DisciplinePowerItem(
         modifier = Modifier
             .fillMaxWidth()
             .clickable {
-                viewModel.onEvent(CharacterSheetEvent.SaveClicked)
                 navController.navigate(
                     DisciplinePowerNav(disciplineId = discipline.id, subDisciplineId = power.id)
                 )
@@ -117,7 +114,6 @@ fun DisciplinePowerItem(
 fun RitualPowerItem(
     discipline: Discipline,
     power: RitualPower,
-    viewModel: CharacterSheetViewModel,
     navController: NavHostController
 ) {
     Row(
@@ -125,7 +121,6 @@ fun RitualPowerItem(
         modifier = Modifier
             .fillMaxWidth()
             .clickable {
-                viewModel.onEvent(CharacterSheetEvent.SaveClicked)
                 navController.navigate(
                     RitualNav(disciplineId = discipline.id, ritualId = power.id)
                 )

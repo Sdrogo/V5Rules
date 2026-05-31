@@ -34,16 +34,17 @@ fun DisciplinePowerScreen(
 
     val discipline = viewModel.allDisciplines.find { it.id == disciplineId }
     val disciplinePower = discipline?.disciplinePowers?.find { it.id == disciplinePowerId }
-    val title = disciplinePower?.title ?: ""
+    while (disciplinePower?.title.isNullOrEmpty()) {
+        return
+    }
+    val title = disciplinePower.title
     LaunchedEffect(Unit) {
         onTitleChanged(title)
     }
     Column(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
-        if (disciplinePower != null) {
-            LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)) { // Wrap content in LazyColumn
-                item { // Use 'item' to add individual composables to the LazyColumn
-                    DisciplinePowerInfo(disciplinePower = disciplinePower, discipline = discipline)
-                }
+        LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)) { // Wrap content in LazyColumn
+            item { // Use 'item' to add individual composables to the LazyColumn
+                DisciplinePowerInfo(disciplinePower = disciplinePower, discipline = discipline)
             }
         }
     }
