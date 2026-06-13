@@ -1,5 +1,7 @@
 package com.example.v5rules.navigation
 
+import android.net.Uri
+import android.os.Bundle
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
@@ -9,14 +11,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.example.v5rules.data.Advantage
 import com.example.v5rules.ui.compose.screen.HomeRulesScreen
 import com.example.v5rules.ui.compose.screen.LoginScreen
 import com.example.v5rules.ui.compose.screen.NPCGeneratorScreen
 import com.example.v5rules.ui.compose.screen.background.BackgroundDetailsScreen
 import com.example.v5rules.ui.compose.screen.background.BackgroundScreen
+import com.example.v5rules.ui.compose.screen.background.DirectFlawDetailsScreen
 import com.example.v5rules.ui.compose.screen.clan.ClanDetailScreen
 import com.example.v5rules.ui.compose.screen.clan.ClanListScreen
 import com.example.v5rules.ui.compose.screen.discipline.DisciplineDetailScreen
@@ -58,6 +63,8 @@ import com.example.v5rules.viewModel.PredatorTypeViewModel
 import com.example.v5rules.viewModel.RulesViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlin.reflect.typeOf
 
 
 @Serializable
@@ -151,6 +158,24 @@ data class LoresheetDetailsNav(val name: String, val id: String)
 
 @Serializable
 data class BackgroundDetailsNav(val name: String, val id: String)
+
+@Serializable
+data class DirectFlawDetailsNav(val flaw: Advantage)
+
+val AdvantageType = object : NavType<Advantage>(isNullableAllowed = false) {
+    override fun get(bundle: Bundle, key: String): Advantage? {
+        return bundle.getString(key)?.let { Json.decodeFromString(it) }
+    }
+    override fun parseValue(value: String): Advantage {
+        return Json.decodeFromString(Uri.decode(value))
+    }
+    override fun serializeAsValue(value: Advantage): String {
+        return Uri.encode(Json.encodeToString(value))
+    }
+    override fun put(bundle: Bundle, key: String, value: Advantage) {
+        bundle.putString(key, Json.encodeToString(value))
+    }
+}
 
 @Serializable
 data class CharacterSheetEditNav(val id: String)
@@ -321,6 +346,16 @@ fun CustomNavHost(
             )
         }
 
+        composable<DirectFlawDetailsNav>(
+            typeMap = mapOf(typeOf<Advantage>() to AdvantageType),
+            enterTransition = { enterTransition },
+            exitTransition = { exitTransition }) { backStackEntry ->
+            val entry = backStackEntry.toRoute<DirectFlawDetailsNav>()
+            DirectFlawDetailsScreen(
+                flaw = entry.flaw,
+                onTitleChanged = onTitleChanged
+            )
+        }
 
         composable<SubLoreNav>(
             enterTransition = { enterTransition },

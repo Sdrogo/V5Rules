@@ -37,7 +37,10 @@ class BackgroundViewModel @Inject constructor(
                 } else {
                     uiState.backgrounds.filter { background ->
                         background.title.contains(query, ignoreCase = true) ||
-                                background.prerequisites?.contains(query, ignoreCase = true) ?: false
+                                background.merits.any{ it.title.contains(query, ignoreCase = true) } ||
+                                background.flaws.any{ it.title.contains(query, ignoreCase = true) } ||
+                                background.directFlaws.any { it.title.contains(query, ignoreCase = true) } ||
+                                background.prerequisites?.contains(query, ignoreCase = true) == true
                     }
                 }
             }
