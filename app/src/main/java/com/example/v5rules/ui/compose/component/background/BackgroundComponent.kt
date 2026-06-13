@@ -185,7 +185,6 @@ fun BackgroundItem(
                     characterBackground.merits.forEach { merit ->
                         BackgroundAdvantageItem(
                             advantage = merit,
-                            isFlaw = false,
                             onRemove = {
                                 onEvent(
                                     CharacterSheetEvent.BackgroundMeritRemoved(
@@ -235,7 +234,6 @@ fun BackgroundItem(
                     characterBackground.flaws.forEach { flaw ->
                         BackgroundAdvantageItem(
                             advantage = flaw,
-                            isFlaw = true,
                             onRemove = {
                                 onEvent(
                                     CharacterSheetEvent.BackgroundFlawRemoved(
@@ -304,7 +302,6 @@ fun BackgroundItem(
 @Composable
 fun BackgroundAdvantageItem(
     advantage: Advantage,
-    isFlaw: Boolean,
     onRemove: () -> Unit,
     onLevelChanged: (Int) -> Unit,
     onAddNote: (String) -> Unit,

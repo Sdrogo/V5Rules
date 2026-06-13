@@ -103,13 +103,11 @@ fun BackgroundDetailsScreen(
                                     modifier = Modifier.wrapContentWidth()
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
-                                DotsWithMinMax(
-                                    level = background.minLevel,
-                                    maxLevel = background.maxLevel
+                                RangeDots(
+                                    min = background.minLevel,
+                                    max = background.maxLevel
                                 )
                             }
-
-
 
                             background.prerequisites?.let {
                                 Text(
