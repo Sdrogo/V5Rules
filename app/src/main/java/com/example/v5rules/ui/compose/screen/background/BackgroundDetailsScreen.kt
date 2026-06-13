@@ -35,7 +35,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.data.Advantage
-import com.example.v5rules.ui.compose.component.DotsWithMinMax
 import com.example.v5rules.ui.compose.component.RangeDots
 import com.example.v5rules.viewModel.BackgroundUiState
 import com.example.v5rules.viewModel.BackgroundViewModel
@@ -94,7 +93,7 @@ fun BackgroundDetailsScreen(
                                 .fillMaxSize()
                                 .padding(top = 8.dp)
                         ) {
-                            Row(modifier = Modifier.fillMaxWidth(),verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
+                            Row(modifier = Modifier.fillMaxWidth(),verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Absolute.SpaceBetween) {
                                 Text(
                                     text = background.title,
                                     style = MaterialTheme.typography.headlineSmall,
@@ -345,6 +344,25 @@ fun DirectFlawDetailsScreen(
                     .fillMaxSize()
                     .padding(top = 8.dp)
             ) {
+                Row(modifier = Modifier.fillMaxWidth(),verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Absolute.SpaceBetween) {
+                    Text(
+                        text = flaw.title,
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.wrapContentWidth()
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    flaw.minLevel?.let {
+                        flaw.maxLevel?.let {
+                            RangeDots(
+                                min = flaw.minLevel,
+                                max = flaw.maxLevel
+                            )
+                        }
+                    }
+
+                }
                 flaw.prerequisites?.let {
 
                     Text(
