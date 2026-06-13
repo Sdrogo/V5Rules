@@ -273,12 +273,6 @@
     ],
     "flaws": [
       {
-        "id": 20007,
-        "title": "Azzerato e Falsario",
-        "description": "Azzerato offre una buona sinergia con i personaggi che fungono da spie o agenti per la loro setta, ombre sfuggenti per scopi loro o per quelli dei loro mandatari. Falsario offre al vampiro la capacità di fabbricare maschere per altri in cambio di un compenso e con poco rischio. Questo Background costituisce un ottimo spunto di storia criminale collaterale: i personaggi possono vendere la loro perizia in cambio di soldi o favori, generando al contempo potenziali pericoli da parte di cacciatori e nemici dei loro clienti.",
-        "isFlaw": true
-      },
-      {
         "id": 20008,
         "title": "Noto Defunto",
         "description": "I mortali sanno che è morto da poco e inorridiscono se riappare tra loro. Questo Difetto si applica a qualsiasi ricerca sulla sua identità nelle banche dati.",
@@ -509,8 +503,8 @@
         "id": 10021,
         "title": "Aspetto Strepitoso",
         "description": "Due dadi extra a tutte le riserve Sociali pertinenti.",
-        "minLevel": 2,
-        "maxLevel": 2
+        "minLevel": 4,
+        "maxLevel": 4
       },
       {
         "id": 10027,
@@ -716,7 +710,7 @@
   },
   {
     "id": 21,
-    "title": "Pregi e Difett i Mitici",
+    "title": "Pregi e Difetti Mitici",
     "description": "Ogni linea di sangue ha le sue peculiarità, maledizioni e ferite dell’anima. Resti di antenati divenuti polvere germinano nella vitae che propaga la maledizione da sire a infante. Altri vampiri, invece, sviluppano debolezze sul momento: disturbi psicosomatici aggravati dall’Abbraccio o invisibili maree nel flusso millenario del Sangue.",
     "flaws": [
       {
@@ -859,9 +853,9 @@
   },
   {
     "id": 22,
-    "title": "Pregi e Difett dei Sangue Debole",
+    "title": "Pregi e Difetti dei Sangue Debole",
     "description": "Questi Tratti si applicano solo ai Sangue debole. Non hanno valore in pallini; ogni Difetto bilancia un Pregio e viceversa. Pertanto, non contano ai fini del massimo di pallini in Vantaggi e Difetti acquisibile alla creazione del personaggio o tramite l’esperienza.",
-    "direcyFlaws": [
+    "flaws": [
       {
         "id": 10050,
         "title": "Carne Morta",
