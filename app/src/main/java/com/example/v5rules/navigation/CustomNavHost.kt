@@ -160,7 +160,7 @@ data class LoresheetDetailsNav(val name: String, val id: String)
 data class BackgroundDetailsNav(val name: String, val id: String)
 
 @Serializable
-data class DirectFlawDetailsNav(val flaw: Advantage)
+data class AdvantageDetailsNav(val advantage: Advantage)
 
 val AdvantageType = object : NavType<Advantage>(isNullableAllowed = false) {
     override fun get(bundle: Bundle, key: String): Advantage? {
@@ -346,13 +346,13 @@ fun CustomNavHost(
             )
         }
 
-        composable<DirectFlawDetailsNav>(
+        composable<AdvantageDetailsNav>(
             typeMap = mapOf(typeOf<Advantage>() to AdvantageType),
             enterTransition = { enterTransition },
             exitTransition = { exitTransition }) { backStackEntry ->
-            val entry = backStackEntry.toRoute<DirectFlawDetailsNav>()
+            val entry = backStackEntry.toRoute<AdvantageDetailsNav>()
             DirectFlawDetailsScreen(
-                flaw = entry.flaw,
+                flaw = entry.advantage,
                 onTitleChanged = onTitleChanged
             )
         }
