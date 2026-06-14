@@ -35,7 +35,7 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.navigation.BackgroundDetailsNav
 import com.example.v5rules.R
 import com.example.v5rules.data.Background
-import com.example.v5rules.navigation.DirectFlawDetailsNav
+import com.example.v5rules.navigation.AdvantageDetailsNav
 import com.example.v5rules.ui.compose.component.RangeDots
 import com.example.v5rules.ui.compose.component.TintedImage
 import com.example.v5rules.viewModel.BackgroundUiState
@@ -109,58 +109,60 @@ fun BackgroundScreen(
                             horizontalArrangement = Arrangement.SpaceAround,
                             maxItemsInEachRow = maxRowItem
                         ) {
-                            filteredBackgrounds.sortedBy { it.title }
-                                .filter { it.directFlaws.isEmpty() }.forEach {
+                            filteredBackgrounds.sortedBy { it.title }.filter { it.title != "Bucket Difetti"}.forEach {
                                     BackgroundLineItem(
                                         background = it,
                                         navController = navController,
                                         maxWidth = widthByOrientation
                                     )
                                 }
-                            filteredBackgrounds
-                                .filter { it.directFlaws.isNotEmpty() }.forEach { background ->
-                                    background.directFlaws.sortedBy { it.title }.forEach { flaw ->
-                                        Column(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .padding(bottom = 8.dp)
-                                                .clickable {
-                                                    navController.navigate(
-                                                        DirectFlawDetailsNav(
-                                                            flaw = flaw,
-                                                        ),
-                                                    )
-                                                }
+                            filteredBackgrounds.filter { it.title == "Bucket Difetti"}.forEach { bg ->
+                                bg.directFlaws.sortedBy { it.title }.forEach { directFlaw ->
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(bottom = 8.dp)
+                                            .clickable {
+                                                navController.navigate(
+                                                    AdvantageDetailsNav(
+                                                        advantage = directFlaw,
+                                                    ),
+                                                )
+                                            }
+                                    ) {
+                                        Row(
+                                            modifier = Modifier.fillMaxWidth(),
+                                            verticalAlignment = Alignment.CenterVertically,
+                                            horizontalArrangement = Arrangement.Absolute.SpaceBetween
                                         ) {
-                                            Row(modifier = Modifier.fillMaxWidth(),verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Absolute.SpaceBetween) {
-                                                Text(
-                                                    text = flaw.title,
-                                                    style = MaterialTheme.typography.headlineSmall,
-                                                    fontWeight = FontWeight.Bold,
-                                                    color = MaterialTheme.colorScheme.secondary,
-                                                    modifier = Modifier
-                                                        .wrapContentWidth()
-                                                        .padding(horizontal = 8.dp)
-                                                )
-                                                flaw.minLevel?.let { min ->
-                                                    flaw.maxLevel?.let { max ->
-                                                        RangeDots(min, max, modifier = Modifier)
-                                                    }
+                                            Text(
+                                                text = directFlaw.title,
+                                                style = MaterialTheme.typography.headlineSmall,
+                                                fontWeight = FontWeight.Bold,
+                                                color = MaterialTheme.colorScheme.secondary,
+                                                modifier = Modifier
+                                                    .wrapContentWidth()
+                                                    .padding(horizontal = 8.dp)
+                                            )
+                                            directFlaw.minLevel?.let { min ->
+                                                directFlaw.maxLevel?.let { max ->
+                                                    RangeDots(min, max, modifier = Modifier)
                                                 }
                                             }
-                                            flaw.prerequisites?.let {
-                                                Text(
-                                                    text = it,
-                                                    style = MaterialTheme.typography.bodyMedium,
-                                                    color = MaterialTheme.colorScheme.secondary,
-                                                    modifier = Modifier
-                                                        .wrapContentWidth()
-                                                        .padding(horizontal = 8.dp)
-                                                )
-                                            }
+                                        }
+                                        directFlaw.prerequisites?.let {
+                                            Text(
+                                                text = it,
+                                                style = MaterialTheme.typography.bodyMedium,
+                                                color = MaterialTheme.colorScheme.secondary,
+                                                modifier = Modifier
+                                                    .wrapContentWidth()
+                                                    .padding(horizontal = 8.dp)
+                                            )
                                         }
                                     }
                                 }
+                            }
                         }
                     }
                 }
@@ -196,7 +198,11 @@ fun BackgroundLineItem(
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         ) {
-            Row(modifier = Modifier.fillMaxWidth(),verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Absolute.SpaceBetween) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Absolute.SpaceBetween
+            ) {
                 Text(
                     text = background.title,
                     style = MaterialTheme.typography.headlineSmall,
@@ -224,8 +230,19 @@ fun BackgroundLineItem(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 8.dp, start = 16.dp)
+                    .clickable {
+                        navController.navigate(
+                            AdvantageDetailsNav(
+                                advantage = merit,
+                            ),
+                        )
+                    }
             ) {
-                Row(modifier = Modifier.fillMaxWidth(),verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Absolute.SpaceBetween) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Absolute.SpaceBetween
+                ) {
                     Text(
                         text = merit.title,
                         style = MaterialTheme.typography.headlineSmall,
@@ -253,15 +270,26 @@ fun BackgroundLineItem(
                 }
             }
         }
-        background.flaws.forEach { flaw ->
+        background.directFlaws.forEach { directFlaw ->
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 8.dp, start = 16.dp)
+                    .clickable {
+                        navController.navigate(
+                            AdvantageDetailsNav(
+                                advantage = directFlaw,
+                            ),
+                        )
+                    }
             ) {
-                Row(modifier = Modifier.fillMaxWidth(),verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Absolute.SpaceBetween) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Absolute.SpaceBetween
+                ) {
                     Text(
-                        text = flaw.title,
+                        text = directFlaw.title,
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.secondary,
@@ -269,13 +297,13 @@ fun BackgroundLineItem(
                             .wrapContentWidth()
                             .padding(horizontal = 8.dp)
                     )
-                    flaw.minLevel?.let { min ->
-                        flaw.maxLevel?.let { max ->
+                    directFlaw.minLevel?.let { min ->
+                        directFlaw.maxLevel?.let { max ->
                             RangeDots(min, max, modifier = Modifier)
                         }
                     }
                 }
-                flaw.prerequisites?.let {
+                directFlaw.prerequisites?.let {
                     Text(
                         text = it,
                         style = MaterialTheme.typography.bodyMedium,
@@ -288,4 +316,50 @@ fun BackgroundLineItem(
             }
         }
     }
+    background.flaws.forEach { flaw ->
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 8.dp, start = 16.dp)
+                .clickable {
+                    navController.navigate(
+                        AdvantageDetailsNav(
+                            advantage = flaw,
+                        ),
+                    )
+                }
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Absolute.SpaceBetween
+            ) {
+                Text(
+                    text = flaw.title,
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.secondary,
+                    modifier = Modifier
+                        .wrapContentWidth()
+                        .padding(horizontal = 8.dp)
+                )
+                flaw.minLevel?.let { min ->
+                    flaw.maxLevel?.let { max ->
+                        RangeDots(min, max, modifier = Modifier)
+                    }
+                }
+            }
+            flaw.prerequisites?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.secondary,
+                    modifier = Modifier
+                        .wrapContentWidth()
+                        .padding(horizontal = 8.dp)
+                )
+            }
+        }
+    }
 }
+
