@@ -240,7 +240,7 @@ fun Character.addDisciplinePower(disciplineName: String, power: DisciplinePower)
             it.copy(selectedDisciplinePowers = it.selectedDisciplinePowers + power)
         } else it
     }
-    return this.copy(disciplines = updatedDisciplines.toList())
+    return this.copy(disciplines = updatedDisciplines)
 }
 
 fun Character.removeDisciplinePower(disciplineName: String, power: DisciplinePower): Character {
@@ -249,7 +249,7 @@ fun Character.removeDisciplinePower(disciplineName: String, power: DisciplinePow
             it.copy(selectedDisciplinePowers = it.selectedDisciplinePowers.filterNot { p -> p.id == power.id })
         } else it
     }
-    return this.copy(disciplines = updatedDisciplines.toList())
+    return this.copy(disciplines = updatedDisciplines)
 }
 
 // --- RITUAL LOGIC ---
@@ -271,7 +271,7 @@ fun Character.removeRitual(ritualId: String): Character =
 fun Character.updateRitualLevel(ritualTitle: String, level: Int): Character {
     val updatedRituals =
         learnedRituals.map { if (it.title == ritualTitle) it.copy(level = level) else it }
-    return this.copy(learnedRituals = updatedRituals.toList())
+    return this.copy(learnedRituals = updatedRituals)
 }
 
 fun Character.addRitualPower(ritualTitle: String, power: RitualPower): Character {
@@ -280,7 +280,7 @@ fun Character.addRitualPower(ritualTitle: String, power: RitualPower): Character
             it.copy(ritualsPowers = it.ritualsPowers + power)
         } else it
     }
-    return this.copy(learnedRituals = updatedRituals.toList())
+    return this.copy(learnedRituals = updatedRituals)
 }
 
 fun Character.removeRitualPower(ritualTitle: String, powerId: String): Character {
@@ -289,7 +289,7 @@ fun Character.removeRitualPower(ritualTitle: String, powerId: String): Character
             it.copy(ritualsPowers = it.ritualsPowers.filterNot { p -> p.id == powerId })
         } else it
     }
-    return this.copy(learnedRituals = updatedRituals.toList())
+    return this.copy(learnedRituals = updatedRituals)
 }
 
 // --- BACKGROUNDS & ADVANTAGES ---
@@ -433,7 +433,7 @@ fun Character.updateAdvantage(advantage: Advantage, background: Background, leve
                 it.id == advantage.id
             }?.copy(level = level)
         if (updatedVantage != null) {
-            advantages[advantages.indexOf(advantage)] = updatedVantage
+            advantages[advantages.indexOf(updatedVantage)] = updatedVantage
         }
         backgrounds[backgroundIndex] =
             if (advantage.isFlaw == true)
@@ -496,7 +496,7 @@ fun Character.updateAdvantageFlawLevel(
                 it.id == advantage.id
             }?.copy(level = level)
         if (updatedVantage != null) {
-            advantages[advantages.indexOf(advantage)] = updatedVantage
+            advantages[advantages.indexOf(updatedVantage)] = updatedVantage
         }
         backgrounds[backgroundIndex] =
             backgrounds[backgroundIndex].copy(merits = advantages)
