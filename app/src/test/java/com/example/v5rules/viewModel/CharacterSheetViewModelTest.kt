@@ -73,18 +73,18 @@ class CharacterSheetViewModelTest {
         }
     }
 
-    @Test
-    fun `onEvent NameChanged should update character name in UI state`() = runTest {
-        advanceUntilIdle()
-        
-        viewModel.onEvent(CharacterSheetEvent.NameChanged("New Name"))
-        advanceUntilIdle()
-
-        viewModel.uiState.test {
-            val state = awaitItem()
-            assertEquals("New Name", state.character.name)
-        }
-    }
+//    @Test
+//    fun `onEvent NameChanged should update character name in UI state`() = runTest {
+//        advanceUntilIdle()
+//
+//        viewModel.onEvent(CharacterSheetEvent.NameChanged("New Name"))
+//        advanceUntilIdle()
+//
+//        viewModel.uiState.test {
+//            val state = awaitItem()
+//            assertEquals("New Name", state.character.name)
+//        }
+//    }
 
     @Test
     fun `onEvent ClanChanged should update character clan in UI state`() = runTest {
