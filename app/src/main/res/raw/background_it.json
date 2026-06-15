@@ -11,7 +11,9 @@
         "id": 20001,
         "title": "Nemici",
         "description": "L’altra faccia degli Alleati è rappresentata dal Difetto Nemici. Se gli Alleati gestiscono una piccola agenzia investigativa, i loro Nemici potrebbero essere anche quelli del vampiro: una banda di ladruncoli che tormenta i loro clienti (e il Dominio del Fratello), o un dipartimento di polizia che usa la burocrazia per richiedere interminabili documentazioni inutili o confisca prove destinate al personaggio. Ma il vampiro può anche non avere affatto Alleati, solo Nemici che cercano di intralciarlo a ogni pie’ sospinto. Tuttavia il vampiro può anche tentare di ritorcere il Difetto a proprio vantaggio, manipolando i Nemici per mezzo di una delle sue Maschere e indirizzandoli contro i propri avversari o incastrandoli proprio per quell’attacco a un rivale. Naturalmente i Nemici hanno motivazioni in abbondanza per fare risalire i crimini alla coterie del personaggio – e il rischio di scatenarli sui Fratelli rivali è sempre una sua responsabilità. Discutete tali tattiche con il Narratore e con gli altri giocatori del gruppo, perché questo Difetto può influenzare anche loro. Come gli Alleati, anche i Nemici sono sempre mortali, o in alcuni casi ghoul.",
-        "isFlaw": true
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 5
       }
     ],
     "merits": [],
@@ -38,7 +40,9 @@
         "id": 20002,
         "title": "Infamia",
         "description": "L’altra faccia della luccicante medaglia della Fama ha il proprio assortimento di pro e contro. Un Fratello famigerato può faticare a mettersi in buona luce presso il Principe, oppure i mortali possono infastidirlo nelle sue attività notturne. Altri individui sgradevoli, però, potrebbero considerare un vampiro con Infamia una risorsa utile e rivelarsi più inclini ad aiutare una canaglia della loro risma. Sebbene ciò non giovi di certo alla sua immagine pubblica, altre organizzazioni o persone equivoche lo ritengono uno dei loro, consentendogli talvolta di fare leva su questa solidarietà per realizzare i suoi piani. Meglio però che stia attento a non fare arrabbiare anche loro…",
-        "isFlaw": true
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 5
       },
       {
         "id": 20006,
@@ -301,7 +305,9 @@
         "id": 20009,
         "title": "Avversario",
         "description": "Dal momento che un **Avversario** può guidare la trama in qualunque momento, il Narratore e il giocatore dovrebbero discuterne per tempo e con qualche dettaglio: la setta o fazione dell’Avversario finirà per giocare un ruolo importante nella cronaca, quindi è meglio definire un Avversario che vi si adatti già senza problemi. Un Avversario più potente prenderà di mira il personaggio per fare leva sul suo vero nemico: il suo sire, Mawla o altro teorico superiore. Detto ciò, anche un Avversario personale può essere interessante: forse il vampiro e il suo Avversario gareggiano da sempre per la promozione nella loro setta. Oppure si può ribaltare la prospettiva: è il personaggio a essere il più grande nemico dell’Avversario. Forse quest’ultimo lo ha tradito, lo ha incastrato davanti al Principe facendolo scacciare o bandire dalla corte. Ma ora è tornato e il suo principale obiettivo è distruggere il suo Avversario.",
-        "isFlaw": true
+        "isFlaw": true,
+        "minLevel": 1,
+        "maxLevel": 5
       }
     ],
     "merits": [],
