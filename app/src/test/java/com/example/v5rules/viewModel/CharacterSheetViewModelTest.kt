@@ -3,6 +3,8 @@ package com.example.v5rules.viewModel
 import app.cash.turbine.test
 import com.example.v5rules.data.Character
 import com.example.v5rules.data.Clan
+import com.example.v5rules.data.Discipline
+import com.example.v5rules.data.DisciplinePower
 import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.MainRepository
 import com.example.v5rules.utils.CharacterSheetEvent
@@ -99,6 +101,79 @@ class CharacterSheetViewModelTest {
     }
 
     @Test
+    fun `onEvent GenerationChanged should update character generation in UI state`() = runTest {
+
+        advanceUntilIdle()
+
+        viewModel.onEvent(CharacterSheetEvent.GenerationChanged(11))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(11, state.character.generation)
+        }
+    }
+
+    @Test
+    fun `onEvent SireChanged should update character sire in UI state`() = runTest {
+
+        advanceUntilIdle()
+
+        viewModel.onEvent(CharacterSheetEvent.SireChanged("Test Sire"))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals("Test Sire", state.character.sire)
+        }
+    }
+
+    @Test
+    fun `onEvent ConceptChanged should update character concept in UI state`() = runTest {
+
+        advanceUntilIdle()
+
+        viewModel.onEvent(CharacterSheetEvent.ConceptChanged("Test Concept"))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals("Test Concept", state.character.concept)
+        }
+    }
+
+    @Test
+    fun `onEvent AmbitionChanged should update character ambition in UI state`() = runTest {
+
+        advanceUntilIdle()
+
+        viewModel.onEvent(CharacterSheetEvent.AmbitionChanged("Test Ambition"))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals("Test Ambition", state.character.ambition)
+        }
+    }
+
+    @Test
+    fun `onEvent DesireChanged should update character desire in UI state`() = runTest {
+
+        advanceUntilIdle()
+
+        viewModel.onEvent(CharacterSheetEvent.DesireChanged("Test Desire"))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals("Test Desire", state.character.desire)
+        }
+    }
+
+
+
+
+    @Test
     fun `onEvent ShowSaveConfirmation should update dialogState`() = runTest {
         advanceUntilIdle()
         
@@ -167,6 +242,102 @@ class CharacterSheetViewModelTest {
     }
 
     @Test
+    fun `onEvent DexterityChanged should update dexterity`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.DexterityChanged(4))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(4, state.character.attributes.dexterity)
+        }
+    }
+
+    @Test
+    fun `onEvent StaminaChanged should update stamina`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.StaminaChanged(4))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(4, state.character.attributes.stamina)
+        }
+    }
+
+    @Test
+    fun `onEvent CharismaChanged should update charisma`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.CharismaChanged(4))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(4, state.character.attributes.charisma)
+        }
+    }
+
+    @Test
+    fun `onEvent ManipulationChanged should update manipulation`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.ManipulationChanged(4))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(4, state.character.attributes.manipulation)
+        }
+    }
+
+    @Test
+    fun `onEvent ComposureChanged should update composure`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.ComposureChanged(4))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(4, state.character.attributes.composure)
+        }
+    }
+
+    @Test
+    fun `onEvent IntelligenceChanged should update intelligence`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.IntelligenceChanged(4))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(4, state.character.attributes.intelligence)
+        }
+    }
+
+    @Test
+    fun `onEvent WitsChanged should update wits`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.WitsChanged(4))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(4, state.character.attributes.wits)
+        }
+    }
+
+    @Test
+    fun `onEvent ResolveChanged should update resolve`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.ResolveChanged(4))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals(4, state.character.attributes.resolve)
+        }
+    }
+
+    @Test
     fun `onEvent AbilityChanged should update ability level`() = runTest {
         advanceUntilIdle()
         viewModel.onEvent(CharacterSheetEvent.AbilityChanged("Athletics", 3))
@@ -178,6 +349,66 @@ class CharacterSheetViewModelTest {
             assertEquals(3, ability?.level)
         }
     }
+
+    @Test
+    fun `onEvent AbilitySpecializationChanged should update ability level`() = runTest {
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.AbilityChanged("Athletics", 3))
+        advanceUntilIdle()
+
+        viewModel.onEvent(CharacterSheetEvent.AbilitySpecializationChanged("Athletics", "Test"))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            val ability = state.character.abilities.find { it.name == "Athletics" }
+            assertEquals("Test", ability?.specialization)
+        }
+    }
+
+    @Test
+    fun `onEvent DisciplineChanged should add Discipline`() = runTest {
+        val testDiscipline = Discipline(id = "disc_1", title = "Test Discipline", level = 1)
+        advanceUntilIdle()
+        viewModel.onEvent(CharacterSheetEvent.DisciplineChanged(testDiscipline))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            val discipline = state.character.disciplines.find { it.id == "disc_1" }
+            assertEquals(testDiscipline, discipline)
+        }
+    }
+
+    @Test
+    fun `onEvent DisciplinePowerAdded should add Discipline power`() = runTest {
+        val testDiscipline = Discipline(id = "disc_1", title = "Test Discipline", level = 1)
+        advanceUntilIdle()
+
+        viewModel.onEvent(CharacterSheetEvent.DisciplineChanged(testDiscipline))
+        advanceUntilIdle()
+
+        val testDisciplinePower = DisciplinePower(id = "power_1", title = "Test Power", level = 1)
+        viewModel.onEvent(CharacterSheetEvent.DisciplinePowerAdded("Test Discipline", testDisciplinePower))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            val discipline = state.character.disciplines.find { it.id == "disc_1" }
+            assertEquals(listOf(testDisciplinePower), discipline?.selectedDisciplinePowers)
+        }
+
+        viewModel.onEvent(CharacterSheetEvent.DisciplinePowerRemoved("Test Discipline", testDisciplinePower))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            val discipline = state.character.disciplines.find { it.id == "disc_1" }
+            assertEquals(listOf<DisciplinePower>(), discipline?.selectedDisciplinePowers)
+        }
+
+    }
+
 
     @Test
     fun `onEvent HungerChanged should update hunger level`() = runTest {
