@@ -34,7 +34,7 @@ class NPCGeneratorViewModel @Inject constructor(
             Log.e("NPCGeneratorViewModel", "Error fetching favorite NPCs: ${e.message}")
             emit(emptyList())
         }
-        .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.WhileSubscribed(5000), emptyList())
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     val uiState: StateFlow<UiState> = combine(
         _generationState,
@@ -54,7 +54,7 @@ class NPCGeneratorViewModel @Inject constructor(
             npc = updatedNpc,
             favoriteNpcs = favorites
         )
-    }.stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.WhileSubscribed(5000), UiState())
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), UiState())
 
     private val _navigationEvent = MutableSharedFlow<NpcNavigationEvent>()
     val navigationEvent: SharedFlow<NpcNavigationEvent> = _navigationEvent.asSharedFlow()
