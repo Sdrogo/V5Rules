@@ -1348,7 +1348,7 @@ class CharacterSheetViewModelTest {
         viewModel.uiState.test {
             val state = awaitItem()
             // If it removes from merits, then flaws should still be 1
-            // assertEquals(1, state.character.backgrounds.first().flaws.size)
+            assertEquals(1, state.character.backgrounds.first().flaws.size)
             // Let's assume the user wants the test to reflect the implementation.
         }
     }
