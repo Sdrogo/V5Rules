@@ -3,11 +3,12 @@ package com.example.v5rules.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.*
+import com.example.v5rules.di.AppModule
 import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.MainRepository
 import com.example.v5rules.utils.CharacterSheetEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -24,7 +25,8 @@ sealed class DialogState {
 @HiltViewModel
 class CharacterSheetViewModel @Inject constructor(
     private val mainRepository: MainRepository,
-    private val characterRepository: CharacterRepository
+    private val characterRepository: CharacterRepository,
+    @AppModule.IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     data class CharacterSheetState(
@@ -690,7 +692,7 @@ class CharacterSheetViewModel @Inject constructor(
     }
 
     private fun loadStaticData() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             try {
                 _uiState.update { it.copy(isLoading = true) }
                 val locale = Locale.getDefault()

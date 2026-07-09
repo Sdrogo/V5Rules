@@ -3,8 +3,10 @@ package com.example.v5rules.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.PredatorType
+import com.example.v5rules.di.AppModule
 import com.example.v5rules.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PredatorTypeViewModel @Inject constructor(
-    private val mainRepository: MainRepository
+    private val mainRepository: MainRepository,
+    @AppModule.IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
 
     private val _predatorTypeUiState =
@@ -30,7 +33,7 @@ class PredatorTypeViewModel @Inject constructor(
     }
 
     private fun fetchClans(currentLocale: Locale) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             try {
                 allTypes = mainRepository.loadPredatorType(currentLocale)
                 _predatorTypeUiState.value = PredatorTypeUiState.Success(allTypes)

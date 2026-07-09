@@ -240,7 +240,7 @@ fun Character.addDisciplinePower(disciplineName: String, power: DisciplinePower)
             it.copy(selectedDisciplinePowers = it.selectedDisciplinePowers + power)
         } else it
     }
-    return this.copy(disciplines = updatedDisciplines)
+    return this.copy(disciplines = updatedDisciplines.toList())
 }
 
 fun Character.removeDisciplinePower(disciplineName: String, power: DisciplinePower): Character {
@@ -249,7 +249,7 @@ fun Character.removeDisciplinePower(disciplineName: String, power: DisciplinePow
             it.copy(selectedDisciplinePowers = it.selectedDisciplinePowers.filterNot { p -> p.id == power.id })
         } else it
     }
-    return this.copy(disciplines = updatedDisciplines)
+    return this.copy(disciplines = updatedDisciplines.toList())
 }
 
 // --- RITUAL LOGIC ---
@@ -271,7 +271,7 @@ fun Character.removeRitual(ritualId: String): Character =
 fun Character.updateRitualLevel(ritualTitle: String, level: Int): Character {
     val updatedRituals =
         learnedRituals.map { if (it.title == ritualTitle) it.copy(level = level) else it }
-    return this.copy(learnedRituals = updatedRituals)
+    return this.copy(learnedRituals = updatedRituals.toList())
 }
 
 fun Character.addRitualPower(ritualTitle: String, power: RitualPower): Character {
@@ -280,7 +280,7 @@ fun Character.addRitualPower(ritualTitle: String, power: RitualPower): Character
             it.copy(ritualsPowers = it.ritualsPowers + power)
         } else it
     }
-    return this.copy(learnedRituals = updatedRituals)
+    return this.copy(learnedRituals = updatedRituals.toList())
 }
 
 fun Character.removeRitualPower(ritualTitle: String, powerId: String): Character {
@@ -289,7 +289,7 @@ fun Character.removeRitualPower(ritualTitle: String, powerId: String): Character
             it.copy(ritualsPowers = it.ritualsPowers.filterNot { p -> p.id == powerId })
         } else it
     }
-    return this.copy(learnedRituals = updatedRituals)
+    return this.copy(learnedRituals = updatedRituals.toList())
 }
 
 // --- BACKGROUNDS & ADVANTAGES ---
@@ -421,26 +421,26 @@ fun Character.updateAdvantage(advantage: Advantage, background: Background, leve
     val backgrounds = this.backgrounds.toMutableList()
     val backgroundIndex =
         backgrounds.indexOfFirst { it.title == background.title }
-    if (backgroundIndex != -1) {
-        val advantages =
-            if (advantage.isFlaw == true)
-                backgrounds[backgroundIndex].flaws.toMutableList()
-            else
-                backgrounds[backgroundIndex].merits
-                    .toMutableList()
-        val updatedVantage =
-            advantages.find {
-                it.id == advantage.id
-            }?.copy(level = level)
-        if (updatedVantage != null) {
-            advantages[advantages.indexOf(updatedVantage)] = updatedVantage
-        }
-        backgrounds[backgroundIndex] =
-            if (advantage.isFlaw == true)
-                backgrounds[backgroundIndex].copy(flaws = advantages)
-            else
-                backgrounds[backgroundIndex].copy(merits = advantages)
+    val advantageIndex =
+        if(advantage.isFlaw == true)
+            backgrounds[backgroundIndex].flaws.indexOfFirst { it.id == advantage.id }
+        else
+            backgrounds[backgroundIndex].merits.indexOfFirst { it.id == advantage.id }
+    val advantages =
+        if (advantage.isFlaw == true)
+            backgrounds[backgroundIndex].flaws.toMutableList()
+        else
+            backgrounds[backgroundIndex].merits.toMutableList()
+    val updatedVantage =
+        advantages.find { it.id == advantage.id }?.copy(level = level)
+    if (updatedVantage != null) {
+        advantages[advantageIndex] = updatedVantage
     }
+    backgrounds[backgroundIndex] =
+        if (advantage.isFlaw == true)
+            backgrounds[backgroundIndex].copy(flaws = advantages)
+        else
+            backgrounds[backgroundIndex].copy(merits = advantages)
     return this.copy(backgrounds = backgrounds)
 }
 
@@ -488,41 +488,44 @@ fun Character.updateAdvantageFlawLevel(
     val backgrounds = this.backgrounds.toMutableList()
     val backgroundIndex =
         backgrounds.indexOfFirst { it.title == background.title }
-    if (backgroundIndex != -1) {
-        val advantages =
-            backgrounds[backgroundIndex].merits.toMutableList()
-        val updatedVantage =
-            backgrounds[backgroundIndex].merits.find {
-                it.id == advantage.id
-            }?.copy(level = level)
-        if (updatedVantage != null) {
-            advantages[advantages.indexOf(updatedVantage)] = updatedVantage
-        }
-        backgrounds[backgroundIndex] =
-            backgrounds[backgroundIndex].copy(merits = advantages)
 
+    val advantages =
+        if(advantage.isFlaw == true)
+            backgrounds[backgroundIndex].flaws.toMutableList()
+        else
+            backgrounds[backgroundIndex].merits.toMutableList()
+    val advantageIndex = advantages.indexOfFirst { it.id == advantage.id }
+    val updatedVantage = advantages.find { it.id == advantage.id }
+    if (updatedVantage != null) {
+        advantages[advantageIndex] = updatedVantage.copy(level = level)
     }
+    backgrounds[backgroundIndex] =
+        if (advantage.isFlaw == true)
+            backgrounds[backgroundIndex].copy(flaws = advantages)
+        else {
+            backgrounds[backgroundIndex].copy(merits = advantages)
+        }
+
     return this.copy(backgrounds = backgrounds)
 }
 
 fun Character.removeAdvantage(advantage: Advantage, background: Background): Character {
     val backgrounds = this.backgrounds.toMutableList()
     val backgroundIndex = backgrounds.indexOfFirst { it.title == background.title }
-    if (backgroundIndex != -1) {
-        val currentBackground = backgrounds[backgroundIndex]
-        val currentAdvanges =
-            if (advantage.isFlaw == true)
-                currentBackground.flaws
-            else
-                currentBackground.merits
-        val updatedAdvantages = currentAdvanges - advantage
-        val updatedBackground =
-            if (advantage.isFlaw == true)
-                currentBackground.copy(flaws = updatedAdvantages)
-            else
-                currentBackground.copy(merits = updatedAdvantages)
-        backgrounds[backgroundIndex] = updatedBackground
-    }
+    val currentBackground = backgrounds[backgroundIndex]
+    val currentAdvanges =
+        if (advantage.isFlaw == true)
+            currentBackground.flaws
+        else
+            currentBackground.merits
+    val updatedAdvantages = currentAdvanges.filter{ it.id != advantage.id }
+
+    val updatedBackground =
+        if (advantage.isFlaw == true)
+            currentBackground.copy(flaws = updatedAdvantages)
+        else
+            currentBackground.copy(merits = updatedAdvantages)
+    backgrounds[backgroundIndex] = updatedBackground
     return this.copy(backgrounds = backgrounds)
 }
 
@@ -530,22 +533,21 @@ fun Character.addAdvantage(advantage: Advantage, background: Background, level: 
     val backgrounds = this.backgrounds.toMutableList()
     val backgroundIndex =
         backgrounds.indexOfFirst { it.title == background.title }
-    if (backgroundIndex != -1) {
-        val currentBackground = backgrounds[backgroundIndex]
-        val currentAdvanges =
-            if (advantage.isFlaw == true)
-                currentBackground.flaws
-            else
-                currentBackground.merits
-        val updatedAdvantages =
-            currentAdvanges + advantage.copy(level = level)
-        val updatedBackground =
-            if (advantage.isFlaw == true)
-                currentBackground.copy(flaws = updatedAdvantages)
-            else
-                currentBackground.copy(merits = updatedAdvantages)
-        backgrounds[backgroundIndex] = updatedBackground
-    }
+    val newAdvantage = advantage.copy(level = level)
+
+    val currentBackground = backgrounds[backgroundIndex]
+    val currentAdvanges =
+        (if (advantage.isFlaw == true)
+            currentBackground.flaws
+        else
+            currentBackground.merits).toMutableList()
+    currentAdvanges.add(newAdvantage)
+    val updatedBackground =
+        if (advantage.isFlaw == true)
+            currentBackground.copy(flaws = currentAdvanges)
+        else
+            currentBackground.copy(merits = currentAdvanges)
+    backgrounds[backgroundIndex] = updatedBackground
     return this.copy(backgrounds = backgrounds)
 
 }
