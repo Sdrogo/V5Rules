@@ -44,13 +44,27 @@ class LoresheetViewModelTest {
         val loresheets = listOf(Loresheet(title = "Lore 1"), Loresheet(title = "Lore 2"))
         every { mainRepository.loadLoresheet(any()) } returns loresheets
 
-        val viewModel = LoresheetViewModel(mainRepository,testDispatcher)
+        val viewModel = LoresheetViewModel(mainRepository, testDispatcher)
         advanceUntilIdle()
 
         viewModel.loresheetUiState.test {
             val state = awaitItem()
             assertTrue(state is LoresheetUiState.Success)
             assertEquals(2, (state as LoresheetUiState.Success).loresheets.size)
+        }
+    }
+
+    @Test
+    fun `initialization should update state to Error when repository fails`() = runTest {
+        every { mainRepository.loadLoresheet(any()) } throws Exception("Failed to load")
+
+        val viewModel = LoresheetViewModel(mainRepository, testDispatcher)
+        advanceUntilIdle()
+
+        viewModel.loresheetUiState.test {
+            val state = awaitItem()
+            assertTrue(state is LoresheetUiState.Error)
+            assertEquals("Failed to load", (state as LoresheetUiState.Error).message)
         }
     }
 
@@ -83,6 +97,28 @@ class LoresheetViewModelTest {
 
             viewModel.updateSearchQuery("NonExistent")
             assertTrue(awaitItem().isEmpty())
+        }
+    }
+
+    @Test
+    fun `updateSearchQuery should filter loresheets by limitation`() = runTest {
+        val loresheets = listOf(
+            Loresheet(title = "Lore 1", limitation = "Only Ventrue"),
+            Loresheet(title = "Lore 2", limitation = "Only Brujah")
+        )
+        every { mainRepository.loadLoresheet(any()) } returns loresheets
+
+        val viewModel = LoresheetViewModel(mainRepository, testDispatcher)
+        advanceUntilIdle()
+
+        viewModel.filteredLoresheets.test {
+            awaitItem() // emptyList() from stateIn
+            awaitItem() // Initial combined
+
+            viewModel.updateSearchQuery("Ventrue")
+            val filtered = awaitItem()
+            assertEquals(1, filtered.size)
+            assertEquals("Lore 1", filtered[0].title)
         }
     }
 }

@@ -483,8 +483,8 @@ class CharacterLogicTest {
     @Test
     fun `updateAdvantageFlawLevel updates merit level in background merits list`() {
         // NOTE: The implementation updates MERITS list
-        val merit = Advantage(id = 1, title = "Nice", level = 1)
-        val bg = Background(title = "Haven", merits = listOf(merit))
+        val merit = Advantage(id = 1, title = "Nice", level = 1, isFlaw = false)
+        val bg = Background(id = "1", title = "Haven", merits = listOf(merit))
         val character = Character(backgrounds = listOf(bg))
         val updated = character.updateAdvantageFlawLevel(merit, bg, 5)
         
