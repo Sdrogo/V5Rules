@@ -512,11 +512,6 @@ fun Character.updateAdvantageFlawLevel(
 fun Character.removeAdvantage(advantage: Advantage, background: Background): Character {
     val backgrounds = this.backgrounds.toMutableList()
     val backgroundIndex = backgrounds.indexOfFirst { it.title == background.title }
-    val advantageIndex =
-        if (advantage.isFlaw == true)
-            backgrounds[backgroundIndex].flaws.indexOfFirst { it.id == advantage.id }
-        else
-            backgrounds[backgroundIndex].merits.indexOfFirst { it.id == advantage.id }
     val currentBackground = backgrounds[backgroundIndex]
     val currentAdvanges =
         if (advantage.isFlaw == true)

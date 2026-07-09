@@ -1,7 +1,6 @@
 package com.example.v5rules.viewModel
 
 import app.cash.turbine.test
-import com.example.v5rules.data.Advantage
 import com.example.v5rules.data.Background
 import com.example.v5rules.repository.MainRepository
 import io.mockk.every
@@ -83,7 +82,7 @@ class BackgroundViewModelTest {
 
         val viewModel = BackgroundViewModel(mainRepository, testDispatcher)
         viewModel.filteredBackgrounds.test {
-            val initial = awaitItem()
+            awaitItem()
 
             // Filter by "Res"
             viewModel.updateSearchQuery("Res")
