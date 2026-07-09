@@ -1,5 +1,6 @@
 package com.example.v5rules.viewModel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.*
@@ -27,6 +28,12 @@ class NPCGeneratorViewModel @Inject constructor(
 ) : ViewModel() {
     private val _generationState = MutableStateFlow(GenerationState())
     private val favoriteNpcsFromDb: StateFlow<List<FavoriteNpc>> = favoriteNpcRepository.getAllFavorites()
+        .catch { e ->
+            // Gestisci l'errore (es. log o aggiorna uno stato di errore)
+            // Per ora emettiamo una lista vuota per evitare il crash
+            Log.e("NPCGeneratorViewModel", "Error fetching favorite NPCs: ${e.message}")
+            emit(emptyList())
+        }
         .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.WhileSubscribed(5000), emptyList())
 
     val uiState: StateFlow<UiState> = combine(
