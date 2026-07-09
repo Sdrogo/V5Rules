@@ -44,7 +44,7 @@ class ClanViewModelTest {
         val clans = listOf(Clan(name = "Brujah"), Clan(name = "Ventrue"))
         every { mainRepository.loadClans(any()) } returns clans
 
-        val viewModel = ClanViewModel(mainRepository)
+        val viewModel = ClanViewModel(mainRepository, testDispatcher)
         advanceUntilIdle()
 
         viewModel.clanUiState.test {
@@ -59,7 +59,7 @@ class ClanViewModelTest {
     fun `initialization should update state to Error when repository fails`() = runTest {
         every { mainRepository.loadClans(any()) } throws Exception("Failed to load")
 
-        val viewModel = ClanViewModel(mainRepository)
+        val viewModel = ClanViewModel(mainRepository, testDispatcher)
         advanceUntilIdle()
 
         viewModel.clanUiState.test {

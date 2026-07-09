@@ -14,6 +14,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -21,7 +22,10 @@ import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CharacterSheetViewModelTest {
@@ -35,11 +39,15 @@ class CharacterSheetViewModelTest {
     @Before
     fun setUp() {
         Dispatchers.setMain(testDispatcher)
-        
-        // Mock static data loading
+
+        // Mock static data loading needed for the initialization test
         coEvery { mainRepository.loadClans(any()) } returns listOf(Clan(name = "Ventrue"))
-        
-        viewModel = CharacterSheetViewModel(mainRepository, characterRepository)
+
+        viewModel = CharacterSheetViewModel(
+            mainRepository = mainRepository,
+            characterRepository = characterRepository,
+            ioDispatcher = testDispatcher
+        )
     }
 
     @After
@@ -73,18 +81,18 @@ class CharacterSheetViewModelTest {
         }
     }
 
-//    @Test
-//    fun `onEvent NameChanged should update character name in UI state`() = runTest {
-//        advanceUntilIdle()
-//
-//        viewModel.onEvent(CharacterSheetEvent.NameChanged("New Name"))
-//        advanceUntilIdle()
-//
-//        viewModel.uiState.test {
-//            val state = awaitItem()
-//            assertEquals("New Name", state.character.name)
-//        }
-//    }
+    @Test
+    fun `onEvent NameChanged should update character name in UI state`() = runTest {
+        advanceUntilIdle()
+
+        viewModel.onEvent(CharacterSheetEvent.NameChanged("New Name"))
+        advanceUntilIdle()
+
+        viewModel.uiState.test {
+            val state = awaitItem()
+            assertEquals("New Name", state.character.name)
+        }
+    }
 
     @Test
     fun `onEvent ClanChanged should update character clan in UI state`() = runTest {

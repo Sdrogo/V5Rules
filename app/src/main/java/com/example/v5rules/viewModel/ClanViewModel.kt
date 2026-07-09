@@ -3,9 +3,10 @@ package com.example.v5rules.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.Clan
+import com.example.v5rules.di.AppModule
 import com.example.v5rules.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ClanViewModel @Inject constructor(
-    private val mainRepository: MainRepository
+    private val mainRepository: MainRepository,
+    @AppModule.IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
     private val _clanUiState = MutableStateFlow<ClanUiState>(ClanUiState.Loading)
@@ -29,7 +31,7 @@ class ClanViewModel @Inject constructor(
     }
 
     private fun fetchClans(currentLocale: Locale) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             try {
                 allClans = mainRepository.loadClans(currentLocale).sortedBy { it.name }
                 _clanUiState.value = ClanUiState.Success(allClans)

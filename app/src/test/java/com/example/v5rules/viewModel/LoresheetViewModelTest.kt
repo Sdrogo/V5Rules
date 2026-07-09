@@ -44,7 +44,7 @@ class LoresheetViewModelTest {
         val loresheets = listOf(Loresheet(title = "Lore 1"), Loresheet(title = "Lore 2"))
         every { mainRepository.loadLoresheet(any()) } returns loresheets
 
-        val viewModel = LoresheetViewModel(mainRepository)
+        val viewModel = LoresheetViewModel(mainRepository,testDispatcher)
         advanceUntilIdle()
 
         viewModel.loresheetUiState.test {
@@ -63,7 +63,7 @@ class LoresheetViewModelTest {
         )
         every { mainRepository.loadLoresheet(any()) } returns loresheets
 
-        val viewModel = LoresheetViewModel(mainRepository)
+        val viewModel = LoresheetViewModel(mainRepository, testDispatcher)
         advanceUntilIdle()
 
         viewModel.filteredLoresheets.test {
