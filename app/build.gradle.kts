@@ -32,12 +32,12 @@ plugins {
 
 configure<ApplicationExtension>  {
     namespace = "com.example.v5rules"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.v5rules"
         minSdk = 25
-        targetSdk = 36
+        targetSdk = 37
         versionCode = getVersionCode()
         versionName = getVersionName()
 
@@ -74,6 +74,7 @@ configure<ApplicationExtension>  {
     buildTypes {
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -101,7 +102,8 @@ configure<ApplicationExtension>  {
 androidComponents {
     onVariants(selector().withBuildType("release")) { variant ->
         variant.outputs.forEach { output ->
-            (output as com.android.build.api.variant.impl.VariantOutputImpl).outputFileName.set("V5Rules-${output.versionName.get()}.apk")
+            @Suppress("UnstableApiUsage")
+            output.outputFileName.set("V5Rules-${output.versionName.get()}.apk")
         }
     }
 }
@@ -155,6 +157,6 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.com.google.code.gson)
     implementation(libs.serialization)
-    implementation (libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.constraintlayout.compose)
 }
