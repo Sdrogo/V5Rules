@@ -16,10 +16,6 @@
       <SelectionState runConfigName="loadClans con lingua italiana non restituisce una lista vuota()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="NationalityDropdownTest">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DialogSelection />
-      </SelectionState>
     </selectionStates>
   </component>
 </project>
