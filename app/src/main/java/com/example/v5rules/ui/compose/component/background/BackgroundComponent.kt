@@ -180,108 +180,117 @@ fun BackgroundItem(
                     }
                 }
                 HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-                Text(stringResource(R.string.merit), style = MaterialTheme.typography.titleSmall)
-                characterBackground.merits.forEach { merit ->
-                    BackgroundAdvantageItem(
-                        advantage = merit,
-                        isFlaw = false,
-                        onRemove = {
-                            onEvent(
-                                CharacterSheetEvent.BackgroundMeritRemoved(
-                                    characterBackground,
-                                    merit
+                if(gameBackground.merits.isNotEmpty()){
+                    Text(stringResource(R.string.merit), style = MaterialTheme.typography.titleSmall)
+                    characterBackground.merits.forEach { merit ->
+                        BackgroundAdvantageItem(
+                            advantage = merit,
+                            onRemove = {
+                                onEvent(
+                                    CharacterSheetEvent.BackgroundMeritRemoved(
+                                        characterBackground,
+                                        merit
+                                    )
                                 )
-                            )
-                        },
-                        onLevelChanged = { newLevel ->
-                            onEvent(
-                                CharacterSheetEvent.BackgroundMeritLevelChanged(
-                                    characterBackground,
-                                    merit,
-                                    newLevel
+                            },
+                            onLevelChanged = { newLevel ->
+                                onEvent(
+                                    CharacterSheetEvent.BackgroundMeritLevelChanged(
+                                        characterBackground,
+                                        merit,
+                                        newLevel
+                                    )
                                 )
-                            )
-                        },
-                        onAddNote = { note ->
-                            onEvent(
-                                CharacterSheetEvent.AddNoteToMerit(
-                                    characterBackground,
-                                    merit,
-                                    note
+                            },
+                            onAddNote = { note ->
+                                onEvent(
+                                    CharacterSheetEvent.AddNoteToMerit(
+                                        characterBackground,
+                                        merit,
+                                        note
+                                    )
                                 )
-                            )
-                        },
-                        onRemoveNote = {
-                            onEvent(
-                                CharacterSheetEvent.RemoveNoteToMerit(
-                                    characterBackground,
-                                    merit
+                            },
+                            onRemoveNote = {
+                                onEvent(
+                                    CharacterSheetEvent.RemoveNoteToMerit(
+                                        characterBackground,
+                                        merit
+                                    )
                                 )
-                            )
-                        }
-                    )
+                            }
+                        )
+                    }
+
                 }
 
                 HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-                Text(
-                    stringResource(R.string.flaws),
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.error
-                )
-                characterBackground.flaws.forEach { flaw ->
-                    BackgroundAdvantageItem(
-                        advantage = flaw,
-                        isFlaw = true,
-                        onRemove = {
-                            onEvent(
-                                CharacterSheetEvent.BackgroundFlawRemoved(
-                                    characterBackground,
-                                    flaw
-                                )
-                            )
-                        },
-                        onLevelChanged = { newLevel ->
-                            onEvent(
-                                CharacterSheetEvent.BackgroundFlawLevelChanged(
-                                    characterBackground,
-                                    flaw,
-                                    newLevel
-                                )
-                            )
-                        },
-                        onAddNote = { note ->
-                            onEvent(
-                                CharacterSheetEvent.AddNoteToFlaw(
-                                    characterBackground,
-                                    flaw,
-                                    note
-                                )
-                            )
-                        },
-                        onRemoveNote = {
-                            onEvent(
-                                CharacterSheetEvent.RemoveNoteToFlaw(
-                                    characterBackground,
-                                    flaw
-                                )
-                            )
-                        }
+                if(gameBackground.flaws.isNotEmpty()){
+                    Text(
+                        stringResource(R.string.flaws),
+                        style = MaterialTheme.typography.titleSmall,
+                        color = MaterialTheme.colorScheme.error
                     )
+                    characterBackground.flaws.forEach { flaw ->
+                        BackgroundAdvantageItem(
+                            advantage = flaw,
+                            onRemove = {
+                                onEvent(
+                                    CharacterSheetEvent.BackgroundFlawRemoved(
+                                        characterBackground,
+                                        flaw
+                                    )
+                                )
+                            },
+                            onLevelChanged = { newLevel ->
+                                onEvent(
+                                    CharacterSheetEvent.BackgroundFlawLevelChanged(
+                                        characterBackground,
+                                        flaw,
+                                        newLevel
+                                    )
+                                )
+                            },
+                            onAddNote = { note ->
+                                onEvent(
+                                    CharacterSheetEvent.AddNoteToFlaw(
+                                        characterBackground,
+                                        flaw,
+                                        note
+                                    )
+                                )
+                            },
+                            onRemoveNote = {
+                                onEvent(
+                                    CharacterSheetEvent.RemoveNoteToFlaw(
+                                        characterBackground,
+                                        flaw
+                                    )
+                                )
+                            }
+                        )
+                    }
                 }
                 Row {
-                    Button(
-                        onClick = { onAddMeritClick(characterBackground) },
-                        modifier = Modifier.padding(end = 8.dp)
-                    ) {
-                        Icon(imageVector = Icons.Default.Add, contentDescription = null)
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(stringResource(R.string.merit))
+                    if(gameBackground.merits.isNotEmpty()){
+                        Button(
+                            onClick = { onAddMeritClick(characterBackground) },
+                            modifier = Modifier.padding(end = 8.dp)
+                        ) {
+                            Icon(imageVector = Icons.Default.Add, contentDescription = null)
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(stringResource(R.string.merit))
+                        }
                     }
-                    Button(onClick = { onAddFlawClick(characterBackground) }) {
-                        Icon(imageVector = Icons.Default.Add, contentDescription = null)
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(stringResource(R.string.flaw))
+                    if(gameBackground.flaws.isNotEmpty()){
+                        Button(onClick = { onAddFlawClick(characterBackground) }) {
+                            Icon(imageVector = Icons.Default.Add, contentDescription = null)
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(stringResource(R.string.flaw))
+                        }
                     }
+
+
                 }
 
             }
@@ -293,7 +302,6 @@ fun BackgroundItem(
 @Composable
 fun BackgroundAdvantageItem(
     advantage: Advantage,
-    isFlaw: Boolean,
     onRemove: () -> Unit,
     onLevelChanged: (Int) -> Unit,
     onAddNote: (String) -> Unit,
@@ -315,7 +323,6 @@ fun BackgroundAdvantageItem(
                 currentValue = advantage.level ?: 0,
                 minValue = advantage.minLevel ?: 1,
                 maxValue = advantage.maxLevel ?: 5,
-                isFlaw = isFlaw,
                 onValueChange = onLevelChanged
             )
             IconButton(onClick = onRemove, modifier = Modifier.size(24.dp)) {
@@ -377,13 +384,9 @@ private fun InteractiveAdvantageDots(
     currentValue: Int,
     minValue: Int,
     maxValue: Int,
-    isFlaw: Boolean,
     onValueChange: (Int) -> Unit
 ) {
-    val filledColor =
-        if (isFlaw) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.secondary
-    val borderColor =
-        if (isFlaw) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.primary
+
     Row {
         for (i in minValue..maxValue) {
             Box(
@@ -391,10 +394,10 @@ private fun InteractiveAdvantageDots(
                     .size(20.dp)
                     .padding(1.dp)
                     .clip(CircleShape)
-                    .background(if (i <= currentValue) filledColor else Color.Transparent)
+                    .background(if (i <= currentValue) MaterialTheme.colorScheme.secondary else Color.Transparent)
                     .border(
                         1.dp,
-                        if (i <= currentValue) borderColor else MaterialTheme.colorScheme.onSurface.copy(
+                        if (i <= currentValue) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface.copy(
                             alpha = 0.3f
                         ),
                         CircleShape

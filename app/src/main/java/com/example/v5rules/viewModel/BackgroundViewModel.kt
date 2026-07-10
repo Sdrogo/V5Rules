@@ -3,8 +3,10 @@ package com.example.v5rules.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.v5rules.data.Background
+import com.example.v5rules.di.AppModule
 import com.example.v5rules.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -17,7 +19,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BackgroundViewModel @Inject constructor(
-    private val mainRepository: MainRepository
+    private val mainRepository: MainRepository,
+    @AppModule.IoDispatcher private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
 
     private val _backgroundUiState = MutableStateFlow<BackgroundUiState>(BackgroundUiState.Loading)
@@ -37,7 +40,10 @@ class BackgroundViewModel @Inject constructor(
                 } else {
                     uiState.backgrounds.filter { background ->
                         background.title.contains(query, ignoreCase = true) ||
-                                background.prerequisites?.contains(query, ignoreCase = true) ?: false
+                                background.merits.any{ it.title.contains(query, ignoreCase = true) } ||
+                                background.flaws.any{ it.title.contains(query, ignoreCase = true) } ||
+                                background.directFlaws.any { it.title.contains(query, ignoreCase = true) } ||
+                                background.prerequisites?.contains(query, ignoreCase = true) == true
                     }
                 }
             }
@@ -53,7 +59,7 @@ class BackgroundViewModel @Inject constructor(
     }
 
     private fun fetchLore(currentLocale: Locale) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             try {
                 val backgrounds = mainRepository.loadBackground(currentLocale)
                 _backgroundUiState.value = BackgroundUiState.Success(backgrounds)

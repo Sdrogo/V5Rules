@@ -58,6 +58,7 @@ Tutte le regole, descrizioni e dati di gioco sono stati digitalizzati e sono arc
 
 ## 📜 Licenza
 
+Questo progetto è rilasciato sotto la Licenza [MIT](LICENSE). Sentiti libero di forkare, modificare e contribuire!
 
 ## 🤖 Automazione e CI/CD (Continuous Integration & Deployment)
 
@@ -67,38 +68,41 @@ Abbiamo configurato due workflow principali che lavorano in sinergia:
 
 ---
 
-### 1. `android-ci.yml` - Build, Analisi e Release
+### 1. `android-ci.yml` - Build, Quality e Release
 
-Questo è il workflow principale che si occupa di compilare e analizzare l'applicazione.
+Questo è il workflow principale che si occupa di validare il codice e distribuire l'applicazione.
 
 **Trigger:**
 * Su ogni `push` ai branch `master`, `feature/*`, `bugfix/*`.
-* Su ogni `pull_request` verso i branch sopra elencati.
-* Quando viene creato un nuovo **tag** (es. `v1.0.1`).
+* Su ogni `push` di un nuovo **tag** di versione (es. `v1.0.1`).
+* Su ogni `pull_request` verso il branch `master`.
 
 **Funzionamento:**
-Il workflow è diviso in due job principali:
+Il workflow è diviso in tre job principali:
 
-#### Job 1: `analyze` (Analisi del Codice)
-Questo job viene eseguito su **ogni push e pull request**.
-* Configura l'ambiente di build con JDK 17.
-* Crea il file `google-services.json` a partire dai secret.
-* Esegue un build di **debug** (`./gradlew assembleDebug`), che è sufficiente per l'analisi.
-* Esegue un'analisi statica del codice per trovare potenziali bug e vulnerabilità di sicurezza usando **CodeQL**.
-* **Scopo:** Fornire un feedback rapido sulla qualità e la correttezza del codice senza accedere a secret sensibili come le chiavi di firma.
+#### Job 1: `check-quality` (Controllo Qualità)
+Questo job viene eseguito per ogni trigger sopra citato.
+* Configura l'ambiente di build con JDK 17 (Temurin).
+* Crea il file `google-services.json` a partire dai secret per permettere il superamento dei test.
+* Esegue **Lint** e **Unit Tests** (`./gradlew lintDebug testDebugUnitTest`).
+* **Scopo:** Garantire che il nuovo codice non introduca regressioni e rispetti gli standard qualitativi prima del merge.
 
-#### Job 2: `build-and-release` (Creazione dell'APK Firmato)
-Questo job viene eseguito **solo in due casi**:
-1.  Dopo un merge (push) sul branch `master`.
-2.  Quando viene fatto il push di un nuovo tag di versione.
+#### Job 2: `analyze` (Analisi della Sicurezza - CodeQL)
+Questo job viene eseguito in parallelo ai test.
+* Utilizza **CodeQL** di GitHub per eseguire un'analisi semantica del codice.
+* Identifica potenziali vulnerabilità di sicurezza e bug complessi.
+* **Scopo:** Mantenere elevati standard di sicurezza ora che la copertura dei test è consolidata.
 
-* Dipende dal successo del job `analyze`.
-* Configura l'ambiente e crea i file `google-services.json` e `keystore.jks` dai secret.
+#### Job 3: `build-and-release` (Creazione dell'APK Firmato e Release)
+Questo job viene eseguito **solo** in caso di push su `master` o creazione di un tag di versione.
+* Dipende dal successo dei job `check-quality` e `analyze`.
+* Configura l'ambiente e decodifica il **Keystore** e il file `google-services.json` dai secret di GitHub.
 * **Versioning Automatico:**
     * **`versionCode`**: Calcolato automaticamente come il numero totale di commit nel repository.
-    * **`versionName`**: Impostato in base al tag Git (es. `v1.0.1`) o come versione di sviluppo se il trigger è un push su `master` (es. `master-build-abcdef`).
-* **Build e Firma:** Compila l'APK in modalità **release**, lo firma usando i secret e lo nomina dinamicamente (es. `V5Rules-v1.0.1.apk`).
-* **Upload dell'Artefatto:** Carica l'APK firmato come artefatto del workflow, pronto per essere scaricato e distribuito.
+    * **`versionName`**: Impostato in base al tag Git (es. `v1.0.1`) o come versione di sviluppo se il trigger è un push su `master` (es. `master-abcdef1`).
+* **Build e Firma:** Compila l'APK in modalità **release**, lo firma usando i secret e lo nomina dinamicamente (es. `V5Rules-App-v1.0.1.apk`).
+* **Upload dell'Artefatto:** Carica l'APK firmato come artefatto del workflow (conservato per 14 giorni).
+* **GitHub Release:** Quando viene pushato un tag, crea automaticamente una **Release ufficiale** su GitHub e vi allega l'APK firmato.
 
 ---
 
@@ -108,26 +112,24 @@ Questo workflow si occupa esclusivamente di **automatizzare la creazione dei tag
 
 **Trigger:**
 * **Automatico**: Su ogni push verso il branch `master`.
-* **Manuale**: Può essere attivato manualmente dalla tab "Actions" di GitHub.
+* **Manuale**: Può essere attivato manualmente dalla tab "Actions" di GitHub tramite `workflow_dispatch`.
 
 **Funzionamento:**
 
 #### Modalità Automatica (`push` su `master`)
-* Quando una Pull Request viene mergiata, questo workflow si attiva.
-* Legge l'ultimo tag esistente e aumenta automaticamente la versione di **patch** (es. da `v1.2.3` a `v1.2.4`).
+* Quando una Pull Request viene mergiata su `master`, questo workflow si attiva.
+* Legge l'ultimo tag esistente e aumenta automaticamente la versione di **patch** (es. da `v1.2.3` a `v1.2.4`) utilizzando l'action `anothrNick/github-tag-action`.
 * Crea e fa il push del nuovo tag.
 
 #### Modalità Manuale (`workflow_dispatch`)
-Per le release più importanti (nuove funzionalità o cambiamenti radicali), puoi attivare il workflow manualmente:
+Per le release più importanti, puoi attivare il workflow manualmente scegliendo il tipo di incremento:
 1.  Vai alla tab **Actions** del repository.
 2.  Seleziona il workflow **"Create and Push Tag"**.
 3.  Clicca su **"Run workflow"**.
-4.  Scegli dal menu a tendina se vuoi un aggiornamento `major` (es. `v2.0.0`), `minor` (es. `v1.3.0`) o `patch` (es. `v1.2.4`).
+4.  Scegli tra `major` (es. `v2.0.0`), `minor` (es. `v1.3.0`) o `patch` (es. `v1.2.4`).
 5.  Avvia il workflow, che creerà e pubblicherà il tag corretto.
 
 Una volta che il nuovo tag viene creato, il workflow `android-ci.yml` si attiva per costruire la release finale.
-
-Questo progetto è rilasciato sotto la Licenza [MIT](LICENSE). Sentiti libero di forkare, modificare e contribuire!
 
 ---
 _Questa è un'applicazione non ufficiale creata da un fan e non è affiliata in alcun modo con Paradox Interactive o World of Darkness._

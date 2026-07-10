@@ -1,28 +1,16 @@
 package com.example.v5rules.viewModel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.data.Character
-import com.example.v5rules.data.FavoriteNpc
-import com.example.v5rules.data.Gender
-import com.example.v5rules.data.NameOrder
-import com.example.v5rules.data.NationalityNpc
-import com.example.v5rules.data.Npc
-import com.example.v5rules.data.NpcNationality
+import com.example.v5rules.data.*
+import com.example.v5rules.di.AppModule
 import com.example.v5rules.repository.CharacterRepository
 import com.example.v5rules.repository.FavoriteNpcRepository
 import com.example.v5rules.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.util.Locale
 import javax.inject.Inject
@@ -35,11 +23,18 @@ sealed class NpcNavigationEvent {
 class NPCGeneratorViewModel @Inject constructor(
     private val mainRepository: MainRepository,
     private val characterRepository: CharacterRepository,
-    private val favoriteNpcRepository: FavoriteNpcRepository
+    private val favoriteNpcRepository: FavoriteNpcRepository,
+    @AppModule.IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
     private val _generationState = MutableStateFlow(GenerationState())
     private val favoriteNpcsFromDb: StateFlow<List<FavoriteNpc>> = favoriteNpcRepository.getAllFavorites()
-        .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.WhileSubscribed(5000), emptyList())
+        .catch { e ->
+            // Gestisci l'errore (es. log o aggiorna uno stato di errore)
+            // Per ora emettiamo una lista vuota per evitare il crash
+            Log.e("NPCGeneratorViewModel", "Error fetching favorite NPCs: ${e.message}")
+            emit(emptyList())
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     val uiState: StateFlow<UiState> = combine(
         _generationState,
@@ -59,7 +54,7 @@ class NPCGeneratorViewModel @Inject constructor(
             npc = updatedNpc,
             favoriteNpcs = favorites
         )
-    }.stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.WhileSubscribed(5000), UiState())
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), UiState())
 
     private val _navigationEvent = MutableSharedFlow<NpcNavigationEvent>()
     val navigationEvent: SharedFlow<NpcNavigationEvent> = _navigationEvent.asSharedFlow()
@@ -81,7 +76,7 @@ class NPCGeneratorViewModel @Inject constructor(
     }
 
     private fun fetchNpcNames() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             try {
                 val npcNames = mainRepository.readNpcNames(Locale.getDefault())
                 allNamesByNationality = npcNames
@@ -275,7 +270,7 @@ class NPCGeneratorViewModel @Inject constructor(
 
     fun toggleFavorite() {
         val currentNpc = _generationState.value.npc ?: return
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             val favorite = favoriteNpcRepository.findFavorite(
                 name = currentNpc.nome,
                 familyName = currentNpc.cognome,
@@ -314,7 +309,7 @@ class NPCGeneratorViewModel @Inject constructor(
 
 
     fun deleteFavorite(favorite: FavoriteNpc) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             favoriteNpcRepository.removeFavorite(favorite)
         }
     }
@@ -322,7 +317,7 @@ class NPCGeneratorViewModel @Inject constructor(
     fun createCharacterFromNpc() {
         val currentState = _generationState.value
         val currentNpc = currentState.npc ?: return
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
 
             // Determina l'ordine corretto del nome completo in base alla nazionalità usando l'enum
             val culture = getNpcNationality(currentState.selectedNationality) // Usa getNpcNationality qui

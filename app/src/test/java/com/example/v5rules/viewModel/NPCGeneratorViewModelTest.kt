@@ -83,7 +83,8 @@ class NPCGeneratorViewModelTest {
         viewModel = NPCGeneratorViewModel(
             mainRepository = mockMainRepository,
             characterRepository = mockCharacterRepository,
-            favoriteNpcRepository = mockFavoriteNpcRepository
+            favoriteNpcRepository = mockFavoriteNpcRepository,
+            ioDispatcher = testDispatcher
         )
     }
 

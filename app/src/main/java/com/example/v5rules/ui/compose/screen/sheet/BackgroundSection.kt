@@ -51,7 +51,7 @@ fun BackgroundSection(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val allLoresheets by viewModel.loreSheets.collectAsState() // All available loresheets
-    val allBackgrounds by viewModel.backgrounds.collectAsState() // All available backgrounds
+    val allBackgrounds by viewModel.allBackgrounds.collectAsState() // All available backgrounds
     val allDirectFlaws by viewModel.directFlaws.collectAsState() // All available direct flaws
     val characterLoresheets = uiState.character.loresheets
     val characterBackgrounds = uiState.character.backgrounds
