@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.example.v5rules.data.DamageType
+import com.example.v5rules.data.local.model.DamageType
 import com.example.v5rules.ui.theme.V5RulesTheme
 
 @Composable

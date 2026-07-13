@@ -1,14 +1,14 @@
 package com.example.v5rules.utils
 
-import com.example.v5rules.data.Advantage
-import com.example.v5rules.data.Background
-import com.example.v5rules.data.Clan
-import com.example.v5rules.data.Discipline
-import com.example.v5rules.data.DisciplinePower
-import com.example.v5rules.data.Loresheet
-import com.example.v5rules.data.PredatorType
-import com.example.v5rules.data.Ritual
-import com.example.v5rules.data.RitualPower
+import com.example.v5rules.data.local.model.Advantage
+import com.example.v5rules.data.local.model.Background
+import com.example.v5rules.data.local.model.Clan
+import com.example.v5rules.data.local.model.Discipline
+import com.example.v5rules.data.local.model.DisciplinePower
+import com.example.v5rules.data.local.model.Loresheet
+import com.example.v5rules.data.local.model.PredatorType
+import com.example.v5rules.data.local.model.Ritual
+import com.example.v5rules.data.local.model.RitualPower
 
 
 // Eventi

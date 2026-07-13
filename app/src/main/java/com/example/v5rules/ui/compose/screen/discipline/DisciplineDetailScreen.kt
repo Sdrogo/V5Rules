@@ -39,9 +39,9 @@ import androidx.navigation.NavHostController
 import com.example.v5rules.navigation.DisciplinePowerNav
 import com.example.v5rules.R
 import com.example.v5rules.navigation.RitualNav
-import com.example.v5rules.data.Discipline
-import com.example.v5rules.data.DisciplinePower
-import com.example.v5rules.data.RitualPower
+import com.example.v5rules.data.local.model.Discipline
+import com.example.v5rules.data.local.model.DisciplinePower
+import com.example.v5rules.data.local.model.RitualPower
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.DotsForLevel

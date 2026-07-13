@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.v5rules.data.Discipline
-import com.example.v5rules.data.DisciplinePower
+import com.example.v5rules.data.local.model.Discipline
+import com.example.v5rules.data.local.model.DisciplinePower
 import com.example.v5rules.ui.compose.component.CustomContentExpander
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.DotsForAttribute
@@ -18,7 +18,7 @@ import com.example.v5rules.viewModel.CharacterSheetViewModel
 import com.example.v5rules.navigation.DisciplinePowerNav
 import com.example.v5rules.R
 import com.example.v5rules.navigation.RitualNav
-import com.example.v5rules.data.RitualPower
+import com.example.v5rules.data.local.model.RitualPower
 
 @Composable
 fun DisciplineSelectionVisualization(

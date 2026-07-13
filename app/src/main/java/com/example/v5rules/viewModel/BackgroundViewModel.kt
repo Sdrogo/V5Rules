@@ -2,9 +2,9 @@ package com.example.v5rules.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.data.Background
+import com.example.v5rules.data.local.model.Background
 import com.example.v5rules.di.AppModule
-import com.example.v5rules.repository.MainRepository
+import com.example.v5rules.data.local.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

@@ -1,9 +1,9 @@
 package com.example.v5rules.viewModel
 
 import app.cash.turbine.test
-import com.example.v5rules.data.FriendRequest
-import com.example.v5rules.repository.FriendRepository
-import com.example.v5rules.repository.FriendshipActionResult
+import com.example.v5rules.data.remote.model.FriendRequest
+import com.example.v5rules.data.remote.repository.FriendRepository
+import com.example.v5rules.data.remote.repository.FriendshipActionResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import io.mockk.coEvery

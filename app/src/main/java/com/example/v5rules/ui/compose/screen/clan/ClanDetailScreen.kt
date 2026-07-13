@@ -25,7 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.v5rules.R
-import com.example.v5rules.data.Clan
+import com.example.v5rules.data.local.model.Clan
 import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.TextBlock

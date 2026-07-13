@@ -3,8 +3,8 @@ package com.example.v5rules.viewModel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.data.Character
-import com.example.v5rules.repository.CharacterRepository
+import com.example.v5rules.data.local.model.Character
+import com.example.v5rules.data.local.repository.CharacterRepository
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi

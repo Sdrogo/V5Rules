@@ -34,7 +34,7 @@ import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.v5rules.data.Advantage
+import com.example.v5rules.data.local.model.Advantage
 import com.example.v5rules.ui.compose.component.RangeDots
 import com.example.v5rules.viewModel.BackgroundUiState
 import com.example.v5rules.viewModel.BackgroundViewModel

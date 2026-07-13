@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
-import com.example.v5rules.data.Discipline
-import com.example.v5rules.data.DisciplinePower
+import com.example.v5rules.data.local.model.Discipline
+import com.example.v5rules.data.local.model.DisciplinePower
 import com.example.v5rules.ui.compose.component.DisciplineIcon
 import com.example.v5rules.ui.compose.component.TableContent
 import com.example.v5rules.ui.compose.component.TextBlock

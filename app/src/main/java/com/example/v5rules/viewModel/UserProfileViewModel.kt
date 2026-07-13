@@ -2,8 +2,8 @@ package com.example.v5rules.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.v5rules.repository.FriendRepository
-import com.example.v5rules.repository.FriendRequestResult
+import com.example.v5rules.data.remote.repository.FriendRepository
+import com.example.v5rules.data.remote.repository.FriendRequestResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

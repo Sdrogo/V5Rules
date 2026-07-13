@@ -1,8 +1,8 @@
 package com.example.v5rules.viewModel
 
 import app.cash.turbine.test
-import com.example.v5rules.data.Loresheet
-import com.example.v5rules.repository.MainRepository
+import com.example.v5rules.data.local.model.Loresheet
+import com.example.v5rules.data.local.repository.MainRepository
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic

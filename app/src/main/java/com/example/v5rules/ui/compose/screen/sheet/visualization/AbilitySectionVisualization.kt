@@ -28,8 +28,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
-import com.example.v5rules.data.Ability
-import com.example.v5rules.data.Character
+import com.example.v5rules.data.local.model.Ability
+import com.example.v5rules.data.local.model.Character
 import com.example.v5rules.ui.compose.component.DotsForAttribute
 
 @Composable

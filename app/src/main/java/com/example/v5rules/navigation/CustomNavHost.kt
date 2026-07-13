@@ -15,7 +15,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.v5rules.data.Advantage
+import com.example.v5rules.data.local.model.Advantage
 import com.example.v5rules.ui.compose.screen.HomeRulesScreen
 import com.example.v5rules.ui.compose.screen.LoginScreen
 import com.example.v5rules.ui.compose.screen.NPCGeneratorScreen

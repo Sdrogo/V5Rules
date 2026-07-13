@@ -52,10 +52,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.R
-import com.example.v5rules.data.FavoriteNpc
-import com.example.v5rules.data.NameOrder
-import com.example.v5rules.data.Npc
-import com.example.v5rules.data.NpcNationality
+import com.example.v5rules.data.local.model.FavoriteNpc
+import com.example.v5rules.data.local.model.NameOrder
+import com.example.v5rules.data.local.model.Npc
+import com.example.v5rules.data.local.model.NpcNationality
 import com.example.v5rules.navigation.CharacterSheetEditNav
 import com.example.v5rules.ui.compose.component.GenderSelection
 import com.example.v5rules.ui.compose.component.IncludeSecondNameCheckbox

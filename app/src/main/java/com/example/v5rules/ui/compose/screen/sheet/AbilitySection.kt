@@ -45,8 +45,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
-import com.example.v5rules.data.Ability
-import com.example.v5rules.data.Character
+import com.example.v5rules.data.local.model.Ability
+import com.example.v5rules.data.local.model.Character
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
 

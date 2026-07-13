@@ -27,8 +27,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
-import com.example.v5rules.data.Loresheet
-import com.example.v5rules.data.LoresheetPower
+import com.example.v5rules.data.local.model.Loresheet
+import com.example.v5rules.data.local.model.LoresheetPower
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.ui.compose.component.DotsOnlyForLevel
 import com.example.v5rules.ui.compose.component.background.InteractiveBackgroundDots

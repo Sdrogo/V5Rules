@@ -36,7 +36,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
-import com.example.v5rules.data.Advantage
+import com.example.v5rules.data.local.model.Advantage
 import com.example.v5rules.ui.compose.component.ContentExpander
 import com.example.v5rules.utils.CharacterSheetEvent
 

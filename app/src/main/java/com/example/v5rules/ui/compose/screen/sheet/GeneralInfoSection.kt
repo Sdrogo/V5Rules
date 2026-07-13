@@ -39,7 +39,9 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
-import com.example.v5rules.data.Character
+import com.example.v5rules.data.local.model.Character
+import com.example.v5rules.data.local.model.Clan
+import com.example.v5rules.data.local.model.PredatorType
 import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.utils.CharacterSheetEvent
 import com.example.v5rules.viewModel.CharacterSheetViewModel
@@ -133,9 +135,9 @@ fun GeneralInfoSection(character: Character, viewModel: CharacterSheetViewModel)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ClanSelector(
-    selectedClan: com.example.v5rules.data.Clan?,
-    clans: List<com.example.v5rules.data.Clan>,
-    onClanSelected: (com.example.v5rules.data.Clan) -> Unit,
+    selectedClan: Clan?,
+    clans: List<Clan>,
+    onClanSelected: (Clan) -> Unit,
     focusRequester: FocusRequester,
     focusManager: androidx.compose.ui.focus.FocusManager,
     modifier: Modifier = Modifier
@@ -223,9 +225,9 @@ fun ClanSelector(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PredatorSelector(
-    selectedPredator: com.example.v5rules.data.PredatorType?,
-    predators: List<com.example.v5rules.data.PredatorType>,
-    onPredatorSelected: (com.example.v5rules.data.PredatorType) -> Unit,
+    selectedPredator: PredatorType?,
+    predators: List<PredatorType>,
+    onPredatorSelected: (PredatorType) -> Unit,
     focusRequester: FocusRequester,
     focusManager: androidx.compose.ui.focus.FocusManager,
     modifier: Modifier = Modifier

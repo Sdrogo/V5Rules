@@ -3,11 +3,11 @@ package com.example.v5rules.di
 import android.content.Context
 import android.content.res.Resources
 import androidx.credentials.CredentialManager
-import com.example.v5rules.repository.CharacterRepository
-import com.example.v5rules.repository.CharacterRepositoryImpl
-import com.example.v5rules.repository.FavoriteNpcRepository
-import com.example.v5rules.repository.FavoriteNpcRepositoryImpl
-import com.example.v5rules.repository.MainRepository
+import com.example.v5rules.data.local.repository.CharacterRepository
+import com.example.v5rules.data.local.repository.CharacterRepositoryImpl
+import com.example.v5rules.data.local.repository.FavoriteNpcRepository
+import com.example.v5rules.data.local.repository.FavoriteNpcRepositoryImpl
+import com.example.v5rules.data.local.repository.MainRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.Module

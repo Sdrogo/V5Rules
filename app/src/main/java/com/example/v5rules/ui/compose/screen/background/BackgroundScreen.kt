@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.navigation.BackgroundDetailsNav
 import com.example.v5rules.R
-import com.example.v5rules.data.Background
+import com.example.v5rules.data.local.model.Background
 import com.example.v5rules.navigation.AdvantageDetailsNav
 import com.example.v5rules.ui.compose.component.RangeDots
 import com.example.v5rules.ui.compose.component.TintedImage

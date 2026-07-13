@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.navigation.LoresheetDetailsNav
 import com.example.v5rules.R
-import com.example.v5rules.data.Loresheet
+import com.example.v5rules.data.local.model.Loresheet
 import com.example.v5rules.ui.compose.component.TintedImage
 import com.example.v5rules.viewModel.LoresheetUiState
 import com.example.v5rules.viewModel.LoresheetViewModel
