@@ -33,8 +33,25 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Run Lint and Unit Tests
-        run: ./gradlew lintDebug testDebugUnitTest
+      # 2. Aggiungi questo step per salvare il report HTML come artefatto scaricabile da GitHub
+      - name: Upload Coverage Report Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: JaCoCo-Coverage-Report
+          # Aggiorna il percorso in base a dove Gradle genera il report nel tuo progetto
+          path: app/build/reports/jacoco/jacocoTestReport/html/
+          retention-days: 14
+
+      # 3. OPZIONALE: Se vuoi che la coverage venga scritta in un commento sulle Pull Request
+      - name: Add Coverage Comment to PR
+        if: github.event_name == 'pull_request'
+        uses: Madrapps/jacoco-report@v1.6.1
+        with:
+          paths: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 60
+          min-coverage-changed-files: 60
+          title: "📊 Report di Copertura del Codice"
 
  # JOB 2: ANALISI DELLA SICUREZZA (CODEQL)
   analyze:

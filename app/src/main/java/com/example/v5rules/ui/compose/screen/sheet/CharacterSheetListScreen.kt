@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.v5rules.navigation.CharacterSheetCreationNav
 import com.example.v5rules.R
-import com.example.v5rules.data.Character
+import com.example.v5rules.data.local.model.Character
 import com.example.v5rules.ui.compose.component.ClanImage
 import com.example.v5rules.viewModel.CharacterSheetListViewModel
 import com.example.v5rules.navigation.CharacterSheetEditNav

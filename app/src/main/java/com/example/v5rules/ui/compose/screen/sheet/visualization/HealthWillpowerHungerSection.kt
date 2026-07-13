@@ -25,11 +25,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
-import com.example.v5rules.data.Character
-import com.example.v5rules.data.DamageType
-import com.example.v5rules.data.Health
-import com.example.v5rules.data.Humanity
-import com.example.v5rules.data.Willpower
+import com.example.v5rules.data.local.model.Character
+import com.example.v5rules.data.local.model.DamageType
+import com.example.v5rules.data.local.model.Health
+import com.example.v5rules.data.local.model.Humanity
+import com.example.v5rules.data.local.model.Willpower
 import com.example.v5rules.ui.compose.component.DamageTrackDisplay
 import com.example.v5rules.ui.theme.V5RulesTheme
 import com.example.v5rules.utils.CharacterSheetEvent

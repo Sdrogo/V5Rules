@@ -1,5 +1,75 @@
 package com.example.v5rules.data
 
+import com.example.v5rules.data.local.model.Advantage
+import com.example.v5rules.data.local.model.Attributes
+import com.example.v5rules.data.local.model.Background
+import com.example.v5rules.data.local.model.Character
+import com.example.v5rules.data.local.model.Clan
+import com.example.v5rules.data.local.model.DamageType
+import com.example.v5rules.data.local.model.Discipline
+import com.example.v5rules.data.local.model.DisciplinePower
+import com.example.v5rules.data.local.model.Experience
+import com.example.v5rules.data.local.model.Humanity
+import com.example.v5rules.data.local.model.Loresheet
+import com.example.v5rules.data.local.model.Ritual
+import com.example.v5rules.data.local.model.RitualPower
+import com.example.v5rules.data.local.model.addAdvantage
+import com.example.v5rules.data.local.model.addAdvantageFlaw
+import com.example.v5rules.data.local.model.addBackground
+import com.example.v5rules.data.local.model.addBackgroundFlaw
+import com.example.v5rules.data.local.model.addBackgroundMerit
+import com.example.v5rules.data.local.model.addDirectFlaw
+import com.example.v5rules.data.local.model.addDiscipline
+import com.example.v5rules.data.local.model.addDisciplinePower
+import com.example.v5rules.data.local.model.addLoresheet
+import com.example.v5rules.data.local.model.addRitual
+import com.example.v5rules.data.local.model.addRitualPower
+import com.example.v5rules.data.local.model.removeAdvantage
+import com.example.v5rules.data.local.model.removeAdvantageFlaw
+import com.example.v5rules.data.local.model.removeBackground
+import com.example.v5rules.data.local.model.removeBackgroundFlaw
+import com.example.v5rules.data.local.model.removeBackgroundMerit
+import com.example.v5rules.data.local.model.removeDirectFlaw
+import com.example.v5rules.data.local.model.removeDisciplinePower
+import com.example.v5rules.data.local.model.removeLoresheet
+import com.example.v5rules.data.local.model.removeRitual
+import com.example.v5rules.data.local.model.removeRitualPower
+import com.example.v5rules.data.local.model.toggleHealthBox
+import com.example.v5rules.data.local.model.toggleWillpowerBox
+import com.example.v5rules.data.local.model.updateAbilityLevel
+import com.example.v5rules.data.local.model.updateAbilitySpecialization
+import com.example.v5rules.data.local.model.updateAdvantage
+import com.example.v5rules.data.local.model.updateAdvantageFlawLevel
+import com.example.v5rules.data.local.model.updateAmbition
+import com.example.v5rules.data.local.model.updateBackgroundFlawLevel
+import com.example.v5rules.data.local.model.updateBackgroundLevel
+import com.example.v5rules.data.local.model.updateBackgroundMeritLevel
+import com.example.v5rules.data.local.model.updateBackgroundNote
+import com.example.v5rules.data.local.model.updateCharisma
+import com.example.v5rules.data.local.model.updateClan
+import com.example.v5rules.data.local.model.updateComposure
+import com.example.v5rules.data.local.model.updateConcept
+import com.example.v5rules.data.local.model.updateDesire
+import com.example.v5rules.data.local.model.updateDexterity
+import com.example.v5rules.data.local.model.updateDirectFlawLevel
+import com.example.v5rules.data.local.model.updateDirectFlawNote
+import com.example.v5rules.data.local.model.updateDisciplineLevel
+import com.example.v5rules.data.local.model.updateFlawNote
+import com.example.v5rules.data.local.model.updateGeneration
+import com.example.v5rules.data.local.model.updateHumanity
+import com.example.v5rules.data.local.model.updateIntelligence
+import com.example.v5rules.data.local.model.updateLoresheetLevel
+import com.example.v5rules.data.local.model.updateManipulation
+import com.example.v5rules.data.local.model.updateMeritNote
+import com.example.v5rules.data.local.model.updateName
+import com.example.v5rules.data.local.model.updateResolve
+import com.example.v5rules.data.local.model.updateRitualLevel
+import com.example.v5rules.data.local.model.updateSire
+import com.example.v5rules.data.local.model.updateSpentExperience
+import com.example.v5rules.data.local.model.updateStains
+import com.example.v5rules.data.local.model.updateStamina
+import com.example.v5rules.data.local.model.updateTotalExperience
+import com.example.v5rules.data.local.model.updateWits
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -252,11 +322,13 @@ class CharacterLogicTest {
         assertEquals(1, updated.disciplines[0].level)
         assertEquals(ritual, updated.learnedRituals[0])
 
-        val updatedRitual = Ritual(id = "r1", title = "Rituale 1", level = 2, ritualsPowers = listOf())
+        val updatedRitual =
+            Ritual(id = "r1", title = "Rituale 1", level = 2, ritualsPowers = listOf())
         updated = updated.updateRitualLevel(ritual.title, 2)
         assertEquals(updatedRitual, updated.learnedRituals[0])
 
-        val newRitualPower = RitualPower(id = "rp1", title = "Ritual Power 1", level = 1, description = "")
+        val newRitualPower =
+            RitualPower(id = "rp1", title = "Ritual Power 1", level = 1, description = "")
         updated = updated.addRitualPower(ritual.title, newRitualPower )
         assertEquals(newRitualPower, updated.learnedRituals[0].ritualsPowers[0])
         assertEquals(listOf<RitualPower>(), updated.removeRitualPower(ritual.title, newRitualPower.id).learnedRituals[0].ritualsPowers)

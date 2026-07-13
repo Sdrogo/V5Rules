@@ -1,8 +1,8 @@
 package com.example.v5rules.viewModel
 
 import app.cash.turbine.test
-import com.example.v5rules.data.Character
-import com.example.v5rules.repository.CharacterRepository
+import com.example.v5rules.data.local.model.Character
+import com.example.v5rules.data.local.repository.CharacterRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import io.mockk.every

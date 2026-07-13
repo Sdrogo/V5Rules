@@ -1,11 +1,11 @@
 package com.example.v5rules.viewModel
 
-import com.example.v5rules.data.FavoriteNpc
-import com.example.v5rules.data.Gender
-import com.example.v5rules.data.NationalityNpc
-import com.example.v5rules.repository.CharacterRepository
-import com.example.v5rules.repository.FavoriteNpcRepository
-import com.example.v5rules.repository.MainRepository
+import com.example.v5rules.data.local.model.FavoriteNpc
+import com.example.v5rules.data.local.model.Gender
+import com.example.v5rules.data.local.model.NationalityNpc
+import com.example.v5rules.data.local.repository.CharacterRepository
+import com.example.v5rules.data.local.repository.FavoriteNpcRepository
+import com.example.v5rules.data.local.repository.MainRepository
 import io.mockk.coEvery
 import io.mockk.mockk
 import app.cash.turbine.test

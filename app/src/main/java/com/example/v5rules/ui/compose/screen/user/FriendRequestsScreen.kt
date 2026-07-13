@@ -32,7 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.example.v5rules.data.FriendRequest
+import com.example.v5rules.data.remote.model.FriendRequest
 import com.example.v5rules.viewModel.FriendRequestViewModel
 
 @Composable

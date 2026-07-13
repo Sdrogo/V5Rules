@@ -24,7 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.v5rules.R
-import com.example.v5rules.data.Loresheet
+import com.example.v5rules.data.local.model.Loresheet
 
 @Composable
 fun LoresheetSelectionBottomSheet(

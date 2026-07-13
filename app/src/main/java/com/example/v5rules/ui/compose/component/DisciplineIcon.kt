@@ -9,8 +9,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
-import com.example.v5rules.reader.ClanReader
-import com.example.v5rules.reader.DisciplineReader
+import com.example.v5rules.data.local.reader.ClanReader
+import com.example.v5rules.data.local.reader.DisciplineReader
 
 @Composable
 fun DisciplineIcon(disciplineId: String, contentDescription: String?, size: Dp) {

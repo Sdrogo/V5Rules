@@ -28,7 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.v5rules.data.LoresheetPower
+import com.example.v5rules.data.local.model.LoresheetPower
 import com.example.v5rules.ui.compose.component.CustomContentExpander
 import com.example.v5rules.ui.compose.component.DotsOnlyForLevel
 import com.example.v5rules.viewModel.LoresheetUiState
