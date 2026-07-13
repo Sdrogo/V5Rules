@@ -16,6 +16,11 @@ jobs:
   # JOB 1: CONTROLLO QUALITÀ (LINT & TEST)
   check-quality:
     runs-on: ubuntu-latest
+    # 1. Aggiungi i permessi necessari per permettere al bot di commentare sulla PR
+    permissions:
+      contents: read
+      pull-requests: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -33,20 +38,24 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      # 2. Aggiungi questo step per salvare il report HTML come artefatto scaricabile da GitHub
+      # 2. ASSICURATI CHE QUESTO PASSAGGIO CI SIA
+      - name: Run Lint, Unit Tests and Coverage
+        run: ./gradlew lintDebug testDebugUnitTest jacocoTestReport
+
       - name: Upload Coverage Report Artifact
+        # Consigliato: usa if: always() così carica il report anche se fallisce un test
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: JaCoCo-Coverage-Report
-          # Aggiorna il percorso in base a dove Gradle genera il report nel tuo progetto
           path: app/build/reports/jacoco/jacocoTestReport/html/
           retention-days: 14
 
-      # 3. OPZIONALE: Se vuoi che la coverage venga scritta in un commento sulle Pull Request
       - name: Add Coverage Comment to PR
         if: github.event_name == 'pull_request'
         uses: Madrapps/jacoco-report@v1.8.0
         with:
+          # Assicurati che anche il file XML venga generato dal tuo build.gradle!
           paths: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 60
