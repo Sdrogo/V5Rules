@@ -27,7 +27,7 @@ ksp = "2.3.10"
 googleFirebaseCrashlytics = "3.0.7"
 googleFirebaseFirebasePerf = "2.0.2"
 firebaseBom = "34.12.0"
-animation = "1.10.6"
+animation = "1.11.4"
 turbine = "1.2.1"
 jacoco = "0.8.12"
 
